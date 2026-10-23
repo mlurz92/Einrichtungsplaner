@@ -150,6 +150,12 @@ def parse_ikea(meas, typ):
         return W, D, H
     n = nums(s)
     t = (typ or "").lower()
+    # Ausziehtische „180/240x100 cm“ bzw. „150/205/260x95 cm“: Länge geschlossen / ausgezogen × Breite
+    m = re.match(r"^(\d+(?:[.,]\d+)?)(?:/\d+(?:[.,]\d+)?)+x(\d+(?:[.,]\d+)?)(?:x(\d+(?:[.,]\d+)?))?", s)
+    if m:
+        W, D = float(m.group(1).replace(",", ".")), float(m.group(2).replace(",", "."))
+        H = float(m.group(3).replace(",", ".")) if m.group(3) else None
+        return W, D, H
     if len(n) >= 3:
         W, D, H = n[0], n[1], n[2]
     elif len(n) == 2:
@@ -276,12 +282,66 @@ MOUNT = {"pendant": "ceiling", "ceilingLamp": "ceiling", "wallLamp": "wall", "ar
 ELEV = {"wallLamp": 1.75, "art": 1.0, "mirror": 1.1}
 
 
-EXCLUDE_NAME = re.compile(r"\bTisch und\b|\bTisch \+|\+ \d+ (?:Bar)?[Ss]tühle|Stühle \+|\bHaken\b|\bSockel\b|Garderobe\b.*Haken|Ersatzbezug|Bezug für", re.I)
+EXCLUDE_NAME = re.compile(r"^Matratze|\bKopfteil\b|Armlehne \d+ Stk|Dekostange|\bTisch und\b|\bTisch \+|\+ \d+ (?:Bar)?[Ss]tühle|Stühle \+|\bHaken\b|\bSockel\b|Garderobe\b.*Haken|Ersatzbezug|Bezug für", re.I)
+
+
+WALL_FURNITURE = [  # Westwing/JYSK „Wand-…“-Möbel: Wandmontage mit typischer Unterkante (m)
+    (r"wand-?nachttisch", 0.42), (r"wand-?schreibtisch", 0.62), (r"wand-tv-lowboard|wand-lowboard", 0.30),
+    (r"wandregal|wand-regal", 1.30), (r"wandkonsole|wand-konsole", 0.78), (r"wand-vitrine", 1.30), (r"zur wandmontage", 0.80),
+]
+
+
+def _fix_tail(e):
+    if e["archetype"] in ("tableRect", "tableOval", "desk", "deskStanding", "console", "sideboard", "lowboard", "dresser", "bench",
+                          "coffeeBlock", "coffeeDuo", "bookcase", "wardrobe", "vitrine", "sofa", "sofaModular", "sofaBed") and e["d"] > e["w"]:
+        e["w"], e["d"] = e["d"], e["w"]
+    return e
 
 
 def fix_geometry(e):
     """Archetyp/Maße plausibilisieren (Couchtische, vertauschte Breite/Tiefe, Récamiere-Tiefe, Ecksofas)."""
     a, cat = e["archetype"], e["category"]
+    nl0 = e["name"].lower()
+    desc = (e.get("description") or "")
+    # Betten: Außenmaß aus Liegefläche, wenn die Herstellerangabe nur Teilmaße enthält
+    if a in ("bed", "bedWood"):
+        m = re.search(r"Liegefläche: B (\d+) cm, L (\d+)", desc) or re.search(r"(\d{2,3})x(\d{3}) cm", desc)
+        if m:
+            mw, ml = float(m.group(1)), float(m.group(2))
+            if e["w"] < mw or e["w"] > mw + 70 or e["d"] < ml:
+                e["w"], e["d"] = mw + 10, ml + 12
+            if not (20 <= e["h"] <= 140):
+                e["h"] = 100.0
+    if a.startswith("armchair") and e["w"] < 45:
+        e["w"], e["d"] = 75.0, 80.0
+    if a == "armchairWing" and e["h"] < 90:
+        e["h"] = 102.0
+    if a in ("sofa", "sofaModular", "sofaCorner", "sofaBed") and e["h"] < 55:
+        e["h"] = 80.0
+    if re.match(r"(fuß|fuss)?hocker", nl0) and "sessel" not in nl0 and a.startswith("armchair"):
+        e["category"], e["archetype"] = "pouf", "pouf"
+    # Tischleuchte mit Kabellänge als Tiefe / Höhe aus Beschreibung
+    if a.startswith("lampTable") and e["d"] > 3 * e["w"]:
+        e["d"] = e["w"]
+    if a.startswith("lampTable") and e["h"] > 100:
+        m = re.search(r"(\d{2}) cm", desc)
+        e["h"] = float(m.group(1)) if m else 45.0
+    # Lagerung (IKEA/JYSK): Tiefe > 75 cm ist meist die Höhe („326x197“)
+    if e["vendor"] in ("IKEA", "JYSK") and a in ("shelfOpen", "bookcase", "vitrine", "lowboard", "sideboard", "dresser") and e["d"] > 75:
+        e["h"], e["d"] = max(e["h"], e["d"]), 40.0
+    if a in ("desk",) and e["h"] > 110:
+        e["w"], e["h"] = max(e["w"], e["h"]), 75.0
+    # JYSK-Tische „80x100/163“: Breite × Länge (ausziehbar)
+    if e["vendor"] == "JYSK" and a.startswith("table"):
+        m = re.search(r"(\d{2,3})x(\d{2,3})(?:/\d+)+", e["name"])
+        if m:
+            x1, x2 = float(m.group(1)), float(m.group(2))
+            e["w"], e["d"] = max(x1, x2), min(x1, x2)
+    # Wandmöbel → Wandmontage
+    for pat, elev in WALL_FURNITURE:
+        if re.search(pat, nl0) and e.get("mount", "floor") == "floor":
+            e["mount"], e["elev"] = "wall", elev
+            break
     if a in ("tableRect", "tableOval", "tablePedestal", "tableRound") and e["h"] < 60:
         e["category"] = "coffeeTable" if max(e["w"], e["d"]) >= 60 else "sideTable"
         e["archetype"] = ("coffeeRound" if a in ("tableRound", "tablePedestal") else "coffeeBlock") if max(e["w"], e["d"]) >= 60 else "sideRound" if a in ("tableRound", "tablePedestal") else "sideContainer"
@@ -302,19 +362,24 @@ def fix_geometry(e):
         e["category"], e["archetype"] = "bench", "bench"
     if re.search(r"bartisch|stehtisch", nl) and e["archetype"] in ("barStool",):
         e["category"], e["archetype"] = "diningTable", "tableRect"
+    if re.search(r"couchtisch|sofatisch", nl) and e["archetype"] in ("tableRect", "tableOval", "tableRound", "tablePedestal"):
+        if e["h"] > 60:
+            e["h"] = 45.0  # höhenverstellbare Couchtische: Grundstellung
+        e["category"] = "coffeeTable"
+        e["archetype"] = "coffeeRound" if e["archetype"] in ("tableRound", "tablePedestal") else "coffeeBlock"
     if e["archetype"] in ("tableRect", "tableOval") and 85 < e["h"] <= 130 and e["d"] <= 60 and "bar" not in nl:
         e["d"], e["h"] = e["h"], 75.0  # „152/223×95 cm“: 95 = Tiefe, Höhe Standard 75 cm
     if e["archetype"] == "lowboard" and e["h"] > 110:
         # TV-Kombination/Wohnwand: Regalraster mit geschlossener unterer Reihe
         e["archetype"] = "shelfOpen"
         e["params"] = {**(e.get("params") or {}), "style": "grid", "doorsBottom": 1}
-    if e["archetype"] == "dresser" and e["h"] > 150:
+    if e["archetype"] == "dresser" and e["h"] > 150 and "schuh" not in nl:
         e["archetype"] = "wardrobe"
     if e["archetype"] in ("sofa", "sofaModular") and e["d"] >= 140:
         e["archetype"] = "sofaCorner"
     if e["archetype"] == "sofaCorner" and e["d"] < 120:
         e["d"] = 160.0  # Herstellerangabe = Sitztiefe; Récamiere/Ecke ≈ 160 cm
-    return e
+    return _fix_tail(e)
 
 
 def finalize(e):
@@ -1097,6 +1162,9 @@ def main():
         k = 0
         for e in items:
             if e["id"] in seen or (e["vendor"] not in ("Bestand",) and not e.get("concepts") and EXCLUDE_NAME.search(e["name"])):
+                continue
+            # Raumhöhe WE 13 = 2,56 m: höhere Standmöbel passen nicht in die Wohnung
+            if e.get("mount", "floor") == "floor" and e["h"] > 252 and e["archetype"] not in ("curtain", "lamella", "panelWall", "molding") and not e.get("concepts"):
                 continue
             seen.add(e["id"]); cat.append(e); k += 1
         print(f"{label}: {k}")

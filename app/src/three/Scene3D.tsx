@@ -132,11 +132,12 @@ function ApartmentModel() {
   const rooms = useEditor((s) => s.project.rooms);
   const walls = useEditor((s) => s.project.walls);
   const doors = useEditor((s) => s.project.settings.doorsOpen);
+  const ausbau = useEditor((s) => `${s.project.settings.doorColor}|${s.project.settings.doorStyle}|${s.project.settings.handleFinish}|${s.project.settings.windowFrameColor}`);
   const showCeiling = useEditor((s) => s.showCeiling || s.camera3d === "walk");
   const selectedFace = useEditor((s) => s.selectedFace);
   const built = useMemo(() => {
     return buildApartment({ ...useEditor.getState().project, rooms, walls, settings: { ...useEditor.getState().project.settings, doorsOpen: doors } });
-  }, [rooms, walls, doors]);
+  }, [rooms, walls, doors, ausbau]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     built.group.traverse((o) => {
       if (o.userData.ceiling) o.visible = showCeiling;
@@ -471,9 +472,9 @@ export function Scene3D() {
       dpr={[1, 2]}
       gl={{ antialias: false, preserveDrawingBuffer: true, powerPreference: "high-performance", localClippingEnabled: true } as never}
       camera={{ fov: camera3d === "walk" ? 70 : 42, near: 0.05, far: 200, position: [CENTER.x + 9, 13, CENTER.z + 13] }}
-      onCreated={({ gl, scene }) => {
+      onCreated={({ gl, scene, camera }) => {
         gl.localClippingEnabled = true;
-        (window as unknown as Record<string, unknown>).__we13 = { gl, scene };
+        (window as unknown as Record<string, unknown>).__we13 = { gl, scene, camera };
         gl.toneMapping = THREE.NoToneMapping;
       }}
       onPointerMissed={() => {

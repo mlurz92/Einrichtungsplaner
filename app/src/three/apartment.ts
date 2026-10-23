@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { apartment, wallFaces } from "../data";
-import type { ApartmentOpening, Project, Surface, Vec2, WallFinish } from "../model/types";
+import type { ApartmentOpening, FloorFinish, Project, Surface, Vec2, WallFinish } from "../model/types";
 import { DEG } from "../model/geometry";
 import { ceilingMaterial, floorMaterial, surfaceMaterial, wallClipPlanes } from "./surfaces";
 import { getMaterial } from "./materials";
@@ -219,7 +219,9 @@ function buildWindow(o: ApartmentOpening, group: THREE.Group) {
   group.add(g);
 }
 
-function buildDoor(o: ApartmentOpening, group: THREE.Group, open: number) {
+const panelLine = new THREE.MeshPhysicalMaterial({ color: "#c9c6bf", roughness: 0.6, clippingPlanes: wallClipPlanes });
+
+function buildDoor(o: ApartmentOpening, group: THREE.Group, open: number, style: string, hMat: THREE.Material) {
   const [ax, ay] = o.a;
   const [bx, by] = o.b;
   const L = o.width;
@@ -262,11 +264,34 @@ function buildDoor(o: ApartmentOpening, group: THREE.Group, open: number) {
   lm.castShadow = true;
   lm.receiveShadow = true;
   leaf.add(lm);
+  // Türstil: Kassetten (zwei aufgesetzte Füllungen je Seite) oder horizontale Rillen
+  if (o.type !== "entrance" && style !== "flat") {
+    const lh = o.height - 0.04;
+    for (const side of [-1, 1]) {
+      const zf = sw * (-leafT / 2) + side * (leafT / 2 + 0.003);
+      if (style === "panel") {
+        for (const [y0, y1] of [[0.18, lh * 0.42], [lh * 0.48, lh - 0.18]]) {
+          const fw = leafW - 0.24, fh = y1 - y0;
+          for (const [w, h, x, y] of [[fw, 0.012, 0, y0], [fw, 0.012, 0, y1], [0.012, fh, -fw / 2, (y0 + y1) / 2], [0.012, fh, fw / 2, (y0 + y1) / 2]] as [number, number, number, number][]) {
+            const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, 0.006), doorMat);
+            b.position.set(0.025 + leafW / 2 + x, y + 0.01, zf);
+            leaf.add(b);
+          }
+        }
+      } else if (style === "groove") {
+        for (let y = 0.25; y < lh - 0.1; y += 0.25) {
+          const b = new THREE.Mesh(new THREE.BoxGeometry(leafW - 0.06, 0.004, 0.002), panelLine);
+          b.position.set(0.025 + leafW / 2, y, zf);
+          leaf.add(b);
+        }
+      }
+    }
+  }
   for (const side of [-1, 1]) {
-    const hnd = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.02, 0.02), handleMat);
+    const hnd = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.02, 0.02), hMat);
     hnd.position.set(leafW - 0.08, 1.05, sw * (-leafT / 2) + side * (leafT / 2 + 0.03));
     leaf.add(hnd);
-    const rose = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.01, 16), handleMat);
+    const rose = new THREE.Mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.01, 16), hMat);
     rose.rotation.x = Math.PI / 2;
     rose.position.set(leafW - 0.04, 1.05, sw * (-leafT / 2) + side * (leafT / 2 + 0.005));
     leaf.add(rose);
@@ -304,6 +329,9 @@ export function buildApartment(p: Project): ApartmentBuild {
   group.name = "apartment";
   const pickables: THREE.Object3D[] = [];
 
+  // Türblätter/Zargen und Fensterrahmen in der gewählten Ausführung
+  doorMat.color.set(p.settings.doorColor ?? "#f4f3ef");
+  frameMat.color.set(p.settings.windowFrameColor ?? "#3b3d40");
   // Rohbauwände (mit dunklem Schnitt beim Kappen)
   for (const w of apartment.walls) {
     const g = prism(w, -SLAB, H);
@@ -321,7 +349,7 @@ export function buildApartment(p: Project): ApartmentBuild {
       group.add(mesh(g, wallPocheMat, false, false));
     }
     if (o.type === "window") buildWindow(o, group);
-    else buildDoor(o, group, p.settings.doorsOpen ?? 0);
+    else buildDoor(o, group, p.settings.doorsOpen ?? 0, p.settings.doorStyle ?? "flat", getMaterial({ color: { brass: "#c3a160", steel: "#b9bcbf", blackMetal: "#1d1d1d" }[p.settings.handleFinish ?? "blackMetal"], material: p.settings.handleFinish ?? "blackMetal" }));
   }
   // Böden und Decken je Raum
   for (const r of apartment.rooms) {
@@ -335,7 +363,18 @@ export function buildApartment(p: Project): ApartmentBuild {
     // Rohdecke/Platte darunter
     group.add(mesh(prism(r.polygon, -SLAB, -0.002), slabMat, false, true));
     if (!r.outdoor) {
-      const c = mesh(flat(r.polygon, H, 0, [1, 1], true), ceilingMaterial(fin.ceiling), false, true);
+      const cf = fin.ceilingFinish;
+      let cm: THREE.Material = ceilingMaterial(fin.ceiling);
+      let tile: [number, number] = [1, 1];
+      if (cf && cf.kind !== "paint") {
+        if (cf.kind === "concrete") cm = getMaterial({ color: cf.color ?? "#a9a6a0", material: "stone" });
+        else {
+          const wf = floorMaterial({ kind: (cf.kind === "woodSlats" ? "slats" : "planks") as FloorFinish["kind"], color: cf.color ?? "#c9a477", angle: 0, plankLength: 2.4, plankWidth: cf.kind === "woodSlats" ? 0.045 : 0.12 });
+          cm = wf.mat;
+          tile = wf.size;
+        }
+      }
+      const c = mesh(flat(r.polygon, H, (fin.floor.angle ?? 0) + 90, tile, true), cm, false, true);
       c.name = "ceiling";
       c.userData.roomId = r.id;
       c.userData.ceiling = true;
@@ -369,18 +408,35 @@ export function buildApartment(p: Project): ApartmentBuild {
         if (o && H - o.height > 0.005 && !room?.outdoor) addSkin(group, pickables, fin, f.id, f.a, f.u, f.n, s0, s1, o.height, H);
       }
     }
-    // Sockelleiste (nur Innenräume, Wandspannen)
-    if (!room?.outdoor && room?.floor === "parkett") {
+    // Sockelleiste (Innenräume, Wandspannen; Höhe/Farbe je Raum, Standard 6 cm wie Wand in Dielenräumen)
+    const rf = room ? p.rooms[room.id] : undefined;
+    const skirt = rf?.skirting ?? (room?.floor === "parkett" ? { height: 0.06, color: "wall" } : { height: 0, color: "wall" });
+    if (!room?.outdoor && skirt.height > 0.005) {
+      const skm = skirt.color === "wall" ? skirtingMat(fin.base.color) : getMaterial({ color: skirt.color, material: skirt.material ?? "lacquer" });
       for (const s of f.spans) {
         if (s.kind !== "wall") continue;
         const L = (s.t1 - s.t0) * f.length;
         if (L < 0.05) continue;
         const mid = ((s.t0 + s.t1) / 2) * f.length;
-        const sk = new THREE.Mesh(new THREE.BoxGeometry(L, 0.06, 0.012), skirtingMat(fin.base.color));
-        sk.position.set(f.a[0] + f.u[0] * mid + f.n[0] * 0.008, 0.03, f.a[1] + f.u[1] * mid + f.n[1] * 0.008);
+        const sk = new THREE.Mesh(new THREE.BoxGeometry(L, skirt.height, 0.014), skm);
+        sk.position.set(f.a[0] + f.u[0] * mid + f.n[0] * 0.009, skirt.height / 2, f.a[1] + f.u[1] * mid + f.n[1] * 0.009);
         sk.rotation.y = -Math.atan2(f.u[1], f.u[0]);
         sk.receiveShadow = true;
         group.add(sk);
+      }
+    }
+    // Stuckprofil/Deckenleiste: gestuftes Profil über die ganze Wandlänge
+    const cor = rf?.ceilingFinish?.cornice ?? 0;
+    if (!room?.outdoor && cor > 0.005 && f.wallRatio > 0.01) {
+      const cmat = getMaterial({ color: rf?.ceilingFinish?.corniceColor ?? rf?.ceiling ?? "#f6f4ef", material: "matte" });
+      const mid = f.length / 2;
+      const rotY = -Math.atan2(f.u[1], f.u[0]);
+      for (const [hh, dd, yy] of [[cor, cor * 0.35, H - cor / 2], [cor * 0.55, cor * 0.75, H - cor * 0.275], [cor * 0.25, cor, H - cor * 0.125]] as [number, number, number][]) {
+        const b = new THREE.Mesh(new THREE.BoxGeometry(f.length, hh, dd), cmat);
+        b.position.set(f.a[0] + f.u[0] * mid + f.n[0] * (dd / 2), yy, f.a[1] + f.u[1] * mid + f.n[1] * (dd / 2));
+        b.rotation.y = rotY;
+        b.userData.ceiling = true;
+        group.add(b);
       }
     }
   }

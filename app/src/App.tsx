@@ -3,6 +3,7 @@ import { Boxes, LayoutList, Palette, Sofa, Wallet } from "lucide-react";
 import { useEditor } from "./store/project";
 import { TopBar } from "./ui/TopBar";
 import { HelpOverlay } from "./ui/Help";
+import { NewFurnishingDialog } from "./ui/NewFurnishing";
 import { CatalogPanel } from "./ui/CatalogPanel";
 import { Inspector } from "./ui/Inspector";
 import { BudgetPanel, ConceptsPanel, DesignPanel, ObjectsPanel } from "./ui/Panels";
@@ -96,6 +97,7 @@ export function App() {
     <div className="flex h-full flex-col">
       <TopBar />
       <HelpOverlay />
+      <NewFurnishingDialog />
       <div className="flex min-h-0 flex-1">
         {/* Linke Leiste */}
         <aside className="flex w-[340px] shrink-0 flex-col border-r border-stone-200 bg-[#faf8f5]">

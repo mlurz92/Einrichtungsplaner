@@ -1,0 +1,91 @@
+import { useState } from "react";
+import { X } from "lucide-react";
+import { useEditor } from "../store/project";
+import { FLOOR_PRESETS, WALL_MOODS } from "../data/paints";
+
+/** Dialog „Neue Einrichtung“: leere Wohnung mit gewähltem Bestand, Farbstimmung und Bodenbelag. */
+export function NewFurnishingDialog() {
+  const open = useEditor((s) => s.newDialogOpen);
+  const [name, setName] = useState("Meine Einrichtung WE 13");
+  const [kitchen, setKitchen] = useState(true);
+  const [sanitary, setSanitary] = useState(true);
+  const [washer, setWasher] = useState(true);
+  const [mood, setMood] = useState(0);
+  const [floor, setFloor] = useState("oak");
+  if (!open) return null;
+  const close = () => useEditor.getState().set("newDialogOpen", false);
+  const create = () => {
+    const m = WALL_MOODS[mood];
+    const f = FLOOR_PRESETS.find((x) => x.id === floor);
+    useEditor.getState().newFurnishing({
+      name,
+      keepKitchen: kitchen,
+      keepSanitary: sanitary,
+      keepWasher: washer,
+      wallColor: m.color,
+      wallProduct: m.productName,
+      ceilingColor: m.ceiling,
+      floor: floor === "oak" || !f ? null : f.floor,
+    });
+    useEditor.getState().set("leftTab", "katalog");
+    close();
+  };
+  const livingFloors = FLOOR_PRESETS.filter((x) => x.id !== "iron");
+  return (
+    <div className="fixed inset-0 z-[100] grid place-items-center bg-black/30 p-4" onClick={close}>
+      <div className="w-full max-w-xl rounded-xl bg-white p-5 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+        <div className="mb-3 flex items-center justify-between">
+          <h2 className="text-base font-semibold">Neue Einrichtung – leere Wohnung</h2>
+          <button className="btn-ghost" onClick={close}>
+            <X size={16} />
+          </button>
+        </div>
+        <label className="block text-xs text-stone-600">
+          Projektname
+          <input className="field mt-1" value={name} onChange={(e) => setName(e.target.value)} />
+        </label>
+        <div className="mt-4 text-xs font-semibold uppercase tracking-wide text-stone-500">Bestand übernehmen</div>
+        <div className="mt-1 flex flex-wrap gap-x-5 gap-y-1 text-sm">
+          <label className="flex items-center gap-1.5">
+            <input type="checkbox" className="accent-emerald-800" checked={kitchen} onChange={(e) => setKitchen(e.target.checked)} /> Küche Alno (Bestand)
+          </label>
+          <label className="flex items-center gap-1.5">
+            <input type="checkbox" className="accent-emerald-800" checked={sanitary} onChange={(e) => setSanitary(e.target.checked)} /> Sanitärobjekte
+          </label>
+          <label className="flex items-center gap-1.5">
+            <input type="checkbox" className="accent-emerald-800" checked={washer} onChange={(e) => setWasher(e.target.checked)} /> Waschmaschine
+          </label>
+        </div>
+        <p className="mt-1 text-[11px] text-stone-500">Böden im Bestand: Eichendielen 1,90 m; HWR, Bad und Dusche/WC Feinsteinzeug 60 × 60 cm „Iron“.</p>
+        <div className="mt-4 text-xs font-semibold uppercase tracking-wide text-stone-500">Farbstimmung Wände/Decken</div>
+        <div className="mt-1 flex flex-wrap gap-1">
+          {WALL_MOODS.map((m, i) => (
+            <button key={m.label} className="chip" data-on={mood === i} onClick={() => setMood(i)}>
+              <span className="mr-1 inline-block h-2.5 w-2.5 rounded-full border border-stone-300 align-middle" style={{ background: m.color }} />
+              {m.label}
+            </button>
+          ))}
+        </div>
+        <div className="mt-4 text-xs font-semibold uppercase tracking-wide text-stone-500">Boden Wohnräume</div>
+        <select className="field mt-1" value={floor} onChange={(e) => setFloor(e.target.value)}>
+          {livingFloors.map((f) => (
+            <option key={f.id} value={f.id}>
+              {f.label}
+            </option>
+          ))}
+        </select>
+        <p className="mt-3 text-[11px] text-stone-500">
+          Danach: Produkte aus dem Katalog in Plan oder 3D ziehen; Wände, Decken, Sockelleisten, Türen und Fensterrahmen unter „Gestaltung“ – je Raum, je Wand oder für die ganze Wohnung.
+        </p>
+        <div className="mt-4 flex justify-end gap-2">
+          <button className="btn" onClick={close}>
+            Abbrechen
+          </button>
+          <button className="btn-primary" onClick={create}>
+            Wohnung anlegen
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}

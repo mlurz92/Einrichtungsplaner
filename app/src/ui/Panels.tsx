@@ -6,6 +6,7 @@ import { fmtEuro } from "../model/geometry";
 import { RoomInspector } from "./Inspector";
 import { exportShoppingList, printBudget } from "./fileops";
 import { openExternal } from "../platform";
+import { DOOR_COLORS, FRAME_COLORS, WALL_MOODS } from "../data/paints";
 
 export function ObjectsPanel() {
   const st = useEditor();
@@ -78,6 +79,10 @@ export function ConceptsPanel() {
       <p className="text-xs leading-relaxed text-stone-600">
         Die vier Möblierungskonzepte sind vollständig übernommen – alle Positionen mit exakten Planpositionen, Maßen, Farben, Preisen und Shop-Links. Ein Konzept laden ersetzt das aktuelle Projekt (rückgängig mit Strg+Z).
       </p>
+      <button className="w-full rounded-xl border-2 border-dashed border-emerald-800/40 bg-white p-3 text-left hover:border-emerald-800" onClick={() => st.set("newDialogOpen", true)}>
+        <div className="text-sm font-semibold text-emerald-900">Leere Wohnung von Grund auf einrichten</div>
+        <div className="mt-0.5 text-xs text-stone-600">Bestand wählen (Küche, Sanitär), Farbstimmung und Boden festlegen, dann frei möblieren und gestalten.</div>
+      </button>
       {concepts.map((c) => {
         const b = budgetSummary(c.project).total;
         const active = st.project.conceptId === c.id;
@@ -110,11 +115,74 @@ export function ConceptsPanel() {
   );
 }
 
+function Swatches({ options, value, onPick }: { options: [string, string][]; value?: string; onPick: (c: string) => void }) {
+  return (
+    <div className="flex flex-wrap gap-1">
+      {options.map(([c, l]) => (
+        <button key={c} title={l} onClick={() => onPick(c)} className={`h-6 w-6 rounded-full border ${value === c ? "ring-2 ring-emerald-800 ring-offset-1" : "border-stone-300"}`} style={{ background: c }} />
+      ))}
+    </div>
+  );
+}
+
+/** Ausbau der ganzen Wohnung: Farbstimmung, Türen, Griffe, Fensterrahmen. */
+function ApartmentDesign() {
+  const st = useEditor();
+  const s = st.project.settings;
+  const indoor = apartment.rooms.filter((r) => !r.outdoor).map((r) => r.id);
+  return (
+    <div className="space-y-3 border-b border-stone-200 p-3">
+      <div>
+        <div className="panel-title mb-1.5">Farbstimmung ganze Wohnung</div>
+        <div className="flex flex-wrap gap-1">
+          {WALL_MOODS.map((m) => (
+            <button
+              key={m.label}
+              className="chip"
+              onClick={() =>
+                st.applyToRooms(indoor, (r) => ({ ...r, ceiling: m.ceiling, wall: { ...r.wall, base: { kind: "paint", color: m.color, productName: m.productName } } }))
+              }
+            >
+              <span className="mr-1 inline-block h-2.5 w-2.5 rounded-full border border-stone-300 align-middle" style={{ background: m.color }} />
+              {m.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div>
+        <div className="panel-title mb-1.5">Innentüren</div>
+        <Swatches options={DOOR_COLORS} value={s.doorColor ?? "#f4f3ef"} onPick={(c) => st.setSettings({ doorColor: c })} />
+        <div className="mt-1.5 flex flex-wrap gap-1">
+          <div className="seg">
+            {(["flat", "panel", "groove"] as const).map((k) => (
+              <button key={k} data-on={(s.doorStyle ?? "flat") === k} onClick={() => st.setSettings({ doorStyle: k })}>
+                {{ flat: "glatt", panel: "Kassette", groove: "Rillen" }[k]}
+              </button>
+            ))}
+          </div>
+          <div className="seg">
+            {(["blackMetal", "brass", "steel"] as const).map((k) => (
+              <button key={k} data-on={(s.handleFinish ?? "blackMetal") === k} onClick={() => st.setSettings({ handleFinish: k })}>
+                {{ blackMetal: "Griff schwarz", brass: "Messing", steel: "Edelstahl" }[k]}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div>
+        <div className="panel-title mb-1.5">Fensterrahmen</div>
+        <Swatches options={FRAME_COLORS} value={s.windowFrameColor ?? "#3b3d40"} onPick={(c) => st.setSettings({ windowFrameColor: c })} />
+      </div>
+    </div>
+  );
+}
+
 export function DesignPanel() {
   const st = useEditor();
   const room = st.selectedRoom ?? "13.01";
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full flex-col overflow-auto">
+      <ApartmentDesign />
       <div className="border-b border-stone-200 p-3">
         <div className="panel-title mb-1.5">Raum wählen</div>
         <div className="flex flex-wrap gap-1">
@@ -126,7 +194,7 @@ export function DesignPanel() {
         </div>
         <p className="mt-2 text-[11px] leading-relaxed text-stone-500">Einzelne Wand gestalten: Wand im Plan (Innenkante) oder in der 3D-Ansicht anklicken.</p>
       </div>
-      <div className="flex-1 overflow-auto">
+      <div className="flex-1">
         <RoomInspector roomId={room} />
       </div>
     </div>

@@ -37,7 +37,8 @@ COLOR_WORDS = {
     "hellblau": "#a9c1d6", "blau": "#3f6680", "dunkelblau": "#253a5e", "graublau": "#5b6f84", "nachtblau": "#22314a",
     "mitternachtsblau": "#28354d", "marineblau": "#1f2d4a", "navy": "#1f2d4a", "taubenblau": "#7d8fa6", "petrol": "#2f6d72",
     "dunkelpetrol": "#244f53", "grünblau": "#2f6670", "blaugrau": "#5b6f84", "schwarzblau": "#232b3b",
-    "rostbraun": "#8a4a2e", "beigegrau": "#b7ad9f", "graugelb": "#b5a77a", "bernsteinfarben": "#c98a3a", "bernstein": "#c98a3a", "amber": "#c98a3a", "rauchfarben": "#6b6660",
+    "rostbraun": "#8a4a2e", "dunkeltürkis": "#245e5e", "helltürkis": "#7fbcb8", "pflaume": "#6e3b52", "mauve": "#9c7a8a",
+    "petrolnah": "#2f6d72", "beerenrot": "#7a2e3b", "zimt": "#9b5d3a", "tabak": "#7a5a3a", "kastanie": "#6b3e2a", "schiefer": "#5a5f63", "beigegrau": "#b7ad9f", "graugelb": "#b5a77a", "bernsteinfarben": "#c98a3a", "bernstein": "#c98a3a", "amber": "#c98a3a", "rauchfarben": "#6b6660",
     "rauchgrau": "#6b6660", "transparent": "#e8eef0", "klar": "#e8eef0", "gelbbraun": "#9a7140", "olivbraun": "#6b5a3a", "steinbeige": "#cbbfac", "graurosa": "#c4a7a1", "türkis": "#3f8f8f", "grautürkis": "#5f8a8a", "dunkelgrautürkis": "#3c6466", "blaugrün": "#3e7a72",
     # Rot/Rosa/Orange/Gelb
     "rot": "#b23a32", "dunkelrot": "#7a2a2a", "weinrot": "#6e232f", "bordeaux": "#6a2230", "burgund": "#6b2430", "braunrot": "#7b3a2c",
@@ -84,21 +85,25 @@ MATERIAL_WORDS = [
     ("silberfarben", ("chrome", "#c6cbd0")), ("aluminium", ("steel", "#c4c6c8")), ("stahl", ("blackMetal", None)), ("metall", ("blackMetal", None)),
     ("eisen", ("blackMetal", "#2a2a2a")),
     # Textil (IKEA-Bezugsnamen + Gattungen)
-    ("teddy-bouclé", ("teddy", None)), ("teddy", ("teddy", None)), ("bouclé", ("boucle", None)), ("boucle", ("boucle", None)),
+    ("kunstfell", ("fur", None)), ("fell", ("fur", None)), ("teddy-bouclé", ("teddy", None)), ("teddy", ("teddy", None)),
+    ("bouclé meliert", ("boucleMel", None)), ("boucle meliert", ("boucleMel", None)), ("bouclé", ("boucle", None)), ("boucle", ("boucle", None)),
+    ("chenille", ("chenille", None)), ("webstoff meliert", ("melange", None)),
     ("samt", ("velvet", None)), ("velours", ("velvet", None)), ("djuparp", ("velvet", None)), ("cord", ("cord", None)),
     ("johanneshov", ("cord", None)), ("leinen", ("linen", None)), ("leder", ("leather", None)), ("kunstleder", ("leather", None)),
     ("grann", ("leather", None)), ("bomstad", ("leather", None)), ("fridtuna", ("leather", None)), ("kimstad", ("leather", None)),
-    ("glose", ("leather", None)), ("wolle", ("wool", None)), ("tibbleby", ("boucle", None)), ("kelinge", ("fabric", None)),
-    ("gunnared", ("fabric", None)), ("hillared", ("fabric", None)), ("vissle", ("fabric", None)), ("remmarn", ("fabric", None)),
-    ("tonerud", ("fabric", None)), ("kilanda", ("velvet", None)), ("hakebo", ("fabric", None)), ("hallarp", ("fabric", None)),
-    ("lofallet", ("fabric", None)), ("tallmyra", ("boucle", None)), ("viarp", ("fabric", None)), ("knisa", ("fabric", None)),
-    ("lejde", ("fabric", None)), ("vibberbo", ("fabric", None)), ("knäbäck", ("fabric", None)), ("gransel", ("fabric", None)),
+    ("glose", ("leather", None)), ("wolle", ("wool", None)), ("tibbleby", ("boucle", None)), ("kelinge", ("fabric", None)), ("alhamn", ("boucle", None)),
+    ("gunnared", ("melange", None)), ("hillared", ("linen", None)), ("vissle", ("fabric", None)), ("remmarn", ("melange", None)),
+    ("tonerud", ("melange", None)), ("kilanda", ("chenille", None)), ("hakebo", ("melange", None)), ("hallarp", ("wool", None)),
+    ("lofallet", ("fabric", None)), ("tallmyra", ("boucleMel", None)), ("viarp", ("linen", None)), ("knisa", ("linen", None)),
+    ("lejde", ("melange", None)), ("vibberbo", ("wool", None)), ("knäbäck", ("fabric", None)), ("gransel", ("melange", None)),
+    ("sundhamn", ("linen", None)), ("talliden", ("melange", None)), ("tommaboda", ("chenille", None)), ("kuddarna", ("fabric", None)),
     ("webstoff", ("fabric", None)), ("chenille", ("fabric", None)), ("stoff", ("fabric", None)), ("baumwolle", ("linen", None)),
     ("jute", ("wool", "#b49a72")), ("sisal", ("wool", "#c2a97e")),
     # Sonstige
     ("rattan", ("rattan", "#c49a6c")), ("geflecht", ("rattan", "#c49a6c")), ("korb", ("rattan", "#c49a6c")), ("papier", ("paper", "#f3efe6")),
     ("hochglanz", ("gloss", None)), ("lackiert", ("lacquer", None)), ("kunststoff", ("plastic", None)),
 ]
+TEXTILES = ("fabric", "melange", "chenille", "boucle", "boucleMel", "teddy", "fur", "velvet", "cord", "linen", "leather", "wool")
 JUNK = re.compile(r"firesafety|artwall|no\.\s*\d|^\d+$", re.I)
 FINISH = {"glänzend": "gloss", "matt": None, "meliert": None}
 
@@ -127,7 +132,7 @@ def _find_color(seg):
                 best = cand
     if not best:
         # zusammengesetzte Wörter („mintgrün“, „Grüntöne“, „Brauntöne“): Grundfarbe als Wortteil
-        for k in ("grün", "blau", "braun", "grau", "beige", "rot", "rosa", "gelb", "weiß", "schwarz", "orange", "lila"):
+        for k in ("türkis", "petrol", "grün", "blau", "braun", "grau", "beige", "rot", "rosa", "gelb", "weiß", "schwarz", "orange", "lila"):
             m = re.search(r"[a-zäöüß]*" + k + r"[a-zäöüß]*", seg)
             if m and (best is None or m.start() < best[0]):
                 best = (m.start(), 0, k, COLOR_WORDS[k])
@@ -166,6 +171,9 @@ def parse_finish(text):
         mkey, (mat, mcol) = _find_material(seg)
         cf = _find_color(seg)
         # reine Oberflächenangabe („glänzend“, „matt“) gilt für das vorige Segment
+        if out and re.fullmatch(r"(hell|dunkel)(\s+(geölt|gebeizt|lasiert|gebürstet))?", seg):
+            out[-1]["color"] = _shade(out[-1]["color"], 1.3 if seg.startswith("hell") else 0.6)
+            continue
         if not cf and not mat and out and re.fullmatch(r"(hoch)?glänzend|matt|seidenmatt|irisierend|lackiert", seg):
             prev = out[-1]
             if prev["material"] in (None, "lacquer", "matte", "gloss", "blackMetal"):
@@ -199,7 +207,7 @@ def parse_finish(text):
             mat = "gloss"
         kind = ("wood" if mat in ("oak", "oakDark", "walnut", "ash", "mango", "burl") else "stone" if mat in ("marble", "travertine", "stone", "ceramic")
                 else "metal" if mat in ("brass", "copper", "chrome", "steel", "blackMetal") else "glass" if mat in ("glass", "opal", "ribbedGlass", "mirror")
-                else "textile" if mat in ("fabric", "boucle", "teddy", "velvet", "cord", "linen", "leather", "wool") else "other")
+                else "textile" if mat in TEXTILES else "other")
         if mat == "blackMetal" and color is None:
             color = "#1d1d1d"
         out.append({"color": color or "#bdb5a8", "material": mat, "label": seg, "kind": kind, "has_color": bool(cf) or mcol is not None,
@@ -259,23 +267,24 @@ def slots_from(category, text, name="", fallback=None):
             s_["material"] = name_mat
             s_["kind"] = ("wood" if name_mat in ("oak", "oakDark", "walnut", "ash", "mango", "burl") else "stone" if name_mat in ("marble", "travertine", "stone", "ceramic")
                           else "metal" if name_mat in ("brass", "copper", "chrome", "steel") else "glass" if name_mat in ("glass", "opal") else
-                          "textile" if name_mat in ("fabric", "boucle", "teddy", "velvet", "cord", "linen", "leather", "wool") else "other")
+                          "textile" if name_mat in TEXTILES else "other")
     first = segs[0]
     rest = segs[1:]
     def pick(kinds):
         return next((s for s in rest if s["kind"] in kinds), None)
     if category in UPHOLSTERED:
         tex = next((s for s in segs if s["kind"] == "textile"), None) or next((s for s in segs if s["kind"] not in ("wood", "metal")), None)
-        legs = next((s for s in segs if s is not tex and s["kind"] in ("wood", "metal")), None)
+        legs = next((s for s in segs if s is not tex and s["kind"] in ("wood", "metal")), None) or \
+            next((s for s in segs if s is not tex and s["kind"] == "other" and tex is not None), None)
         if tex is None:
             # nur Gestell angegeben („Dunkles Eschenholz“): Bezug aus dem Rückfall, Gestell aus der Ausführung
             fbm = (fallback or {}).get("main") or {"color": "#d9cbb4", "material": "fabric"}
-            main = {"color": fbm["color"], "material": fbm["material"] if fbm["material"] in ("fabric", "boucle", "teddy", "velvet", "cord", "linen", "leather", "wool") else "fabric"}
+            main = {"color": fbm["color"], "material": fbm["material"] if fbm["material"] in TEXTILES else "fabric"}
             if legs and fbm["color"] == legs["color"]:
                 main["color"] = "#d9cbb4"
         else:
             main = {"color": tex["color"], "material": tex["material"] if tex["kind"] == "textile" else ("leather" if "leder" in name.lower() else "fabric")}
-        lg = {"color": legs["color"], "material": legs["material"]} if legs else (
+        lg = {"color": legs["color"], "material": legs["material"] or ("blackMetal" if _dark(legs["color"]) else "lacquer")} if legs else (
             {"color": "#a37a52", "material": "oak"} if "holz" in name.lower() else {"color": "#1d1d1d", "material": "blackMetal"})
         return {"main": main, "legs": lg}
     if category in TABLES:
@@ -308,16 +317,20 @@ def slots_from(category, text, name="", fallback=None):
         return out
     if category == "mirror":
         return {"frame": {"color": first["color"], "material": first["material"] or "blackMetal"}}
-    if category in ("decor", "plant"):
-        return {"main": {"color": first["color"], "material": first["material"] or "ceramic"}}
+    if category in ("decor", "plant", "art"):
+        out = {"main": {"color": first["color"], "material": first["material"] or ("canvas" if category == "art" else "ceramic")}}
+        if rest:
+            out["secondary"] = {"color": rest[0]["color"], "material": rest[0]["material"] or out["main"]["material"]}
+        return out
     # Kleiderschrank-Kombinationen „KORPUS / FRONT“ (PAX / BERGSBO …) → sichtbare Front ist das letzte Segment
     main = segs[-1] if (category == "wardrobe" and " / " in name and len(segs) > 1) else first
     other = next((s for s in segs if s is not main), None)
     mm = main["material"] or "lacquer"
     out = {"main": {"color": main["color"], "material": mm}}
-    if other and other["kind"] in ("metal", "wood"):
-        out["legs"] = {"color": other["color"], "material": other["material"]}
-        out["detail"] = {"color": other["color"], "material": other["material"]}
+    if other and (other["kind"] in ("metal", "wood") or (other["kind"] == "other" and other["material"] is None)):
+        om = other["material"] or ("blackMetal" if _dark(other["color"]) else "lacquer")
+        out["legs"] = {"color": other["color"], "material": om}
+        out["detail"] = {"color": other["color"], "material": om}
     elif other:
         out["secondary"] = {"color": other["color"], "material": other["material"] or mm}
     return out

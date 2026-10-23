@@ -3,12 +3,18 @@ from finish import slots_from
 
 CASES = [
     # (Kategorie, Ausführung, Produktname, Slot, erwartete Farbe, erwartetes Material)
-    ("sofa", "Gunnared beige", "SÖDERHAMN 3er-Sofa", "main", "#d6c7ae", "fabric"),
+    ("sofa", "Gunnared beige", "SÖDERHAMN 3er-Sofa", "main", "#d6c7ae", "melange"),
     ("sofa", "mit Récamiere/Kelinge dunkelgelb", "SÖDERHAMN", "main", "#bf9530", "fabric"),
     ("sofa", "ohne Abschluss/Fridtuna dunkel graublau", "x", "main", None, "leather"),
     ("armchair", "Grann / Bomstad goldbraun / Holz", "LANDSKRONA Sessel", "main", "#9a6a35", "leather"),
     ("armchair", "Grann / Bomstad goldbraun / Holz", "LANDSKRONA Sessel", "legs", None, "oak"),
-    ("sofa", "Bouclé meliert, rostrot", "x", "main", "#a5563b", "boucle"),
+    ("sofa", "Bouclé meliert, rostrot", "x", "main", "#a5563b", "boucleMel"),
+    ("sofa", "Viarp beige / braun", "POÄNG", "main", "#d6c7ae", "linen"),
+    ("sofa", "Chenille off white", "x", "main", "#ede8dc", "chenille"),
+    ("chair", "Grann hellbraun / weiß", "TOSSBERG", "legs", "#f3f1ec", "lacquer"),
+    ("sideTable", "Mangoholz, dunkel", "x", "top", "#493322", "mango"),
+    ("art", "Beige, Rot, marmoriert", "Bild", "secondary", "#b23a32", "canvas"),
+    ("pouf", "Kunstfell dunkelbraun", "x", "main", "#4e3a2c", "fur"),
     ("sofa", "Djuparp / dunkel grünblau Eiche", "SMEDSTORP", "main", None, "velvet"),
     ("wardrobe", "weiß/Eicheneff wlas", "PAX / BERGSBO Kleiderschrank", "main", "#e3d6c2", "oak"),
     ("coffeeTable", "Marmor-optik schwarz, glänzend", "Couchtisch", "top", "#1d1d1d", "marble"),
