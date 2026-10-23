@@ -148,10 +148,10 @@ function Detail({ c, onClose }: { c: CatalogItem; onClose: () => void }) {
             <ExternalLink size={14} /> Im Shop ansehen
           </button>
         )}
-        {c.image && (
+        {(v?.image ?? c.image) && (
           <div className="mt-3">
             <div className="panel-title mb-1">Produktfoto (online)</div>
-            <img src={c.image.includes("cdn.shopify") ? `${c.image}&width=480` : c.image} alt="" className="w-full rounded-lg bg-white object-contain" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />
+            <img key={v?.image ?? c.image} src={(v?.image ?? c.image)!.includes("cdn.shopify") ? `${v?.image ?? c.image}&width=480` : (v?.image ?? c.image)} alt="" className="w-full rounded-lg bg-white object-contain" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />
           </div>
         )}
       </div>

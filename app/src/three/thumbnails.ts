@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import type { CatalogItem, SlotStyle, Slot } from "../model/types";
 import { buildFurniture } from "./furniture";
-import { neutralAlbedo, type TexKey } from "./textures";
+import { texturesIdle } from "./textures";
 
 // Vorschaubilder der Katalogeinträge, gerendert aus denselben 3D-Modellen (offline, konsistent).
 
@@ -32,8 +32,7 @@ function init() {
   scene.add(sun);
   scene.add(new THREE.HemisphereLight("#ffffff", "#cbbfae", 0.6));
   camera = new THREE.PerspectiveCamera(30, 1, 0.01, 100);
-  const keys: TexKey[] = ["oak", "walnut", "darkwood", "burl", "boucle", "linen", "velvet", "fabric", "wool", "leather", "marble", "marblegreen", "travertine", "concrete", "rattan", "brushed"];
-  ready = Promise.all(keys.map((k) => neutralAlbedo(k, 1).catch(() => null)));
+  ready = Promise.resolve();
 }
 
 export function thumbnailKey(c: CatalogItem, variant: number) {
@@ -59,29 +58,35 @@ function pump() {
   running = true;
   init();
   ready!.then(() => {
-    const step = () => {
+    const step = async () => {
       const job = queue.shift();
       if (!job) {
         running = false;
         return;
       }
-      const url = render(job.c, job.variant);
+      // Objekt aufbauen (stößt Texturladen an), erst nach vollständigem Laden rendern
+      const g = build(job.c, job.variant);
+      await texturesIdle();
+      const url = render(job.c, g);
       cache.set(job.key, url);
       job.resolve(url);
       setTimeout(step, 0);
     };
-    // Kurze Wartezeit, damit asynchrone Texturen (Canvas-Neutralisierung) geladen sind
-    setTimeout(step, 60);
+    setTimeout(step, 0);
   });
 }
 
-function render(c: CatalogItem, variantIdx: number): string {
+function build(c: CatalogItem, variantIdx: number): THREE.Group {
   const v = c.variants[variantIdx] ?? c.variants[0];
   const slots = (v?.slots ?? {}) as Partial<Record<Slot, SlotStyle>>;
   const w = Math.max(c.w / 100, 0.02), d = Math.max(c.d / 100, 0.02), h = Math.max(c.h / 100, 0.02);
   const obj = buildFurniture({ archetype: c.archetype, w, d, h, slots, params: c.params, model: c.model, seedKey: c.id });
   const g = new THREE.Group();
   g.add(obj);
+  return g;
+}
+
+function render(c: CatalogItem, g: THREE.Group): string {
   // Wandobjekte von vorn, Rest schräg
   const flatWall = c.mount === "wall" || c.category === "curtain";
   g.rotation.y = flatWall ? 0 : -0.55;

@@ -19,9 +19,10 @@ UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 SITEMAP = "https://www.lampe.de/sitemap.xml"
 # Marke (URL-Präfix) → max. Anzahl Produktseiten
 BRANDS = {
-    "artemide": 120, "louis-poulsen": 20, "tecnolumen": 60, "serien-lighting": 130, "escale": 70, "knapstein": 10,
-    "bopp": 90, "helestra": 15, "grossmann": 90, "faro": 40, "design-for-the-people": 200, "by-rydens": 170,
-    "schoener-wohnen": 160, "hollaender": 160, "selene": 15, "cmd": 60, "fabas": 90, "ideal-lux": 110,
+    "artemide": 160, "louis-poulsen": 20, "tecnolumen": 80, "serien-lighting": 160, "escale": 90, "knapstein": 10,
+    "bopp": 150, "helestra": 15, "grossmann": 120, "faro": 60, "design-for-the-people": 220, "by-rydens": 200,
+    "schoener-wohnen": 220, "hollaender": 260, "selene": 15, "cmd": 120, "fabas": 160, "ideal-lux": 220,
+    "albert": 120, "nordlux": 160, "paul-neuhaus": 120,
 }
 TYPES = ("tischleuchte", "tischlampe", "stehleuchte", "stehlampe", "deckenfluter", "pendelleuchte", "haengeleuchte",
          "deckenleuchte", "wandleuchte", "leseleuchte", "kronleuchter", "deckenlampe", "wandlampe")

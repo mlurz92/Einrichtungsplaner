@@ -300,6 +300,13 @@ export function officeChair(c: Ctx) {
   } else {
     b.cushion(w * 0.72, 0.08, d * 0.7, M, 0, 0.44, 0.03, 0.2);
     b.rbox(w * 0.66, h - 0.6, 0.05, 0.04, M, 0, 0.58, -d * 0.32, 4, -0.1);
-    for (const sx of [-1, 1]) b.box(0.04, 0.2, 0.3, L, sx * w * 0.36, 0.5, 0.0);
+    // Armlehnen: Stütze + Auflage (statt massiver Platte)
+    if (bool(p, "arms", true)) {
+      const pad = c.m("detail", BLACK);
+      for (const sx of [-1, 1]) {
+        b.box(0.028, 0.2, 0.03, L, sx * w * 0.36, 0.48, -0.02);
+        b.rbox(0.06, 0.025, 0.24, 0.01, pad, sx * w * 0.36, 0.68, 0.0, 3);
+      }
+    }
   }
 }

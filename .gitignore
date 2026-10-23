@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 *.tsbuildinfo
 dist-win/
+tools/out/audit.json

@@ -91,11 +91,27 @@ const texLoader = new THREE.TextureLoader();
 const dataTexCache = new Map<string, THREE.Texture>();
 
 /** Normal- oder Rauheitstextur (linear), gekachelt. */
+// Offene Texturladevorgänge (für Vorschaubilder: erst rendern, wenn alles geladen ist)
+let pendingLoads = 0;
+const idleWaiters: (() => void)[] = [];
+function trackStart() {
+  pendingLoads++;
+}
+function trackEnd() {
+  pendingLoads = Math.max(0, pendingLoads - 1);
+  if (pendingLoads === 0) while (idleWaiters.length) idleWaiters.shift()!();
+}
+/** Löst auf, sobald keine Textur mehr lädt. */
+export function texturesIdle(): Promise<void> {
+  return pendingLoads === 0 ? Promise.resolve() : new Promise((r) => idleWaiters.push(r));
+}
+
 export function dataTexture(key: TexKey, kind: "normal" | "rough"): THREE.Texture {
   const k = `${key}|${kind}`;
   let t = dataTexCache.get(k);
   if (!t) {
-    t = texLoader.load(texUrl(key, kind));
+    trackStart();
+    t = texLoader.load(texUrl(key, kind), trackEnd, undefined, trackEnd);
     t.wrapS = t.wrapT = THREE.RepeatWrapping;
     t.colorSpace = THREE.NoColorSpace;
     t.anisotropy = 8;
@@ -114,10 +130,13 @@ export function albedoTexture(key: TexKey, contrast = 1): THREE.Texture {
     tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
     tex.colorSpace = THREE.SRGBColorSpace;
     tex.anisotropy = 8;
-    neutralAlbedo(key, contrast).then((c) => {
-      tex.image = c;
-      tex.needsUpdate = true;
-    });
+    trackStart();
+    neutralAlbedo(key, contrast)
+      .then((c) => {
+        tex.image = c;
+        tex.needsUpdate = true;
+      })
+      .finally(trackEnd);
     albedoTexCache.set(k, tex);
     t = tex;
   }

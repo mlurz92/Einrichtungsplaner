@@ -332,7 +332,7 @@ export const useEditor = create<EditorState>((set, get) => ({
     get().updateItems([id], (x) => {
       x.variant = v.name;
       x.slots = structuredClone(v.slots);
-      if (v.price && x.parts?.length === 1) x.parts[0] = { ...x.parts[0], unit: v.price, variant: v.name, url: v.url ?? x.parts[0].url };
+      if (x.parts?.length === 1) x.parts[0] = { ...x.parts[0], unit: v.price ?? x.parts[0].unit, variant: v.name, url: v.url ?? x.parts[0].url };
     });
   },
   setSlot(id, slot, style) {

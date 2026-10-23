@@ -87,7 +87,7 @@ describe("Katalog", () => {
   it("umfasst Westwing, IKEA und JYSK mit plausiblen Maßen", () => {
     const vendors = new Set(baseCatalog.map((c) => c.vendor));
     for (const v of ["Westwing", "IKEA", "JYSK"]) expect(vendors.has(v as never)).toBe(true);
-    expect(baseCatalog.length).toBeGreaterThan(1500);
+    expect(baseCatalog.length).toBeGreaterThan(4000);
     for (const c of baseCatalog) {
       expect(c.w, c.name).toBeGreaterThan(0);
       expect(c.d, c.name).toBeGreaterThan(0);
