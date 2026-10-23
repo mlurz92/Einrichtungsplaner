@@ -1,10 +1,12 @@
 {
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
-  "description": "Berechtigungen des Hauptfensters: Datei-Dialoge, Lesen/Schreiben vom Nutzer gewählter Dateien, Shop-Links im Browser öffnen",
+  "description": "Berechtigungen des Hauptfensters: Fenstertitel und Schließen-Abfrage, Datei-Dialoge, Lesen/Schreiben vom Nutzer gewählter Dateien, Shop-Links im Browser öffnen",
   "windows": ["main"],
   "permissions": [
     "core:default",
+    "core:window:allow-set-title",
+    "core:window:allow-destroy",
     "dialog:default",
     "dialog:allow-open",
     "dialog:allow-save",

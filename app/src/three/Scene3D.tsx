@@ -229,7 +229,7 @@ function useDrag(controls: React.RefObject<CameraControls | null>) {
         // Erst ab 4 px Mausweg verschieben (Klick bleibt Klick)
         if (!moved && Math.hypot(ev.clientX - sx, ev.clientY - sy) < 4) return;
         if (!moved) {
-          useEditor.getState().commit();
+          useEditor.getState().commit("Verschieben");
           moved = true;
         }
         const snapOn = useEditor.getState().project.settings.snap && !ev.altKey;

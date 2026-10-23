@@ -56,6 +56,43 @@ export async function openText(filters: { name: string; extensions: string[] }[]
   });
 }
 
+/** Datei über einen bekannten Pfad lesen (nur Desktop, z. B. „Zuletzt verwendet“). */
+export async function readTextPath(path: string): Promise<string> {
+  if (!isTauri) throw new Error("Nur in der Desktop-App verfügbar");
+  const { readTextFile } = await import("@tauri-apps/plugin-fs");
+  return readTextFile(path);
+}
+
+/** Fenstertitel setzen (Desktop: Fensterleiste, Browser: Tab). */
+export async function setWindowTitle(title: string) {
+  document.title = title;
+  if (!isTauri) return;
+  try {
+    const { getCurrentWindow } = await import("@tauri-apps/api/window");
+    await getCurrentWindow().setTitle(title);
+  } catch {
+    /* ohne Berechtigung bleibt der Standardtitel */
+  }
+}
+
+/**
+ * Schließen des Fensters abfangen (Desktop). `onClose` liefert true, wenn sofort geschlossen werden darf;
+ * sonst entscheidet die App später und ruft `closeWindowNow()` auf.
+ */
+export async function interceptWindowClose(onClose: () => boolean): Promise<() => void> {
+  if (!isTauri) return () => {};
+  const { getCurrentWindow } = await import("@tauri-apps/api/window");
+  return getCurrentWindow().onCloseRequested((ev) => {
+    if (!onClose()) ev.preventDefault();
+  });
+}
+
+export async function closeWindowNow() {
+  if (!isTauri) return;
+  const { getCurrentWindow } = await import("@tauri-apps/api/window");
+  await getCurrentWindow().destroy();
+}
+
 export async function openBinary(filters: { name: string; extensions: string[] }[]): Promise<{ name: string; data: Uint8Array } | null> {
   if (isTauri) {
     const { open } = await import("@tauri-apps/plugin-dialog");
