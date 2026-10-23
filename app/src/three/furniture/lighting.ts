@@ -259,11 +259,72 @@ export function wallGlobe(c: Ctx) {
 }
 
 export function wallSconce(c: Ctx) {
-  const { w, d, h, b } = c;
+  const { w, d, h, p, b } = c;
   const M = metal(c);
   const S = shadeM(c);
+  if (str(p, "shape", "") === "plate") {
+    // Flache Wand-/Deckenleuchte: Montageplatte + Diffusor (rund oder eckig)
+    const round = Math.abs(w - h) < 0.03;
+    if (round) {
+      b.cyl(w / 2, w / 2, Math.max(0.01, d * 0.35), M, 0, h / 2, -d / 2 + d * 0.175, 48, Math.PI / 2);
+      b.cyl(w / 2 - 0.01, w / 2 - 0.01, d * 0.6, S, 0, h / 2, d * 0.2, 48, Math.PI / 2);
+    } else {
+      b.box(w, h, d * 0.4, M, 0, 0, -d / 2 + d * 0.2);
+      b.box(w - 0.02, h - 0.02, d * 0.6, S, 0, 0.01, d * 0.2);
+    }
+    b.object(lightMarker(0, h / 2, d / 2 + 0.05, 600));
+    return;
+  }
   b.box(w * 0.4, h * 0.5, 0.015, M, 0, h * 0.25, -d / 2 + 0.008);
   b.object(polyTube([new THREE.Vector3(0, h * 0.5, -d / 2 + 0.01), new THREE.Vector3(0, h * 0.5, 0)], 0.008, M));
   b.lathe([[0, 0], [w * 0.45, h * 0.15], [w * 0.5, h * 0.7], [w * 0.35, h], [0, h]], S, 0, 0, d * 0.1, 32);
   b.object(lightMarker(0, h * 0.5, d * 0.1, 450));
+}
+
+/** Lineare Pendelleuchte (Esstisch): Balken oder Reihe von Schirmen an zwei Abhängungen. */
+export function pendantLinear(c: Ctx) {
+  const { w, d, h, p, b } = c;
+  const M = metal(c);
+  const S = shadeM(c);
+  const gap = num(p, "ceilingGap", 0);
+  const n = Math.max(0, Math.round(num(p, "heads", 0)));
+  if (n >= 2) {
+    // Schirmreihe an Traverse
+    b.box(w, 0.02, 0.03, M, 0, h - 0.02, 0);
+    const r = Math.min(d / 2, (w / n) * 0.42);
+    for (let i = 0; i < n; i++) {
+      const x = -w / 2 + (w / n) * (i + 0.5);
+      b.cyl(0.004, 0.004, h - 2 * r - 0.02, M, x, 2 * r, 0, 6);
+      if (str(p, "shape", "globe") === "dome") b.lathe([[0.015, 2 * r], [r * 0.5, 1.8 * r], [r, 0.2 * r], [r * 0.98, 0.2 * r], [r * 0.48, 1.76 * r], [0.012, 1.95 * r]], M, x, 0, 0, 40);
+      else b.sphere(r, S, x, r, 0, 32);
+      b.object(lightMarker(x, r * 0.6, 0, 600, "down"));
+    }
+  } else {
+    // Leuchtbalken mit Diffusor unten
+    b.box(w, h * 0.75, d, M, 0, h * 0.25, 0);
+    b.box(w - 0.01, h * 0.25, d - 0.01, S, 0, 0, 0);
+    for (const x of [-w * 0.3, 0, w * 0.3]) b.object(lightMarker(x, 0, 0, 900, "down"));
+  }
+  for (const sx of [-1, 1]) cord(c, sx * w * 0.38, 0, h, gap);
+}
+
+/** Gelenkleuchte (Tolomeo-Typ) – Tisch (h < 1 m) oder Boden. */
+export function lampTask(c: Ctx) {
+  const { w, h, b } = c;
+  const M = metal(c);
+  const S = shadeM(c);
+  const floor = h > 1;
+  const baseR = floor ? 0.15 : Math.min(0.11, w * 0.25);
+  b.cyl(baseR, baseR, 0.02, M, 0, 0, 0, 40);
+  const arm1 = floor ? h - 0.45 : h * 0.55;
+  const j1 = new THREE.Vector3(0, 0.02 + arm1, 0);
+  b.object(polyTube([new THREE.Vector3(0, 0.02, 0), j1], 0.007, M));
+  const reach = Math.max(0.2, w * 0.75);
+  const j2 = new THREE.Vector3(0, h - 0.05, reach * 0.85);
+  b.object(polyTube([j1, j2], 0.006, M));
+  b.sphere(0.012, M, j1.x, j1.y, j1.z, 12);
+  // Reflektor (konisch, leicht geneigt)
+  const r = floor ? 0.12 : 0.075;
+  b.lathe([[0.015, 0], [r * 0.45, -0.02], [r, -0.12 * (r / 0.075)], [r * 0.97, -0.12 * (r / 0.075)], [r * 0.43, -0.018], [0.012, 0.004]], S, 0, j2.y, j2.z, 40);
+  b.object(lightMarker(0, j2.y - 0.08, j2.z, floor ? 1200 : 450, "down"));
 }

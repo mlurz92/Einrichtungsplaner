@@ -10,7 +10,7 @@ const ARCHETYPES = new Set([
   "lampFloorShade", "lampFloorArc", "lampFloorTripod", "lampTableMushroom", "lampTableGlobe", "lampTableShade", "lampTableLayered",
   "pendantGlobe", "pendantDome", "pendantCluster", "pendantMirrorBall", "ceilingDome", "ceilingDisc", "wallGlobe", "wallSconce",
   "rugRect", "rugRound", "rugOrganic", "curtain", "art", "artPair", "mirrorRound", "mirrorArch", "mirrorRect", "plantTree", "plantBush",
-  "plantPot", "vase", "books", "tray", "bowl", "candles", "cushion", "throw", "tv", "lamella", "molding", "panelWall", "outdoorTable",
+  "plantPot", "vase", "books", "tray", "bowl", "candles", "cushion", "throw", "tv", "tvFrame", "tylkoStorage", "pendantLinear", "lampTask", "lamella", "molding", "panelWall", "outdoorTable",
   "outdoorChair", "outdoorSofa", "kitchenRun", "bathtub", "toilet", "washbasin", "shower", "washer", "box", "glb",
 ]);
 

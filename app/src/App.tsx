@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { Boxes, LayoutList, Palette, Sofa, Wallet } from "lucide-react";
 import { useEditor } from "./store/project";
 import { TopBar } from "./ui/TopBar";
+import { HelpOverlay } from "./ui/Help";
 import { CatalogPanel } from "./ui/CatalogPanel";
 import { Inspector } from "./ui/Inspector";
 import { BudgetPanel, ConceptsPanel, DesignPanel, ObjectsPanel } from "./ui/Panels";
@@ -46,7 +47,14 @@ function useShortcuts() {
         st.select(st.project.items.filter((i) => !i.locked).map((i) => i.id));
       } else if (e.key === "Delete" || e.key === "Backspace") {
         st.removeItems(st.selection);
+      } else if (e.key === "F1" || e.key === "?") {
+        e.preventDefault();
+        st.set("helpOpen", !st.helpOpen);
+      } else if ((e.key === "f" || e.key === "F") && !ctrl && st.selection.length && st.viewMode !== "plan") {
+        const sel = st.project.items.filter((i) => st.selection.includes(i.id));
+        st.requestFocus(sel.reduce((a, i) => a + i.x, 0) / sel.length, sel.reduce((a, i) => a + i.y, 0) / sel.length);
       } else if (e.key === "Escape") {
+        st.set("helpOpen", false);
         st.set("placing", null);
         st.select([]);
         st.selectFace(null);
@@ -87,6 +95,7 @@ export function App() {
   return (
     <div className="flex h-full flex-col">
       <TopBar />
+      <HelpOverlay />
       <div className="flex min-h-0 flex-1">
         {/* Linke Leiste */}
         <aside className="flex w-[340px] shrink-0 flex-col border-r border-stone-200 bg-[#faf8f5]">

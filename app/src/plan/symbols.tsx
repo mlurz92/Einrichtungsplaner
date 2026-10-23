@@ -40,7 +40,7 @@ export function PlanSymbol({ it, arch }: { it: PlacedItem; arch: Archetype }) {
           {R(x0 + arm, y0, iw, back, 4, light)}
           {R(x0, y0, arm, d, 6, light)}
           {R(x0 + w - arm, y0, arm, d, 6, light)}
-          {Array.from({ length: seats }, (_, i) => R(x0 + arm + (iw / seats) * i + 1, y0 + back + 1, iw / seats - 2, d - back - 3, 5))}
+          {Array.from({ length: seats }, (_, i) => <g key={i}>{R(x0 + arm + (iw / seats) * i + 1, y0 + back + 1, iw / seats - 2, d - back - 3, 5)}</g>)}
         </g>
       );
     }
@@ -119,7 +119,8 @@ export function PlanSymbol({ it, arch }: { it: PlacedItem; arch: Archetype }) {
     case "lampTableMushroom":
     case "lampTableGlobe":
     case "lampTableShade":
-    case "lampTableLayered": {
+    case "lampTableLayered":
+    case "lampTask": {
       const r = Math.max(w, d) / 2;
       return <g><circle r={r} fill="#fff7e6" stroke="#b8703e" strokeWidth={sw} /><path d={`M${-r * 0.7},${-r * 0.7}L${r * 0.7},${r * 0.7}M${-r * 0.7},${r * 0.7}L${r * 0.7},${-r * 0.7}`} stroke="#b8703e" strokeWidth={sw} /></g>;
     }
@@ -131,6 +132,15 @@ export function PlanSymbol({ it, arch }: { it: PlacedItem; arch: Archetype }) {
     case "ceilingDisc": {
       const r = Math.max(w, d) / 2;
       return <g><circle r={r} fill="none" stroke="#8a6a4f" strokeWidth={sw} strokeDasharray="3 2" /><circle r={Math.min(4, r / 3)} fill="#8a6a4f" /></g>;
+    }
+    case "pendantLinear": {
+      const n = Math.max(0, Number(it.params?.heads ?? 0));
+      return (
+        <g>
+          {R(x0, y0, w, d, 2, "none", "#8a6a4f", { strokeDasharray: "3 2" })}
+          {n >= 2 ? Array.from({ length: n }, (_, i) => <circle key={i} cx={x0 + (w / n) * (i + 0.5)} r={Math.min(d, w / n) * 0.35} fill="#8a6a4f" opacity={0.6} />) : <line x1={x0 + 4} x2={-x0 - 4} y1={0} y2={0} stroke="#8a6a4f" strokeWidth={1.5} />}
+        </g>
+      );
     }
     case "wallGlobe":
     case "wallSconce":
@@ -169,6 +179,17 @@ export function PlanSymbol({ it, arch }: { it: PlacedItem; arch: Archetype }) {
     case "panelWall":
     case "tv":
       return R(x0, y0, w, Math.max(d, 2), 0.5, fill, stroke);
+    case "tvFrame": {
+      if (!it.params?.stand) return R(x0, y0, w, Math.max(d, 2.5), 0.5, "#2a2a2a", "#111");
+      const pd = 2.5;
+      const span = (Number(it.params.standW) || it.w * 0.7) * 100;
+      return (
+        <g>
+          {[-1, 1].map((sx) => <g key={sx}>{R(sx * (span / 2 - 3) - 3, y0, 6, d, 1, "#9a9a9a", "#555")}</g>)}
+          {R(x0, -pd / 2, w, pd, 0.5, "#2a2a2a", "#111")}
+        </g>
+      );
+    }
     case "kitchenRun":
       return (
         <g>

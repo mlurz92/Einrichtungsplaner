@@ -239,3 +239,99 @@ export function wardrobe(c: Ctx) {
     b.box(w + 0.004, fascia, 0.019, getMaterial({ color: String(p.fasciaColor ?? "#f3f0e8"), material: "matte" }), 0, h, d / 2 - 0.01);
   }
 }
+
+/**
+ * Tylko Original/Tone-Stauraum: Raster aus Böden und je Reihe versetzten Trennwänden (Muster „Slant“/„Grid“),
+ * Fächer offen, mit Tür (Griffmulde) oder Schublade (Griffkante); optional Rückwände, Beine, sichtbare
+ * Multiplex-Kanten (Original Classic) und Schreibtischform (Knieraum zwischen zwei Korpussen).
+ */
+export function tylkoStorage(c: Ctx) {
+  const { w, d, h, p, b } = c;
+  const M = c.m("main");
+  const F = c.slots.secondary ? c.m("secondary") : M; // Fronten (zweifarbig)
+  const edge = getMaterial({ color: "#d9bb8f", material: "oak" });
+  const grip = getMaterial({ color: "#2a2724", material: "matte" });
+  const t = 0.018;
+  const legH = num(p, "legH", 0);
+  const ply = bool(p, "plywood");
+  const backs = bool(p, "backs", true);
+  const pattern = str(p, "pattern", "slant");
+  const doorsF = num(p, "doorShare", 0);
+  const drawersF = num(p, "drawerShare", 0);
+  const R = rng(c.seed * 31 + 7);
+  const y0 = Math.max(0.008, legH);
+
+  if (legH > 0.02) {
+    const lx = w / 2 - 0.04, lz = d / 2 - 0.04;
+    b.legs([[-lx, -lz], [lx, -lz], [-lx, lz], [lx, lz]], legH, 0.012, getMaterial({ color: "#2a2724", material: "blackMetal" }), 1);
+  } else {
+    b.box(w - 0.02, y0, d - 0.04, getMaterial({ color: "#2a2724", material: "matte" }), 0, 0, -0.01);
+  }
+  const plyEdge = (x: number, y: number, ww: number, hh: number) => {
+    if (ply) b.box(ww, hh, 0.002, edge, x, y, d / 2 + 0.001);
+  };
+
+  // Körper = Liste von Korpussen [x0, x1, yTop]; Schreibtisch: zwei Korpusse + durchgehende Platte
+  const desk = bool(p, "desk");
+  const knee = desk ? Math.min(0.8, Math.max(0.5, w * 0.45)) : 0;
+  const bodies: [number, number][] = desk ? [[-w / 2, -knee / 2], [knee / 2, w / 2]] : [[-w / 2, w / 2]];
+  const top = desk ? h - t : h;
+  if (desk) {
+    b.box(w, t, d, M, 0, h - t, 0);
+    plyEdge(0, h - t, w, t);
+    if (backs) b.box(knee, Math.min(0.35, h * 0.45), t, M, 0, h - t - Math.min(0.35, h * 0.45), -d / 2 + t / 2 + 0.02);
+  }
+  for (const [bx0, bx1] of bodies) {
+    const bw = bx1 - bx0;
+    const bh = top - y0;
+    const rows = Math.max(1, Math.round(num(p, "rows", Math.max(1, Math.round(bh / (desk ? 0.22 : 0.34))))));
+    const cols = Math.max(1, Math.round(num(p, "cols", Math.max(1, Math.round(bw / (desk ? 0.45 : 0.42))))));
+    const rh = bh / rows;
+    // Außenwände, Boden, Deckel
+    for (const x of [bx0 + t / 2, bx1 - t / 2]) {
+      b.box(t, bh, d, M, x, y0, 0);
+      plyEdge(x, y0, t, bh);
+    }
+    for (let j = 0; j <= rows; j++) {
+      const y = j === rows ? top - t : y0 + rh * j - (j > 0 ? t / 2 : 0);
+      if (desk && j === rows) continue;
+      b.box(bw, t, d, M, (bx0 + bx1) / 2, y, 0);
+      plyEdge((bx0 + bx1) / 2, y, bw, t);
+    }
+    if (backs) b.box(bw - 2 * t, bh - t, 0.006, M, (bx0 + bx1) / 2, y0 + t / 2, -d / 2 + 0.003);
+    for (let j = 0; j < rows; j++) {
+      // Trennwände je Reihe; „slant“ versetzt die Teilung reihenweise
+      const off = pattern === "slant" && cols > 1 ? ((j % 3) - 1) * 0.18 : pattern === "gradient" ? (j / Math.max(1, rows - 1) - 0.5) * 0.3 : 0;
+      const xs = [bx0 + t];
+      for (let i = 1; i < cols; i++) xs.push(bx0 + t + ((bw - 2 * t) * (i + off * (i === 1 ? 1 : 0.5))) / cols);
+      xs.push(bx1 - t);
+      const ya = y0 + rh * j + (j > 0 ? t / 2 : t);
+      const yb = y0 + rh * (j + 1) - (j < rows - 1 ? t / 2 : t);
+      for (let i = 1; i < xs.length - 1; i++) {
+        b.box(t, yb - ya, d - 0.006, M, xs[i], ya, 0.003);
+        plyEdge(xs[i], ya, t, yb - ya);
+      }
+      for (let i = 0; i < xs.length - 1; i++) {
+        const xa = xs[i] + (i > 0 ? t / 2 : 0);
+        const xb = xs[i + 1] - (i < xs.length - 2 ? t / 2 : 0);
+        const cw = xb - xa, ch = yb - ya, cx = (xa + xb) / 2;
+        const r = R();
+        const drawerRow = j < Math.ceil(rows * Math.min(1, drawersF * 1.6));
+        if ((desk && drawersF > 0) || (drawersF > 0 && drawerRow && r < 0.75 + drawersF * 0.25)) {
+          // Schublade: Front mit Griffkante oben
+          b.box(cw - 0.004, ch - 0.004, 0.018, F, cx, ya + 0.002, d / 2 - 0.009);
+          b.box(cw * 0.6, 0.008, 0.004, grip, cx, ya + ch - 0.022, d / 2 + 0.001);
+        } else if (doorsF > 0 && r < doorsF + (drawersF > 0 ? 0.15 : 0)) {
+          // Tür: Front mit Griffmulde in der oberen Ecke
+          b.box(cw - 0.004, ch - 0.004, 0.018, F, cx, ya + 0.002, d / 2 - 0.009);
+          const sx = i % 2 ? -1 : 1;
+          b.box(0.035, 0.012, 0.004, grip, cx + sx * (cw / 2 - 0.03), ya + ch - 0.03, d / 2 + 0.001);
+        } else if (!desk && r > 0.55 && ch > 0.16) {
+          // offene Fächer: wenige Objekte
+          const hh = Math.min(ch - 0.04, 0.12 + R() * 0.14);
+          b.cyl(0.035, 0.045, hh, getMaterial({ color: ["#ece3d2", "#a7b59e", "#c9a55c", "#3a3b3c", "#b8653f"][Math.floor(R() * 5)], material: R() > 0.8 ? "brass" : "ceramic" }), cx + (R() - 0.5) * cw * 0.3, ya, 0, 18);
+        }
+      }
+    }
+  }
+}

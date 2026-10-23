@@ -163,4 +163,23 @@ export const PARAM_LABELS: Record<string, { label: string; min?: number; max?: n
   tallUnits: { label: "Hochschränke (m)", min: 0, max: 2.4, step: 0.1 },
   footD: { label: "Fußdurchmesser (m)", min: 0.3, max: 0.9, step: 0.01 },
   profile: { label: "Profilbreite (m)", min: 0.02, max: 0.12, step: 0.005 },
+  doorShare: { label: "Anteil Türen", min: 0, max: 1, step: 0.05 },
+  drawerShare: { label: "Anteil Schubladen", min: 0, max: 1, step: 0.05 },
+  legH: { label: "Beinhöhe (m)", min: 0, max: 0.2, step: 0.01 },
+  heads: { label: "Leuchtköpfe", min: 2, max: 12, step: 1 },
+};
+
+/** Schalter-Parameter (Ausführung). */
+export const BOOL_PARAM_LABELS: Record<string, string> = {
+  backs: "Rückwände",
+  plywood: "Multiplex-Kanten sichtbar",
+  storage: "Bettkasten",
+  duvetSingle: "Einzeldecken",
+};
+
+/** Auswahl-Parameter (Ausführung). */
+export const CHOICE_PARAMS: Record<string, { label: string; options: [string, string][] }> = {
+  pattern: { label: "Muster", options: [["slant", "Slant (versetzt)"], ["grid", "Grid (Raster)"], ["gradient", "Gradient"]] },
+  front: { label: "Fronten", options: [["flat", "glatt"], ["ribbed", "geriffelt"]] },
+  handle: { label: "Griffe", options: [["bar", "Stange"], ["knob", "Knopf"], ["pull", "Griffleiste"], ["edge", "Griffkante"], ["none", "grifflos"]] },
 };

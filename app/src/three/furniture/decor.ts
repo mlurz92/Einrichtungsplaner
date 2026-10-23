@@ -363,6 +363,61 @@ export function tv(c: Ctx) {
   b.box(w - 0.012, h - 0.012, 0.002, getMaterial({ color: "#050608", material: "gloss" }), 0, 0.006, 0.011);
 }
 
+/**
+ * Samsung The Frame: Lifestyle-TV mit magnetischem Wechselrahmen und Art Mode (mattes Display mit Passepartout).
+ * Wandmontage (Slim-Fit-Halterung, ≈ 2,5 cm Wandabstand) oder auf den beiliegenden Standfüßen (params.stand).
+ * h = Gesamthöhe (mit Füßen), d = Tiefe (Panel bzw. Fußtiefe).
+ */
+export function tvFrame(c: Ctx) {
+  const { w, d, h, p, b } = c;
+  const stand = bool(p, "stand");
+  const panelD = num(p, "panelD", 0.025);
+  const feetH = stand ? num(p, "feetH", 0.034) : 0;
+  const panelH = Math.max(0.2, h - feetH);
+  const bezel = c.m("frame", { color: "#1b1b1b", material: "blackMetal" });
+  const body = getMaterial({ color: "#202020", material: "blackMetal" });
+  const z0 = stand ? 0 : d / 2 - panelD / 2;
+  const fw = num(p, "bezel", 0.022);
+  // Gehäuse + Wechselrahmen (Rahmen 4 mm vor der Displayebene)
+  b.box(w - 2 * fw + 0.004, panelH - 2 * fw + 0.004, panelD - 0.006, body, 0, feetH + fw - 0.002, z0 - 0.003);
+  b.box(w, fw, panelD, bezel, 0, feetH, z0);
+  b.box(w, fw, panelD, bezel, 0, feetH + panelH - fw, z0);
+  b.box(fw, panelH - 2 * fw, panelD, bezel, -w / 2 + fw / 2, feetH + fw, z0);
+  b.box(fw, panelH - 2 * fw, panelD, bezel, w / 2 - fw / 2, feetH + fw, z0);
+  // Display: Art Mode (Kunstwerk mit Passepartout) oder ausgeschaltet
+  const sw = w - 2 * fw;
+  const sh = panelH - 2 * fw;
+  const zs = z0 + panelD / 2 - 0.005;
+  if (str(p, "screen", "art") === "art") {
+    const mount = 0.085 * sh;
+    const pp = getMaterial({ color: "#f2efe8", material: "paper" });
+    const ppM = new THREE.Mesh(new THREE.PlaneGeometry(sw, sh), pp);
+    ppM.position.set(0, feetH + fw + sh / 2, zs);
+    b.object(ppM);
+    const tex = artTexture(str(p, "motif", "everlast"), str(p, "artC1", "#e7dfd2"), str(p, "artC2", "#7f8f7a"), Math.round(c.seed * 17) % 97);
+    tex.rotation = Math.PI / 2;
+    tex.center.set(0.5, 0.5);
+    const artMat = new THREE.MeshStandardMaterial({ map: tex, emissiveMap: tex, emissive: "#ffffff", emissiveIntensity: 0.18, roughness: 0.95 });
+    const art = new THREE.Mesh(new THREE.PlaneGeometry(sw - 2 * mount * (sw / sh) * 0.75, sh - 2 * mount), artMat);
+    art.position.set(0, feetH + fw + sh / 2, zs + 0.0008);
+    b.object(art);
+  } else {
+    b.box(sw, sh, 0.002, getMaterial({ color: "#0c0d0f", material: "gloss" }), 0, feetH + fw, zs - 0.001);
+  }
+  if (stand) {
+    // Zwei schlanke Standfüße (Metall), höhenverstellbar
+    const span = num(p, "standW", w * 0.7);
+    for (const sx of [-1, 1]) {
+      const x = sx * (span / 2 - 0.03);
+      b.box(0.06, 0.012, d, body, x, 0, 0);
+      b.box(0.045, feetH + 0.14, 0.014, body, x, 0.012, -panelD / 2 - 0.007);
+    }
+  } else {
+    // Slim-Fit-Wandhalterung (verdeckt)
+    b.box(Math.min(0.4, w * 0.4), Math.min(0.3, panelH * 0.4), d - panelD, body, 0, panelH / 2 - 0.15, -panelD / 2);
+  }
+}
+
 /** Akustik-Lamellen (Holz auf Filz), d = Gesamttiefe. */
 export function lamella(c: Ctx) {
   const { w, h, p, b } = c;
