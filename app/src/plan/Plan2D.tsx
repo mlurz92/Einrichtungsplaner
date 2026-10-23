@@ -16,7 +16,7 @@ import {
 } from "../model/geometry";
 import { PlanSymbol } from "./symbols";
 import { DND_TYPE, type CatalogDrop } from "../ui/dnd";
-import { applyPlacementSnap, beginDrag, dragUpdate, type DragStart } from "../store/placement";
+import { applyPlacementSnap, beginDrag, dragUpdate, isFlatFloorItem, type DragStart } from "../store/placement";
 
 const S = 100; // SVG-Einheit = cm
 const P = (v: number) => v * S;
@@ -26,7 +26,7 @@ const FLOOR_FILL: Record<string, string> = { planks: "#efe3cf", herringbone: "#e
 const WALL_POLY = apartment.walls;
 
 type Drag =
-  | { kind: "move"; ds: DragStart; p0: Vec2; moved: boolean }
+  | { kind: "move"; ds: DragStart; p0: Vec2; moved: boolean; sx: number; sy: number }
   | { kind: "rotate"; id: string; cx: number; cy: number; a0: number; r0: number }
   | { kind: "resize"; id: string; side: "l" | "r" | "f" | "b"; orig: PlacedItem }
   | { kind: "pan"; sx: number; sy: number; vb: [number, number, number, number] }
@@ -202,11 +202,19 @@ export function Plan2D() {
       return;
     }
     const id = itemAt(e.target);
+    const hitItem = id ? items.find((i) => i.id === id) : undefined;
+    if (id && hitItem && !sel.has(id) && isFlatFloorItem(hitItem) && !(e.shiftKey || e.ctrlKey || e.metaKey)) {
+      // Teppich: erster Klick wählt nur aus, Ziehen verschiebt die Ansicht
+      st.select([id]);
+      st.selectFace(null);
+      setDrag({ kind: "pan", sx: e.clientX, sy: e.clientY, vb });
+      return;
+    }
     if (id) {
       const additive = e.shiftKey || e.ctrlKey || e.metaKey;
       if (!sel.has(id) || additive) st.select([id], additive);
       const ids = (additive ? useEditor.getState().selection : sel.has(id) ? selection : [id]).filter((x) => !items.find((i) => i.id === x)?.locked);
-      if (ids.length) setDrag({ kind: "move", ds: beginDrag(ids, items), p0: p, moved: false });
+      if (ids.length) setDrag({ kind: "move", ds: beginDrag(ids, items), p0: p, moved: false, sx: e.clientX, sy: e.clientY });
       return;
     }
     const face = (e.target as Element).getAttribute?.("data-face");
@@ -219,7 +227,9 @@ export function Plan2D() {
     st.select([]);
     st.selectFace(null);
     if (room) st.selectRoom(room);
-    setDrag({ kind: "marquee", p0: p, p1: p });
+    // Freie Fläche: Ziehen verschiebt die Ansicht, mit Umschalt/Strg Auswahlrahmen
+    if (e.shiftKey || e.ctrlKey || e.metaKey) setDrag({ kind: "marquee", p0: p, p1: p });
+    else setDrag({ kind: "pan", sx: e.clientX, sy: e.clientY, vb });
   };
 
   const onMove = (e: React.PointerEvent) => {
@@ -240,7 +250,8 @@ export function Plan2D() {
     } else if (drag.kind === "move") {
       let dx = p[0] - drag.p0[0];
       let dy = p[1] - drag.p0[1];
-      if (!drag.moved && Math.hypot(dx, dy) < 0.01) return;
+      // Erst ab 4 px Mausweg verschieben (Klick bleibt Klick)
+      if (!drag.moved && Math.hypot(e.clientX - drag.sx, e.clientY - drag.sy) < 4) return;
       if (!drag.moved) {
         st.commit();
         setDrag({ ...drag, moved: true });
@@ -388,7 +399,7 @@ export function Plan2D() {
           st.addFromCatalog(catalogId, variant, p[0], p[1]);
           st.set("placing", null);
         }}
-        style={{ cursor: placing || measure.on ? "crosshair" : drag?.kind === "pan" ? "grabbing" : "default" }}
+        style={{ cursor: placing || measure.on ? "crosshair" : drag?.kind === "pan" ? "grabbing" : drag?.kind === "marquee" ? "crosshair" : "grab" }}
       >
         <defs>
           <pattern id="grid10" width={10} height={10} patternUnits="userSpaceOnUse">

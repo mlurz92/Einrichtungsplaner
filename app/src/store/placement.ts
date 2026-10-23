@@ -213,3 +213,8 @@ export function dragUpdate(ds: DragStart, dx: number, dy: number, snapOn: boolea
     },
   };
 }
+
+/** Teppiche u. Ä.: flach und großflächig, liegen unter anderen Möbeln – erst nach Auswahl verschiebbar. */
+export function isFlatFloorItem(it: PlacedItem) {
+  return it.mount === "floor" && it.h < 0.05 && it.w * it.d > 0.6;
+}

@@ -18,7 +18,7 @@ import { applyPlacementSnap, setFrameMode } from "./placement";
 
 export type ViewMode = "plan" | "3d" | "split";
 export type Camera3D = "orbit" | "walk" | "top";
-export type WallMode = "full" | "cut" | "low";
+export type WallMode = "auto" | "full" | "cut" | "low";
 
 export interface EditorState {
   project: Project;
@@ -201,7 +201,7 @@ export const useEditor = create<EditorState>((set, get) => ({
   hoverId: null,
   viewMode: (urlParams.get("view") as ViewMode) || "split",
   camera3d: (urlParams.get("cam") as Camera3D) || "orbit",
-  wallMode: (urlParams.get("walls") as WallMode) || "cut",
+  wallMode: (urlParams.get("walls") as WallMode) || "auto",
   showCeiling: false,
   night: urlParams.get("night") === "1",
   quality: (urlParams.get("q") as EditorState["quality"]) || "hoch",

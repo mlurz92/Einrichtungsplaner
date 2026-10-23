@@ -1,4 +1,6 @@
-import { memo, useEffect, useMemo } from "react";
+import { memo, useEffect, useMemo, useRef } from "react";
+import { useFrame } from "@react-three/fiber";
+import { isCutAway } from "./cutaway";
 import * as THREE from "three";
 import type { ThreeEvent } from "@react-three/fiber";
 import type { PlacedItem } from "../model/types";
@@ -16,6 +18,8 @@ interface Props {
   cut?: number | null;
 }
 
+// Auswahlrahmen nie treffen (Linien hätten sonst eine Treffer-Toleranz von 1 m)
+const noRaycast = () => {};
 const selMat = new THREE.LineBasicMaterial({ color: "#2563eb", depthTest: false, transparent: true, opacity: 0.95 });
 const hovMat = new THREE.LineBasicMaterial({ color: "#60a5fa", depthTest: false, transparent: true, opacity: 0.6 });
 
@@ -52,6 +56,47 @@ function ItemMeshImpl({ item, selected, hovered, onDown, onOver, cut = null }: P
     };
   }, [obj, item.id]);
 
+  // Wandmodus „Auto“: Wandobjekte und Vorhänge an gekappten Wänden bleiben sichtbar; sieht man sie
+  // von hinten (Kamera jenseits der Wand), werden sie durchscheinend, damit der Blick frei bleibt.
+  const ghostable = (archetype === "curtain" || item.mount === "wall") && item.id !== "ghost";
+  const ghost = useRef<{ on: boolean; orig: Map<THREE.Mesh, THREE.Material | THREE.Material[]> }>({ on: false, orig: new Map() });
+  const frame = useRef(Math.floor(Math.random() * 8));
+  useFrame(({ camera }) => {
+    if (!ghostable || frame.current++ % 8) return;
+    const r = (item.rot * Math.PI) / 180;
+    const back = item.d / 2 + 0.12;
+    const behind = -Math.sin(r) * (camera.position.x - item.x) + Math.cos(r) * (camera.position.z - item.y) < 0;
+    const on = !selected && behind && isCutAway(item.x + Math.sin(r) * back, 1.5, item.y - Math.cos(r) * back);
+    const g = ghost.current;
+    if (on === g.on) return;
+    g.on = on;
+    obj.traverse((o) => {
+      const m = o as THREE.Mesh;
+      if (!m.isMesh) return;
+      if (on) {
+        g.orig.set(m, m.material);
+        const conv = (x: THREE.Material) => {
+          const c = x.clone();
+          c.transparent = true;
+          c.opacity = 0.28;
+          c.depthWrite = false;
+          return c;
+        };
+        m.material = Array.isArray(m.material) ? m.material.map(conv) : conv(m.material);
+        m.castShadow = false;
+      } else if (g.orig.has(m)) {
+        const cur = m.material;
+        (Array.isArray(cur) ? cur : [cur]).forEach((x) => x.dispose());
+        m.material = g.orig.get(m)!;
+        m.castShadow = true;
+      }
+    });
+    if (!on) g.orig.clear();
+  });
+  useEffect(() => {
+    ghost.current = { on: false, orig: new Map() };
+  }, [obj]);
+
   const box = useMemo(() => {
     const g = new THREE.EdgesGeometry(new THREE.BoxGeometry(item.w + 0.02, item.h + 0.02, item.d + 0.02));
     g.translate(0, item.h / 2, 0);
@@ -70,7 +115,7 @@ function ItemMeshImpl({ item, selected, hovered, onDown, onOver, cut = null }: P
       onPointerOut={onOver ? () => onOver(null) : undefined}
     >
       <primitive object={obj} />
-      {(selected || hovered) && <lineSegments geometry={box} material={selected ? selMat : hovMat} renderOrder={999} />}
+      {(selected || hovered) && <lineSegments geometry={box} material={selected ? selMat : hovMat} renderOrder={999} raycast={noRaycast} />}
     </group>
   );
 }

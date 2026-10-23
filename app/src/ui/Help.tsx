@@ -3,7 +3,9 @@ import { useEditor } from "../store/project";
 
 const ROWS: [string, string][] = [
   ["Katalog → Plan/3D ziehen", "Produkt per Drag & Drop platzieren (Vorschau mit Wandfang)"],
-  ["Klick / Umschalt+Klick", "Auswählen / Mehrfachauswahl; Rahmen aufziehen im Plan"],
+  ["Klick / Umschalt+Klick", "Auswählen / Mehrfachauswahl"],
+  ["Umschalt+Ziehen (Plan)", "Auswahlrahmen aufziehen"],
+  ["Teppiche", "Erst anklicken, dann ziehen – so verschiebt man beim Navigieren keinen Teppich"],
   ["Ziehen", "Verschieben – Raster, Wandfang (Rückseite an die Wand, Ecken), Ablage auf Möbeln"],
   ["Alt beim Ziehen", "Fang vorübergehend aus"],
   ["Pfeiltasten (Umschalt)", "Verschieben um 1 cm (10 cm)"],
@@ -16,7 +18,9 @@ const ROWS: [string, string][] = [
   ["F", "Plan einpassen; in 3D Kamera auf die Auswahl"],
   ["Doppelklick (3D)", "Kamera auf Objekt"],
   ["M", "Messen im Plan"],
-  ["Mittlere/rechte Maustaste, Leertaste+Ziehen", "Plan verschieben; Mausrad zoomt"],
+  ["W", "Wanddarstellung wechseln: Auto (verdeckende Wände 15 cm, wie Die Sims) → Schnitt → Flach → Voll"],
+  ["Plan: Ziehen auf freier Fläche, mittlere/rechte Taste", "Ansicht verschieben; Mausrad zoomt zum Mauszeiger"],
+  ["3D: links ziehen / rechts oder Mitte ziehen", "Ansicht drehen / verschieben; Möbel nur bei direktem Treffer mit links"],
   ["Rundgang", "W A S D gehen, Maus umsehen, Umschalt schneller, Esc beendet"],
   ["Strg+S / Strg+O", "Speichern / Öffnen"],
   ["F1 oder ?", "Diese Hilfe"],

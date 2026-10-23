@@ -681,6 +681,7 @@ export function Inspector() {
       <ul className="mt-3 list-disc space-y-1 pl-4 text-xs">
         <li>Produkte aus dem Katalog direkt in Plan oder 3D ziehen</li>
         <li>Ziehen: verschieben mit Wandfang (Alt = ohne Fang)</li>
+        <li>Freie Fläche ziehen: Ansicht verschieben (Plan) bzw. drehen (3D); Umschalt+Ziehen: Auswahlrahmen</li>
         <li>Drehgriff bzw. R / Umschalt+R: ±15°</li>
         <li>Pfeiltasten: 1 cm, mit Umschalt 10 cm</li>
         <li>Entf: löschen · Strg+D: duplizieren</li>
