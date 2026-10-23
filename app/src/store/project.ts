@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { apartment, baseCatalog, concepts, wallFaces } from "../data";
 import type {
+  FloorFinish,
   BudgetLine,
   CatalogItem,
   ItemPart,
@@ -42,6 +43,7 @@ export interface EditorState {
   /** Hilfslinien des Wandfangs während des Ziehens. */
   snapGuides: SnapGuide[];
   helpOpen: boolean;
+  newDialogOpen: boolean;
 
   // Aktionen
   setProject(p: Project, opts?: { keepHistory?: boolean; filePath?: string | null }): void;
@@ -69,6 +71,23 @@ export interface EditorState {
   showToast(msg: string): void;
   requestFocus(x: number, y: number): void;
   setFrameStand(id: string, stand: boolean): void;
+  /** Ausbau auf mehrere Räume anwenden (ein Undo-Schritt). */
+  applyToRooms(roomIds: string[], fn: (r: RoomFinish, id: string) => RoomFinish): void;
+  setSettings(patch: Partial<Project["settings"]>): void;
+  /** Neue Einrichtung „von Grund auf“: leere Wohnung mit gewähltem Bestand und Grundausbau. */
+  newFurnishing(opts: NewFurnishingOptions): void;
+}
+
+export interface NewFurnishingOptions {
+  name: string;
+  keepKitchen: boolean;
+  keepSanitary: boolean;
+  keepWasher: boolean;
+  wallColor: string;
+  wallProduct: string;
+  ceilingColor: string;
+  /** Bodenvorlage für Wohnräume (null = Bestand Eichendielen). */
+  floor: Omit<FloorFinish, "angle"> | null;
 }
 
 const AUTOSAVE_KEY = "we13.autosave.v1";
@@ -146,12 +165,23 @@ function emptyProject(): Project {
   } as Project;
 }
 
+/** Ältere Projektstände an den Bestand anpassen (Fliesen HWR/Bäder: Feinsteinzeug 60 × 60 „Iron“). */
+export function migrateProject(p: Project): Project {
+  for (const rid of ["13.05", "13.06", "13.07"]) {
+    const f = p.rooms?.[rid]?.floor;
+    if (f && f.kind === "tiles" && f.productName === "Feinsteinzeug 60 × 60 (Bestand)") {
+      p.rooms[rid] = { ...p.rooms[rid], floor: { ...f, color: "#5e5b57", color2: "#46443f", tileSize: 0.6, productName: "Feinsteinzeug 60 × 60 cm, Farbe Iron (Bestand)" } };
+    }
+  }
+  return p;
+}
+
 function loadAutosave(): Project | null {
   try {
     const raw = localStorage.getItem(AUTOSAVE_KEY);
     if (!raw) return null;
     const p = JSON.parse(raw) as Project;
-    if (p && p.version === 1 && Array.isArray(p.items)) return p;
+    if (p && p.version === 1 && Array.isArray(p.items)) return migrateProject(p);
   } catch {
     /* ignorieren */
   }
@@ -185,8 +215,10 @@ export const useEditor = create<EditorState>((set, get) => ({
   focusRequest: null,
   snapGuides: [],
   helpOpen: false,
+  newDialogOpen: false,
 
   setProject(p, opts) {
+    p = migrateProject(p);
     rebuildCatalogIndex(p);
     set({
       project: p,
@@ -353,6 +385,39 @@ export const useEditor = create<EditorState>((set, get) => ({
       return { project: { ...s.project, walls }, dirty: true };
     });
   },
+  applyToRooms(roomIds, fn) {
+    get().commit();
+    set((s) => {
+      const rooms = { ...s.project.rooms };
+      for (const id of roomIds) if (rooms[id]) rooms[id] = fn(structuredClone(rooms[id]), id);
+      return { project: { ...s.project, rooms }, dirty: true };
+    });
+  },
+  setSettings(patch) {
+    get().commit();
+    set((s) => ({ project: { ...s.project, settings: { ...s.project.settings, ...patch } }, dirty: true }));
+  },
+  newFurnishing(o) {
+    const p = emptyProject();
+    p.name = o.name || "Neue Einrichtung";
+    p.subtitle = "Eigene Einrichtung WE 13";
+    p.items = p.items.filter((i) => {
+      const a = getCatalogItem(i.catalogId)?.archetype ?? "";
+      if (a === "kitchenRun") return o.keepKitchen;
+      if (a === "washer") return o.keepWasher;
+      if (["bathtub", "toilet", "washbasin", "shower"].includes(a)) return o.keepSanitary;
+      return false;
+    });
+    for (const r of apartment.rooms) {
+      const f = p.rooms[r.id];
+      if (!f || r.outdoor) continue;
+      const wet = ["13.05", "13.06"].includes(r.id);
+      f.ceiling = o.ceilingColor;
+      f.wall = wet ? { ...f.wall, base: { kind: "paint", color: o.wallColor, productName: o.wallProduct } } : { base: { kind: "paint", color: o.wallColor, productName: o.wallProduct } };
+      if (o.floor && r.floor === "parkett") f.floor = { ...o.floor, angle: f.floor.angle };
+    }
+    get().setProject(p, { keepHistory: true });
+  },
   setRoomFinish(roomId, patch) {
     get().commit();
     set((s) => ({
@@ -374,7 +439,7 @@ export const useEditor = create<EditorState>((set, get) => ({
   },
   showToast(msg) {
     set({ toast: msg });
-    window.setTimeout(() => {
+    setTimeout(() => {
       if (get().toast === msg) set({ toast: null });
     }, 3200);
   },
@@ -388,14 +453,14 @@ export const useEditor = create<EditorState>((set, get) => ({
 }));
 
 // Zugriff für automatisierte Tests/Diagnose
-(window as unknown as Record<string, unknown>).__we13store = useEditor;
+(globalThis as unknown as Record<string, unknown>).__we13store = useEditor;
 
 // Autosave (entprellt)
-let saveTimer: number | undefined;
+let saveTimer: ReturnType<typeof setTimeout> | undefined;
 useEditor.subscribe((s, prev) => {
   if (s.project === prev.project) return;
-  window.clearTimeout(saveTimer);
-  saveTimer = window.setTimeout(() => {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => {
     try {
       localStorage.setItem(AUTOSAVE_KEY, JSON.stringify(s.project));
     } catch {

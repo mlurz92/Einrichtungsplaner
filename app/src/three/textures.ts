@@ -226,6 +226,13 @@ export function floorTexture(kind: string, color: string, plankL = 1.9, plankW =
     sizeX = 2.4;
     sizeY = plankW * 12;
   }
+  if (kind === "terrazzo") {
+    sizeX = sizeY = 1.2;
+  }
+  if (kind === "slats") {
+    sizeX = plankL;
+    sizeY = Math.round(1.2 / (plankW + 0.015)) * (plankW + 0.015);
+  }
   const c = document.createElement("canvas");
   c.width = Math.round(sizeX * PX);
   c.height = Math.round(sizeY * PX);
@@ -328,6 +335,29 @@ export function floorTexture(kind: string, color: string, plankL = 1.9, plankW =
           hg.lineWidth = 4;
           hg.strokeRect(x, y, T, T);
         }
+      }
+    } else if (kind === "slats") {
+      // Holzlamellendecke: Lamellen mit dunkler Schattenfuge (Akustikfilz)
+      g.fillStyle = "#1b1a19";
+      g.fillRect(0, 0, c.width, c.height);
+      const W = plankW * PX, gap = 0.015 * PX;
+      for (let y = 0; y < c.height; y += W + gap) plank(0, y, c.width, W, 0);
+    } else if (kind === "terrazzo") {
+      // Terrazzo: Grundmasse + Zuschlag in Grund-, Kontrast- und Akzentfarbe
+      g.fillStyle = color;
+      g.fillRect(0, 0, c.width, c.height);
+      const chips = [shade(color, 0.72), shade(color, 1.12), color2 ?? "#9a8f82", shade(color2 ?? "#9a8f82", 0.7), "#f4f1ea"];
+      for (let i = 0; i < 2600; i++) {
+        const x = R() * c.width, y = R() * c.height, r = 2 + R() * R() * 16;
+        g.fillStyle = chips[Math.floor(R() * chips.length)];
+        g.beginPath();
+        const n = 5 + Math.floor(R() * 3);
+        for (let k = 0; k < n; k++) {
+          const a = (k / n) * Math.PI * 2, rr = r * (0.6 + R() * 0.5);
+          if (k === 0) g.moveTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr);
+          else g.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr);
+        }
+        g.fill();
       }
     } else if (kind === "carpet") {
       g.fillStyle = color;

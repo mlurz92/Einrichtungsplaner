@@ -89,7 +89,7 @@ export function floorMaterial(f: FloorFinish): { mat: THREE.MeshPhysicalMaterial
   const hit = floorCache.get(key);
   const tex = floorTexture(f.kind, f.color, f.plankLength ?? 1.9, f.plankWidth ?? 0.19, f.color2, f.tileSize ?? 0.6);
   if (hit) return { mat: hit, size: tex.size };
-  const m = new THREE.MeshPhysicalMaterial({ color: "#ffffff", roughness: f.kind === "tiles" ? 0.3 : f.kind === "carpet" ? 1 : 0.5 });
+  const m = new THREE.MeshPhysicalMaterial({ color: "#ffffff", roughness: f.kind === "tiles" || f.kind === "terrazzo" ? 0.3 : f.kind === "carpet" ? 1 : 0.5 });
   m.map = tex.map;
   if (tex.normal) {
     m.normalMap = tex.normal;

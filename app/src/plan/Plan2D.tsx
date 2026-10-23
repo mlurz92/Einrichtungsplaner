@@ -22,7 +22,7 @@ const S = 100; // SVG-Einheit = cm
 const P = (v: number) => v * S;
 const pts = (poly: Vec2[]) => poly.map(([x, y]) => `${P(x)},${P(y)}`).join(" ");
 
-const FLOOR_FILL: Record<string, string> = { planks: "#efe3cf", herringbone: "#efe3cf", chevron: "#efe3cf", tiles: "#eceae6", deck: "#e6dccd", stone: "#ece6db", carpet: "#e7e2da", microcement: "#e2e0dc" };
+const FLOOR_FILL: Record<string, string> = { planks: "#efe3cf", herringbone: "#efe3cf", chevron: "#efe3cf", tiles: "#eceae6", deck: "#e6dccd", stone: "#ece6db", carpet: "#e7e2da", microcement: "#e2e0dc", terrazzo: "#e6e1d8" };
 const WALL_POLY = apartment.walls;
 
 type Drag =

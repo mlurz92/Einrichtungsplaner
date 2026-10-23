@@ -3633,11 +3633,11 @@
 "13.05": {
 "floor": {
 "kind": "tiles",
-"color": "#d9d5cd",
-"color2": "#bdb7ac",
+"color": "#5e5b57",
+"color2": "#46443f",
 "angle": 0,
 "tileSize": 0.6,
-"productName": "Feinsteinzeug 60 × 60 (Bestand)"
+"productName": "Feinsteinzeug 60 × 60 cm, Farbe Iron (Bestand)"
 },
 "ceiling": "#f7f5f0",
 "wall": {
@@ -3662,11 +3662,11 @@
 "13.06": {
 "floor": {
 "kind": "tiles",
-"color": "#d9d5cd",
-"color2": "#bdb7ac",
+"color": "#5e5b57",
+"color2": "#46443f",
 "angle": 0,
 "tileSize": 0.6,
-"productName": "Feinsteinzeug 60 × 60 (Bestand)"
+"productName": "Feinsteinzeug 60 × 60 cm, Farbe Iron (Bestand)"
 },
 "ceiling": "#f7f5f0",
 "wall": {
@@ -3691,11 +3691,11 @@
 "13.07": {
 "floor": {
 "kind": "tiles",
-"color": "#d9d5cd",
-"color2": "#bdb7ac",
+"color": "#5e5b57",
+"color2": "#46443f",
 "angle": 8,
 "tileSize": 0.6,
-"productName": "Feinsteinzeug 60 × 60 (Bestand)"
+"productName": "Feinsteinzeug 60 × 60 cm, Farbe Iron (Bestand)"
 },
 "ceiling": "#f7f5f0",
 "wall": {

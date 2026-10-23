@@ -724,7 +724,8 @@ def build(n):
 def finishes(n):
     """Raumweise Boden/Decke/Wand + Wandflächen-Überschreibungen je Konzept."""
     floor_parkett = {"kind": "planks", "color": OAK_FLOOR, "angle": 0, "plankLength": 1.90, "plankWidth": 0.19, "productName": "Natureiche-Dielen L 1,90 m (Bestand)"}
-    tiles = {"kind": "tiles", "color": "#d9d5cd", "color2": "#bdb7ac", "angle": 0, "tileSize": 0.60, "productName": "Feinsteinzeug 60 × 60 (Bestand)"}
+    # Bestand: Feinsteinzeug 60 × 60 cm, Farbe „Iron“ (dunkles, leicht warmes Anthrazit), Fuge anthrazit
+    tiles = {"kind": "tiles", "color": "#5e5b57", "color2": "#46443f", "angle": 0, "tileSize": 0.60, "productName": "Feinsteinzeug 60 × 60 cm, Farbe Iron (Bestand)"}
     deck = {"kind": "deck", "color": "#8a6a4c", "angle": 0, "plankWidth": 0.14, "productName": "Holzbelag Balkon (Bestand)"}
     wing = {"13.01": 8, "13.02": 8, "13.03": 8, "13.07": 8, "13.09": 8}
     base_wall = {"kind": "paint", "color": WALL_WHITE, "productName": "Warmweiß matt (NCS S 0502-Y)", "sheen": "matt"}

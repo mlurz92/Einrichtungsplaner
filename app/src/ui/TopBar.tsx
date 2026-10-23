@@ -51,8 +51,8 @@ export function TopBar() {
         </div>
       </div>
       <Menu label="Datei">
-        <Item onClick={() => st.newEmptyProject()}>
-          <FilePlus size={15} /> Leere Wohnung
+        <Item onClick={() => st.set("newDialogOpen", true)}>
+          <FilePlus size={15} /> Neue Einrichtung (leere Wohnung) …
         </Item>
         <Item onClick={openProject} kbd="Strg+O">
           <FolderOpen size={15} /> Öffnen …

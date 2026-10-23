@@ -28,6 +28,14 @@ interface MatDef {
 
 export const MAT_DEFS: Record<MaterialKey, MatDef> = {
   fabric: { tex: "fabric", normalTex: "fabric", scale: 0.25, roughness: 0.92, sheen: 0.35, sheenRoughness: 0.8, normalScale: 0.8, contrast: 0.6 },
+  // Melierter Webstoff (IKEA Gunnared, Remmarn, Tonerud): gröbere Struktur, stärkere Farbstreuung
+  melange: { tex: "weave", normalTex: "weave", scale: 0.18, roughness: 0.95, sheen: 0.3, sheenRoughness: 0.85, normalScale: 1.1, contrast: 1.0 },
+  // Chenille (Kilanda, Westwing Chenille): weicher Flor mit leichtem Glanz
+  chenille: { tex: "velvet", normalTex: "fabric", scale: 0.3, roughness: 0.85, sheen: 0.8, sheenRoughness: 0.55, normalScale: 0.7, contrast: 0.55 },
+  // Bouclé meliert: Bouclé mit deutlicherer Farbstreuung
+  boucleMel: { tex: "boucle", normalTex: "boucle", scale: 0.1, roughness: 1, sheen: 0.5, sheenRoughness: 0.9, normalScale: 1.7, contrast: 1.6 },
+  // Kunstfell: langer, dichter Flor
+  fur: { tex: "boucle", normalTex: "boucle", scale: 0.04, roughness: 1, sheen: 1, sheenRoughness: 1, normalScale: 2.8, contrast: 0.9 },
   boucle: { tex: "boucle", normalTex: "boucle", scale: 0.1, roughness: 1, sheen: 0.55, sheenRoughness: 0.9, normalScale: 1.6, contrast: 1.1 },
   teddy: { tex: "boucle", normalTex: "boucle", scale: 0.06, roughness: 1, sheen: 0.9, sheenRoughness: 1, normalScale: 2.2, contrast: 1.2 },
   velvet: { tex: "velvet", normalTex: "velvet", scale: 0.6, roughness: 0.78, sheen: 1, sheenRoughness: 0.35, normalScale: 0.3, contrast: 0.45 },

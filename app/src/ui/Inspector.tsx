@@ -24,7 +24,7 @@ import { alignOffsets, distributeOffsets, type AlignMode } from "../model/align"
 import { useEditor, getCatalogItem, allCatalog, itemPrice } from "../store/project";
 import { CATEGORY_LABELS, apartment, roomNames, wallFaceById } from "../data";
 import type { MaterialKey, PlacedItem, Slot, Surface, SurfaceKind, WallFinish } from "../model/types";
-import { BOOL_PARAM_LABELS, CHOICE_PARAMS, MATERIAL_LABELS, PAINTS, PARAM_LABELS, SLOT_LABELS, SURFACE_KINDS, TILE_PATTERNS, WALLPAPER_PATTERNS } from "../data/paints";
+import { BOOL_PARAM_LABELS, CEILING_KINDS, CHOICE_PARAMS, CORNICE_SIZES, FLOOR_PRESETS, MATERIAL_LABELS, SKIRTING_PRESETS, PAINTS, PARAM_LABELS, SLOT_LABELS, SURFACE_KINDS, TILE_PATTERNS, WALLPAPER_PATTERNS } from "../data/paints";
 import { Thumb } from "./CatalogPanel";
 import { fmtEuro, nearestFace, normAngle, rotationForFace, segmentDistance } from "../model/geometry";
 import { openExternal } from "../platform";
@@ -483,15 +483,34 @@ export function RoomInspector({ roomId }: { roomId: string }) {
         </div>
       </Section>
       <Section title="Boden">
-        <div className="grid grid-cols-2 gap-2">
+        <label className="block">
+          <span className="text-[11px] text-stone-500">Vorlage</span>
+          <select
+            className="field"
+            value=""
+            onChange={(e) => {
+              const pr = FLOOR_PRESETS.find((x) => x.id === e.target.value);
+              if (pr) st.setRoomFinish(roomId, { floor: { ...pr.floor, angle: fin.floor.angle } });
+            }}
+          >
+            <option value="">Belag aus Vorlage wählen …</option>
+            {FLOOR_PRESETS.map((x) => (
+              <option key={x.id} value={x.id}>
+                {x.label}
+              </option>
+            ))}
+          </select>
+        </label>
+        <div className="mt-2 grid grid-cols-2 gap-2">
           <label className="col-span-2 block">
             <span className="text-[11px] text-stone-500">Belag</span>
             <select className="field" value={fin.floor.kind} onChange={(e) => st.setRoomFinish(roomId, { floor: { ...fin.floor, kind: e.target.value as typeof fin.floor.kind, productName: undefined } })}>
               <option value="planks">Dielen (Landhausdiele)</option>
               <option value="herringbone">Fischgrät</option>
               <option value="chevron">Chevron</option>
-              <option value="tiles">Fliesen</option>
+              <option value="tiles">Fliesen / Feinsteinzeug</option>
               <option value="stone">Naturstein</option>
+              <option value="terrazzo">Terrazzo</option>
               <option value="microcement">Mikrozement</option>
               <option value="carpet">Teppichboden</option>
               <option value="deck">Holzdeck (außen)</option>
@@ -501,6 +520,12 @@ export function RoomInspector({ roomId }: { roomId: string }) {
             <span className="text-[11px] text-stone-500">Farbe</span>
             <input type="color" value={fin.floor.color} onChange={(e) => st.setRoomFinish(roomId, { floor: { ...fin.floor, color: e.target.value } })} className="h-8 w-full rounded border border-stone-200 p-0.5" />
           </label>
+          {["tiles", "stone", "terrazzo"].includes(fin.floor.kind) && (
+            <label className="block">
+              <span className="text-[11px] text-stone-500">{fin.floor.kind === "terrazzo" ? "Zuschlag" : "Fuge"}</span>
+              <input type="color" value={fin.floor.color2 ?? "#8f8b84"} onChange={(e) => st.setRoomFinish(roomId, { floor: { ...fin.floor, color2: e.target.value } })} className="h-8 w-full rounded border border-stone-200 p-0.5" />
+            </label>
+          )}
           <Num label="Verlegerichtung" unit="°" value={fin.floor.angle} onChange={(v) => st.setRoomFinish(roomId, { floor: { ...fin.floor, angle: v } })} />
           {(fin.floor.kind === "planks" || fin.floor.kind === "deck") && (
             <>
@@ -511,13 +536,64 @@ export function RoomInspector({ roomId }: { roomId: string }) {
           {(fin.floor.kind === "tiles" || fin.floor.kind === "stone") && <Num label="Fliesengröße" unit="cm" value={(fin.floor.tileSize ?? 0.6) * 100} onChange={(v) => st.setRoomFinish(roomId, { floor: { ...fin.floor, tileSize: v / 100 } })} />}
         </div>
         {fin.floor.productName && <div className="mt-1 text-xs text-stone-500">{fin.floor.productName}</div>}
+        <ApplyAll
+          label="Boden übertragen auf"
+          onApply={(ids) => st.applyToRooms(ids, (x) => ({ ...x, floor: { ...structuredClone(fin.floor), angle: x.floor.angle } }))}
+          dry
+        />
       </Section>
       <Section title="Wände (Raumstandard)">
         <SurfaceEditor value={fin.wall} onChange={(w) => st.setRoomFinish(roomId, { wall: w })} />
+        <ApplyAll label="Wände übertragen auf" onApply={(ids) => st.applyToRooms(ids, (x) => ({ ...x, wall: structuredClone(fin.wall) }))} />
       </Section>
       <Section title="Decke">
-        <div className="flex items-center gap-2">
-          <input type="color" value={fin.ceiling} onChange={(e) => st.setRoomFinish(roomId, { ceiling: e.target.value })} className="h-8 w-10 rounded border border-stone-200 p-0.5" />
+        <div className="grid grid-cols-2 gap-2">
+          <label className="col-span-2 block">
+            <span className="text-[11px] text-stone-500">Ausführung</span>
+            <select
+              className="field"
+              value={fin.ceilingFinish?.kind ?? "paint"}
+              onChange={(e) => {
+                const k = CEILING_KINDS.find((x) => x.kind === e.target.value)!;
+                st.setRoomFinish(roomId, { ceilingFinish: { ...(fin.ceilingFinish ?? {}), kind: k.kind, color: k.color ?? fin.ceilingFinish?.color } });
+              }}
+            >
+              {CEILING_KINDS.map((k) => (
+                <option key={k.kind} value={k.kind}>
+                  {k.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label className="block">
+            <span className="text-[11px] text-stone-500">{(fin.ceilingFinish?.kind ?? "paint") === "paint" ? "Deckenfarbe" : "Farbton"}</span>
+            <input
+              type="color"
+              value={(fin.ceilingFinish?.kind ?? "paint") === "paint" ? fin.ceiling : fin.ceilingFinish?.color ?? "#c9a477"}
+              onChange={(e) =>
+                (fin.ceilingFinish?.kind ?? "paint") === "paint"
+                  ? st.setRoomFinish(roomId, { ceiling: e.target.value })
+                  : st.setRoomFinish(roomId, { ceilingFinish: { ...fin.ceilingFinish!, color: e.target.value } })
+              }
+              className="h-8 w-full rounded border border-stone-200 p-0.5"
+            />
+          </label>
+          <label className="block">
+            <span className="text-[11px] text-stone-500">Stuckprofil</span>
+            <select
+              className="field"
+              value={fin.ceilingFinish?.cornice ?? 0}
+              onChange={(e) => st.setRoomFinish(roomId, { ceilingFinish: { kind: "paint", ...(fin.ceilingFinish ?? {}), cornice: Number(e.target.value) } })}
+            >
+              {CORNICE_SIZES.map(([v, l]) => (
+                <option key={v} value={v}>
+                  {l}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+        <div className="mt-2 flex flex-wrap gap-1">
           <button className="btn" onClick={() => st.setRoomFinish(roomId, { ceiling: fin.wall.base.color })}>
             Wie Wandfarbe
           </button>
@@ -525,7 +601,64 @@ export function RoomInspector({ roomId }: { roomId: string }) {
             Weiß
           </button>
         </div>
+        <ApplyAll label="Decke übertragen auf" onApply={(ids) => st.applyToRooms(ids, (x) => ({ ...x, ceiling: fin.ceiling, ceilingFinish: structuredClone(fin.ceilingFinish) }))} />
       </Section>
+      <Section title="Sockelleiste">
+        <div className="grid grid-cols-2 gap-2">
+          <label className="col-span-2 block">
+            <span className="text-[11px] text-stone-500">Vorlage</span>
+            <select
+              className="field"
+              value=""
+              onChange={(e) => {
+                const pr = SKIRTING_PRESETS[Number(e.target.value)];
+                if (pr) st.setRoomFinish(roomId, { skirting: { ...pr.skirting } });
+              }}
+            >
+              <option value="">{fin.skirting ? `${Math.round(fin.skirting.height * 100)} cm` : "Bestand (6 cm, wie Wand)"} – ändern …</option>
+              {SKIRTING_PRESETS.map((x, i) => (
+                <option key={x.label} value={i}>
+                  {x.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          <Num label="Höhe" unit="cm" value={(fin.skirting?.height ?? (r.floor === "parkett" ? 0.06 : 0)) * 100} min={0} max={30} onChange={(v) => st.setRoomFinish(roomId, { skirting: { color: "wall", ...(fin.skirting ?? {}), height: v / 100 } })} />
+          <label className="block">
+            <span className="text-[11px] text-stone-500">Farbe</span>
+            <input
+              type="color"
+              value={!fin.skirting || fin.skirting.color === "wall" ? fin.wall.base.color : fin.skirting.color}
+              onChange={(e) => st.setRoomFinish(roomId, { skirting: { height: fin.skirting?.height ?? 0.06, ...(fin.skirting ?? {}), color: e.target.value } })}
+              className="h-8 w-full rounded border border-stone-200 p-0.5"
+            />
+          </label>
+        </div>
+        <ApplyAll label="Sockelleiste übertragen auf" onApply={(ids) => st.applyToRooms(ids, (x) => ({ ...x, skirting: structuredClone(fin.skirting ?? { height: 0.06, color: "wall" }) }))} />
+      </Section>
+    </div>
+  );
+}
+
+/** Übertragen auf: Wohnräume (Dielenzone), Nassräume, alle Innenräume. */
+function ApplyAll({ label, onApply, dry }: { label: string; onApply: (ids: string[]) => void; dry?: boolean }) {
+  const indoor = apartment.rooms.filter((r) => !r.outdoor);
+  const living = indoor.filter((r) => r.floor === "parkett").map((r) => r.id);
+  const wet = indoor.filter((r) => r.floor !== "parkett").map((r) => r.id);
+  return (
+    <div className="mt-2 flex flex-wrap items-center gap-1 text-[11px] text-stone-500">
+      {label}:
+      <button className="chip" onClick={() => onApply(living)} title={living.join(", ")}>
+        Wohnräume
+      </button>
+      {!dry && (
+        <button className="chip" onClick={() => onApply(wet)} title={wet.join(", ")}>
+          Bad/HWR
+        </button>
+      )}
+      <button className="chip" onClick={() => onApply(indoor.map((r) => r.id))}>
+        alle Innenräume
+      </button>
     </div>
   );
 }

@@ -63,6 +63,10 @@ export type Mount = "floor" | "wall" | "ceiling" | "surface";
 /** Benannte Materialvorlagen (prozedural/PBR, siehe three/materials.ts). */
 export type MaterialKey =
   | "fabric"
+  | "melange"
+  | "chenille"
+  | "boucleMel"
+  | "fur"
   | "boucle"
   | "teddy"
   | "velvet"
@@ -331,7 +335,7 @@ export interface WallFinish {
   lower?: { height: number; surface: Surface; rail?: boolean };
 }
 
-export type FloorKind = "planks" | "herringbone" | "chevron" | "tiles" | "stone" | "deck" | "carpet" | "microcement";
+export type FloorKind = "planks" | "herringbone" | "chevron" | "tiles" | "stone" | "deck" | "carpet" | "microcement" | "terrazzo";
 
 export interface FloorFinish {
   kind: FloorKind;
@@ -344,10 +348,29 @@ export interface FloorFinish {
   productName?: string;
 }
 
+export interface CeilingFinish {
+  kind: "paint" | "woodSlats" | "woodPanel" | "concrete";
+  /** Holzton bzw. Betonfarbe (Anstrichfarbe steht in RoomFinish.ceiling). */
+  color?: string;
+  /** Stuckprofil/Deckenleiste: Höhe in m (0 = keins). */
+  cornice?: number;
+  corniceColor?: string;
+}
+
+export interface SkirtingFinish {
+  /** Höhe in m (0 = keine Sockelleiste). */
+  height: number;
+  /** "wall" = wie Wandfarbe, sonst Farbwert. */
+  color: string;
+  material?: "lacquer" | "oak" | "walnut" | "blackMetal";
+}
+
 export interface RoomFinish {
   floor: FloorFinish;
   ceiling: string;
   wall: WallFinish;
+  ceilingFinish?: CeilingFinish;
+  skirting?: SkirtingFinish;
 }
 
 export interface Project {
@@ -368,6 +391,11 @@ export interface Project {
 }
 
 export interface ProjectSettings {
+  /** Innentüren: Türblattfarbe, Stil, Griff; Fensterrahmen. */
+  doorColor?: string;
+  doorStyle?: "flat" | "panel" | "groove";
+  handleFinish?: "blackMetal" | "brass" | "steel";
+  windowFrameColor?: string;
   doorsOpen: number;
   showDimensions: boolean;
   snap: boolean;

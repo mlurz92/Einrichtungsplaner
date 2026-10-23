@@ -1,4 +1,4 @@
-import type { MaterialKey, SurfaceKind } from "../model/types";
+import type { CeilingFinish, FloorFinish, MaterialKey, SkirtingFinish, SurfaceKind } from "../model/types";
 
 export interface PaintColor {
   brand: string;
@@ -95,6 +95,10 @@ export const TILE_PATTERNS = [
 export const MATERIAL_LABELS: Record<MaterialKey, string> = {
   fabric: "Webstoff",
   boucle: "Bouclé",
+  boucleMel: "Bouclé meliert",
+  melange: "Webstoff meliert",
+  chenille: "Chenille",
+  fur: "Kunstfell",
   teddy: "Teddy-Bouclé",
   velvet: "Samt",
   cord: "Cord",
@@ -183,3 +187,58 @@ export const CHOICE_PARAMS: Record<string, { label: string; options: [string, st
   front: { label: "Fronten", options: [["flat", "glatt"], ["ribbed", "geriffelt"]] },
   handle: { label: "Griffe", options: [["bar", "Stange"], ["knob", "Knopf"], ["pull", "Griffleiste"], ["edge", "Griffkante"], ["none", "grifflos"]] },
 };
+
+// ---------------------------------------------------------------- Ausbau-Vorlagen
+
+/** Bodenbeläge (Produktvorlagen). Bestand WE 13: Eichendielen 1,90 m; HWR/Bad/Dusche Feinsteinzeug 60 × 60 „Iron“. */
+export const FLOOR_PRESETS: { id: string; label: string; floor: Omit<FloorFinish, "angle"> }[] = [
+  { id: "oak", label: "Eiche natur, Diele 1,90 m (Bestand)", floor: { kind: "planks", color: "#cfae84", plankLength: 1.9, plankWidth: 0.19, productName: "Natureiche-Dielen L 1,90 m (Bestand)" } },
+  { id: "oakWhite", label: "Eiche weiß geölt, Landhausdiele", floor: { kind: "planks", color: "#e2d3bb", plankLength: 2.2, plankWidth: 0.22, productName: "Landhausdiele Eiche weiß geölt" } },
+  { id: "oakSmoked", label: "Eiche geräuchert, Landhausdiele", floor: { kind: "planks", color: "#7d5d43", plankLength: 2.2, plankWidth: 0.22, productName: "Landhausdiele Räuchereiche" } },
+  { id: "walnut", label: "Amerik. Nussbaum, Diele", floor: { kind: "planks", color: "#6f4f37", plankLength: 1.9, plankWidth: 0.16, productName: "Diele Amerikanischer Nussbaum" } },
+  { id: "herring", label: "Fischgrät Eiche natur", floor: { kind: "herringbone", color: "#c8a57a", productName: "Fischgrätparkett Eiche natur" } },
+  { id: "herringSmoked", label: "Fischgrät Eiche geräuchert", floor: { kind: "herringbone", color: "#80614a", productName: "Fischgrätparkett Räuchereiche" } },
+  { id: "chevron", label: "Chevron Eiche hell", floor: { kind: "chevron", color: "#d6bc96", productName: "Chevron-Parkett Eiche hell" } },
+  { id: "iron", label: "Feinsteinzeug 60 × 60 Iron (Bestand)", floor: { kind: "tiles", color: "#5e5b57", color2: "#46443f", tileSize: 0.6, productName: "Feinsteinzeug 60 × 60 cm, Farbe Iron (Bestand)" } },
+  { id: "concreteTile", label: "Feinsteinzeug 120 × 120 Betonoptik", floor: { kind: "tiles", color: "#a7a39c", color2: "#8f8b84", tileSize: 1.2, productName: "Feinsteinzeug 120 × 120 cm Betonoptik" } },
+  { id: "travertine", label: "Travertin 60 × 40 geschliffen", floor: { kind: "stone", color: "#dccbb0", color2: "#c9b89c", tileSize: 0.6, productName: "Travertin geschliffen/gespachtelt" } },
+  { id: "marble", label: "Marmor Carrara 60 × 60", floor: { kind: "stone", color: "#ebe8e3", color2: "#d4d0c9", tileSize: 0.6, productName: "Marmor Carrara poliert" } },
+  { id: "terrazzo", label: "Terrazzo hell", floor: { kind: "terrazzo", color: "#e3ddd2", color2: "#a59a8c", productName: "Terrazzo (Ortbeton geschliffen)" } },
+  { id: "terrazzoGreen", label: "Terrazzo Salbei", floor: { kind: "terrazzo", color: "#cdd3c4", color2: "#6c7a63", productName: "Terrazzo Salbei" } },
+  { id: "micro", label: "Mikrozement Greige", floor: { kind: "microcement", color: "#c9c2b6", productName: "Mikrozement fugenlos" } },
+  { id: "carpet", label: "Wollteppichboden Sand", floor: { kind: "carpet", color: "#cdbfa8", productName: "Wollteppichboden Velours" } },
+];
+
+export const CEILING_KINDS: { kind: CeilingFinish["kind"]; label: string; color?: string }[] = [
+  { kind: "paint", label: "Anstrich" },
+  { kind: "woodSlats", label: "Holzlamellen (akustisch)", color: "#b88d5f" },
+  { kind: "woodPanel", label: "Holzpaneele", color: "#c9a477" },
+  { kind: "concrete", label: "Sichtbeton", color: "#a9a6a0" },
+];
+
+export const CORNICE_SIZES: [number, string][] = [[0, "kein"], [0.04, "schmal 4 cm"], [0.07, "mittel 7 cm"], [0.11, "Altbau 11 cm"]];
+
+export const SKIRTING_PRESETS: { label: string; skirting: SkirtingFinish }[] = [
+  { label: "keine", skirting: { height: 0, color: "wall" } },
+  { label: "6 cm wie Wand (Bestand)", skirting: { height: 0.06, color: "wall" } },
+  { label: "10 cm weiß", skirting: { height: 0.1, color: "#f4f2ec", material: "lacquer" } },
+  { label: "12 cm Altbau weiß", skirting: { height: 0.12, color: "#f4f2ec", material: "lacquer" } },
+  { label: "6 cm Eiche", skirting: { height: 0.06, color: "#c9a477", material: "oak" } },
+  { label: "4 cm Schattenfuge schwarz", skirting: { height: 0.04, color: "#1d1d1d", material: "blackMetal" } },
+];
+
+export const DOOR_COLORS: [string, string][] = [
+  ["#f4f3ef", "Weißlack"], ["#e9e4da", "Cremeweiß"], ["#cfc6b8", "Greige"], ["#8c9a85", "Salbei"], ["#2f4a3a", "Tannengrün"],
+  ["#3a3b3c", "Anthrazit"], ["#1d1d1d", "Schwarz"], ["#c9a477", "Eiche furniert"], ["#6b4a33", "Nussbaum furniert"],
+];
+export const FRAME_COLORS: [string, string][] = [["#3b3d40", "Anthrazit (Bestand)"], ["#f2f1ec", "Weiß"], ["#1d1d1d", "Schwarz"], ["#8a7a62", "Bronze"]];
+
+/** Farbstimmungen für „Neue Einrichtung“ und „auf alle Räume“. */
+export const WALL_MOODS: { label: string; color: string; ceiling: string; productName: string }[] = [
+  { label: "Warmweiß", color: "#f3f0e8", ceiling: "#f7f5f0", productName: "Warmweiß matt" },
+  { label: "Kalkweiß", color: "#ece6da", ceiling: "#f4f1ea", productName: "Kalkfarbe Naturweiß" },
+  { label: "Greige", color: "#d8cfc2", ceiling: "#f2efe8", productName: "Greige (Schöner Wohnen Kashmir)" },
+  { label: "Salbei", color: "#c3cfb5", ceiling: "#f4f3ee", productName: "Salbeigrün (Alpina Essenz der Natur)" },
+  { label: "Terrakotta hell", color: "#e2c4ad", ceiling: "#f5efe8", productName: "Terrakotta hell" },
+  { label: "Taubenblau", color: "#b9c4cc", ceiling: "#f3f4f4", productName: "Taubenblau (F&B Light Blue)" },
+];

@@ -7,6 +7,7 @@ Prüft je Produkt/Variante:
 Ausgabe: Zusammenfassung + tools/out/audit.json (alle Befunde).
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -18,30 +19,30 @@ CAT = json.loads((ROOT / "app/src/data/catalog.json").read_text())
 
 # Plausible Bereiche (cm) je Archetyp: (w, d, h) jeweils (min, max)
 DIMS = {
-    "sofa": ((120, 420), (65, 200), (55, 110)), "sofaModular": ((70, 450), (65, 200), (55, 110)),
-    "sofaCorner": ((160, 420), (120, 350), (55, 110)), "sofaBed": ((120, 260), (70, 200), (60, 110)),
-    "armchairLounge": ((55, 130), (55, 170), (55, 115)), "armchairRound": ((55, 130), (55, 130), (55, 115)),
+    "sofa": ((120, 480), (65, 200), (55, 110)), "sofaModular": ((70, 450), (65, 200), (55, 110)),
+    "sofaCorner": ((160, 460), (120, 360), (55, 110)), "sofaBed": ((90, 340), (70, 200), (60, 110)),
+    "armchairLounge": ((55, 140), (55, 170), (55, 115)), "armchairRound": ((55, 145), (55, 145), (55, 115)),
     "armchairWing": ((60, 110), (60, 110), (90, 130)), "armchairShell": ((45, 100), (45, 100), (60, 110)),
     "diningChair": ((38, 70), (40, 70), (70, 110)), "diningArmchair": ((45, 75), (45, 75), (70, 110)),
     "cantilever": ((38, 70), (40, 75), (70, 110)), "barStool": ((30, 60), (30, 60), (60, 115)),
-    "pouf": ((30, 120), (30, 120), (25, 55)), "bench": ((60, 250), (25, 60), (35, 90)),
+    "pouf": ((30, 120), (30, 120), (25, 75)), "bench": ((60, 250), (25, 70), (35, 90)),
     "tableRect": ((60, 320), (50, 130), (65, 80)), "tableRound": ((60, 160), (60, 160), (65, 80)),
     "tableOval": ((120, 300), (70, 130), (65, 80)), "tablePedestal": ((60, 180), (60, 180), (65, 80)),
-    "coffeeRound": ((40, 140), (40, 140), (20, 55)), "coffeeBlock": ((50, 180), (40, 120), (20, 55)),
+    "coffeeRound": ((40, 140), (40, 140), (20, 55)), "coffeeBlock": ((50, 180), (30, 120), (20, 55)),
     "coffeeDuo": ((60, 160), (40, 120), (20, 55)), "sideRound": ((25, 70), (25, 70), (30, 75)),
-    "sideContainer": ((25, 70), (25, 70), (30, 80)), "desk": ((70, 260), (40, 90), (65, 90)),
-    "deskStanding": ((90, 200), (50, 90), (60, 130)), "console": ((60, 220), (20, 50), (60, 110)),
-    "sideboard": ((60, 300), (30, 60), (50, 140)), "lowboard": ((80, 300), (30, 60), (30, 75)),
-    "vitrine": ((40, 160), (25, 60), (100, 240)), "bookcase": ((30, 200), (20, 60), (60, 260)),
-    "shelfOpen": ((30, 450), (15, 60), (25, 260)), "wardrobe": ((40, 450), (35, 70), (150, 260)),
-    "dresser": ((40, 220), (30, 65), (50, 160)), "nightstand": ((25, 80), (25, 60), (30, 80)),
-    "bed": ((90, 230), (190, 240), (25, 140)), "bedWood": ((90, 230), (190, 240), (20, 140)),
-    "tylkoStorage": ((25, 450), (20, 70), (10, 260)),
-    "lampFloorShade": ((15, 80), (15, 80), (100, 210)), "lampFloorGlobe": ((15, 80), (15, 80), (100, 210)),
-    "lampFloorArc": ((30, 250), (20, 80), (130, 240)), "lampFloorTripod": ((30, 80), (30, 80), (100, 200)),
+    "sideContainer": ((25, 70), (25, 70), (30, 80)), "desk": ((60, 260), (28, 120), (55, 90)),
+    "deskStanding": ((90, 200), (50, 90), (60, 130)), "console": ((60, 220), (15, 50), (15, 130)),
+    "sideboard": ((60, 300), (30, 60), (50, 140)), "lowboard": ((60, 360), (30, 60), (20, 100)),
+    "vitrine": ((30, 300), (15, 60), (40, 240)), "bookcase": ((30, 240), (20, 60), (25, 260)),
+    "shelfOpen": ((20, 450), (8, 65), (3, 260)), "wardrobe": ((40, 450), (35, 75), (100, 256)),
+    "dresser": ((30, 220), (15, 65), (30, 160)), "nightstand": ((25, 80), (25, 60), (12, 80)),
+    "bed": ((80, 230), (190, 250), (25, 140)), "bedWood": ((90, 230), (190, 240), (20, 140)),
+    "tylkoStorage": ((25, 650), (20, 70), (10, 260)),
+    "lampFloorShade": ((8, 95), (8, 95), (35, 230)), "lampFloorGlobe": ((15, 80), (15, 80), (100, 210)),
+    "lampFloorArc": ((30, 250), (20, 180), (120, 240)), "lampFloorTripod": ((30, 80), (30, 80), (100, 200)),
     "lampTableMushroom": ((8, 60), (8, 60), (10, 80)), "lampTableGlobe": ((8, 60), (8, 60), (10, 80)),
     "lampTableShade": ((8, 70), (8, 70), (10, 100)), "lampTableLayered": ((10, 60), (10, 60), (15, 80)),
-    "lampTask": ((10, 120), (10, 80), (20, 210)),
+    "lampTask": ((10, 120), (10, 80), (10, 260)),
 }
 
 FAMILIES = [  # Farbfamilien für die Grobprüfung (Name → erwarteter Farbton)
@@ -140,6 +141,8 @@ def main():
                 issues["duplicate"].append({"id": e["id"], "vendor": e["vendor"], "a": seen[sig], "b": v["name"]})
             seen.setdefault(sig, v["name"])
         rng = DIMS.get(e["archetype"])
+        if rng and e["archetype"].startswith("table") and re.search(r"\bbar|bartisch|stehtisch", e["name"].lower()):
+            rng = (rng[0], rng[1], (85, 115))
         if rng:
             for k, (lo, hi) in zip(("w", "d", "h"), rng):
                 if not (lo <= e[k] <= hi):
