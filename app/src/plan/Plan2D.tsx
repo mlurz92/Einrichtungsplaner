@@ -18,6 +18,7 @@ import { PlanSymbol } from "./symbols";
 import { DND_TYPE, type CatalogDrop } from "../ui/dnd";
 import { applyPlacementSnap, beginDrag, dragUpdate, isFlatFloorItem, type DragStart } from "../store/placement";
 import { pointer } from "../ui/pointer";
+import { useChecks } from "../ui/useChecks";
 
 const S = 100; // SVG-Einheit = cm
 const P = (v: number) => v * S;
@@ -81,6 +82,13 @@ export function Plan2D() {
   const selectedFace = useEditor((s) => s.selectedFace);
   const hoverId = useEditor((s) => s.hoverId);
   const placing = useEditor((s) => s.placing);
+  const showClearance = useEditor((s) => s.showClearance);
+  const checks = useChecks();
+  const flagged = useMemo(() => {
+    const m = new Set<string>();
+    if (showClearance) for (const f of checks.findings) if (f.level !== "hinweis") for (const id of f.itemIds) m.add(id);
+    return m;
+  }, [checks, showClearance]);
   const svgRef = useRef<SVGSVGElement>(null);
   const [size, setSize] = useState({ w: 800, h: 600 });
   const [vb, setVb] = useState<[number, number, number, number]>([-60, -60, 1650, 1800]);
@@ -454,9 +462,24 @@ export function Plan2D() {
             </g>
           );
         })}
+        {/* Bewegungsflächen und Türschwenkbereiche */}
+        {showClearance &&
+          checks.zones.map((z, i) => (
+            <polygon
+              key={i}
+              points={pts(z.poly)}
+              fill={z.state === "ok" ? "#16a34a" : z.state === "eng" ? "#f59e0b" : "#dc2626"}
+              fillOpacity={z.state === "ok" ? 0.13 : 0.26}
+              stroke={z.state === "ok" ? "#16a34a" : z.state === "eng" ? "#d97706" : "#dc2626"}
+              strokeWidth={0.8}
+              strokeDasharray="4 3"
+              vectorEffect="non-scaling-stroke"
+              pointerEvents="none"
+            />
+          ))}
         {/* Objekte */}
         {sortedItems.map((it) => (
-          <ItemSym key={it.id} it={it} selected={sel.has(it.id)} hovered={hoverId === it.id} conflict={conflicts.has(it.id)} showLabel={labelVisible} />
+          <ItemSym key={it.id} it={it} selected={sel.has(it.id)} hovered={hoverId === it.id} conflict={conflicts.has(it.id) || flagged.has(it.id)} showLabel={labelVisible} />
         ))}
         {/* Wände */}
         {WALL_POLY.map((w, i) => (
@@ -586,6 +609,13 @@ export function Plan2D() {
         <button className={`rounded px-2 py-1 ${showLabels ? "bg-stone-800 text-white" : "hover:bg-stone-100"}`} onClick={() => setShowLabels((v) => !v)} title="Positionsnummern">
           Pos.-Nr.
         </button>
+        <button
+          className={`rounded px-2 py-1 ${showClearance ? "bg-emerald-800 text-white" : "hover:bg-stone-100"}`}
+          onClick={() => useEditor.getState().set("showClearance", !showClearance)}
+          title="Bewegungsflächen, Türschwenkbereiche und Balkonzugänge einblenden (grün = ausreichend, gelb = eng, rot = zu wenig)"
+        >
+          Freiflächen
+        </button>
         <button className="rounded px-2 py-1 hover:bg-stone-100" onClick={fit} title="Einpassen (F)">
           Einpassen
         </button>
@@ -594,6 +624,11 @@ export function Plan2D() {
         <span>{cursor ? `x ${cursor[0].toFixed(3)} · y ${cursor[1].toFixed(3)} m` : "–"}</span>
         <ScaleBar pxPerCm={pxPerCm} />
         {conflicts.size > 0 && <span className="text-red-600">{conflicts.size} Objekte überschneiden sich</span>}
+        {checks.findings.length > 0 && (
+          <button className="pointer-events-auto text-amber-700 hover:underline" onClick={() => useEditor.setState({ leftTab: "planung", showClearance: true })}>
+            Planungs-Check: {checks.findings.length} {checks.findings.length === 1 ? "Hinweis" : "Hinweise"}
+          </button>
+        )}
       </div>
     </div>
   );

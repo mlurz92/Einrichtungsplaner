@@ -7,6 +7,7 @@ import { RoomInspector } from "./Inspector";
 import { exportShoppingList, printBudget } from "./fileops";
 import { openExternal } from "../platform";
 import { DOOR_COLORS, FRAME_COLORS, WALL_MOODS } from "../data/paints";
+import { STATUS_ORDER, STATUS_STYLE, nextStatus } from "./status";
 
 export function ObjectsPanel() {
   const st = useEditor();
@@ -203,15 +204,16 @@ export function DesignPanel() {
 
 export function BudgetPanel() {
   const project = useEditor((s) => s.project);
+  const setStatus = useEditor((s) => s.setStatus);
   const limit = project.settings.budgetLimit || 40000;
   const b = useMemo(() => budgetSummary(project), [project]);
   const pct = Math.min(100, (b.total / limit) * 100);
   const vendorColors: Record<string, string> = { Westwing: "#1f1f1f", IKEA: "#0058a3", JYSK: "#143c8a", Designhandel: "#b8703e", Tylko: "#7f9a86", OBI: "#e35f1d", Fachhandel: "#a8a29e" };
-  const [group, setGroup] = useState<"room" | "vendor">("room");
+  const [group, setGroup] = useState<"room" | "vendor" | "status">("room");
   const grouped = useMemo(() => {
     const m = new Map<string, typeof b.lines>();
     for (const l of b.lines) {
-      const k = group === "room" ? roomNames[l.room] ?? l.room : l.vendor;
+      const k = group === "room" ? roomNames[l.room] ?? l.room : group === "vendor" ? l.vendor : STATUS_STYLE[l.status].label;
       m.set(k, [...(m.get(k) ?? []), l]);
     }
     return [...m.entries()].sort((x, y) => y[1].reduce((a, l) => a + l.total, 0) - x[1].reduce((a, l) => a + l.total, 0));
@@ -241,13 +243,30 @@ export function BudgetPanel() {
               </span>
             ))}
         </div>
+        <div className="mt-2 flex h-1.5 overflow-hidden rounded-full bg-stone-100" title="Kaufstatus">
+          {STATUS_ORDER.filter((s) => s !== "geplant").map((s) => (
+            <div key={s} style={{ width: `${(b.byStatus[s] / Math.max(1, b.total)) * 100}%`, background: STATUS_STYLE[s].color }} />
+          ))}
+        </div>
+        <div className="mt-1 flex flex-wrap gap-x-3 text-[11px] text-stone-600">
+          {STATUS_ORDER.filter((s) => s !== "geplant").map((s) => (
+            <span key={s}>
+              <span className="mr-1 inline-block h-2 w-2 rounded-full" style={{ background: STATUS_STYLE[s].color }} />
+              {STATUS_STYLE[s].label} {fmtEuro(b.byStatus[s]).replace(",00", "")}
+            </span>
+          ))}
+          <span className="font-medium">offen {fmtEuro(b.byStatus.geplant).replace(",00", "")}</span>
+        </div>
         <div className="mt-2 flex items-center gap-2">
           <div className="seg">
             <button data-on={group === "room"} onClick={() => setGroup("room")}>
-              nach Raum
+              Raum
             </button>
             <button data-on={group === "vendor"} onClick={() => setGroup("vendor")}>
-              nach Händler
+              Händler
+            </button>
+            <button data-on={group === "status"} onClick={() => setGroup("status")}>
+              Status
             </button>
           </div>
           <label className="ml-auto flex items-center gap-1 text-xs text-stone-600">
@@ -282,7 +301,16 @@ export function BudgetPanel() {
                   <span className="text-stone-400"> · {l.vendor}{group === "vendor" ? ` · ${roomNames[l.room] ?? l.room}` : ""}{l.category && CATEGORY_LABELS[l.category] ? "" : ""}</span>
                 </span>
                 <span className="shrink-0 tabular-nums text-stone-500">{+l.qty.toFixed(2)}×</span>
-                <span className="w-20 shrink-0 text-right tabular-nums">{fmtEuro(l.total)}</span>
+                <span className="flex w-20 shrink-0 flex-col items-end gap-0.5">
+                  <span className="tabular-nums">{fmtEuro(l.total)}</span>
+                  <button
+                    className={`rounded-full px-1.5 text-[10px] leading-4 ring-1 ${STATUS_STYLE[l.status].cls}`}
+                    title="Kaufstatus weiterschalten: geplant → bestellt → geliefert → aufgebaut"
+                    onClick={() => setStatus(l.itemIds, l.budgetId ? [l.budgetId] : [], nextStatus(l.status))}
+                  >
+                    {STATUS_STYLE[l.status].short}
+                  </button>
+                </span>
               </div>
             ))}
           </div>

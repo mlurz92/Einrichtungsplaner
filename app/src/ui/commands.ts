@@ -36,7 +36,7 @@ const ROOM_SYNONYMS: Record<string, string> = {
   "13.08": "terrasse loggia",
   "13.09": "terrasse loggia",
 };
-const TAB_LABELS: Record<LeftTab, string> = { katalog: "Katalog", gestaltung: "Gestaltung", objekte: "Objekte", konzepte: "Konzepte", budget: "Budget" };
+const TAB_LABELS: Record<LeftTab, string> = { katalog: "Katalog", gestaltung: "Gestaltung", objekte: "Objekte", konzepte: "Konzepte", planung: "Planung", budget: "Budget" };
 
 /** Mittelpunkt der Auswahl im Plan. */
 export function selectionCenter(): [number, number] | null {
@@ -83,6 +83,9 @@ export function staticCommands(): Command[] {
     { id: "ceiling", group: "Ansicht", label: "Decke anzeigen ein/aus", run: () => st().set("showCeiling", !st().showCeiling) },
     { id: "doors", group: "Ansicht", label: "Türen öffnen/schließen", run: () => viewSetting({ doorsOpen: (st().project.settings.doorsOpen ?? 0) > 0.5 ? 0 : 0.9 }) },
     { id: "snap", group: "Ansicht", label: "Fang (Raster und Wände) ein/aus", run: () => viewSetting({ snap: !st().project.settings.snap }) },
+    { id: "clearance", group: "Planung", label: "Freiflächen (Bewegungsflächen, Türen) im Plan ein/aus", keywords: "planungs-check abstand durchgang din", run: () => st().set("showClearance", !st().showClearance) },
+    { id: "check", group: "Planung", label: "Planungs-Check öffnen", keywords: "prüfen konflikte bewegungsfläche lieferung", run: () => useEditor.setState({ leftTab: "planung", showClearance: true }) },
+    { id: "variant-save", group: "Planung", label: "Aktuellen Stand als Variante sichern", keywords: "variante snapshot vergleichen", run: () => st().saveVariant(`Variante ${(st().project.variants?.length ?? 0) + 1}`) },
     { id: "help", group: "Hilfe", label: "Bedienung & Tastenkürzel", kbd: "F1", run: () => st().set("helpOpen", true) },
   ];
   for (const m of Object.keys(WALL_LABELS) as WallMode[]) cmds.push({ id: `wall-${m}`, group: "Ansicht", label: `Wände: ${WALL_LABELS[m]}`, kbd: m === "auto" ? "W" : undefined, run: () => st().set("wallMode", m) });

@@ -21,7 +21,10 @@ mit Katalog hochwertiger Produkte von **Westwing, IKEA, JYSK, Tylko** und Design
 | Bearbeiten | Tauschen gegen passende Alternativen (gleiche Kategorie, ähnliche Maße, Rückseite bleibt an der Wand), Farben/Materialien je Bauteil, Ausführungsparameter, Stückliste, Undo/Redo, Autosave |
 | Leuchten | Pendel über Tischen automatisch mittig/in Tischachse und 65 cm über der Platte, sonst ≥ 2,00 m Durchgangshöhe; Deckenleuchten fangen die Raummitte; Wandleuchten docken an (Mitte ≈ 1,70 m); Tischleuchten stehen auf Ablagen; Abendlicht mit realen Lichtpunkten |
 | TV | Samsung The Frame: Wandmontage (Slim-Fit) oder Standfuß auf Sideboard/Lowboard, Art Mode, Wechselrahmen |
-| Budget | nach Raum/Händler, Rahmen, Einkaufsliste CSV (Excel), Druck/PDF |
+| Planungs-Check | Reiter **Planung**: Bewegungsflächen nach DIN 18011/18022 (vor Schränken, Kommoden, Küche, WC/Waschtisch, neben dem Bett, hinter Esstischstühlen, Stuhlzone am Schreibtisch), Couchtischabstand, Türschwenkbereiche, Balkonzugänge (Fenstertüren 90 cm frei), verdeckte Fenster, Möbel in der Wand, Lieferweg (passt das Möbel gekippt durch Wohnungs- und Zimmertür?); Klick springt zum Objekt, „Freiflächen“ blendet die Zonen im Plan ein (grün/gelb/rot) |
+| Varianten | Stand (Möbel, Gestaltung, Budget) als Variante sichern, laden, überschreiben; Vergleich mit Variante oder Konzept: Kosten gesamt/je Raum, neue, entfallene, getauschte, umgefärbte und verschobene Objekte, geänderte Gestaltung; Varianten bleiben beim Konzeptwechsel erhalten und werden in der `.we13`-Datei gespeichert |
+| Raumkennzahlen | Fläche, freie Bodenfläche (%), Kosten und €/m² je Raum |
+| Budget | nach Raum/Händler/Kaufstatus, Kaufstatus je Position (geplant → bestellt → geliefert → aufgebaut) mit Summe „offen“, Rahmen, Einkaufsliste CSV (Excel) mit Status, Druck/PDF mit Abhakspalte |
 | Export | Projektdatei `.we13`, 3D-Ansicht PNG, Grundriss SVG, eigene GLB-Modelle importieren |
 
 ## Installation (Windows)
@@ -38,7 +41,7 @@ npm ci
 npm run dev          # Browser: http://localhost:1420
 npm run tauri:dev    # Desktop-Fenster (Rust + WebView2)
 npm run tauri:build  # Installer (Windows)
-npx vitest run       # Tests (Geometrie, Budgets, Katalog)
+npx vitest run       # Tests (Geometrie, Budgets, Katalog, Planungs-Check, Varianten)
 ```
 
 Architektur: Tauri 2 (Rust) · React 19 · TypeScript · three.js / React Three Fiber · Zustand · Tailwind CSS 4.

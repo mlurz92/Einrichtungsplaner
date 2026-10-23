@@ -7,6 +7,7 @@ import type {
   ItemPart,
   PlacedItem,
   Project,
+  PurchaseStatus,
   RoomFinish,
   Slot,
   SlotStyle,
@@ -16,11 +17,12 @@ import type {
 import { localToPlan, nearestFace, roomAt, rotationForFace } from "../model/geometry";
 import type { SnapGuide } from "../model/snap";
 import { applyPlacementSnap, setFrameMode } from "./placement";
+import { makeVariant, withVariant } from "../model/variant";
 
 export type ViewMode = "plan" | "3d" | "split";
 export type Camera3D = "orbit" | "walk" | "top";
 export type WallMode = "auto" | "full" | "cut" | "low";
-export type LeftTab = "katalog" | "gestaltung" | "objekte" | "konzepte" | "budget";
+export type LeftTab = "katalog" | "gestaltung" | "objekte" | "konzepte" | "planung" | "budget";
 
 export interface Toast {
   id: number;
@@ -50,6 +52,8 @@ export interface EditorState {
   night: boolean;
   quality: "hoch" | "mittel" | "niedrig";
   leftTab: LeftTab;
+  /** Bewegungsflächen und Türschwenkbereiche im Plan einblenden. */
+  showClearance: boolean;
   placing: { catalogId: string; variant: number } | null;
   past: Project[];
   future: Project[];
@@ -110,6 +114,13 @@ export interface EditorState {
   setSettings(patch: Partial<Project["settings"]>): void;
   /** Neue Einrichtung „von Grund auf“: leere Wohnung mit gewähltem Bestand und Grundausbau. */
   newFurnishing(opts: NewFurnishingOptions): void;
+  /** Kaufstatus für Objekte bzw. Budgetzeilen setzen. */
+  setStatus(itemIds: string[], budgetIds: string[], status: PurchaseStatus): void;
+  saveVariant(name: string): void;
+  loadVariant(id: string): void;
+  overwriteVariant(id: string): void;
+  renameVariant(id: string, name: string): void;
+  deleteVariant(id: string): void;
 }
 
 export interface NewFurnishingOptions {
@@ -287,6 +298,7 @@ export const useEditor = create<EditorState>((set, get) => ({
   night: urlParams.get("night") === "1",
   quality: (urlParams.get("q") as EditorState["quality"]) || prefs.quality || "hoch",
   leftTab: prefs.leftTab || "katalog",
+  showClearance: false,
   placing: null,
   past: [],
   future: [],
@@ -326,11 +338,12 @@ export const useEditor = create<EditorState>((set, get) => ({
     if (!c) return;
     const p = structuredClone(c.project);
     p.updatedAt = new Date().toISOString();
+    p.variants = get().project.variants;
     get().setProject(p, { keepHistory: true, label: `${c.subtitle} laden` });
     get().showToast(`${c.subtitle} geladen: ${c.title}`, { action: { label: "Rückgängig", run: () => get().undo() } });
   },
   newEmptyProject() {
-    get().setProject(emptyProject(), { keepHistory: true, label: "Leere Wohnung" });
+    get().setProject({ ...emptyProject(), variants: get().project.variants }, { keepHistory: true, label: "Leere Wohnung" });
     get().showToast("Leere Wohnung (nur Bestand)", { action: { label: "Rückgängig", run: () => get().undo() } });
   },
   commit(label, coalesce) {
@@ -594,6 +607,7 @@ export const useEditor = create<EditorState>((set, get) => ({
       f.wall = wet ? { ...f.wall, base: { kind: "paint", color: o.wallColor, productName: o.wallProduct } } : { base: { kind: "paint", color: o.wallColor, productName: o.wallProduct } };
       if (o.floor && r.floor === "parkett") f.floor = { ...o.floor, angle: f.floor.angle };
     }
+    p.variants = get().project.variants;
     get().setProject(p, { keepHistory: true, label: "Neue Einrichtung" });
   },
   setRoomFinish(roomId, patch) {
@@ -630,6 +644,44 @@ export const useEditor = create<EditorState>((set, get) => ({
   requestFocus(x, y) {
     set({ focusRequest: { x, y, t: Date.now() } });
   },
+  setStatus(itemIds, budgetIds, status) {
+    get().commit(`Kaufstatus: ${status}`);
+    const ids = new Set(itemIds);
+    const bids = new Set(budgetIds);
+    const v = status === "geplant" ? undefined : status;
+    set((s) => ({
+      project: {
+        ...s.project,
+        items: s.project.items.map((i) => (ids.has(i.id) ? { ...i, status: v } : i)),
+        budget: s.project.budget.map((b) => (bids.has(b.id) ? { ...b, status: v } : b)),
+      },
+      dirty: true,
+    }));
+  },
+  saveVariant(name) {
+    get().commit(`Variante „${name}“ sichern`);
+    set((s) => ({ project: { ...s.project, variants: [...(s.project.variants ?? []), makeVariant(s.project, name)] }, dirty: true }));
+    get().showToast(`Variante gesichert: ${name}`);
+  },
+  loadVariant(id) {
+    const v = get().project.variants?.find((x) => x.id === id);
+    if (!v) return;
+    get().commit(`Variante „${v.name}“ laden`);
+    set((s) => ({ project: withVariant(s.project, v), selection: [], dirty: true }));
+    get().showToast(`Variante geladen: ${v.name}`, { action: { label: "Rückgängig", run: () => get().undo() } });
+  },
+  overwriteVariant(id) {
+    get().commit("Variante überschreiben");
+    set((s) => ({ project: { ...s.project, variants: (s.project.variants ?? []).map((v) => (v.id === id ? makeVariant(s.project, v.name, v.id) : v)) }, dirty: true }));
+    get().showToast("Variante mit dem aktuellen Stand überschrieben");
+  },
+  renameVariant(id, name) {
+    set((s) => ({ project: { ...s.project, variants: (s.project.variants ?? []).map((v) => (v.id === id ? { ...v, name } : v)) }, dirty: true }));
+  },
+  deleteVariant(id) {
+    get().commit("Variante löschen");
+    set((s) => ({ project: { ...s.project, variants: (s.project.variants ?? []).filter((v) => v.id !== id) }, dirty: true }));
+  },
 }));
 
 // Zugriff für automatisierte Tests/Diagnose
@@ -662,27 +714,29 @@ useEditor.subscribe((s, prev) => {
 });
 
 export function budgetSummary(p: Project) {
-  const lines: { room: string; vendor: string; category: string; name: string; pos?: string; qty: number; unit: number; total: number; url?: string | null; itemId?: string }[] = [];
+  const lines: { room: string; vendor: string; category: string; name: string; pos?: string; qty: number; unit: number; total: number; url?: string | null; itemId?: string; itemIds: string[]; budgetId?: string; status: PurchaseStatus }[] = [];
   const merged = new Map<string, (typeof lines)[number]>();
   for (const it of p.items) {
     if (it.existing) continue;
     const c = getCatalogItem(it.catalogId);
     const parts = it.parts?.length ? it.parts : [{ name: c?.name ?? it.label ?? "Objekt", vendor: c?.vendor ?? "Fachhandel", qty: 1, unit: it.price ?? c?.price ?? 0, url: c?.url, pos: it.pos }];
     for (const pt of parts) {
-      const key = `${pt.pos ?? ""}|${pt.name}|${pt.unit}|${it.room}`;
+      const status = it.status ?? "geplant";
+      const key = `${pt.pos ?? ""}|${pt.name}|${pt.unit}|${it.room}|${status}`;
       const ex = merged.get(key);
       if (ex) {
         ex.qty += pt.qty;
         ex.total += pt.qty * pt.unit;
+        if (!ex.itemIds.includes(it.id)) ex.itemIds.push(it.id);
       } else {
-        const l = { room: it.room ?? "–", vendor: pt.vendor, category: c?.category ?? "", name: pt.name, pos: pt.pos ?? it.pos, qty: pt.qty, unit: pt.unit, total: pt.qty * pt.unit, url: pt.url, itemId: it.id };
+        const l = { room: it.room ?? "–", vendor: pt.vendor, category: c?.category ?? "", name: pt.name, pos: pt.pos ?? it.pos, qty: pt.qty, unit: pt.unit, total: pt.qty * pt.unit, url: pt.url, itemId: it.id, itemIds: [it.id], status };
         merged.set(key, l);
         lines.push(l);
       }
     }
   }
   for (const b of p.budget) {
-    lines.push({ room: b.room, vendor: b.vendor, category: b.category ?? "Zubehör", name: b.name, pos: b.pos, qty: b.qty, unit: b.unit, total: b.qty * b.unit, url: b.url });
+    lines.push({ room: b.room, vendor: b.vendor, category: b.category ?? "Zubehör", name: b.name, pos: b.pos, qty: b.qty, unit: b.unit, total: b.qty * b.unit, url: b.url, itemIds: [], budgetId: b.id, status: b.status ?? "geplant" });
   }
   const total = lines.reduce((a, l) => a + l.total, 0);
   const byVendor: Record<string, number> = {};
@@ -691,5 +745,7 @@ export function budgetSummary(p: Project) {
     byVendor[l.vendor] = (byVendor[l.vendor] ?? 0) + l.total;
     byRoom[l.room] = (byRoom[l.room] ?? 0) + l.total;
   }
-  return { lines, total, byVendor, byRoom };
+  const byStatus: Record<PurchaseStatus, number> = { geplant: 0, bestellt: 0, geliefert: 0, aufgebaut: 0 };
+  for (const l of lines) byStatus[l.status] += l.total;
+  return { lines, total, byVendor, byRoom, byStatus };
 }
