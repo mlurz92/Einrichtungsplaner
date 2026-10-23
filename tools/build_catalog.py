@@ -597,6 +597,34 @@ def generic_items():
         {"main": {"color": "#f3f0e8", "material": "matte"}}, {"profile": 0.05, "arch": True}, 0.3, True, tags=("Wand", "Stuck"))
     add("tv-65", "Fachhandel", "Fernseher 65″ (Wandmontage)", "media", "tv", 145, 3, 83, 0, "wall", {"main": {"color": "#111111", "material": "gloss"}}, {}, 1.0)
     add("tv-55", "Fachhandel", "Fernseher 55″ (Wandmontage)", "media", "tv", 123, 3, 71, 0, "wall", {"main": {"color": "#111111", "material": "gloss"}}, {}, 1.05)
+    # Samsung The Frame (Art-Mode-TV): Wandmontage (Slim-Fit) oder auf Standfüßen, magnetische Wechselrahmen.
+    # Maße lt. Samsung-Datenblatt (ohne Fuß B×H×T, Fuß B×T, Höhe mit Fuß); Preise: Preisvergleich Okt. 2026.
+    FRAMES = [  # Zoll, Modell, B, H, T (cm), Höhe mit Fuß, Fußtiefe, Fußbreite, Preis, Rahmenpreis
+        (43, "LS03F", 96.95, 55.78, 2.49, 59.19, 19.68, 67.80, 529.0, 99.0),
+        (50, "LS03F", 112.41, 64.49, 2.49, 67.92, 22.78, 75.74, 699.0, 119.0),
+        (55, "LS03F", 123.79, 70.88, 2.49, 74.34, 22.78, 89.72, 749.0, 129.0),
+        (65, "LS03F", 145.68, 83.19, 2.49, 86.89, 26.09, 107.68, 829.0, 159.0),
+        (75, "LS03FW Pro", 168.23, 96.54, 2.69, 99.53, 31.98, 120.0, 1599.0, 189.0),
+        (85, "LS03FW Pro", 190.43, 109.09, 2.69, 113.4, 33.8, 136.0, 2799.0, 219.0),
+    ]
+    BEZELS = [("Rahmen Schwarz (Standard)", "#1b1b1b", "blackMetal", 0), ("Modern-Rahmen Teak", "#a87a50", "oak", 1),
+              ("Modern-Rahmen Weiß", "#efede8", "matte", 1), ("Modern-Rahmen Beige", "#d9ccb6", "matte", 1),
+              ("Modern-Rahmen Braun", "#5d4130", "walnut", 1)]
+    for inch, model, fw_, fh, fd, fh_stand, sd, sw, pr, bez in FRAMES:
+        cid = f"samsung-the-frame-{inch}"
+        url = f"https://www.samsung.com/de/lifestyle-tvs/the-frame/{model.split()[0].lower()}-{inch}-inch-black/"
+        G.append({
+            "id": cid, "vendor": "Samsung", "brand": "Samsung", "name": f"The Frame {inch}″ {model} (2025)", "series": "The Frame",
+            "category": "media", "archetype": "tvFrame", "w": fw_, "d": 3.0, "h": fh, "price": pr, "mount": "wall",
+            "elev": round(1.05 - fh / 200, 2), "url": url, "premium": True, "resizable": False,
+            "params": {"stand": False, "screen": "art", "panelD": round(fd / 100, 4), "panelH": round(fh / 100, 4),
+                       "feetH": round((fh_stand - fh) / 100, 4), "standD": round(sd / 100, 4), "standW": round(sw / 100, 4)},
+            "variants": [{"name": n, "price": round(pr + bez * k, 2), "slots": {"frame": {"color": col, "material": mat}}} for n, col, mat, k in BEZELS],
+            "tags": ["TV", "Fernseher", "Art Mode", "Samsung", "Lifestyle-TV"],
+            "description": f"4K-QLED-Lifestyle-TV mit Art Mode und mattem Display; {fw_:.1f} × {fh:.1f} × {fd:.1f} cm ohne Fuß, "
+                           f"mit Standfüßen {fh_stand:.1f} cm hoch / {sd:.1f} cm tief. Im Inspektor zwischen Wandmontage und Standfuß "
+                           "(z. B. auf Sideboard/Lowboard) umschaltbar. Wechselrahmen als Zubehör.",
+        })
     for mid, nm, h, pr in (("potted_plant_04", "Großpflanze im Topf (Strelitzie)", 160, 189), ("potted_plant_02", "Zimmerpflanze im Keramiktopf", 70, 59),
                            ("potted_plant_01", "Monstera im Pflanzkübel", 110, 129)):
         add(f"ph-{mid}", "Fachhandel", nm, "plant", "glb", 60 if h > 100 else 40, 60 if h > 100 else 40, h, pr, model=f"assets/models/{mid}.glb", tags=("Pflanze",))
@@ -604,6 +632,315 @@ def generic_items():
                        ("ceramic_vase_04", "Keramikvase klein", 22), ("brass_vase_01", "Messingvase", 28), ("wooden_bowl_01", "Holzschale", 10)):
         add(f"ph-{mid}", "Fachhandel", nm, "decor", "glb", 22, 22, h, 39, model=f"assets/models/{mid}.glb", tags=("Deko",))
     return G
+
+
+# ------------------------------------------------------------------ Tylko (Feed über ladendirekt)
+TYLKO_COLORS = [  # Tylko-Farbnamen (DE) → Farbton/Material; längste zuerst prüfen
+    ("helles holzimitat", "#c8a57a", "oak"), ("dunkles holzimitat", "#5e4130", "walnut"), ("holzimitat", "#b8915f", "oak"),
+    ("weiße multiplex", "#f1efe9", "lacquer"), ("multiplex", "#e0c9a3", "oak"),
+    ("kaschmirbeige", "#d9c9b1", "lacquer"), ("kaschmir", "#d9c9b1", "lacquer"), ("cremeweiß", "#ede8dc", "lacquer"),
+    ("mitternachtsblau", "#28354d", "lacquer"), ("lilablau", "#8e98c4", "lacquer"), ("himmelblau", "#a9c1d6", "lacquer"),
+    ("blassrosa", "#e6c4bd", "lacquer"), ("puderrosa", "#e2bcb7", "lacquer"), ("reisinger pink", "#d98fa1", "lacquer"),
+    ("weinrot", "#6b2430", "lacquer"), ("burgund", "#6b2430", "lacquer"), ("terrakotta", "#b5603f", "lacquer"),
+    ("buttergelb", "#e8cf7d", "lacquer"), ("senfgelb", "#c99a2e", "lacquer"), ("salbeigrün", "#a5b39b", "lacquer"),
+    ("olivgrün", "#6c7350", "lacquer"), ("waldgrün", "#34493b", "lacquer"), ("flieder", "#b9a7c4", "lacquer"),
+    ("graphit", "#3c3e41", "lacquer"), ("dunkelgrau", "#4a4a48", "lacquer"), ("hellgrau", "#c4c3bf", "lacquer"),
+    ("cognac", "#9a5b34", "leather"), ("sand", "#cfb895", "lacquer"), ("beige", "#d9c9b1", "lacquer"), ("weiß", "#f1efe9", "lacquer"),
+    ("schwarz", "#1f1f1f", "lacquer"), ("grau", "#9b9a96", "lacquer"), ("grün", "#6c7350", "lacquer"), ("blau", "#3f5675", "lacquer"),
+    ("rosa", "#e2bcb7", "lacquer"), ("gelb", "#e2c45a", "lacquer"), ("rot", "#9b2f2f", "lacquer"), ("braun", "#6f4d36", "lacquer"),
+]
+TYLKO_LABEL = {"helles holzimitat": "Holzdekor hell", "dunkles holzimitat": "Holzdekor dunkel", "holzimitat": "Holzdekor",
+               "weiße multiplex": "Weiß (Multiplex)", "multiplex": "Multiplex natur"}
+TYLKO_CAT = {
+    "regale": ("shelf", "tylkoStorage"), "regalsysteme": ("shelf", "tylkoStorage"), "standregale": ("shelf", "tylkoStorage"),
+    "raumteiler": ("shelf", "tylkoStorage"), "regalwuerfel": ("shelf", "tylkoStorage"), "cd-dvd-regale": ("shelf", "tylkoStorage"),
+    "buecherregale": ("shelf", "tylkoStorage"), "einzelregale": ("shelf", "tylkoStorage"), "haengeregale": ("shelf", "tylkoStorage"),
+    "sideboards": ("sideboard", "tylkoStorage"), "highboards": ("sideboard", "tylkoStorage"), "kommoden": ("dresser", "tylkoStorage"),
+    "waeschekommode": ("dresser", "tylkoStorage"), "weitere-schraenke": ("cabinet", "tylkoStorage"), "wohnwaende": ("shelf", "tylkoStorage"),
+    "aktenschraenke": ("cabinet", "tylkoStorage"), "container": ("cabinet", "tylkoStorage"), "lowboards": ("lowboard", "tylkoStorage"),
+    "tv-lowboards": ("lowboard", "tylkoStorage"), "tv-schraenke": ("lowboard", "tylkoStorage"), "tv-racks": ("lowboard", "tylkoStorage"),
+    "hifi-racks": ("lowboard", "tylkoStorage"), "standvitrinen": ("cabinet", "tylkoStorage"), "nachttischkommoden": ("nightstand", "tylkoStorage"),
+    "schreibtische": ("desk", "tylkoStorage"), "konsolentische": ("console", "tylkoStorage"), "couchtische": ("coffeeTable", "tylkoStorage"),
+    "drehtuerenschraenke": ("wardrobe", "wardrobe"), "schwebetuerenschraenke": ("wardrobe", "wardrobe"), "ordnungssysteme": ("wardrobe", "wardrobe"),
+    "schraenke": ("wardrobe", "wardrobe"),
+}
+TYLKO_SOFA = {  # Feed-Schlüsselwort → (Kategorie, Archetyp, Bezeichnung)
+    "two_seater": ("sofa", "sofaModular", "2-Sitzer"), "three_seater": ("sofa", "sofaModular", "3-Sitzer"),
+    "four_plus_seater": ("sofa", "sofaModular", "4-Sitzer"), "corner": ("sofa", "sofaCorner", "Ecksofa"),
+    "chaise_longue": ("sofa", "sofaModular", "Sofa mit Longchair"), "armchair": ("armchair", "armchairLounge", "Sessel"),
+    "footrest": ("pouf", "pouf", "Hocker"), "wohnlandschaft": ("sofa", "sofaCorner", "Wohnlandschaft"),
+}
+
+
+def tylko_color(text):
+    t = (text or "").lower()
+    found = []
+    for k, col, mat in TYLKO_COLORS:
+        i = t.find(k)
+        if i >= 0 and not any(i >= a and i < b for a, b, *_ in found):
+            found.append((i, i + len(k), col, mat, k))
+    found.sort()
+    return found
+
+
+def tylko():
+    f = RES / "tylko_products.json"
+    if not f.exists():
+        return []
+    groups = {}
+    for p in json.loads(f.read_text()):
+        name = (p.get("name") or "").strip()
+        desc = (p.get("description") or "").strip()
+        nl = (name + " " + desc).lower()
+        kw = (p.get("keywords") or "").lower()
+        if "überzug" in nl or "cover" in kw.split(", ")[:1]:
+            continue
+        m = re.search(r"(\d+)x(\d+)x(\d+)cm", desc)
+        if not m:
+            continue
+        W, H, D = (float(x) for x in m.groups())
+        try:
+            price = float(p["offers"]["price"])
+        except Exception:
+            continue
+        sku = p.get("sku") or ""
+        sub = p["_cat"].split("/")[-1]
+        line = "Sofa" if sku.startswith("s") else ("Tone" if sku.startswith("w") else ("Original Classic" if "multiplex" in nl else "Original Modern"))
+        params = {}
+        if sku.startswith("s"):
+            key = next((k for k in TYLKO_SOFA if k in kw), None)
+            if not key:
+                continue
+            cat, arch, typ = TYLKO_SOFA[key]
+            fabric = "cord" if "corduroy" in kw or "cord" in nl else ("leather" if "leather" in kw or "leder" in nl else "wool")
+            cols = tylko_color(desc.split(" - ")[0])
+            col = cols[0][2] if cols else "#cfc6b8"
+            slots = {"main": {"color": col, "material": fabric}, "legs": {"color": "#1d1d1d", "material": "blackMetal"}}
+            if arch == "sofaModular":
+                params = {"modules": max(1, round(W / 90)), "seatHeight": 0.43}
+            series = "Smooth"
+        else:
+            cat, arch = TYLKO_CAT.get(sub, ("shelf", "tylkoStorage"))
+            if "kleiderschrank" in nl:
+                cat, arch = "wardrobe", "wardrobe"
+            elif "schreibtisch" in nl:
+                cat, arch = "desk", "tylkoStorage"
+            elif "fernsehtisch" in nl or "tv-" in nl:
+                cat = "lowboard"
+            elif "nachttisch" in nl:
+                cat = "nightstand"
+            cols = tylko_color(desc.split(" - ")[0])
+            # „Multiplex“ beschreibt bei Original Classic das Material (sichtbare Kanten), keine Frontfarbe
+            cols = [c for i, c in enumerate(cols) if i == 0 or "multiplex" not in c[4]]
+            main = cols[0] if cols else (0, 0, "#f1efe9", "lacquer", "weiß")
+            slots = {"main": {"color": main[2], "material": main[3]}, "legs": {"color": "#1f1f1f", "material": "blackMetal"},
+                     "detail": {"color": "#2a2724", "material": "matte"}}
+            if len(cols) > 1:
+                slots["secondary"] = {"color": cols[1][2], "material": cols[1][3]}
+            if arch == "wardrobe":
+                doors = re.search(r"(\d+) tür", nl)
+                params = {"doors": int(doors.group(1)) if doors else max(1, round(W / 55)), "handle": "edge"}
+            else:
+                params = {
+                    "doorShare": 0.45 if "tür" in nl else 0.0,
+                    "drawerShare": 0.35 if "schublade" in nl else 0.0,
+                    "backs": "rückwand" in nl or "ruckwand" in nl or line == "Tone",
+                    "legH": 0.1 if "beine" in nl else 0.0,
+                    "plywood": line == "Original Classic",
+                    "pattern": "grid" if line == "Tone" else "slant",
+                }
+                if cat == "desk":
+                    params["desk"] = True
+                if line == "Tone" and not ("tür" in nl or "schublade" in nl):
+                    params["doorShare"] = 0.7
+            series = line
+        typ_name = re.sub(r"\s+mit .*$", "", name).strip()
+        lab = lambda k: TYLKO_LABEL.get(k, k[:1].upper() + k[1:])
+        color_name = (lab(cols[0][4]) if cols else "Weiß") + (" + " + lab(cols[1][4]) if len(cols) > 1 else "")
+        variant = {"name": color_name, "slots": slots, "price": price, "url": p.get("url")}
+        # Gruppierung: Typ + Linie + Maßklasse (10 cm) → Farben als Varianten
+        gk = (series, cat, arch, re.sub(r" in .*$", "", typ_name), round(W / 10), round(H / 10), round(D / 5))
+        g = groups.get(gk)
+        feats = [x for x in ("Türen" if "tür" in nl else "", "Schubladen" if "schublade" in nl else "", "Rückwände" if ("rückwand" in nl or "ruckwand" in nl) else "",
+                             "Beine" if "beine" in nl else "", "Kleiderstange" if "kleiderstange" in nl else "") if x]
+        if g:
+            if not any(v["name"] == variant["name"] for v in g["variants"]) and len(g["variants"]) < 16:
+                g["variants"].append(variant)
+            g["price"] = min(g["price"], price)
+            continue
+        base = re.sub(r" in .*$", "", typ_name)
+        groups[gk] = {
+            "id": "tyl-" + re.sub(r"[^a-z0-9]+", "-", f"{series}-{base}-{int(W)}x{int(H)}x{int(D)}".lower().translate(str.maketrans({"ä": "ae", "ö": "oe", "ü": "ue", "ß": "ss"})))[:70],
+            "vendor": "Tylko", "brand": "Tylko", "series": series,
+            "name": f"Tylko {series} {base} {int(W)} × {int(H)} cm" + (f" ({', '.join(feats)})" if feats else ""),
+            "category": cat, "archetype": arch, "w": W, "d": D, "h": H, "price": price, "url": p.get("url"), "image": p.get("image"),
+            "params": params, "mount": "floor", "variants": [variant], "premium": True, "resizable": arch != "sofaModular",
+            "tags": ["Tylko", series, "maßgefertigt"] + feats,
+            "description": f"{desc[:200]}. Maßgefertigt (Breite/Höhe/Tiefe konfigurierbar), Lieferung inkl. Montageanleitung.",
+        }
+    items = list(groups.values())
+    # Ausdünnen: je (Linie, Kategorie) höchstens 60 Größen, nach Häufigkeit der Farben (beliebte Konfigurationen)
+    out, per = [], {}
+    for e in sorted(items, key=lambda e: -len(e["variants"])):
+        k = (e["series"], e["category"])
+        if per.get(k, 0) >= 60:
+            continue
+        per[k] = per.get(k, 0) + 1
+        out.append(e)
+    return out
+
+
+# ------------------------------------------------------------------ Leuchten (lampe.de)
+LAMP_TYPE = {  # Produktart → (Kategorie, Montage)
+    "Tischleuchte": ("tableLamp", "floor"), "Leseleuchte": ("tableLamp", "floor"), "Schreibtischleuchte": ("tableLamp", "floor"),
+    "Stehlampe": ("floorLamp", "floor"), "Bodenleuchte": ("floorLamp", "floor"),
+    "Pendelleuchte": ("pendant", "ceiling"), "Hängeleuchte": ("pendant", "ceiling"), "Kronleuchter": ("pendant", "ceiling"),
+    "Deckenleuchte": ("ceilingLamp", "ceiling"), "Wand- und Deckenleuchte": ("ceilingLamp", "ceiling"),
+    "Wandleuchte": ("wallLamp", "wall"),
+}
+METAL_COLORS = {"messing": ("#c9a55c", "brass"), "gold": ("#c9a55c", "brass"), "champagner": ("#cdb88f", "brass"),
+                "kupfer": ("#b8703e", "copper"), "chrom": ("#c6cbd0", "chrome"), "silber": ("#c6cbd0", "chrome"), "nickel": ("#b9b7b0", "steel"),
+                "edelstahl": ("#b9bcbf", "steel"), "aluminium": ("#c4c6c8", "steel"), "titan": ("#8d8f91", "steel"),
+                "schwarz": ("#1d1d1d", "blackMetal"), "anthrazit": ("#3a3b3c", "blackMetal"), "grau": ("#8d8d8a", "matte"),
+                "weiß": ("#f2f1ed", "matte"), "beige": ("#d9cbb4", "matte"), "sand": ("#d8c7a8", "matte"), "braun": ("#6f4d36", "matte")}
+
+
+def cm(v):
+    m = re.match(r"([\d.,]+)\s*(mm|cm|m)?", v or "")
+    if not m:
+        return None
+    x = float(m.group(1).replace(",", "."))
+    return x / 10 if m.group(2) == "mm" else (x * 100 if m.group(2) == "m" else x)
+
+
+def lamp_slots(a, name):
+    lc = (a.get("Farbe der Leuchte") or name).lower()
+    col, mat = next((v for k, v in METAL_COLORS.items() if k in lc), (color_of(lc, "#1d1d1d"), "matte"))
+    if (a.get("Material der Leuchte") or "").lower() in ("kunststoff", "polycarbonat") and mat not in ("brass", "chrome"):
+        mat = "plastic"
+    sm = (a.get("Material des Schirms") or "").lower()
+    sc_txt = (a.get("Farbe des Schirms") or "").lower()
+    if "glas" in sm or "plexi" in sm or "acryl" in sm:
+        shade = {"color": "#f6f4ee", "material": "opal"} if any(k in sc_txt for k in ("weiß", "opal", "satiniert", "milch")) or not sc_txt else (
+            {"color": "#e8eef0", "material": "glass"} if any(k in sc_txt for k in ("klar", "transparent")) else {"color": color_of(sc_txt, "#e8e2d6"), "material": "glass"})
+    elif "stoff" in sm:
+        shade = {"color": color_of(sc_txt, "#efe9dd"), "material": "linen"}
+    elif "rattan" in sm or "geflecht" in sm:
+        shade = {"color": "#c49a6c", "material": "rattan"}
+    elif "papier" in sm:
+        shade = {"color": "#f3efe6", "material": "paper"}
+    elif "metall" in sm:
+        c2, m2 = next((v for k, v in METAL_COLORS.items() if k in sc_txt), (col, mat))
+        shade = {"color": c2, "material": m2}
+    else:
+        shade = {"color": "#f6f4ee", "material": "opal"}
+    return {"main": {"color": col, "material": mat}, "shade": shade, "frame": {"color": col, "material": mat}}
+
+
+def lampe():
+    f = RES / "lampe_products.json"
+    if not f.exists():
+        return []
+    groups = {}
+    for p in json.loads(f.read_text()):
+        a = p["attrs"]
+        typ = a.get("Produktart")
+        if typ not in LAMP_TYPE or not p.get("price") or (a.get("Verwendungsbereich") or "").lower().startswith("außen"):
+            continue
+        cat, mount = LAMP_TYPE[typ]
+        if cat == "tableLamp" and (cm(a.get("Höhe")) or 0) > 100:
+            cat = "floorLamp"  # Leseleuchten in Stehhöhe
+        name = re.sub(r",\s*\d+-flammig$", "", p["name"]).strip()
+        nl = name.lower()
+        H, D, L, B, A = (cm(a.get(k)) for k in ("Höhe", "Durchmesser", "Länge", "Breite", "Ausladung"))
+        form = (a.get("Bauform") or "").lower()
+        n = int(re.sub(r"\D", "", a.get("Anzahl Flammen") or "1") or 1)
+        params = {}
+        W = D or B or L or 30
+        DD = D or B or W
+        HH = H or 30
+        if cat == "tableLamp":
+            arch = "lampTask" if (typ == "Leseleuchte" or "tolomeo" in nl or (L and D and L > 2 * D)) else (
+                "lampTableGlobe" if form in ("kugel",) else ("lampTableMushroom" if any(k in nl for k in ("pilz", "mushroom", "panthella", "nessino", "eclisse")) or form == "halbrund" else "lampTableShade"))
+            W = L if arch == "lampTask" and L else W
+            DD = D or min(W, 30)
+        elif cat == "floorLamp":
+            arch = "lampTask" if (typ == "Leseleuchte" or "tolomeo" in nl or "lese" in nl) else ("lampFloorArc" if any(k in nl for k in ("bogen", "arc")) or form == "gebogen" else (
+                "lampFloorGlobe" if form == "kugel" else ("lampFloorTripod" if "dreibein" in nl or "tripod" in nl else "lampFloorShade")))
+            if arch == "lampFloorArc":
+                W = L or A or 150
+                DD = D or 40
+            elif arch == "lampFloorGlobe":
+                params["globe"] = round((D or 30) / 100, 3)
+            HH = H or 160
+        elif cat == "pendant":
+            span = L or B or D or 0
+            linear = span > 1.6 * (B if (B and L) else (D or 20)) and (form in ("länglich", "rechteckig") or (L and not D))
+            if linear:
+                arch = "pendantLinear"
+                W, DD = L or 100, B or D or 12
+                if n >= 3:
+                    params["heads"] = n
+                    params["shape"] = "globe" if "glas" in (a.get("Material des Schirms") or "").lower() else "dome"
+            elif n >= 3 or typ == "Kronleuchter":
+                arch = "pendantCluster"
+            elif form in ("kugel", "oval", "organisch", "tropfenförmig", "birnenförmig") or "glas" in (a.get("Material des Schirms") or "").lower():
+                arch = "pendantGlobe"
+            else:
+                arch = "pendantDome"
+            # Höhenangaben bei Pendeln enthalten meist die Abhängung → Leuchtenkörper abschätzen
+            body = min(HH, max(12, (D or W) * (0.9 if arch == "pendantGlobe" else 0.6)))
+            if HH > 60:
+                params["maxHang"] = round(HH / 100, 2)
+            HH = body if arch != "pendantLinear" else min(HH, 12 if n < 3 else max(15, DD))
+        elif cat == "ceilingLamp":
+            arch = "ceilingDisc" if (HH or 10) <= 12 or form == "flach" else "ceilingDome"
+            if form in ("eckig", "quadratisch", "rechteckig", "länglich"):
+                arch = "ceilingDisc"
+                W, DD = L or B or W, B or D or W
+            HH = min(HH, 45)
+            if arch == "ceilingDome":
+                params["shape"] = "vanja" if form in ("kugel", "rund") else "dome"
+        else:  # Wandleuchte
+            flat = (A or 0) <= 12 and form in ("flach", "rund", "eckig", "quadratisch", "rechteckig", "länglich", "halbrund")
+            arch = "wallGlobe" if form == "kugel" else "wallSconce"
+            if flat and arch == "wallSconce":
+                params["shape"] = "plate"
+            W = B or L or D or 20
+            DD = A or (D if arch == "wallGlobe" else 12) or 12
+            HH = H or (W if flat else 25)
+        if max(W, DD) < 8:
+            continue  # unplausible Maße (z. B. nur Baldachin angegeben)
+        slots = lamp_slots(a, name)
+        variant = {"name": (a.get("Farbe der Leuchte") or "Standard")[:40] + (f" / {a.get('Farbe des Schirms')}" if a.get("Farbe des Schirms") and a.get("Farbe des Schirms") != a.get("Farbe der Leuchte") else ""),
+                   "slots": slots, "price": float(p["price"]), "url": p["url"]}
+        # Familie: Produktname ohne Farbe → Varianten
+        fam = re.sub(r"\s+(LED\s+)?[A-ZÄÖÜa-zäöü, /-]*$", "", name) if False else re.sub(r"\s+(Schwarz|Weiß|Gold|Messing|Chrom|Silber|Grau|Kupfer|Aluminium|Nickel|Beige|Anthrazit|Edelstahl|Braun|Sand|Orange|Titan|Champagner)\b.*$", "", name)
+        key = (p["brand"], fam, round(W / 5), round(HH / 5), arch)
+        g = groups.get(key)
+        if g:
+            if not any(v["name"] == variant["name"] for v in g["variants"]) and len(g["variants"]) < 12:
+                g["variants"].append(variant)
+            g["price"] = min(g["price"], variant["price"])
+            continue
+        designer = a.get("Designer")
+        light = ", ".join(dict.fromkeys(x for x in (a.get("Fassung"), "LED" if a.get("LED") == "Ja" else "", "dimmbar" if "dimm" in json.dumps(a).lower() else "") if x))
+        groups[key] = finalize({
+            "id": "lam-" + re.sub(r"[^a-z0-9]+", "-", p["url"].rsplit("/", 1)[-1].replace(".html", "").lower())[:70],
+            "vendor": "lampe.de", "brand": p["brand"], "series": fam, "name": fam, "category": cat, "archetype": arch,
+            "w": round(W, 1), "d": round(DD, 1), "h": round(HH, 1), "price": float(p["price"]), "url": p["url"], "image": p.get("image"),
+            "params": params, "variants": [variant], "premium": True,
+            "tags": [p["brand"], typ] + ([designer] if designer else []) + (["Made in Germany"] if a.get("Made in Germany") == "Ja" else []),
+            "description": "; ".join(x for x in (f"Design: {designer}" if designer else "", f"{typ}, {n}-flammig", light,
+                                                  f"Material: {a.get('Material der Leuchte')}" if a.get("Material der Leuchte") else "",
+                                                  f"Schirm: {a.get('Material des Schirms')}" if a.get("Material des Schirms") else "",
+                                                  f"Abhängung bis {params['maxHang'] * 100:.0f} cm" if params.get("maxHang") else "") if x),
+        })
+        if mount == "wall":
+            groups[key]["elev"] = round(max(0.3, 1.7 - HH / 200), 2)  # Leuchtenmitte ≈ 1,70 m
+        elif cat == "pendant":
+            groups[key]["elev"] = round(min(2.56 - HH / 100 - 0.05, 2.0), 2)  # Durchgangshöhe ≥ 2,00 m
+    return list(groups.values())
 
 
 def merge_color_variants(items):
@@ -631,7 +968,7 @@ def merge_color_variants(items):
 
 
 def main():
-    groups = [("Konzepte", concept_items()), ("Westwing", merge_color_variants(westwing())), ("IKEA", merge_color_variants(ikea())), ("JYSK", merge_color_variants(jysk())), ("Ergänzungen", generic_items())]
+    groups = [("Konzepte", concept_items()), ("Westwing", merge_color_variants(westwing())), ("IKEA", merge_color_variants(ikea())), ("JYSK", merge_color_variants(jysk())), ("Tylko", tylko()), ("lampe.de", lampe()), ("Ergänzungen", generic_items())]
     seen = set(); cat = []
     for label, items in groups:
         k = 0

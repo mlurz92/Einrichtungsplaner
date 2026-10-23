@@ -12,10 +12,11 @@ import {
   polygonCentroid,
   polygonsOverlap,
   rotationForFace,
-  segmentDistance,
   snapAngle,
 } from "../model/geometry";
 import { PlanSymbol } from "./symbols";
+import { DND_TYPE, type CatalogDrop } from "../ui/dnd";
+import { applyPlacementSnap, beginDrag, dragUpdate, type DragStart } from "../store/placement";
 
 const S = 100; // SVG-Einheit = cm
 const P = (v: number) => v * S;
@@ -25,7 +26,7 @@ const FLOOR_FILL: Record<string, string> = { planks: "#efe3cf", herringbone: "#e
 const WALL_POLY = apartment.walls;
 
 type Drag =
-  | { kind: "move"; ids: string[]; start: Map<string, { x: number; y: number }>; p0: Vec2; moved: boolean }
+  | { kind: "move"; ds: DragStart; p0: Vec2; moved: boolean }
   | { kind: "rotate"; id: string; cx: number; cy: number; a0: number; r0: number }
   | { kind: "resize"; id: string; side: "l" | "r" | "f" | "b"; orig: PlacedItem }
   | { kind: "pan"; sx: number; sy: number; vb: [number, number, number, number] }
@@ -48,40 +49,6 @@ function rayToWalls(o: Vec2, d: Vec2, maxL = 6): number | null {
     }
   }
   return best;
-}
-
-/** Wandbündiges Einrasten: Seiten des Objekts an parallele Wandflächen ziehen (≤ 8 cm). */
-function snapToWalls(it: PlacedItem): { x: number; y: number } {
-  const a = it.rot * DEG;
-  const ax: Vec2 = [Math.cos(a), Math.sin(a)];
-  const ay: Vec2 = [-Math.sin(a), Math.cos(a)];
-  let x = it.x, y = it.y;
-  const sides: { n: Vec2; half: number }[] = [
-    { n: ay, half: it.d / 2 },
-    { n: [-ay[0], -ay[1]], half: it.d / 2 },
-    { n: ax, half: it.w / 2 },
-    { n: [-ax[0], -ax[1]], half: it.w / 2 },
-  ];
-  const used: Vec2[] = [];
-  for (const s of sides) {
-    const px = x + s.n[0] * s.half;
-    const py = y + s.n[1] * s.half;
-    let best: { dist: number } | null = null;
-    for (const f of wallFaces) {
-      if (f.wallRatio < 0.3) continue;
-      if (f.n[0] * s.n[0] + f.n[1] * s.n[1] > -0.995) continue;
-      const r = segmentDistance([px, py], f.a, f.b);
-      if (r.t <= 0.001 || r.t >= 0.999) continue;
-      const signed = (px - f.a[0]) * f.n[0] + (py - f.a[1]) * f.n[1];
-      if (Math.abs(signed) < 0.08 && (!best || Math.abs(signed) < Math.abs(best.dist))) best = { dist: signed };
-    }
-    if (best && !used.some((u) => Math.abs(u[0] * s.n[0] + u[1] * s.n[1]) > 0.9)) {
-      x += s.n[0] * best.dist;
-      y += s.n[1] * best.dist;
-      used.push(s.n);
-    }
-  }
-  return { x, y };
 }
 
 const ItemSym = memo(function ItemSym({ it, selected, hovered, conflict, showLabel }: { it: PlacedItem; selected: boolean; hovered: boolean; conflict: boolean; showLabel: boolean }) {
@@ -107,6 +74,7 @@ const ItemSym = memo(function ItemSym({ it, selected, hovered, conflict, showLab
 });
 
 export function Plan2D() {
+  const snapGuides = useEditor((s) => s.snapGuides);
   const project = useEditor((s) => s.project);
   const selection = useEditor((s) => s.selection);
   const selectedFace = useEditor((s) => s.selectedFace);
@@ -238,7 +206,7 @@ export function Plan2D() {
       const additive = e.shiftKey || e.ctrlKey || e.metaKey;
       if (!sel.has(id) || additive) st.select([id], additive);
       const ids = (additive ? useEditor.getState().selection : sel.has(id) ? selection : [id]).filter((x) => !items.find((i) => i.id === x)?.locked);
-      if (ids.length) setDrag({ kind: "move", ids, start: new Map(items.filter((i) => ids.includes(i.id)).map((i) => [i.id, { x: i.x, y: i.y }])), p0: p, moved: false });
+      if (ids.length) setDrag({ kind: "move", ds: beginDrag(ids, items), p0: p, moved: false });
       return;
     }
     const face = (e.target as Element).getAttribute?.("data-face");
@@ -281,28 +249,9 @@ export function Plan2D() {
         dx = Math.round(dx / grid) * grid;
         dy = Math.round(dy / grid) * grid;
       }
-      st.updateItems(
-        drag.ids,
-        (it) => {
-          const s0 = drag.start.get(it.id)!;
-          it.x = s0.x + dx;
-          it.y = s0.y + dy;
-          if (it.mount === "wall" && drag.ids.length === 1) {
-            const nf = nearestFace(wallFaces, it.x, it.y, 1.2);
-            if (nf) {
-              const q = segmentDistance([it.x, it.y], nf.face.a, nf.face.b).q;
-              it.rot = rotationForFace(nf.face);
-              it.x = q[0] + nf.face.n[0] * (it.d / 2 + 0.002);
-              it.y = q[1] + nf.face.n[1] * (it.d / 2 + 0.002);
-            }
-          } else if (snapOn && drag.ids.length === 1 && it.mount === "floor") {
-            const s = snapToWalls(it);
-            it.x = s.x;
-            it.y = s.y;
-          }
-        },
-        { commit: false },
-      );
+      const u = dragUpdate(drag.ds, dx, dy, snapOn, st.project.items);
+      st.updateItems(u.ids, u.apply, { commit: false });
+      st.set("snapGuides", u.guides);
     } else if (drag.kind === "rotate") {
       const a = Math.atan2(p[1] - drag.cy, p[0] - drag.cx);
       let r = normAngle(drag.r0 + ((a - drag.a0) * 180) / Math.PI);
@@ -349,6 +298,7 @@ export function Plan2D() {
         useEditor.getState().select(ids);
       }
     }
+    if (useEditor.getState().snapGuides.length) useEditor.getState().set("snapGuides", []);
     setDrag(null);
   };
 
@@ -389,16 +339,12 @@ export function Plan2D() {
     const c = getCatalogItem(placing.catalogId);
     if (!c) return null;
     const it = newItemFromCatalog(c, placing.variant, cursor[0], cursor[1], 0);
-    const nf = nearestFace(wallFaces, cursor[0], cursor[1], c.mount === "wall" ? 1.5 : Math.max(it.d, 0.5));
-    if (nf) {
-      it.rot = rotationForFace(nf.face);
-      if (c.mount === "wall") {
-        const q = segmentDistance(cursor, nf.face.a, nf.face.b).q;
-        it.x = q[0] + nf.face.n[0] * (it.d / 2);
-        it.y = q[1] + nf.face.n[1] * (it.d / 2);
-      }
-    } else it.rot = 8;
-    return { it, arch: c.archetype };
+    if (c.mount === "floor") {
+      const nf = nearestFace(wallFaces, cursor[0], cursor[1], Math.max(it.d, 0.5));
+      it.rot = nf ? rotationForFace(nf.face) : 8;
+    }
+    const guides = applyPlacementSnap(it, useEditor.getState().project.items, it.rot, useEditor.getState().project.settings.snap);
+    return { it, arch: c.archetype, guides };
   }, [placing, cursor]);
 
   const sortedItems = useMemo(() => {
@@ -425,6 +371,23 @@ export function Plan2D() {
         onPointerMove={onMove}
         onPointerUp={onUp}
         onPointerLeave={() => setCursor(null)}
+        onDragOver={(e) => {
+          if (!e.dataTransfer.types.includes(DND_TYPE)) return;
+          e.preventDefault();
+          e.dataTransfer.dropEffect = "copy";
+          setCursor(toPlan(e.clientX, e.clientY));
+        }}
+        onDragLeave={() => setCursor(null)}
+        onDrop={(e) => {
+          const raw = e.dataTransfer.getData(DND_TYPE);
+          if (!raw) return;
+          e.preventDefault();
+          const { catalogId, variant } = JSON.parse(raw) as CatalogDrop;
+          const p = toPlan(e.clientX, e.clientY);
+          const st = useEditor.getState();
+          st.addFromCatalog(catalogId, variant, p[0], p[1]);
+          st.set("placing", null);
+        }}
         style={{ cursor: placing || measure.on ? "crosshair" : drag?.kind === "pan" ? "grabbing" : "default" }}
       >
         <defs>
@@ -574,6 +537,10 @@ export function Plan2D() {
             <rect x={-P(ghost.it.w) / 2} y={-P(ghost.it.d) / 2} width={P(ghost.it.w)} height={P(ghost.it.d)} fill="none" stroke="#2563eb" strokeDasharray="4 2" />
           </g>
         )}
+        {/* Hilfslinien Wandfang */}
+        {[...snapGuides, ...(ghost?.guides ?? [])].map((g, i) => (
+          <line key={i} x1={P(g.a[0])} y1={P(g.a[1])} x2={P(g.b[0])} y2={P(g.b[1])} stroke="#16a34a" strokeWidth={3} strokeLinecap="round" opacity={0.9} vectorEffect="non-scaling-stroke" pointerEvents="none" />
+        ))}
         {drag?.kind === "marquee" && (
           <rect x={P(Math.min(drag.p0[0], drag.p1[0]))} y={P(Math.min(drag.p0[1], drag.p1[1]))} width={P(Math.abs(drag.p1[0] - drag.p0[0]))} height={P(Math.abs(drag.p1[1] - drag.p0[1]))} fill="#2563eb" fillOpacity={0.08} stroke="#2563eb" strokeDasharray="4 3" pointerEvents="none" />
         )}

@@ -11,7 +11,9 @@ import type {
   SlotStyle,
   WallFinish,
 } from "../model/types";
-import { localToPlan, nearestFace, roomAt, rotationForFace, segmentDistance } from "../model/geometry";
+import { localToPlan, nearestFace, roomAt, rotationForFace } from "../model/geometry";
+import type { SnapGuide } from "../model/snap";
+import { applyPlacementSnap, setFrameMode } from "./placement";
 
 export type ViewMode = "plan" | "3d" | "split";
 export type Camera3D = "orbit" | "walk" | "top";
@@ -37,6 +39,9 @@ export interface EditorState {
   filePath: string | null;
   toast: string | null;
   focusRequest: { x: number; y: number; t: number } | null;
+  /** Hilfslinien des Wandfangs während des Ziehens. */
+  snapGuides: SnapGuide[];
+  helpOpen: boolean;
 
   // Aktionen
   setProject(p: Project, opts?: { keepHistory?: boolean; filePath?: string | null }): void;
@@ -63,6 +68,7 @@ export interface EditorState {
   addCustomCatalog(item: CatalogItem): void;
   showToast(msg: string): void;
   requestFocus(x: number, y: number): void;
+  setFrameStand(id: string, stand: boolean): void;
 }
 
 const AUTOSAVE_KEY = "we13.autosave.v1";
@@ -177,6 +183,8 @@ export const useEditor = create<EditorState>((set, get) => ({
   filePath: null,
   toast: null,
   focusRequest: null,
+  snapGuides: [],
+  helpOpen: false,
 
   setProject(p, opts) {
     rebuildCatalogIndex(p);
@@ -244,22 +252,13 @@ export const useEditor = create<EditorState>((set, get) => ({
     const c = getCatalogItem(catalogId);
     if (!c) return null;
     const it = newItemFromCatalog(c, variant, x, y, rot ?? 0);
-    // Wandobjekte an die nächste Wand andocken
-    if (c.mount === "wall") {
-      const nf = nearestFace(wallFaces, x, y, 1.5);
-      if (nf) {
-        const r = rotationForFace(nf.face);
-        const q = segmentDistance([x, y], nf.face.a, nf.face.b).q;
-        it.rot = r;
-        it.x = q[0] + nf.face.n[0] * (it.d / 2 + 0.002);
-        it.y = q[1] + nf.face.n[1] * (it.d / 2 + 0.002);
-      }
-    } else if (rot === undefined) {
+    if (c.mount === "floor" && rot === undefined) {
       // Möbel an der Wand: Rückseite zur nächsten Wand drehen, wenn nah genug
       const nf = nearestFace(wallFaces, x, y, Math.max(it.d, 0.5));
-      if (nf && c.mount === "floor") it.rot = rotationForFace(nf.face);
+      if (nf) it.rot = rotationForFace(nf.face);
       else it.rot = roomAt(apartment, x, y) && ["13.01", "13.02", "13.03", "13.07", "13.09"].includes(roomAt(apartment, x, y)!) ? 8 : 0;
     }
+    applyPlacementSnap(it, get().project.items, it.rot, get().project.settings.snap);
     get().commit();
     set((s) => ({ project: { ...s.project, items: [...s.project.items, it], updatedAt: new Date().toISOString() }, selection: [it.id] }));
     return it.id;
@@ -378,6 +377,10 @@ export const useEditor = create<EditorState>((set, get) => ({
     window.setTimeout(() => {
       if (get().toast === msg) set({ toast: null });
     }, 3200);
+  },
+  setFrameStand(id, stand) {
+    const items = get().project.items;
+    get().updateItems([id], (it) => setFrameMode(it, stand, items));
   },
   requestFocus(x, y) {
     set({ focusRequest: { x, y, t: Date.now() } });

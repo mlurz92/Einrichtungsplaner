@@ -1,9 +1,30 @@
 import { useMemo, useState } from "react";
-import { ArrowLeftRight, Copy, Crosshair, ExternalLink, Eye, EyeOff, Lock, RotateCcw, RotateCw, Trash2, Unlock } from "lucide-react";
+import {
+  AlignCenterHorizontal,
+  AlignCenterVertical,
+  AlignEndHorizontal,
+  AlignEndVertical,
+  AlignHorizontalSpaceAround,
+  AlignStartHorizontal,
+  AlignStartVertical,
+  AlignVerticalSpaceAround,
+  ArrowLeftRight,
+  Copy,
+  Crosshair,
+  ExternalLink,
+  Eye,
+  EyeOff,
+  Lock,
+  RotateCcw,
+  RotateCw,
+  Trash2,
+  Unlock,
+} from "lucide-react";
+import { alignOffsets, distributeOffsets, type AlignMode } from "../model/align";
 import { useEditor, getCatalogItem, allCatalog, itemPrice } from "../store/project";
 import { CATEGORY_LABELS, apartment, roomNames, wallFaceById } from "../data";
 import type { MaterialKey, PlacedItem, Slot, Surface, SurfaceKind, WallFinish } from "../model/types";
-import { MATERIAL_LABELS, PAINTS, PARAM_LABELS, SLOT_LABELS, SURFACE_KINDS, TILE_PATTERNS, WALLPAPER_PATTERNS } from "../data/paints";
+import { BOOL_PARAM_LABELS, CHOICE_PARAMS, MATERIAL_LABELS, PAINTS, PARAM_LABELS, SLOT_LABELS, SURFACE_KINDS, TILE_PATTERNS, WALLPAPER_PATTERNS } from "../data/paints";
 import { Thumb } from "./CatalogPanel";
 import { fmtEuro, nearestFace, normAngle, rotationForFace, segmentDistance } from "../model/geometry";
 import { openExternal } from "../platform";
@@ -108,6 +129,8 @@ function ItemInspector({ it }: { it: PlacedItem }) {
   const price = itemPrice(it);
   const slots = Object.entries(it.slots) as [Slot, { color: string; material: MaterialKey }][];
   const paramKeys = Object.keys(it.params ?? {}).filter((k) => PARAM_LABELS[k] && typeof it.params![k] === "number");
+  const boolKeys = Object.keys(it.params ?? {}).filter((k) => BOOL_PARAM_LABELS[k] && typeof it.params![k] === "boolean");
+  const choiceKeys = Object.keys(it.params ?? {}).filter((k) => CHOICE_PARAMS[k] && typeof it.params![k] === "string");
   return (
     <div>
       <div className="flex gap-3 border-b border-stone-200 p-3">
@@ -165,6 +188,33 @@ function ItemInspector({ it }: { it: PlacedItem }) {
           <SwapList it={it} onDone={() => setSwap(false)} />
         </Section>
       )}
+      {c?.archetype === "tvFrame" && (
+        <Section title="Samsung The Frame">
+          <div className="flex flex-wrap items-center gap-2">
+            <div className="seg whitespace-nowrap" title="Montageart">
+              <button data-on={!it.params?.stand} onClick={() => st.setFrameStand(it.id, false)}>
+                Wandmontage
+              </button>
+              <button data-on={!!it.params?.stand} onClick={() => st.setFrameStand(it.id, true)}>
+                Standfuß
+              </button>
+            </div>
+            <div className="seg whitespace-nowrap" title="Bildschirm">
+              <button data-on={(it.params?.screen ?? "art") === "art"} onClick={() => up((x) => void (x.params = { ...x.params, screen: "art" }))}>
+                Art Mode
+              </button>
+              <button data-on={it.params?.screen === "off"} onClick={() => up((x) => void (x.params = { ...x.params, screen: "off" }))}>
+                Aus
+              </button>
+            </div>
+          </div>
+          <p className="mt-1.5 text-[11px] text-stone-500">
+            {it.params?.stand
+              ? "Auf Standfüßen – über ein Sideboard/Lowboard ziehen, dann steht er auf dessen Oberseite und übernimmt die Ausrichtung."
+              : "Slim-Fit-Wandhalterung – rastet beim Ziehen an der nächsten Wand ein; Montagehöhe = Unterkante."}
+          </p>
+        </Section>
+      )}
       <Section title="Position & Maße">
         <div className="grid grid-cols-3 gap-2">
           <Num label="x" unit="m" value={it.x} digits={3} step={0.01} onChange={(v) => up((x) => void (x.x = v))} />
@@ -175,7 +225,7 @@ function ItemInspector({ it }: { it: PlacedItem }) {
           <Num label="Höhe" unit="cm" value={it.h * 100} step={1} min={0.5} onChange={(v) => up((x) => void (x.h = v / 100))} />
           <Num label={it.mount === "ceiling" ? "Unterkante" : "Montagehöhe"} unit="cm" value={it.elev * 100} step={1} min={0} max={apartment.ceilingHeight * 100} onChange={(v) => up((x) => void (x.elev = v / 100))} />
         </div>
-        {c && (Math.abs(c.w - it.w * 100) > 0.5 || Math.abs(c.d - it.d * 100) > 0.5 || Math.abs(c.h - it.h * 100) > 0.5) && (
+        {c && c.archetype !== "tvFrame" && (Math.abs(c.w - it.w * 100) > 0.5 || Math.abs(c.d - it.d * 100) > 0.5 || Math.abs(c.h - it.h * 100) > 0.5) && (
           <button className="mt-2 text-xs text-emerald-800 underline" onClick={() => up((x) => void ((x.w = c.w / 100), (x.d = c.d / 100), (x.h = c.h / 100)))}>
             Katalogmaße wiederherstellen ({c.w} × {c.d} × {c.h} cm)
           </button>
@@ -211,14 +261,36 @@ function ItemInspector({ it }: { it: PlacedItem }) {
           {!slots.length && <div className="text-xs text-stone-500">Dieses Objekt hat keine einstellbaren Materialien.</div>}
         </div>
       </Section>
-      {paramKeys.length > 0 && (
+      {paramKeys.length + boolKeys.length + choiceKeys.length > 0 && (
         <Section title="Ausführung">
           <div className="grid grid-cols-2 gap-2">
             {paramKeys.map((k) => {
               const m = PARAM_LABELS[k];
               return <Num key={k} label={m.label} value={it.params![k] as number} step={m.step ?? 1} min={m.min} max={m.max} digits={m.step && m.step < 1 ? 2 : 0} onChange={(v) => up((x) => void (x.params = { ...x.params, [k]: v }))} />;
             })}
+            {choiceKeys.map((k) => (
+              <label key={k} className="text-[11px] text-stone-500">
+                {CHOICE_PARAMS[k].label}
+                <select className="field mt-0.5 w-full" value={it.params![k] as string} onChange={(e) => up((x) => void (x.params = { ...x.params, [k]: e.target.value }))}>
+                  {CHOICE_PARAMS[k].options.map(([v, l]) => (
+                    <option key={v} value={v}>
+                      {l}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            ))}
           </div>
+          {boolKeys.length > 0 && (
+            <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+              {boolKeys.map((k) => (
+                <label key={k} className="flex items-center gap-1.5 text-xs text-stone-700">
+                  <input type="checkbox" className="accent-emerald-800" checked={!!it.params![k]} onChange={(e) => up((x) => void (x.params = { ...x.params, [k]: e.target.checked }))} />
+                  {BOOL_PARAM_LABELS[k]}
+                </label>
+              ))}
+            </div>
+          )}
         </Section>
       )}
       {!it.existing && (
@@ -474,12 +546,14 @@ export function Inspector() {
     <div className="p-4 text-sm text-stone-500">
       Objekt, Wand oder Raum anklicken, um Eigenschaften zu bearbeiten.
       <ul className="mt-3 list-disc space-y-1 pl-4 text-xs">
-        <li>Ziehen: verschieben (Alt = ohne Fang)</li>
+        <li>Produkte aus dem Katalog direkt in Plan oder 3D ziehen</li>
+        <li>Ziehen: verschieben mit Wandfang (Alt = ohne Fang)</li>
         <li>Drehgriff bzw. R / Umschalt+R: ±15°</li>
         <li>Pfeiltasten: 1 cm, mit Umschalt 10 cm</li>
         <li>Entf: löschen · Strg+D: duplizieren</li>
         <li>Strg+Z / Strg+Y: rückgängig / wiederholen</li>
-        <li>M: messen · F: einpassen</li>
+        <li>M: messen · F: einpassen bzw. 3D-Fokus</li>
+        <li>F1: alle Tastenkürzel</li>
       </ul>
     </div>
   );
@@ -489,8 +563,47 @@ function MultiInspector({ ids }: { ids: string[] }) {
   const st = useEditor();
   const items = st.project.items.filter((i) => ids.includes(i.id));
   const sum = items.reduce((a, i) => a + itemPrice(i), 0);
+  const movable = items.filter((i) => !i.locked);
+  const shift = (m: Map<string, [number, number]>) =>
+    st.updateItems(
+      [...m.keys()],
+      (it) => {
+        const [dx, dy] = m.get(it.id)!;
+        it.x += dx;
+        it.y += dy;
+      },
+    );
+  const align = (mode: AlignMode) => shift(alignOffsets(movable, mode));
+  const ALIGN: [AlignMode | "dx" | "dy", string, typeof AlignStartVertical][] = [
+    ["left", "Links bündig", AlignStartVertical],
+    ["centerX", "Horizontal mittig", AlignCenterVertical],
+    ["right", "Rechts bündig", AlignEndVertical],
+    ["top", "Oben bündig", AlignStartHorizontal],
+    ["centerY", "Vertikal mittig", AlignCenterHorizontal],
+    ["bottom", "Unten bündig", AlignEndHorizontal],
+    ["dx", "Horizontal gleichmäßig verteilen (ab 3 Objekten)", AlignHorizontalSpaceAround],
+    ["dy", "Vertikal gleichmäßig verteilen (ab 3 Objekten)", AlignVerticalSpaceAround],
+  ];
   return (
     <div>
+      <Section title="Ausrichten & Verteilen (Plan)">
+        <div className="flex flex-wrap gap-1">
+          {ALIGN.map(([m, label, Icon]) => (
+            <button
+              key={m}
+              className="btn-ghost"
+              title={label}
+              disabled={movable.length < (m === "dx" || m === "dy" ? 3 : 2)}
+              onClick={() => (m === "dx" ? shift(distributeOffsets(movable, "x")) : m === "dy" ? shift(distributeOffsets(movable, "y")) : align(m))}
+            >
+              <Icon size={16} />
+            </button>
+          ))}
+          <button className="btn-ghost text-xs" title="Drehung des ersten Objekts übernehmen" disabled={movable.length < 2} onClick={() => st.updateItems(movable.map((i) => i.id), (it) => void (it.rot = movable[0].rot))}>
+            gleiche Drehung
+          </button>
+        </div>
+      </Section>
       <Section title={`${items.length} Objekte ausgewählt`}>
         <div className="text-sm">{fmtEuro(sum)}</div>
         <div className="mt-2 grid grid-cols-2 gap-2">

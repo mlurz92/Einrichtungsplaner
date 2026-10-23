@@ -1,4 +1,4 @@
-import { Suspense, useCallback, useEffect, useMemo, useRef } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
 import { CameraControls, PointerLockControls } from "@react-three/drei";
@@ -13,7 +13,10 @@ import { buildApartment } from "./apartment";
 import { ItemMesh } from "./ItemMesh";
 import { wallClipPlanes } from "./surfaces";
 import { setNightGlow } from "./materials";
-import { nearestFace, pointInPolygon, rotationForFace, segmentDistance } from "../model/geometry";
+import { nearestFace, pointInPolygon, rotationForFace } from "../model/geometry";
+import type { SnapGuide } from "../model/snap";
+import { DND_TYPE, type CatalogDrop } from "../ui/dnd";
+import { applyPlacementSnap, beginDrag, dragUpdate } from "../store/placement";
 
 const CEIL = apartment.ceilingHeight;
 const CENTER = new THREE.Vector3((apartment.bounds[0] + apartment.bounds[2]) / 2, 0, (apartment.bounds[1] + apartment.bounds[3]) / 2);
@@ -194,7 +197,7 @@ function useDrag(controls: React.RefObject<CameraControls | null>) {
       if (!st.selection.includes(item.id) || additive) st.select([item.id], additive);
       if (st.camera3d === "walk" || item.locked || e.button !== 0) return;
       const ids = useEditor.getState().selection.filter((id) => !useEditor.getState().project.items.find((i) => i.id === id)?.locked);
-      const start = new Map(useEditor.getState().project.items.filter((i) => ids.includes(i.id)).map((i) => [i.id, { x: i.x, y: i.y, rot: i.rot }]));
+      const ds = beginDrag(ids, useEditor.getState().project.items);
       const plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), -(item.mount === "floor" ? item.elev : item.elev));
       const ray = new THREE.Raycaster();
       const ndc = new THREE.Vector2();
@@ -219,35 +222,22 @@ function useDrag(controls: React.RefObject<CameraControls | null>) {
           useEditor.getState().commit();
           moved = true;
         }
-        const snap = useEditor.getState().project.settings.snap;
-        if (snap && !ev.altKey) {
+        const snapOn = useEditor.getState().project.settings.snap && !ev.altKey;
+        if (snapOn) {
           const g = useEditor.getState().project.settings.gridSize || 0.05;
           dx = Math.round(dx / g) * g;
           dy = Math.round(dy / g) * g;
         }
-        useEditor.getState().updateItems(
-          ids,
-          (it) => {
-            const s0 = start.get(it.id)!;
-            it.x = s0.x + dx;
-            it.y = s0.y + dy;
-            if (it.mount === "wall" && ids.length === 1) {
-              const nf = nearestFace(wallFaces, it.x, it.y, 1.2);
-              if (nf) {
-                const q = segmentDistance([it.x, it.y], nf.face.a, nf.face.b).q;
-                it.rot = rotationForFace(nf.face);
-                it.x = q[0] + nf.face.n[0] * (it.d / 2 + 0.002);
-                it.y = q[1] + nf.face.n[1] * (it.d / 2 + 0.002);
-              }
-            }
-          },
-          { commit: false },
-        );
+        const st = useEditor.getState();
+        const u = dragUpdate(ds, dx, dy, snapOn, st.project.items);
+        st.updateItems(u.ids, u.apply, { commit: false });
+        st.set("snapGuides", u.guides);
       };
       const up = () => {
         window.removeEventListener("pointermove", move);
         window.removeEventListener("pointerup", up);
         if (controls.current) controls.current.enabled = true;
+        if (useEditor.getState().snapGuides.length) useEditor.getState().set("snapGuides", []);
       };
       window.addEventListener("pointermove", move);
       window.addEventListener("pointerup", up);
@@ -266,31 +256,79 @@ function Items({ controls }: { controls: React.RefObject<CameraControls | null> 
   const wallMode = useEditor((s) => s.wallMode);
   const camera3d = useEditor((s) => s.camera3d);
   const cut = camera3d === "walk" || wallMode === "full" ? null : wallMode === "cut" ? 1.3 : 0.14;
+  const onDouble = (e: ThreeEvent<MouseEvent>) => {
+    const id = e.object.userData.itemId as string | undefined;
+    const it = id && useEditor.getState().project.items.find((i) => i.id === id);
+    if (!it) return;
+    e.stopPropagation();
+    useEditor.getState().requestFocus(it.x, it.y);
+  };
   return (
-    <>
+    <group onDoubleClick={onDouble}>
       {items.map((it) => (
         <ItemMesh key={it.id} item={it} selected={sel.has(it.id)} hovered={hoverId === it.id} onDown={onDown} onOver={setHover} cut={cut} />
       ))}
-    </>
+    </group>
   );
 }
 
 function PlacementGhost() {
   const placing = useEditor((s) => s.placing);
-  const ghostRef = useRef<{ x: number; y: number }>({ x: CENTER.x, y: CENTER.z });
-  const item = useMemo(() => {
+  const [pos, setPos] = useState<{ x: number; y: number }>({ x: CENTER.x, y: CENTER.z });
+  const { gl, camera } = useThree();
+  // Drag & Drop aus dem Katalog: Bodenpunkt unter dem Mauszeiger
+  useEffect(() => {
+    const el = gl.domElement;
+    const ray = new THREE.Raycaster();
+    const floor = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
+    const hit = (e: DragEvent) => {
+      const r = el.getBoundingClientRect();
+      ray.setFromCamera(new THREE.Vector2(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1), camera);
+      const p = new THREE.Vector3();
+      return ray.ray.intersectPlane(floor, p) ? p : null;
+    };
+    const over = (e: DragEvent) => {
+      if (!e.dataTransfer?.types.includes(DND_TYPE)) return;
+      e.preventDefault();
+      e.dataTransfer.dropEffect = "copy";
+      const p = hit(e);
+      if (p) setPos({ x: p.x, y: p.z });
+    };
+    const drop = (e: DragEvent) => {
+      const raw = e.dataTransfer?.getData(DND_TYPE);
+      if (!raw) return;
+      e.preventDefault();
+      const p = hit(e);
+      const { catalogId, variant } = JSON.parse(raw) as CatalogDrop;
+      if (p) useEditor.getState().addFromCatalog(catalogId, variant, p.x, p.z);
+      useEditor.getState().set("placing", null);
+    };
+    el.addEventListener("dragover", over);
+    el.addEventListener("drop", drop);
+    return () => {
+      el.removeEventListener("dragover", over);
+      el.removeEventListener("drop", drop);
+    };
+  }, [gl, camera]);
+  const ghost = useMemo(() => {
     if (!placing) return null;
     const c = getCatalogItem(placing.catalogId);
     if (!c) return null;
-    const it = newItemFromCatalog(c, placing.variant, ghostRef.current.x, ghostRef.current.y, 8);
+    const it = newItemFromCatalog(c, placing.variant, pos.x, pos.y, 8);
     it.id = "ghost";
-    return it;
-  }, [placing]);
-  const groupRef = useRef<THREE.Group>(null);
+    if (c.mount === "floor") {
+      const nf = nearestFace(wallFaces, pos.x, pos.y, Math.max(it.d, 0.5));
+      if (nf) it.rot = rotationForFace(nf.face);
+    }
+    const st = useEditor.getState();
+    const guides = applyPlacementSnap(it, st.project.items, it.rot, st.project.settings.snap);
+    return { it, guides };
+  }, [placing, pos]);
+  // Geometrie nur bei Produktwechsel neu aufbauen, Lage über die Gruppe
+  const shape = useMemo(() => (ghost ? { ...ghost.it, x: 0, y: 0, rot: 0, elev: 0 } : null), [placing]); // eslint-disable-line react-hooks/exhaustive-deps
   const onMove = (e: ThreeEvent<PointerEvent>) => {
-    if (!item || !groupRef.current) return;
-    ghostRef.current = { x: e.point.x, y: e.point.z };
-    groupRef.current.position.set(e.point.x - item.x, 0, e.point.z - item.y);
+    if (!placing) return;
+    setPos({ x: e.point.x, y: e.point.z });
   };
   const onClick = (e: ThreeEvent<MouseEvent>) => {
     if (!placing) return;
@@ -298,17 +336,39 @@ function PlacementGhost() {
     useEditor.getState().addFromCatalog(placing.catalogId, placing.variant, e.point.x, e.point.z);
     if (!e.nativeEvent.shiftKey) useEditor.getState().set("placing", null);
   };
-  if (!item) return null;
+  if (!ghost || !shape) return null;
   return (
     <>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[CENTER.x, 0.003, CENTER.z]} onPointerMove={onMove} onClick={onClick}>
         <planeGeometry args={[60, 60]} />
         <meshBasicMaterial visible={false} />
       </mesh>
-      <group ref={groupRef}>
-        <ItemMesh item={item} selected hovered={false} />
+      <group position={[ghost.it.x, ghost.it.elev, ghost.it.y]} rotation={[0, (-ghost.it.rot * Math.PI) / 180, 0]}>
+        <ItemMesh item={shape} selected hovered={false} />
       </group>
+      <SnapGuides3D extra={ghost.guides} />
     </>
+  );
+}
+
+/** Grüne Hilfslinien des Wandfangs am Wandfuß. */
+function SnapGuides3D({ extra }: { extra?: SnapGuide[] }) {
+  const guides = useEditor((s) => s.snapGuides);
+  const all = extra ? [...guides, ...extra] : guides;
+  const geo = useMemo(() => {
+    if (!all.length) return null;
+    const pts: number[] = [];
+    for (const g of all) for (const y of [0.012, 0.6, 1.2]) pts.push(g.a[0], y, g.a[1], g.b[0], y, g.b[1]);
+    const gg = new THREE.BufferGeometry();
+    gg.setAttribute("position", new THREE.Float32BufferAttribute(pts, 3));
+    return gg;
+  }, [all]);
+  useEffect(() => () => geo?.dispose(), [geo]);
+  if (!geo) return null;
+  return (
+    <lineSegments geometry={geo} renderOrder={998}>
+      <lineBasicMaterial color="#16a34a" depthTest={false} transparent opacity={0.9} />
+    </lineSegments>
   );
 }
 
@@ -431,6 +491,7 @@ export function Scene3D() {
         <ApartmentModel />
         <Items controls={controls} />
         <PlacementGhost />
+        <SnapGuides3D />
         <ClipControl />
         {camera3d === "walk" ? (
           <>

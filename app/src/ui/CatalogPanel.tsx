@@ -6,8 +6,9 @@ import type { CatalogItem } from "../model/types";
 import { getThumbnail } from "../three/thumbnails";
 import { openExternal } from "../platform";
 import { fmtEuro, polygonCentroid } from "../model/geometry";
+import { DND_TYPE } from "./dnd";
 
-const VENDORS = ["Westwing", "IKEA", "JYSK", "Designhandel", "Tylko", "OBI", "Fachhandel"];
+const VENDORS = ["Westwing", "IKEA", "JYSK", "Designhandel", "Tylko", "Samsung", "lampe.de", "OBI", "Fachhandel"];
 
 export function Thumb({ c, variant = 0, size = 96 }: { c: CatalogItem; variant?: number; size?: number }) {
   const [url, setUrl] = useState<string | null>(null);
@@ -35,14 +36,41 @@ export function Thumb({ c, variant = 0, size = 96 }: { c: CatalogItem; variant?:
   );
 }
 
+const VENDOR_BADGE: Record<string, string> = {
+  Westwing: "bg-[#1f1f1f] text-white",
+  IKEA: "bg-[#0058a3] text-[#ffdb00]",
+  JYSK: "bg-[#143c8a] text-white",
+  Tylko: "bg-[#ff3c00] text-white",
+  Samsung: "bg-[#1428a0] text-white",
+  "lampe.de": "bg-[#f4b400] text-[#1d1d1d]",
+};
+
+/** Katalog-Drag & Drop: Vorschau läuft über den Platzierungsmodus, Ablage in 2D/3D. */
+function startCatalogDrag(e: React.DragEvent, catalogId: string, variant: number) {
+  e.dataTransfer.setData(DND_TYPE, JSON.stringify({ catalogId, variant }));
+  e.dataTransfer.setData("text/plain", catalogId);
+  e.dataTransfer.effectAllowed = "copy";
+  useEditor.getState().set("placing", { catalogId, variant });
+}
+function endCatalogDrag(e: React.DragEvent) {
+  if (e.dataTransfer.dropEffect === "none") useEditor.getState().set("placing", null);
+}
+
 const Card = memo(function Card({ c, onOpen }: { c: CatalogItem; onOpen: (c: CatalogItem) => void }) {
   const place = useEditor((s) => s.set);
   return (
-    <div className="group flex cursor-pointer gap-2.5 rounded-lg border border-transparent p-1.5 transition hover:border-stone-200 hover:bg-white hover:shadow-sm" onClick={() => onOpen(c)}>
+    <div
+      className="group flex cursor-pointer gap-2.5 rounded-lg border border-transparent p-1.5 transition hover:border-stone-200 hover:bg-white hover:shadow-sm"
+      onClick={() => onOpen(c)}
+      draggable
+      onDragStart={(e) => startCatalogDrag(e, c.id, 0)}
+      onDragEnd={endCatalogDrag}
+      title="In den Plan oder die 3D-Ansicht ziehen"
+    >
       <Thumb c={c} size={76} />
       <div className="min-w-0 flex-1 py-0.5">
         <div className="flex items-center gap-1.5">
-          <span className={`rounded px-1 text-[10px] font-semibold ${c.vendor === "Westwing" ? "bg-[#1f1f1f] text-white" : c.vendor === "IKEA" ? "bg-[#0058a3] text-[#ffdb00]" : c.vendor === "JYSK" ? "bg-[#143c8a] text-white" : "bg-stone-200 text-stone-700"}`}>{c.vendor}</span>
+          <span className={`rounded px-1 text-[10px] font-semibold ${VENDOR_BADGE[c.vendor] ?? "bg-stone-200 text-stone-700"}`}>{c.vendor}</span>
           {c.concepts?.length ? <span className="text-[10px] text-emerald-800">Konzept {c.concepts.join(", ")}</span> : null}
           {c.premium && !c.concepts?.length ? <Sparkles size={11} className="text-amber-600" /> : null}
         </div>

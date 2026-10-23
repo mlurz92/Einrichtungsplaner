@@ -12,6 +12,8 @@ export type Vendor =
   | "Designhandel"
   | "Tylko"
   | "OBI"
+  | "Samsung"
+  | "lampe.de"
   | "Fachhandel"
   | "Bestand";
 
@@ -180,6 +182,10 @@ export type Archetype =
   | "cushion"
   | "throw"
   | "tv"
+  | "tvFrame"
+  | "tylkoStorage"
+  | "pendantLinear"
+  | "lampTask"
   | "lamella"
   | "molding"
   | "panelWall"

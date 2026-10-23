@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Camera, ChevronDown, DoorOpen, FileDown, FilePlus, FolderOpen, Layers, Moon, Redo2, Save, Sun, Undo2, Upload } from "lucide-react";
+import { Camera, ChevronDown, DoorOpen, FileDown, FilePlus, FolderOpen, Keyboard, Layers, Moon, Redo2, Save, Sun, Undo2, Upload } from "lucide-react";
 import { useEditor, budgetSummary } from "../store/project";
 import { concepts } from "../data";
 import { fmtEuro } from "../model/geometry";
@@ -167,6 +167,9 @@ export function TopBar() {
       <label className="ml-2 flex items-center gap-1 text-xs text-stone-600" title="Fang (Raster und Wände), Alt hält ihn temporär an">
         <input type="checkbox" className="accent-emerald-800" checked={st.project.settings.snap} onChange={(e) => setSetting("snap", e.target.checked)} /> Fang
       </label>
+      <button className="btn-ghost ml-1" title="Bedienung & Tastenkürzel (F1)" onClick={() => st.set("helpOpen", true)}>
+        <Keyboard size={16} />
+      </button>
       <div className="ml-auto flex items-center gap-2">
         <button className="text-right" onClick={() => st.set("leftTab", "budget")} title="Budget öffnen">
           <div className={`text-sm font-semibold tabular-nums ${total > limit ? "text-red-700" : ""}`}>{fmtEuro(total)}</div>
