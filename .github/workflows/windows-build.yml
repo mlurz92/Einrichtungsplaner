@@ -6,6 +6,11 @@ on:
     tags: ["v*"]
   pull_request:
   workflow_dispatch:
+    inputs:
+      release:
+        description: "Release v<Version aus tauri.conf.json> mit Installer veröffentlichen"
+        type: boolean
+        default: false
 
 concurrency:
   group: build-${{ github.ref }}
@@ -56,8 +61,10 @@ jobs:
         uses: tauri-apps/tauri-action@v0
         with:
           projectPath: app
-          tagName: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || '' }}
-          releaseName: ${{ startsWith(github.ref, 'refs/tags/') && format('Einrichtungsplaner WE 13 {0}', github.ref_name) || '' }}
+          # Tag-Push oder manueller Auslöser mit „release“: Release anlegen (Tag v__VERSION__ erzeugt tauri-action selbst)
+          tagName: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || (inputs.release && 'v__VERSION__' || '') }}
+          releaseName: ${{ startsWith(github.ref, 'refs/tags/') && format('Einrichtungsplaner WE 13 {0}', github.ref_name) || (inputs.release && 'Einrichtungsplaner WE 13 v__VERSION__' || '') }}
+          releaseBody: ${{ (startsWith(github.ref, 'refs/tags/') || inputs.release) && 'Windows-Installer (NSIS, .exe) und MSI. Neu in dieser Version siehe README bzw. die zugehörigen Pull Requests.' || '' }}
           releaseDraft: false
       - name: Installer als Artefakt
         uses: actions/upload-artifact@v4
