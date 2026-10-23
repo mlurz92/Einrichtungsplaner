@@ -12,12 +12,14 @@ interface Props {
   hovered: boolean;
   onDown?: (e: ThreeEvent<PointerEvent>, item: PlacedItem) => void;
   onOver?: (id: string | null) => void;
+  /** Schnitthöhe der Wände (null = raumhoch) */
+  cut?: number | null;
 }
 
 const selMat = new THREE.LineBasicMaterial({ color: "#2563eb", depthTest: false, transparent: true, opacity: 0.95 });
 const hovMat = new THREE.LineBasicMaterial({ color: "#60a5fa", depthTest: false, transparent: true, opacity: 0.6 });
 
-function ItemMeshImpl({ item, selected, hovered, onDown, onOver }: Props) {
+function ItemMeshImpl({ item, selected, hovered, onDown, onOver, cut = null }: Props) {
   const cat = getCatalogItem(item.catalogId);
   const archetype = cat?.archetype ?? "box";
   const ceilingGap = item.mount === "ceiling" && archetype.startsWith("pendant") ? Math.max(0, apartment.ceilingHeight - item.elev - item.h) : 0;
@@ -57,6 +59,8 @@ function ItemMeshImpl({ item, selected, hovered, onDown, onOver }: Props) {
   }, [item.w, item.h, item.d]);
 
   if (item.hidden) return null;
+  // Bei geschnittenen Wänden würden Wandobjekte und Vorhänge frei im Raum schweben
+  if (cut != null && !selected && (item.mount === "wall" || archetype === "curtain") && item.elev + item.h > cut + 0.05) return null;
   return (
     <group
       position={[item.x, item.elev, item.y]}

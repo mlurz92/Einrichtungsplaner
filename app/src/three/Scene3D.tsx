@@ -263,10 +263,13 @@ function Items({ controls }: { controls: React.RefObject<CameraControls | null> 
   const setHover = useEditor((s) => s.setHover);
   const onDown = useDrag(controls);
   const sel = useMemo(() => new Set(selection), [selection]);
+  const wallMode = useEditor((s) => s.wallMode);
+  const camera3d = useEditor((s) => s.camera3d);
+  const cut = camera3d === "walk" || wallMode === "full" ? null : wallMode === "cut" ? 1.3 : 0.14;
   return (
     <>
       {items.map((it) => (
-        <ItemMesh key={it.id} item={it} selected={sel.has(it.id)} hovered={hoverId === it.id} onDown={onDown} onOver={setHover} />
+        <ItemMesh key={it.id} item={it} selected={sel.has(it.id)} hovered={hoverId === it.id} onDown={onDown} onOver={setHover} cut={cut} />
       ))}
     </>
   );
