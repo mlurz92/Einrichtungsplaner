@@ -62,7 +62,7 @@ function ItemMeshImpl({ item, selected, hovered, onDown, onOver, cut = null }: P
   const ghost = useRef<{ on: boolean; orig: Map<THREE.Mesh, THREE.Material | THREE.Material[]> }>({ on: false, orig: new Map() });
   const frame = useRef(Math.floor(Math.random() * 8));
   useFrame(({ camera }) => {
-    if (!ghostable || frame.current++ % 8) return;
+    if (!ghostable || frame.current++ % 2) return;
     const r = (item.rot * Math.PI) / 180;
     const back = item.d / 2 + 0.12;
     const behind = -Math.sin(r) * (camera.position.x - item.x) + Math.cos(r) * (camera.position.z - item.y) < 0;
