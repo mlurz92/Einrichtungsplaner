@@ -606,8 +606,32 @@ def generic_items():
     return G
 
 
+def merge_color_variants(items):
+    """Gleiche Produkte in verschiedenen Farben (eigene Shop-URLs) zu einem Eintrag mit Varianten zusammenfassen."""
+    out, index = [], {}
+    for e in items:
+        key = (e["vendor"], e["name"], round(e["w"]), round(e["d"]), round(e["h"]), e["archetype"])
+        if key in index:
+            tgt = index[key]
+            have = {v["name"].lower() for v in tgt["variants"]}
+            for v in e["variants"]:
+                if v["name"].lower() not in have and len(tgt["variants"]) < 24:
+                    v = dict(v)
+                    v.setdefault("price", e["price"])
+                    v.setdefault("url", e.get("url"))
+                    tgt["variants"].append(v)
+                    have.add(v["name"].lower())
+            tgt["price"] = min(tgt["price"], e["price"])
+            continue
+        e["variants"][0].setdefault("price", e["price"])
+        e["variants"][0].setdefault("url", e.get("url"))
+        index[key] = e
+        out.append(e)
+    return out
+
+
 def main():
-    groups = [("Konzepte", concept_items()), ("Westwing", westwing()), ("IKEA", ikea()), ("JYSK", jysk()), ("Ergänzungen", generic_items())]
+    groups = [("Konzepte", concept_items()), ("Westwing", merge_color_variants(westwing())), ("IKEA", merge_color_variants(ikea())), ("JYSK", merge_color_variants(jysk())), ("Ergänzungen", generic_items())]
     seen = set(); cat = []
     for label, items in groups:
         k = 0

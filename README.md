@@ -11,7 +11,7 @@ Möblierungskonzepten.
 | Grundriss | exakt aus der Vektor-PDF rekonstruiert (Wandpolygone, Raumpolygone, 16 Öffnungen mit Rohbaubreiten, 8°-Flügel), Raumhöhe 2,56 m, Flächen identisch mit den Raumstempeln |
 | 2D-Plan | maßstäblich (cm), Fang an Raster und Wänden (wandbündig), Drehen mit 15°/8°-Raster, Größenänderung, Abstandsmaße zu den Wänden, Messwerkzeug, Mehrfachauswahl, Kollisionsanzeige, Positionsnummern |
 | 3D | PBR-Materialien (CC0-Texturen), Sonnenstand nach Uhrzeit, Abendlicht mit Leuchten, Ambient Occlusion, Wandschnitt (voll/Schnitt/flach), Rundgang (WASD), Türen öffnen, Ziehen von Objekten in 3D |
-| Katalog | 2.255 Produkte (Westwing, IKEA-Designserien, JYSK-Premiumklasse, Designleuchten, OBI-Wandpaneele), Varianten, Maße, Preise, Shop-Links, Vorschaubilder aus den 3D-Modellen, Filter „Premium“ |
+| Katalog | 1.995 Produkte mit 3.280 Farb-/Materialvarianten (Westwing, IKEA-Designserien, JYSK-Premiumklasse, Designleuchten, OBI-Wandpaneele), Varianten, Maße, Preise, Shop-Links, Vorschaubilder aus den 3D-Modellen, Filter „Premium“ |
 | Konzepte | alle Positionen der vier Konzepte (Travertin·Kupfer·Salbei, Espresso·Petrol·Chrom, Stone·Petrol·Salbei, Ivory·Petrol·Messing) lagegenau, Budgets centgenau wie in den PDFs |
 | Gestaltung | Wandfarbe (Alpina, Schöner Wohnen, Farrow & Ball u. a.), Kalkfarbe, Tapeten, Holzlamellen, Holzpaneele, Kassetten-Vertäfelung, Fliesen, Naturstein, Mikrozement, Sockelzone; Bodenbeläge (Dielen, Fischgrät, Chevron, Fliesen …), Deckenfarbe – je Raum oder je einzelner Wand |
 | Bearbeiten | Tauschen gegen passende Alternativen (gleiche Kategorie, ähnliche Maße, Rückseite bleibt an der Wand), Farben/Materialien je Bauteil, Ausführungsparameter, Stückliste, Undo/Redo, Autosave |
