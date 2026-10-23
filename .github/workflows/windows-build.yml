@@ -59,6 +59,8 @@ jobs:
         run: npm ci
       - name: Tauri-Build
         uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           projectPath: app
           # Tag-Push oder manueller Auslöser mit „release“: Release anlegen (Tag v__VERSION__ erzeugt tauri-action selbst)
