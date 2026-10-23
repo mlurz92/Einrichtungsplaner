@@ -12,11 +12,12 @@ import type { PlacedItem } from "../model/types";
 import { buildApartment } from "./apartment";
 import { ItemMesh } from "./ItemMesh";
 import { wallClipPlanes } from "./surfaces";
+import { cutUniforms } from "./cutaway";
 import { setNightGlow } from "./materials";
 import { nearestFace, pointInPolygon, rotationForFace } from "../model/geometry";
 import type { SnapGuide } from "../model/snap";
 import { DND_TYPE, type CatalogDrop } from "../ui/dnd";
-import { applyPlacementSnap, beginDrag, dragUpdate } from "../store/placement";
+import { applyPlacementSnap, beginDrag, dragUpdate, isFlatFloorItem } from "../store/placement";
 
 const CEIL = apartment.ceilingHeight;
 const CENTER = new THREE.Vector3((apartment.bounds[0] + apartment.bounds[2]) / 2, 0, (apartment.bounds[1] + apartment.bounds[3]) / 2);
@@ -191,12 +192,18 @@ function useDrag(controls: React.RefObject<CameraControls | null>) {
   const { camera, gl } = useThree();
   return useCallback(
     (e: ThreeEvent<PointerEvent>, item: PlacedItem) => {
-      e.stopPropagation();
+      // Nur die linke Taste wählt/verschiebt; rechte und mittlere Taste bewegen immer die Ansicht
+      if (e.button !== 0) return;
       const st = useEditor.getState();
       if (st.placing) return;
+      e.stopPropagation();
       const additive = e.nativeEvent.shiftKey || e.nativeEvent.ctrlKey || e.nativeEvent.metaKey;
-      if (!st.selection.includes(item.id) || additive) st.select([item.id], additive);
-      if (st.camera3d === "walk" || item.locked || e.button !== 0) return;
+      const wasSelected = st.selection.includes(item.id);
+      if (!wasSelected || additive) st.select([item.id], additive);
+      if (st.camera3d === "walk" || item.locked) return;
+      // Großflächige, flache Objekte (Teppiche) erst nach der Auswahl verschieben – sonst würde
+      // jedes Drehen der Ansicht über dem Teppich ihn mitziehen
+      if (!wasSelected && isFlatFloorItem(item)) return;
       const ids = useEditor.getState().selection.filter((id) => !useEditor.getState().project.items.find((i) => i.id === id)?.locked);
       const ds = beginDrag(ids, useEditor.getState().project.items);
       const plane = new THREE.Plane(new THREE.Vector3(0, 1, 0), -(item.mount === "floor" ? item.elev : item.elev));
@@ -212,13 +219,15 @@ function useDrag(controls: React.RefObject<CameraControls | null>) {
       const p0 = hit(e.nativeEvent);
       if (!p0) return;
       let moved = false;
+      const sx = e.nativeEvent.clientX, sy = e.nativeEvent.clientY;
       if (controls.current) controls.current.enabled = false;
       const move = (ev: PointerEvent) => {
         const p = hit(ev);
         if (!p) return;
         let dx = p.x - p0.x;
         let dy = p.z - p0.z;
-        if (!moved && Math.hypot(dx, dy) < 0.01) return;
+        // Erst ab 4 px Mausweg verschieben (Klick bleibt Klick)
+        if (!moved && Math.hypot(ev.clientX - sx, ev.clientY - sy) < 4) return;
         if (!moved) {
           useEditor.getState().commit();
           moved = true;
@@ -256,7 +265,7 @@ function Items({ controls }: { controls: React.RefObject<CameraControls | null> 
   const sel = useMemo(() => new Set(selection), [selection]);
   const wallMode = useEditor((s) => s.wallMode);
   const camera3d = useEditor((s) => s.camera3d);
-  const cut = camera3d === "walk" || wallMode === "full" ? null : wallMode === "cut" ? 1.3 : 0.14;
+  const cut = camera3d === "walk" || wallMode === "full" || wallMode === "auto" ? null : wallMode === "cut" ? 1.3 : 0.14;
   const onDouble = (e: ThreeEvent<MouseEvent>) => {
     const id = e.object.userData.itemId as string | undefined;
     const it = id && useEditor.getState().project.items.find((i) => i.id === id);
@@ -422,8 +431,31 @@ function CameraRig({ controls }: { controls: React.RefObject<CameraControls | nu
       const room = apartment.rooms.find((r) => r.id === (selectedRoom ?? "13.01")) ?? apartment.rooms[0];
       const cx = room.polygon.reduce((s, p) => s + p[0], 0) / room.polygon.length;
       const cy = room.polygon.reduce((s, p) => s + p[1], 0) / room.polygon.length;
-      camera.position.set(cx, 1.62, cy);
-      camera.lookAt(cx + 1, 1.5, cy - 0.3);
+      // Startblick: Richtung mit der längsten freien Sichtachse, Standpunkt etwas zurückgesetzt
+      const free = (dx: number, dy: number) => {
+        let t = 0;
+        while (t < 12) {
+          const x = cx + dx * (t + 0.1), y = cy + dy * (t + 0.1);
+          if (apartment.walls.some((w) => pointInPolygon(x, y, w)) || !apartment.rooms.some((r) => pointInPolygon(x, y, r.polygon))) break;
+          t += 0.1;
+        }
+        return t;
+      };
+      let best = { a: 0, d: -1 };
+      for (let i = 0; i < 72; i++) {
+        const a = (i / 72) * Math.PI * 2;
+        const d = free(Math.cos(a), Math.sin(a));
+        if (d > best.d) best = { a, d };
+      }
+      const dx = Math.cos(best.a), dy = Math.sin(best.a);
+      const items = useEditor.getState().project.items.filter((i) => i.mount === "floor" && !i.hidden && i.h > 0.3);
+      const inItem = (x: number, y: number) => items.some((i) => Math.hypot(x - i.x, y - i.y) < Math.max(i.w, i.d) / 2 + 0.6);
+      let backD = Math.max(0, free(-dx, -dy) - 0.5) * 0.7;
+      while (backD > 0 && inItem(cx - dx * backD, cy - dy * backD)) backD -= 0.1;
+      backD = Math.max(0, backD);
+      const px = cx - dx * backD, py = cy - dy * backD;
+      camera.position.set(px, 1.62, py);
+      camera.lookAt(px + dx * 4, 1.35, py + dy * 4);
       return;
     }
     if (!c) return;
@@ -433,6 +465,10 @@ function CameraRig({ controls }: { controls: React.RefObject<CameraControls | nu
       c.setLookAt(CENTER.x + 9, 13, CENTER.z + 13, CENTER.x, 0, CENTER.z, true);
     }
   }, [camera3d, camera, controls, selectedRoom]);
+  useEffect(() => {
+    const w = (globalThis as unknown as { __we13?: Record<string, unknown> }).__we13;
+    if (w) w.controls = controls.current;
+  });
   useEffect(() => {
     if (!focus || !controls.current || camera3d === "walk") return;
     controls.current.setLookAt(focus.x + 3.2, 3.6, focus.y + 3.6, focus.x, 0.6, focus.y, true);
@@ -444,20 +480,30 @@ function ClipControl() {
   const wallMode = useEditor((s) => s.wallMode);
   const camera3d = useEditor((s) => s.camera3d);
   useEffect(() => {
-    wallClipPlanes[0].constant = camera3d === "walk" || wallMode === "full" ? 100 : wallMode === "cut" ? 1.3 : 0.14;
+    wallClipPlanes[0].constant = camera3d === "walk" || wallMode === "full" || wallMode === "auto" ? 100 : wallMode === "cut" ? 1.3 : 0.14;
+    cutUniforms.uCutOn.value = wallMode === "auto" && camera3d !== "walk" ? 1 : 0;
   }, [wallMode, camera3d]);
+  // Automatischer Wandschnitt folgt der Kamera
+  useFrame(({ camera }) => {
+    cutUniforms.uCutCam.value.copy(camera.position);
+  });
   return null;
 }
 
 function Effects() {
   const quality = useEditor((s) => s.quality);
   const night = useEditor((s) => s.night);
+  const gl = useThree((s) => s.gl);
+  // Ohne Nachbearbeitung übernimmt der Renderer das Tonemapping
+  useEffect(() => {
+    gl.toneMapping = quality === "niedrig" ? THREE.NeutralToneMapping : THREE.NoToneMapping;
+  }, [gl, quality]);
   if (quality === "niedrig") return null;
   return (
     <EffectComposer multisampling={0} enableNormalPass={false}>
       <N8AO aoRadius={0.45} distanceFalloff={0.6} intensity={quality === "hoch" ? 2.2 : 1.6} quality={quality === "hoch" ? "high" : "medium"} halfRes={quality !== "hoch"} />
       <Bloom intensity={night ? 0.55 : 0.08} luminanceThreshold={night ? 0.85 : 0.98} mipmapBlur />
-      <ToneMapping mode={ToneMappingMode.AGX} />
+      <ToneMapping mode={ToneMappingMode.NEUTRAL} />
       <SMAA />
     </EffectComposer>
   );
@@ -500,7 +546,18 @@ export function Scene3D() {
             <WalkMovement />
           </>
         ) : (
-          <CameraControls ref={controls} makeDefault minDistance={1} maxDistance={60} maxPolarAngle={Math.PI / 2.05} dollySpeed={0.6} smoothTime={0.2} />
+          <CameraControls
+            ref={controls}
+            makeDefault
+            minDistance={1}
+            maxDistance={60}
+            maxPolarAngle={Math.PI / 2.05}
+            dollySpeed={0.6}
+            smoothTime={0.2}
+            // links drehen, rechts und Mitte verschieben (wie im Plan), Rad zoomt zum Mauszeiger
+            mouseButtons={{ left: 1, middle: 2, right: 2, wheel: 16 }}
+            dollyToCursor
+          />
         )}
         <CameraRig controls={controls} />
         <Effects />

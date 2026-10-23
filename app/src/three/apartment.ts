@@ -4,6 +4,7 @@ import type { ApartmentOpening, FloorFinish, Project, Surface, Vec2, WallFinish 
 import { DEG } from "../model/geometry";
 import { ceilingMaterial, floorMaterial, surfaceMaterial, wallClipPlanes } from "./surfaces";
 import { getMaterial } from "./materials";
+import { cutAwareRaycast, patchCutaway } from "./cutaway";
 
 // 3D-Aufbau der Wohnung aus den Vektordaten: Wände (Rohbau), Wandoberflächen je Raumkante,
 // Böden, Decken, Fenster, Türen, Geländer. Plan (x, y) → Welt (x, 0, y).
@@ -84,7 +85,23 @@ const frameMat = new THREE.MeshPhysicalMaterial({ color: "#3b3d40", roughness: 0
 const glassMat = new THREE.MeshPhysicalMaterial({ color: "#eef4f6", roughness: 0.02, transmission: 0.97, thickness: 0.006, ior: 1.5, transparent: true, clippingPlanes: wallClipPlanes });
 const doorMat = new THREE.MeshPhysicalMaterial({ color: "#f4f3ef", roughness: 0.4, clearcoat: 0.2, clippingPlanes: wallClipPlanes });
 const entranceMat = new THREE.MeshPhysicalMaterial({ color: "#6e6c69", roughness: 0.5, clippingPlanes: wallClipPlanes });
-const handleMat = getMaterial({ color: "#1d1d1d", material: "blackMetal" });
+const handleMat = clipped(getMaterial({ color: "#1d1d1d", material: "blackMetal" }));
+
+/** Kopie eines Katalogmaterials, die mit den Wänden geschnitten wird (Griffe in Türen/Fenstern). */
+function clipped(m: THREE.Material): THREE.Material {
+  const c = m.clone();
+  c.clippingPlanes = wallClipPlanes;
+  return c;
+}
+const handleCache = new Map<string, THREE.Material>();
+function doorHandleMat(finish: string): THREE.Material {
+  let m = handleCache.get(finish);
+  if (!m) {
+    m = clipped(getMaterial({ color: { brass: "#c3a160", steel: "#b9bcbf", blackMetal: "#1d1d1d" }[finish] ?? "#1d1d1d", material: finish as "brass" }));
+    handleCache.set(finish, m);
+  }
+  return m;
+}
 const railMat = new THREE.MeshPhysicalMaterial({ color: "#3b3d40", roughness: 0.4, metalness: 0.4 });
 
 export interface ApartmentBuild {
@@ -349,7 +366,7 @@ export function buildApartment(p: Project): ApartmentBuild {
       group.add(mesh(g, wallPocheMat, false, false));
     }
     if (o.type === "window") buildWindow(o, group);
-    else buildDoor(o, group, p.settings.doorsOpen ?? 0, p.settings.doorStyle ?? "flat", getMaterial({ color: { brass: "#c3a160", steel: "#b9bcbf", blackMetal: "#1d1d1d" }[p.settings.handleFinish ?? "blackMetal"], material: p.settings.handleFinish ?? "blackMetal" }));
+    else buildDoor(o, group, p.settings.doorsOpen ?? 0, p.settings.doorStyle ?? "flat", doorHandleMat(p.settings.handleFinish ?? "blackMetal"));
   }
   // Böden und Decken je Raum
   for (const r of apartment.rooms) {
@@ -442,7 +459,15 @@ export function buildApartment(p: Project): ApartmentBuild {
   }
   // Geländer
   for (const r of apartment.railings) buildRailing(r.a, r.b, group);
-  // Brüstung Balkon 2 (links, Geländer 89 cm)
+  // Alles, was mit den Wänden geschnitten wird, auch automatisch kappen (Wandmodus „Auto“)
+  group.traverse((o) => {
+    const m = o as THREE.Mesh;
+    if (!m.isMesh) return;
+    const mats = Array.isArray(m.material) ? m.material : [m.material];
+    if (!mats.some((x) => x.clippingPlanes === wallClipPlanes)) return;
+    mats.forEach(patchCutaway);
+    cutAwareRaycast(m, () => wallClipPlanes[0].constant);
+  });
   return { group, pickables };
 }
 

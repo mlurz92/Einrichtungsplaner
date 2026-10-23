@@ -59,6 +59,11 @@ function useShortcuts() {
         st.set("placing", null);
         st.select([]);
         st.selectFace(null);
+      } else if ((e.key === "w" || e.key === "W") && !ctrl && st.camera3d !== "walk" && st.viewMode !== "plan") {
+        const order = ["auto", "cut", "low", "full"] as const;
+        const next = order[(order.indexOf(st.wallMode) + 1) % order.length];
+        st.set("wallMode", next);
+        st.showToast(`Wände: ${{ auto: "Automatisch (verdeckende Wände gekappt)", cut: "Schnitt 1,30 m", low: "Flach", full: "Raumhoch" }[next]}`);
       } else if (st.selection.length && (e.key === "r" || e.key === "R")) {
         st.updateItems(st.selection, (it) => void (it.rot = normAngle(it.rot + (e.shiftKey ? -15 : 15))));
       } else if (st.selection.length && (e.key === "q" || e.key === "e")) {

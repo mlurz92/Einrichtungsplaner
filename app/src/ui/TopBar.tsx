@@ -44,7 +44,7 @@ export function TopBar() {
   return (
     <div className="flex h-12 shrink-0 items-center gap-1 border-b border-stone-200 bg-[#faf8f5] px-2">
       <div className="mr-2 flex items-center gap-2 pl-1">
-        <div className="grid h-7 w-7 place-items-center rounded-md bg-[#2f5d50] text-xs font-bold text-white">13</div>
+        <img src={`${import.meta.env.BASE_URL}favicon.png`} alt="" className="h-8 w-8 shrink-0" draggable={false} />
         <div className="leading-tight">
           <input className="w-56 bg-transparent text-sm font-semibold outline-none" value={st.project.name} onChange={(e) => useEditor.setState((s) => ({ project: { ...s.project, name: e.target.value } }))} />
           <div className="text-[10px] text-stone-500">Wohnung WE 13 · 91,80 m² · Raumhöhe 2,56 m{st.dirty ? " · ungespeichert" : ""}</div>
@@ -126,6 +126,9 @@ export function TopBar() {
             </button>
           </div>
           <div className="seg ml-1 whitespace-nowrap" title="Wanddarstellung">
+            <button data-on={st.wallMode === "auto"} onClick={() => st.set("wallMode", "auto")} title="Automatisch: Wände, die Teile der Wohnung verdecken, werden auf 15 cm gekappt (wie bei Die Sims). Taste W wechselt.">
+              Auto
+            </button>
             <button data-on={st.wallMode === "full"} onClick={() => st.set("wallMode", "full")} title="Wände raumhoch">
               Voll
             </button>
