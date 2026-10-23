@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Einrichtungsplaner WE 13",
+  "version": "1.0.0",
+  "identifier": "de.mlurz92.einrichtungsplaner",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Einrichtungsplaner WE 13",
+        "width": 1600,
+        "height": 960,
+        "minWidth": 1200,
+        "minHeight": 720,
+        "maximized": true,
+        "dragDropEnabled": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis", "msi"],
+    "category": "Productivity",
+    "shortDescription": "2D/3D-Einrichtungsplaner Wohnung WE 13",
+    "longDescription": "Maßstabsgetreue Möblierung und Gestaltung der Wohnung WE 13 mit Katalog (Westwing, IKEA, JYSK) und den vier Möblierungskonzepten.",
+    "copyright": "© 2026",
+    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"],
+    "windows": {
+      "webviewInstallMode": { "type": "downloadBootstrapper" },
+      "nsis": { "languages": ["German"], "installMode": "currentUser", "displayLanguageSelector": false },
+      "wix": { "language": "de-DE" }
+    }
+  }
+}

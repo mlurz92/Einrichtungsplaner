@@ -1,0 +1,632 @@
+"""Erzeugt den Möbelkatalog (app/src/data/catalog.json) aus
+  - den Konzeptprodukten (app/src/data/conceptCatalog.json, build_concepts.py),
+  - Westwing-Produktseiten (tools/research/data/westwing_products.json),
+  - IKEA-Suchergebnissen (tools/research/data/ikea_products.json),
+  - JYSK-Produktseiten (tools/research/data/jysk_products.json).
+
+Fokus: hochwertige/luxuriöse Linien. Westwing komplett (Westwing Collection = Premium), IKEA nur
+ausgewählte Design-/Premiumserien, JYSK nur obere Preis-/Materialklasse je Kategorie.
+Maße werden in cm übernommen, Farben/Materialien aus den Shopangaben auf Material-Vorlagen abgebildet.
+"""
+import json, re, statistics
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+RES = ROOT / "tools/research/data"
+DATA = ROOT / "app/src/data"
+
+# ------------------------------------------------------------------ Farben / Materialien
+COLORS = [
+    ("off white", "#efebe3"), ("offwhite", "#efebe3"), ("cremeweiß", "#efe8da"), ("cremefarben", "#ece3d0"), ("creme", "#ece3d0"),
+    ("elfenbeinweiß", "#efe8d8"), ("elfenbein", "#efe8d8"), ("naturweiß", "#f1ede4"), ("weiß", "#f4f2ee"), ("weiss", "#f4f2ee"),
+    ("hellbeige", "#e3d7c4"), ("dunkelbeige", "#c4b199"), ("graubeige", "#c9bfae"), ("beige", "#d9cbb4"), ("sand", "#d8c7a8"),
+    ("greige", "#cfc6b8"), ("taupe", "#a89a88"), ("nougat", "#b08f72"), ("karamell", "#b98a5a"), ("cognac", "#9a5b34"),
+    ("hellbraun", "#b08a63"), ("dunkelbraun", "#4e3a2c"), ("espresso", "#3e2c22"), ("schwarzbraun", "#2d2420"), ("braun", "#7a5a43"),
+    ("rostrot", "#a5563b"), ("rost", "#a5563b"), ("terrakotta", "#b8653f"), ("terracotta", "#b8653f"), ("ocker", "#c49a45"),
+    ("senf", "#c9a43c"), ("dunkelgelb", "#c9a43c"), ("gelb", "#e0c45a"), ("altrosa", "#c99a96"), ("rosa", "#e3b8b4"), ("pink", "#d98aa0"),
+    ("peach", "#e8b89a"), ("weinrot", "#6e232f"), ("bordeaux", "#6e232f"), ("burgund", "#6e232f"), ("dunkelrot", "#7a2a2a"), ("rot", "#b23a32"),
+    ("hellgrün", "#b9c9a8"), ("salbeigrün", "#a7b59e"), ("salbei", "#a7b59e"), ("graugrün", "#97a38e"), ("olivgrün", "#6e7450"),
+    ("oliv", "#6e7450"), ("dunkelgrün", "#2f4a3a"), ("tannengrün", "#2f4a3a"), ("grün", "#5d7a5a"), ("petrol", "#2f7074"),
+    ("grautürkis", "#5f8a8a"), ("türkis", "#3f8f8f"), ("hellblau", "#a9c1d6"), ("graublau", "#5b6f84"), ("dunkelblau", "#253a5e"),
+    ("nachtblau", "#22314a"), ("blau", "#3f6680"), ("hellgrau", "#c9c8c4"), ("dunkelgrau", "#4a4a48"), ("anthrazit", "#3a3b3c"),
+    ("grau", "#8d8d8a"), ("schwarz", "#1d1d1d"), ("silber", "#c6cbd0"), ("chrom", "#c6cbd0"), ("gold", "#c9a55c"), ("messing", "#c9a55c"),
+    ("kupfer", "#b8703e"), ("bronze", "#8c6a43"), ("natur", "#d8bc94"), ("eiche", "#c9a477"), ("walnuss", "#6b4a33"), ("nussbaum", "#6b4a33"),
+    ("mango", "#6d4c36"), ("teak", "#9a6c45"), ("akazie", "#8e6440"), ("transparent", "#e8eef0"), ("travertin", "#e3d6c1"), ("marmor", "#e7ddd0"),
+]
+
+MATS = [
+    ("teddy", "teddy"), ("bouclé", "boucle"), ("boucle", "boucle"), ("samt", "velvet"), ("velours", "velvet"), ("cord", "cord"),
+    ("leinen", "linen"), ("leder", "leather"), ("wolle", "wool"), ("jute", "wool"), ("chenille", "fabric"), ("webstoff", "fabric"),
+    ("travertin", "travertine"), ("grün marm", "marbleGreen"), ("marmor", "marble"), ("stein", "stone"), ("beton", "stone"),
+    ("walnuss", "walnut"), ("nussbaum", "walnut"), ("wurzelholz", "burl"), ("mango", "mango"), ("esche", "ash"), ("dunkle eiche", "oakDark"),
+    ("eiche dunkel", "oakDark"), ("eiche", "oak"), ("teak", "oak"), ("akazie", "walnut"), ("buche", "oak"), ("kiefer", "oak"),
+    ("riffelglas", "ribbedGlass"), ("opal", "opal"), ("glas", "glass"), ("spiegel", "mirror"), ("messing", "brass"), ("gold", "brass"),
+    ("kupfer", "copper"), ("chrom", "chrome"), ("silber", "chrome"), ("edelstahl", "steel"), ("rattan", "rattan"), ("geflecht", "rattan"),
+    ("keramik", "ceramic"), ("steingut", "ceramic"), ("steinzeug", "ceramic"), ("porzellan", "ceramic"), ("lackiert", "lacquer"),
+    ("hochglanz", "gloss"), ("metall", "blackMetal"), ("holz", "oak"), ("stoff", "fabric"),
+]
+
+
+def color_of(text, default="#d9cbb4"):
+    t = (text or "").lower()
+    best = None
+    for k, v in COLORS:
+        i = t.find(k)
+        if i >= 0 and (best is None or i < best[0] or (i == best[0] and len(k) > best[2])):
+            best = (i, v, len(k))
+    return best[1] if best else default
+
+
+def mat_of(text, default="fabric"):
+    t = (text or "").lower()
+    for k, v in MATS:
+        if k in t:
+            return v
+    return default
+
+
+def slots_for(category, color_text, material_text, name=""):
+    """Slot-Belegung aus Farb-/Materialtext (Polster: main; Gestell: legs; Tisch: top/legs)."""
+    txt = f"{color_text} {material_text} {name}"
+    c = color_of(color_text or name)
+    m = mat_of(f"{color_text} {material_text} {name}")
+    if category in ("sofa", "armchair", "pouf", "bench", "bed", "chair", "officeChair"):
+        if m in ("oak", "walnut", "mango", "ash", "oakDark", "travertine", "marble", "stone", "brass", "chrome", "steel", "blackMetal", "glass"):
+            m = "fabric"
+        legs_m = "oak" if any(w in txt.lower() for w in ("holzbein", "eschenholz", "eichenholz", "holzfüß", "holz")) else "blackMetal"
+        legs_c = "#a37a52" if legs_m == "oak" else ("#c9a55c" if "gold" in txt.lower() else ("#c6cbd0" if any(w in txt.lower() for w in ("silber", "chrom")) else "#1d1d1d"))
+        if legs_c in ("#c9a55c",):
+            legs_m = "brass"
+        elif legs_c == "#c6cbd0":
+            legs_m = "chrome"
+        return {"main": {"color": c, "material": m}, "legs": {"color": legs_c, "material": legs_m}}
+    if category in ("coffeeTable", "sideTable", "diningTable", "console", "desk"):
+        top = m if m not in ("fabric",) else "oak"
+        return {"top": {"color": c, "material": top}, "legs": {"color": c if top in ("oak", "walnut", "mango", "oakDark", "ash", "burl") else "#1d1d1d", "material": top if top in ("oak", "walnut", "mango", "oakDark", "ash", "burl") else "blackMetal"}, "main": {"color": c, "material": top}}
+    if category in ("floorLamp", "tableLamp", "pendant", "ceilingLamp", "wallLamp"):
+        metal = "brass" if any(w in txt.lower() for w in ("messing", "gold")) else ("copper" if "kupfer" in txt.lower() else ("chrome" if any(w in txt.lower() for w in ("chrom", "silber")) else ("blackMetal" if "schwarz" in txt.lower() else "matte")))
+        mc = {"brass": "#c9a55c", "copper": "#b8703e", "chrome": "#c6cbd0", "blackMetal": "#1d1d1d"}.get(metal, c)
+        shade_m = "opal" if any(w in txt.lower() for w in ("glas", "opal", "milch", "weiß")) else ("linen" if any(w in txt.lower() for w in ("leinen", "stoff", "textil")) else ("rattan" if "rattan" in txt.lower() else metal))
+        return {"main": {"color": mc, "material": metal}, "shade": {"color": "#f6f4ee" if shade_m == "opal" else (c if shade_m != metal else mc), "material": shade_m}}
+    if category in ("rug", "curtain", "textile"):
+        return {"main": {"color": c, "material": "wool" if category == "rug" else ("linen" if m not in ("velvet", "boucle") else m)}}
+    if category == "mirror":
+        return {"frame": {"color": c, "material": m if m != "fabric" else "blackMetal"}}
+    if category == "art":
+        return {"main": {"color": c, "material": "canvas"}, "secondary": {"color": "#8f8576", "material": "canvas"}, "frame": {"color": "#b38c60", "material": "oak"}}
+    if category == "plant":
+        return {"main": {"color": "#56703f", "material": "plant"}, "secondary": {"color": c if c != "#d9cbb4" else "#d8ccb6", "material": "ceramic"}}
+    if category in ("decor",):
+        return {"main": {"color": c, "material": m if m != "fabric" else "ceramic"}}
+    if m in ("fabric",):
+        m = "lacquer"
+    return {"main": {"color": c, "material": m}, "legs": {"color": c, "material": m}}
+
+
+# ------------------------------------------------------------------ Maße
+def nums(s):
+    return [float(x.replace(",", ".")) for x in re.findall(r"\d+(?:[.,]\d+)?", s)]
+
+
+def parse_westwing(size, cat):
+    s = (size or "").replace("\xa0", " ")
+    first = s.split("\n")[0] if s else ""
+    seg = s
+    m = re.search(r"Gesamtmaße[^:]*:\s*([^\n]+)", s)
+    if m:
+        seg = m.group(1)
+    else:
+        seg = first
+    W = D = H = None
+    dm = re.search(r"Ø\s*([\d.,]+)", seg)
+    for key, val in re.findall(r"\b([BTHL])\s*([\d.,]+)", seg):
+        v = float(val.replace(",", "."))
+        if key == "B" and W is None: W = v
+        elif key == "T" and D is None: D = v
+        elif key == "H" and H is None: H = v
+        elif key == "L" and D is None: D = v
+    if dm:
+        dia = float(dm.group(1).replace(",", "."))
+        W = W or dia; D = D or dia
+    if cat == "rug":
+        mm = re.search(r"(\d+)\s*x\s*(\d+)", s)
+        if mm and (W is None or D is None):
+            W, D = float(mm.group(1)), float(mm.group(2))
+        H = H or 1.5
+    return W, D, H
+
+
+def parse_ikea(meas, typ):
+    s = (meas or "").replace(" ", "")
+    W = D = H = None
+    if "Ø" in s:
+        n = nums(s)
+        if len(n) == 1:
+            W = D = n[0]
+        elif len(n) >= 2:
+            W = D = n[0]; H = n[1]
+        return W, D, H
+    n = nums(s)
+    t = (typ or "").lower()
+    if len(n) >= 3:
+        W, D, H = n[0], n[1], n[2]
+    elif len(n) == 2:
+        if "teppich" in t or "vorhang" in t or "gardine" in t or "decke" in t or "plaid" in t:
+            W, D, H = n[0], n[1], 1.2
+        elif any(k in t for k in ("bild", "spiegel", "rahmen")):
+            W, D, H = n[0], 3, n[1]
+        else:
+            W, D = n[0], n[1]
+    elif len(n) == 1:
+        H = n[0]
+    return W, D, H
+
+
+def parse_jysk(specs):
+    for key in ("Größe montiert", "Größe", "Maße", "Abmessungen"):
+        s = (specs or {}).get(key)
+        if s:
+            W = D = H = None
+            for k, v in re.findall(r"(Breite|Tiefe|Höhe|Länge|Durchmesser):\s*([\d.,]+)", s):
+                v = float(v.replace(",", "."))
+                if k == "Breite": W = v
+                elif k in ("Tiefe",): D = v
+                elif k == "Länge": D = D or v
+                elif k == "Höhe": H = v
+                elif k == "Durchmesser": W = D = v
+            return W, D, H
+    return None, None, None
+
+
+DEFAULT_DIMS = {
+    "sofa": (220, 95, 80), "armchair": (85, 85, 75), "chair": (50, 55, 82), "stool": (40, 40, 75), "pouf": (50, 50, 42), "bench": (140, 40, 45),
+    "coffeeTable": (100, 60, 35), "sideTable": (45, 45, 50), "diningTable": (180, 90, 75), "desk": (120, 60, 75), "console": (120, 35, 80),
+    "sideboard": (160, 45, 75), "lowboard": (180, 42, 50), "cabinet": (90, 40, 180), "shelf": (80, 35, 180), "wardrobe": (100, 58, 236),
+    "dresser": (90, 45, 85), "bed": (160, 210, 100), "nightstand": (45, 40, 50), "officeChair": (65, 65, 100), "floorLamp": (40, 40, 160),
+    "tableLamp": (25, 25, 40), "pendant": (40, 40, 30), "ceilingLamp": (35, 35, 15), "wallLamp": (20, 20, 25), "rug": (200, 300, 1.5),
+    "curtain": (140, 10, 250), "art": (70, 3, 100), "mirror": (60, 3, 90), "plant": (60, 60, 150), "decor": (25, 25, 30), "textile": (50, 15, 50),
+    "outdoor": (60, 60, 75),
+}
+
+
+def arch_for(cat, name, W, D, H):
+    n = (name or "").lower()
+    rnd = W is not None and D is not None and abs(W - D) < 1 and any(k in n for k in ("rund", "ø", "kugel")) or ("rund" in n)
+    if cat == "sofa":
+        if any(k in n for k in ("schlafsofa", "bettsofa", "schlafcouch")): return "sofaBed"
+        if any(k in n for k in ("ecksofa", "wohnlandschaft", "récamiere", "recamiere", "ottomane", "chaiselongue", "u-sofa")): return "sofaCorner"
+        if any(k in n for k in ("nieren", "wolke", "alba", "organisch", "rund", "lillesäter", "gullvalla")): return "sofaRound"
+        if any(k in n for k in ("modular", "modul", "lennon", "söderhamn", "jättebo", "vetsak")): return "sofaModular"
+        return "sofa"
+    if cat == "armchair":
+        if any(k in n for k in ("ohrensessel", "wing", "strandmon")): return "armchairWing"
+        if any(k in n for k in ("cocktail", "schale", "koarp", "drehsessel")): return "armchairShell"
+        if any(k in n for k in ("nieren", "rund", "sofia", "alba", "wolke", "tayla", "teddy", "bouclé-sessel")): return "armchairRound"
+        return "armchairLounge"
+    if cat == "chair":
+        if "freischwinger" in n or "jordan" in n: return "cantilever"
+        if any(k in n for k in ("barhocker", "barstuhl", "tresen")): return "barStool"
+        if "armlehn" in n: return "diningArmchair"
+        return "diningChair"
+    if cat == "stool": return "barStool" if (H or 0) > 60 else "pouf"
+    if cat == "pouf": return "pouf"
+    if cat == "bench": return "bench"
+    if cat == "coffeeTable":
+        if "2er" in n or "duo" in n or "set" in n: return "coffeeDuo"
+        if rnd or "ø" in n: return "coffeeRound"
+        if any(k in n for k in ("oval", "organisch")): return "tableOval"
+        if any(k in n for k in ("block", "monolith", "sockel", "travertin", "marisa")): return "coffeeBlock"
+        return "tableRect"
+    if cat == "sideTable":
+        if any(k in n for k in ("container", "componibili", "rollwagen")): return "sideContainer"
+        return "sideRound" if (rnd or W == D) else "tableRect"
+    if cat == "diningTable":
+        if any(k in n for k in ("oval", "organisch")): return "tableOval"
+        if rnd or (W and D and abs(W - D) < 2): return "tablePedestal" if any(k in n for k in ("säule", "sockel", "marmor", "abby", "noam", "sculpt", "fuß")) else "tableRound"
+        return "tableRect"
+    if cat == "desk": return "deskStanding" if any(k in n for k in ("sitz/steh", "höhenverstell", "elektr", "mittzon", "idåsen", "trotten")) else "desk"
+    if cat == "console": return "console"
+    if cat == "sideboard": return "dresser" if (H or 0) > 100 else "sideboard"
+    if cat == "lowboard": return "lowboard"
+    if cat == "cabinet": return "vitrine" if any(k in n for k in ("vitrine", "glas")) else "dresser"
+    if cat == "shelf": return "bookcase" if any(k in n for k in ("bücher", "billy", "hemnes", "havsta")) else "shelfOpen"
+    if cat == "wardrobe": return "wardrobe"
+    if cat == "dresser": return "dresser"
+    if cat == "nightstand": return "nightstand"
+    if cat == "bed": return "bedWood" if any(k in n for k in ("holzbett", "massivholz", "holz-bett", "tammy", "sato", "nanto", "jones", "hemnes", "idanäs", "hauga", "tufjord")) and "polster" not in n else "bed"
+    if cat == "officeChair": return "officeChair"
+    if cat == "floorLamp":
+        if "bogen" in n: return "lampFloorArc"
+        if any(k in n for k in ("kugel", "glo", "globe", "ic lights")): return "lampFloorGlobe"
+        if any(k in n for k in ("dreibein", "tripod")): return "lampFloorTripod"
+        return "lampFloorShade"
+    if cat == "tableLamp":
+        if any(k in n for k in ("pilz", "mushroom", "panthella", "flowerpot", "akku", "portable", "kian")): return "lampTableMushroom"
+        if "kugel" in n or "globe" in n: return "lampTableGlobe"
+        return "lampTableShade"
+    if cat == "pendant":
+        if any(k in n for k in ("3er", "cluster", "traube")): return "pendantCluster"
+        if any(k in n for k in ("kugel", "glas", "glo", "opal", "globe")): return "pendantGlobe"
+        return "pendantDome"
+    if cat == "ceilingLamp": return "ceilingDisc" if (H or 20) < 12 else "ceilingDome"
+    if cat == "wallLamp": return "wallGlobe" if "kugel" in n else "wallSconce"
+    if cat == "rug":
+        if rnd or "ø" in n: return "rugRound"
+        if any(k in n for k in ("organisch", "form")): return "rugOrganic"
+        return "rugRect"
+    if cat == "mirror":
+        if rnd or "rund" in n: return "mirrorRound"
+        if "bogen" in n: return "mirrorArch"
+        return "mirrorRect"
+    if cat == "art": return "art"
+    if cat == "decor": return "vase" if any(k in n for k in ("vase",)) else ("bowl" if "schale" in n else ("candles" if "kerze" in n else "vase"))
+    if cat == "plant": return "plantTree" if (H or 0) > 120 else "plantBush"
+    if cat == "curtain": return "curtain"
+    if cat == "textile": return "cushion" if "kissen" in n else "throw"
+    if cat == "outdoor":
+        if any(k in n for k in ("sofa", "lounge")): return "outdoorSofa"
+        if any(k in n for k in ("tisch",)): return "outdoorTable"
+        return "outdoorChair"
+    return "box"
+
+
+MOUNT = {"pendant": "ceiling", "ceilingLamp": "ceiling", "wallLamp": "wall", "art": "wall", "mirror": "wall", "curtain": "ceiling"}
+ELEV = {"wallLamp": 1.75, "art": 1.0, "mirror": 1.1}
+
+
+def finalize(e):
+    cat = e["category"]
+    d = DEFAULT_DIMS.get(cat, (60, 60, 60))
+    for i, k in enumerate(("w", "d", "h")):
+        v = e.get(k)
+        if v is None or v <= 0 or v > 1200:
+            e[k] = d[i]
+    # Plausibilität: Tiefe/Höhe vertauscht bei Wandobjekten
+    if cat in ("art", "mirror") and e["d"] > 15:
+        e["h"], e["d"] = e["d"], 3
+    if cat in ("pendant", "ceilingLamp") and e["h"] > 150:
+        e["h"] = DEFAULT_DIMS[cat][2]
+    e["mount"] = MOUNT.get(cat, "floor")
+    if cat in ELEV:
+        e["elev"] = ELEV[cat]
+    if cat == "pendant":
+        e["elev"] = 1.6
+    if cat == "ceilingLamp":
+        e["elev"] = round(2.56 - e["h"] / 100, 3)
+    e["resizable"] = cat in ("rug", "curtain", "wardrobe", "shelf", "wallPanel", "molding") or e.get("resizable", False)
+    return e
+
+
+# ------------------------------------------------------------------ Westwing
+WW_CAT = {
+    "sofas": "sofa", "sessel": "armchair", "couchtische": "coffeeTable", "beistelltische": "sideTable", "esstische": "diningTable",
+    "stuehle": "chair", "sideboards": "sideboard", "lowboards": "lowboard", "konsolen": "console", "vitrinen": "cabinet",
+    "regale": "shelf", "kommoden": "dresser", "betten": "bed", "nachttische": "nightstand", "schreibtische": "desk",
+    "buerostuehle": "officeChair", "hocker-poufs": "pouf", "teppiche": "rug", "stehleuchten": "floorLamp", "pendelleuchten": "pendant",
+    "tischleuchten": "tableLamp", "wandleuchten": "wallLamp", "deckenleuchten": "ceilingLamp", "spiegel": "mirror", "bilder": "art",
+    "vasen": "decor", "vorhaenge": "curtain", "gartensofas-lounge-sofas": "outdoor", "gartentische": "outdoor", "gartenstuehle": "outdoor",
+    "gartensessel-lounge-sessel": "outdoor",
+}
+
+
+def westwing():
+    f = RES / "westwing_products.json"
+    if not f.exists():
+        return []
+    out = []
+    for p in json.loads(f.read_text()):
+        if p.get("err") or not p.get("name") or not p.get("price"):
+            continue
+        cat = WW_CAT.get(p["category"], "decor")
+        W, D, H = parse_westwing(p.get("size"), cat)
+        if cat == "outdoor" and "sofa" in p["category"]:
+            pass
+        name = p["name"]
+        col = p.get("colorDisplay") or ""
+        variants = []
+        main_slots = slots_for(cat, col, p.get("materialText", ""), name)
+        variants.append({"name": col or "Standard", "slots": main_slots})
+        for v in (p.get("variants") or [])[:14]:
+            vv = v.strip()
+            if vv.lower() == (col or "").lower():
+                continue
+            variants.append({"name": vv[:1].upper() + vv[1:], "slots": slots_for(cat, vv, vv, name)})
+        e = {
+            "id": "wes-" + re.sub(r"[^a-z0-9]+", "-", p["url"].split("/")[-1].replace(".html", ""))[:60],
+            "vendor": "Westwing", "brand": p.get("brand"), "name": name, "category": cat,
+            "w": W, "d": D, "h": H, "price": float(p["price"]), "url": p["url"], "image": p.get("image"),
+            "archetype": arch_for(cat, name, W, D, H), "params": {}, "variants": variants,
+            "tags": [t for t in (p.get("brand"),) if t], "premium": (p.get("brand") or "").startswith("Westwing") or float(p["price"]) >= 400,
+            "description": (p.get("size") or "").replace("\n", " · ")[:240],
+        }
+        out.append(finalize(e))
+    return out
+
+
+# ------------------------------------------------------------------ IKEA
+IKEA_TYPES = [
+    (("3er-sofa", "2er-sofa", "4er-sofa", "sofa", "sitzelement", "ecksofa", "récamiere", "recamiere"), "sofa"),
+    (("bettsofa", "schlafsofa"), "sofa"),
+    (("sessel", "ohrensessel", "relaxsessel"), "armchair"),
+    (("hocker", "fußhocker", "pouf"), "pouf"),
+    (("bank",), "bench"),
+    (("stuhl", "armlehnstuhl"), "chair"),
+    (("couchtisch",), "coffeeTable"), (("beistelltisch", "satztisch"), "sideTable"),
+    (("tisch", "esstisch", "ausziehtisch"), "diningTable"), (("schreibtisch", "sitz-/stehtisch", "sitz/steh"), "desk"),
+    (("konsolentisch", "ablagetisch"), "console"), (("sideboard", "anrichte"), "sideboard"), (("tv-bank", "tv-möbel", "tv-schrank"), "lowboard"),
+    (("vitrine", "vitrinenschrank", "schrank mit glastür"), "cabinet"), (("bücherregal", "regal", "wandregal"), "shelf"),
+    (("kleiderschrank",), "wardrobe"), (("kommode",), "dresser"), (("nachttisch",), "nightstand"),
+    (("bettgestell", "bett", "polsterbett", "tagesbett"), "bed"), (("drehstuhl", "bürostuhl", "gamingstuhl"), "officeChair"),
+    (("standleuchte",), "floorLamp"), (("tischleuchte", "arbeitsleuchte"), "tableLamp"), (("hängeleuchte", "pendelleuchte"), "pendant"),
+    (("deckenleuchte",), "ceilingLamp"), (("wandleuchte",), "wallLamp"), (("teppich", "läufer"), "rug"),
+    (("gardinenschal", "gardinenschals", "vorhang", "gardinen", "store"), "curtain"), (("spiegel",), "mirror"),
+    (("bild", "poster"), "art"), (("topfpflanze", "kunstpflanze", "pflanze"), "plant"), (("vase",), "decor"),
+    (("kissen", "kissenbezug"), "textile"), (("plaid", "decke"), "textile"), (("schuhschrank", "schuhaufbewahrung"), "cabinet"),
+]
+IKEA_EXCLUDE = ("bezug", "fuß", "füße", "bein", "schublade", "einsatz", "zubehör", "griff", "knauf", "leuchtmittel", "schiene", "kabel",
+                "glühbirne", "halterung", "korb", "unterlage", "türdämpfer", "scharnier", "einlegeboden", "boden", "kleiderstange",
+                "auszug", "rahmen", "seitenteil", "rückwand", "front", "tür", "deckplatte", "platte", "abdeckung", "schutz",
+                "lampenschirm", "stoffbezug", "matratze", "lattenrost", "kopfteil", "rost", "aufbewahrung mit", "set,", "gestell")
+
+
+IKEA_FIRST = {
+    "sofa": "sofa", "3er-sofa": "sofa", "2er-sofa": "sofa", "4er-sofa": "sofa", "ecksofa": "sofa", "bettsofa": "sofa", "schlafsofa": "sofa",
+    "3er-bettsofa": "sofa", "2er-bettsofa": "sofa", "4er-sitzelement": "sofa", "3er-sitzelement": "sofa", "5er-sitzelement": "sofa",
+    "sessel": "armchair", "ohrensessel": "armchair", "relaxsessel": "armchair", "schaukelstuhl": "armchair", "drehsessel": "armchair",
+    "hocker": "pouf", "fußhocker": "pouf", "pouf": "pouf", "bank": "bench", "sitzbank": "bench", "polsterbank": "bench",
+    "stuhl": "chair", "armlehnstuhl": "chair", "barhocker": "stool", "barstuhl": "stool",
+    "couchtisch": "coffeeTable", "beistelltisch": "sideTable", "satztische": "sideTable", "satztisch": "sideTable",
+    "tisch": "diningTable", "esstisch": "diningTable", "ausziehtisch": "diningTable", "bartisch": "diningTable",
+    "schreibtisch": "desk", "sitz-/stehschreibtisch": "desk", "sitz/steh-schreibtisch": "desk", "konsolentisch": "console", "ablagetisch": "console",
+    "sideboard": "sideboard", "anrichte": "sideboard", "tv-bank": "lowboard", "tv-möbel": "lowboard", "tv-möbel,": "lowboard",
+    "vitrine": "cabinet", "vitrinenschrank": "cabinet", "schrank": "cabinet", "schuhschrank": "cabinet", "highboard": "cabinet",
+    "bücherregal": "shelf", "regal": "shelf", "regalelement": "shelf", "wandregal": "shelf", "aufbewahrungskombination": "shelf",
+    "kleiderschrank": "wardrobe", "kleiderschrankkombination": "wardrobe", "kommode": "dresser", "nachttisch": "nightstand",
+    "bettgestell": "bed", "polsterbettgestell": "bed", "bett": "bed", "tagesbett": "bed", "bettgestell,": "bed",
+    "drehstuhl": "officeChair", "bürostuhl": "officeChair", "standleuchte": "floorLamp", "bogenleuchte": "floorLamp",
+    "tischleuchte": "tableLamp", "arbeitsleuchte": "tableLamp", "hängeleuchte": "pendant", "pendelleuchte": "pendant",
+    "deckenleuchte": "ceilingLamp", "wandleuchte": "wallLamp", "wand-/deckenleuchte": "wallLamp", "teppich": "rug", "läufer": "rug",
+    "gardinenschals": "curtain", "gardinenschal": "curtain", "gardinen": "curtain", "store": "curtain", "verdunkelungsgardinen": "curtain",
+    "spiegel": "mirror", "bild": "art", "poster": "art", "kunstpflanze": "plant", "topfpflanze": "plant", "pflanze": "plant",
+    "vase": "decor", "kissen": "textile", "kissenbezug": "textile", "plaid": "textile", "decke": "textile",
+    "gartentisch": "outdoor", "tisch,": "diningTable", "liege": "outdoor", "armlehnstuhl/außen": "outdoor", "stuhl/außen": "outdoor",
+    "2er-sofa/außen": "outdoor", "3er-sofa/außen": "outdoor", "tisch/außen": "outdoor", "sessel/außen": "outdoor", "hocker/außen": "outdoor",
+}
+
+
+def ikea_cat(typ):
+    t = (typ or "").lower().strip()
+    if not t:
+        return None
+    first = t.split()[0].rstrip(",")
+    if "außen" in t and first not in IKEA_FIRST:
+        first = first + "/außen"
+    cat = IKEA_FIRST.get(first)
+    if cat is None:
+        return None
+    if any(x in t for x in ("bezug", "zubehör", "für ", "einsatz", "kinder", "baby", "leuchtmittel", "abdeckung", "schutz")):
+        return None
+    if "außen" in t:
+        return "outdoor"
+    return cat
+
+
+def ikea_page_dims(m):
+    """Maße von der IKEA-Produktseite (Bezeichnungen wie "Breite", "Tiefe", "Höhe", "Durchmesser")."""
+    def v(*names):
+        for n in names:
+            for k, val in m.items():
+                if k.lower() == n.lower():
+                    x = nums(val)
+                    if x:
+                        return x[0]
+        return None
+    W = v("Breite")
+    D = v("Tiefe", "Länge")
+    H = v("Höhe", "Höhe inkl. Rückenkissen", "Max. Höhe")
+    dia = v("Durchmesser", "Schirmdurchmesser")
+    if dia and not W:
+        W = D = dia
+    return W, D, H
+
+
+def ikea():
+    f = RES / "ikea_products.json"
+    if not f.exists():
+        return []
+    pd = {}
+    if (RES / "ikea_dims.json").exists():
+        pd = json.loads((RES / "ikea_dims.json").read_text())
+    groups = {}
+    for p in json.loads(f.read_text()):
+        cat = ikea_cat(p.get("type"))
+        if not cat or not p.get("price"):
+            continue
+        if p["type"] and "kinder" in p["type"].lower():
+            continue
+        W, D, H = parse_ikea(p.get("measure"), p.get("type"))
+        m = pd.get(p["itemNo"]) or {}
+        if m and "err" not in m:
+            W2, D2, H2 = ikea_page_dims(m)
+            W, D, H = W2 or W, D2 or D, H2 or H
+        if cat in ("shelf", "cabinet", "wardrobe", "mirror", "sideboard", "dresser") and W and D and not H and D > 60:
+            H, D = D, None
+        if cat == "rug" and W and D:
+            H = 1.2
+        if cat in ("curtain",) and W and D:
+            W, H, D = W, D, 8
+        key = (p["name"], p["type"], p.get("measure"))
+        g = groups.get(key)
+        hexes = [c[1] for c in p.get("colors") or [] if c[1]]
+        colname = ", ".join(c[0] for c in p.get("colors") or [] if c[0])
+        vname = (p.get("url") or "").split("/p/")[-1].rsplit("-", 1)[0].replace(p["name"].lower().replace(" ", "-"), "").strip("-").replace("-", " ") or colname or "Standard"
+        sl = slots_for(cat, f"{vname} {colname}", vname, p["name"] + " " + (p.get("type") or ""))
+        if hexes:
+            sl.setdefault("main", {"color": "#" + hexes[0], "material": "fabric"})
+            sl["main"] = {"color": "#" + hexes[0], "material": sl["main"]["material"]}
+        variant = {"name": vname[:60], "slots": sl, "price": p["price"], "url": p["url"], "image": p.get("image")}
+        if g is None:
+            e = {
+                "id": f"ike-{p['itemNo']}", "vendor": "IKEA", "name": f"{p['name']} {p['type']}", "series": p["name"], "category": cat,
+                "w": W, "d": D, "h": H, "price": float(p["price"]), "url": p["url"], "image": p.get("image"),
+                "archetype": arch_for(cat, f"{p['name']} {p['type']}", W, D, H), "params": {}, "variants": [variant],
+                "tags": [p["name"]], "premium": p["name"] in PREMIUM_IKEA, "description": f"{p['type']}, {p.get('measure') or ''}".strip(", "),
+            }
+            groups[key] = e
+        else:
+            if len(g["variants"]) < 14:
+                g["variants"].append(variant)
+    return [finalize(e) for e in groups.values()]
+
+
+PREMIUM_IKEA = {"STOCKHOLM 2025", "STOCKHOLM", "SÖDERHAMN", "VALNÄS", "LILLESÄTER", "JÄTTEBO", "LANDSKRONA", "VIMLE", "EKERÖ", "STRANDMON",
+                "KOARP", "ESSEBODA", "LISABO", "EKEDALEN", "MÖCKELBY", "SKOGSTA", "INGATORP", "DOCKSTA", "STRANDTORP", "BERGMUND", "KRYLBO",
+                "LISTERBY", "ARKELSTORP", "TONSTAD", "IDANÄS", "HAUGA", "HEMNES", "HAVSTA", "FABRIKÖR", "MALSJÖ", "BESTÅ", "SLATTUM", "TUFJORD",
+                "GLADSTAD", "VADHEIM", "DUNVIK", "MITTZON", "IDÅSEN", "PS 2014", "VINDKAST", "SOLKLINT", "BLÅSVERK", "PILBLAD", "SIMRISHAMN",
+                "VARMBLIXT", "VINDUM", "LOHALS", "ÅDUM", "LINDBYN", "SEGERÖN", "ÄPPLARÖ", "NÄMMARÖ", "KIVIK", "GULLVALLA", "PERSBOL",
+                "SKOGSKORN", "TOLKNING", "SKANSNÄS", "VEDBO", "ODGER", "KARLPETTER", "PINNTORP", "BJÖRKSNÄS", "BAGGEBO", "PAX", "BILLY"}
+
+
+# ------------------------------------------------------------------ JYSK
+JYSK_CAT = {
+    "sofas": "sofa", "modulare-sofas": "sofa", "schlafsofas": "sofa", "sessel": "armchair", "couchtische-beistelltische": None,
+    "tv-mobel": "lowboard", "poufs": "pouf", "esstische": "diningTable", "esszimmerstuhle": "chair", "sideboards": "sideboard",
+    "vitrinen": "cabinet", "konsolentische": "console", "barstuhle-und-bartische": "stool", "nachttische": "nightstand", "betten": "bed",
+    "burostuhle": "officeChair", "beleuchtung": None, "gartenmobel": "outdoor", "flurmobel": "cabinet", "deko": None,
+    "kommoden": "dresser", "schreibtische": "desk", "regale": "shelf", "spiegel": "mirror", "teppiche": "rug", "gardinen": "curtain",
+}
+JYSK_PREMIUM_WORDS = ("massiv", "eiche", "walnuss", "marmor", "travertin", "samt", "bouclé", "boucle", "leder", "messing", "rattan",
+                      "keramik", "glas", "wolle", "leinen", "teak", "akazie", "mango", "cord")
+
+
+def jysk():
+    f = RES / "jysk_products.json"
+    if not f.exists():
+        return []
+    rows = []
+    for p in json.loads(f.read_text()):
+        if p.get("err") or not p.get("name") or not p.get("price"):
+            continue
+        parts = p["url"].split("/")
+        sub = parts[4] if len(parts) > 4 else ""
+        cat = JYSK_CAT.get(sub)
+        n = p["name"]; nl = n.lower()
+        sp = p.get("specs") or {}
+        art = (sp.get("Art") or "").lower()
+        if sub == "couchtische-beistelltische":
+            cat = "sideTable" if "beistell" in nl or "beistell" in art else "coffeeTable"
+        if sub == "beleuchtung":
+            cat = "floorLamp" if ("steh" in nl or "steh" in art) else ("pendant" if ("pendel" in nl or "hänge" in art or "pendel" in art) else ("tableLamp" if "tisch" in nl or "tisch" in art else ("wallLamp" if "wand" in nl else ("ceilingLamp" if "decke" in nl else None))))
+        if sub == "deko":
+            cat = "decor" if any(k in nl for k in ("vase", "schale", "kerzen", "laterne")) else ("plant" if any(k in nl for k in ("pflanze", "kunstpflanze", "baum")) else ("art" if any(k in nl for k in ("bild", "rahmen", "poster")) else None))
+        if sub == "betten" and not any(k in nl for k in ("bett ", "bett-", "bettgestell", "polsterbett", "boxspring", "holzbett", "bett", "kopfteil")):
+            cat = None
+        if sub == "betten" and any(k in nl for k in ("lattenrost", "matratze", "topper", "kopfteil", "füße", "fuß", "bettkasten")):
+            cat = None
+        if sub == "gartenmobel" and not any(k in nl for k in ("tisch", "stuhl", "sessel", "sofa", "lounge", "bank", "liege")):
+            cat = None
+        if cat is None:
+            continue
+        W, D, H = parse_jysk(sp)
+        try:
+            price = float(p["price"])
+        except (TypeError, ValueError):
+            continue
+        rows.append((cat, price, p, W, D, H, sp))
+    # Premium-Filter: obere Preishälfte je Kategorie oder hochwertige Materialien
+    med = {}
+    for cat in {r[0] for r in rows}:
+        prices = [r[1] for r in rows if r[0] == cat]
+        med[cat] = statistics.median(prices) if prices else 0
+    out = {}
+    for cat, price, p, W, D, H, sp in rows:
+        mat = f"{sp.get('Material', '')} {sp.get('Oberstoff', '')} {p['name']}".lower()
+        prem = any(w in mat for w in JYSK_PREMIUM_WORDS)
+        if price < med[cat] and not prem:
+            continue
+        series = re.findall(r"\b([A-ZÆØÅÄÖÜ]{3,}(?:\s[A-ZÆØÅÄÖÜ]{3,})?)\b", p["name"])
+        series = series[0] if series else p["name"]
+        col = sp.get("Farbe") or p["name"]
+        key = (series, cat, W, D, H)
+        sl = slots_for(cat, col, mat, p["name"])
+        v = {"name": (sp.get("Farbe") or "Standard")[:40], "slots": sl, "price": price, "url": p["url"]}
+        if key in out:
+            if len(out[key]["variants"]) < 10 and not any(x["name"] == v["name"] for x in out[key]["variants"]):
+                out[key]["variants"].append(v)
+            continue
+        e = {
+            "id": "jys-" + re.sub(r"[^a-z0-9]+", "-", p["url"].split("/")[-1])[:60], "vendor": "JYSK", "name": p["name"], "series": series,
+            "category": cat, "w": W, "d": D, "h": H, "price": price, "url": p["url"],
+            "archetype": arch_for(cat, p["name"], W, D, H), "params": {}, "variants": [v], "tags": [series] + (["Premium-Material"] if prem else []),
+            "premium": prem, "description": "; ".join(f"{k}: {sp[k]}" for k in ("Material", "Farbe") if k in sp)[:240],
+        }
+        out[key] = finalize(e)
+    return list(out.values())
+
+
+def concept_items():
+    f = DATA / "conceptCatalog.json"
+    items = json.loads(f.read_text()) if f.exists() else []
+    for e in items:
+        e.setdefault("premium", True)
+    return items
+
+
+def generic_items():
+    """Ergänzende Ausbau-/Dekoelemente (Wandpaneele, Profilleisten, TV, Pflanzen-Modelle)."""
+    G = []
+    def add(id, vendor, name, cat, arch, w, d, h, price, mount="floor", slots=None, params=None, elev=None, resizable=False, model=None, url=None, tags=()):
+        e = {"id": id, "vendor": vendor, "name": name, "category": cat, "archetype": arch, "w": w, "d": d, "h": h, "price": price,
+             "mount": mount, "params": params or {}, "variants": [{"name": "Standard", "slots": slots or {}}], "tags": list(tags),
+             "premium": True, "resizable": resizable}
+        if elev is not None: e["elev"] = elev
+        if model: e["model"] = model
+        if url: e["url"] = url
+        G.append(e)
+    add("obi-lamella-oak", "OBI", "Akustikpaneel Eiche geölt (Lamellen, Filz schwarz)", "wallPanel", "lamella", 60, 2.1, 256, 109.99, "wall",
+        {"main": {"color": "#c9a273", "material": "oak"}, "secondary": {"color": "#141414", "material": "fabric"}}, {"slat": 0.027, "gap": 0.0135}, 0, True, tags=("Wand",))
+    add("obi-lamella-walnut", "OBI", "Akustikpaneel Walnuss geölt (Lamellen, Filz schwarz)", "wallPanel", "lamella", 60, 2.1, 256, 109.99, "wall",
+        {"main": {"color": "#6b4a33", "material": "walnut"}, "secondary": {"color": "#141414", "material": "fabric"}}, {"slat": 0.027, "gap": 0.0135}, 0, True, tags=("Wand",))
+    add("obi-lamella-black", "OBI", "Akustikpaneel Eiche schwarz (Lamellen)", "wallPanel", "lamella", 60, 2.1, 256, 119.99, "wall",
+        {"main": {"color": "#2a2522", "material": "oakDark"}, "secondary": {"color": "#141414", "material": "fabric"}}, {"slat": 0.027, "gap": 0.0135}, 0, True, tags=("Wand",))
+    add("obi-wainscot", "OBI", "Wandvertäfelung Kassette (MDF, streichbar)", "wallPanel", "panelWall", 120, 1.8, 110, 89.0, "wall",
+        {"main": {"color": "#f3f0e8", "material": "matte"}}, {"style": "shaker", "rail": True}, 0, True, tags=("Wand",))
+    add("obi-orac-frame", "OBI", "Profilrahmen Orac Decor PX120 (je Rahmen)", "molding", "molding", 130, 1.9, 100, 46.53, "wall",
+        {"main": {"color": "#f3f0e8", "material": "matte"}}, {"profile": 0.04}, 0.9, True, tags=("Wand", "Stuck"))
+    add("obi-orac-arch", "OBI", "Profilbogen Orac Decor (Bogenrahmen)", "molding", "molding", 90, 1.9, 180, 79.0, "wall",
+        {"main": {"color": "#f3f0e8", "material": "matte"}}, {"profile": 0.05, "arch": True}, 0.3, True, tags=("Wand", "Stuck"))
+    add("tv-65", "Fachhandel", "Fernseher 65″ (Wandmontage)", "media", "tv", 145, 3, 83, 0, "wall", {"main": {"color": "#111111", "material": "gloss"}}, {}, 1.0)
+    add("tv-55", "Fachhandel", "Fernseher 55″ (Wandmontage)", "media", "tv", 123, 3, 71, 0, "wall", {"main": {"color": "#111111", "material": "gloss"}}, {}, 1.05)
+    for mid, nm, h, pr in (("potted_plant_04", "Großpflanze im Topf (Strelitzie)", 160, 189), ("potted_plant_02", "Zimmerpflanze im Keramiktopf", 70, 59),
+                           ("potted_plant_01", "Monstera im Pflanzkübel", 110, 129)):
+        add(f"ph-{mid}", "Fachhandel", nm, "plant", "glb", 60 if h > 100 else 40, 60 if h > 100 else 40, h, pr, model=f"assets/models/{mid}.glb", tags=("Pflanze",))
+    for mid, nm, h in (("ceramic_vase_01", "Keramikvase bauchig", 30), ("ceramic_vase_02", "Keramikvase hoch", 40), ("ceramic_vase_03", "Keramikvase Amphore", 35),
+                       ("ceramic_vase_04", "Keramikvase klein", 22), ("brass_vase_01", "Messingvase", 28), ("wooden_bowl_01", "Holzschale", 10)):
+        add(f"ph-{mid}", "Fachhandel", nm, "decor", "glb", 22, 22, h, 39, model=f"assets/models/{mid}.glb", tags=("Deko",))
+    return G
+
+
+def main():
+    groups = [("Konzepte", concept_items()), ("Westwing", westwing()), ("IKEA", ikea()), ("JYSK", jysk()), ("Ergänzungen", generic_items())]
+    seen = set(); cat = []
+    for label, items in groups:
+        k = 0
+        for e in items:
+            if e["id"] in seen:
+                continue
+            seen.add(e["id"]); cat.append(e); k += 1
+        print(f"{label}: {k}")
+    for e in cat:
+        for kk in ("w", "d", "h", "price"):
+            if isinstance(e.get(kk), (int, float)):
+                e[kk] = round(float(e[kk]), 2)
+    (DATA / "catalog.json").write_text(json.dumps(cat, ensure_ascii=False, separators=(",", ":")))
+    by = {}
+    for e in cat:
+        by.setdefault((e["vendor"], e["category"]), 0)
+        by[(e["vendor"], e["category"])] += 1
+    print("Gesamt:", len(cat), "Einträge,", round((DATA / "catalog.json").stat().st_size / 1e6, 2), "MB")
+
+
+if __name__ == "__main__":
+    main()

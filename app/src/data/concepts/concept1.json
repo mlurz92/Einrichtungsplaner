@@ -1,0 +1,4121 @@
+{
+"version": 1,
+"name": "Konzept 1 · Travertin · Kupfer · Salbei",
+"subtitle": "Luxus-Design-Möblierung mit Westwing, IKEA und JYSK, Wandgestaltung mit OBI-Material",
+"conceptId": "concept1",
+"createdAt": "2026-10-23T00:00:00Z",
+"updatedAt": "2026-10-23T00:00:00Z",
+"items": [
+{
+"id": "80773c4f67",
+"catalogId": "wes-modulares-sofa-lennon-3-sitzer-aus-boucl",
+"pos": "W1",
+"label": "Modulares Sofa Lennon (3-Sitzer) aus Bouclé",
+"x": 4.306,
+"y": 7.026,
+"rot": 188,
+"elev": 0.0,
+"w": 2.38,
+"d": 1.19,
+"h": 0.68,
+"variant": "Bouclé Taupe, Füße schwarz",
+"slots": {
+"main": {
+"color": "#b9aa97",
+"material": "boucle"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"modules": 2,
+"armWidth": 0.32,
+"armHeight": 0.25,
+"seatHeight": 0.43,
+"backDepth": 0.25
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W1",
+"name": "Modulares Sofa Lennon (3-Sitzer) aus Bouclé",
+"variant": "Bouclé Taupe, Füße schwarz",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 2499.0,
+"url": "https://www.westwing.de/modulares-sofa-lennon-3-sitzer-aus-boucle-156413.html",
+"dims": "B 238 × T 119 × H 68",
+"delivery": "7–8 Wo."
+}
+]
+},
+{
+"id": "64d0c04e68",
+"catalogId": "wes-travertin-couchtische-distinct-grande-duo-2er-se",
+"pos": "W2",
+"label": "Travertin-Couchtische Distinct Grande Duo, 2er-Set (Ferm Living)",
+"x": 4.585,
+"y": 5.636,
+"rot": 8,
+"elev": 0.0,
+"w": 1.35,
+"d": 0.88,
+"h": 0.35,
+"variant": "Travertin beige, massiv, weiche Kanten – Oberfläche matt geschliffen bestätigen",
+"slots": {
+"main": {
+"color": "#e3d6c1",
+"material": "travertine"
+}
+},
+"params": {
+"a_w": 0.8,
+"a_d": 0.7,
+"a_h": 0.35,
+"b_w": 0.7,
+"b_d": 0.53,
+"b_h": 0.23,
+"a_x": -0.352,
+"a_y": 0.04,
+"b_x": 0.352,
+"b_y": -0.04,
+"b_rot": 90
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W2",
+"name": "Travertin-Couchtische Distinct Grande Duo, 2er-Set (Ferm Living)",
+"variant": "Travertin beige, massiv, weiche Kanten – Oberfläche matt geschliffen bestätigen",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 1799.0,
+"url": "https://www.westwing.de/travertin-couchtische-distinct-grande-duo-2er-set-165616.html",
+"dims": "80 × 70 × 35 + 70 × 53 × 23",
+"delivery": "4–9 WT"
+}
+]
+},
+{
+"id": "a93713ed6b",
+"catalogId": "wes-tv-lowboard-chandler-aus-eichenholz",
+"pos": "W3",
+"label": "TV-Lowboard Chandler aus Eichenholz",
+"x": 4.661,
+"y": 4.501,
+"rot": 8,
+"elev": 0.0,
+"w": 1.75,
+"d": 0.43,
+"h": 0.55,
+"variant": "Eiche massiv, dunkel lackiert",
+"slots": {
+"main": {
+"color": "#5e4130",
+"material": "oakDark"
+},
+"legs": {
+"color": "#5e4130",
+"material": "oakDark"
+}
+},
+"params": {
+"doors": 3,
+"legHeight": 0.15,
+"front": "flat"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W3",
+"name": "TV-Lowboard Chandler aus Eichenholz",
+"variant": "Eiche massiv, dunkel lackiert",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 1199.0,
+"url": "https://www.westwing.de/tv-lowboard-chandler-aus-eichenholz-159332.html",
+"dims": "B 175 × T 43 × H 55",
+"delivery": "4–9 WT"
+}
+]
+},
+{
+"id": "63c5dc5631",
+"catalogId": "bestand-tv-65-vorhanden-",
+"label": "TV 65″ (vorhanden)",
+"x": 4.69,
+"y": 4.3,
+"rot": 8,
+"elev": 1.02,
+"w": 1.45,
+"d": 0.04,
+"h": 0.83,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#111111",
+"material": "gloss"
+}
+},
+"params": {},
+"mount": "wall",
+"room": "13.01",
+"existing": true,
+"locked": true
+},
+{
+"id": "7f0692dfe4",
+"catalogId": "wes-sessel-sofia-grosser-lounge-lesesessel",
+"pos": "W4",
+"label": "Sessel Sofia (großer Lounge-/Lesesessel)",
+"x": 5.943,
+"y": 5.867,
+"rot": 98,
+"elev": 0.0,
+"w": 0.97,
+"d": 0.9,
+"h": 0.72,
+"variant": "Samtiger Webstoff Salbeigrün",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "velvet"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"seatHeight": 0.44
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W4",
+"name": "Sessel Sofia (großer Lounge-/Lesesessel)",
+"variant": "Samtiger Webstoff Salbeigrün",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 999.0,
+"url": "https://www.westwing.de/sessel-sofia-173168.html",
+"dims": "B 97 × T 90 × H 72",
+"delivery": "6–7 Wo."
+}
+]
+},
+{
+"id": "3052527258",
+"catalogId": "wes-runder-beistelltisch-marisa-aus-travertin",
+"pos": "W5",
+"label": "Runder Beistelltisch Marisa aus Travertin",
+"x": 5.995,
+"y": 5.138,
+"rot": 0,
+"elev": 0.0,
+"w": 0.35,
+"d": 0.35,
+"h": 0.5,
+"variant": "Travertin beige / Gestell MDF",
+"slots": {
+"main": {
+"color": "#e3d6c1",
+"material": "travertine"
+}
+},
+"params": {
+"style": "column"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W5",
+"name": "Runder Beistelltisch Marisa aus Travertin",
+"variant": "Travertin beige / Gestell MDF",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 429.0,
+"url": "https://www.westwing.de/runder-beistelltisch-marisa-aus-travertin-147375.html",
+"dims": "Ø 35 × H 50",
+"delivery": "3–4 Wo."
+}
+]
+},
+{
+"id": "b0a5efa656",
+"catalogId": "wes-dimmbare-stehlampe-kushi-mundgeblasen-kdln",
+"pos": "W6",
+"label": "Dimmbare Stehlampe Kushi, mundgeblasen (kdln)",
+"x": 5.829,
+"y": 6.609,
+"rot": 0,
+"elev": 0.0,
+"w": 0.43,
+"d": 0.43,
+"h": 1.83,
+"variant": "Kupferfarben / Opalglas weiß",
+"slots": {
+"main": {
+"color": "#b8703e",
+"material": "copper"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"params": {
+"shape": "mushroom"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W6",
+"name": "Dimmbare Stehlampe Kushi, mundgeblasen (kdln)",
+"variant": "Kupferfarben / Opalglas weiß",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 1399.0,
+"url": "https://www.westwing.de/dimmbare-stehlampe-kushi-mundgeblasen-152944.html",
+"dims": "H 183, Schirm Ø 43",
+"delivery": "6–7 Wo."
+}
+]
+},
+{
+"id": "e538aebc82",
+"catalogId": "wes-deckenleuchte-eloise-aus-glas",
+"pos": "W7",
+"label": "Deckenleuchte Eloise aus Glas",
+"x": 5.199,
+"y": 6.591,
+"rot": 0,
+"elev": 2.41,
+"w": 0.4,
+"d": 0.4,
+"h": 0.15,
+"variant": "Glas weiß / Baldachin silberfarben",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#c0c0c0",
+"material": "chrome"
+}
+},
+"params": {
+"organic": true
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "W7",
+"name": "Deckenleuchte Eloise aus Glas",
+"variant": "Glas weiß / Baldachin silberfarben",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 249.0,
+"url": "https://www.westwing.de/organic-shapes-ceiling-lamp-en-25wes51538.html",
+"dims": "Ø 40 × H 15",
+"delivery": "13–14 Wo."
+}
+]
+},
+{
+"id": "3c070484cb",
+"catalogId": "wes-handgefertigter-wollteppich-bruna-geflochtene-st",
+"pos": "W8",
+"label": "Handgefertigter Wollteppich Bruna, geflochtene Struktur",
+"x": 4.868,
+"y": 6.191,
+"rot": 8,
+"elev": 0.0,
+"w": 3.0,
+"d": 2.0,
+"h": 0.015,
+"variant": "Greige, Größe L, rechteckig",
+"slots": {
+"main": {
+"color": "#dcd6cb",
+"material": "wool"
+}
+},
+"params": {
+"pattern": "braided"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W8",
+"name": "Handgefertigter Wollteppich Bruna, geflochtene Struktur",
+"variant": "Greige, Größe L, rechteckig",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 579.0,
+"url": "https://www.westwing.de/wollteppich-bruna-mit-geflochtener-struktur-in-taupe-147368.html",
+"dims": "B 200 × L 300",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "8b98d7524a",
+"catalogId": "ike-dytag-kissenbezug",
+"pos": "W9",
+"label": "Kissen DYTÅG graugrün",
+"x": 3.663,
+"y": 7.218,
+"rot": 182,
+"elev": 0.45,
+"w": 0.5,
+"d": 0.16,
+"h": 0.5,
+"variant": "graugrün (100 % Leinen)",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "linen"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W9",
+"name": "DYTÅG Kissenbezug",
+"variant": "graugrün (100 % Leinen)",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 9.99,
+"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+},
+{
+"pos": "W10",
+"name": "FJÄDRAR Innenkissen",
+"variant": "elfenbeinweiß, Entenfedern",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 7.0,
+"url": "https://www.ikea.com/de/de/p/fjaedrar-innenkissen-elfenbeinweiss-80262187/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "fc850d3e08",
+"catalogId": "ike-dytag-kissenbezug",
+"pos": "W9",
+"label": "Kissen DYTÅG graugrün",
+"x": 4.099,
+"y": 7.279,
+"rot": 192,
+"elev": 0.45,
+"w": 0.5,
+"d": 0.16,
+"h": 0.5,
+"variant": "graugrün (100 % Leinen)",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "linen"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W9",
+"name": "DYTÅG Kissenbezug",
+"variant": "graugrün (100 % Leinen)",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 9.99,
+"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+},
+{
+"pos": "W10",
+"name": "FJÄDRAR Innenkissen",
+"variant": "elfenbeinweiß, Entenfedern",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 7.0,
+"url": "https://www.ikea.com/de/de/p/fjaedrar-innenkissen-elfenbeinweiss-80262187/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "35daab2aa6",
+"catalogId": "ike-dytag-kissenbezug",
+"pos": "W9",
+"label": "Kissen DYTÅG graugrün",
+"x": 4.911,
+"y": 7.394,
+"rot": 184,
+"elev": 0.45,
+"w": 0.5,
+"d": 0.16,
+"h": 0.5,
+"variant": "graugrün (100 % Leinen)",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "linen"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W9",
+"name": "DYTÅG Kissenbezug",
+"variant": "graugrün (100 % Leinen)",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 9.99,
+"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+},
+{
+"pos": "W10",
+"name": "FJÄDRAR Innenkissen",
+"variant": "elfenbeinweiß, Entenfedern",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 7.0,
+"url": "https://www.ikea.com/de/de/p/fjaedrar-innenkissen-elfenbeinweiss-80262187/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "0b126d4b2e",
+"catalogId": "ike-dytag-kissenbezug",
+"pos": "W9",
+"label": "Kissen DYTÅG graugrün",
+"x": 5.267,
+"y": 7.444,
+"rot": 195,
+"elev": 0.45,
+"w": 0.5,
+"d": 0.16,
+"h": 0.5,
+"variant": "graugrün (100 % Leinen)",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "linen"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W9",
+"name": "DYTÅG Kissenbezug",
+"variant": "graugrün (100 % Leinen)",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 9.99,
+"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+},
+{
+"pos": "W10",
+"name": "FJÄDRAR Innenkissen",
+"variant": "elfenbeinweiß, Entenfedern",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 7.0,
+"url": "https://www.ikea.com/de/de/p/fjaedrar-innenkissen-elfenbeinweiss-80262187/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "19e717e188",
+"catalogId": "wes-woll-plaid-tyrol-mit-zickzack-muster",
+"pos": "W11",
+"label": "Woll-Plaid Tyrol mit Zickzack-Muster",
+"x": 3.773,
+"y": 6.724,
+"rot": 188,
+"elev": 0.43,
+"w": 0.46,
+"d": 0.66,
+"h": 0.06,
+"variant": "Salbeigrün / Weiß, 100 % Wolle",
+"slots": {
+"main": {
+"color": "#c8d3c1",
+"material": "wool"
+}
+},
+"params": {
+"pattern": "zigzag"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W11",
+"name": "Woll-Plaid Tyrol mit Zickzack-Muster",
+"variant": "Salbeigrün / Weiß, 100 % Wolle",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 44.99,
+"url": "https://www.westwing.de/wool-blanket-tirol-with-zig-zag-pattern-en-25stt69253.html",
+"dims": "140 × 200",
+"delivery": "8–11 WT"
+}
+]
+},
+{
+"id": "3566ba0d8b0",
+"catalogId": "ike-tibast-2-gardinenschals",
+"pos": "W13–W15",
+"label": "Vorhang Balkonfenster",
+"x": 7.3143,
+"y": 5.4347,
+"rot": 98.0,
+"elev": 0.0,
+"w": 2.25,
+"d": 0.12,
+"h": 2.53,
+"variant": "weiß, 100 % Baumwolle, lichtfilternd, Gardinenband",
+"slots": {
+"main": {
+"color": "#f7f4ec",
+"material": "linen"
+}
+},
+"params": {
+"layers": 1,
+"open": 0.85,
+"track": true,
+"sheer": true
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "W13",
+"name": "TIBAST 2 Gardinenschals",
+"variant": "weiß, 100 % Baumwolle, lichtfilternd, Gardinenband",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 49.99,
+"url": "https://www.ikea.com/de/de/p/tibast-2-gardinenschals-weiss-10396760/",
+"dims": "2 × 145 × 300",
+"delivery": "prüfen"
+},
+{
+"pos": "W14",
+"name": "VIDGA Decken-Gardinenschiene 1-läufig",
+"variant": "weiß, kürzbar",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 12.99,
+"url": "https://www.ikea.com/de/de/p/vidga-gardinenschiene-1-laeufig-mit-deckenbeschlag-weiss-20492916/",
+"dims": "140 cm",
+"delivery": "prüfen"
+},
+{
+"pos": "W15",
+"name": "VIDGA Gleiter + Haken",
+"variant": "weiß, 24 Stk.",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 2.99,
+"url": "https://www.ikea.com/de/de/p/vidga-gleiter-haken-weiss-20483002/",
+"dims": "–",
+"delivery": "prüfen"
+}
+],
+"opening": "W-B1L"
+},
+{
+"id": "3566ba0d8b1",
+"catalogId": "ike-tibast-2-gardinenschals",
+"pos": "W13–W15",
+"label": "Vorhang Ostfenster 1",
+"x": 7.8374,
+"y": 8.5384,
+"rot": 98.0,
+"elev": 0.0,
+"w": 2.53,
+"d": 0.12,
+"h": 2.53,
+"variant": "weiß, 100 % Baumwolle, lichtfilternd, Gardinenband",
+"slots": {
+"main": {
+"color": "#f7f4ec",
+"material": "linen"
+}
+},
+"params": {
+"layers": 1,
+"open": 0.85,
+"track": true,
+"sheer": true
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "W13",
+"name": "TIBAST 2 Gardinenschals",
+"variant": "weiß, 100 % Baumwolle, lichtfilternd, Gardinenband",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 49.99,
+"url": "https://www.ikea.com/de/de/p/tibast-2-gardinenschals-weiss-10396760/",
+"dims": "2 × 145 × 300",
+"delivery": "prüfen"
+},
+{
+"pos": "W14",
+"name": "VIDGA Decken-Gardinenschiene 1-läufig",
+"variant": "weiß, kürzbar",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 12.99,
+"url": "https://www.ikea.com/de/de/p/vidga-gardinenschiene-1-laeufig-mit-deckenbeschlag-weiss-20492916/",
+"dims": "140 cm",
+"delivery": "prüfen"
+},
+{
+"pos": "W15",
+"name": "VIDGA Gleiter + Haken",
+"variant": "weiß, 24 Stk.",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 2.99,
+"url": "https://www.ikea.com/de/de/p/vidga-gleiter-haken-weiss-20483002/",
+"dims": "–",
+"delivery": "prüfen"
+}
+],
+"opening": "W-O1"
+},
+{
+"id": "3566ba0d8b2",
+"catalogId": "ike-tibast-2-gardinenschals",
+"pos": "W13–W15",
+"label": "Vorhang Ostfenster 2",
+"x": 7.4721,
+"y": 11.1377,
+"rot": 98.0,
+"elev": 0.0,
+"w": 2.11,
+"d": 0.12,
+"h": 2.53,
+"variant": "weiß, 100 % Baumwolle, lichtfilternd, Gardinenband",
+"slots": {
+"main": {
+"color": "#f7f4ec",
+"material": "linen"
+}
+},
+"params": {
+"layers": 1,
+"open": 0.85,
+"track": true,
+"sheer": true
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "W13",
+"name": "TIBAST 2 Gardinenschals",
+"variant": "weiß, 100 % Baumwolle, lichtfilternd, Gardinenband",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 49.99,
+"url": "https://www.ikea.com/de/de/p/tibast-2-gardinenschals-weiss-10396760/",
+"dims": "2 × 145 × 300",
+"delivery": "prüfen"
+},
+{
+"pos": "W14",
+"name": "VIDGA Decken-Gardinenschiene 1-läufig",
+"variant": "weiß, kürzbar",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 12.99,
+"url": "https://www.ikea.com/de/de/p/vidga-gardinenschiene-1-laeufig-mit-deckenbeschlag-weiss-20492916/",
+"dims": "140 cm",
+"delivery": "prüfen"
+},
+{
+"pos": "W15",
+"name": "VIDGA Gleiter + Haken",
+"variant": "weiß, 24 Stk.",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 2.99,
+"url": "https://www.ikea.com/de/de/p/vidga-gleiter-haken-weiss-20483002/",
+"dims": "–",
+"delivery": "prüfen"
+}
+],
+"opening": "W-O2"
+},
+{
+"id": "4e4a2a58f0",
+"catalogId": "wes-kleine-led-tischlampe-kian",
+"pos": "W17",
+"label": "Kleine LED-Tischlampe Kian",
+"x": 4.042,
+"y": 4.414,
+"rot": 0,
+"elev": 0.55,
+"w": 0.3,
+"d": 0.3,
+"h": 0.35,
+"variant": "Milchglas / Fuß kupferfarben",
+"slots": {
+"main": {
+"color": "#b8703e",
+"material": "copper"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W17",
+"name": "Kleine LED-Tischlampe Kian",
+"variant": "Milchglas / Fuß kupferfarben",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 129.0,
+"url": "https://www.westwing.de/new-milky-table-lamp-small-brass-en-25wes67056.html",
+"dims": "Ø 30 × H 35",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "bcaae29828",
+"catalogId": "obi-akustikpaneel-eiche-geoelt-denpanels",
+"pos": "W18",
+"label": "Akustikpaneel Eiche geölt (Denpanels)",
+"x": 4.695,
+"y": 4.258,
+"rot": 8,
+"elev": 0.0,
+"w": 2.4,
+"d": 0.021,
+"h": 2.56,
+"variant": "Echtholzfurnier Eiche geölt auf Akustikfilz schwarz",
+"slots": {
+"main": {
+"color": "#c9a273",
+"material": "oak"
+},
+"secondary": {
+"color": "#141414",
+"material": "fabric"
+}
+},
+"params": {
+"slat": 0.027,
+"gap": 0.0135
+},
+"mount": "wall",
+"room": "13.01",
+"parts": [
+{
+"pos": "W18",
+"name": "Akustikpaneel Eiche geölt (Denpanels)",
+"variant": "Echtholzfurnier Eiche geölt auf Akustikfilz schwarz",
+"vendor": "OBI",
+"qty": 4,
+"unit": 109.99,
+"url": "https://www.obi.de/p/9992504/akustikpaneel-eiche-geoelt-mdf-schwarz-filz-schwarz-60-cm-x-270-cm-fsc-",
+"dims": "60 × 270 × 1,9",
+"delivery": "Abholung Markt"
+}
+]
+},
+{
+"id": "29b842c5ac",
+"catalogId": "wes-gerahmtes-leinwandbild-scenario-handgemalt-maler",
+"pos": "W19",
+"label": "Gerahmtes Leinwandbild Scenario, handgemalt (Malerifabrikken)",
+"x": 3.314,
+"y": 5.498,
+"rot": 278,
+"elev": 0.95,
+"w": 0.92,
+"d": 0.04,
+"h": 1.2,
+"variant": "Beige- und Grautöne, Eichenrahmen",
+"slots": {
+"main": {
+"color": "#d8cdbc",
+"material": "canvas"
+},
+"secondary": {
+"color": "#8f8576",
+"material": "canvas"
+},
+"frame": {
+"color": "#b38c60",
+"material": "oak"
+}
+},
+"params": {
+"motif": "scenario"
+},
+"mount": "wall",
+"room": "13.01",
+"parts": [
+{
+"pos": "W19",
+"name": "Gerahmtes Leinwandbild Scenario, handgemalt (Malerifabrikken)",
+"variant": "Beige- und Grautöne, Eichenrahmen",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 359.0,
+"url": "https://www.westwing.de/handgemaltes-leinwandbild-scenario-mit-holzrahmen-144828.html",
+"dims": "B 92 × H 120",
+"delivery": "2–7 WT"
+}
+]
+},
+{
+"id": "33f812ec2a",
+"catalogId": "fac-grosspflanze-olivenbaum-oder-ficus-lyrata-150-18",
+"pos": "W20",
+"label": "Großpflanze (Olivenbaum oder Ficus lyrata, 150–180 cm) mit Keramik-Übertopf",
+"x": 6.097,
+"y": 4.697,
+"rot": 0,
+"elev": 0.0,
+"w": 0.48,
+"d": 0.48,
+"h": 1.7,
+"variant": "Topf matt sand",
+"slots": {
+"main": {
+"color": "#5b6e45",
+"material": "plant"
+},
+"secondary": {
+"color": "#d9ccb4",
+"material": "ceramic"
+}
+},
+"params": {
+"species": "olive",
+"pot": true,
+"potD": 0.32,
+"potH": 0.36
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W20",
+"name": "Großpflanze (Olivenbaum oder Ficus lyrata, 150–180 cm) mit Keramik-Übertopf",
+"variant": "Topf matt sand",
+"vendor": "Fachhandel",
+"qty": 1,
+"unit": 250.0,
+"url": null,
+"dims": "Topf Ø ≈ 32",
+"delivery": "Richtwert"
+}
+]
+},
+{
+"id": "a5e53f7632",
+"catalogId": "wes-metall-vitrine-the-collector-mit-geriffeltem-gla",
+"pos": "W21",
+"label": "Metall-Vitrine The Collector mit geriffeltem Glas (Mustard Made)",
+"x": 3.516,
+"y": 8.441,
+"rot": 188,
+"elev": 0.0,
+"w": 0.85,
+"d": 0.4,
+"h": 1.7,
+"variant": "Salbeigrün, Stahl pulverbeschichtet, Riffelglas",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "matte"
+},
+"secondary": {
+"color": "#e8efe8",
+"material": "ribbedGlass"
+}
+},
+"params": {
+"shelves": 4,
+"legHeight": 0.1
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W21",
+"name": "Metall-Vitrine The Collector mit geriffeltem Glas (Mustard Made)",
+"variant": "Salbeigrün, Stahl pulverbeschichtet, Riffelglas",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 889.0,
+"url": "https://www.westwing.de/metall-vitrine-the-collector-mit-geriffeltem-glas-169561.html",
+"dims": "B 85 × T 40 × H 170",
+"delivery": "4–9 WT"
+}
+]
+},
+{
+"id": "b6b1986f7e",
+"catalogId": "wes-runder-marmor-esstisch-abby-westwing-collection",
+"pos": "E1",
+"label": "Runder Marmor-Esstisch Abby (Westwing Collection)",
+"x": 5.909,
+"y": 9.374,
+"rot": 0,
+"elev": 0.0,
+"w": 1.2,
+"d": 1.2,
+"h": 0.75,
+"variant": "Hellbeige marmoriert / Fuß Mangoholz massiv, dunkel, Ø 61",
+"slots": {
+"top": {
+"color": "#e7ddd0",
+"material": "marble"
+},
+"legs": {
+"color": "#3e2c22",
+"material": "mango"
+}
+},
+"params": {
+"round": true,
+"footD": 0.61,
+"base": "column"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E1",
+"name": "Runder Marmor-Esstisch Abby (Westwing Collection)",
+"variant": "Hellbeige marmoriert / Fuß Mangoholz massiv, dunkel, Ø 61",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 1299.0,
+"url": "https://www.westwing.de/runder-marmor-esstisch-abby-o-120-cm-158094.html",
+"dims": "Ø 120 × H 75",
+"delivery": "7–8 Wo."
+}
+]
+},
+{
+"id": "0a5e4df182",
+"catalogId": "wes-armlehnstuhl-nik-mit-boucl-polsterung",
+"pos": "E2",
+"label": "Armlehnstuhl Nik mit Bouclé-Polsterung",
+"x": 6.524,
+"y": 8.91,
+"rot": 52.97,
+"elev": 0.0,
+"w": 0.58,
+"d": 0.54,
+"h": 0.8,
+"variant": "Bouclé Salbeigrün / Eiche geölt",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "boucle"
+},
+"legs": {
+"color": "#a37a52",
+"material": "oak"
+}
+},
+"params": {
+"seatHeight": 0.48,
+"armHeight": 0.7
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E2",
+"name": "Armlehnstuhl Nik mit Bouclé-Polsterung",
+"variant": "Bouclé Salbeigrün / Eiche geölt",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 269.0,
+"url": "https://www.westwing.de/armlehnstuhl-nik-mit-boucle-polsterung-164180.html",
+"dims": "B 58 × T 54 × H 80",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "f24d1f415f",
+"catalogId": "wes-armlehnstuhl-nik-mit-boucl-polsterung",
+"pos": "E2",
+"label": "Armlehnstuhl Nik mit Bouclé-Polsterung",
+"x": 5.445,
+"y": 8.759,
+"rot": 322.97,
+"elev": 0.0,
+"w": 0.58,
+"d": 0.54,
+"h": 0.8,
+"variant": "Bouclé Salbeigrün / Eiche geölt",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "boucle"
+},
+"legs": {
+"color": "#a37a52",
+"material": "oak"
+}
+},
+"params": {
+"seatHeight": 0.48,
+"armHeight": 0.7
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E2",
+"name": "Armlehnstuhl Nik mit Bouclé-Polsterung",
+"variant": "Bouclé Salbeigrün / Eiche geölt",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 269.0,
+"url": "https://www.westwing.de/armlehnstuhl-nik-mit-boucle-polsterung-164180.html",
+"dims": "B 58 × T 54 × H 80",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "9d0be06d2f",
+"catalogId": "wes-armlehnstuhl-nik-mit-boucl-polsterung",
+"pos": "E2",
+"label": "Armlehnstuhl Nik mit Bouclé-Polsterung",
+"x": 5.294,
+"y": 9.837,
+"rot": 233.03,
+"elev": 0.0,
+"w": 0.58,
+"d": 0.54,
+"h": 0.8,
+"variant": "Bouclé Salbeigrün / Eiche geölt",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "boucle"
+},
+"legs": {
+"color": "#a37a52",
+"material": "oak"
+}
+},
+"params": {
+"seatHeight": 0.48,
+"armHeight": 0.7
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E2",
+"name": "Armlehnstuhl Nik mit Bouclé-Polsterung",
+"variant": "Bouclé Salbeigrün / Eiche geölt",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 269.0,
+"url": "https://www.westwing.de/armlehnstuhl-nik-mit-boucle-polsterung-164180.html",
+"dims": "B 58 × T 54 × H 80",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "7703d5209e",
+"catalogId": "wes-armlehnstuhl-nik-mit-boucl-polsterung",
+"pos": "E2",
+"label": "Armlehnstuhl Nik mit Bouclé-Polsterung",
+"x": 6.372,
+"y": 9.989,
+"rot": 143.03,
+"elev": 0.0,
+"w": 0.58,
+"d": 0.54,
+"h": 0.8,
+"variant": "Bouclé Salbeigrün / Eiche geölt",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "boucle"
+},
+"legs": {
+"color": "#a37a52",
+"material": "oak"
+}
+},
+"params": {
+"seatHeight": 0.48,
+"armHeight": 0.7
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E2",
+"name": "Armlehnstuhl Nik mit Bouclé-Polsterung",
+"variant": "Bouclé Salbeigrün / Eiche geölt",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 269.0,
+"url": "https://www.westwing.de/armlehnstuhl-nik-mit-boucle-polsterung-164180.html",
+"dims": "B 58 × T 54 × H 80",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "712a8de84d",
+"catalogId": "wes-armlehnstuhl-nik-mit-boucl-polsterung-nischenstu",
+"pos": "E12",
+"label": "Armlehnstuhl Nik mit Bouclé-Polsterung (Nischenstuhl)",
+"x": 7.513,
+"y": 7.34,
+"rot": 8,
+"elev": 0.0,
+"w": 0.58,
+"d": 0.54,
+"h": 0.8,
+"variant": "Bouclé Salbeigrün / Eiche geölt",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "boucle"
+},
+"legs": {
+"color": "#a37a52",
+"material": "oak"
+}
+},
+"params": {
+"seatHeight": 0.48,
+"armHeight": 0.7
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E12",
+"name": "Armlehnstuhl Nik mit Bouclé-Polsterung (Nischenstuhl)",
+"variant": "Bouclé Salbeigrün / Eiche geölt",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 269.0,
+"url": "https://www.westwing.de/armlehnstuhl-nik-mit-boucle-polsterung-164180.html",
+"dims": "B 58 × T 54 × H 80",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "cfe51a15c7",
+"catalogId": "wes-dimmbare-pendelleuchte-kushi-mundgeblasen-kdln",
+"pos": "E3",
+"label": "Dimmbare Pendelleuchte Kushi, mundgeblasen (kdln)",
+"x": 5.93,
+"y": 9.225,
+"rot": 0,
+"elev": 1.4,
+"w": 0.16,
+"d": 0.16,
+"h": 0.26,
+"variant": "Kupferfarben / Opalglas",
+"slots": {
+"main": {
+"color": "#b8703e",
+"material": "copper"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"params": {
+"shape": "kushi",
+"anchorX": 5.909,
+"anchorY": 9.374
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "E3",
+"name": "Dimmbare Pendelleuchte Kushi, mundgeblasen (kdln)",
+"variant": "Kupferfarben / Opalglas",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 319.0,
+"url": "https://www.westwing.de/dimmbare-pendelleuchte-kushi-mundgeblasen-152975.html?simple=DEQ23KDL77021-196321",
+"dims": "Ø 16 × H 26, Kabel 180",
+"delivery": "5–6 Wo."
+}
+]
+},
+{
+"id": "6f834e26cf",
+"catalogId": "wes-dimmbare-pendelleuchte-kushi-mundgeblasen-kdln",
+"pos": "E3",
+"label": "Dimmbare Pendelleuchte Kushi, mundgeblasen (kdln)",
+"x": 5.77,
+"y": 9.43,
+"rot": 0,
+"elev": 1.47,
+"w": 0.16,
+"d": 0.16,
+"h": 0.26,
+"variant": "Kupferfarben / Opalglas",
+"slots": {
+"main": {
+"color": "#b8703e",
+"material": "copper"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"params": {
+"shape": "kushi",
+"anchorX": 5.909,
+"anchorY": 9.374
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "E3",
+"name": "Dimmbare Pendelleuchte Kushi, mundgeblasen (kdln)",
+"variant": "Kupferfarben / Opalglas",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 319.0,
+"url": "https://www.westwing.de/dimmbare-pendelleuchte-kushi-mundgeblasen-152975.html?simple=DEQ23KDL77021-196321",
+"dims": "Ø 16 × H 26, Kabel 180",
+"delivery": "5–6 Wo."
+}
+]
+},
+{
+"id": "6231a292ae",
+"catalogId": "wes-dimmbare-pendelleuchte-kushi-mundgeblasen-kdln",
+"pos": "E3",
+"label": "Dimmbare Pendelleuchte Kushi, mundgeblasen (kdln)",
+"x": 6.027,
+"y": 9.466,
+"rot": 0,
+"elev": 1.36,
+"w": 0.16,
+"d": 0.16,
+"h": 0.26,
+"variant": "Kupferfarben / Opalglas",
+"slots": {
+"main": {
+"color": "#b8703e",
+"material": "copper"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"params": {
+"shape": "kushi",
+"anchorX": 5.909,
+"anchorY": 9.374
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "E3",
+"name": "Dimmbare Pendelleuchte Kushi, mundgeblasen (kdln)",
+"variant": "Kupferfarben / Opalglas",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 319.0,
+"url": "https://www.westwing.de/dimmbare-pendelleuchte-kushi-mundgeblasen-152975.html?simple=DEQ23KDL77021-196321",
+"dims": "Ø 16 × H 26, Kabel 180",
+"delivery": "5–6 Wo."
+}
+]
+},
+{
+"id": "7c1ff40522",
+"catalogId": "wes-sideboard-chandler-aus-eichenholz",
+"pos": "E4",
+"label": "Sideboard Chandler aus Eichenholz",
+"x": 5.688,
+"y": 11.668,
+"rot": 188,
+"elev": 0.0,
+"w": 1.65,
+"d": 0.43,
+"h": 0.75,
+"variant": "Eiche massiv, dunkel lackiert",
+"slots": {
+"main": {
+"color": "#5e4130",
+"material": "oakDark"
+},
+"legs": {
+"color": "#5e4130",
+"material": "oakDark"
+}
+},
+"params": {
+"doors": 3,
+"legHeight": 0.1,
+"front": "flat"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E4",
+"name": "Sideboard Chandler aus Eichenholz",
+"variant": "Eiche massiv, dunkel lackiert",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 1399.0,
+"url": "https://www.westwing.de/handgefertigtes-sideboard-chandler-aus-massivem-eichenholz-159331.html",
+"dims": "B 165 × T 43 × H 75",
+"delivery": "3–4 Wo."
+}
+]
+},
+{
+"id": "2664027e3a",
+"catalogId": "wes-mundgeblasene-wandleuchte-mabell-maytoni",
+"pos": "E5",
+"label": "Mundgeblasene Wandleuchte Mabell (Maytoni)",
+"x": 7.66,
+"y": 9.838,
+"rot": 98,
+"elev": 1.7,
+"w": 0.28,
+"d": 0.13,
+"h": 0.21,
+"variant": "Kupferfarben",
+"slots": {
+"main": {
+"color": "#b8703e",
+"material": "copper"
+}
+},
+"params": {
+"shape": "mabell"
+},
+"mount": "wall",
+"room": "13.01",
+"parts": [
+{
+"pos": "E5",
+"name": "Mundgeblasene Wandleuchte Mabell (Maytoni)",
+"variant": "Kupferfarben",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 109.0,
+"url": "https://www.westwing.de/mundgeblasene-wandleuchte-mabell-in-kupferfarben-147118.html",
+"dims": "B 28 × H 21 × T 13",
+"delivery": "2–5 WT"
+}
+]
+},
+{
+"id": "2330105e24",
+"catalogId": "wes-grosse-tischlampe-ph-3-2-mundgeblasen-louis-poul",
+"pos": "E6",
+"label": "Große Tischlampe PH 3½-2½, mundgeblasen (Louis Poulsen)",
+"x": 5.168,
+"y": 11.595,
+"rot": 0,
+"elev": 0.75,
+"w": 0.33,
+"d": 0.33,
+"h": 0.45,
+"variant": "Opalglas weiß / Gestell Kupfer",
+"slots": {
+"main": {
+"color": "#b8703e",
+"material": "copper"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E6",
+"name": "Große Tischlampe PH 3½-2½, mundgeblasen (Louis Poulsen)",
+"variant": "Opalglas weiß / Gestell Kupfer",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 1249.0,
+"url": "https://www.westwing.de/grosse-tischlampe-ph-3-1-2-2-1-2-mundgeblasen-160503.html",
+"dims": "Ø 33 × H 45, Kabel 250",
+"delivery": "5 Wo."
+}
+]
+},
+{
+"id": "57d952ee7b",
+"catalogId": "wes-gerahmter-digitaldruck-growing-incado",
+"pos": "E7",
+"label": "Gerahmter Digitaldruck Growing (Incado)",
+"x": 5.3302,
+"y": 11.8391,
+"rot": 188,
+"elev": 1.085,
+"w": 0.53,
+"d": 0.03,
+"h": 0.73,
+"variant": "Beigetöne / Rahmen taupe",
+"slots": {
+"main": {
+"color": "#e1d6c4",
+"material": "canvas"
+},
+"secondary": {
+"color": "#9b8a74",
+"material": "canvas"
+},
+"frame": {
+"color": "#a39484",
+"material": "matte"
+}
+},
+"params": {
+"motif": "growing",
+"mat": true
+},
+"mount": "wall",
+"room": "13.01",
+"parts": [
+{
+"pos": "E7",
+"name": "Gerahmter Digitaldruck Growing (Incado)",
+"variant": "Beigetöne / Rahmen taupe",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 159.0,
+"url": "https://www.westwing.de/gerahmter-digitaldruck-growing-handgefertigt-166308.html",
+"dims": "B 53 × H 73",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "7469ef9e73",
+"catalogId": "wes-gerahmter-digitaldruck-growing-incado",
+"pos": "E7",
+"label": "Gerahmter Digitaldruck Growing (Incado)",
+"x": 5.9838,
+"y": 11.9309,
+"rot": 188,
+"elev": 1.085,
+"w": 0.53,
+"d": 0.03,
+"h": 0.73,
+"variant": "Beigetöne / Rahmen taupe",
+"slots": {
+"main": {
+"color": "#e1d6c4",
+"material": "canvas"
+},
+"secondary": {
+"color": "#9b8a74",
+"material": "canvas"
+},
+"frame": {
+"color": "#a39484",
+"material": "matte"
+}
+},
+"params": {
+"motif": "growing",
+"mat": true
+},
+"mount": "wall",
+"room": "13.01",
+"parts": [
+{
+"pos": "E7",
+"name": "Gerahmter Digitaldruck Growing (Incado)",
+"variant": "Beigetöne / Rahmen taupe",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 159.0,
+"url": "https://www.westwing.de/gerahmter-digitaldruck-growing-handgefertigt-166308.html",
+"dims": "B 53 × H 73",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "1c46081b2d",
+"catalogId": "obi-profilleiste-orac-decor-px120-axxent",
+"pos": "E10–E11",
+"label": "Profilrahmen Orac PX120 um das Bildpaar",
+"x": 5.657,
+"y": 11.89,
+"rot": 188,
+"elev": 0.95,
+"w": 1.4,
+"d": 0.019,
+"h": 1.0,
+"variant": "Duropolymer, vorgrundiert – wandfarben streichen",
+"slots": {
+"main": {
+"color": "#f3f0e8",
+"material": "matte"
+}
+},
+"params": {
+"profile": 0.04
+},
+"mount": "wall",
+"room": "13.01",
+"parts": [
+{
+"pos": "E10",
+"name": "Profilleiste Orac Decor PX120 Axxent",
+"variant": "Duropolymer, vorgrundiert – wandfarben streichen",
+"vendor": "OBI",
+"qty": 3,
+"unit": 15.51,
+"url": "https://www.billiger.de/pricelist/5098382219-orac-wandleiste-zierleiste-profil-wand-rahmen-dekor-element-2-meter",
+"dims": "200 × 4 × 1,9 cm",
+"delivery": "lt. Shop"
+},
+{
+"pos": "E11",
+"name": "Montagekleber für Profilleisten + Acryl (Diele + Essen)",
+"variant": "lösemittelfrei, für Duropolymer",
+"vendor": "Fachhandel",
+"qty": 1,
+"unit": 30.0,
+"url": null,
+"dims": "2 Kartuschen + 1 Acryl",
+"delivery": "Richtwert"
+}
+]
+},
+{
+"id": "ffc5597963",
+"catalogId": "wes-uebertopf-olea",
+"pos": "E8",
+"label": "Übertopf Olea",
+"x": 6.258,
+"y": 11.748,
+"rot": 0,
+"elev": 0.75,
+"w": 0.24,
+"d": 0.24,
+"h": 0.26,
+"variant": "Salbeigrün matt, Steinzeug",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "ceramic"
+}
+},
+"params": {
+"plant": true
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E8",
+"name": "Übertopf Olea",
+"variant": "Salbeigrün matt, Steinzeug",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 64.99,
+"url": "https://www.westwing.de/uebertopf-olea-in-salbeigruen-aus-steingut-147844.html",
+"dims": "Ø 24 × H 26",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "17be49c9e2",
+"catalogId": "wes-runder-wollteppich-eleni-handgetuftet",
+"pos": "E9",
+"label": "Runder Wollteppich Eleni, handgetuftet",
+"x": 5.909,
+"y": 9.374,
+"rot": 0,
+"elev": 0.0,
+"w": 2.5,
+"d": 2.5,
+"h": 0.012,
+"variant": "Taupe, Größe XL",
+"slots": {
+"main": {
+"color": "#cbbfae",
+"material": "wool"
+}
+},
+"params": {
+"pattern": "rings"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E9",
+"name": "Runder Wollteppich Eleni, handgetuftet",
+"variant": "Taupe, Größe XL",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 719.0,
+"url": "https://www.westwing.de/runder-wollteppich-eleni-handgetuftet-158947.html?simple=DEQ23WES34367-204249",
+"dims": "Ø 250",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "19e4fdae1d",
+"catalogId": "ike-pax-korpus-kleiderschrank",
+"pos": "F1–F6",
+"label": "PAX/TONSTAD Garderobe 150 × 35 × 236 + Deckenblende",
+"x": 9.612,
+"y": 1.456,
+"rot": 270,
+"elev": 0.0,
+"w": 1.5,
+"d": 0.37,
+"h": 2.36,
+"variant": "weiß",
+"slots": {
+"main": {
+"color": "#f3eee3",
+"material": "lacquer"
+},
+"secondary": {
+"color": "#f3f1ec",
+"material": "matte"
+}
+},
+"params": {
+"modules": "100,50",
+"doors": 3,
+"fascia": 0.2,
+"fasciaColor": "#f3f0e8",
+"handle": "edge"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "F1",
+"name": "PAX Korpus Kleiderschrank",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 90.0,
+"url": "https://www.ikea.com/de/de/p/pax-korpus-kleiderschrank-weiss-70458199/",
+"dims": "100 × 35 × 236",
+"delivery": "prüfen"
+},
+{
+"pos": "F2",
+"name": "PAX Korpus Kleiderschrank",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 70.0,
+"url": "https://www.ikea.com/de/de/p/pax-korpus-kleiderschrank-weiss-60458213/",
+"dims": "50 × 35 × 236",
+"delivery": "prüfen"
+},
+{
+"pos": "F3",
+"name": "TONSTAD Tür mit Scharnier",
+"variant": "elfenbeinweiß, integrierte Griffleiste",
+"vendor": "IKEA",
+"qty": 3,
+"unit": 110.0,
+"url": "https://www.ikea.com/de/de/p/tonstad-tuer-mit-scharnier-elfenbeinweiss-s19553034/",
+"dims": "50 × 229",
+"delivery": "prüfen"
+},
+{
+"pos": "F4",
+"name": "KOMPLEMENT Kleiderstange (für 35 cm Tiefe)",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 25.0,
+"url": "https://www.ikea.com/de/de/p/komplement-kleiderstange-weiss-10446449/",
+"dims": "100 × 35",
+"delivery": "prüfen"
+},
+{
+"pos": "F5",
+"name": "KOMPLEMENT Boden",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 10.0,
+"url": "https://www.ikea.com/de/de/p/komplement-boden-weiss-00277989/",
+"dims": "100 × 35",
+"delivery": "prüfen"
+},
+{
+"pos": "F6",
+"name": "KOMPLEMENT Boden",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 5,
+"unit": 4.0,
+"url": "https://www.ikea.com/de/de/p/komplement-boden-weiss-40277992/",
+"dims": "50 × 35",
+"delivery": "prüfen"
+},
+{
+"pos": "F17",
+"name": "Deckenblende über PAX (MDF 19 mm, Zuschnitt)",
+"variant": "wandfarben lackiert",
+"vendor": "Fachhandel",
+"qty": 1,
+"unit": 25.0,
+"url": null,
+"dims": "150 × 22 cm",
+"delivery": "Richtwert"
+}
+]
+},
+{
+"id": "945626a4bd",
+"catalogId": "wes-konsole-chandler-aus-eichenholz-mit-travertinpla",
+"pos": "F7",
+"label": "Konsole Chandler aus Eichenholz mit Travertinplatte",
+"x": 7.378,
+"y": 2.525,
+"rot": 0,
+"elev": 0.0,
+"w": 1.1,
+"d": 0.4,
+"h": 0.8,
+"variant": "Eiche massiv dunkel lackiert / Travertin beige",
+"slots": {
+"top": {
+"color": "#e3d6c1",
+"material": "travertine"
+},
+"main": {
+"color": "#4b3326",
+"material": "oakDark"
+}
+},
+"params": {
+"style": "chandler"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "F7",
+"name": "Konsole Chandler aus Eichenholz mit Travertinplatte",
+"variant": "Eiche massiv dunkel lackiert / Travertin beige",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 799.0,
+"url": "https://www.westwing.de/konsole-chandler-aus-eichenholz-mit-travertinplatte-159336.html",
+"dims": "B 110 × T 40 × H 80",
+"delivery": "4–9 WT"
+}
+]
+},
+{
+"id": "9a94a6e19f",
+"catalogId": "wes-runder-wandspiegel-ayu",
+"pos": "F8",
+"label": "Runder Wandspiegel Ayu",
+"x": 7.378,
+"y": 2.34,
+"rot": 0,
+"elev": 1.2,
+"w": 0.6,
+"d": 0.03,
+"h": 0.6,
+"variant": "Akazienholz, Walnuss-Ton",
+"slots": {
+"frame": {
+"color": "#6b4a33",
+"material": "walnut"
+}
+},
+"params": {},
+"mount": "wall",
+"room": "13.01",
+"parts": [
+{
+"pos": "F8",
+"name": "Runder Wandspiegel Ayu",
+"variant": "Akazienholz, Walnuss-Ton",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 199.0,
+"url": "https://www.westwing.de/ayu-mirror-d60-cm-acacia-wood-walnut-color-en-25wes24896.html",
+"dims": "Ø 60",
+"delivery": "lt. Shop"
+}
+]
+},
+{
+"id": "bbb50f5343",
+"catalogId": "obi-profilleiste-orac-decor-px120-axxent",
+"pos": "F16",
+"label": "Profilleiste Orac Decor PX120 Axxent",
+"x": 7.378,
+"y": 2.335,
+"rot": 0,
+"elev": 0.9,
+"w": 1.3,
+"d": 0.019,
+"h": 1.2,
+"variant": "Duropolymer, vorgrundiert – wandfarben streichen",
+"slots": {
+"main": {
+"color": "#f3f0e8",
+"material": "matte"
+}
+},
+"params": {
+"profile": 0.04
+},
+"mount": "wall",
+"room": "13.01",
+"parts": [
+{
+"pos": "F16",
+"name": "Profilleiste Orac Decor PX120 Axxent",
+"variant": "Duropolymer, vorgrundiert – wandfarben streichen",
+"vendor": "OBI",
+"qty": 3,
+"unit": 15.51,
+"url": "https://www.billiger.de/pricelist/5098382219-orac-wandleiste-zierleiste-profil-wand-rahmen-dekor-element-2-meter",
+"dims": "200 × 4 × 1,9 cm",
+"delivery": "lt. Shop"
+}
+]
+},
+{
+"id": "a430be1625",
+"catalogId": "wes-kleine-led-tischlampe-kian",
+"pos": "F9",
+"label": "Kleine LED-Tischlampe Kian",
+"x": 7.006,
+"y": 2.526,
+"rot": 0,
+"elev": 0.8,
+"w": 0.3,
+"d": 0.3,
+"h": 0.35,
+"variant": "Milchglas / Fuß kupferfarben",
+"slots": {
+"main": {
+"color": "#b8703e",
+"material": "copper"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "F9",
+"name": "Kleine LED-Tischlampe Kian",
+"variant": "Milchglas / Fuß kupferfarben",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 129.0,
+"url": "https://www.westwing.de/new-milky-table-lamp-small-brass-en-25wes67056.html",
+"dims": "Ø 30 × H 35",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "59c775ef92",
+"catalogId": "wes-kleine-deckenleuchte-lido-aus-opalglas",
+"pos": "F10",
+"label": "Kleine Deckenleuchte Lido aus Opalglas",
+"x": 10.504,
+"y": 1.168,
+"rot": 0,
+"elev": 2.33,
+"w": 0.2,
+"d": 0.2,
+"h": 0.23,
+"variant": "Opalglas weiß / Gestell schwarz",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"shape": "lido"
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "F10",
+"name": "Kleine Deckenleuchte Lido aus Opalglas",
+"variant": "Opalglas weiß / Gestell schwarz",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 64.99,
+"url": "https://www.westwing.de/deckenleuchte-lido-aus-opalglas-142125.html",
+"dims": "Ø 20 × H 23",
+"delivery": "2–3 Wo."
+}
+]
+},
+{
+"id": "405b39dc53",
+"catalogId": "wes-kleine-deckenleuchte-lido-aus-opalglas",
+"pos": "F10",
+"label": "Kleine Deckenleuchte Lido aus Opalglas",
+"x": 10.504,
+"y": 2.979,
+"rot": 0,
+"elev": 2.33,
+"w": 0.2,
+"d": 0.2,
+"h": 0.23,
+"variant": "Opalglas weiß / Gestell schwarz",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"shape": "lido"
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "F10",
+"name": "Kleine Deckenleuchte Lido aus Opalglas",
+"variant": "Opalglas weiß / Gestell schwarz",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 64.99,
+"url": "https://www.westwing.de/deckenleuchte-lido-aus-opalglas-142125.html",
+"dims": "Ø 20 × H 23",
+"delivery": "2–3 Wo."
+}
+]
+},
+{
+"id": "9af914c246",
+"catalogId": "wes-kleine-deckenleuchte-lido-aus-opalglas",
+"pos": "F10",
+"label": "Kleine Deckenleuchte Lido aus Opalglas",
+"x": 7.138,
+"y": 2.96,
+"rot": 0,
+"elev": 2.33,
+"w": 0.2,
+"d": 0.2,
+"h": 0.23,
+"variant": "Opalglas weiß / Gestell schwarz",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"shape": "lido"
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "F10",
+"name": "Kleine Deckenleuchte Lido aus Opalglas",
+"variant": "Opalglas weiß / Gestell schwarz",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 64.99,
+"url": "https://www.westwing.de/deckenleuchte-lido-aus-opalglas-142125.html",
+"dims": "Ø 20 × H 23",
+"delivery": "2–3 Wo."
+}
+]
+},
+{
+"id": "2b5c75a0a9",
+"catalogId": "wes-uebertopf-olea",
+"pos": "F11",
+"label": "Übertopf Olea",
+"x": 7.766,
+"y": 2.526,
+"rot": 0,
+"elev": 0.8,
+"w": 0.24,
+"d": 0.24,
+"h": 0.26,
+"variant": "Salbeigrün matt, Steinzeug",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "ceramic"
+}
+},
+"params": {
+"plant": true
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "F11",
+"name": "Übertopf Olea",
+"variant": "Salbeigrün matt, Steinzeug",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 64.99,
+"url": "https://www.westwing.de/uebertopf-olea-in-salbeigruen-aus-steingut-147844.html",
+"dims": "Ø 24 × H 26",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "e8c25be4ae",
+"catalogId": "ike-tibast-2-gardinenschals",
+"pos": "F12–F14",
+"label": "Vorhang Fenstertür Balkon 1",
+"x": 9.5627,
+"y": 3.5596,
+"rot": 180.0,
+"elev": 0.0,
+"w": 3.45,
+"d": 0.12,
+"h": 2.53,
+"variant": "weiß, 100 % Baumwolle",
+"slots": {
+"main": {
+"color": "#f7f4ec",
+"material": "linen"
+}
+},
+"params": {
+"layers": 1,
+"open": 0.8,
+"track": true,
+"sheer": true
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "F12",
+"name": "TIBAST 2 Gardinenschals",
+"variant": "weiß, 100 % Baumwolle",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 49.99,
+"url": "https://www.ikea.com/de/de/p/tibast-2-gardinenschals-weiss-10396760/",
+"dims": "2 × 145 × 300",
+"delivery": "prüfen"
+},
+{
+"pos": "F13",
+"name": "VIDGA Decken-Gardinenschiene 1-läufig",
+"variant": "weiß, kürzbar",
+"vendor": "IKEA",
+"qty": 3,
+"unit": 12.99,
+"url": "https://www.ikea.com/de/de/p/vidga-gardinenschiene-1-laeufig-mit-deckenbeschlag-weiss-20492916/",
+"dims": "140 cm",
+"delivery": "prüfen"
+},
+{
+"pos": "F14",
+"name": "VIDGA Gleiter + Haken",
+"variant": "weiß, 24 Stk.",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 2.99,
+"url": "https://www.ikea.com/de/de/p/vidga-gleiter-haken-weiss-20483002/",
+"dims": "–",
+"delivery": "prüfen"
+}
+],
+"opening": "W-B1"
+},
+{
+"id": "e745f12f08",
+"catalogId": "ike-bissa-schuhschrank-3-faecher",
+"pos": "F15",
+"label": "BISSA Schuhschrank, 3 Fächer",
+"x": 11.041,
+"y": 0.981,
+"rot": 90,
+"elev": 0.0,
+"w": 0.49,
+"d": 0.28,
+"h": 1.35,
+"variant": "schwarzbraun",
+"slots": {
+"main": {
+"color": "#2d2420",
+"material": "matte"
+}
+},
+"params": {
+"flaps": 3,
+"legHeight": 0.0
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "F15",
+"name": "BISSA Schuhschrank, 3 Fächer",
+"variant": "schwarzbraun",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 49.99,
+"url": "https://www.ikea.com/de/de/p/bissa-schuhschrank-3-faecher-schwarzbraun-60530209/",
+"dims": "49 × 28 × 135",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "ae879196ae",
+"catalogId": "wes-boucl-polsterbett-dream-mit-stauraum",
+"pos": "S1/S3",
+"label": "Polsterbett Dream 180 × 200 + Matratze + Bettwäsche",
+"x": 5.964,
+"y": 14.54,
+"rot": 98,
+"elev": 0.0,
+"w": 1.96,
+"d": 2.22,
+"h": 1.1,
+"variant": "Bouclé Taupe; Bettkasten unter aufklappbarem Lattenrost",
+"slots": {
+"main": {
+"color": "#b9aa97",
+"material": "boucle"
+},
+"secondary": {
+"color": "#c8d3c1",
+"material": "linen"
+},
+"accent": {
+"color": "#f3efe6",
+"material": "wool"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"mattressW": 1.8,
+"mattressL": 2.0,
+"headboard": 1.1,
+"frameH": 0.35,
+"storage": true,
+"duvetSingle": false
+},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S1",
+"name": "Bouclé-Polsterbett Dream mit Stauraum",
+"variant": "Bouclé Taupe; Bettkasten unter aufklappbarem Lattenrost",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 1199.0,
+"url": "https://www.westwing.de/fsc-bed-dream-140x200-sic-legend-3-taupe-with-storage-en-25wes53203.html",
+"dims": "Liegefl. 180 × 200; außen ca. 196 × 222, Kopfteil H 110",
+"delivery": "8–9 Wo."
+},
+{
+"pos": "S3",
+"name": "VÅGSTRANDA Taschenfederkernmatratze",
+"variant": "fest",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 699.0,
+"url": "https://www.ikea.com/de/de/p/vagstranda-taschenfederkernmatratze-fest-hellblau-00450757/",
+"dims": "180 × 200 × 28",
+"delivery": "prüfen"
+},
+{
+"pos": "S13",
+"name": "Gewaschener Leinen-Bettdeckenbezug Airy",
+"variant": "Hellgrün (salbeinah)",
+"vendor": "Westwing",
+"qty": 2,
+"unit": 79.99,
+"url": "https://www.westwing.de/gewaschener-leinen-bettdeckenbezug-airy-153335.html",
+"dims": "135 × 200",
+"delivery": "≤ 2 Wo."
+},
+{
+"pos": "S14",
+"name": "Gewaschener Leinen-Kopfkissenbezug Airy",
+"variant": "Hellgrün",
+"vendor": "Westwing",
+"qty": 2,
+"unit": 19.99,
+"url": "https://www.westwing.de/leinen-kopfkissenbezug-airy-148763.html?simple=DEQ23WES61959-190026",
+"dims": "40 × 80",
+"delivery": "lt. Shop"
+},
+{
+"pos": "S15",
+"name": "Plaid Luxury aus Babyalpaka-Wolle (Elvang)",
+"variant": "Off White",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 249.0,
+"url": "https://www.westwing.de/babyalpaka-plaid-luxury-23584.html",
+"dims": "130 × 200",
+"delivery": "2 Wo."
+}
+]
+},
+{
+"id": "12f45da2f5",
+"catalogId": "wes-nachttisch-holden-mit-griffplatte-aus-travertin",
+"pos": "S4",
+"label": "Nachttisch Holden mit Griffplatte aus Travertin",
+"x": 7.0,
+"y": 13.408,
+"rot": 98,
+"elev": 0.0,
+"w": 0.45,
+"d": 0.45,
+"h": 0.52,
+"variant": "Walnussfurnier dunkel / Griffplatte Travertin hellbeige",
+"slots": {
+"main": {
+"color": "#5e3f2c",
+"material": "walnut"
+},
+"top": {
+"color": "#e3d6c1",
+"material": "travertine"
+},
+"detail": {
+"color": "#e3d6c1",
+"material": "travertine"
+}
+},
+"params": {
+"drawers": 0,
+"door": true,
+"legHeight": 0.07
+},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S4",
+"name": "Nachttisch Holden mit Griffplatte aus Travertin",
+"variant": "Walnussfurnier dunkel / Griffplatte Travertin hellbeige",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 379.0,
+"url": "https://www.westwing.de/nachttisch-holden-mit-griffplatte-aus-travertin-1-172146.html",
+"dims": "B 45 × T 45 × H 52",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "0a991a6738",
+"catalogId": "wes-nachttisch-holden-mit-griffplatte-aus-travertin",
+"pos": "S4",
+"label": "Nachttisch Holden mit Griffplatte aus Travertin",
+"x": 6.646,
+"y": 15.903,
+"rot": 98,
+"elev": 0.0,
+"w": 0.45,
+"d": 0.45,
+"h": 0.52,
+"variant": "Walnussfurnier dunkel / Griffplatte Travertin hellbeige",
+"slots": {
+"main": {
+"color": "#5e3f2c",
+"material": "walnut"
+},
+"top": {
+"color": "#e3d6c1",
+"material": "travertine"
+},
+"detail": {
+"color": "#e3d6c1",
+"material": "travertine"
+}
+},
+"params": {
+"drawers": 0,
+"door": true,
+"legHeight": 0.07
+},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S4",
+"name": "Nachttisch Holden mit Griffplatte aus Travertin",
+"variant": "Walnussfurnier dunkel / Griffplatte Travertin hellbeige",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 379.0,
+"url": "https://www.westwing.de/nachttisch-holden-mit-griffplatte-aus-travertin-1-172146.html",
+"dims": "B 45 × T 45 × H 52",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "b6605861ec",
+"catalogId": "wes-kleine-led-tischlampe-kian",
+"pos": "S5",
+"label": "Kleine LED-Tischlampe Kian",
+"x": 7.0,
+"y": 13.408,
+"rot": 0,
+"elev": 0.52,
+"w": 0.3,
+"d": 0.3,
+"h": 0.35,
+"variant": "Milchglas / Fuß kupferfarben",
+"slots": {
+"main": {
+"color": "#b8703e",
+"material": "copper"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S5",
+"name": "Kleine LED-Tischlampe Kian",
+"variant": "Milchglas / Fuß kupferfarben",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 129.0,
+"url": "https://www.westwing.de/new-milky-table-lamp-small-brass-en-25wes67056.html",
+"dims": "Ø 30 × H 35",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "53833150a6",
+"catalogId": "wes-kleine-led-tischlampe-kian",
+"pos": "S5",
+"label": "Kleine LED-Tischlampe Kian",
+"x": 6.646,
+"y": 15.903,
+"rot": 0,
+"elev": 0.52,
+"w": 0.3,
+"d": 0.3,
+"h": 0.35,
+"variant": "Milchglas / Fuß kupferfarben",
+"slots": {
+"main": {
+"color": "#b8703e",
+"material": "copper"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S5",
+"name": "Kleine LED-Tischlampe Kian",
+"variant": "Milchglas / Fuß kupferfarben",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 129.0,
+"url": "https://www.westwing.de/new-milky-table-lamp-small-brass-en-25wes67056.html",
+"dims": "Ø 30 × H 35",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "345386b984",
+"catalogId": "wes-kleine-deckenleuchte-lido-aus-opalglas",
+"pos": "S6",
+"label": "Kleine Deckenleuchte Lido aus Opalglas",
+"x": 5.351,
+"y": 13.348,
+"rot": 0,
+"elev": 2.33,
+"w": 0.2,
+"d": 0.2,
+"h": 0.23,
+"variant": "Opalglas weiß / Gestell schwarz",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"shape": "lido"
+},
+"mount": "ceiling",
+"room": "13.03",
+"parts": [
+{
+"pos": "S6",
+"name": "Kleine Deckenleuchte Lido aus Opalglas",
+"variant": "Opalglas weiß / Gestell schwarz",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 64.99,
+"url": "https://www.westwing.de/deckenleuchte-lido-aus-opalglas-142125.html",
+"dims": "Ø 20 × H 23",
+"delivery": "2–3 Wo."
+}
+]
+},
+{
+"id": "710b381f6b",
+"catalogId": "wes-kleine-deckenleuchte-lido-aus-opalglas",
+"pos": "S6",
+"label": "Kleine Deckenleuchte Lido aus Opalglas",
+"x": 5.044,
+"y": 15.526,
+"rot": 0,
+"elev": 2.33,
+"w": 0.2,
+"d": 0.2,
+"h": 0.23,
+"variant": "Opalglas weiß / Gestell schwarz",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"shape": "lido"
+},
+"mount": "ceiling",
+"room": "13.03",
+"parts": [
+{
+"pos": "S6",
+"name": "Kleine Deckenleuchte Lido aus Opalglas",
+"variant": "Opalglas weiß / Gestell schwarz",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 64.99,
+"url": "https://www.westwing.de/deckenleuchte-lido-aus-opalglas-142125.html",
+"dims": "Ø 20 × H 23",
+"delivery": "2–3 Wo."
+}
+]
+},
+{
+"id": "64dcbb4f09",
+"catalogId": "ike-pax-korpus-kleiderschrank",
+"pos": "S7–S11",
+"label": "PAX/TONSTAD Kleiderschrank 300 × 58 × 236 + Deckenblende",
+"x": 3.632,
+"y": 14.192,
+"rot": 278,
+"elev": 0.0,
+"w": 3.0,
+"d": 0.6,
+"h": 2.36,
+"variant": "weiß",
+"slots": {
+"main": {
+"color": "#f3eee3",
+"material": "lacquer"
+},
+"secondary": {
+"color": "#f3f1ec",
+"material": "matte"
+}
+},
+"params": {
+"modules": "100,100,100",
+"doors": 6,
+"fascia": 0.2,
+"fasciaColor": "#f3f0e8",
+"handle": "edge"
+},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S7",
+"name": "PAX Korpus Kleiderschrank",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 3,
+"unit": 100.0,
+"url": "https://www.ikea.com/de/de/p/pax-korpus-kleiderschrank-weiss-80458207/",
+"dims": "100 × 58 × 236",
+"delivery": "prüfen"
+},
+{
+"pos": "S8",
+"name": "TONSTAD Tür mit Scharnier",
+"variant": "elfenbeinweiß, integrierte Griffleiste",
+"vendor": "IKEA",
+"qty": 6,
+"unit": 110.0,
+"url": "https://www.ikea.com/de/de/p/tonstad-tuer-mit-scharnier-elfenbeinweiss-s19553034/",
+"dims": "50 × 229",
+"delivery": "prüfen"
+},
+{
+"pos": "S9",
+"name": "KOMPLEMENT Kleiderstange",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 3,
+"unit": 10.0,
+"url": "https://www.ikea.com/de/de/p/komplement-kleiderstange-weiss-30256891/",
+"dims": "100 cm",
+"delivery": "prüfen"
+},
+{
+"pos": "S10",
+"name": "KOMPLEMENT Boden",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 6,
+"unit": 15.0,
+"url": "https://www.ikea.com/de/de/p/komplement-boden-weiss-70277957/",
+"dims": "100 × 58",
+"delivery": "prüfen"
+},
+{
+"pos": "S11",
+"name": "KOMPLEMENT Schublade",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 3,
+"unit": 35.0,
+"url": "https://www.ikea.com/de/de/p/komplement-schublade-weiss-90246352/",
+"dims": "100 × 58",
+"delivery": "prüfen"
+},
+{
+"pos": "S21",
+"name": "Deckenblende über PAX (MDF 19 mm, Zuschnitt)",
+"variant": "wandfarben lackiert",
+"vendor": "Fachhandel",
+"qty": 1,
+"unit": 45.0,
+"url": null,
+"dims": "300 × 22 cm",
+"delivery": "Richtwert"
+}
+]
+},
+{
+"id": "bdb63db605",
+"catalogId": "wes-handgewebter-wollteppich-pebble",
+"pos": "S12",
+"label": "Handgewebter Wollteppich Pebble",
+"x": 5.412,
+"y": 14.463,
+"rot": 98,
+"elev": 0.0,
+"w": 3.0,
+"d": 2.0,
+"h": 0.015,
+"variant": "Beige, Größe L",
+"slots": {
+"main": {
+"color": "#e9e2d6",
+"material": "wool"
+}
+},
+"params": {
+"pattern": "pebble"
+},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S12",
+"name": "Handgewebter Wollteppich Pebble",
+"variant": "Beige, Größe L",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 599.0,
+"url": "https://www.westwing.de/wollteppich-pebble-in-cremeweiss-131292.html",
+"dims": "ca. 200 × 300",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "5b3f24f83c",
+"catalogId": "ike-tibast-2-gardinenschals-vorn",
+"pos": "S16–S18",
+"label": "Vorhänge Schlafen (Store + Verdunkelung)",
+"x": 4.9555,
+"y": 16.0288,
+"rot": 188.0,
+"elev": 0.0,
+"w": 3.72,
+"d": 0.16,
+"h": 2.53,
+"variant": "weiß, 100 % Baumwolle",
+"slots": {
+"main": {
+"color": "#f7f4ec",
+"material": "linen"
+},
+"secondary": {
+"color": "#d8ccb4",
+"material": "linen"
+}
+},
+"params": {
+"layers": 2,
+"open": 0.85,
+"track": true,
+"sheer": true
+},
+"mount": "ceiling",
+"room": "13.03",
+"parts": [
+{
+"pos": "S16",
+"name": "TIBAST 2 Gardinenschals (vorn)",
+"variant": "weiß, 100 % Baumwolle",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 49.99,
+"url": "https://www.ikea.com/de/de/p/tibast-2-gardinenschals-weiss-10396760/",
+"dims": "2 × 145 × 300",
+"delivery": "prüfen"
+},
+{
+"pos": "S17",
+"name": "Verdunkelungs-Vorhang ALDRA (hinten)",
+"variant": "sand, auf ≈ 2,53 m kürzen (Saumband)",
+"vendor": "JYSK",
+"qty": 4,
+"unit": 22.5,
+"url": "https://jysk.de/vorhange/vorgefertigte-vorhange/verdunkelungsvorhange/verdunkelungs-vorhang-aldra-1x140x300-sand",
+"dims": "140 × 300",
+"delivery": "lt. Shop"
+},
+{
+"pos": "S18",
+"name": "VIDGA Gardinenschienen-Set f. Decke 2-läufig",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 3,
+"unit": 37.95,
+"url": "https://www.ikea.com/de/de/p/vidga-gardinenschienen-set-f-decke-2-lfg-weiss-s49571507/",
+"dims": "2 × 140 cm je Set",
+"delivery": "prüfen"
+}
+],
+"opening": "W-S1"
+},
+{
+"id": "dfa119e739",
+"catalogId": "ike-dytag-kissenbezug-fjaedrar-innenkissen",
+"pos": "S19",
+"label": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"x": 6.396,
+"y": 14.288,
+"rot": 82,
+"elev": 0.62,
+"w": 0.5,
+"d": 0.16,
+"h": 0.5,
+"variant": "graugrün / elfenbeinweiß",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "linen"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S19",
+"name": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"variant": "graugrün / elfenbeinweiß",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 16.99,
+"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "91385e4f68",
+"catalogId": "ike-dytag-kissenbezug-fjaedrar-innenkissen",
+"pos": "S19",
+"label": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"x": 6.309,
+"y": 14.912,
+"rot": 108,
+"elev": 0.62,
+"w": 0.5,
+"d": 0.16,
+"h": 0.5,
+"variant": "graugrün / elfenbeinweiß",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "linen"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S19",
+"name": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"variant": "graugrün / elfenbeinweiß",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 16.99,
+"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "4c474c1763",
+"catalogId": "wes-boucl-schlafsofa-eliot-2-sitzer",
+"pos": "A1",
+"label": "Bouclé-Schlafsofa Eliot (2-Sitzer)",
+"x": 13.102,
+"y": 2.82,
+"rot": 0,
+"elev": 0.0,
+"w": 1.8,
+"d": 1.0,
+"h": 0.7,
+"variant": "Bouclé meliert Beige",
+"slots": {
+"main": {
+"color": "#d9cbb7",
+"material": "boucle"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"seats": 2,
+"armWidth": 0.2,
+"seatHeight": 0.43
+},
+"mount": "floor",
+"room": "13.04",
+"parts": [
+{
+"pos": "A1",
+"name": "Bouclé-Schlafsofa Eliot (2-Sitzer)",
+"variant": "Bouclé meliert Beige",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 1049.0,
+"url": "https://www.westwing.de/fsc-eliot-2s-sleeper-sofa-davis-puente-red-68-en-25wes26239.html",
+"dims": "B 180 × T 100 × H 70; Liegefl. 140 × 210",
+"delivery": "6–7 Wo."
+}
+]
+},
+{
+"id": "b77dce2c02",
+"catalogId": "ike-mittzon-schreibtisch-sitz-steh-elektrisch",
+"pos": "A2",
+"label": "MITTZON Schreibtisch sitz/steh, elektrisch",
+"x": 14.457,
+"y": 3.65,
+"rot": 90,
+"elev": 0.0,
+"w": 1.2,
+"d": 0.6,
+"h": 0.75,
+"variant": "Nussbaumfurnier / schwarz",
+"slots": {
+"top": {
+"color": "#6b4a33",
+"material": "walnut"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.04",
+"parts": [
+{
+"pos": "A2",
+"name": "MITTZON Schreibtisch sitz/steh, elektrisch",
+"variant": "Nussbaumfurnier / schwarz",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 389.0,
+"url": "https://www.ikea.com/de/de/p/mittzon-schreibtisch-sitz-steh-elektrisch-nussbaumfurnier-schwarz-s49526874/",
+"dims": "120 × 60, H 62–126",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "95bba8f2e6",
+"catalogId": "ike-hattefjaell-drehstuhl-mit-armlehnen",
+"pos": "A3",
+"label": "HATTEFJÄLL Drehstuhl mit Armlehnen",
+"x": 13.762,
+"y": 3.66,
+"rot": 270,
+"elev": 0.0,
+"w": 0.68,
+"d": 0.68,
+"h": 1.1,
+"variant": "Gunnared beige / weiß",
+"slots": {
+"main": {
+"color": "#d9cdb8",
+"material": "fabric"
+},
+"legs": {
+"color": "#f2f2f2",
+"material": "plastic"
+}
+},
+"params": {
+"style": "task"
+},
+"mount": "floor",
+"room": "13.04",
+"parts": [
+{
+"pos": "A3",
+"name": "HATTEFJÄLL Drehstuhl mit Armlehnen",
+"variant": "Gunnared beige / weiß",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 279.0,
+"url": "https://www.ikea.com/de/de/p/hattefjaell-drehstuhl-mit-armlehnen-gunnared-beige-weiss-60538955/",
+"dims": "B 68 × T 68 × H ≤ 114",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "9f28be82a3",
+"catalogId": "ike-billy-buecherregal",
+"pos": "A4",
+"label": "BILLY Bücherregal",
+"x": 11.422,
+"y": 4.28,
+"rot": 270,
+"elev": 0.0,
+"w": 0.8,
+"d": 0.28,
+"h": 2.37,
+"variant": "braun Nussbaumnachbildung",
+"slots": {
+"main": {
+"color": "#6b4a33",
+"material": "walnut"
+}
+},
+"params": {
+"rows": 7,
+"topper": 0.35
+},
+"mount": "floor",
+"room": "13.04",
+"parts": [
+{
+"pos": "A4",
+"name": "BILLY Bücherregal",
+"variant": "braun Nussbaumnachbildung",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 59.99,
+"url": "https://www.ikea.com/de/de/p/billy-buecherregal-braun-nussbaumnachbildung-50508652/",
+"dims": "80 × 28 × 202",
+"delivery": "prüfen"
+},
+{
+"pos": "A11",
+"name": "BILLY Aufsatzregal",
+"variant": "braun Nussbaumnachbildung",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 25.0,
+"url": "https://www.ikea.com/de/de/p/billy-aufsatzregal-braun-nussbaumnachbildung-30508667/",
+"dims": "80 × 28 × 35",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "a5f18138c6",
+"catalogId": "wes-kleine-led-tischlampe-kian",
+"pos": "A6",
+"label": "Kleine LED-Tischlampe Kian",
+"x": 14.522,
+"y": 3.27,
+"rot": 0,
+"elev": 0.75,
+"w": 0.3,
+"d": 0.3,
+"h": 0.35,
+"variant": "Milchglas / Fuß kupferfarben",
+"slots": {
+"main": {
+"color": "#b8703e",
+"material": "copper"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.04",
+"parts": [
+{
+"pos": "A6",
+"name": "Kleine LED-Tischlampe Kian",
+"variant": "Milchglas / Fuß kupferfarben",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 129.0,
+"url": "https://www.westwing.de/new-milky-table-lamp-small-brass-en-25wes67056.html",
+"dims": "Ø 30 × H 35",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "5edcea43cd",
+"catalogId": "wes-kleine-deckenleuchte-lido-aus-opalglas",
+"pos": "A7",
+"label": "Kleine Deckenleuchte Lido aus Opalglas",
+"x": 13.014,
+"y": 3.725,
+"rot": 0,
+"elev": 2.33,
+"w": 0.2,
+"d": 0.2,
+"h": 0.23,
+"variant": "Opalglas weiß / Gestell schwarz",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"shape": "lido"
+},
+"mount": "ceiling",
+"room": "13.04",
+"parts": [
+{
+"pos": "A7",
+"name": "Kleine Deckenleuchte Lido aus Opalglas",
+"variant": "Opalglas weiß / Gestell schwarz",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 64.99,
+"url": "https://www.westwing.de/deckenleuchte-lido-aus-opalglas-142125.html",
+"dims": "Ø 20 × H 23",
+"delivery": "2–3 Wo."
+}
+]
+},
+{
+"id": "22ad3b45f6",
+"catalogId": "ike-tibast-2-gardinenschals",
+"pos": "A8/A9",
+"label": "Vorhänge Arbeit / Gast",
+"x": 13.0213,
+"y": 5.0597,
+"rot": 180.0,
+"elev": 0.0,
+"w": 3.51,
+"d": 0.12,
+"h": 2.53,
+"variant": "weiß, 100 % Baumwolle",
+"slots": {
+"main": {
+"color": "#f7f4ec",
+"material": "linen"
+}
+},
+"params": {
+"layers": 1,
+"open": 0.85,
+"track": true,
+"sheer": true
+},
+"mount": "ceiling",
+"room": "13.04",
+"parts": [
+{
+"pos": "A8",
+"name": "TIBAST 2 Gardinenschals",
+"variant": "weiß, 100 % Baumwolle",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 49.99,
+"url": "https://www.ikea.com/de/de/p/tibast-2-gardinenschals-weiss-10396760/",
+"dims": "2 × 145 × 300",
+"delivery": "prüfen"
+},
+{
+"pos": "A9",
+"name": "VIDGA Decken-Gardinenschiene 1-läufig + Gleiter",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 47.94,
+"url": "https://www.ikea.com/de/de/p/vidga-gardinenschiene-1-laeufig-mit-deckenbeschlag-weiss-20492916/",
+"dims": "3 × 140 cm + 3 × 24 Gleiter",
+"delivery": "prüfen"
+}
+],
+"opening": "W-A1"
+},
+{
+"id": "ef2e2431ec",
+"catalogId": "ike-dytag-kissenbezug-fjaedrar-innenkissen",
+"pos": "A10",
+"label": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"x": 12.742,
+"y": 2.545,
+"rot": 355,
+"elev": 0.45,
+"w": 0.5,
+"d": 0.16,
+"h": 0.5,
+"variant": "graugrün / elfenbeinweiß",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "linen"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.04",
+"parts": [
+{
+"pos": "A10",
+"name": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"variant": "graugrün / elfenbeinweiß",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 16.99,
+"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "720a9639ec",
+"catalogId": "ike-dytag-kissenbezug-fjaedrar-innenkissen",
+"pos": "A10",
+"label": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"x": 13.512,
+"y": 2.545,
+"rot": 6,
+"elev": 0.45,
+"w": 0.5,
+"d": 0.16,
+"h": 0.5,
+"variant": "graugrün / elfenbeinweiß",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "linen"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.04",
+"parts": [
+{
+"pos": "A10",
+"name": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"variant": "graugrün / elfenbeinweiß",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 16.99,
+"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "7bed916942",
+"catalogId": "wes-kleine-deckenleuchte-lido-aus-opalglas",
+"pos": "K1",
+"label": "Kleine Deckenleuchte Lido aus Opalglas",
+"x": 2.148,
+"y": 11.662,
+"rot": 0,
+"elev": 2.33,
+"w": 0.2,
+"d": 0.2,
+"h": 0.23,
+"variant": "Opalglas weiß / Gestell schwarz",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"shape": "lido"
+},
+"mount": "ceiling",
+"room": "13.02",
+"parts": [
+{
+"pos": "K1",
+"name": "Kleine Deckenleuchte Lido aus Opalglas",
+"variant": "Opalglas weiß / Gestell schwarz",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 64.99,
+"url": "https://www.westwing.de/deckenleuchte-lido-aus-opalglas-142125.html",
+"dims": "Ø 20 × H 23",
+"delivery": "2–3 Wo."
+}
+]
+},
+{
+"id": "c16290b406",
+"catalogId": "wes-kleine-deckenleuchte-lido-aus-opalglas",
+"pos": "H2",
+"label": "Kleine Deckenleuchte Lido aus Opalglas",
+"x": 2.468,
+"y": 9.205,
+"rot": 0,
+"elev": 2.33,
+"w": 0.2,
+"d": 0.2,
+"h": 0.23,
+"variant": "Opalglas weiß / Gestell schwarz",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"shape": "lido"
+},
+"mount": "ceiling",
+"room": "13.07",
+"parts": [
+{
+"pos": "H2",
+"name": "Kleine Deckenleuchte Lido aus Opalglas",
+"variant": "Opalglas weiß / Gestell schwarz",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 64.99,
+"url": "https://www.westwing.de/deckenleuchte-lido-aus-opalglas-142125.html",
+"dims": "Ø 20 × H 23",
+"delivery": "2–3 Wo."
+}
+]
+},
+{
+"id": "81501e3b96",
+"catalogId": "ike-boaxel-regal",
+"pos": "H1",
+"label": "BOAXEL Regal",
+"x": 1.256,
+"y": 9.215,
+"rot": 278,
+"elev": 0.0,
+"w": 0.62,
+"d": 0.4,
+"h": 2.01,
+"variant": "weiß",
+"slots": {
+"main": {
+"color": "#f2f2f0",
+"material": "matte"
+}
+},
+"params": {
+"rows": 5,
+"cols": 1,
+"style": "boaxel"
+},
+"mount": "floor",
+"room": "13.07",
+"parts": [
+{
+"pos": "H1",
+"name": "BOAXEL Regal",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 85.0,
+"url": "https://www.ikea.com/de/de/cat/boaxel-kombinationen-47396/",
+"dims": "62 × 40 × 201",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "3fae3b3247",
+"catalogId": "ike-boaxel-regal",
+"pos": "H1",
+"label": "BOAXEL Regal",
+"x": 3.49,
+"y": 9.705,
+"rot": 188,
+"elev": 0.0,
+"w": 0.62,
+"d": 0.4,
+"h": 2.01,
+"variant": "weiß",
+"slots": {
+"main": {
+"color": "#f2f2f0",
+"material": "matte"
+}
+},
+"params": {
+"rows": 5,
+"cols": 1,
+"style": "boaxel"
+},
+"mount": "floor",
+"room": "13.07",
+"parts": [
+{
+"pos": "H1",
+"name": "BOAXEL Regal",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 85.0,
+"url": "https://www.ikea.com/de/de/cat/boaxel-kombinationen-47396/",
+"dims": "62 × 40 × 201",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "297e51b970",
+"catalogId": "wes-runder-gartentisch-hiray-kartell",
+"pos": "B1",
+"label": "Runder Gartentisch Hiray (Kartell)",
+"x": 1.892,
+"y": 15.29,
+"rot": 0,
+"elev": 0.0,
+"w": 0.65,
+"d": 0.65,
+"h": 0.72,
+"variant": "Salbeigrün, Stahl verzinkt lackiert",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "matte"
+}
+},
+"params": {
+"round": true
+},
+"mount": "floor",
+"room": "13.09",
+"parts": [
+{
+"pos": "B1",
+"name": "Runder Gartentisch Hiray (Kartell)",
+"variant": "Salbeigrün, Stahl verzinkt lackiert",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 564.0,
+"url": "https://www.westwing.de/runder-gartentisch-hiray-o-65-cm-150822.html",
+"dims": "Ø 65 × H 72",
+"delivery": "2–7 WT"
+}
+]
+},
+{
+"id": "f1c4385010",
+"catalogId": "wes-gartenstuhl-hiray-kartell",
+"pos": "B2",
+"label": "Gartenstuhl Hiray (Kartell)",
+"x": 1.347,
+"y": 15.214,
+"rot": 278,
+"elev": 0.0,
+"w": 0.53,
+"d": 0.55,
+"h": 0.79,
+"variant": "Salbeigrün",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "matte"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.09",
+"parts": [
+{
+"pos": "B2",
+"name": "Gartenstuhl Hiray (Kartell)",
+"variant": "Salbeigrün",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 296.0,
+"url": "https://www.westwing.de/gartenstuhl-hiray-mit-sitzkissen-150810.html",
+"dims": "B 53 × T 55 × H 79",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "f8b28df0a9",
+"catalogId": "wes-gartenstuhl-hiray-kartell",
+"pos": "B2",
+"label": "Gartenstuhl Hiray (Kartell)",
+"x": 2.436,
+"y": 15.367,
+"rot": 98,
+"elev": 0.0,
+"w": 0.53,
+"d": 0.55,
+"h": 0.79,
+"variant": "Salbeigrün",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "matte"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.09",
+"parts": [
+{
+"pos": "B2",
+"name": "Gartenstuhl Hiray (Kartell)",
+"variant": "Salbeigrün",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 296.0,
+"url": "https://www.westwing.de/gartenstuhl-hiray-mit-sitzkissen-150810.html",
+"dims": "B 53 × T 55 × H 79",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "c9c6bad540",
+"catalogId": "ike-segeroen-2er-sofa-aussen",
+"pos": "B3",
+"label": "SEGERÖN 2er-Sofa/außen",
+"x": 10.134,
+"y": 5.006,
+"rot": 180,
+"elev": 0.0,
+"w": 1.52,
+"d": 0.76,
+"h": 0.76,
+"variant": "weiß/beige, Polster Frösön/Duvholmen beige",
+"slots": {
+"main": {
+"color": "#f2f0eb",
+"material": "matte"
+},
+"secondary": {
+"color": "#ded6c6",
+"material": "fabric"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.08",
+"parts": [
+{
+"pos": "B3",
+"name": "SEGERÖN 2er-Sofa/außen",
+"variant": "weiß/beige, Polster Frösön/Duvholmen beige",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 382.0,
+"url": "https://www.ikea.com/de/de/p/segeroen-2er-sofa-aussen-weiss-beige-froesoen-duvholmen-beige-s99613519/",
+"dims": "B 152 × T 76 × H 76",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "41cb2a5e1b",
+"catalogId": "bestand-k-che-alno-2060-bestand-schematisch-",
+"label": "Küche Alno 2060 (Bestand, schematisch)",
+"x": 1.0451,
+"y": 11.5067,
+"rot": 278,
+"elev": 0.0,
+"w": 3.628,
+"d": 0.62,
+"h": 2.3,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#4a3426",
+"material": "walnut"
+},
+"secondary": {
+"color": "#7f9a86",
+"material": "lacquer"
+},
+"top": {
+"color": "#e9e6df",
+"material": "stone"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"tallUnits": 1.2,
+"upper": true,
+"sink": 0.55,
+"hob": 0.3
+},
+"mount": "floor",
+"room": "13.02",
+"existing": true,
+"locked": true
+},
+{
+"id": "96a74656bc",
+"catalogId": "bestand-waschmaschine-bestand-",
+"label": "Waschmaschine (Bestand)",
+"x": 11.662,
+"y": 0.885,
+"rot": 0,
+"elev": 0.0,
+"w": 0.6,
+"d": 0.6,
+"h": 0.85,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#f4f4f2",
+"material": "gloss"
+},
+"detail": {
+"color": "#2a2a2a",
+"material": "glass"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.05",
+"existing": true,
+"locked": true
+},
+{
+"id": "68c11a4d34",
+"catalogId": "bestand-wand-wc-bad-bestand-",
+"label": "Wand-WC Bad (Bestand)",
+"x": 12.542,
+"y": 0.86,
+"rot": 0,
+"elev": 0.0,
+"w": 0.37,
+"d": 0.54,
+"h": 0.4,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#f6f6f4",
+"material": "ceramic"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"plate": true
+},
+"mount": "floor",
+"room": "13.05",
+"existing": true,
+"locked": true
+},
+{
+"id": "8f5126273d",
+"catalogId": "bestand-badewanne-180-80-bestand-",
+"label": "Badewanne 180 × 80 (Bestand)",
+"x": 13.852,
+"y": 0.736,
+"rot": 0,
+"elev": 0.0,
+"w": 1.8,
+"d": 0.8,
+"h": 0.58,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#f6f6f4",
+"material": "ceramic"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.05",
+"existing": true,
+"locked": true
+},
+{
+"id": "e2626f5237",
+"catalogId": "bestand-waschtisch-bad-bestand-",
+"label": "Waschtisch Bad (Bestand)",
+"x": 13.95,
+"y": 1.95,
+"rot": 180,
+"elev": 0.0,
+"w": 0.8,
+"d": 0.46,
+"h": 0.85,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#f6f6f4",
+"material": "ceramic"
+},
+"secondary": {
+"color": "#d6c5ad",
+"material": "oak"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"mirror": true
+},
+"mount": "floor",
+"room": "13.05",
+"existing": true,
+"locked": true
+},
+{
+"id": "30068c6965",
+"catalogId": "bestand-dusche-105-90-bestand-",
+"label": "Dusche 105 × 90 (Bestand)",
+"x": 7.47,
+"y": 0.884,
+"rot": 0,
+"elev": 0.0,
+"w": 1.05,
+"d": 0.9,
+"h": 2.0,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#e8e4dc",
+"material": "stone"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"glass": true
+},
+"mount": "floor",
+"room": "13.06",
+"existing": true,
+"locked": true
+},
+{
+"id": "cab528554c",
+"catalogId": "bestand-wand-wc-g-ste-bestand-",
+"label": "Wand-WC Gäste (Bestand)",
+"x": 8.75,
+"y": 0.82,
+"rot": 0,
+"elev": 0.0,
+"w": 0.37,
+"d": 0.54,
+"h": 0.4,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#f6f6f4",
+"material": "ceramic"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"plate": true
+},
+"mount": "floor",
+"room": "13.06",
+"existing": true,
+"locked": true
+},
+{
+"id": "1be0f6b8a1",
+"catalogId": "bestand-handwaschbecken-g-ste-wc-bestand-",
+"label": "Handwaschbecken Gäste-WC (Bestand)",
+"x": 9.08,
+"y": 1.3,
+"rot": 90,
+"elev": 0.0,
+"w": 0.5,
+"d": 0.3,
+"h": 0.85,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#f6f6f4",
+"material": "ceramic"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"mirror": true,
+"small": true
+},
+"mount": "floor",
+"room": "13.06",
+"existing": true,
+"locked": true
+}
+],
+"budget": [
+{
+"id": "8c7e5bfb74",
+"pos": "W22",
+"room": "Wohnen",
+"name": "Steinpflege Travertin + Marmor: Imprägnierung (fleckschützend, farbneutral matt) + pH- neutraler Steinreiniger",
+"variant": "z. B. Lithofin / Akemi",
+"vendor": "Fachhandel",
+"qty": 1,
+"unit": 45.0,
+"url": null,
+"note": "für alle Natursteinflächen (Travertin: Couchtische, Konsole, Beistelltisch; Marmor: Esstisch Abby); Imprägnierung nach Lieferung und jährlich; Richtpreis",
+"category": "Pflege"
+},
+{
+"id": "93a001b699",
+"pos": "S20",
+"room": "Schlafen",
+"name": "Wandfarbe Alpina Feine Farben No. 38 „Essenz der Natur“",
+"variant": "weiches Pastellgrün (salbeinah), edelmatt, Deckkraft Klasse 1",
+"vendor": "OBI",
+"qty": 2,
+"unit": 41.99,
+"url": "https://www.obi.de/p/5376520/alpina-feine-farben-no-38-essenz-der-natur-pastellgruen-edelmatt-2-5-l",
+"note": "Kopfteilwand 4,18 × 2,58 m ≈ 10,8 m², 2 Anstriche; Probefläche anlegen",
+"category": "Wand & Oberfläche"
+},
+{
+"id": "7f4e096312",
+"pos": "A12",
+"room": "Arbeit / Gast",
+"name": "Bodenschutz Natureiche: Glas- Bodenschutzmatte unter Bürostuhl + Filzgleiter- Set für alle Möbel",
+"variant": "Sicherheitsglas klar 120 × 90; Filz Ø 20–40 mm",
+"vendor": "Fachhandel",
+"qty": 1,
+"unit": 160.0,
+"url": null,
+"note": "Dielen schützen: Bürostuhl mit Matte oder Hartbodenrollen; Filz unter Stühlen, Tischen, Sofa; Richtpreis",
+"category": "Schutz"
+}
+],
+"rooms": {
+"13.01": {
+"floor": {
+"kind": "planks",
+"color": "#cfae84",
+"angle": 98,
+"plankLength": 1.9,
+"plankWidth": 0.19,
+"productName": "Natureiche-Dielen L 1,90 m (Bestand)"
+},
+"ceiling": "#f7f5f0",
+"wall": {
+"base": {
+"kind": "paint",
+"color": "#f3f0e8",
+"productName": "Warmweiß matt (NCS S 0502-Y)",
+"sheen": "matt"
+}
+}
+},
+"13.02": {
+"floor": {
+"kind": "planks",
+"color": "#cfae84",
+"angle": 98,
+"plankLength": 1.9,
+"plankWidth": 0.19,
+"productName": "Natureiche-Dielen L 1,90 m (Bestand)"
+},
+"ceiling": "#f7f5f0",
+"wall": {
+"base": {
+"kind": "paint",
+"color": "#f3f0e8",
+"productName": "Warmweiß matt (NCS S 0502-Y)",
+"sheen": "matt"
+}
+}
+},
+"13.03": {
+"floor": {
+"kind": "planks",
+"color": "#cfae84",
+"angle": 98,
+"plankLength": 1.9,
+"plankWidth": 0.19,
+"productName": "Natureiche-Dielen L 1,90 m (Bestand)"
+},
+"ceiling": "#f7f5f0",
+"wall": {
+"base": {
+"kind": "paint",
+"color": "#f3f0e8",
+"productName": "Warmweiß matt (NCS S 0502-Y)",
+"sheen": "matt"
+}
+}
+},
+"13.04": {
+"floor": {
+"kind": "planks",
+"color": "#cfae84",
+"angle": 90,
+"plankLength": 1.9,
+"plankWidth": 0.19,
+"productName": "Natureiche-Dielen L 1,90 m (Bestand)"
+},
+"ceiling": "#f7f5f0",
+"wall": {
+"base": {
+"kind": "paint",
+"color": "#f3f0e8",
+"productName": "Warmweiß matt (NCS S 0502-Y)",
+"sheen": "matt"
+}
+}
+},
+"13.05": {
+"floor": {
+"kind": "tiles",
+"color": "#d9d5cd",
+"color2": "#bdb7ac",
+"angle": 0,
+"tileSize": 0.6,
+"productName": "Feinsteinzeug 60 × 60 (Bestand)"
+},
+"ceiling": "#f7f5f0",
+"wall": {
+"base": {
+"kind": "paint",
+"color": "#f3f0e8",
+"productName": "Warmweiß matt (NCS S 0502-Y)",
+"sheen": "matt"
+},
+"lower": {
+"height": 1.2,
+"surface": {
+"kind": "tiles",
+"color": "#e3dfd7",
+"color2": "#c9c4ba",
+"pattern": "large",
+"scale": 0.6
+}
+}
+}
+},
+"13.06": {
+"floor": {
+"kind": "tiles",
+"color": "#d9d5cd",
+"color2": "#bdb7ac",
+"angle": 0,
+"tileSize": 0.6,
+"productName": "Feinsteinzeug 60 × 60 (Bestand)"
+},
+"ceiling": "#f7f5f0",
+"wall": {
+"base": {
+"kind": "paint",
+"color": "#f3f0e8",
+"productName": "Warmweiß matt (NCS S 0502-Y)",
+"sheen": "matt"
+},
+"lower": {
+"height": 1.2,
+"surface": {
+"kind": "tiles",
+"color": "#e3dfd7",
+"color2": "#c9c4ba",
+"pattern": "large",
+"scale": 0.6
+}
+}
+}
+},
+"13.07": {
+"floor": {
+"kind": "tiles",
+"color": "#d9d5cd",
+"color2": "#bdb7ac",
+"angle": 8,
+"tileSize": 0.6,
+"productName": "Feinsteinzeug 60 × 60 (Bestand)"
+},
+"ceiling": "#f7f5f0",
+"wall": {
+"base": {
+"kind": "paint",
+"color": "#f3f0e8",
+"productName": "Warmweiß matt (NCS S 0502-Y)",
+"sheen": "matt"
+},
+"lower": {
+"height": 0.0,
+"surface": {
+"kind": "tiles",
+"color": "#e3dfd7",
+"color2": "#c9c4ba",
+"pattern": "large",
+"scale": 0.6
+}
+}
+}
+},
+"13.08": {
+"floor": {
+"kind": "deck",
+"color": "#8a6a4c",
+"angle": 0,
+"plankWidth": 0.14,
+"productName": "Holzbelag Balkon (Bestand)"
+},
+"ceiling": "#f7f5f0",
+"wall": {
+"base": {
+"kind": "paint",
+"color": "#e9e5dc",
+"productName": "Fassadenputz"
+}
+}
+},
+"13.09": {
+"floor": {
+"kind": "deck",
+"color": "#8a6a4c",
+"angle": 8,
+"plankWidth": 0.14,
+"productName": "Holzbelag Balkon (Bestand)"
+},
+"ceiling": "#f7f5f0",
+"wall": {
+"base": {
+"kind": "paint",
+"color": "#e9e5dc",
+"productName": "Fassadenputz"
+}
+}
+}
+},
+"walls": {
+"13.03:2": {
+"base": {
+"kind": "paint",
+"color": "#c3cfb5",
+"productName": "Alpina Feine Farben No. 38 „Essenz der Natur“",
+"sheen": "edelmatt"
+}
+}
+},
+"settings": {
+"doorsOpen": 0.0,
+"showDimensions": true,
+"snap": true,
+"gridSize": 0.05,
+"timeOfDay": 15.0,
+"budgetLimit": 40000
+}
+}

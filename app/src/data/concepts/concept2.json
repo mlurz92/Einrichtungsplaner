@@ -1,0 +1,3803 @@
+{
+"version": 1,
+"name": "Konzept 2 · Espresso · Petrol · Chrom",
+"subtitle": "Design-Airbnb / Boutique-Hotel-Look mit Westwing und Designleuchten",
+"conceptId": "concept2",
+"createdAt": "2026-10-23T00:00:00Z",
+"updatedAt": "2026-10-23T00:00:00Z",
+"items": [
+{
+"id": "133c30d52a",
+"catalogId": "wes-boucl-sofa-tribeca-3-sitzer",
+"pos": "W1",
+"label": "Bouclé-Sofa Tribeca (3-Sitzer)",
+"x": 4.267,
+"y": 6.945,
+"rot": 188,
+"elev": 0.0,
+"w": 2.28,
+"d": 1.04,
+"h": 0.8,
+"variant": "Bouclé Dunkelbraun (Espresso), Füße schwarz matt",
+"slots": {
+"main": {
+"color": "#5d4231",
+"material": "boucle"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"seats": 3,
+"armWidth": 0.2,
+"armHeight": 0.61,
+"seatHeight": 0.4,
+"backHeight": 0.8,
+"style": "tribeca"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W1",
+"name": "Bouclé-Sofa Tribeca (3-Sitzer)",
+"variant": "Bouclé Dunkelbraun (Espresso), Füße schwarz matt",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 2299.0,
+"url": "https://www.westwing.de/boucle-sofa-tribeca-3-sitzer-167048.html",
+"dims": "B 228 × T 104 × H 80",
+"delivery": "4–9 WT"
+}
+]
+},
+{
+"id": "e15e3a679c",
+"catalogId": "wes-holz-couchtisch-burl-ferm-living",
+"pos": "W2",
+"label": "Holz-Couchtisch Burl (Ferm Living)",
+"x": 4.444,
+"y": 5.687,
+"rot": 8,
+"elev": 0.0,
+"w": 1.17,
+"d": 0.7,
+"h": 0.3,
+"variant": "Wurzelholzfurnier dunkel gebeizt (FSC)",
+"slots": {
+"top": {
+"color": "#7e5638",
+"material": "burl"
+},
+"legs": {
+"color": "#5a3b26",
+"material": "burl"
+}
+},
+"params": {
+"base": "panel",
+"organic": true
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W2",
+"name": "Holz-Couchtisch Burl (Ferm Living)",
+"variant": "Wurzelholzfurnier dunkel gebeizt (FSC)",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 1249.0,
+"url": "https://www.westwing.de/burl-coffee-table-dark-stained-burl-en-26fev15211.html",
+"dims": "117 × 70 × 30",
+"delivery": "4–9 WT"
+}
+]
+},
+{
+"id": "27e2df8b3c",
+"catalogId": "wes-tv-lowboard-soley",
+"pos": "W3",
+"label": "TV-Lowboard Soley",
+"x": 4.61,
+"y": 4.504,
+"rot": 8,
+"elev": 0.0,
+"w": 1.8,
+"d": 0.45,
+"h": 0.5,
+"variant": "Eiche dunkelbraun lackiert, gewellte Rillenfront",
+"slots": {
+"main": {
+"color": "#4d3626",
+"material": "oakDark"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"doors": 3,
+"legHeight": 0.1,
+"front": "ribbed"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W3",
+"name": "TV-Lowboard Soley",
+"variant": "Eiche dunkelbraun lackiert, gewellte Rillenfront",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 1299.0,
+"url": "https://www.westwing.de/tv-lowboard-soley-168961.html",
+"dims": "180 × 45 × 50",
+"delivery": "13–14 Wo."
+}
+]
+},
+{
+"id": "ae02c9e008",
+"catalogId": "bestand-tv-65-vorhanden-",
+"label": "TV 65″ (vorhanden)",
+"x": 4.69,
+"y": 4.3,
+"rot": 8,
+"elev": 1.02,
+"w": 1.45,
+"d": 0.04,
+"h": 0.83,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#111111",
+"material": "gloss"
+}
+},
+"params": {},
+"mount": "wall",
+"room": "13.01",
+"existing": true,
+"locked": true
+},
+{
+"id": "cf8353046e",
+"catalogId": "wes-boucl-sessel-sofia",
+"pos": "W4",
+"label": "Bouclé-Sessel Sofia",
+"x": 5.874,
+"y": 5.858,
+"rot": 98,
+"elev": 0.0,
+"w": 0.97,
+"d": 0.9,
+"h": 0.72,
+"variant": "Bouclé meliert PETROL",
+"slots": {
+"main": {
+"color": "#2f7074",
+"material": "boucle"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"seatHeight": 0.44
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W4",
+"name": "Bouclé-Sessel Sofia",
+"variant": "Bouclé meliert PETROL",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 979.0,
+"url": "https://www.westwing.de/boucle-sessel-sofia-173117.html",
+"dims": "B 97 × T 90 × H 72",
+"delivery": "6–7 Wo."
+}
+]
+},
+{
+"id": "09c3cf985d",
+"catalogId": "wes-runder-beistelltisch-argent-hkliving",
+"pos": "W5",
+"label": "Runder Beistelltisch Argent (HKliving)",
+"x": 5.97,
+"y": 5.13,
+"rot": 0,
+"elev": 0.0,
+"w": 0.35,
+"d": 0.35,
+"h": 0.45,
+"variant": "chromfarben glänzend (Steingut, galvanisch verchromt)",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"style": "drum"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W5",
+"name": "Runder Beistelltisch Argent (HKliving)",
+"variant": "chromfarben glänzend (Steingut, galvanisch verchromt)",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 199.0,
+"url": "https://www.westwing.de/runder-beistelltisch-argent-in-chromfarben-146824.html",
+"dims": "Ø 35 × H 45",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "cef5dc7908",
+"catalogId": "des-gubi-multi-lite-stehleuchte",
+"pos": "W6",
+"label": "Gubi Multi-Lite Stehleuchte",
+"x": 5.79,
+"y": 6.58,
+"rot": 0,
+"elev": 0.0,
+"w": 0.36,
+"d": 0.36,
+"h": 1.48,
+"variant": "Chrom / Chrom; über Nordic Nest",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"shape": "cone"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W6",
+"name": "Gubi Multi-Lite Stehleuchte",
+"variant": "Chrom / Chrom; über Nordic Nest",
+"vendor": "Designhandel",
+"qty": 1,
+"unit": 783.0,
+"url": "https://www.nordicnest.de/marken/gubi/multi-lite-stehleuchte/?variantId=37105-03",
+"dims": "H 148, Ø 36, Kabel 2 m",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "95fb76d119",
+"catalogId": "des-flos-glo-ball-s2-pendelleuchte-jasper-morrison",
+"pos": "W7",
+"label": "Flos Glo-Ball S2 Pendelleuchte (Jasper Morrison)",
+"x": 5.199,
+"y": 6.591,
+"rot": 0,
+"elev": 2.1,
+"w": 0.45,
+"d": 0.45,
+"h": 0.36,
+"variant": "Opalglas mundgeblasen; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#ffffff",
+"material": "matte"
+}
+},
+"params": {},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "W7",
+"name": "Flos Glo-Ball S2 Pendelleuchte (Jasper Morrison)",
+"variant": "Opalglas mundgeblasen; über AmbienteDirect",
+"vendor": "Designhandel",
+"qty": 1,
+"unit": 565.0,
+"url": "https://www.ambientedirect.com/en/flos/glo-ball-s2-suspension-lamp_pid_111_61.html",
+"dims": "Ø 45, Glas-H 36",
+"delivery": "1–5 WT"
+}
+]
+},
+{
+"id": "d245c5b4d6",
+"catalogId": "wes-handgetufteter-wollteppich-arne-hoch-tief-strukt",
+"pos": "W8",
+"label": "Handgetufteter Wollteppich Arne, Hoch-Tief- Struktur",
+"x": 4.868,
+"y": 6.191,
+"rot": 8,
+"elev": 0.0,
+"w": 3.0,
+"d": 2.0,
+"h": 0.015,
+"variant": "Beige / Terrakotta, Größe L",
+"slots": {
+"main": {
+"color": "#d6c2a4",
+"material": "wool"
+}
+},
+"params": {
+"pattern": "relief",
+"color2": "#a9583a"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W8",
+"name": "Handgetufteter Wollteppich Arne, Hoch-Tief- Struktur",
+"variant": "Beige / Terrakotta, Größe L",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 499.0,
+"url": "https://www.westwing.de/handgetufteter-wollteppich-arne-in-terrakotta-beige-139460.html?simple=DEQ21WES23588-176426",
+"dims": "200 × 300",
+"delivery": "4–9 WT"
+}
+]
+},
+{
+"id": "d03634c257",
+"catalogId": "ike-dytag-kissenbezug",
+"pos": "W9",
+"label": "DYTÅG Kissenbezug",
+"x": 3.63,
+"y": 7.09,
+"rot": 182,
+"elev": 0.42,
+"w": 0.5,
+"d": 0.16,
+"h": 0.5,
+"variant": "rotbraun, 100 % Leinen",
+"slots": {
+"main": {
+"color": "#a8573a",
+"material": "linen"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W9",
+"name": "DYTÅG Kissenbezug",
+"variant": "rotbraun, 100 % Leinen",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 9.99,
+"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-rotbraun-10517682/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "24413a1db9",
+"catalogId": "ike-dytag-kissenbezug",
+"pos": "W9",
+"label": "DYTÅG Kissenbezug",
+"x": 5.23,
+"y": 7.32,
+"rot": 195,
+"elev": 0.42,
+"w": 0.5,
+"d": 0.16,
+"h": 0.5,
+"variant": "rotbraun, 100 % Leinen",
+"slots": {
+"main": {
+"color": "#a8573a",
+"material": "linen"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W9",
+"name": "DYTÅG Kissenbezug",
+"variant": "rotbraun, 100 % Leinen",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 9.99,
+"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-rotbraun-10517682/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "3cb10619f2",
+"catalogId": "wes-kissenhuelle-giorgio-mit-stickerei",
+"pos": "W23",
+"label": "Kissenhülle Giorgio mit Stickerei",
+"x": 4.07,
+"y": 7.15,
+"rot": 192,
+"elev": 0.42,
+"w": 0.5,
+"d": 0.16,
+"h": 0.5,
+"variant": "Bordeaux / Off White, Baumwollsamt",
+"slots": {
+"main": {
+"color": "#6e232f",
+"material": "velvet"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W23",
+"name": "Kissenhülle Giorgio mit Stickerei",
+"variant": "Bordeaux / Off White, Baumwollsamt",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 59.99,
+"url": "https://www.westwing.de/giorgio-50x50cm-deco-cushion-cover-cotton-velvet-with-cord-embroidery-frame-all-around-concealed-zipper-whiteburgundy-en-25wes87300.html",
+"dims": "50 × 50",
+"delivery": "13–14 Wo."
+}
+]
+},
+{
+"id": "0c680b7cbf",
+"catalogId": "wes-kissenhuelle-giorgio-mit-stickerei",
+"pos": "W23",
+"label": "Kissenhülle Giorgio mit Stickerei",
+"x": 4.82,
+"y": 7.26,
+"rot": 184,
+"elev": 0.42,
+"w": 0.5,
+"d": 0.16,
+"h": 0.5,
+"variant": "Bordeaux / Off White, Baumwollsamt",
+"slots": {
+"main": {
+"color": "#6e232f",
+"material": "velvet"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W23",
+"name": "Kissenhülle Giorgio mit Stickerei",
+"variant": "Bordeaux / Off White, Baumwollsamt",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 59.99,
+"url": "https://www.westwing.de/giorgio-50x50cm-deco-cushion-cover-cotton-velvet-with-cord-embroidery-frame-all-around-concealed-zipper-whiteburgundy-en-25wes87300.html",
+"dims": "50 × 50",
+"delivery": "13–14 Wo."
+}
+]
+},
+{
+"id": "95e09584dd",
+"catalogId": "wes-wolldecke-double-face-mit-fransen",
+"pos": "W11",
+"label": "Wolldecke Double Face mit Fransen",
+"x": 3.72,
+"y": 6.7,
+"rot": 188,
+"elev": 0.4,
+"w": 0.46,
+"d": 0.62,
+"h": 0.06,
+"variant": "Dunkelbraun / Weinrot, 100 % Wolle",
+"slots": {
+"main": {
+"color": "#7b3b34",
+"material": "wool"
+}
+},
+"params": {
+"fringe": true
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W11",
+"name": "Wolldecke Double Face mit Fransen",
+"variant": "Dunkelbraun / Weinrot, 100 % Wolle",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 44.99,
+"url": "https://www.westwing.de/wool-throw-double-face-en-25stt85639.html?simple=DEQ25STT85639-979002",
+"dims": "140 × 200",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "715301b28e0",
+"catalogId": "ike-silverloenn-gardinenstore-1-paar",
+"pos": "W13–W15",
+"label": "Vorhang Balkonfenster",
+"x": 7.3143,
+"y": 5.4347,
+"rot": 98.0,
+"elev": 0.0,
+"w": 2.25,
+"d": 0.12,
+"h": 2.53,
+"variant": "beige, Baumwolle in Leinenstruktur, durchscheinend, Gardinenband",
+"slots": {
+"main": {
+"color": "#e5dccb",
+"material": "linen"
+}
+},
+"params": {
+"layers": 1,
+"open": 0.85,
+"track": true,
+"sheer": true
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "W13",
+"name": "SILVERLÖNN Gardinenstore, 1 Paar",
+"variant": "beige, Baumwolle in Leinenstruktur, durchscheinend, Gardinenband",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 24.99,
+"url": "https://www.ikea.com/de/de/p/silverloenn-gardinenstore-paar-beige-mit-gardinenband-10493978/",
+"dims": "2 × 145 × 300",
+"delivery": "prüfen"
+},
+{
+"pos": "W14",
+"name": "VIDGA Decken-Gardinenschiene 1-läufig",
+"variant": "weiß, kürzbar",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 12.99,
+"url": "https://www.ikea.com/de/de/p/vidga-gardinenschiene-1-laeufig-mit-deckenbeschlag-weiss-20492916/",
+"dims": "140 cm",
+"delivery": "prüfen"
+},
+{
+"pos": "W15",
+"name": "VIDGA Gleiter + Haken",
+"variant": "weiß, 24 Stk.",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 2.99,
+"url": "https://www.ikea.com/de/de/p/vidga-gleiter-haken-weiss-20483002/",
+"dims": "–",
+"delivery": "prüfen"
+}
+],
+"opening": "W-B1L"
+},
+{
+"id": "715301b28e1",
+"catalogId": "ike-silverloenn-gardinenstore-1-paar",
+"pos": "W13–W15",
+"label": "Vorhang Ostfenster 1",
+"x": 7.8374,
+"y": 8.5384,
+"rot": 98.0,
+"elev": 0.0,
+"w": 2.53,
+"d": 0.12,
+"h": 2.53,
+"variant": "beige, Baumwolle in Leinenstruktur, durchscheinend, Gardinenband",
+"slots": {
+"main": {
+"color": "#e5dccb",
+"material": "linen"
+}
+},
+"params": {
+"layers": 1,
+"open": 0.85,
+"track": true,
+"sheer": true
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "W13",
+"name": "SILVERLÖNN Gardinenstore, 1 Paar",
+"variant": "beige, Baumwolle in Leinenstruktur, durchscheinend, Gardinenband",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 24.99,
+"url": "https://www.ikea.com/de/de/p/silverloenn-gardinenstore-paar-beige-mit-gardinenband-10493978/",
+"dims": "2 × 145 × 300",
+"delivery": "prüfen"
+},
+{
+"pos": "W14",
+"name": "VIDGA Decken-Gardinenschiene 1-läufig",
+"variant": "weiß, kürzbar",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 12.99,
+"url": "https://www.ikea.com/de/de/p/vidga-gardinenschiene-1-laeufig-mit-deckenbeschlag-weiss-20492916/",
+"dims": "140 cm",
+"delivery": "prüfen"
+},
+{
+"pos": "W15",
+"name": "VIDGA Gleiter + Haken",
+"variant": "weiß, 24 Stk.",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 2.99,
+"url": "https://www.ikea.com/de/de/p/vidga-gleiter-haken-weiss-20483002/",
+"dims": "–",
+"delivery": "prüfen"
+}
+],
+"opening": "W-O1"
+},
+{
+"id": "715301b28e2",
+"catalogId": "ike-silverloenn-gardinenstore-1-paar",
+"pos": "W13–W15",
+"label": "Vorhang Ostfenster 2",
+"x": 7.4721,
+"y": 11.1377,
+"rot": 98.0,
+"elev": 0.0,
+"w": 2.11,
+"d": 0.12,
+"h": 2.53,
+"variant": "beige, Baumwolle in Leinenstruktur, durchscheinend, Gardinenband",
+"slots": {
+"main": {
+"color": "#e5dccb",
+"material": "linen"
+}
+},
+"params": {
+"layers": 1,
+"open": 0.85,
+"track": true,
+"sheer": true
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "W13",
+"name": "SILVERLÖNN Gardinenstore, 1 Paar",
+"variant": "beige, Baumwolle in Leinenstruktur, durchscheinend, Gardinenband",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 24.99,
+"url": "https://www.ikea.com/de/de/p/silverloenn-gardinenstore-paar-beige-mit-gardinenband-10493978/",
+"dims": "2 × 145 × 300",
+"delivery": "prüfen"
+},
+{
+"pos": "W14",
+"name": "VIDGA Decken-Gardinenschiene 1-läufig",
+"variant": "weiß, kürzbar",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 12.99,
+"url": "https://www.ikea.com/de/de/p/vidga-gardinenschiene-1-laeufig-mit-deckenbeschlag-weiss-20492916/",
+"dims": "140 cm",
+"delivery": "prüfen"
+},
+{
+"pos": "W15",
+"name": "VIDGA Gleiter + Haken",
+"variant": "weiß, 24 Stk.",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 2.99,
+"url": "https://www.ikea.com/de/de/p/vidga-gleiter-haken-weiss-20483002/",
+"dims": "–",
+"delivery": "prüfen"
+}
+],
+"opening": "W-O2"
+},
+{
+"id": "958395020b",
+"catalogId": "des-louis-poulsen-panthella-160-portable-v3",
+"pos": "W17",
+"label": "Louis Poulsen Panthella 160 Portable V3",
+"x": 3.94,
+"y": 4.4,
+"rot": 0,
+"elev": 0.5,
+"w": 0.16,
+"d": 0.16,
+"h": 0.238,
+"variant": "Chromfuß / Schirm Opal Braun, Akku; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#8a6a4f",
+"material": "gloss"
+}
+},
+"params": {
+"shape": "panthella"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W17",
+"name": "Louis Poulsen Panthella 160 Portable V3",
+"variant": "Chromfuß / Schirm Opal Braun, Akku; über AmbienteDirect",
+"vendor": "Designhandel",
+"qty": 1,
+"unit": 229.0,
+"url": "https://www.ambientedirect.com/en/louis-poulsen/panthella-160-portable-v3-led-table-lamp-with-battery-chromed-base_pid_28659_1391432.html",
+"dims": "H 23,8, Ø 16",
+"delivery": "1–5 WT"
+}
+]
+},
+{
+"id": "2e482047b7",
+"catalogId": "obi-akustikpaneel-walnuss-geoelt-echtholzfurnier-fil",
+"pos": "W18",
+"label": "Akustikpaneel Walnuss geölt (Echtholzfurnier, Filz schwarz)",
+"x": 4.695,
+"y": 4.258,
+"rot": 8,
+"elev": 0.0,
+"w": 2.4,
+"d": 0.021,
+"h": 2.56,
+"variant": "Walnuss geölt",
+"slots": {
+"main": {
+"color": "#6b4a33",
+"material": "walnut"
+},
+"secondary": {
+"color": "#141414",
+"material": "fabric"
+}
+},
+"params": {
+"slat": 0.027,
+"gap": 0.0135
+},
+"mount": "wall",
+"room": "13.01",
+"parts": [
+{
+"pos": "W18",
+"name": "Akustikpaneel Walnuss geölt (Echtholzfurnier, Filz schwarz)",
+"variant": "Walnuss geölt",
+"vendor": "OBI",
+"qty": 4,
+"unit": 109.99,
+"url": "https://www.obi.de/p/9992520/akustikpaneel-walnuss-geoelt-mdf-schwarz-filz-schwarz-60-cm-x-270-cm-fsc-",
+"dims": "60 × 270 × 1,9",
+"delivery": "Abholung Markt"
+}
+]
+},
+{
+"id": "0ece95a1e6",
+"catalogId": "wes-gerahmtes-leinwandbild-vibranium-handgemalt-male",
+"pos": "W19",
+"label": "Gerahmtes Leinwandbild Vibranium, handgemalt (Malerifabrikken)",
+"x": 3.31,
+"y": 5.528,
+"rot": 278,
+"elev": 0.95,
+"w": 0.9,
+"d": 0.04,
+"h": 1.2,
+"variant": "Brauntöne, Eichenrahmen",
+"slots": {
+"main": {
+"color": "#8a6248",
+"material": "canvas"
+},
+"secondary": {
+"color": "#3b2a20",
+"material": "canvas"
+},
+"frame": {
+"color": "#b38c60",
+"material": "oak"
+}
+},
+"params": {
+"motif": "vibranium"
+},
+"mount": "wall",
+"room": "13.01",
+"parts": [
+{
+"pos": "W19",
+"name": "Gerahmtes Leinwandbild Vibranium, handgemalt (Malerifabrikken)",
+"variant": "Brauntöne, Eichenrahmen",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 449.0,
+"url": "https://www.westwing.de/gerahmtes-gemalde-vibranium-auf-leinwand-de-25mle61932.html",
+"dims": "B 90 × H 120",
+"delivery": "13–14 Wo."
+}
+]
+},
+{
+"id": "690b5c1680",
+"catalogId": "fac-grosspflanze-olivenbaum-oder-ficus-lyrata-150-18",
+"pos": "W20",
+"label": "Großpflanze (Olivenbaum oder Ficus lyrata, 150–180 cm) mit Keramik-Übertopf",
+"x": 6.097,
+"y": 4.697,
+"rot": 0,
+"elev": 0.0,
+"w": 0.48,
+"d": 0.48,
+"h": 1.7,
+"variant": "Topf matt espresso",
+"slots": {
+"main": {
+"color": "#5b6e45",
+"material": "plant"
+},
+"secondary": {
+"color": "#4a3628",
+"material": "ceramic"
+}
+},
+"params": {
+"species": "olive",
+"pot": true,
+"potD": 0.32,
+"potH": 0.36
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W20",
+"name": "Großpflanze (Olivenbaum oder Ficus lyrata, 150–180 cm) mit Keramik-Übertopf",
+"variant": "Topf matt espresso",
+"vendor": "Fachhandel",
+"qty": 1,
+"unit": 250.0,
+"url": null,
+"dims": "Topf Ø ≈ 32",
+"delivery": "Richtwert"
+}
+]
+},
+{
+"id": "c576d38ac4",
+"catalogId": "wes-holz-vitrine-zamora-house-nordic",
+"pos": "W21",
+"label": "Holz-Vitrine Zamora (House Nordic)",
+"x": 3.51,
+"y": 8.44,
+"rot": 188,
+"elev": 0.0,
+"w": 0.9,
+"d": 0.4,
+"h": 1.8,
+"variant": "Eichenfurnier dunkel, Glasfronten",
+"slots": {
+"main": {
+"color": "#4d3626",
+"material": "oakDark"
+},
+"secondary": {
+"color": "#d8dcd8",
+"material": "glass"
+}
+},
+"params": {
+"shelves": 4,
+"legHeight": 0.12
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W21",
+"name": "Holz-Vitrine Zamora (House Nordic)",
+"variant": "Eichenfurnier dunkel, Glasfronten",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 699.0,
+"url": "https://www.westwing.de/wooden-display-cabinet-zamora-en-26hoe50460.html",
+"dims": "90 × 40 × 180",
+"delivery": "4–9 WT"
+}
+]
+},
+{
+"id": "b86099583c",
+"catalogId": "wes-runder-esstisch-noam-mit-marmor-tischplatte",
+"pos": "E1",
+"label": "Runder Esstisch Noam mit Marmor-Tischplatte",
+"x": 5.909,
+"y": 9.374,
+"rot": 0,
+"elev": 0.0,
+"w": 1.2,
+"d": 1.2,
+"h": 0.76,
+"variant": "DUNKELGRÜN marmoriert / Fuß Metall gebürstet silberfarben",
+"slots": {
+"top": {
+"color": "#3f5d4e",
+"material": "marbleGreen"
+},
+"legs": {
+"color": "#b9b4aa",
+"material": "steel"
+}
+},
+"params": {
+"round": true,
+"footD": 0.55,
+"base": "cone"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E1",
+"name": "Runder Esstisch Noam mit Marmor-Tischplatte",
+"variant": "DUNKELGRÜN marmoriert / Fuß Metall gebürstet silberfarben",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 1349.0,
+"url": "https://www.westwing.de/runder-esstisch-noam-mit-marmor-tischplatte-o-120-cm-163551.html",
+"dims": "Ø 120 × H 76",
+"delivery": "4–9 WT"
+}
+]
+},
+{
+"id": "d12281737b",
+"catalogId": "wes-lederstuhl-jordan",
+"pos": "E2",
+"label": "Lederstuhl Jordan",
+"x": 6.524,
+"y": 8.91,
+"rot": 52.97,
+"elev": 0.0,
+"w": 0.5,
+"d": 0.53,
+"h": 0.81,
+"variant": "Leder Braun / verchromter Metallrahmen",
+"slots": {
+"main": {
+"color": "#6b4429",
+"material": "leather"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"seatHeight": 0.46
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E2",
+"name": "Lederstuhl Jordan",
+"variant": "Leder Braun / verchromter Metallrahmen",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 369.0,
+"url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
+"dims": "B 50 × T 53 × H 81",
+"delivery": "13–14 Wo."
+}
+]
+},
+{
+"id": "088fb6de1c",
+"catalogId": "wes-lederstuhl-jordan",
+"pos": "E2",
+"label": "Lederstuhl Jordan",
+"x": 5.445,
+"y": 8.759,
+"rot": 322.97,
+"elev": 0.0,
+"w": 0.5,
+"d": 0.53,
+"h": 0.81,
+"variant": "Leder Braun / verchromter Metallrahmen",
+"slots": {
+"main": {
+"color": "#6b4429",
+"material": "leather"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"seatHeight": 0.46
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E2",
+"name": "Lederstuhl Jordan",
+"variant": "Leder Braun / verchromter Metallrahmen",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 369.0,
+"url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
+"dims": "B 50 × T 53 × H 81",
+"delivery": "13–14 Wo."
+}
+]
+},
+{
+"id": "48a751ae00",
+"catalogId": "wes-lederstuhl-jordan",
+"pos": "E2",
+"label": "Lederstuhl Jordan",
+"x": 5.294,
+"y": 9.837,
+"rot": 233.03,
+"elev": 0.0,
+"w": 0.5,
+"d": 0.53,
+"h": 0.81,
+"variant": "Leder Braun / verchromter Metallrahmen",
+"slots": {
+"main": {
+"color": "#6b4429",
+"material": "leather"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"seatHeight": 0.46
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E2",
+"name": "Lederstuhl Jordan",
+"variant": "Leder Braun / verchromter Metallrahmen",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 369.0,
+"url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
+"dims": "B 50 × T 53 × H 81",
+"delivery": "13–14 Wo."
+}
+]
+},
+{
+"id": "a9aaa98266",
+"catalogId": "wes-lederstuhl-jordan",
+"pos": "E2",
+"label": "Lederstuhl Jordan",
+"x": 6.372,
+"y": 9.989,
+"rot": 143.03,
+"elev": 0.0,
+"w": 0.5,
+"d": 0.53,
+"h": 0.81,
+"variant": "Leder Braun / verchromter Metallrahmen",
+"slots": {
+"main": {
+"color": "#6b4429",
+"material": "leather"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"seatHeight": 0.46
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E2",
+"name": "Lederstuhl Jordan",
+"variant": "Leder Braun / verchromter Metallrahmen",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 369.0,
+"url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
+"dims": "B 50 × T 53 × H 81",
+"delivery": "13–14 Wo."
+}
+]
+},
+{
+"id": "08c7eb6e28",
+"catalogId": "wes-lederstuhl-jordan-nischenplatz",
+"pos": "E12",
+"label": "Lederstuhl Jordan (Nischenplatz)",
+"x": 7.513,
+"y": 7.34,
+"rot": 8,
+"elev": 0.0,
+"w": 0.5,
+"d": 0.53,
+"h": 0.81,
+"variant": "Leder Braun / verchromter Metallrahmen",
+"slots": {
+"main": {
+"color": "#6b4429",
+"material": "leather"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"seatHeight": 0.46
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E12",
+"name": "Lederstuhl Jordan (Nischenplatz)",
+"variant": "Leder Braun / verchromter Metallrahmen",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 369.0,
+"url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
+"dims": "B 50 × T 53 × H 81",
+"delivery": "13–14 Wo."
+}
+]
+},
+{
+"id": "9f1c41c048",
+"catalogId": "des-tom-dixon-mirror-ball-pendelleuchte-led-40",
+"pos": "E3",
+"label": "Tom Dixon Mirror Ball Pendelleuchte LED Ø 40",
+"x": 5.909,
+"y": 9.374,
+"rot": 0,
+"elev": 1.43,
+"w": 0.4,
+"d": 0.4,
+"h": 0.4,
+"variant": "Chrom (verspiegelt); über Nordic Nest",
+"slots": {
+"main": {
+"color": "#d9dde0",
+"material": "chrome"
+}
+},
+"params": {},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "E3",
+"name": "Tom Dixon Mirror Ball Pendelleuchte LED Ø 40",
+"variant": "Chrom (verspiegelt); über Nordic Nest",
+"vendor": "Designhandel",
+"qty": 1,
+"unit": 769.0,
+"url": "https://www.nordicnest.de/marken/tom-dixon/mirror-ball-pendelleuchte-led-o40cm/",
+"dims": "Ø 40, Kabel 2,5 m",
+"delivery": "Versand ab 15.11."
+}
+]
+},
+{
+"id": "8450195fb1",
+"catalogId": "wes-sideboard-calary-mit-geriffelter-front",
+"pos": "E4",
+"label": "Sideboard Calary mit geriffelter Front",
+"x": 5.69,
+"y": 11.66,
+"rot": 188,
+"elev": 0.0,
+"w": 1.6,
+"d": 0.45,
+"h": 0.75,
+"variant": "Eiche dunkel, Rillenfront",
+"slots": {
+"main": {
+"color": "#4d3626",
+"material": "oakDark"
+},
+"legs": {
+"color": "#4d3626",
+"material": "oakDark"
+},
+"detail": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"doors": 4,
+"legHeight": 0.17,
+"front": "ribbed"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E4",
+"name": "Sideboard Calary mit geriffelter Front",
+"variant": "Eiche dunkel, Rillenfront",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 1099.0,
+"url": "https://www.westwing.de/holz-sideboard-calary-mit-geriffelter-front-147950.html",
+"dims": "160 × 45 × 75",
+"delivery": "4–9 WT"
+}
+]
+},
+{
+"id": "80f2973324",
+"catalogId": "des-flos-ic-c-w1-wand-deckenleuchte-michael-anastass",
+"pos": "E5",
+"label": "Flos IC C/W1 Wand-/Deckenleuchte (Michael Anastassiades)",
+"x": 7.66,
+"y": 9.838,
+"rot": 98,
+"elev": 1.7,
+"w": 0.2,
+"d": 0.28,
+"h": 0.2,
+"variant": "Chrom glänzend / Opalglaskugel; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"params": {},
+"mount": "wall",
+"room": "13.01",
+"parts": [
+{
+"pos": "E5",
+"name": "Flos IC C/W1 Wand-/Deckenleuchte (Michael Anastassiades)",
+"variant": "Chrom glänzend / Opalglaskugel; über AmbienteDirect",
+"vendor": "Designhandel",
+"qty": 1,
+"unit": 417.0,
+"url": "https://www.ambientedirect.com/en/flos/ic-c-w1-wall-ceiling-lamp_pid_28198_1139352.html",
+"dims": "Kugel Ø 20, Ausladung 28",
+"delivery": "3–4 Wo."
+}
+]
+},
+{
+"id": "e49e375664",
+"catalogId": "des-flos-ic-t1-high-tischleuchte",
+"pos": "E6",
+"label": "Flos IC T1 High Tischleuchte",
+"x": 5.22,
+"y": 11.6,
+"rot": 0,
+"elev": 0.75,
+"w": 0.32,
+"d": 0.32,
+"h": 0.442,
+"variant": "Chrom glänzend / Opalglaskugel; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"params": {
+"globe": 0.2,
+"ic": true
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E6",
+"name": "Flos IC T1 High Tischleuchte",
+"variant": "Chrom glänzend / Opalglaskugel; über AmbienteDirect",
+"vendor": "Designhandel",
+"qty": 1,
+"unit": 463.0,
+"url": "https://www.ambientedirect.com/en/flos/ic-t1-table-lamp_pid_28198_1139408.html",
+"dims": "H 44,2, Kugel Ø 20, Fuß Ø 32",
+"delivery": "3–4 Wo."
+}
+]
+},
+{
+"id": "db0c130ebe",
+"catalogId": "wes-handgemaltes-leinwandbild-rust-agave",
+"pos": "E7",
+"label": "Handgemaltes Leinwandbild Rust (Agave)",
+"x": 5.657,
+"y": 11.885,
+"rot": 188,
+"elev": 0.95,
+"w": 0.9,
+"d": 0.04,
+"h": 1.2,
+"variant": "Brauntöne / Weiß / Schwarz",
+"slots": {
+"main": {
+"color": "#7b4a32",
+"material": "canvas"
+},
+"secondary": {
+"color": "#e9e2d6",
+"material": "canvas"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "matte"
+}
+},
+"params": {
+"motif": "rust"
+},
+"mount": "wall",
+"room": "13.01",
+"parts": [
+{
+"pos": "E7",
+"name": "Handgemaltes Leinwandbild Rust (Agave)",
+"variant": "Brauntöne / Weiß / Schwarz",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 319.0,
+"url": "https://www.westwing.de/handgemaltes-leinwandbild-rust-168240.html",
+"dims": "B 90 × H 120",
+"delivery": "3–4 Wo."
+}
+]
+},
+{
+"id": "4872cba6aa",
+"catalogId": "wes-runder-wollteppich-amaro-handgewebt",
+"pos": "E9",
+"label": "Runder Wollteppich Amaro, handgewebt",
+"x": 5.909,
+"y": 9.374,
+"rot": 0,
+"elev": 0.0,
+"w": 2.5,
+"d": 2.5,
+"h": 0.012,
+"variant": "Terrakotta / Cremeweiß",
+"slots": {
+"main": {
+"color": "#b8653f",
+"material": "wool"
+}
+},
+"params": {
+"pattern": "relief",
+"color2": "#efe5d6"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E9",
+"name": "Runder Wollteppich Amaro, handgewebt",
+"variant": "Terrakotta / Cremeweiß",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 519.0,
+"url": "https://www.westwing.de/runder-wollteppich-amaro-handgewebt-161987.html?simple=DEQ24WES26662-897681",
+"dims": "Ø 250",
+"delivery": "4–9 WT"
+}
+]
+},
+{
+"id": "eb50252ec0",
+"catalogId": "ike-pax-korpus-kleiderschrank",
+"pos": "F1–F6",
+"label": "PAX/TONSTAD Garderobe 150 × 35 × 236 + Deckenblende",
+"x": 9.612,
+"y": 1.456,
+"rot": 270,
+"elev": 0.0,
+"w": 1.5,
+"d": 0.37,
+"h": 2.36,
+"variant": "weiß",
+"slots": {
+"main": {
+"color": "#c9a87e",
+"material": "oak"
+},
+"secondary": {
+"color": "#f3f1ec",
+"material": "matte"
+}
+},
+"params": {
+"modules": "100,50",
+"doors": 3,
+"fascia": 0.2,
+"fasciaColor": "#e7dccb",
+"handle": "edge"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "F1",
+"name": "PAX Korpus Kleiderschrank",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 90.0,
+"url": "https://www.ikea.com/de/de/p/pax-korpus-kleiderschrank-weiss-70458199/",
+"dims": "100 × 35 × 236",
+"delivery": "prüfen"
+},
+{
+"pos": "F2",
+"name": "PAX Korpus Kleiderschrank",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 70.0,
+"url": "https://www.ikea.com/de/de/p/pax-korpus-kleiderschrank-weiss-60458213/",
+"dims": "50 × 35 × 236",
+"delivery": "prüfen"
+},
+{
+"pos": "F3",
+"name": "TONSTAD Tür mit Scharnier",
+"variant": "EICHENFURNIER, gebürstet, integrierte Griffleiste",
+"vendor": "IKEA",
+"qty": 3,
+"unit": 130.0,
+"url": "https://www.ikea.com/de/de/p/tonstad-tuer-mit-scharnier-eichenfurnier-s99553054/",
+"dims": "50 × 229",
+"delivery": "prüfen"
+},
+{
+"pos": "F4",
+"name": "KOMPLEMENT Kleiderstange (für 35 cm Tiefe)",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 25.0,
+"url": "https://www.ikea.com/de/de/p/komplement-kleiderstange-weiss-10446449/",
+"dims": "100 × 35",
+"delivery": "prüfen"
+},
+{
+"pos": "F5",
+"name": "KOMPLEMENT Boden",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 10.0,
+"url": "https://www.ikea.com/de/de/p/komplement-boden-weiss-00277989/",
+"dims": "100 × 35",
+"delivery": "prüfen"
+},
+{
+"pos": "F6",
+"name": "KOMPLEMENT Boden",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 5,
+"unit": 4.0,
+"url": "https://www.ikea.com/de/de/p/komplement-boden-weiss-40277992/",
+"dims": "50 × 35",
+"delivery": "prüfen"
+},
+{
+"pos": "F17",
+"name": "Deckenblende über PAX (MDF 19 mm, Zuschnitt)",
+"variant": "im Limewash-Ton gestrichen",
+"vendor": "Fachhandel",
+"qty": 1,
+"unit": 25.0,
+"url": null,
+"dims": "150 × 22 cm",
+"delivery": "Richtwert"
+}
+]
+},
+{
+"id": "556023e215",
+"catalogId": "wes-konsole-noam-mit-marmor-platte",
+"pos": "F7",
+"label": "Konsole Noam mit Marmor-Platte",
+"x": 7.38,
+"y": 2.52,
+"rot": 0,
+"elev": 0.0,
+"w": 1.2,
+"d": 0.4,
+"h": 0.8,
+"variant": "DUNKELGRÜN marmoriert / Beine Metall gebürstet",
+"slots": {
+"top": {
+"color": "#3f5d4e",
+"material": "marbleGreen"
+},
+"main": {
+"color": "#b9b4aa",
+"material": "steel"
+}
+},
+"params": {
+"style": "noam"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "F7",
+"name": "Konsole Noam mit Marmor-Platte",
+"variant": "DUNKELGRÜN marmoriert / Beine Metall gebürstet",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 679.0,
+"url": "https://www.westwing.de/konsole-noam-mit-marmor-tischplatte-163553.html",
+"dims": "120 × 40 × 80",
+"delivery": "4–9 WT"
+}
+]
+},
+{
+"id": "3b16c9acf6",
+"catalogId": "wes-kleiner-runder-wandspiegel-polaris",
+"pos": "F8",
+"label": "Kleiner runder Wandspiegel Polaris",
+"x": 7.38,
+"y": 2.34,
+"rot": 0,
+"elev": 1.165,
+"w": 0.63,
+"d": 0.03,
+"h": 0.67,
+"variant": "silberfarben, polierte Edelstahl-Elemente",
+"slots": {
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"rays": true
+},
+"mount": "wall",
+"room": "13.01",
+"parts": [
+{
+"pos": "F8",
+"name": "Kleiner runder Wandspiegel Polaris",
+"variant": "silberfarben, polierte Edelstahl-Elemente",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 199.0,
+"url": "https://www.westwing.de/xx-de-25wes58594.html",
+"dims": "B 63 × H 67, Spiegel Ø 60",
+"delivery": "2–7 WT"
+}
+]
+},
+{
+"id": "f5badaed6f",
+"catalogId": "des-tradition-flowerpot-vp9-portable",
+"pos": "F9",
+"label": "&Tradition Flowerpot VP9 Portable",
+"x": 7.006,
+"y": 2.526,
+"rot": 0,
+"elev": 0.8,
+"w": 0.16,
+"d": 0.16,
+"h": 0.295,
+"variant": "chrome-plated, Akku; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"shape": "flowerpot"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "F9",
+"name": "&Tradition Flowerpot VP9 Portable",
+"variant": "chrome-plated, Akku; über AmbienteDirect",
+"vendor": "Designhandel",
+"qty": 1,
+"unit": 283.0,
+"url": "https://www.ambientedirect.com/en/tradition/flowerpot-vp9-led-battery-table-lamp_pid_1370446.html",
+"dims": "H 29,5, Ø 16",
+"delivery": "1–5 WT"
+}
+]
+},
+{
+"id": "445f7364cc",
+"catalogId": "wes-kleine-deckenleuchte-vanja-aneta",
+"pos": "F10",
+"label": "Kleine Deckenleuchte Vanja (Aneta)",
+"x": 10.504,
+"y": 1.168,
+"rot": 0,
+"elev": 2.32,
+"w": 0.2,
+"d": 0.2,
+"h": 0.24,
+"variant": "Glas weiß / Baldachin silberfarben",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"shape": "vanja"
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "F10",
+"name": "Kleine Deckenleuchte Vanja (Aneta)",
+"variant": "Glas weiß / Baldachin silberfarben",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 109.0,
+"url": "https://www.westwing.de/kleine-deckenleuchte-vanja-161449.html",
+"dims": "Ø 20 × H 24",
+"delivery": "ca. 2 Wo."
+}
+]
+},
+{
+"id": "0017e03558",
+"catalogId": "wes-kleine-deckenleuchte-vanja-aneta",
+"pos": "F10",
+"label": "Kleine Deckenleuchte Vanja (Aneta)",
+"x": 10.504,
+"y": 2.979,
+"rot": 0,
+"elev": 2.32,
+"w": 0.2,
+"d": 0.2,
+"h": 0.24,
+"variant": "Glas weiß / Baldachin silberfarben",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"shape": "vanja"
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "F10",
+"name": "Kleine Deckenleuchte Vanja (Aneta)",
+"variant": "Glas weiß / Baldachin silberfarben",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 109.0,
+"url": "https://www.westwing.de/kleine-deckenleuchte-vanja-161449.html",
+"dims": "Ø 20 × H 24",
+"delivery": "ca. 2 Wo."
+}
+]
+},
+{
+"id": "3a67c5120f",
+"catalogId": "wes-kleine-deckenleuchte-vanja-aneta",
+"pos": "F10",
+"label": "Kleine Deckenleuchte Vanja (Aneta)",
+"x": 7.138,
+"y": 2.96,
+"rot": 0,
+"elev": 2.32,
+"w": 0.2,
+"d": 0.2,
+"h": 0.24,
+"variant": "Glas weiß / Baldachin silberfarben",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"shape": "vanja"
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "F10",
+"name": "Kleine Deckenleuchte Vanja (Aneta)",
+"variant": "Glas weiß / Baldachin silberfarben",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 109.0,
+"url": "https://www.westwing.de/kleine-deckenleuchte-vanja-161449.html",
+"dims": "Ø 20 × H 24",
+"delivery": "ca. 2 Wo."
+}
+]
+},
+{
+"id": "08617b3c15",
+"catalogId": "ike-silverloenn-gardinenstore-1-paar",
+"pos": "F12–F14",
+"label": "Vorhang Fenstertür Balkon 1",
+"x": 9.5627,
+"y": 3.5596,
+"rot": 180.0,
+"elev": 0.0,
+"w": 3.45,
+"d": 0.12,
+"h": 2.53,
+"variant": "beige, Baumwolle in Leinenstruktur",
+"slots": {
+"main": {
+"color": "#e5dccb",
+"material": "linen"
+}
+},
+"params": {
+"layers": 1,
+"open": 0.8,
+"track": true,
+"sheer": true
+},
+"mount": "ceiling",
+"room": "13.01",
+"parts": [
+{
+"pos": "F12",
+"name": "SILVERLÖNN Gardinenstore, 1 Paar",
+"variant": "beige, Baumwolle in Leinenstruktur",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 24.99,
+"url": "https://www.ikea.com/de/de/p/silverloenn-gardinenstore-paar-beige-mit-gardinenband-10493978/",
+"dims": "2 × 145 × 300",
+"delivery": "prüfen"
+},
+{
+"pos": "F13",
+"name": "VIDGA Decken-Gardinenschiene 1-läufig",
+"variant": "weiß, kürzbar",
+"vendor": "IKEA",
+"qty": 3,
+"unit": 12.99,
+"url": "https://www.ikea.com/de/de/p/vidga-gardinenschiene-1-laeufig-mit-deckenbeschlag-weiss-20492916/",
+"dims": "140 cm",
+"delivery": "prüfen"
+},
+{
+"pos": "F14",
+"name": "VIDGA Gleiter + Haken",
+"variant": "weiß, 24 Stk.",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 2.99,
+"url": "https://www.ikea.com/de/de/p/vidga-gleiter-haken-weiss-20483002/",
+"dims": "–",
+"delivery": "prüfen"
+}
+],
+"opening": "W-B1"
+},
+{
+"id": "9929625e15",
+"catalogId": "wes-holz-schuhschrank-seaford-mit-klappfaechern",
+"pos": "F15",
+"label": "Holz-Schuhschrank Seaford mit Klappfächern",
+"x": 11.03,
+"y": 0.99,
+"rot": 90,
+"elev": 0.0,
+"w": 0.56,
+"d": 0.3,
+"h": 1.29,
+"variant": "dunkles Holz / Griffe und Gestell schwarz",
+"slots": {
+"main": {
+"color": "#4d3626",
+"material": "oakDark"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"flaps": 3,
+"legHeight": 0.12
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "F15",
+"name": "Holz-Schuhschrank Seaford mit Klappfächern",
+"variant": "dunkles Holz / Griffe und Gestell schwarz",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 189.0,
+"url": "https://www.westwing.de/holz-schuhschrank-seaford-mit-klappfaechern-163423.html",
+"dims": "56 × 30 × 129",
+"delivery": "4–5 Wo."
+}
+]
+},
+{
+"id": "344cb7cf60",
+"catalogId": "wes-cord-polsterbett-dream-mit-stauraum",
+"pos": "S1/S3",
+"label": "Polsterbett Dream 180 × 200 + Matratze + Bettwäsche",
+"x": 5.964,
+"y": 14.54,
+"rot": 98,
+"elev": 0.0,
+"w": 1.96,
+"d": 2.22,
+"h": 1.1,
+"variant": "CORD OLIVGRÜN, Liegefläche 180 × 200",
+"slots": {
+"main": {
+"color": "#6e7450",
+"material": "cord"
+},
+"secondary": {
+"color": "#c89c6b",
+"material": "linen"
+},
+"accent": {
+"color": "#5b3a2c",
+"material": "wool"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"mattressW": 1.8,
+"mattressL": 2.0,
+"headboard": 1.1,
+"frameH": 0.35,
+"storage": true,
+"duvetSingle": false
+},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S1",
+"name": "Cord-Polsterbett Dream mit Stauraum",
+"variant": "CORD OLIVGRÜN, Liegefläche 180 × 200",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 1299.0,
+"url": "https://www.westwing.de/cord-polsterbett-dream-mit-stauraum-162096.html?simple=DEQ24WES24041-209054",
+"dims": "außen 196 × 222, Kopfteil H 110",
+"delivery": "8–9 Wo."
+},
+{
+"pos": "S3",
+"name": "VÅGSTRANDA Taschenfederkernmatratze",
+"variant": "fest",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 699.0,
+"url": "https://www.ikea.com/de/de/p/vagstranda-taschenfederkernmatratze-fest-hellblau-00450757/",
+"dims": "180 × 200 × 28",
+"delivery": "prüfen"
+},
+{
+"pos": "S13",
+"name": "Gewaschener Leinen-Bettdeckenbezug Airy",
+"variant": "Karamell",
+"vendor": "Westwing",
+"qty": 2,
+"unit": 79.99,
+"url": "https://www.westwing.de/gewaschener-leinen-bettdeckenbezug-airy-162943.html",
+"dims": "135 × 200",
+"delivery": "2–5 WT"
+},
+{
+"pos": "S14",
+"name": "Gewaschener Leinen-Kopfkissenbezug Airy",
+"variant": "Karamell",
+"vendor": "Westwing",
+"qty": 2,
+"unit": 19.99,
+"url": "https://www.westwing.de/gewaschener-leinen-kopfkissenbezug-airy-162944.html",
+"dims": "40 × 80",
+"delivery": "2–4 WT"
+},
+{
+"pos": "S15",
+"name": "Plaid Luxury aus Babyalpaka (Elvang)",
+"variant": "Dunkelbraun",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 249.0,
+"url": "https://www.westwing.de/plaid-luxury-aus-baby-alpakawolle-161510.html",
+"dims": "130 × 200",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "394f74eba4",
+"catalogId": "wes-nachttisch-soren",
+"pos": "S4",
+"label": "Nachttisch Soren",
+"x": 7.0,
+"y": 13.41,
+"rot": 98,
+"elev": 0.0,
+"w": 0.45,
+"d": 0.45,
+"h": 0.58,
+"variant": "Mangoholz massiv dunkel / Beine Edelstahl (Chrom)",
+"slots": {
+"main": {
+"color": "#3e2c22",
+"material": "mango"
+},
+"top": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"detail": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"drawers": 0,
+"door": true,
+"legHeight": 0.12
+},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S4",
+"name": "Nachttisch Soren",
+"variant": "Mangoholz massiv dunkel / Beine Edelstahl (Chrom)",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 289.0,
+"url": "https://www.westwing.de/soren-nightstand-mango-wood-dark-wood-chrome-metal-en-26wes93904.html?simple=DEQ26WES93904-590175",
+"dims": "B 45 × T 45 × H 58",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "239a3a8035",
+"catalogId": "wes-nachttisch-soren",
+"pos": "S4",
+"label": "Nachttisch Soren",
+"x": 6.65,
+"y": 15.9,
+"rot": 98,
+"elev": 0.0,
+"w": 0.45,
+"d": 0.45,
+"h": 0.58,
+"variant": "Mangoholz massiv dunkel / Beine Edelstahl (Chrom)",
+"slots": {
+"main": {
+"color": "#3e2c22",
+"material": "mango"
+},
+"top": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"detail": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"drawers": 0,
+"door": true,
+"legHeight": 0.12
+},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S4",
+"name": "Nachttisch Soren",
+"variant": "Mangoholz massiv dunkel / Beine Edelstahl (Chrom)",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 289.0,
+"url": "https://www.westwing.de/soren-nightstand-mango-wood-dark-wood-chrome-metal-en-26wes93904.html?simple=DEQ26WES93904-590175",
+"dims": "B 45 × T 45 × H 58",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "8dcfd043dd",
+"catalogId": "des-tradition-flowerpot-vp3-tischleuchte",
+"pos": "S5",
+"label": "&Tradition Flowerpot VP3 Tischleuchte",
+"x": 7.0,
+"y": 13.41,
+"rot": 0,
+"elev": 0.58,
+"w": 0.23,
+"d": 0.23,
+"h": 0.5,
+"variant": "chrome-plated; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"shape": "flowerpot"
+},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S5",
+"name": "&Tradition Flowerpot VP3 Tischleuchte",
+"variant": "chrome-plated; über AmbienteDirect",
+"vendor": "Designhandel",
+"qty": 1.0,
+"unit": 340.0,
+"url": "https://www.ambientedirect.com/en/tradition/flowerpot-vp3-table-lamp_pid_264_1257823.html",
+"dims": "H 50, Ø 23",
+"delivery": "1–5 WT"
+}
+]
+},
+{
+"id": "38735ff65f",
+"catalogId": "des-tradition-flowerpot-vp3-tischleuchte",
+"pos": "S5",
+"label": "&Tradition Flowerpot VP3 Tischleuchte",
+"x": 6.65,
+"y": 15.9,
+"rot": 0,
+"elev": 0.58,
+"w": 0.23,
+"d": 0.23,
+"h": 0.5,
+"variant": "chrome-plated; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"shape": "flowerpot"
+},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S5",
+"name": "&Tradition Flowerpot VP3 Tischleuchte",
+"variant": "chrome-plated; über AmbienteDirect",
+"vendor": "Designhandel",
+"qty": 1.0,
+"unit": 340.0,
+"url": "https://www.ambientedirect.com/en/tradition/flowerpot-vp3-table-lamp_pid_264_1257823.html",
+"dims": "H 50, Ø 23",
+"delivery": "1–5 WT"
+}
+]
+},
+{
+"id": "42ae95c26e",
+"catalogId": "wes-kleine-deckenleuchte-vanja-aneta",
+"pos": "S6",
+"label": "Kleine Deckenleuchte Vanja (Aneta)",
+"x": 5.351,
+"y": 13.348,
+"rot": 0,
+"elev": 2.32,
+"w": 0.2,
+"d": 0.2,
+"h": 0.24,
+"variant": "Glas weiß / Baldachin silberfarben",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"shape": "vanja"
+},
+"mount": "ceiling",
+"room": "13.03",
+"parts": [
+{
+"pos": "S6",
+"name": "Kleine Deckenleuchte Vanja (Aneta)",
+"variant": "Glas weiß / Baldachin silberfarben",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 109.0,
+"url": "https://www.westwing.de/kleine-deckenleuchte-vanja-161449.html",
+"dims": "Ø 20 × H 24",
+"delivery": "ca. 2 Wo."
+}
+]
+},
+{
+"id": "5c1bf70c65",
+"catalogId": "wes-kleine-deckenleuchte-vanja-aneta",
+"pos": "S6",
+"label": "Kleine Deckenleuchte Vanja (Aneta)",
+"x": 5.044,
+"y": 15.526,
+"rot": 0,
+"elev": 2.32,
+"w": 0.2,
+"d": 0.2,
+"h": 0.24,
+"variant": "Glas weiß / Baldachin silberfarben",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"shape": "vanja"
+},
+"mount": "ceiling",
+"room": "13.03",
+"parts": [
+{
+"pos": "S6",
+"name": "Kleine Deckenleuchte Vanja (Aneta)",
+"variant": "Glas weiß / Baldachin silberfarben",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 109.0,
+"url": "https://www.westwing.de/kleine-deckenleuchte-vanja-161449.html",
+"dims": "Ø 20 × H 24",
+"delivery": "ca. 2 Wo."
+}
+]
+},
+{
+"id": "fb42b6ee42",
+"catalogId": "ike-pax-korpus-kleiderschrank",
+"pos": "S7–S11",
+"label": "PAX/TONSTAD Kleiderschrank 300 × 58 × 236 + Deckenblende",
+"x": 3.632,
+"y": 14.192,
+"rot": 278,
+"elev": 0.0,
+"w": 3.0,
+"d": 0.6,
+"h": 2.36,
+"variant": "weiß",
+"slots": {
+"main": {
+"color": "#c9a87e",
+"material": "oak"
+},
+"secondary": {
+"color": "#f3f1ec",
+"material": "matte"
+}
+},
+"params": {
+"modules": "100,100,100",
+"doors": 6,
+"fascia": 0.2,
+"fasciaColor": "#75604f",
+"handle": "edge"
+},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S7",
+"name": "PAX Korpus Kleiderschrank",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 3,
+"unit": 100.0,
+"url": "https://www.ikea.com/de/de/p/pax-korpus-kleiderschrank-weiss-80458207/",
+"dims": "100 × 58 × 236",
+"delivery": "prüfen"
+},
+{
+"pos": "S8",
+"name": "TONSTAD Tür mit Scharnier",
+"variant": "EICHENFURNIER, gebürstet, integrierte Griffleiste",
+"vendor": "IKEA",
+"qty": 6,
+"unit": 130.0,
+"url": "https://www.ikea.com/de/de/p/tonstad-tuer-mit-scharnier-eichenfurnier-s99553054/",
+"dims": "50 × 229",
+"delivery": "prüfen"
+},
+{
+"pos": "S9",
+"name": "KOMPLEMENT Kleiderstange",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 3,
+"unit": 10.0,
+"url": "https://www.ikea.com/de/de/p/komplement-kleiderstange-weiss-30256891/",
+"dims": "100 cm",
+"delivery": "prüfen"
+},
+{
+"pos": "S10",
+"name": "KOMPLEMENT Boden",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 6,
+"unit": 15.0,
+"url": "https://www.ikea.com/de/de/p/komplement-boden-weiss-70277957/",
+"dims": "100 × 58",
+"delivery": "prüfen"
+},
+{
+"pos": "S11",
+"name": "KOMPLEMENT Schublade",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 3,
+"unit": 35.0,
+"url": "https://www.ikea.com/de/de/p/komplement-schublade-weiss-90246352/",
+"dims": "100 × 58",
+"delivery": "prüfen"
+},
+{
+"pos": "S21",
+"name": "Deckenblende über PAX (MDF 19 mm, Zuschnitt)",
+"variant": "in „Dichter der Erde“ gestrichen",
+"vendor": "Fachhandel",
+"qty": 1,
+"unit": 45.0,
+"url": null,
+"dims": "300 × 22 cm",
+"delivery": "Richtwert"
+}
+]
+},
+{
+"id": "d90f5a542e",
+"catalogId": "wes-handgewebter-wollteppich-amaro",
+"pos": "S12",
+"label": "Handgewebter Wollteppich Amaro",
+"x": 5.412,
+"y": 14.463,
+"rot": 98,
+"elev": 0.0,
+"w": 3.0,
+"d": 2.0,
+"h": 0.015,
+"variant": "Cremeweiß / Beige, Größe L",
+"slots": {
+"main": {
+"color": "#efe7da",
+"material": "wool"
+}
+},
+"params": {
+"pattern": "plain"
+},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S12",
+"name": "Handgewebter Wollteppich Amaro",
+"variant": "Cremeweiß / Beige, Größe L",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 449.0,
+"url": "https://www.westwing.de/handgewebter-wollteppich-amaro-148786.html?simple=DEQ23WES12680-190081",
+"dims": "200 × 300",
+"delivery": "3–4 Wo."
+}
+]
+},
+{
+"id": "4d7a5bd49f",
+"catalogId": "ike-silverloenn-gardinenstore-1-paar-vorn",
+"pos": "S16–S18",
+"label": "Vorhänge Schlafen (Store + Verdunkelung)",
+"x": 4.9555,
+"y": 16.0288,
+"rot": 188.0,
+"elev": 0.0,
+"w": 3.72,
+"d": 0.16,
+"h": 2.53,
+"variant": "beige, durchscheinend",
+"slots": {
+"main": {
+"color": "#e5dccb",
+"material": "linen"
+},
+"secondary": {
+"color": "#4a3128",
+"material": "velvet"
+}
+},
+"params": {
+"layers": 2,
+"open": 0.85,
+"track": true,
+"sheer": true
+},
+"mount": "ceiling",
+"room": "13.03",
+"parts": [
+{
+"pos": "S16",
+"name": "SILVERLÖNN Gardinenstore, 1 Paar (vorn)",
+"variant": "beige, durchscheinend",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 24.99,
+"url": "https://www.ikea.com/de/de/p/silverloenn-gardinenstore-paar-beige-mit-gardinenband-10493978/",
+"dims": "2 × 145 × 300",
+"delivery": "prüfen"
+},
+{
+"pos": "S17",
+"name": "SANELA 2 Gardinenschals (hinten)",
+"variant": "DUNKELBRAUN, Baumwollsamt, abdunkelnd",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 69.99,
+"url": "https://www.ikea.com/de/de/p/sanela-2-gardinenschals-dunkelbraun-mit-gardinenband-20631564/",
+"dims": "2 × 140 × 300",
+"delivery": "prüfen"
+},
+{
+"pos": "S18",
+"name": "VIDGA Gardinenschienen-Set f. Decke 2- läufig",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 3,
+"unit": 37.95,
+"url": "https://www.ikea.com/de/de/p/vidga-gardinenschienen-set-f-decke-2-lfg-weiss-s49571507/",
+"dims": "2 × 140 cm je Set",
+"delivery": "prüfen"
+}
+],
+"opening": "W-S1"
+},
+{
+"id": "2d6e4deced",
+"catalogId": "ike-sanela-kissenbezug-fjaedrar-innenkissen",
+"pos": "S19",
+"label": "SANELA Kissenbezug + FJÄDRAR Innenkissen",
+"x": 6.396,
+"y": 14.288,
+"rot": 82,
+"elev": 0.62,
+"w": 0.5,
+"d": 0.16,
+"h": 0.5,
+"variant": "dunkelbraun / elfenbeinweiß",
+"slots": {
+"main": {
+"color": "#4a3128",
+"material": "velvet"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S19",
+"name": "SANELA Kissenbezug + FJÄDRAR Innenkissen",
+"variant": "dunkelbraun / elfenbeinweiß",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 13.99,
+"url": "https://www.ikea.com/de/de/p/sanela-kissenbezug-dunkelbraun-90636025/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "6ff4e7499f",
+"catalogId": "ike-sanela-kissenbezug-fjaedrar-innenkissen",
+"pos": "S19",
+"label": "SANELA Kissenbezug + FJÄDRAR Innenkissen",
+"x": 6.309,
+"y": 14.912,
+"rot": 108,
+"elev": 0.62,
+"w": 0.5,
+"d": 0.16,
+"h": 0.5,
+"variant": "dunkelbraun / elfenbeinweiß",
+"slots": {
+"main": {
+"color": "#4a3128",
+"material": "velvet"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.03",
+"parts": [
+{
+"pos": "S19",
+"name": "SANELA Kissenbezug + FJÄDRAR Innenkissen",
+"variant": "dunkelbraun / elfenbeinweiß",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 13.99,
+"url": "https://www.ikea.com/de/de/p/sanela-kissenbezug-dunkelbraun-90636025/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "ab76c83e9c",
+"catalogId": "wes-boucl-schlafsofa-eliot-2-sitzer",
+"pos": "A1",
+"label": "Bouclé-Schlafsofa Eliot (2-Sitzer)",
+"x": 13.102,
+"y": 2.82,
+"rot": 0,
+"elev": 0.0,
+"w": 1.8,
+"d": 1.0,
+"h": 0.7,
+"variant": "Bouclé meliert ROSTROT",
+"slots": {
+"main": {
+"color": "#a5563b",
+"material": "boucle"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"seats": 2,
+"armWidth": 0.2,
+"seatHeight": 0.43
+},
+"mount": "floor",
+"room": "13.04",
+"parts": [
+{
+"pos": "A1",
+"name": "Bouclé-Schlafsofa Eliot (2-Sitzer)",
+"variant": "Bouclé meliert ROSTROT",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 1049.0,
+"url": "https://www.westwing.de/fsc-eliot-2s-sleeper-sofa-davis-puente-red-68-en-25wes26239.html",
+"dims": "B 180 × T 100 × H 70; Liegefl. 140 × 210",
+"delivery": "6–7 Wo."
+}
+]
+},
+{
+"id": "0044e7b846",
+"catalogId": "ike-mittzon-schreibtisch-sitz-steh-elektrisch",
+"pos": "A2",
+"label": "MITTZON Schreibtisch sitz/steh, elektrisch",
+"x": 14.457,
+"y": 3.65,
+"rot": 90,
+"elev": 0.0,
+"w": 1.2,
+"d": 0.6,
+"h": 0.75,
+"variant": "Nussbaumfurnier / schwarz",
+"slots": {
+"top": {
+"color": "#6b4a33",
+"material": "walnut"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.04",
+"parts": [
+{
+"pos": "A2",
+"name": "MITTZON Schreibtisch sitz/steh, elektrisch",
+"variant": "Nussbaumfurnier / schwarz",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 389.0,
+"url": "https://www.ikea.com/de/de/p/mittzon-schreibtisch-sitz-steh-elektrisch-nussbaumfurnier-schwarz-s49526874/",
+"dims": "120 × 60, H 62–126",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "cebc688fd6",
+"catalogId": "ike-hattefjaell-drehstuhl-mit-armlehnen",
+"pos": "A3",
+"label": "HATTEFJÄLL Drehstuhl mit Armlehnen",
+"x": 13.762,
+"y": 3.66,
+"rot": 270,
+"elev": 0.0,
+"w": 0.68,
+"d": 0.68,
+"h": 1.1,
+"variant": "Gunnared beige / weiß",
+"slots": {
+"main": {
+"color": "#d9cdb8",
+"material": "fabric"
+},
+"legs": {
+"color": "#f2f2f2",
+"material": "plastic"
+}
+},
+"params": {
+"style": "task"
+},
+"mount": "floor",
+"room": "13.04",
+"parts": [
+{
+"pos": "A3",
+"name": "HATTEFJÄLL Drehstuhl mit Armlehnen",
+"variant": "Gunnared beige / weiß",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 279.0,
+"url": "https://www.ikea.com/de/de/p/hattefjaell-drehstuhl-mit-armlehnen-gunnared-beige-weiss-60538955/",
+"dims": "B 68 × T 68 × H ≤ 114",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "59d8976371",
+"catalogId": "ike-billy-buecherregal",
+"pos": "A4",
+"label": "BILLY Bücherregal",
+"x": 11.422,
+"y": 4.28,
+"rot": 270,
+"elev": 0.0,
+"w": 0.8,
+"d": 0.28,
+"h": 2.37,
+"variant": "braun Nussbaumnachbildung",
+"slots": {
+"main": {
+"color": "#6b4a33",
+"material": "walnut"
+}
+},
+"params": {
+"rows": 7,
+"topper": 0.35
+},
+"mount": "floor",
+"room": "13.04",
+"parts": [
+{
+"pos": "A4",
+"name": "BILLY Bücherregal",
+"variant": "braun Nussbaumnachbildung",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 59.99,
+"url": "https://www.ikea.com/de/de/p/billy-buecherregal-braun-nussbaumnachbildung-50508652/",
+"dims": "80 × 28 × 202",
+"delivery": "prüfen"
+},
+{
+"pos": "A11",
+"name": "BILLY Aufsatzregal",
+"variant": "braun Nussbaumnachbildung",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 25.0,
+"url": "https://www.ikea.com/de/de/p/billy-aufsatzregal-braun-nussbaumnachbildung-30508667/",
+"dims": "80 × 28 × 35",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "351e609da5",
+"catalogId": "des-tradition-flowerpot-vp9-portable",
+"pos": "A6",
+"label": "&Tradition Flowerpot VP9 Portable",
+"x": 14.522,
+"y": 3.27,
+"rot": 0,
+"elev": 0.75,
+"w": 0.16,
+"d": 0.16,
+"h": 0.295,
+"variant": "chrome-plated, Akku; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"shape": "flowerpot"
+},
+"mount": "floor",
+"room": "13.04",
+"parts": [
+{
+"pos": "A6",
+"name": "&Tradition Flowerpot VP9 Portable",
+"variant": "chrome-plated, Akku; über AmbienteDirect",
+"vendor": "Designhandel",
+"qty": 1,
+"unit": 283.0,
+"url": "https://www.ambientedirect.com/en/tradition/flowerpot-vp9-led-battery-table-lamp_pid_1370446.html",
+"dims": "H 29,5, Ø 16",
+"delivery": "1–5 WT"
+}
+]
+},
+{
+"id": "54bca62dc6",
+"catalogId": "wes-kleine-deckenleuchte-vanja-aneta",
+"pos": "A7",
+"label": "Kleine Deckenleuchte Vanja (Aneta)",
+"x": 13.014,
+"y": 3.725,
+"rot": 0,
+"elev": 2.32,
+"w": 0.2,
+"d": 0.2,
+"h": 0.24,
+"variant": "Glas weiß / Baldachin silberfarben",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"shape": "vanja"
+},
+"mount": "ceiling",
+"room": "13.04",
+"parts": [
+{
+"pos": "A7",
+"name": "Kleine Deckenleuchte Vanja (Aneta)",
+"variant": "Glas weiß / Baldachin silberfarben",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 109.0,
+"url": "https://www.westwing.de/kleine-deckenleuchte-vanja-161449.html",
+"dims": "Ø 20 × H 24",
+"delivery": "ca. 2 Wo."
+}
+]
+},
+{
+"id": "a4a17da885",
+"catalogId": "ike-silverloenn-gardinenstore-1-paar",
+"pos": "A8/A9",
+"label": "Vorhänge Arbeit / Gast",
+"x": 13.0213,
+"y": 5.0597,
+"rot": 180.0,
+"elev": 0.0,
+"w": 3.51,
+"d": 0.12,
+"h": 2.53,
+"variant": "beige, durchscheinend",
+"slots": {
+"main": {
+"color": "#e5dccb",
+"material": "linen"
+}
+},
+"params": {
+"layers": 1,
+"open": 0.85,
+"track": true,
+"sheer": true
+},
+"mount": "ceiling",
+"room": "13.04",
+"parts": [
+{
+"pos": "A8",
+"name": "SILVERLÖNN Gardinenstore, 1 Paar",
+"variant": "beige, durchscheinend",
+"vendor": "IKEA",
+"qty": 2,
+"unit": 24.99,
+"url": "https://www.ikea.com/de/de/p/silverloenn-gardinenstore-paar-beige-mit-gardinenband-10493978/",
+"dims": "2 × 145 × 300",
+"delivery": "prüfen"
+},
+{
+"pos": "A9",
+"name": "VIDGA Decken-Gardinenschiene 1-läufig + Gleiter",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 47.94,
+"url": "https://www.ikea.com/de/de/p/vidga-gardinenschiene-1-laeufig-mit-deckenbeschlag-weiss-20492916/",
+"dims": "3 × 140 cm + 3 × 24 Gleiter",
+"delivery": "prüfen"
+}
+],
+"opening": "W-A1"
+},
+{
+"id": "a1b410eb16",
+"catalogId": "ike-dytag-kissenbezug-fjaedrar-innenkissen",
+"pos": "A10",
+"label": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"x": 12.742,
+"y": 2.545,
+"rot": 355,
+"elev": 0.45,
+"w": 0.5,
+"d": 0.16,
+"h": 0.5,
+"variant": "rotbraun Leinen / elfenbeinweiß",
+"slots": {
+"main": {
+"color": "#a8573a",
+"material": "linen"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.04",
+"parts": [
+{
+"pos": "A10",
+"name": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"variant": "rotbraun Leinen / elfenbeinweiß",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 16.99,
+"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-rotbraun-10517682/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "a7149ce99a",
+"catalogId": "ike-dytag-kissenbezug-fjaedrar-innenkissen",
+"pos": "A10",
+"label": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"x": 13.512,
+"y": 2.545,
+"rot": 6,
+"elev": 0.45,
+"w": 0.5,
+"d": 0.16,
+"h": 0.5,
+"variant": "rotbraun Leinen / elfenbeinweiß",
+"slots": {
+"main": {
+"color": "#a8573a",
+"material": "linen"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.04",
+"parts": [
+{
+"pos": "A10",
+"name": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"variant": "rotbraun Leinen / elfenbeinweiß",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 16.99,
+"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-rotbraun-10517682/",
+"dims": "50 × 50",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "22f6727f03",
+"catalogId": "ike-gasgrund-deckenleuchte",
+"pos": "K1",
+"label": "GÅSGRUND Deckenleuchte",
+"x": 2.148,
+"y": 11.662,
+"rot": 0,
+"elev": 2.45,
+"w": 0.3,
+"d": 0.3,
+"h": 0.11,
+"variant": "Opalglas / vernickelte Deckenplatte, IP44",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"shape": "gasgrund"
+},
+"mount": "ceiling",
+"room": "13.02",
+"parts": [
+{
+"pos": "K1",
+"name": "GÅSGRUND Deckenleuchte",
+"variant": "Opalglas / vernickelte Deckenplatte, IP44",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 24.99,
+"url": "https://www.ikea.com/de/de/p/gasgrund-deckenleuchte-opalweiss-40223857/",
+"dims": "Ø 30 × H 11",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "ca1effa77c",
+"catalogId": "ike-gasgrund-deckenleuchte",
+"pos": "H2",
+"label": "GÅSGRUND Deckenleuchte",
+"x": 2.468,
+"y": 9.205,
+"rot": 0,
+"elev": 2.45,
+"w": 0.3,
+"d": 0.3,
+"h": 0.11,
+"variant": "Opalglas / vernickelte Deckenplatte, IP44",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {
+"shape": "gasgrund"
+},
+"mount": "ceiling",
+"room": "13.07",
+"parts": [
+{
+"pos": "H2",
+"name": "GÅSGRUND Deckenleuchte",
+"variant": "Opalglas / vernickelte Deckenplatte, IP44",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 24.99,
+"url": "https://www.ikea.com/de/de/p/gasgrund-deckenleuchte-opalweiss-40223857/",
+"dims": "Ø 30 × H 11",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "bd6f1d4045",
+"catalogId": "ike-boaxel-regal",
+"pos": "H1",
+"label": "BOAXEL Regal",
+"x": 1.256,
+"y": 9.215,
+"rot": 278,
+"elev": 0.0,
+"w": 0.62,
+"d": 0.4,
+"h": 2.01,
+"variant": "weiß",
+"slots": {
+"main": {
+"color": "#f2f2f0",
+"material": "matte"
+}
+},
+"params": {
+"rows": 5,
+"cols": 1,
+"style": "boaxel"
+},
+"mount": "floor",
+"room": "13.07",
+"parts": [
+{
+"pos": "H1",
+"name": "BOAXEL Regal",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 85.0,
+"url": "https://www.ikea.com/de/de/cat/boaxel-kombinationen-47396/",
+"dims": "62 × 40 × 201",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "8d904a419b",
+"catalogId": "ike-boaxel-regal",
+"pos": "H1",
+"label": "BOAXEL Regal",
+"x": 3.49,
+"y": 9.705,
+"rot": 188,
+"elev": 0.0,
+"w": 0.62,
+"d": 0.4,
+"h": 2.01,
+"variant": "weiß",
+"slots": {
+"main": {
+"color": "#f2f2f0",
+"material": "matte"
+}
+},
+"params": {
+"rows": 5,
+"cols": 1,
+"style": "boaxel"
+},
+"mount": "floor",
+"room": "13.07",
+"parts": [
+{
+"pos": "H1",
+"name": "BOAXEL Regal",
+"variant": "weiß",
+"vendor": "IKEA",
+"qty": 1.0,
+"unit": 85.0,
+"url": "https://www.ikea.com/de/de/cat/boaxel-kombinationen-47396/",
+"dims": "62 × 40 × 201",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "d24785db80",
+"catalogId": "wes-runder-gartentisch-hiray-kartell",
+"pos": "B1",
+"label": "Runder Gartentisch Hiray (Kartell)",
+"x": 1.892,
+"y": 15.29,
+"rot": 0,
+"elev": 0.0,
+"w": 0.65,
+"d": 0.65,
+"h": 0.72,
+"variant": "Salbeigrün, Stahl verzinkt lackiert",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "matte"
+}
+},
+"params": {
+"round": true
+},
+"mount": "floor",
+"room": "13.09",
+"parts": [
+{
+"pos": "B1",
+"name": "Runder Gartentisch Hiray (Kartell)",
+"variant": "Salbeigrün, Stahl verzinkt lackiert",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 564.0,
+"url": "https://www.westwing.de/runder-gartentisch-hiray-o-65-cm-150822.html",
+"dims": "Ø 65 × H 72",
+"delivery": "2–7 WT"
+}
+]
+},
+{
+"id": "22bef711a7",
+"catalogId": "wes-gartenstuhl-hiray-kartell",
+"pos": "B2",
+"label": "Gartenstuhl Hiray (Kartell)",
+"x": 1.347,
+"y": 15.214,
+"rot": 278,
+"elev": 0.0,
+"w": 0.53,
+"d": 0.55,
+"h": 0.79,
+"variant": "Salbeigrün",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "matte"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.09",
+"parts": [
+{
+"pos": "B2",
+"name": "Gartenstuhl Hiray (Kartell)",
+"variant": "Salbeigrün",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 296.0,
+"url": "https://www.westwing.de/gartenstuhl-hiray-mit-sitzkissen-150810.html",
+"dims": "B 53 × T 55 × H 79",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "1df90a07df",
+"catalogId": "wes-gartenstuhl-hiray-kartell",
+"pos": "B2",
+"label": "Gartenstuhl Hiray (Kartell)",
+"x": 2.436,
+"y": 15.367,
+"rot": 98,
+"elev": 0.0,
+"w": 0.53,
+"d": 0.55,
+"h": 0.79,
+"variant": "Salbeigrün",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "matte"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.09",
+"parts": [
+{
+"pos": "B2",
+"name": "Gartenstuhl Hiray (Kartell)",
+"variant": "Salbeigrün",
+"vendor": "Westwing",
+"qty": 1.0,
+"unit": 296.0,
+"url": "https://www.westwing.de/gartenstuhl-hiray-mit-sitzkissen-150810.html",
+"dims": "B 53 × T 55 × H 79",
+"delivery": "2–4 WT"
+}
+]
+},
+{
+"id": "b867f34ff4",
+"catalogId": "ike-segeroen-2er-sofa-aussen",
+"pos": "B3",
+"label": "SEGERÖN 2er-Sofa/außen",
+"x": 10.134,
+"y": 5.006,
+"rot": 180,
+"elev": 0.0,
+"w": 1.52,
+"d": 0.76,
+"h": 0.76,
+"variant": "weiß/beige, Polster Frösön/Duvholmen beige",
+"slots": {
+"main": {
+"color": "#f2f0eb",
+"material": "matte"
+},
+"secondary": {
+"color": "#ded6c6",
+"material": "fabric"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.08",
+"parts": [
+{
+"pos": "B3",
+"name": "SEGERÖN 2er-Sofa/außen",
+"variant": "weiß/beige, Polster Frösön/Duvholmen beige",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 382.0,
+"url": "https://www.ikea.com/de/de/p/segeroen-2er-sofa-aussen-weiss-beige-froesoen-duvholmen-beige-s99613519/",
+"dims": "B 152 × T 76 × H 76",
+"delivery": "prüfen"
+}
+]
+},
+{
+"id": "9d85e96e32",
+"catalogId": "bestand-k-che-alno-2060-bestand-schematisch-",
+"label": "Küche Alno 2060 (Bestand, schematisch)",
+"x": 1.0451,
+"y": 11.5067,
+"rot": 278,
+"elev": 0.0,
+"w": 3.628,
+"d": 0.62,
+"h": 2.3,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#4a3426",
+"material": "walnut"
+},
+"secondary": {
+"color": "#7f9a86",
+"material": "lacquer"
+},
+"top": {
+"color": "#e9e6df",
+"material": "stone"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"tallUnits": 1.2,
+"upper": true,
+"sink": 0.55,
+"hob": 0.3
+},
+"mount": "floor",
+"room": "13.02",
+"existing": true,
+"locked": true
+},
+{
+"id": "2651328d80",
+"catalogId": "bestand-waschmaschine-bestand-",
+"label": "Waschmaschine (Bestand)",
+"x": 11.662,
+"y": 0.885,
+"rot": 0,
+"elev": 0.0,
+"w": 0.6,
+"d": 0.6,
+"h": 0.85,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#f4f4f2",
+"material": "gloss"
+},
+"detail": {
+"color": "#2a2a2a",
+"material": "glass"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.05",
+"existing": true,
+"locked": true
+},
+{
+"id": "c2b8f93390",
+"catalogId": "bestand-wand-wc-bad-bestand-",
+"label": "Wand-WC Bad (Bestand)",
+"x": 12.542,
+"y": 0.86,
+"rot": 0,
+"elev": 0.0,
+"w": 0.37,
+"d": 0.54,
+"h": 0.4,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#f6f6f4",
+"material": "ceramic"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"plate": true
+},
+"mount": "floor",
+"room": "13.05",
+"existing": true,
+"locked": true
+},
+{
+"id": "c2c191f103",
+"catalogId": "bestand-badewanne-180-80-bestand-",
+"label": "Badewanne 180 × 80 (Bestand)",
+"x": 13.852,
+"y": 0.736,
+"rot": 0,
+"elev": 0.0,
+"w": 1.8,
+"d": 0.8,
+"h": 0.58,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#f6f6f4",
+"material": "ceramic"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.05",
+"existing": true,
+"locked": true
+},
+{
+"id": "b52fdf2136",
+"catalogId": "bestand-waschtisch-bad-bestand-",
+"label": "Waschtisch Bad (Bestand)",
+"x": 13.95,
+"y": 1.95,
+"rot": 180,
+"elev": 0.0,
+"w": 0.8,
+"d": 0.46,
+"h": 0.85,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#f6f6f4",
+"material": "ceramic"
+},
+"secondary": {
+"color": "#d6c5ad",
+"material": "oak"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"mirror": true
+},
+"mount": "floor",
+"room": "13.05",
+"existing": true,
+"locked": true
+},
+{
+"id": "986406a7f6",
+"catalogId": "bestand-dusche-105-90-bestand-",
+"label": "Dusche 105 × 90 (Bestand)",
+"x": 7.47,
+"y": 0.884,
+"rot": 0,
+"elev": 0.0,
+"w": 1.05,
+"d": 0.9,
+"h": 2.0,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#e8e4dc",
+"material": "stone"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"glass": true
+},
+"mount": "floor",
+"room": "13.06",
+"existing": true,
+"locked": true
+},
+{
+"id": "5921d66143",
+"catalogId": "bestand-wand-wc-g-ste-bestand-",
+"label": "Wand-WC Gäste (Bestand)",
+"x": 8.75,
+"y": 0.82,
+"rot": 0,
+"elev": 0.0,
+"w": 0.37,
+"d": 0.54,
+"h": 0.4,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#f6f6f4",
+"material": "ceramic"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"plate": true
+},
+"mount": "floor",
+"room": "13.06",
+"existing": true,
+"locked": true
+},
+{
+"id": "10b59686a9",
+"catalogId": "bestand-handwaschbecken-g-ste-wc-bestand-",
+"label": "Handwaschbecken Gäste-WC (Bestand)",
+"x": 9.08,
+"y": 1.3,
+"rot": 90,
+"elev": 0.0,
+"w": 0.5,
+"d": 0.3,
+"h": 0.85,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#f6f6f4",
+"material": "ceramic"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"mirror": true,
+"small": true
+},
+"mount": "floor",
+"room": "13.06",
+"existing": true,
+"locked": true
+}
+],
+"budget": [
+{
+"id": "339a1177ec",
+"pos": "W10",
+"room": "Wohnen",
+"name": "FJÄDRAR Innenkissen",
+"variant": "elfenbeinweiß, Entenfedern",
+"vendor": "IKEA",
+"qty": 4,
+"unit": 7.0,
+"url": "https://www.ikea.com/de/de/p/fjaedrar-innenkissen-elfenbeinweiss-80262187/",
+"note": "",
+"category": "Textil"
+},
+{
+"id": "3c074f1076",
+"pos": "W22",
+"room": "Wohnen",
+"name": "Kalkfarbe KREIDEZEIT Limewash (Sumpfkalk), abgetönt warmer Sand",
+"variant": "halbdeckend, im Kreuzschlag mit Flächenstreicher",
+"vendor": "Fachhandel",
+"qty": 16,
+"unit": 16.7,
+"url": "https://www.kreidezeitshop.de/detail/index/sArticle/6402",
+"note": "Wände Wohnen/Essen/Diele ≈ 60 m², 2 Lagen; Menge Richtwert; Untergrundeignung (Dispersionsanstrich) mit Hersteller klären",
+"category": "Wand & Oberfläche"
+},
+{
+"id": "0c264e732e",
+"pos": "W24",
+"room": "Wohnen",
+"name": "Erdpigmente zum Abtönen + Flächenstreicher, Abdeckmaterial",
+"variant": "Umbra/Ocker für warmen Sandton",
+"vendor": "Fachhandel",
+"qty": 1,
+"unit": 60.0,
+"url": null,
+"note": "Probefläche 1 × 1 m vor dem Anstrich",
+"category": "Wand & Oberfläche"
+},
+{
+"id": "b4cf516abb",
+"pos": "S20",
+"room": "Schlafen",
+"name": "Wandfarbe Alpina Feine Farben No. 5 „Dichter der Erde“",
+"variant": "nobles Erdbraun, edelmatt, Deckkraft Klasse 1",
+"vendor": "OBI",
+"qty": 5,
+"unit": 41.99,
+"url": "https://www.obi.de/bunte-wandfarben/alpina-feine-farben-no-5-dichter-der-erde-braun-edelmatt-2-5-l/p/5905583",
+"note": "COLOR-DRENCHING: alle Wände + Decke ≈ 51 m², 2 Anstriche; Probefläche anlegen",
+"category": "Wand & Oberfläche"
+},
+{
+"id": "744892f56b",
+"pos": "A12",
+"room": "Arbeit / Gast",
+"name": "Bodenschutz Natureiche: Glas- Bodenschutzmatte unter Bürostuhl + Filzgleiter-Set für alle Möbel",
+"variant": "Sicherheitsglas klar 120 × 90; Filz Ø 20–40 mm",
+"vendor": "Fachhandel",
+"qty": 1,
+"unit": 160.0,
+"url": null,
+"note": "Dielen schützen: Bürostuhl mit Matte oder Hartbodenrollen; Filz unter Stühlen, Tischen, Sofa; Richtpreis",
+"category": "Schutz"
+}
+],
+"rooms": {
+"13.01": {
+"floor": {
+"kind": "planks",
+"color": "#cfae84",
+"angle": 98,
+"plankLength": 1.9,
+"plankWidth": 0.19,
+"productName": "Natureiche-Dielen L 1,90 m (Bestand)"
+},
+"ceiling": "#f7f5f0",
+"wall": {
+"base": {
+"kind": "limewash",
+"color": "#e7dccb",
+"color2": "#d8c9b2",
+"productName": "KREIDEZEIT Limewash Sand (Sumpfkalk)"
+}
+}
+},
+"13.02": {
+"floor": {
+"kind": "planks",
+"color": "#cfae84",
+"angle": 98,
+"plankLength": 1.9,
+"plankWidth": 0.19,
+"productName": "Natureiche-Dielen L 1,90 m (Bestand)"
+},
+"ceiling": "#f7f5f0",
+"wall": {
+"base": {
+"kind": "paint",
+"color": "#f3f0e8",
+"productName": "Warmweiß matt (NCS S 0502-Y)",
+"sheen": "matt"
+}
+}
+},
+"13.03": {
+"floor": {
+"kind": "planks",
+"color": "#cfae84",
+"angle": 98,
+"plankLength": 1.9,
+"plankWidth": 0.19,
+"productName": "Natureiche-Dielen L 1,90 m (Bestand)"
+},
+"ceiling": "#75604f",
+"wall": {
+"base": {
+"kind": "paint",
+"color": "#75604f",
+"productName": "Alpina Feine Farben No. 5 „Dichter der Erde“",
+"sheen": "edelmatt"
+}
+}
+},
+"13.04": {
+"floor": {
+"kind": "planks",
+"color": "#cfae84",
+"angle": 90,
+"plankLength": 1.9,
+"plankWidth": 0.19,
+"productName": "Natureiche-Dielen L 1,90 m (Bestand)"
+},
+"ceiling": "#f7f5f0",
+"wall": {
+"base": {
+"kind": "paint",
+"color": "#f3f0e8",
+"productName": "Warmweiß matt (NCS S 0502-Y)",
+"sheen": "matt"
+}
+}
+},
+"13.05": {
+"floor": {
+"kind": "tiles",
+"color": "#d9d5cd",
+"color2": "#bdb7ac",
+"angle": 0,
+"tileSize": 0.6,
+"productName": "Feinsteinzeug 60 × 60 (Bestand)"
+},
+"ceiling": "#f7f5f0",
+"wall": {
+"base": {
+"kind": "paint",
+"color": "#f3f0e8",
+"productName": "Warmweiß matt (NCS S 0502-Y)",
+"sheen": "matt"
+},
+"lower": {
+"height": 1.2,
+"surface": {
+"kind": "tiles",
+"color": "#e3dfd7",
+"color2": "#c9c4ba",
+"pattern": "large",
+"scale": 0.6
+}
+}
+}
+},
+"13.06": {
+"floor": {
+"kind": "tiles",
+"color": "#d9d5cd",
+"color2": "#bdb7ac",
+"angle": 0,
+"tileSize": 0.6,
+"productName": "Feinsteinzeug 60 × 60 (Bestand)"
+},
+"ceiling": "#f7f5f0",
+"wall": {
+"base": {
+"kind": "paint",
+"color": "#f3f0e8",
+"productName": "Warmweiß matt (NCS S 0502-Y)",
+"sheen": "matt"
+},
+"lower": {
+"height": 1.2,
+"surface": {
+"kind": "tiles",
+"color": "#e3dfd7",
+"color2": "#c9c4ba",
+"pattern": "large",
+"scale": 0.6
+}
+}
+}
+},
+"13.07": {
+"floor": {
+"kind": "tiles",
+"color": "#d9d5cd",
+"color2": "#bdb7ac",
+"angle": 8,
+"tileSize": 0.6,
+"productName": "Feinsteinzeug 60 × 60 (Bestand)"
+},
+"ceiling": "#f7f5f0",
+"wall": {
+"base": {
+"kind": "paint",
+"color": "#f3f0e8",
+"productName": "Warmweiß matt (NCS S 0502-Y)",
+"sheen": "matt"
+},
+"lower": {
+"height": 0.0,
+"surface": {
+"kind": "tiles",
+"color": "#e3dfd7",
+"color2": "#c9c4ba",
+"pattern": "large",
+"scale": 0.6
+}
+}
+}
+},
+"13.08": {
+"floor": {
+"kind": "deck",
+"color": "#8a6a4c",
+"angle": 0,
+"plankWidth": 0.14,
+"productName": "Holzbelag Balkon (Bestand)"
+},
+"ceiling": "#f7f5f0",
+"wall": {
+"base": {
+"kind": "paint",
+"color": "#e9e5dc",
+"productName": "Fassadenputz"
+}
+}
+},
+"13.09": {
+"floor": {
+"kind": "deck",
+"color": "#8a6a4c",
+"angle": 8,
+"plankWidth": 0.14,
+"productName": "Holzbelag Balkon (Bestand)"
+},
+"ceiling": "#f7f5f0",
+"wall": {
+"base": {
+"kind": "paint",
+"color": "#e9e5dc",
+"productName": "Fassadenputz"
+}
+}
+}
+},
+"walls": {},
+"settings": {
+"doorsOpen": 0.0,
+"showDimensions": true,
+"snap": true,
+"gridSize": 0.05,
+"timeOfDay": 15.0,
+"budgetLimit": 40000
+}
+}

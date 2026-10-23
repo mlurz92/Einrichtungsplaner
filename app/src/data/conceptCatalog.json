@@ -1,0 +1,5999 @@
+[
+{
+"id": "bestand-waschmaschine-bestand-",
+"vendor": "Bestand",
+"name": "Waschmaschine (Bestand)",
+"category": "appliance",
+"w": 60.0,
+"d": 60.0,
+"h": 85.0,
+"price": 0,
+"archetype": "washer",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "Bestand",
+"slots": {
+"main": {
+"color": "#f4f4f2",
+"material": "gloss"
+},
+"detail": {
+"color": "#2a2a2a",
+"material": "glass"
+}
+}
+}
+],
+"tags": [
+"Bestand"
+],
+"concepts": []
+},
+{
+"id": "wes-boucl-sessel-sofia",
+"vendor": "Westwing",
+"name": "Bouclé-Sessel Sofia",
+"category": "armchair",
+"w": 97.0,
+"d": 90.0,
+"h": 72.0,
+"price": 979.0,
+"url": "https://www.westwing.de/boucle-sessel-sofia-173117.html",
+"archetype": "armchairRound",
+"params": {
+"seatHeight": 0.44
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Bouclé meliert PETROL",
+"slots": {
+"main": {
+"color": "#2f7074",
+"material": "boucle"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "6–7 Wo.",
+"description": "Farbakzent des Konzepts (kühles Petrol zu Espresso und Chrom); Sitzhöhe 44; rechts vom Sofa",
+"concepts": [
+2,
+3,
+4
+]
+},
+{
+"id": "wes-sessel-sofia-grosser-lounge-lesesessel",
+"vendor": "Westwing",
+"name": "Sessel Sofia (großer Lounge-/Lesesessel)",
+"category": "armchair",
+"w": 97.0,
+"d": 90.0,
+"h": 72.0,
+"price": 999.0,
+"url": "https://www.westwing.de/sessel-sofia-173168.html",
+"archetype": "armchairRound",
+"params": {
+"seatHeight": 0.44
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Samtiger Webstoff Salbeigrün",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "velvet"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "6–7 Wo.",
+"description": "rechts vom Sofa in L-Stellung, Blick nach Westen zum Bild W19",
+"concepts": [
+1
+]
+},
+{
+"id": "wes-gerahmter-digitaldruck-growing-incado",
+"vendor": "Westwing",
+"name": "Gerahmter Digitaldruck Growing (Incado)",
+"category": "art",
+"w": 53.0,
+"d": 3.0,
+"h": 73.0,
+"price": 159.0,
+"url": "https://www.westwing.de/gerahmter-digitaldruck-growing-handgefertigt-166308.html",
+"archetype": "art",
+"params": {
+"motif": "growing",
+"mat": true
+},
+"mount": "wall",
+"variants": [
+{
+"name": "Beigetöne / Rahmen taupe",
+"slots": {
+"main": {
+"color": "#e1d6c4",
+"material": "canvas"
+},
+"secondary": {
+"color": "#9b8a74",
+"material": "canvas"
+},
+"frame": {
+"color": "#a39484",
+"material": "matte"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "als Paar über dem Sideboard, im Profilrahmen E10",
+"concepts": [
+1
+],
+"elev": 0.0
+},
+{
+"id": "wes-gerahmtes-leinwandbild-scenario-handgemalt-maler",
+"vendor": "Westwing",
+"name": "Gerahmtes Leinwandbild Scenario, handgemalt (Malerifabrikken)",
+"category": "art",
+"w": 92.0,
+"d": 4.0,
+"h": 120.0,
+"price": 359.0,
+"url": "https://www.westwing.de/handgemaltes-leinwandbild-scenario-mit-holzrahmen-144828.html",
+"archetype": "art",
+"params": {
+"motif": "scenario"
+},
+"mount": "wall",
+"variants": [
+{
+"name": "Beige- und Grautöne, Eichenrahmen",
+"slots": {
+"main": {
+"color": "#d8cdbc",
+"material": "canvas"
+},
+"secondary": {
+"color": "#8f8576",
+"material": "canvas"
+},
+"frame": {
+"color": "#b38c60",
+"material": "oak"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–7 WT",
+"description": "Unikat; Westwand in Achse Couchtisch, im Blickfeld des Sessels W4; Unterkante H 0,95, Bildmitte H ≈ 1,55 m",
+"concepts": [
+1
+],
+"elev": 0.0
+},
+{
+"id": "wes-gerahmtes-leinwandbild-vibranium-handgemalt-male",
+"vendor": "Westwing",
+"name": "Gerahmtes Leinwandbild Vibranium, handgemalt (Malerifabrikken)",
+"category": "art",
+"w": 90.0,
+"d": 4.0,
+"h": 120.0,
+"price": 449.0,
+"url": "https://www.westwing.de/gerahmtes-gemalde-vibranium-auf-leinwand-de-25mle61932.html",
+"archetype": "art",
+"params": {
+"motif": "vibranium"
+},
+"mount": "wall",
+"variants": [
+{
+"name": "Brauntöne, Eichenrahmen",
+"slots": {
+"main": {
+"color": "#8a6248",
+"material": "canvas"
+},
+"secondary": {
+"color": "#3b2a20",
+"material": "canvas"
+},
+"frame": {
+"color": "#b38c60",
+"material": "oak"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "13–14 Wo.",
+"description": "Unikat; Westwand in Couchtisch-Achse, Blickziel des Sessels; Bildmitte H 1,55",
+"concepts": [
+2
+],
+"elev": 0.0
+},
+{
+"id": "wes-handgemaltes-bild-green-layer-malerifabrikken",
+"vendor": "Westwing",
+"name": "Handgemaltes Bild Green Layer (Malerifabrikken)",
+"category": "art",
+"w": 91.0,
+"d": 4.0,
+"h": 121.0,
+"price": 449.0,
+"url": "https://www.westwing.de/design-painting-green-layer-90x120-cm-black-frame-en-26mle67722.html",
+"archetype": "art",
+"params": {
+"motif": "greenlayer"
+},
+"mount": "wall",
+"variants": [
+{
+"name": "Grüntöne, Weiß; Rahmen schwarz",
+"slots": {
+"main": {
+"color": "#8fa98c",
+"material": "canvas"
+},
+"secondary": {
+"color": "#eef0ea",
+"material": "canvas"
+},
+"frame": {
+"color": "#151515",
+"material": "matte"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–3 Wo.",
+"description": "über dem Sideboard, Unterkante 0,95 m",
+"concepts": [
+3
+],
+"elev": 0.0
+},
+{
+"id": "wes-handgemaltes-bild-green-petite-malerifabrikken",
+"vendor": "Westwing",
+"name": "Handgemaltes Bild Green Petite (Malerifabrikken)",
+"category": "art",
+"w": 88.0,
+"d": 4.0,
+"h": 118.0,
+"price": 379.0,
+"url": "https://www.westwing.de/design-painting-green-petite-90x120-cm-en-26mle41599.html",
+"archetype": "art",
+"params": {
+"motif": "greenpetite"
+},
+"mount": "wall",
+"variants": [
+{
+"name": "Grüntöne, Blau, Rosa; Unikat",
+"slots": {
+"main": {
+"color": "#7f9a7a",
+"material": "canvas"
+},
+"secondary": {
+"color": "#2f5e66",
+"material": "canvas"
+},
+"frame": {
+"color": "#e2c7c0",
+"material": "oak"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–3 Wo.",
+"description": "Statement-Kunst an der Westwand; Bildmitte H 1,55",
+"concepts": [
+3
+],
+"elev": 0.0
+},
+{
+"id": "wes-handgemaltes-leinwandbild-blue-stroke",
+"vendor": "Westwing",
+"name": "Handgemaltes Leinwandbild Blue Stroke",
+"category": "art",
+"w": 150.0,
+"d": 4.0,
+"h": 100.0,
+"price": 459.0,
+"url": "https://www.westwing.de/handgemaltes-leinwandbild-blue-stroke-168238.html",
+"archetype": "art",
+"params": {
+"motif": "bluestroke",
+"noFrame": true
+},
+"mount": "wall",
+"variants": [
+{
+"name": "Weiß, Blautöne, Hellbeige; Keilrahmen",
+"slots": {
+"main": {
+"color": "#f2f0ea",
+"material": "canvas"
+},
+"secondary": {
+"color": "#2c4f7a",
+"material": "canvas"
+},
+"frame": {
+"color": "#f2f0ea",
+"material": "canvas"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "3–4 Wo.",
+"description": "hell auf Petrol, mittig über dem Kopfteil (UK 20 cm über Kopfteil)",
+"concepts": [
+4
+],
+"elev": 0.0
+},
+{
+"id": "wes-handgemaltes-leinwandbild-blueplay-malerifabrikk",
+"vendor": "Westwing",
+"name": "Handgemaltes Leinwandbild Blueplay (Malerifabrikken)",
+"category": "art",
+"w": 92.0,
+"d": 4.0,
+"h": 120.0,
+"price": 449.0,
+"url": "https://www.westwing.de/handgemaltes-leinwandbild-blueplay-mit-holzrahmen-144827.html",
+"archetype": "art",
+"params": {
+"motif": "blueplay"
+},
+"mount": "wall",
+"variants": [
+{
+"name": "Off White / Dunkelblau, Rahmen Eiche",
+"slots": {
+"main": {
+"color": "#f2efe8",
+"material": "canvas"
+},
+"secondary": {
+"color": "#22365a",
+"material": "canvas"
+},
+"frame": {
+"color": "#c9a273",
+"material": "oak"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–8 WT",
+"description": "großes Unikat an der Westwand, Blickziel des Sessels; Bildmitte H 1,55",
+"concepts": [
+4
+],
+"elev": 0.0
+},
+{
+"id": "wes-handgemaltes-leinwandbild-rust-agave",
+"vendor": "Westwing",
+"name": "Handgemaltes Leinwandbild Rust (Agave)",
+"category": "art",
+"w": 90.0,
+"d": 4.0,
+"h": 120.0,
+"price": 319.0,
+"url": "https://www.westwing.de/handgemaltes-leinwandbild-rust-168240.html",
+"archetype": "art",
+"params": {
+"motif": "rust"
+},
+"mount": "wall",
+"variants": [
+{
+"name": "Brauntöne / Weiß / Schwarz",
+"slots": {
+"main": {
+"color": "#7b4a32",
+"material": "canvas"
+},
+"secondary": {
+"color": "#e9e2d6",
+"material": "canvas"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "matte"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "3–4 Wo.",
+"description": "über dem Sideboard, Unterkante 0,95 m",
+"concepts": [
+2
+],
+"elev": 0.0
+},
+{
+"id": "wes-leinwanddruck-elements-everlast-handveredelt-mal",
+"vendor": "Westwing",
+"name": "Leinwanddruck Elements Everlast, handveredelt (Malerifabrikken)",
+"category": "art",
+"w": 90.0,
+"d": 4.0,
+"h": 118.0,
+"price": 219.0,
+"url": "https://www.westwing.de/mm-everlast-90x120-en-26mle49342.html",
+"archetype": "art",
+"params": {
+"motif": "everlast"
+},
+"mount": "wall",
+"variants": [
+{
+"name": "Beige, Gold, Grau; Rahmen Tanne",
+"slots": {
+"main": {
+"color": "#e8dccb",
+"material": "canvas"
+},
+"secondary": {
+"color": "#c9a55c",
+"material": "canvas"
+},
+"frame": {
+"color": "#c8b389",
+"material": "matte"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–7 WT",
+"description": "Goldton holt das Messing der Leuchten an die Wand; UK 0,95 m",
+"concepts": [
+4
+],
+"elev": 0.0
+},
+{
+"id": "bestand-badewanne-180-80-bestand-",
+"vendor": "Bestand",
+"name": "Badewanne 180 × 80 (Bestand)",
+"category": "bath",
+"w": 180.0,
+"d": 80.0,
+"h": 58.0,
+"price": 0,
+"archetype": "bathtub",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "Bestand",
+"slots": {
+"main": {
+"color": "#f6f6f4",
+"material": "ceramic"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Bestand"
+],
+"concepts": []
+},
+{
+"id": "bestand-dusche-105-90-bestand-",
+"vendor": "Bestand",
+"name": "Dusche 105 × 90 (Bestand)",
+"category": "bath",
+"w": 105.0,
+"d": 90.0,
+"h": 200.0,
+"price": 0,
+"archetype": "shower",
+"params": {
+"glass": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Bestand",
+"slots": {
+"main": {
+"color": "#e8e4dc",
+"material": "stone"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Bestand"
+],
+"concepts": []
+},
+{
+"id": "bestand-handwaschbecken-g-ste-wc-bestand-",
+"vendor": "Bestand",
+"name": "Handwaschbecken Gäste-WC (Bestand)",
+"category": "bath",
+"w": 50.0,
+"d": 30.0,
+"h": 85.0,
+"price": 0,
+"archetype": "washbasin",
+"params": {
+"mirror": true,
+"small": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Bestand",
+"slots": {
+"main": {
+"color": "#f6f6f4",
+"material": "ceramic"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Bestand"
+],
+"concepts": []
+},
+{
+"id": "bestand-wand-wc-bad-bestand-",
+"vendor": "Bestand",
+"name": "Wand-WC Bad (Bestand)",
+"category": "bath",
+"w": 37.0,
+"d": 54.0,
+"h": 40.0,
+"price": 0,
+"archetype": "toilet",
+"params": {
+"plate": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Bestand",
+"slots": {
+"main": {
+"color": "#f6f6f4",
+"material": "ceramic"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Bestand"
+],
+"concepts": []
+},
+{
+"id": "bestand-wand-wc-g-ste-bestand-",
+"vendor": "Bestand",
+"name": "Wand-WC Gäste (Bestand)",
+"category": "bath",
+"w": 37.0,
+"d": 54.0,
+"h": 40.0,
+"price": 0,
+"archetype": "toilet",
+"params": {
+"plate": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Bestand",
+"slots": {
+"main": {
+"color": "#f6f6f4",
+"material": "ceramic"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Bestand"
+],
+"concepts": []
+},
+{
+"id": "bestand-waschtisch-bad-bestand-",
+"vendor": "Bestand",
+"name": "Waschtisch Bad (Bestand)",
+"category": "bath",
+"w": 80.0,
+"d": 46.0,
+"h": 85.0,
+"price": 0,
+"archetype": "washbasin",
+"params": {
+"mirror": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Bestand",
+"slots": {
+"main": {
+"color": "#f6f6f4",
+"material": "ceramic"
+},
+"secondary": {
+"color": "#d6c5ad",
+"material": "oak"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Bestand"
+],
+"concepts": []
+},
+{
+"id": "wes-boucl-polsterbett-dream-mit-stauraum",
+"vendor": "Westwing",
+"name": "Bouclé-Polsterbett Dream mit Stauraum",
+"category": "bed",
+"w": 196.0,
+"d": 222.0,
+"h": 110.0,
+"price": 1199.0,
+"url": "https://www.westwing.de/fsc-bed-dream-140x200-sic-legend-3-taupe-with-storage-en-25wes53203.html",
+"archetype": "bed",
+"params": {
+"mattressW": 1.8,
+"mattressL": 2.0,
+"headboard": 1.1,
+"frameH": 0.35,
+"storage": true,
+"duvetSingle": false
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Bouclé Taupe; Bettkasten unter aufklappbarem Lattenrost",
+"slots": {
+"main": {
+"color": "#b9aa97",
+"material": "boucle"
+},
+"secondary": {
+"color": "#c8d3c1",
+"material": "linen"
+},
+"accent": {
+"color": "#f3efe6",
+"material": "wool"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "8–9 Wo.",
+"description": "Größe 180 × 200 wählen (Preis lt. Größenfilter „Betten mit Stauraum“); Lattenrost inklusive; Stauraum innen ca. 180 × 200 × 33 cm (aus 140er- Variante abgeleitet)",
+"concepts": [
+1
+]
+},
+{
+"id": "wes-cord-polsterbett-dream-mit-stauraum",
+"vendor": "Westwing",
+"name": "Cord-Polsterbett Dream mit Stauraum",
+"category": "bed",
+"w": 196.0,
+"d": 222.0,
+"h": 110.0,
+"price": 1299.0,
+"url": "https://www.westwing.de/cord-polsterbett-dream-mit-stauraum-162096.html?simple=DEQ24WES24041-209054",
+"archetype": "bed",
+"params": {
+"mattressW": 1.8,
+"mattressL": 2.0,
+"headboard": 1.1,
+"frameH": 0.35,
+"storage": true,
+"duvetSingle": false
+},
+"mount": "floor",
+"variants": [
+{
+"name": "CORD OLIVGRÜN, Liegefläche 180 × 200",
+"slots": {
+"main": {
+"color": "#6e7450",
+"material": "cord"
+},
+"secondary": {
+"color": "#c89c6b",
+"material": "linen"
+},
+"accent": {
+"color": "#5b3a2c",
+"material": "wool"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+},
+{
+"name": "CORD BLAU (Statement; Farbton am Stoffmuster prüfen), Liegefläche 180 × 200",
+"slots": {
+"main": {
+"color": "#3f6680",
+"material": "cord"
+},
+"secondary": {
+"color": "#d3dbca",
+"material": "linen"
+},
+"accent": {
+"color": "#f3efe6",
+"material": "wool"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+},
+{
+"name": "Cord OFF WHITE, Liegefläche 180 × 200",
+"slots": {
+"main": {
+"color": "#efe8dd",
+"material": "cord"
+},
+"secondary": {
+"color": "#fbfbf8",
+"material": "linen"
+},
+"accent": {
+"color": "#d8ccb8",
+"material": "wool"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "8–9 Wo.",
+"description": "Lattenrost inkl., Liegefläche klappt hoch; Stauraum innen 180 × 200 × 33",
+"concepts": [
+2,
+3,
+4
+]
+},
+{
+"id": "ike-bissa-schuhschrank-3-faecher",
+"vendor": "IKEA",
+"name": "BISSA Schuhschrank, 3 Fächer",
+"category": "cabinet",
+"w": 49.0,
+"d": 28.0,
+"h": 135.0,
+"price": 49.99,
+"url": "https://www.ikea.com/de/de/p/bissa-schuhschrank-3-faecher-schwarzbraun-60530209/",
+"archetype": "dresser",
+"params": {
+"flaps": 3,
+"legHeight": 0.0
+},
+"mount": "floor",
+"variants": [
+{
+"name": "schwarzbraun",
+"slots": {
+"main": {
+"color": "#2d2420",
+"material": "matte"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "prüfen",
+"description": "≥ 12 Paar; Wandbefestigung erforderlich; Family- Preis bis 18.10.2026: 39,99 €",
+"concepts": [
+1
+]
+},
+{
+"id": "wes-holz-schuhschrank-seaford-mit-klappfaechern",
+"vendor": "Westwing",
+"name": "Holz-Schuhschrank Seaford mit Klappfächern",
+"category": "cabinet",
+"w": 56.0,
+"d": 30.0,
+"h": 129.0,
+"price": 189.0,
+"url": "https://www.westwing.de/holz-schuhschrank-seaford-mit-klappfaechern-163423.html",
+"archetype": "dresser",
+"params": {
+"flaps": 3,
+"legHeight": 0.12
+},
+"mount": "floor",
+"variants": [
+{
+"name": "dunkles Holz / Griffe und Gestell schwarz",
+"slots": {
+"main": {
+"color": "#4d3626",
+"material": "oakDark"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "4–5 Wo.",
+"description": "3 Klappfächer, an der Wand sichern",
+"concepts": [
+2,
+3,
+4
+]
+},
+{
+"id": "wes-holz-vitrine-zamora-house-nordic",
+"vendor": "Westwing",
+"name": "Holz-Vitrine Zamora (House Nordic)",
+"category": "cabinet",
+"w": 90.0,
+"d": 40.0,
+"h": 180.0,
+"price": 699.0,
+"url": "https://www.westwing.de/wooden-display-cabinet-zamora-en-26hoe50460.html",
+"archetype": "vitrine",
+"params": {
+"shelves": 4,
+"legHeight": 0.12
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Eichenfurnier dunkel, Glasfronten",
+"slots": {
+"main": {
+"color": "#4d3626",
+"material": "oakDark"
+},
+"secondary": {
+"color": "#d8dcd8",
+"material": "glass"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "4–9 WT",
+"description": "Bar-/Gläservitrine hinter dem Sofa; 4 Fächer; Wandbefestigung",
+"concepts": [
+2
+]
+},
+{
+"id": "wes-metall-vitrine-the-collector-mit-geriffeltem-gla",
+"vendor": "Westwing",
+"name": "Metall-Vitrine The Collector mit geriffeltem Glas (Mustard Made)",
+"category": "cabinet",
+"w": 85.0,
+"d": 40.0,
+"h": 170.0,
+"price": 889.0,
+"url": "https://www.westwing.de/metall-vitrine-the-collector-mit-geriffeltem-glas-169561.html",
+"archetype": "vitrine",
+"params": {
+"shelves": 4,
+"legHeight": 0.1
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Salbeigrün, Stahl pulverbeschichtet, Riffelglas",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "matte"
+},
+"secondary": {
+"color": "#e8efe8",
+"material": "ribbedGlass"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "4–9 WT",
+"description": "4 verstellbare Böden, abschließbar; HWR- Nordwand hinter dem Sofa, Front nach Norden; kippsicher an der Wand befestigen; optional LED über Dose HWR-Wand",
+"concepts": [
+1
+]
+},
+{
+"id": "wes-deckenleuchte-eloise-aus-glas",
+"vendor": "Westwing",
+"name": "Deckenleuchte Eloise aus Glas",
+"category": "ceilingLamp",
+"w": 40.0,
+"d": 40.0,
+"h": 15.0,
+"price": 249.0,
+"url": "https://www.westwing.de/organic-shapes-ceiling-lamp-en-25wes51538.html",
+"archetype": "ceilingDome",
+"params": {
+"organic": true
+},
+"mount": "ceiling",
+"variants": [
+{
+"name": "Glas weiß / Baldachin silberfarben",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#c0c0c0",
+"material": "chrome"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "13–14 Wo.",
+"description": "3 × E14 LED; längste Lieferzeit → zuerst bestellen",
+"concepts": [
+1
+],
+"elev": 0.0
+},
+{
+"id": "ike-gasgrund-deckenleuchte",
+"vendor": "IKEA",
+"name": "GÅSGRUND Deckenleuchte",
+"category": "ceilingLamp",
+"w": 30.0,
+"d": 30.0,
+"h": 11.0,
+"price": 24.99,
+"url": "https://www.ikea.com/de/de/p/gasgrund-deckenleuchte-opalweiss-40223857/",
+"archetype": "ceilingDisc",
+"params": {
+"shape": "gasgrund"
+},
+"mount": "ceiling",
+"variants": [
+{
+"name": "Opalglas / vernickelte Deckenplatte, IP44",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "prüfen",
+"description": "Auslaufartikel – Bestand prüfen; Küchenmöbel separat (Alno 2060)",
+"concepts": [
+2,
+3,
+4
+],
+"elev": 0.0
+},
+{
+"id": "wes-kleine-deckenleuchte-lido-aus-opalglas",
+"vendor": "Westwing",
+"name": "Kleine Deckenleuchte Lido aus Opalglas",
+"category": "ceilingLamp",
+"w": 20.0,
+"d": 20.0,
+"h": 23.0,
+"price": 64.99,
+"url": "https://www.westwing.de/deckenleuchte-lido-aus-opalglas-142125.html",
+"archetype": "ceilingDome",
+"params": {
+"shape": "lido"
+},
+"mount": "ceiling",
+"variants": [
+{
+"name": "Opalglas weiß / Gestell schwarz",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–3 Wo.",
+"description": "E27 LED, IP23",
+"concepts": [
+1
+],
+"elev": 0.0
+},
+{
+"id": "wes-kleine-deckenleuchte-vanja-aneta",
+"vendor": "Westwing",
+"name": "Kleine Deckenleuchte Vanja (Aneta)",
+"category": "ceilingLamp",
+"w": 20.0,
+"d": 20.0,
+"h": 24.0,
+"price": 109.0,
+"url": "https://www.westwing.de/kleine-deckenleuchte-vanja-161449.html",
+"archetype": "ceilingDome",
+"params": {
+"shape": "vanja"
+},
+"mount": "ceiling",
+"variants": [
+{
+"name": "Glas weiß / Baldachin silberfarben",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "ca. 2 Wo.",
+"description": "E27 exkl.",
+"concepts": [
+2,
+3,
+4
+],
+"elev": 0.0
+},
+{
+"id": "des-konsthantverk-svep-deckenleuchte",
+"vendor": "Designhandel",
+"name": "Konsthantverk Svep Deckenleuchte",
+"category": "ceilingLamp",
+"w": 45.0,
+"d": 45.0,
+"h": 18.0,
+"price": 299.0,
+"url": "https://www.nordicnest.de/marken/konsthantverk/svep-deckenleuchte/?variantId=561044-01",
+"archetype": "ceilingDisc",
+"params": {
+"shape": "svep"
+},
+"mount": "ceiling",
+"variants": [
+{
+"name": "MESSING roh / Opal-Acryl; über Nordic Nest",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "Versand ab 15.11.",
+"description": "deckennah an beiden DA; 3 × E27 exkl., warmweiß 2.700 K",
+"concepts": [
+4
+],
+"elev": 0.0
+},
+{
+"id": "wes-armlehnstuhl-nik-nischenplatz",
+"vendor": "Westwing",
+"name": "Armlehnstuhl Nik (Nischenplatz)",
+"category": "chair",
+"w": 58.0,
+"d": 54.0,
+"h": 80.0,
+"price": 269.0,
+"url": "https://www.westwing.de/armlehnstuhl-nik-mit-boucle-polsterung-164180.html?simple=DEQ24WES60227-211980",
+"archetype": "diningArmchair",
+"params": {
+"seatHeight": 0.48,
+"armHeight": 0.7
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Bouclé SALBEIGRÜN / Eiche geölt",
+"slots": {
+"main": {
+"color": "#a3b39a",
+"material": "boucle"
+},
+"legs": {
+"color": "#a37a52",
+"material": "oak"
+}
+}
+},
+{
+"name": "Webstoff OFF WHITE / Eiche hell geölt",
+"slots": {
+"main": {
+"color": "#efebe1",
+"material": "fabric"
+},
+"legs": {
+"color": "#c9a477",
+"material": "oak"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "Ecke nördlich des Essbereichs, zugleich 5. Platz",
+"concepts": [
+3,
+4
+]
+},
+{
+"id": "wes-armlehnstuhl-nik-mit-boucl-polsterung",
+"vendor": "Westwing",
+"name": "Armlehnstuhl Nik mit Bouclé-Polsterung",
+"category": "chair",
+"w": 58.0,
+"d": 54.0,
+"h": 80.0,
+"price": 269.0,
+"url": "https://www.westwing.de/armlehnstuhl-nik-mit-boucle-polsterung-164180.html",
+"archetype": "diningArmchair",
+"params": {
+"seatHeight": 0.48,
+"armHeight": 0.7
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Bouclé Salbeigrün / Eiche geölt",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "boucle"
+},
+"legs": {
+"color": "#a37a52",
+"material": "oak"
+}
+}
+},
+{
+"name": "Bouclé SALBEIGRÜN / Eiche geölt",
+"slots": {
+"main": {
+"color": "#a3b39a",
+"material": "boucle"
+},
+"legs": {
+"color": "#a37a52",
+"material": "oak"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "Armlehne H 70 – unterfahrbar",
+"concepts": [
+1,
+3
+]
+},
+{
+"id": "wes-armlehnstuhl-nik-mit-boucl-polsterung-nischenstu",
+"vendor": "Westwing",
+"name": "Armlehnstuhl Nik mit Bouclé-Polsterung (Nischenstuhl)",
+"category": "chair",
+"w": 58.0,
+"d": 54.0,
+"h": 80.0,
+"price": 269.0,
+"url": "https://www.westwing.de/armlehnstuhl-nik-mit-boucle-polsterung-164180.html",
+"archetype": "diningArmchair",
+"params": {
+"seatHeight": 0.48,
+"armHeight": 0.7
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Bouclé Salbeigrün / Eiche geölt",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "boucle"
+},
+"legs": {
+"color": "#a37a52",
+"material": "oak"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "dezenter Sessel in der Ecke nördlich des Essbereichs; zugleich 5. Platz am Esstisch",
+"concepts": [
+1
+]
+},
+{
+"id": "wes-armlehnstuhl-nik-mit-polsterung",
+"vendor": "Westwing",
+"name": "Armlehnstuhl Nik mit Polsterung",
+"category": "chair",
+"w": 58.0,
+"d": 54.0,
+"h": 80.0,
+"price": 269.0,
+"url": "https://www.westwing.de/armlehnstuhl-nik-mit-polsterung-164174.html?simple=DEQ24WES56286-211974",
+"archetype": "diningArmchair",
+"params": {
+"seatHeight": 0.48,
+"armHeight": 0.7
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Webstoff OFF WHITE / Eiche hell geölt",
+"slots": {
+"main": {
+"color": "#efebe1",
+"material": "fabric"
+},
+"legs": {
+"color": "#c9a477",
+"material": "oak"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "runde Tub-Lehne; heller Ring um den Stein; Sitzhöhe 48",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-lederstuhl-jordan",
+"vendor": "Westwing",
+"name": "Lederstuhl Jordan",
+"category": "chair",
+"w": 50.0,
+"d": 53.0,
+"h": 81.0,
+"price": 369.0,
+"url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
+"archetype": "cantilever",
+"params": {
+"seatHeight": 0.46
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Leder Braun / verchromter Metallrahmen",
+"slots": {
+"main": {
+"color": "#6b4429",
+"material": "leather"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "13–14 Wo.",
+"description": "Sitzhöhe 46; früh bestellen",
+"concepts": [
+2
+]
+},
+{
+"id": "wes-lederstuhl-jordan-nischenplatz",
+"vendor": "Westwing",
+"name": "Lederstuhl Jordan (Nischenplatz)",
+"category": "chair",
+"w": 50.0,
+"d": 53.0,
+"h": 81.0,
+"price": 369.0,
+"url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
+"archetype": "cantilever",
+"params": {
+"seatHeight": 0.46
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Leder Braun / verchromter Metallrahmen",
+"slots": {
+"main": {
+"color": "#6b4429",
+"material": "leather"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "13–14 Wo.",
+"description": "dezenter Platz nördlich des Essbereichs, zugleich 5. Platz am Tisch",
+"concepts": [
+2
+]
+},
+{
+"id": "wes-couchtisch-marisa-aus-travertin",
+"vendor": "Westwing",
+"name": "Couchtisch Marisa aus Travertin",
+"category": "coffeeTable",
+"w": 100.0,
+"d": 50.0,
+"h": 35.0,
+"price": 899.0,
+"url": "https://www.westwing.de/couchtisch-marisa-aus-travertin-161285.html?simple=DEQ24WES81554-207597",
+"archetype": "coffeeBlock",
+"params": {
+"plinth": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Travertin beige, monolithischer Sockel",
+"slots": {
+"main": {
+"color": "#e8ddcb",
+"material": "travertine"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "4–9 WT",
+"description": "Steinblock statt Beine – das Gestaltungsmotiv „Monolith“; Set mit W5; imprägnieren, Untersetzer",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-holz-couchtisch-burl-ferm-living",
+"vendor": "Westwing",
+"name": "Holz-Couchtisch Burl (Ferm Living)",
+"category": "coffeeTable",
+"w": 117.0,
+"d": 70.0,
+"h": 30.0,
+"price": 1249.0,
+"url": "https://www.westwing.de/burl-coffee-table-dark-stained-burl-en-26fev15211.html",
+"archetype": "tableOval",
+"params": {
+"base": "panel",
+"organic": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Wurzelholzfurnier dunkel gebeizt (FSC)",
+"slots": {
+"top": {
+"color": "#7e5638",
+"material": "burl"
+},
+"legs": {
+"color": "#5a3b26",
+"material": "burl"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "4–9 WT",
+"description": "Statement-Stück; lt. Shop nur noch 3 verfügbar – früh bestellen",
+"concepts": [
+2
+]
+},
+{
+"id": "wes-travertin-couchtisch-distinct-mit-zwei-tischplat",
+"vendor": "Westwing",
+"name": "Travertin-Couchtisch Distinct mit zwei Tischplatten (Ferm Living)",
+"category": "coffeeTable",
+"w": 100.0,
+"d": 55.0,
+"h": 35.0,
+"price": 1249.0,
+"url": "https://www.westwing.de/travertin-couchtisch-distinct-mit-zwei-tischplatten-165645.html?simple=DEQ24FER66118-214084",
+"archetype": "coffeeBlock",
+"params": {
+"twoLevel": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Travertin beige",
+"slots": {
+"main": {
+"color": "#ece5d9",
+"material": "travertine"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "3–4 Wo.",
+"description": "zwei Ebenen, massiver Stein – ruhig, aber skulptural; Untersetzer, imprägnieren",
+"concepts": [
+3
+]
+},
+{
+"id": "wes-travertin-couchtische-distinct-grande-duo-2er-se",
+"vendor": "Westwing",
+"name": "Travertin-Couchtische Distinct Grande Duo, 2er-Set (Ferm Living)",
+"category": "coffeeTable",
+"w": 135.0,
+"d": 88.0,
+"h": 35.0,
+"price": 1799.0,
+"url": "https://www.westwing.de/travertin-couchtische-distinct-grande-duo-2er-set-165616.html",
+"archetype": "coffeeDuo",
+"params": {
+"a_w": 0.8,
+"a_d": 0.7,
+"a_h": 0.35,
+"b_w": 0.7,
+"b_d": 0.53,
+"b_h": 0.23,
+"a_x": -0.352,
+"a_y": 0.04,
+"b_x": 0.352,
+"b_y": -0.04,
+"b_rot": 90
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Travertin beige, massiv, weiche Kanten – Oberfläche matt geschliffen bestätigen",
+"slots": {
+"main": {
+"color": "#e3d6c1",
+"material": "travertine"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "4–9 WT",
+"description": "zwei Höhen, versetzt mittig vor dem Sofa; 70 kg gesamt; Untersetzer verwenden",
+"concepts": [
+1
+]
+},
+{
+"id": "wes-konsole-chandler-aus-eichenholz-mit-travertinpla",
+"vendor": "Westwing",
+"name": "Konsole Chandler aus Eichenholz mit Travertinplatte",
+"category": "console",
+"w": 110.0,
+"d": 40.0,
+"h": 80.0,
+"price": 799.0,
+"url": "https://www.westwing.de/konsole-chandler-aus-eichenholz-mit-travertinplatte-159336.html",
+"archetype": "console",
+"params": {
+"style": "chandler"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Eiche massiv dunkel lackiert / Travertin beige",
+"slots": {
+"top": {
+"color": "#e3d6c1",
+"material": "travertine"
+},
+"main": {
+"color": "#4b3326",
+"material": "oakDark"
+}
+}
+},
+{
+"name": "Travertin beige / massive Eiche dunkel",
+"slots": {
+"top": {
+"color": "#e3d6c1",
+"material": "travertine"
+},
+"main": {
+"color": "#4b3326",
+"material": "oakDark"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "4–9 WT",
+"description": "Serie wie Lowboard und Sideboard; max. 90 kg",
+"concepts": [
+1,
+4
+]
+},
+{
+"id": "wes-konsole-noam-mit-marmor-platte",
+"vendor": "Westwing",
+"name": "Konsole Noam mit Marmor-Platte",
+"category": "console",
+"w": 120.0,
+"d": 40.0,
+"h": 80.0,
+"price": 679.0,
+"url": "https://www.westwing.de/konsole-noam-mit-marmor-tischplatte-163553.html",
+"archetype": "console",
+"params": {
+"style": "noam"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "DUNKELGRÜN marmoriert / Beine Metall gebürstet",
+"slots": {
+"top": {
+"color": "#3f5d4e",
+"material": "marbleGreen"
+},
+"main": {
+"color": "#b9b4aa",
+"material": "steel"
+}
+}
+},
+{
+"name": "Hellbeige marmoriert / Metall gebürstet",
+"slots": {
+"top": {
+"color": "#ece5d9",
+"material": "marble"
+},
+"main": {
+"color": "#b9b4aa",
+"material": "steel"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "4–9 WT",
+"description": "Serie wie Esstisch; reduziert (vorher 749 €); Wandbeschlag liegt bei",
+"concepts": [
+2,
+3
+]
+},
+{
+"id": "wes-halbtransparente-multiband-gardinen-birch-2er-se",
+"vendor": "Westwing",
+"name": "Halbtransparente Multiband-Gardinen Birch, 2er-Set",
+"category": "curtain",
+"w": 225.0,
+"d": 12.0,
+"h": 253.0,
+"price": 139.0,
+"url": "https://www.westwing.de/halbtransparente-gardine-birch-mit-multiband-2-stueck-151600.html?simple=DEQ23WES20065-194390",
+"archetype": "curtain",
+"params": {
+"layers": 1,
+"open": 0.85,
+"track": true,
+"sheer": true
+},
+"mount": "ceiling",
+"variants": [
+{
+"name": "Off White, 100 % LEINEN",
+"slots": {
+"main": {
+"color": "#f4f0e7",
+"material": "linen"
+}
+}
+},
+{
+"name": "Off White, 100 % Leinen",
+"slots": {
+"main": {
+"color": "#f4f0e7",
+"material": "linen"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "je 1 Set: Balkonfenster Wohnen, Ostfenster 1, Ostfenster 2; Multiband → Saum 1 cm über Dielen",
+"concepts": [
+4
+],
+"elev": 0.0
+},
+{
+"id": "ike-silverloenn-gardinenstore-1-paar",
+"vendor": "IKEA",
+"name": "SILVERLÖNN Gardinenstore, 1 Paar",
+"category": "curtain",
+"w": 225.0,
+"d": 12.0,
+"h": 253.0,
+"price": 24.99,
+"url": "https://www.ikea.com/de/de/p/silverloenn-gardinenstore-paar-beige-mit-gardinenband-10493978/",
+"archetype": "curtain",
+"params": {
+"layers": 1,
+"open": 0.85,
+"track": true,
+"sheer": true
+},
+"mount": "ceiling",
+"variants": [
+{
+"name": "beige, Baumwolle in Leinenstruktur, durchscheinend, Gardinenband",
+"slots": {
+"main": {
+"color": "#e5dccb",
+"material": "linen"
+}
+}
+},
+{
+"name": "beige, Baumwolle in Leinenstruktur",
+"slots": {
+"main": {
+"color": "#e5dccb",
+"material": "linen"
+}
+}
+},
+{
+"name": "beige, durchscheinend",
+"slots": {
+"main": {
+"color": "#e5dccb",
+"material": "linen"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "prüfen",
+"description": "je 1 Paar: Balkonfenster Wohnen, Ostfenster 1, Ostfenster 2; waschen, dann auf ≈ 2,53 m kürzen",
+"concepts": [
+2,
+3
+],
+"elev": 0.0
+},
+{
+"id": "ike-silverloenn-gardinenstore-1-paar-vorn",
+"vendor": "IKEA",
+"name": "SILVERLÖNN Gardinenstore, 1 Paar (vorn)",
+"category": "curtain",
+"w": 372.0,
+"d": 16.0,
+"h": 253.0,
+"price": 24.99,
+"url": "https://www.ikea.com/de/de/p/silverloenn-gardinenstore-paar-beige-mit-gardinenband-10493978/",
+"archetype": "curtain",
+"params": {
+"layers": 2,
+"open": 0.85,
+"track": true,
+"sheer": true
+},
+"mount": "ceiling",
+"variants": [
+{
+"name": "beige, durchscheinend",
+"slots": {
+"main": {
+"color": "#e5dccb",
+"material": "linen"
+},
+"secondary": {
+"color": "#4a3128",
+"material": "velvet"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "prüfen",
+"description": "waschen, dann kürzen",
+"concepts": [
+2,
+3
+],
+"elev": 0.0
+},
+{
+"id": "ike-tibast-2-gardinenschals",
+"vendor": "IKEA",
+"name": "TIBAST 2 Gardinenschals",
+"category": "curtain",
+"w": 225.0,
+"d": 12.0,
+"h": 253.0,
+"price": 49.99,
+"url": "https://www.ikea.com/de/de/p/tibast-2-gardinenschals-weiss-10396760/",
+"archetype": "curtain",
+"params": {
+"layers": 1,
+"open": 0.85,
+"track": true,
+"sheer": true
+},
+"mount": "ceiling",
+"variants": [
+{
+"name": "weiß, 100 % Baumwolle, lichtfilternd, Gardinenband",
+"slots": {
+"main": {
+"color": "#f7f4ec",
+"material": "linen"
+}
+}
+},
+{
+"name": "weiß, 100 % Baumwolle",
+"slots": {
+"main": {
+"color": "#f7f4ec",
+"material": "linen"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "prüfen",
+"description": "je 1 Paar: Balkonfenster Wohnen, Ostfenster 1, Ostfenster 2; erst waschen, dann auf ≈ 2,53 m kürzen",
+"concepts": [
+1
+],
+"elev": 0.0
+},
+{
+"id": "ike-tibast-2-gardinenschals-vorn",
+"vendor": "IKEA",
+"name": "TIBAST 2 Gardinenschals (vorn)",
+"category": "curtain",
+"w": 372.0,
+"d": 16.0,
+"h": 253.0,
+"price": 49.99,
+"url": "https://www.ikea.com/de/de/p/tibast-2-gardinenschals-weiss-10396760/",
+"archetype": "curtain",
+"params": {
+"layers": 2,
+"open": 0.85,
+"track": true,
+"sheer": true
+},
+"mount": "ceiling",
+"variants": [
+{
+"name": "weiß, 100 % Baumwolle",
+"slots": {
+"main": {
+"color": "#f7f4ec",
+"material": "linen"
+},
+"secondary": {
+"color": "#d8ccb4",
+"material": "linen"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "prüfen",
+"description": "waschen, dann kürzen",
+"concepts": [
+1
+],
+"elev": 0.0
+},
+{
+"id": "wes-bildband-the-new-mediterranean-objekt-nodo",
+"vendor": "Westwing",
+"name": "Bildband „The New Mediterranean“ + Objekt Nodo",
+"category": "decor",
+"w": 23.0,
+"d": 30.0,
+"h": 4.0,
+"price": 79.99,
+"url": "https://www.westwing.de/the-new-mediterranean-en-25teu31606.html",
+"archetype": "books",
+"params": {
+"count": 1,
+"lying": true,
+"object": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Beige/Weiß/Blau; Steingut sandfarben",
+"slots": {
+"main": {
+"color": "#e9e4d8",
+"material": "paper"
+},
+"secondary": {
+"color": "#d1c3a7",
+"material": "ceramic"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–5 WT",
+"description": "Sideboard rechts unter der Leuchte; Nodo 34,99 € (westwing.de/handgemachtes-deko-objekt- nodo-aus-steingut-in-beige-145488.html)",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-bildbaende-soft-minimal-stillness-gestalten",
+"vendor": "Westwing",
+"name": "Bildbände „Soft Minimal“ + „Stillness“ (gestalten)",
+"category": "decor",
+"w": 34.0,
+"d": 26.0,
+"h": 7.0,
+"price": 70.0,
+"url": "https://www.westwing.de/coffee-table-book-soft-minimal-en-25teu49089.html",
+"archetype": "books",
+"params": {
+"count": 2,
+"lying": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Cover Beige/Weiß",
+"slots": {
+"main": {
+"color": "#ece6da",
+"material": "paper"
+},
+"secondary": {
+"color": "#d6cbb7",
+"material": "paper"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–5 WT",
+"description": "gestapelt auf dem Couchtisch; Stillness: westwing.de/stillness-en-25teu32501.html",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-deko-schale-fossil-aus-marmor",
+"vendor": "Westwing",
+"name": "Deko-Schale Fossil aus Marmor",
+"category": "decor",
+"w": 35.0,
+"d": 30.0,
+"h": 10.0,
+"price": 99.99,
+"url": "https://www.westwing.de/deko-schale-fossil-aus-marmor-159486.html?simple=DEQ23WES38273-205041",
+"archetype": "bowl",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "Beigetöne",
+"slots": {
+"main": {
+"color": "#d9cdb8",
+"material": "marble"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "Couchtisch, auf den Bildbänden",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-deko-schale-fountain-aus-steinzeug-ferm-living",
+"vendor": "Westwing",
+"name": "Deko-Schale Fountain aus Steinzeug (Ferm Living)",
+"category": "decor",
+"w": 41.0,
+"d": 31.0,
+"h": 24.0,
+"price": 129.0,
+"url": "https://www.westwing.de/deko-schale-fountain-aus-steinzeug-b-41-cm-165441.html?simple=DEQ24FER01776-213872",
+"archetype": "bowl",
+"params": {
+"footed": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Off White matt",
+"slots": {
+"main": {
+"color": "#f1ede4",
+"material": "ceramic"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "Tischmitte – skulpturale Fußschale",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-deko-tablett-venice-aus-marmor",
+"vendor": "Westwing",
+"name": "Deko-Tablett Venice aus Marmor",
+"category": "decor",
+"w": 30.0,
+"d": 30.0,
+"h": 4.0,
+"price": 44.99,
+"url": "https://www.westwing.de/deko-tablett-venice-aus-marmor-in-travertin-optik-140218.html?simple=DEQ22WES52767-177465",
+"archetype": "tray",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "Travertin-Optik, beige marmoriert",
+"slots": {
+"main": {
+"color": "#e3d6c1",
+"material": "marble"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "Couchtisch: Tablett ordnet Kerzen und Objekt zu einer Gruppe",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-handgefertigte-design-vase-saki-2-bund-pampas",
+"vendor": "Westwing",
+"name": "Handgefertigte Design-Vase Saki + 2 Bund Pampas",
+"category": "decor",
+"w": 32.0,
+"d": 32.0,
+"h": 40.0,
+"price": 130.98,
+"url": "https://www.westwing.de/handgefertigte-design-vase-saki-aus-keramik-h-40-cm-161013.html",
+"archetype": "vase",
+"params": {
+"pampas": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Hellbeige matt / Pampas cremeweiß H 70",
+"slots": {
+"main": {
+"color": "#e6dccb",
+"material": "ceramic"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "Sideboard links; 89 € + 2 × 20,99 € (westwing.de/trockenblumen- pampas-153206.html)",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-handgefertigte-vase-saki",
+"vendor": "Westwing",
+"name": "Handgefertigte Vase Saki",
+"category": "decor",
+"w": 25.0,
+"d": 25.0,
+"h": 32.0,
+"price": 64.99,
+"url": "https://www.westwing.de/handgefertigte-vase-saki-aus-keramik-in-cremefarben-140191.html?simple=DEQ21WES74911-177428",
+"archetype": "vase",
+"params": {
+"branches": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Cremefarben matt, Steinzeug",
+"slots": {
+"main": {
+"color": "#ece3d2",
+"material": "ceramic"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "Lowboard rechts, mit 2–3 Olivenzweigen",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-kerzenhalter-duca-hoehenverstellbar-audo-copenha",
+"vendor": "Westwing",
+"name": "Kerzenhalter Duca, höhenverstellbar (Audo Copenhagen)",
+"category": "decor",
+"w": 8.0,
+"d": 8.0,
+"h": 17.0,
+"price": 34.99,
+"url": "https://www.westwing.de/hoehenverstellbarer-kerzenhalter-duca-164686.html?simple=DEQ24AUD26552-212582",
+"archetype": "candles",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "MESSING poliert / Rattan",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "4–5 Wo.",
+"description": "zwei Höhen auf dem Tablett",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-kerzenhalter-stoff-nagel-3er-set",
+"vendor": "Westwing",
+"name": "Kerzenhalter Stoff Nagel, 3er-Set",
+"category": "decor",
+"w": 10.0,
+"d": 10.0,
+"h": 7.0,
+"price": 159.0,
+"url": "https://www.westwing.de/kerzenhalter-stoff-nagel-3er-set-166052.html?simple=DEQ24STO86806-214617",
+"archetype": "candles",
+"params": {
+"stack": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "MESSING gebürstet, stapelbar",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "neben der Schale, gestapelt in zwei Höhen",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-kleines-deko-tablett-venice-vase-saki-h-32",
+"vendor": "Westwing",
+"name": "Kleines Deko-Tablett Venice + Vase Saki H 32",
+"category": "decor",
+"w": 25.0,
+"d": 25.0,
+"h": 32.0,
+"price": 99.98,
+"url": "https://www.westwing.de/kleines-deko-tablett-venice-aus-marmor-in-travertin-optik-140219.html?simple=DEQ22WES60885-177466",
+"archetype": "vase",
+"params": {
+"branches": true,
+"tray": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Travertin-Optik / Cremefarben matt",
+"slots": {
+"main": {
+"color": "#ece3d2",
+"material": "ceramic"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "Schlüsselablage + Vase mit einem großen Zweig; 34,99 € + 64,99 €",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-uebertopf-hourglass-ferm-living",
+"vendor": "Westwing",
+"name": "Übertopf Hourglass (Ferm Living)",
+"category": "decor",
+"w": 40.0,
+"d": 40.0,
+"h": 59.0,
+"price": 159.0,
+"url": "https://www.westwing.de/uebertopf-hourglass-h-59-cm-165477.html?simple=DEQ24FER14718-213908",
+"archetype": "plantPot",
+"params": {
+"shape": "hourglass"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Hellbeige matt, Eisen beschichtet",
+"slots": {
+"main": {
+"color": "#e6dccb",
+"material": "matte"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–5 WT",
+"description": "Topfsockel hebt die Pflanze auf Augenhöhe; Öffnung vor Bestellung mit dem Topf der Pflanze abgleichen",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-uebertopf-olea",
+"vendor": "Westwing",
+"name": "Übertopf Olea",
+"category": "decor",
+"w": 24.0,
+"d": 24.0,
+"h": 26.0,
+"price": 64.99,
+"url": "https://www.westwing.de/uebertopf-olea-in-salbeigruen-aus-steingut-147844.html",
+"archetype": "plantPot",
+"params": {
+"plant": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Salbeigrün matt, Steinzeug",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "ceramic"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "",
+"concepts": [
+1
+]
+},
+{
+"id": "ike-mittzon-schreibtisch-sitz-steh-elektrisch",
+"vendor": "IKEA",
+"name": "MITTZON Schreibtisch sitz/steh, elektrisch",
+"category": "desk",
+"w": 120.0,
+"d": 60.0,
+"h": 75.0,
+"price": 389.0,
+"url": "https://www.ikea.com/de/de/p/mittzon-schreibtisch-sitz-steh-elektrisch-nussbaumfurnier-schwarz-s49526874/",
+"archetype": "deskStanding",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "Nussbaumfurnier / schwarz",
+"slots": {
+"top": {
+"color": "#6b4a33",
+"material": "walnut"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "prüfen",
+"description": "",
+"concepts": [
+1,
+2,
+3
+]
+},
+{
+"id": "wes-schmaler-holz-schreibtisch-marte",
+"vendor": "Westwing",
+"name": "Schmaler Holz-Schreibtisch Marte",
+"category": "desk",
+"w": 120.0,
+"d": 60.0,
+"h": 75.0,
+"price": 429.0,
+"url": "https://www.westwing.de/kleiner-schreibtisch-marte-aus-eiche-20938.html",
+"archetype": "desk",
+"params": {
+"style": "marte"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "helles Holz: Beine Eichenfurnier, Platte MDF",
+"slots": {
+"top": {
+"color": "#d8bc94",
+"material": "oak"
+},
+"legs": {
+"color": "#c9a477",
+"material": "oak"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "13–14 Wo.",
+"description": "leichter Holztisch statt Technikmöbel; Alternative mit Hubfunktion: IKEA MITTZON 389 €",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-runder-esstisch-noam-mit-marmor-tischplatte",
+"vendor": "Westwing",
+"name": "Runder Esstisch Noam mit Marmor-Tischplatte",
+"category": "diningTable",
+"w": 120.0,
+"d": 120.0,
+"h": 76.0,
+"price": 1349.0,
+"url": "https://www.westwing.de/runder-esstisch-noam-mit-marmor-tischplatte-o-120-cm-163551.html",
+"archetype": "tablePedestal",
+"params": {
+"round": true,
+"footD": 0.55,
+"base": "cone"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "DUNKELGRÜN marmoriert / Fuß Metall gebürstet silberfarben",
+"slots": {
+"top": {
+"color": "#3f5d4e",
+"material": "marbleGreen"
+},
+"legs": {
+"color": "#b9b4aa",
+"material": "steel"
+}
+}
+},
+{
+"name": "Hellbeige marmoriert / Fuß Metall gebürstet",
+"slots": {
+"top": {
+"color": "#e9e0d2",
+"material": "marble"
+},
+"legs": {
+"color": "#b9b4aa",
+"material": "steel"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "4–9 WT",
+"description": "grüner Marmor = Brücke zur Küchenfront Verde Eucalypto; 79 kg",
+"concepts": [
+2,
+3
+]
+},
+{
+"id": "wes-runder-marmor-esstisch-abby",
+"vendor": "Westwing",
+"name": "Runder Marmor-Esstisch Abby",
+"category": "diningTable",
+"w": 120.0,
+"d": 120.0,
+"h": 75.0,
+"price": 1299.0,
+"url": "https://www.westwing.de/runder-marmor-esstisch-abby-o-120-cm-158094.html?simple=DEQ23WES66367-203159",
+"archetype": "tablePedestal",
+"params": {
+"round": true,
+"footD": 0.61,
+"base": "column"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Hellbeige marmoriert / skulpturaler Säulenfuß Mangoholz dunkel",
+"slots": {
+"top": {
+"color": "#e7ddd0",
+"material": "marble"
+},
+"legs": {
+"color": "#3e2c22",
+"material": "mango"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "7–8 Wo.",
+"description": "Säulenfuß als Skulptur, kein Beinwald unter dem Stuhlring; dunkler Fuß = grafischer Akzent",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-runder-marmor-esstisch-abby-westwing-collection",
+"vendor": "Westwing",
+"name": "Runder Marmor-Esstisch Abby (Westwing Collection)",
+"category": "diningTable",
+"w": 120.0,
+"d": 120.0,
+"h": 75.0,
+"price": 1299.0,
+"url": "https://www.westwing.de/runder-marmor-esstisch-abby-o-120-cm-158094.html",
+"archetype": "tablePedestal",
+"params": {
+"round": true,
+"footD": 0.61,
+"base": "column"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Hellbeige marmoriert / Fuß Mangoholz massiv, dunkel, Ø 61",
+"slots": {
+"top": {
+"color": "#e7ddd0",
+"material": "marble"
+},
+"legs": {
+"color": "#3e2c22",
+"material": "mango"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "7–8 Wo.",
+"description": "Wunschtisch; Marmorplatte auf MDF-Träger; lt. Shop bis 4 Personen, 5 mit Nischenstuhl E12, 6 knapp; 71 kg; Aufbauservice 39 €; Oberfläche matt geschliffen anfragen",
+"concepts": [
+1
+]
+},
+{
+"id": "wes-dimmbare-stehlampe-kushi-mundgeblasen-kdln",
+"vendor": "Westwing",
+"name": "Dimmbare Stehlampe Kushi, mundgeblasen (kdln)",
+"category": "floorLamp",
+"w": 43.0,
+"d": 43.0,
+"h": 183.0,
+"price": 1399.0,
+"url": "https://www.westwing.de/dimmbare-stehlampe-kushi-mundgeblasen-152944.html",
+"archetype": "lampFloorShade",
+"params": {
+"shape": "mushroom"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Kupferfarben / Opalglas weiß",
+"slots": {
+"main": {
+"color": "#b8703e",
+"material": "copper"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "6–7 Wo.",
+"description": "Leselicht zwischen Sofa und Sessel; 2 × E27, Dimmer am Kabel; Zuleitung flach unter dem Sofa zur Dose Westwand (y 2,10)",
+"concepts": [
+1
+]
+},
+{
+"id": "des-flos-ic-lights-f1-stehleuchte-michael-anastassia",
+"vendor": "Designhandel",
+"name": "Flos IC Lights F1 Stehleuchte (Michael Anastassiades)",
+"category": "floorLamp",
+"w": 27.5,
+"d": 27.5,
+"h": 135.0,
+"price": 688.5,
+"url": "https://www.nordicnest.de/marken/flos/ic-lights-f1-stehleuchte/",
+"archetype": "lampFloorGlobe",
+"params": {
+"globe": 0.2
+},
+"mount": "floor",
+"variants": [
+{
+"name": "MESSING gebürstet / Opalglas; über Nordic Nest",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "Skulptur-Leuchte im Eck zwischen Sofa und Sessel; Kugelmotiv wie E5, E6, S5; E14 exkl.; UVP 765 €",
+"concepts": [
+4
+]
+},
+{
+"id": "des-gubi-multi-lite-stehleuchte",
+"vendor": "Designhandel",
+"name": "Gubi Multi-Lite Stehleuchte",
+"category": "floorLamp",
+"w": 36.0,
+"d": 36.0,
+"h": 148.0,
+"price": 783.0,
+"url": "https://www.nordicnest.de/marken/gubi/multi-lite-stehleuchte/?variantId=37105-03",
+"archetype": "lampFloorShade",
+"params": {
+"shape": "cone"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Chrom / Chrom; über Nordic Nest",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "Leselicht zwischen Sofa und Sessel; E27 exkl.; UVP 1.199 €",
+"concepts": [
+2,
+3
+]
+},
+{
+"id": "bestand-k-che-alno-2060-bestand-schematisch-",
+"vendor": "Bestand",
+"name": "Küche Alno 2060 (Bestand, schematisch)",
+"category": "kitchen",
+"w": 362.8,
+"d": 62.0,
+"h": 230.0,
+"price": 0,
+"archetype": "kitchenRun",
+"params": {
+"tallUnits": 1.2,
+"upper": true,
+"sink": 0.55,
+"hob": 0.3
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Bestand",
+"slots": {
+"main": {
+"color": "#4a3426",
+"material": "walnut"
+},
+"secondary": {
+"color": "#7f9a86",
+"material": "lacquer"
+},
+"top": {
+"color": "#e9e6df",
+"material": "stone"
+},
+"detail": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Bestand"
+],
+"concepts": []
+},
+{
+"id": "wes-tv-lowboard-cadi-aus-eichenholz",
+"vendor": "Westwing",
+"name": "TV-Lowboard Cadi aus Eichenholz",
+"category": "lowboard",
+"w": 180.0,
+"d": 45.0,
+"h": 55.0,
+"price": 1249.0,
+"url": "https://www.westwing.de/tv-lowboard-cadi-aus-eichenholz-162641.html?simple=DEQ24WES43617-209621",
+"archetype": "lowboard",
+"params": {
+"doors": 2,
+"drawers": 1,
+"legHeight": 0.15,
+"front": "flat"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Eiche massiv geölt (hell)",
+"slots": {
+"main": {
+"color": "#c9a477",
+"material": "oak"
+},
+"legs": {
+"color": "#c9a477",
+"material": "oak"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "9–10 Wo.",
+"description": "2 Kabeldurchlässe, Soft-Close, Beine 15 cm; früh bestellen",
+"concepts": [
+3,
+4
+]
+},
+{
+"id": "wes-tv-lowboard-chandler-aus-eichenholz",
+"vendor": "Westwing",
+"name": "TV-Lowboard Chandler aus Eichenholz",
+"category": "lowboard",
+"w": 175.0,
+"d": 43.0,
+"h": 55.0,
+"price": 1199.0,
+"url": "https://www.westwing.de/tv-lowboard-chandler-aus-eichenholz-159332.html",
+"archetype": "lowboard",
+"params": {
+"doors": 3,
+"legHeight": 0.15,
+"front": "flat"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Eiche massiv, dunkel lackiert",
+"slots": {
+"main": {
+"color": "#5e4130",
+"material": "oakDark"
+},
+"legs": {
+"color": "#5e4130",
+"material": "oakDark"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "4–9 WT",
+"description": "3 Kabeldurchlässe; Füße 15 cm",
+"concepts": [
+1
+]
+},
+{
+"id": "wes-tv-lowboard-soley",
+"vendor": "Westwing",
+"name": "TV-Lowboard Soley",
+"category": "lowboard",
+"w": 180.0,
+"d": 45.0,
+"h": 50.0,
+"price": 1299.0,
+"url": "https://www.westwing.de/tv-lowboard-soley-168961.html",
+"archetype": "lowboard",
+"params": {
+"doors": 3,
+"legHeight": 0.1,
+"front": "ribbed"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Eiche dunkelbraun lackiert, gewellte Rillenfront",
+"slots": {
+"main": {
+"color": "#4d3626",
+"material": "oakDark"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "13–14 Wo.",
+"description": "3 Kabelöffnungen hinten, Push-to-open; längste Lieferzeit → zuerst bestellen",
+"concepts": [
+2
+]
+},
+{
+"id": "bestand-tv-65-vorhanden-",
+"vendor": "Bestand",
+"name": "TV 65″ (vorhanden)",
+"category": "media",
+"w": 145.0,
+"d": 4.0,
+"h": 83.0,
+"price": 0,
+"archetype": "tv",
+"params": {},
+"mount": "wall",
+"variants": [
+{
+"name": "Bestand",
+"slots": {
+"main": {
+"color": "#111111",
+"material": "gloss"
+}
+}
+}
+],
+"tags": [
+"Bestand"
+],
+"concepts": []
+},
+{
+"id": "wes-bogen-wandspiegel-laviena",
+"vendor": "Westwing",
+"name": "Bogen-Wandspiegel Laviena",
+"category": "mirror",
+"w": 60.0,
+"d": 3.0,
+"h": 101.0,
+"price": 199.0,
+"url": "https://www.westwing.de/bogen-wandspiegel-laviena-mit-messingfarbenem-metallrahmen-139347.html",
+"archetype": "mirrorArch",
+"params": {},
+"mount": "wall",
+"variants": [
+{
+"name": "Metallrahmen MESSINGFARBEN",
+"slots": {
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–7 WT",
+"description": "Bogen = zweites Formmotiv (Kugel, Bogen, Kreis); Mitte H 1,55; Befestigung nicht enthalten",
+"concepts": [
+4
+],
+"elev": 0.0
+},
+{
+"id": "wes-kleiner-runder-wandspiegel-polaris",
+"vendor": "Westwing",
+"name": "Kleiner runder Wandspiegel Polaris",
+"category": "mirror",
+"w": 63.0,
+"d": 3.0,
+"h": 67.0,
+"price": 199.0,
+"url": "https://www.westwing.de/xx-de-25wes58594.html",
+"archetype": "mirrorRound",
+"params": {
+"rays": true
+},
+"mount": "wall",
+"variants": [
+{
+"name": "silberfarben, polierte Edelstahl-Elemente",
+"slots": {
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–7 WT",
+"description": "Rahmendetail vor Bestellung am Produktfoto prüfen; Befestigung nicht enthalten",
+"concepts": [
+2,
+3
+],
+"elev": 0.0
+},
+{
+"id": "wes-runder-wandspiegel-ayu",
+"vendor": "Westwing",
+"name": "Runder Wandspiegel Ayu",
+"category": "mirror",
+"w": 60.0,
+"d": 3.0,
+"h": 60.0,
+"price": 199.0,
+"url": "https://www.westwing.de/ayu-mirror-d60-cm-acacia-wood-walnut-color-en-25wes24896.html",
+"archetype": "mirrorRound",
+"params": {},
+"mount": "wall",
+"variants": [
+{
+"name": "Akazienholz, Walnuss-Ton",
+"slots": {
+"frame": {
+"color": "#6b4a33",
+"material": "walnut"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "lt. Shop",
+"description": "",
+"concepts": [
+1
+],
+"elev": 0.0
+},
+{
+"id": "obi-profilleiste-orac-decor-px120-axxent",
+"vendor": "OBI",
+"name": "Profilleiste Orac Decor PX120 Axxent",
+"category": "molding",
+"w": 140.0,
+"d": 1.9,
+"h": 100.0,
+"price": 15.51,
+"url": "https://www.billiger.de/pricelist/5098382219-orac-wandleiste-zierleiste-profil-wand-rahmen-dekor-element-2-meter",
+"archetype": "molding",
+"params": {
+"profile": 0.04
+},
+"mount": "wall",
+"variants": [
+{
+"name": "Duropolymer, vorgrundiert – wandfarben streichen",
+"slots": {
+"main": {
+"color": "#f3f0e8",
+"material": "matte"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "lt. Shop",
+"description": "Rahmen 1,40 × 1,00 m um das Bildpaar (4,8 m); Einzelleiste lt. OBI/Preisvergleich",
+"concepts": [
+1
+],
+"elev": 0.0
+},
+{
+"id": "wes-holz-nachttisch-zumi-mit-travertin-tischplatte",
+"vendor": "Westwing",
+"name": "Holz-Nachttisch Zumi mit Travertin- Tischplatte",
+"category": "nightstand",
+"w": 45.0,
+"d": 40.0,
+"h": 50.0,
+"price": 499.0,
+"url": "https://www.westwing.de/holz-nachttisch-zumi-mit-travertinplatte-159346.html?simple=DEQ23WES52652-204781",
+"archetype": "nightstand",
+"params": {
+"drawers": 0,
+"door": false,
+"legHeight": 0.12
+},
+"mount": "floor",
+"variants": [
+{
+"name": "helle Eiche / Travertin beige, Griffe goldfarben",
+"slots": {
+"main": {
+"color": "#c9a477",
+"material": "oak"
+},
+"top": {
+"color": "#e3d6c1",
+"material": "travertine"
+},
+"detail": {
+"color": "#e3d6c1",
+"material": "travertine"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "8–9 Wo.",
+"description": "gerundete Kanten, Stein + Messing – Hotelsuite- Detail; Lieferzeit beachten",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-nachttisch-coya",
+"vendor": "Westwing",
+"name": "Nachttisch Coya",
+"category": "nightstand",
+"w": 50.0,
+"d": 45.0,
+"h": 55.0,
+"price": 399.0,
+"url": "https://www.westwing.de/bedside-table-coya-en-25wes65656.html",
+"archetype": "nightstand",
+"params": {
+"drawers": 2,
+"door": false,
+"legHeight": 0.12
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Greige lackiert, Knäufe/Füße Metall",
+"slots": {
+"main": {
+"color": "#c8bfb1",
+"material": "lacquer"
+},
+"top": {
+"color": "#b9b4aa",
+"material": "steel"
+},
+"detail": {
+"color": "#b9b4aa",
+"material": "steel"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "2 Schubladen, Soft-Close; reduziert (vorher 449 €)",
+"concepts": [
+3
+]
+},
+{
+"id": "wes-nachttisch-holden-mit-griffplatte-aus-travertin",
+"vendor": "Westwing",
+"name": "Nachttisch Holden mit Griffplatte aus Travertin",
+"category": "nightstand",
+"w": 45.0,
+"d": 45.0,
+"h": 52.0,
+"price": 379.0,
+"url": "https://www.westwing.de/nachttisch-holden-mit-griffplatte-aus-travertin-1-172146.html",
+"archetype": "nightstand",
+"params": {
+"drawers": 0,
+"door": true,
+"legHeight": 0.07
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Walnussfurnier dunkel / Griffplatte Travertin hellbeige",
+"slots": {
+"main": {
+"color": "#5e3f2c",
+"material": "walnut"
+},
+"top": {
+"color": "#e3d6c1",
+"material": "travertine"
+},
+"detail": {
+"color": "#e3d6c1",
+"material": "travertine"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "2 Fächer hinter Soft-Close-Tür (geschlossener Stauraum); Sockel 7 cm",
+"concepts": [
+1
+]
+},
+{
+"id": "wes-nachttisch-soren",
+"vendor": "Westwing",
+"name": "Nachttisch Soren",
+"category": "nightstand",
+"w": 45.0,
+"d": 45.0,
+"h": 58.0,
+"price": 289.0,
+"url": "https://www.westwing.de/soren-nightstand-mango-wood-dark-wood-chrome-metal-en-26wes93904.html?simple=DEQ26WES93904-590175",
+"archetype": "nightstand",
+"params": {
+"drawers": 0,
+"door": true,
+"legHeight": 0.12
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Mangoholz massiv dunkel / Beine Edelstahl (Chrom)",
+"slots": {
+"main": {
+"color": "#3e2c22",
+"material": "mango"
+},
+"top": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"detail": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "Fach hinter zwei Türen (Soft-Close); Öffnung links/ rechts wählbar",
+"concepts": [
+2
+]
+},
+{
+"id": "wes-boucl-schreibtischstuhl-lucie",
+"vendor": "Westwing",
+"name": "Bouclé-Schreibtischstuhl Lucie",
+"category": "officeChair",
+"w": 57.0,
+"d": 57.0,
+"h": 80.0,
+"price": 219.0,
+"url": "https://www.westwing.de/boucle-schreibtischstuhl-lucie-146991.html?simple=DEQ22WES36043-187194",
+"archetype": "officeChair",
+"params": {
+"style": "lounge"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Bouclé Weiß, Beine goldfarben, Rollen",
+"slots": {
+"main": {
+"color": "#f4f2eb",
+"material": "boucle"
+},
+"legs": {
+"color": "#c9a55c",
+"material": "brass"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "Sessel-Look am Schreibtisch; mit Glasmatte (A12)",
+"concepts": [
+4
+]
+},
+{
+"id": "ike-hattefjaell-drehstuhl-mit-armlehnen",
+"vendor": "IKEA",
+"name": "HATTEFJÄLL Drehstuhl mit Armlehnen",
+"category": "officeChair",
+"w": 68.0,
+"d": 68.0,
+"h": 110.0,
+"price": 279.0,
+"url": "https://www.ikea.com/de/de/p/hattefjaell-drehstuhl-mit-armlehnen-gunnared-beige-weiss-60538955/",
+"archetype": "officeChair",
+"params": {
+"style": "task"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Gunnared beige / weiß",
+"slots": {
+"main": {
+"color": "#d9cdb8",
+"material": "fabric"
+},
+"legs": {
+"color": "#f2f2f2",
+"material": "plastic"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "prüfen",
+"description": "",
+"concepts": [
+1,
+2,
+3
+]
+},
+{
+"id": "wes-gartenstuhl-hiray-kartell",
+"vendor": "Westwing",
+"name": "Gartenstuhl Hiray (Kartell)",
+"category": "outdoor",
+"w": 53.0,
+"d": 55.0,
+"h": 79.0,
+"price": 296.0,
+"url": "https://www.westwing.de/gartenstuhl-hiray-mit-sitzkissen-150810.html",
+"archetype": "outdoorChair",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "Salbeigrün",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "matte"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "Balkon 2; frostfrei lagern",
+"concepts": [
+1,
+2,
+3,
+4
+]
+},
+{
+"id": "wes-runder-gartentisch-hiray-kartell",
+"vendor": "Westwing",
+"name": "Runder Gartentisch Hiray (Kartell)",
+"category": "outdoor",
+"w": 65.0,
+"d": 65.0,
+"h": 72.0,
+"price": 564.0,
+"url": "https://www.westwing.de/runder-gartentisch-hiray-o-65-cm-150822.html",
+"archetype": "outdoorTable",
+"params": {
+"round": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Salbeigrün, Stahl verzinkt lackiert",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "matte"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–7 WT",
+"description": "Balkon 2 (Küche)",
+"concepts": [
+1,
+2,
+3,
+4
+]
+},
+{
+"id": "ike-segeroen-2er-sofa-aussen",
+"vendor": "IKEA",
+"name": "SEGERÖN 2er-Sofa/außen",
+"category": "outdoor",
+"w": 152.0,
+"d": 76.0,
+"h": 76.0,
+"price": 382.0,
+"url": "https://www.ikea.com/de/de/p/segeroen-2er-sofa-aussen-weiss-beige-froesoen-duvholmen-beige-s99613519/",
+"archetype": "outdoorSofa",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "weiß/beige, Polster Frösön/Duvholmen beige",
+"slots": {
+"main": {
+"color": "#f2f0eb",
+"material": "matte"
+},
+"secondary": {
+"color": "#ded6c6",
+"material": "fabric"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "prüfen",
+"description": "Balkon 1",
+"concepts": [
+1,
+2,
+3,
+4
+]
+},
+{
+"id": "wes-dimmbare-pendelleuchte-kushi-mundgeblasen-kdln",
+"vendor": "Westwing",
+"name": "Dimmbare Pendelleuchte Kushi, mundgeblasen (kdln)",
+"category": "pendant",
+"w": 16.0,
+"d": 16.0,
+"h": 26.0,
+"price": 319.0,
+"url": "https://www.westwing.de/dimmbare-pendelleuchte-kushi-mundgeblasen-152975.html?simple=DEQ23KDL77021-196321",
+"archetype": "pendantGlobe",
+"params": {
+"shape": "kushi",
+"anchorX": 5.909,
+"anchorY": 9.374
+},
+"mount": "ceiling",
+"variants": [
+{
+"name": "Kupferfarben / Opalglas",
+"slots": {
+"main": {
+"color": "#b8703e",
+"material": "copper"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "5–6 Wo.",
+"description": "3er-Cluster an einem DA (3-fach-Baldachin, Elektrofachbetrieb)",
+"concepts": [
+1
+],
+"elev": 0.0
+},
+{
+"id": "des-flos-glo-ball-s2-pendelleuchte-jasper-morrison",
+"vendor": "Designhandel",
+"name": "Flos Glo-Ball S2 Pendelleuchte (Jasper Morrison)",
+"category": "pendant",
+"w": 45.0,
+"d": 45.0,
+"h": 36.0,
+"price": 565.0,
+"url": "https://www.ambientedirect.com/en/flos/glo-ball-s2-suspension-lamp_pid_111_61.html",
+"archetype": "pendantGlobe",
+"params": {},
+"mount": "ceiling",
+"variants": [
+{
+"name": "Opalglas mundgeblasen; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#ffffff",
+"material": "matte"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "1–5 WT",
+"description": "am DA Wohnen deckennah abhängen (UK ≈ 2,10 m); E27 exkl., extern dimmbar",
+"concepts": [
+2,
+3,
+4
+],
+"elev": 0.0
+},
+{
+"id": "des-gubi-semi-47-pendelleuchte-bonderup-thorup",
+"vendor": "Designhandel",
+"name": "Gubi Semi 47 Pendelleuchte (Bonderup & Thorup)",
+"category": "pendant",
+"w": 47.0,
+"d": 47.0,
+"h": 23.5,
+"price": 415.0,
+"url": "https://www.ambientedirect.com/gubi/semi-47-pendelleuchte_pid_28_4057.html?art=123112",
+"archetype": "pendantDome",
+"params": {
+"shape": "semi"
+},
+"mount": "ceiling",
+"variants": [
+{
+"name": "MESSING glänzend; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 Wo. (Fertigung)",
+"description": "Messingkuppel über dem Tisch – das Schmuckstück des Essbereichs; UK 65–70 cm über Tisch; E27 exkl.; Variante Messing bei Bestellung wählen",
+"concepts": [
+4
+],
+"elev": 0.0
+},
+{
+"id": "des-tom-dixon-mirror-ball-pendelleuchte-led-40",
+"vendor": "Designhandel",
+"name": "Tom Dixon Mirror Ball Pendelleuchte LED Ø 40",
+"category": "pendant",
+"w": 40.0,
+"d": 40.0,
+"h": 40.0,
+"price": 769.0,
+"url": "https://www.nordicnest.de/marken/tom-dixon/mirror-ball-pendelleuchte-led-o40cm/",
+"archetype": "pendantMirrorBall",
+"params": {},
+"mount": "ceiling",
+"variants": [
+{
+"name": "Chrom (verspiegelt); über Nordic Nest",
+"slots": {
+"main": {
+"color": "#d9dde0",
+"material": "chrome"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "Versand ab 15.11.",
+"description": "LED integriert 9 W, 3000 K, Ra 90, dimmbar; Unterkante 65–70 cm über Tisch",
+"concepts": [
+2,
+3
+],
+"elev": 0.0
+},
+{
+"id": "fac-grosspflanze-olivenbaum-oder-ficus-lyrata-150-18",
+"vendor": "Fachhandel",
+"name": "Großpflanze (Olivenbaum oder Ficus lyrata, 150–180 cm) mit Keramik-Übertopf",
+"category": "plant",
+"w": 48.0,
+"d": 48.0,
+"h": 170.0,
+"price": 250.0,
+"url": null,
+"archetype": "plantTree",
+"params": {
+"species": "olive",
+"pot": true,
+"potD": 0.32,
+"potH": 0.36
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Topf matt sand",
+"slots": {
+"main": {
+"color": "#5b6e45",
+"material": "plant"
+},
+"secondary": {
+"color": "#d9ccb4",
+"material": "ceramic"
+}
+}
+},
+{
+"name": "Topf matt espresso",
+"slots": {
+"main": {
+"color": "#5b6e45",
+"material": "plant"
+},
+"secondary": {
+"color": "#4a3628",
+"material": "ceramic"
+}
+}
+},
+{
+"name": "Topf matt stein",
+"slots": {
+"main": {
+"color": "#5b6e45",
+"material": "plant"
+},
+"secondary": {
+"color": "#b8b1a6",
+"material": "ceramic"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "Richtwert",
+"description": "Gärtnerei/Fachhandel; Ostende der TV-Wand, Licht vom Balkonfenster",
+"concepts": [
+1,
+2,
+3
+]
+},
+{
+"id": "wes-kunstpflanze-money-tree-botan",
+"vendor": "Westwing",
+"name": "Kunstpflanze Money Tree (botané)",
+"category": "plant",
+"w": 50.0,
+"d": 50.0,
+"h": 180.0,
+"price": 469.0,
+"url": "https://www.westwing.de/money-tree-en-26bte90644.html",
+"archetype": "plantTree",
+"params": {
+"species": "moneytree",
+"pot": false
+},
+"mount": "floor",
+"variants": [
+{
+"name": "grün, ohne Topf",
+"slots": {
+"main": {
+"color": "#4f6b3a",
+"material": "plant"
+},
+"secondary": {
+"color": "#e6dccb",
+"material": "matte"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "9–10 WT",
+"description": "Großpflanze vor dem Putzfeld am Ostende der TV-Wand",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-handgefertigter-wollteppich-bruna-geflochtene-st",
+"vendor": "Westwing",
+"name": "Handgefertigter Wollteppich Bruna, geflochtene Struktur",
+"category": "rug",
+"w": 300.0,
+"d": 200.0,
+"h": 1.5,
+"price": 579.0,
+"url": "https://www.westwing.de/wollteppich-bruna-mit-geflochtener-struktur-in-taupe-147368.html",
+"archetype": "rugRect",
+"params": {
+"pattern": "braided"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Greige, Größe L, rechteckig",
+"slots": {
+"main": {
+"color": "#dcd6cb",
+"material": "wool"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "Farbe Greige, Größe L wählen; 100 % Wolle, FBH- geeignet; kühler als Beige → klare Absetzung von der Natureiche; mit Antirutsch-Unterlage",
+"concepts": [
+1
+]
+},
+{
+"id": "wes-handgetufteter-kurzflor-wollteppich-eleni",
+"vendor": "Westwing",
+"name": "Handgetufteter Kurzflor-Wollteppich Eleni",
+"category": "rug",
+"w": 300.0,
+"d": 200.0,
+"h": 1.5,
+"price": 579.0,
+"url": "https://www.westwing.de/handgetufteter-kurzflor-wollteppich-eleni-161972.html?simple=DEQ24WES77602-208777",
+"archetype": "rugRect",
+"params": {
+"pattern": "plain"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Hellgrau, Größe L",
+"slots": {
+"main": {
+"color": "#e4e2dd",
+"material": "wool"
+}
+}
+},
+{
+"name": "Hellbeige, Größe L",
+"slots": {
+"main": {
+"color": "#ebe4d8",
+"material": "wool"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–7 WT",
+"description": "100 % Wolle (RWS), Flor 1 cm, FBH-geeignet; mit Antirutsch-Unterlage",
+"concepts": [
+3
+]
+},
+{
+"id": "wes-handgetufteter-wollteppich-arne-hoch-tief-strukt",
+"vendor": "Westwing",
+"name": "Handgetufteter Wollteppich Arne, Hoch-Tief- Struktur",
+"category": "rug",
+"w": 300.0,
+"d": 200.0,
+"h": 1.5,
+"price": 499.0,
+"url": "https://www.westwing.de/handgetufteter-wollteppich-arne-in-terrakotta-beige-139460.html?simple=DEQ21WES23588-176426",
+"archetype": "rugRect",
+"params": {
+"pattern": "relief",
+"color2": "#a9583a"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Beige / Terrakotta, Größe L",
+"slots": {
+"main": {
+"color": "#d6c2a4",
+"material": "wool"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "4–9 WT",
+"description": "100 % Wolle (RWS), Flor 1 cm, FBH-geeignet; mit Antirutsch-Unterlage",
+"concepts": [
+2
+]
+},
+{
+"id": "wes-handgetufteter-wollteppich-mason-mit-hoch-tief-s",
+"vendor": "Westwing",
+"name": "Handgetufteter Wollteppich Mason mit Hoch- Tief-Struktur",
+"category": "rug",
+"w": 300.0,
+"d": 200.0,
+"h": 1.5,
+"price": 459.0,
+"url": "https://www.westwing.de/handgetufteter-wollteppich-mason-in-cremeweiss-135881.html?simple=DEQ21WES26216-171099",
+"archetype": "rugRect",
+"params": {
+"pattern": "relief"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "CREMEWEISS, Größe L wählen",
+"slots": {
+"main": {
+"color": "#f0ebe1",
+"material": "wool"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–5 WT",
+"description": "100 % Wolle (RWS), Relief statt Muster; Preis L lt. Größenfilter; mit Antirutsch-Unterlage",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-handgewebter-wollteppich-amaro",
+"vendor": "Westwing",
+"name": "Handgewebter Wollteppich Amaro",
+"category": "rug",
+"w": 300.0,
+"d": 200.0,
+"h": 1.5,
+"price": 449.0,
+"url": "https://www.westwing.de/handgewebter-wollteppich-amaro-148786.html?simple=DEQ23WES12680-190081",
+"archetype": "rugRect",
+"params": {
+"pattern": "plain"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Cremeweiß / Beige, Größe L",
+"slots": {
+"main": {
+"color": "#efe7da",
+"material": "wool"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "3–4 Wo.",
+"description": "67 % Wolle / 33 % Baumwolle, FBH-geeignet; heller Gegenpol zur dunklen Wand",
+"concepts": [
+2
+]
+},
+{
+"id": "wes-handgewebter-wollteppich-pebble",
+"vendor": "Westwing",
+"name": "Handgewebter Wollteppich Pebble",
+"category": "rug",
+"w": 300.0,
+"d": 200.0,
+"h": 1.5,
+"price": 599.0,
+"url": "https://www.westwing.de/wollteppich-pebble-in-cremeweiss-131292.html",
+"archetype": "rugRect",
+"params": {
+"pattern": "pebble"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Beige, Größe L",
+"slots": {
+"main": {
+"color": "#e9e2d6",
+"material": "wool"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "80 % Wolle; FBH-geeignet; Preis Größe L lt. Größenfilter; quer unter dem Bett",
+"concepts": [
+1
+]
+},
+{
+"id": "wes-runder-kurzflor-wollteppich-eleni-handgetuftet",
+"vendor": "Westwing",
+"name": "Runder Kurzflor-Wollteppich Eleni, handgetuftet",
+"category": "rug",
+"w": 250.0,
+"d": 250.0,
+"h": 1.2,
+"price": 719.0,
+"url": "https://www.westwing.de/runder-kurzflor-wollteppich-eleni-handgetuftet-161971.html?simple=DEQ24WES86039-208773",
+"archetype": "rugRound",
+"params": {
+"pattern": "plain"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Hellbeige, Größe XL",
+"slots": {
+"main": {
+"color": "#e8e0d2",
+"material": "wool"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "4–9 WT",
+"description": "100 % Wolle, Flor 1 cm, FBH-geeignet",
+"concepts": [
+3
+]
+},
+{
+"id": "wes-runder-wollteppich-amaro-handgewebt",
+"vendor": "Westwing",
+"name": "Runder Wollteppich Amaro, handgewebt",
+"category": "rug",
+"w": 250.0,
+"d": 250.0,
+"h": 1.2,
+"price": 519.0,
+"url": "https://www.westwing.de/runder-wollteppich-amaro-handgewebt-161987.html?simple=DEQ24WES26662-897681",
+"archetype": "rugRound",
+"params": {
+"pattern": "relief",
+"color2": "#efe5d6"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Terrakotta / Cremeweiß",
+"slots": {
+"main": {
+"color": "#b8653f",
+"material": "wool"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "4–9 WT",
+"description": "67 % Wolle / 33 % Baumwolle, Flor 1 cm, FBH- geeignet",
+"concepts": [
+2
+]
+},
+{
+"id": "wes-runder-wollteppich-eleni-handgetuftet",
+"vendor": "Westwing",
+"name": "Runder Wollteppich Eleni, handgetuftet",
+"category": "rug",
+"w": 250.0,
+"d": 250.0,
+"h": 1.2,
+"price": 719.0,
+"url": "https://www.westwing.de/runder-wollteppich-eleni-handgetuftet-158947.html?simple=DEQ23WES34367-204249",
+"archetype": "rugRound",
+"params": {
+"pattern": "rings"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Taupe, Größe XL",
+"slots": {
+"main": {
+"color": "#cbbfae",
+"material": "wool"
+}
+}
+},
+{
+"name": "OFF WHITE, Hoch-Tief-Kreisstruktur, Größe XL wählen",
+"slots": {
+"main": {
+"color": "#f0ebe1",
+"material": "wool"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "100 % Wolle (RWS), Flor 1 cm, Hoch-Tief-Struktur, FBH-geeignet; Farbe Taupe wählen",
+"concepts": [
+1,
+4
+]
+},
+{
+"id": "ike-billy-buecherregal",
+"vendor": "IKEA",
+"name": "BILLY Bücherregal",
+"category": "shelf",
+"w": 80.0,
+"d": 28.0,
+"h": 237.0,
+"price": 59.99,
+"url": "https://www.ikea.com/de/de/p/billy-buecherregal-braun-nussbaumnachbildung-50508652/",
+"archetype": "bookcase",
+"params": {
+"rows": 7,
+"topper": 0.35
+},
+"mount": "floor",
+"variants": [
+{
+"name": "braun Nussbaumnachbildung",
+"slots": {
+"main": {
+"color": "#6b4a33",
+"material": "walnut"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "prüfen",
+"description": "reduziert (vorher 69,99 €)",
+"concepts": [
+1,
+2
+]
+},
+{
+"id": "ike-boaxel-regal",
+"vendor": "IKEA",
+"name": "BOAXEL Regal",
+"category": "shelf",
+"w": 62.0,
+"d": 40.0,
+"h": 201.0,
+"price": 85.0,
+"url": "https://www.ikea.com/de/de/cat/boaxel-kombinationen-47396/",
+"archetype": "shelfOpen",
+"params": {
+"rows": 5,
+"cols": 1,
+"style": "boaxel"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "weiß",
+"slots": {
+"main": {
+"color": "#f2f2f0",
+"material": "matte"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "prüfen",
+"description": "Kombination s09392616; ELT-UV/HKV frei zugänglich",
+"concepts": [
+1,
+2,
+3,
+4
+]
+},
+{
+"id": "tyl-tylko-buecherregal-raumhoch-masskonfiguration-li",
+"vendor": "Tylko",
+"name": "Tylko Bücherregal raumhoch (Maßkonfiguration, Linie Tone oder Edge)",
+"category": "shelf",
+"w": 80.0,
+"d": 32.0,
+"h": 250.0,
+"price": 1200.0,
+"url": "https://tylko.com/de-de/mobel-c/bucherregale",
+"archetype": "shelfOpen",
+"params": {
+"rows": 7,
+"cols": 1,
+"doorsBottom": 1,
+"style": "tylko"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "MITTERNACHTSBLAU / DÄMMERUNGSBLAU (petrolnah), offene Fächer + unten Türen",
+"slots": {
+"main": {
+"color": "#3b5670",
+"material": "matte"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "nach Konfig.",
+"description": "Statement-Regal im Arbeitszimmer statt BILLY; 8 cm unter Decke 2,58; Preis = Konfigurator- Richtwert (Listing Bücherregale ≈ 600–3.400 €); Farbton am Muster prüfen",
+"concepts": [
+3
+]
+},
+{
+"id": "tyl-tylko-buecherregal-raumhoch-masskonfiguration-or",
+"vendor": "Tylko",
+"name": "Tylko Bücherregal raumhoch (Maßkonfiguration, Original Modern)",
+"category": "shelf",
+"w": 80.0,
+"d": 32.0,
+"h": 250.0,
+"price": 1300.0,
+"url": "https://tylko.com/de-de/mobel-c/bucherregale",
+"archetype": "shelfOpen",
+"params": {
+"rows": 7,
+"cols": 1,
+"doorsBottom": 1,
+"style": "tylko"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "MIDNIGHT BLUE, offene Fächer + unten Türen",
+"slots": {
+"main": {
+"color": "#2e3f57",
+"material": "matte"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "3–4 Wo.",
+"description": "Signature-Piece Arbeitszimmer – „Bibliothek“ in Nachtblau; Konfigurator-Richtwert (Listing 110 × 253 × 32 mit Türen: 1.626 € regulär, 914 € Aktion)",
+"concepts": [
+4
+]
+},
+{
+"id": "tyl-tylko-regal-mit-tueren-masskonfiguration-linie-o",
+"vendor": "Tylko",
+"name": "Tylko Regal mit Türen (Maßkonfiguration, Linie Original Modern)",
+"category": "shelf",
+"w": 85.0,
+"d": 40.0,
+"h": 170.0,
+"price": 1200.0,
+"url": "https://tylko.com/de-de/mobel-c/regalsysteme",
+"archetype": "shelfOpen",
+"params": {
+"rows": 5,
+"cols": 2,
+"doorsBottom": 2,
+"style": "tylko"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "SAGE GREEN (Tylko-Stauraumfarbe), Türen unten, offene Fächer oben",
+"slots": {
+"main": {
+"color": "#93a88e",
+"material": "matte"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "nach Konfig.",
+"description": "Statement-Regal hinter dem Sofa (Bar/Gläser unten, Bücher/Objekte oben); Preis = Konfigurator-Richtwert (Listing: Original Modern mit Türen ab ≈ 960–2.400 €); an der Wand sichern",
+"concepts": [
+3
+]
+},
+{
+"id": "tyl-tylko-regal-mit-tueren-masskonfiguration-origina",
+"vendor": "Tylko",
+"name": "Tylko Regal mit Türen (Maßkonfiguration, Original Modern)",
+"category": "shelf",
+"w": 85.0,
+"d": 40.0,
+"h": 170.0,
+"price": 1100.0,
+"url": "https://tylko.com/de-de/mobel-c/regalsysteme",
+"archetype": "shelfOpen",
+"params": {
+"rows": 5,
+"cols": 2,
+"doorsBottom": 2,
+"style": "tylko"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "COTTON BEIGE (Ton-in-Ton zur Wand), Türen unten, offene Fächer oben",
+"slots": {
+"main": {
+"color": "#e8dfcf",
+"material": "matte"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "nach Konfig.",
+"description": "ruhiger Einbau-Look hinter dem Sofa (Bar unten, Bücher/Objekte oben); Konfigurator-Richtwert, Sale/Club ≈ −38 %; kippsicher befestigen",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-componibili-container-2-elemente-kartell",
+"vendor": "Westwing",
+"name": "Componibili Container, 2 Elemente (Kartell)",
+"category": "sideTable",
+"w": 42.0,
+"d": 42.0,
+"h": 62.0,
+"price": 211.0,
+"url": "https://www.westwing.de/round-side-table-componibili-en-25kat43374.html?simple=DEQ25KAT43374-600746",
+"archetype": "sideContainer",
+"params": {
+"tiers": 2
+},
+"mount": "floor",
+"variants": [
+{
+"name": "PETROL glänzend, ABS",
+"slots": {
+"main": {
+"color": "#2f7074",
+"material": "gloss"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "Design-Klassiker als Beistelltisch mit Stauraum; Farbpunkt neben dem Petrol-Sessel",
+"concepts": [
+3
+]
+},
+{
+"id": "wes-runder-beistelltisch-argent-hkliving",
+"vendor": "Westwing",
+"name": "Runder Beistelltisch Argent (HKliving)",
+"category": "sideTable",
+"w": 35.0,
+"d": 35.0,
+"h": 45.0,
+"price": 199.0,
+"url": "https://www.westwing.de/runder-beistelltisch-argent-in-chromfarben-146824.html",
+"archetype": "sideRound",
+"params": {
+"style": "drum"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "chromfarben glänzend (Steingut, galvanisch verchromt)",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "an der rechten Sessellehne",
+"concepts": [
+2
+]
+},
+{
+"id": "wes-runder-beistelltisch-marisa-aus-travertin",
+"vendor": "Westwing",
+"name": "Runder Beistelltisch Marisa aus Travertin",
+"category": "sideTable",
+"w": 35.0,
+"d": 35.0,
+"h": 50.0,
+"price": 429.0,
+"url": "https://www.westwing.de/runder-beistelltisch-marisa-aus-travertin-147375.html",
+"archetype": "sideRound",
+"params": {
+"style": "column"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Travertin beige / Gestell MDF",
+"slots": {
+"main": {
+"color": "#e3d6c1",
+"material": "travertine"
+}
+}
+},
+{
+"name": "Travertin beige",
+"slots": {
+"main": {
+"color": "#e8ddcb",
+"material": "travertine"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "3–4 Wo.",
+"description": "an der rechten Sessellehne",
+"concepts": [
+1,
+4
+]
+},
+{
+"id": "wes-sideboard-calary-mit-geriffelter-front",
+"vendor": "Westwing",
+"name": "Sideboard Calary mit geriffelter Front",
+"category": "sideboard",
+"w": 160.0,
+"d": 45.0,
+"h": 75.0,
+"price": 1099.0,
+"url": "https://www.westwing.de/holz-sideboard-calary-mit-geriffelter-front-147950.html",
+"archetype": "sideboard",
+"params": {
+"doors": 4,
+"legHeight": 0.17,
+"front": "ribbed"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Eiche dunkel, Rillenfront",
+"slots": {
+"main": {
+"color": "#4d3626",
+"material": "oakDark"
+},
+"legs": {
+"color": "#4d3626",
+"material": "oakDark"
+},
+"detail": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+}
+},
+{
+"name": "helles Eichenholz, Griffe Metall gebürstet",
+"slots": {
+"main": {
+"color": "#c9a477",
+"material": "oak"
+},
+"legs": {
+"color": "#c9a477",
+"material": "oak"
+},
+"detail": {
+"color": "#b9b4aa",
+"material": "steel"
+}
+}
+},
+{
+"name": "helles Eichenholz, Griffe goldfarben",
+"slots": {
+"main": {
+"color": "#c9a477",
+"material": "oak"
+},
+"legs": {
+"color": "#c9a477",
+"material": "oak"
+},
+"detail": {
+"color": "#c9a55c",
+"material": "brass"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "4–9 WT",
+"description": "Füße 17 cm; Rillen wie Lowboard Soley",
+"concepts": [
+2,
+3,
+4
+]
+},
+{
+"id": "wes-sideboard-chandler-aus-eichenholz",
+"vendor": "Westwing",
+"name": "Sideboard Chandler aus Eichenholz",
+"category": "sideboard",
+"w": 165.0,
+"d": 43.0,
+"h": 75.0,
+"price": 1399.0,
+"url": "https://www.westwing.de/handgefertigtes-sideboard-chandler-aus-massivem-eichenholz-159331.html",
+"archetype": "sideboard",
+"params": {
+"doors": 3,
+"legHeight": 0.1,
+"front": "flat"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Eiche massiv, dunkel lackiert",
+"slots": {
+"main": {
+"color": "#5e4130",
+"material": "oakDark"
+},
+"legs": {
+"color": "#5e4130",
+"material": "oakDark"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "3–4 Wo.",
+"description": "Push-to-open, Wandbefestigung",
+"concepts": [
+1
+]
+},
+{
+"id": "wes-boucl-schlafsofa-eliot-2-sitzer",
+"vendor": "Westwing",
+"name": "Bouclé-Schlafsofa Eliot (2-Sitzer)",
+"category": "sofa",
+"w": 180.0,
+"d": 100.0,
+"h": 70.0,
+"price": 1049.0,
+"url": "https://www.westwing.de/fsc-eliot-2s-sleeper-sofa-davis-puente-red-68-en-25wes26239.html",
+"archetype": "sofaBed",
+"params": {
+"seats": 2,
+"armWidth": 0.2,
+"seatHeight": 0.43
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Bouclé meliert Beige",
+"slots": {
+"main": {
+"color": "#d9cbb7",
+"material": "boucle"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+},
+{
+"name": "Bouclé meliert ROSTROT",
+"slots": {
+"main": {
+"color": "#a5563b",
+"material": "boucle"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+},
+{
+"name": "Bouclé meliert GRÜN (Farbton am Muster prüfen)",
+"slots": {
+"main": {
+"color": "#a3b39a",
+"material": "boucle"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+},
+{
+"name": "Bouclé meliert BEIGE (Sand)",
+"slots": {
+"main": {
+"color": "#d8cab5",
+"material": "boucle"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "6–7 Wo.",
+"description": "Sitzfläche klappt nach vorn → Bett quer zur Wand",
+"concepts": [
+1,
+2,
+3,
+4
+]
+},
+{
+"id": "wes-boucl-sofa-tribeca-3-sitzer",
+"vendor": "Westwing",
+"name": "Bouclé-Sofa Tribeca (3-Sitzer)",
+"category": "sofa",
+"w": 228.0,
+"d": 104.0,
+"h": 80.0,
+"price": 2299.0,
+"url": "https://www.westwing.de/boucle-sofa-tribeca-3-sitzer-167048.html",
+"archetype": "sofa",
+"params": {
+"seats": 3,
+"armWidth": 0.2,
+"armHeight": 0.61,
+"seatHeight": 0.4,
+"backHeight": 0.8,
+"style": "tribeca"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Bouclé Dunkelbraun (Espresso), Füße schwarz matt",
+"slots": {
+"main": {
+"color": "#5d4231",
+"material": "boucle"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "4–9 WT",
+"description": "Sitzhöhe 40, Armlehne H 61; 100.000 Martindale, Kissenbezüge abnehmbar; linke Lehne an der Westwand",
+"concepts": [
+2
+]
+},
+{
+"id": "wes-modulares-sofa-lennon-3-sitzer-aus-boucl",
+"vendor": "Westwing",
+"name": "Modulares Sofa Lennon (3-Sitzer) aus Bouclé",
+"category": "sofa",
+"w": 238.0,
+"d": 119.0,
+"h": 68.0,
+"price": 2499.0,
+"url": "https://www.westwing.de/modulares-sofa-lennon-3-sitzer-aus-boucle-156413.html",
+"archetype": "sofaModular",
+"params": {
+"modules": 2,
+"armWidth": 0.32,
+"armHeight": 0.25,
+"seatHeight": 0.43,
+"backDepth": 0.25
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Bouclé Taupe, Füße schwarz",
+"slots": {
+"main": {
+"color": "#b9aa97",
+"material": "boucle"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+},
+{
+"name": "Bouclé GREIGE, Füße schwarz",
+"slots": {
+"main": {
+"color": "#cfc6b8",
+"material": "boucle"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "7–8 Wo.",
+"description": "100 % Polyester-Bouclé, 100.000 Scheuertouren; Bouclé Greige zum gleichen Preis",
+"concepts": [
+1,
+3
+]
+},
+{
+"id": "wes-modulares-sofa-lennon-3-sitzer-aus-cord",
+"vendor": "Westwing",
+"name": "Modulares Sofa Lennon (3-Sitzer) aus Cord",
+"category": "sofa",
+"w": 238.0,
+"d": 119.0,
+"h": 68.0,
+"price": 2699.0,
+"url": "https://www.westwing.de/modulares-sofa-lennon-3-sitzer-in-beige-aus-cord-133524.html?simple=DEQ21WES44781-168204",
+"archetype": "sofaModular",
+"params": {
+"modules": 2,
+"armWidth": 0.32,
+"armHeight": 0.25,
+"seatHeight": 0.43,
+"backDepth": 0.25
+},
+"mount": "floor",
+"variants": [
+{
+"name": "CORD HELLBEIGE, Füße schwarz",
+"slots": {
+"main": {
+"color": "#ddd6c8",
+"material": "cord"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "7–8 Wo.",
+"description": "tief und niedrig (Sitz 88 × 88, H 43) – Lounge- Proportion; Cord wie das Bett; heller Stein-Ton, kein Weiß; linke Lehne an der Westwand",
+"concepts": [
+4
+]
+},
+{
+"id": "des-tradition-flowerpot-vp3-tischleuchte",
+"vendor": "Designhandel",
+"name": "&Tradition Flowerpot VP3 Tischleuchte",
+"category": "tableLamp",
+"w": 23.0,
+"d": 23.0,
+"h": 50.0,
+"price": 340.0,
+"url": "https://www.ambientedirect.com/en/tradition/flowerpot-vp3-table-lamp_pid_264_1257823.html",
+"archetype": "lampTableMushroom",
+"params": {
+"shape": "flowerpot"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "chrome-plated; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "1–5 WT",
+"description": "E27 exkl.; UVP 472 €",
+"concepts": [
+2,
+3
+]
+},
+{
+"id": "des-tradition-flowerpot-vp9-portable",
+"vendor": "Designhandel",
+"name": "&Tradition Flowerpot VP9 Portable",
+"category": "tableLamp",
+"w": 16.0,
+"d": 16.0,
+"h": 29.5,
+"price": 283.0,
+"url": "https://www.ambientedirect.com/en/tradition/flowerpot-vp9-led-battery-table-lamp_pid_1370446.html",
+"archetype": "lampTableMushroom",
+"params": {
+"shape": "flowerpot"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "chrome-plated, Akku; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "1–5 WT",
+"description": "auf der Konsole; ca. 10 h Laufzeit, 3-Stufen- Touchdimmer",
+"concepts": [
+2,
+3
+]
+},
+{
+"id": "des-flos-ic-t1-high-tischleuchte",
+"vendor": "Designhandel",
+"name": "Flos IC T1 High Tischleuchte",
+"category": "tableLamp",
+"w": 32.0,
+"d": 32.0,
+"h": 44.2,
+"price": 463.0,
+"url": "https://www.ambientedirect.com/en/flos/ic-t1-table-lamp_pid_28198_1139408.html",
+"archetype": "lampTableGlobe",
+"params": {
+"globe": 0.2,
+"ic": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Chrom glänzend / Opalglaskugel; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+}
+},
+{
+"name": "MESSING gebürstet / Opalglas; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "3–4 Wo.",
+"description": "auf dem Sideboard; gleiche Familie wie Wandleuchte E5",
+"concepts": [
+2,
+3,
+4
+]
+},
+{
+"id": "des-flos-ic-t1-low-tischleuchte",
+"vendor": "Designhandel",
+"name": "Flos IC T1 Low Tischleuchte",
+"category": "tableLamp",
+"w": 17.6,
+"d": 17.6,
+"h": 38.0,
+"price": 463.0,
+"url": "https://www.ambientedirect.com/flos/ic-t1-tischleuchte_pid_493_1139408.html",
+"archetype": "lampTableGlobe",
+"params": {
+"globe": 0.2,
+"ic": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "MESSING gebürstet / Opalglas; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "ab 18.11. + 1–3 WT",
+"description": "symmetrisch links/rechts; Opalkugeln leuchten vor Petrol; E14 exkl.",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-grosse-tischlampe-ph-3-2-mundgeblasen-louis-poul",
+"vendor": "Westwing",
+"name": "Große Tischlampe PH 3½-2½, mundgeblasen (Louis Poulsen)",
+"category": "tableLamp",
+"w": 33.0,
+"d": 33.0,
+"h": 45.0,
+"price": 1249.0,
+"url": "https://www.westwing.de/grosse-tischlampe-ph-3-1-2-2-1-2-mundgeblasen-160503.html",
+"archetype": "lampTableLayered",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "Opalglas weiß / Gestell Kupfer",
+"slots": {
+"main": {
+"color": "#b8703e",
+"material": "copper"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "5 Wo.",
+"description": "Design-Ikone; 1 × E14",
+"concepts": [
+1
+]
+},
+{
+"id": "des-gubi-bestlite-bl1-tischleuchte",
+"vendor": "Designhandel",
+"name": "Gubi Bestlite BL1 Tischleuchte",
+"category": "tableLamp",
+"w": 16.0,
+"d": 16.0,
+"h": 51.0,
+"price": 399.0,
+"url": "https://www.nordicnest.de/marken/gubi/bestlite-bl1-tischleuchte/?variantId=24038-04",
+"archetype": "lampTableShade",
+"params": {
+"shape": "bestlite"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Kohlschwarz / MESSING; über Nordic Nest",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+},
+"shade": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+},
+"detail": {
+"color": "#c9a55c",
+"material": "brass"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "Bauhaus-Klassiker als Arbeitslicht; UVP 699 €",
+"concepts": [
+4
+]
+},
+{
+"id": "des-gubi-multi-lite-portable",
+"vendor": "Designhandel",
+"name": "Gubi Multi-Lite Portable",
+"category": "tableLamp",
+"w": 15.0,
+"d": 15.0,
+"h": 30.0,
+"price": 228.0,
+"url": "https://www.nordicnest.de/marken/gubi/multilite-portabel-leuchte/?variantId=586069-01",
+"archetype": "lampTableMushroom",
+"params": {
+"shape": "cone"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "MESSING, Akku (≈ 6,5 h); über Nordic Nest",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#c9a55c",
+"material": "brass"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "auf dem Lowboard; keine Kabel an der Lamellenwand; UVP 399 €",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-kleine-led-tischlampe-kian",
+"vendor": "Westwing",
+"name": "Kleine LED-Tischlampe Kian",
+"category": "tableLamp",
+"w": 30.0,
+"d": 30.0,
+"h": 35.0,
+"price": 129.0,
+"url": "https://www.westwing.de/new-milky-table-lamp-small-brass-en-25wes67056.html",
+"archetype": "lampTableMushroom",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "Milchglas / Fuß kupferfarben",
+"slots": {
+"main": {
+"color": "#b8703e",
+"material": "copper"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "auf dem Lowboard (Westende), Strom über TV- Dosen",
+"concepts": [
+1
+]
+},
+{
+"id": "des-louis-poulsen-panthella-160-portable-v3",
+"vendor": "Designhandel",
+"name": "Louis Poulsen Panthella 160 Portable V3",
+"category": "tableLamp",
+"w": 16.0,
+"d": 16.0,
+"h": 23.8,
+"price": 229.0,
+"url": "https://www.ambientedirect.com/en/louis-poulsen/panthella-160-portable-v3-led-table-lamp-with-battery-chromed-base_pid_28659_1391432.html",
+"archetype": "lampTableMushroom",
+"params": {
+"shape": "panthella"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Chromfuß / Schirm Opal Braun, Akku; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#8a6a4f",
+"material": "gloss"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "1–5 WT",
+"description": "auf dem Lowboard; USB-C, dimmbar, IP44",
+"concepts": [
+2
+]
+},
+{
+"id": "des-louis-poulsen-panthella-portable-160-v3",
+"vendor": "Designhandel",
+"name": "Louis Poulsen Panthella Portable 160 V3",
+"category": "tableLamp",
+"w": 16.0,
+"d": 16.0,
+"h": 24.0,
+"price": 243.0,
+"url": "https://www.lampenwelt.de/p/louis-poulsen-panthella-portable-160-v3-messingfarben-10041803.html",
+"archetype": "lampTableMushroom",
+"params": {
+"shape": "panthella"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "MESSING glänzend, Akku; über Lampenwelt",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#c9a55c",
+"material": "brass"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "8–12 WT",
+"description": "Begrüßungslicht auf der Konsole; ca. 8,5 h Laufzeit",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-boucl-kissenhuellen-bellamie-2er-set",
+"vendor": "Westwing",
+"name": "Bouclé-Kissenhüllen Bellamie, 2er-Set",
+"category": "textile",
+"w": 48.0,
+"d": 16.0,
+"h": 48.0,
+"price": 37.99,
+"url": "https://www.westwing.de/grosse-boucle-kissenhuelle-bellamie-in-cremeweiss-146354.html?simple=DEQ22WES08163-204849",
+"archetype": "cushion",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "Cremeweiß",
+"slots": {
+"main": {
+"color": "#f4efe4",
+"material": "boucle"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–5 WT",
+"description": "mit 50er-Innenkissen prall gefüllt (Designer-Trick)",
+"concepts": [
+4
+]
+},
+{
+"id": "wes-boucl-kissenhuellen-bellamie-2er-set-2-fjaedrar",
+"vendor": "Westwing",
+"name": "Bouclé-Kissenhüllen Bellamie, 2er-Set + 2 × FJÄDRAR",
+"category": "textile",
+"w": 50.0,
+"d": 16.0,
+"h": 50.0,
+"price": 51.99,
+"url": "https://www.westwing.de/grosse-boucle-kissenhuelle-bellamie-in-cremeweiss-146354.html?simple=DEQ22WES08163-204849",
+"archetype": "cushion",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "Cremeweiß / elfenbeinweiß",
+"slots": {
+"main": {
+"color": "#f4efe4",
+"material": "boucle"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–5 WT",
+"description": "37,99 € + 2 × 7,00 €",
+"concepts": [
+4
+]
+},
+{
+"id": "ike-dytag-kissenbezug",
+"vendor": "IKEA",
+"name": "DYTÅG Kissenbezug",
+"category": "textile",
+"w": 50.0,
+"d": 16.0,
+"h": 50.0,
+"price": 9.99,
+"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
+"archetype": "cushion",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "graugrün (100 % Leinen)",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "linen"
+}
+}
+},
+{
+"name": "rotbraun, 100 % Leinen",
+"slots": {
+"main": {
+"color": "#a8573a",
+"material": "linen"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "prüfen",
+"description": "",
+"concepts": [
+1,
+2
+]
+},
+{
+"id": "ike-dytag-kissenbezug-fjaedrar-innenkissen",
+"vendor": "IKEA",
+"name": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"category": "textile",
+"w": 50.0,
+"d": 16.0,
+"h": 50.0,
+"price": 16.99,
+"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
+"archetype": "cushion",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "graugrün / elfenbeinweiß",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "linen"
+}
+}
+},
+{
+"name": "rotbraun Leinen / elfenbeinweiß",
+"slots": {
+"main": {
+"color": "#a8573a",
+"material": "linen"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "prüfen",
+"description": "9,99 € + 7,00 €",
+"concepts": [
+1,
+2
+]
+},
+{
+"id": "wes-kissenhuelle-giorgio-mit-stickerei",
+"vendor": "Westwing",
+"name": "Kissenhülle Giorgio mit Stickerei",
+"category": "textile",
+"w": 50.0,
+"d": 16.0,
+"h": 50.0,
+"price": 59.99,
+"url": "https://www.westwing.de/giorgio-50x50cm-deco-cushion-cover-cotton-velvet-with-cord-embroidery-frame-all-around-concealed-zipper-whiteburgundy-en-25wes87300.html",
+"archetype": "cushion",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "Bordeaux / Off White, Baumwollsamt",
+"slots": {
+"main": {
+"color": "#6e232f",
+"material": "velvet"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "13–14 Wo.",
+"description": "Samt mit Kordelrahmen – Hotelkissen-Optik",
+"concepts": [
+2
+]
+},
+{
+"id": "wes-plaid-luxury-aus-babyalpaka-wolle-elvang",
+"vendor": "Westwing",
+"name": "Plaid Luxury aus Babyalpaka-Wolle (Elvang)",
+"category": "textile",
+"w": 30.0,
+"d": 62.0,
+"h": 30.0,
+"price": 249.0,
+"url": "https://www.westwing.de/babyalpaka-plaid-luxury-23584.html?simple=DEQ15ELV08146-28569",
+"archetype": "throw",
+"params": {
+"draped": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Off White, 100 % Alpaka",
+"slots": {
+"main": {
+"color": "#f6f2e9",
+"material": "wool"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2 Wo.",
+"description": "locker über die linke Sofalehne",
+"concepts": [
+4
+]
+},
+{
+"id": "ike-sanela-kissenbezug",
+"vendor": "IKEA",
+"name": "SANELA Kissenbezug",
+"category": "textile",
+"w": 50.0,
+"d": 16.0,
+"h": 50.0,
+"price": 6.99,
+"url": "https://www.ikea.com/de/de/p/sanela-kissenbezug-dunkelgrautuerkis-80590928/",
+"archetype": "cushion",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "dunkelgrautürkis (petrolnah), Baumwollsamt",
+"slots": {
+"main": {
+"color": "#2f7074",
+"material": "velvet"
+}
+}
+},
+{
+"name": "dunkelgrautürkis (Petrol), Baumwollsamt",
+"slots": {
+"main": {
+"color": "#2f7074",
+"material": "velvet"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "prüfen",
+"description": "",
+"concepts": [
+3,
+4
+]
+},
+{
+"id": "ike-sanela-kissenbezug-fjaedrar-innenkissen",
+"vendor": "IKEA",
+"name": "SANELA Kissenbezug + FJÄDRAR Innenkissen",
+"category": "textile",
+"w": 50.0,
+"d": 16.0,
+"h": 50.0,
+"price": 13.99,
+"url": "https://www.ikea.com/de/de/p/sanela-kissenbezug-dunkelbraun-90636025/",
+"archetype": "cushion",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "dunkelbraun / elfenbeinweiß",
+"slots": {
+"main": {
+"color": "#4a3128",
+"material": "velvet"
+}
+}
+},
+{
+"name": "dunkelgrautürkis / elfenbeinweiß",
+"slots": {
+"main": {
+"color": "#2f7074",
+"material": "velvet"
+}
+}
+},
+{
+"name": "dunkelgrautürkis (Petrol) / elfenbeinweiß",
+"slots": {
+"main": {
+"color": "#2f7074",
+"material": "velvet"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "prüfen",
+"description": "6,99 € + 7,00 €",
+"concepts": [
+2,
+3,
+4
+]
+},
+{
+"id": "wes-samt-kissenhuelle-dana",
+"vendor": "Westwing",
+"name": "Samt-Kissenhülle Dana",
+"category": "textile",
+"w": 50.0,
+"d": 16.0,
+"h": 50.0,
+"price": 27.99,
+"url": "https://www.westwing.de/einfarbige-samt-kissenhuelle-dana-in-salbeigruen-68691.html?simple=DEQ17BY463492-85721",
+"archetype": "cushion",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "Salbeigrün, 100 % Baumwollsamt, Keder",
+"slots": {
+"main": {
+"color": "#9caf95",
+"material": "velvet"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "",
+"concepts": [
+3
+]
+},
+{
+"id": "wes-samt-kissenhuelle-dana-fjaedrar-innenkissen",
+"vendor": "Westwing",
+"name": "Samt-Kissenhülle Dana + FJÄDRAR Innenkissen",
+"category": "textile",
+"w": 50.0,
+"d": 16.0,
+"h": 50.0,
+"price": 34.99,
+"url": "https://www.westwing.de/einfarbige-samt-kissenhuelle-dana-in-salbeigruen-68691.html?simple=DEQ17BY463492-85721",
+"archetype": "cushion",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "Salbeigrün / elfenbeinweiß",
+"slots": {
+"main": {
+"color": "#9caf95",
+"material": "velvet"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "27,99 € + 7,00 €",
+"concepts": [
+3
+]
+},
+{
+"id": "wes-woll-plaid-tyrol-mit-zickzack-muster",
+"vendor": "Westwing",
+"name": "Woll-Plaid Tyrol mit Zickzack-Muster",
+"category": "textile",
+"w": 46.0,
+"d": 66.0,
+"h": 6.0,
+"price": 44.99,
+"url": "https://www.westwing.de/wool-blanket-tirol-with-zig-zag-pattern-en-25stt69253.html",
+"archetype": "throw",
+"params": {
+"pattern": "zigzag"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Salbeigrün / Weiß, 100 % Wolle",
+"slots": {
+"main": {
+"color": "#c8d3c1",
+"material": "wool"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "8–11 WT",
+"description": "",
+"concepts": [
+1,
+3
+]
+},
+{
+"id": "wes-wolldecke-double-face-mit-fransen",
+"vendor": "Westwing",
+"name": "Wolldecke Double Face mit Fransen",
+"category": "textile",
+"w": 46.0,
+"d": 62.0,
+"h": 6.0,
+"price": 44.99,
+"url": "https://www.westwing.de/wool-throw-double-face-en-25stt85639.html?simple=DEQ25STT85639-979002",
+"archetype": "throw",
+"params": {
+"fringe": true
+},
+"mount": "floor",
+"variants": [
+{
+"name": "Dunkelbraun / Weinrot, 100 % Wolle",
+"slots": {
+"main": {
+"color": "#7b3b34",
+"material": "wool"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–4 WT",
+"description": "",
+"concepts": [
+2
+]
+},
+{
+"id": "des-flos-ic-c-w1-wand-deckenleuchte",
+"vendor": "Designhandel",
+"name": "Flos IC C/W1 Wand-/Deckenleuchte",
+"category": "wallLamp",
+"w": 20.0,
+"d": 25.0,
+"h": 20.0,
+"price": 423.9,
+"url": "https://www.lampenwelt.de/p/flos-ic-c-w1-wandleuchte-messing-geburstet-3510301.html",
+"archetype": "wallGlobe",
+"params": {},
+"mount": "wall",
+"variants": [
+{
+"name": "MESSING gebürstet / Opal matt; über Lampenwelt",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "13–18 WT",
+"description": "Festanschluss an WA H 1,80 (Pfeiler Ostfassade); E14 exkl.",
+"concepts": [
+4
+],
+"elev": 0.0
+},
+{
+"id": "des-flos-ic-c-w1-wand-deckenleuchte-michael-anastass",
+"vendor": "Designhandel",
+"name": "Flos IC C/W1 Wand-/Deckenleuchte (Michael Anastassiades)",
+"category": "wallLamp",
+"w": 20.0,
+"d": 28.0,
+"h": 20.0,
+"price": 417.0,
+"url": "https://www.ambientedirect.com/en/flos/ic-c-w1-wall-ceiling-lamp_pid_28198_1139352.html",
+"archetype": "wallGlobe",
+"params": {},
+"mount": "wall",
+"variants": [
+{
+"name": "Chrom glänzend / Opalglaskugel; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "3–4 Wo.",
+"description": "Festanschluss an WA H 1,80 (Pfeiler Ostfassade); E14 exkl.",
+"concepts": [
+2,
+3
+],
+"elev": 0.0
+},
+{
+"id": "wes-mundgeblasene-wandleuchte-mabell-maytoni",
+"vendor": "Westwing",
+"name": "Mundgeblasene Wandleuchte Mabell (Maytoni)",
+"category": "wallLamp",
+"w": 28.0,
+"d": 13.0,
+"h": 21.0,
+"price": 109.0,
+"url": "https://www.westwing.de/mundgeblasene-wandleuchte-mabell-in-kupferfarben-147118.html",
+"archetype": "wallSconce",
+"params": {
+"shape": "mabell"
+},
+"mount": "wall",
+"variants": [
+{
+"name": "Kupferfarben",
+"slots": {
+"main": {
+"color": "#b8703e",
+"material": "copper"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–5 WT",
+"description": "Festanschluss an WA H 1,80 (Pfeiler Ostfassade); reduziert (vorher 145 €)",
+"concepts": [
+1
+],
+"elev": 0.0
+},
+{
+"id": "obi-akustikpaneel-eiche-geoelt-denpanels",
+"vendor": "OBI",
+"name": "Akustikpaneel Eiche geölt (Denpanels)",
+"category": "wallPanel",
+"w": 240.0,
+"d": 2.1,
+"h": 256.0,
+"price": 109.99,
+"url": "https://www.obi.de/p/9992504/akustikpaneel-eiche-geoelt-mdf-schwarz-filz-schwarz-60-cm-x-270-cm-fsc-",
+"archetype": "lamella",
+"params": {
+"slat": 0.027,
+"gap": 0.0135
+},
+"mount": "wall",
+"variants": [
+{
+"name": "Echtholzfurnier Eiche geölt auf Akustikfilz schwarz",
+"slots": {
+"main": {
+"color": "#c9a273",
+"material": "oak"
+},
+"secondary": {
+"color": "#141414",
+"material": "fabric"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "Abholung Markt",
+"description": "Lamellenfeld TV-Wand 2,40 × 2,58 m (raumhoch, 12 cm kürzen); Ton-in-Ton zu den Natureiche-Dielen; Dosen mit Verlängerungsrahmen",
+"concepts": [
+1,
+3,
+4
+],
+"elev": 0.0
+},
+{
+"id": "obi-akustikpaneel-walnuss-geoelt-echtholzfurnier-fil",
+"vendor": "OBI",
+"name": "Akustikpaneel Walnuss geölt (Echtholzfurnier, Filz schwarz)",
+"category": "wallPanel",
+"w": 240.0,
+"d": 2.1,
+"h": 256.0,
+"price": 109.99,
+"url": "https://www.obi.de/p/9992520/akustikpaneel-walnuss-geoelt-mdf-schwarz-filz-schwarz-60-cm-x-270-cm-fsc-",
+"archetype": "lamella",
+"params": {
+"slat": 0.027,
+"gap": 0.0135
+},
+"mount": "wall",
+"variants": [
+{
+"name": "Walnuss geölt",
+"slots": {
+"main": {
+"color": "#6b4a33",
+"material": "walnut"
+},
+"secondary": {
+"color": "#141414",
+"material": "fabric"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "Abholung Markt",
+"description": "Lamellenfeld TV-Wand 2,40 × 2,58 m, eckbündig; Lieferung derzeit nicht möglich → Marktabholung reservieren",
+"concepts": [
+2
+],
+"elev": 0.0
+},
+{
+"id": "ike-pax-korpus-kleiderschrank",
+"vendor": "IKEA",
+"name": "PAX Korpus Kleiderschrank",
+"category": "wardrobe",
+"w": 150.0,
+"d": 37.0,
+"h": 236.0,
+"price": 90.0,
+"url": "https://www.ikea.com/de/de/p/pax-korpus-kleiderschrank-weiss-70458199/",
+"archetype": "wardrobe",
+"params": {
+"modules": "100,50",
+"doors": 3,
+"fascia": 0.2,
+"fasciaColor": "#f3f0e8",
+"handle": "edge"
+},
+"mount": "floor",
+"variants": [
+{
+"name": "weiß",
+"slots": {
+"main": {
+"color": "#f3eee3",
+"material": "lacquer"
+},
+"secondary": {
+"color": "#f3f1ec",
+"material": "matte"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": false,
+"delivery": "prüfen",
+"description": "",
+"concepts": [
+1,
+2,
+3,
+4
+]
+}
+]
