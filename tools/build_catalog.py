@@ -11,6 +11,8 @@ Maße werden in cm übernommen, Farben/Materialien aus den Shopangaben auf Mater
 import json, re, statistics
 from pathlib import Path
 
+from finish import slots_from, variant_label
+
 ROOT = Path(__file__).resolve().parents[1]
 RES = ROOT / "tools/research/data"
 DATA = ROOT / "app/src/data"
@@ -274,6 +276,47 @@ MOUNT = {"pendant": "ceiling", "ceilingLamp": "ceiling", "wallLamp": "wall", "ar
 ELEV = {"wallLamp": 1.75, "art": 1.0, "mirror": 1.1}
 
 
+EXCLUDE_NAME = re.compile(r"\bTisch und\b|\bTisch \+|\+ \d+ (?:Bar)?[Ss]tühle|Stühle \+|\bHaken\b|\bSockel\b|Garderobe\b.*Haken|Ersatzbezug|Bezug für", re.I)
+
+
+def fix_geometry(e):
+    """Archetyp/Maße plausibilisieren (Couchtische, vertauschte Breite/Tiefe, Récamiere-Tiefe, Ecksofas)."""
+    a, cat = e["archetype"], e["category"]
+    if a in ("tableRect", "tableOval", "tablePedestal", "tableRound") and e["h"] < 60:
+        e["category"] = "coffeeTable" if max(e["w"], e["d"]) >= 60 else "sideTable"
+        e["archetype"] = ("coffeeRound" if a in ("tableRound", "tablePedestal") else "coffeeBlock") if max(e["w"], e["d"]) >= 60 else "sideRound" if a in ("tableRound", "tablePedestal") else "sideContainer"
+    elif a in ("tableRect", "tableOval") and max(e["w"], e["d"]) < 60:
+        e["category"], e["archetype"] = "sideTable", "sideContainer"
+    if a == "console" and e["w"] < 60:
+        e["category"], e["archetype"] = "sideTable", "sideContainer"
+    if e["archetype"] in ("tableRect", "tableOval", "desk", "deskStanding", "console", "sideboard", "lowboard", "dresser", "bench",
+                          "coffeeBlock", "coffeeDuo", "bookcase", "wardrobe", "vitrine", "sofa", "sofaModular", "sofaBed") and e["d"] > e["w"]:
+        e["w"], e["d"] = e["d"], e["w"]
+    nl = e["name"].lower()
+    if re.search(r"schuhschrank|schuhkipper|schuhkommode", nl) and e["archetype"] in ("shelfOpen", "bookcase", "sideboard", "dresser", "cabinet"):
+        e["category"], e["archetype"] = "dresser", "dresser"
+        e["params"] = {**(e.get("params") or {}), "flaps": max(1, min(4, round(e["h"] / 45)))}
+    if "sitzsack" in nl or "beanbag" in nl:
+        e["category"], e["archetype"] = "pouf", "pouf"
+    if re.search(r"sitzbank|(?<!tv-)\bbank\b", nl) and "tv" not in nl and e["archetype"] in ("dresser", "sideboard", "lowboard"):
+        e["category"], e["archetype"] = "bench", "bench"
+    if re.search(r"bartisch|stehtisch", nl) and e["archetype"] in ("barStool",):
+        e["category"], e["archetype"] = "diningTable", "tableRect"
+    if e["archetype"] in ("tableRect", "tableOval") and 85 < e["h"] <= 130 and e["d"] <= 60 and "bar" not in nl:
+        e["d"], e["h"] = e["h"], 75.0  # „152/223×95 cm“: 95 = Tiefe, Höhe Standard 75 cm
+    if e["archetype"] == "lowboard" and e["h"] > 110:
+        # TV-Kombination/Wohnwand: Regalraster mit geschlossener unterer Reihe
+        e["archetype"] = "shelfOpen"
+        e["params"] = {**(e.get("params") or {}), "style": "grid", "doorsBottom": 1}
+    if e["archetype"] == "dresser" and e["h"] > 150:
+        e["archetype"] = "wardrobe"
+    if e["archetype"] in ("sofa", "sofaModular") and e["d"] >= 140:
+        e["archetype"] = "sofaCorner"
+    if e["archetype"] == "sofaCorner" and e["d"] < 120:
+        e["d"] = 160.0  # Herstellerangabe = Sitztiefe; Récamiere/Ecke ≈ 160 cm
+    return e
+
+
 def finalize(e):
     cat = e["category"]
     d = DEFAULT_DIMS.get(cat, (60, 60, 60))
@@ -294,7 +337,7 @@ def finalize(e):
     if cat == "ceilingLamp":
         e["elev"] = round(2.56 - e["h"] / 100, 3)
     e["resizable"] = cat in ("rug", "curtain", "wardrobe", "shelf", "wallPanel", "molding") or e.get("resizable", False)
-    return e
+    return fix_geometry(e)
 
 
 # ------------------------------------------------------------------ Westwing
@@ -305,7 +348,7 @@ WW_CAT = {
     "buerostuehle": "officeChair", "hocker-poufs": "pouf", "teppiche": "rug", "stehleuchten": "floorLamp", "pendelleuchten": "pendant",
     "tischleuchten": "tableLamp", "wandleuchten": "wallLamp", "deckenleuchten": "ceilingLamp", "spiegel": "mirror", "bilder": "art",
     "vasen": "decor", "vorhaenge": "curtain", "gartensofas-lounge-sofas": "outdoor", "gartentische": "outdoor", "gartenstuehle": "outdoor",
-    "gartensessel-lounge-sessel": "outdoor",
+    "gartensessel-lounge-sessel": "outdoor", "sitzbaenke": "bench", "barhocker": "stool", "kissen": "textile", "plaids-decken": "textile",
 }
 
 
@@ -323,14 +366,20 @@ def westwing():
             pass
         name = p["name"]
         col = p.get("colorDisplay") or ""
+        if re.search(r"firesafety|artwall", col, re.I):
+            col = ""
         variants = []
-        main_slots = slots_for(cat, col, p.get("materialText", ""), name)
-        variants.append({"name": col or "Standard", "slots": main_slots})
-        for v in (p.get("variants") or [])[:14]:
+        fb = slots_for(cat, col, p.get("materialText", ""), name)
+        main_slots = slots_from(cat, col or (p.get("materialText") or ""), name, fb) or fb
+        variants.append({"name": variant_label(col) if col else "Standard", "slots": main_slots})
+        for v in (p.get("variants") or [])[:16]:
             vv = v.strip()
-            if vv.lower() == (col or "").lower():
+            if not vv or vv.lower() == (col or "").lower() or re.search(r"firesafety|artwall", vv, re.I):
                 continue
-            variants.append({"name": vv[:1].upper() + vv[1:], "slots": slots_for(cat, vv, vv, name)})
+            sl = slots_from(cat, vv, name, None)
+            if sl is None:
+                continue  # Variante ohne erkennbare Farbe/Material (z. B. Motivname) – nicht darstellbar
+            variants.append({"name": variant_label(vv), "slots": sl})
         e = {
             "id": "wes-" + re.sub(r"[^a-z0-9]+", "-", p["url"].split("/")[-1].replace(".html", ""))[:60],
             "vendor": "Westwing", "brand": p.get("brand"), "name": name, "category": cat,
@@ -430,6 +479,33 @@ def ikea_page_dims(m):
     return W, D, H
 
 
+def ikea_design(alt):
+    """„NAME Typ, Ausführung, 90x50 cm“ → „Ausführung“."""
+    m = re.match(r"^[^,]+,\s*(.*)$", alt or "")
+    if not m:
+        return ""
+    return re.sub(r",\s*(?:[\dØ][\d.,x×\s/-]*\s*(?:cm|mm)\b.*|\d+\s*St\..*)$", "", m.group(1)).strip()
+
+
+IKEA_CONFIG = re.compile(r"\b(mit|ohne|und|\+)\s+(r[ée]camieren?|abschluss|offene[sn]? ende|armlehnen?|breiten armlehnen|nackenkissen|"
+                         r"kopfteil|bettkasten|schubladen?|t[üu]ren|aufbewahrung|sitzelement|hocker)\b|\b(offenes ende|links|rechts|draußen|drinnen)\b", re.I)
+IKEA_FABRICS = ("gunnared", "kelinge", "tibbleby", "vissle", "remmarn", "tonerud", "djuparp", "kilanda", "johanneshov", "hakebo",
+                "hallarp", "lofallet", "tallmyra", "viarp", "knisa", "lejde", "vibberbo", "knäbäck", "gransel", "grann", "bomstad",
+                "fridtuna", "kimstad", "glose", "hillared", "sundhamn", "alhamn", "lappviken", "stubbarp", "smeviken", "luröy")
+
+
+def ikea_label(design):
+    """Nur die farb-/materialtragenden Teile der Ausführung (ohne Konfiguration wie „mit Récamiere“)."""
+    from finish import parse_finish
+    design = IKEA_CONFIG.sub(" ", design).replace("recamiere", "").strip(" ,/+")
+    design = re.sub(r"\s{2,}", " ", design)
+    for f in IKEA_FABRICS:
+        design = re.sub(r"\b" + f + r"\b", f.capitalize(), design, flags=re.I)
+    parts = [s.strip() for s in re.split(r"\s*/\s*", design) if s.strip()]
+    keep = [s for s in parts if parse_finish(s)]
+    return variant_label(" / ".join(keep or parts))
+
+
 def ikea():
     f = RES / "ikea_products.json"
     if not f.exists():
@@ -437,13 +513,26 @@ def ikea():
     pd = {}
     if (RES / "ikea_dims.json").exists():
         pd = json.loads((RES / "ikea_dims.json").read_text())
-    groups = {}
-    for p in json.loads(f.read_text()):
+    raw = json.loads(f.read_text())
+    # Ausführung je Artikelnummer aus den Varianten-Alttexten aller Produkte
+    design = {}
+    for p in raw:
+        for v in p.get("variants") or []:
+            d = ikea_design(v.get("alt"))
+            if d:
+                design.setdefault(v["itemNo"], d)
+        for a in p.get("alts") or []:
+            if a.startswith(f"{p['name']} {p.get('type') or ''},"):
+                design.setdefault(p["itemNo"], ikea_design(a))
+    groups, seen_item = {}, {}
+    for p in raw:
         cat = ikea_cat(p.get("type"))
         if not cat or not p.get("price"):
             continue
         if p["type"] and "kinder" in p["type"].lower():
             continue
+        if p["itemNo"] in seen_item:
+            continue  # bereits als Variante eines anderen Produkts erfasst
         W, D, H = parse_ikea(p.get("measure"), p.get("type"))
         m = pd.get(p["itemNo"]) or {}
         if m and "err" not in m:
@@ -456,26 +545,42 @@ def ikea():
         if cat in ("curtain",) and W and D:
             W, H, D = W, D, 8
         key = (p["name"], p["type"], p.get("measure"))
-        g = groups.get(key)
-        hexes = [c[1] for c in p.get("colors") or [] if c[1]]
-        colname = ", ".join(c[0] for c in p.get("colors") or [] if c[0])
-        vname = (p.get("url") or "").split("/p/")[-1].rsplit("-", 1)[0].replace(p["name"].lower().replace(" ", "-"), "").strip("-").replace("-", " ") or colname or "Standard"
-        sl = slots_for(cat, f"{vname} {colname}", vname, p["name"] + " " + (p.get("type") or ""))
-        if hexes:
-            sl.setdefault("main", {"color": "#" + hexes[0], "material": "fabric"})
-            sl["main"] = {"color": "#" + hexes[0], "material": sl["main"]["material"]}
-        variant = {"name": vname[:60], "slots": sl, "price": p["price"], "url": p["url"], "image": p.get("image")}
-        if g is None:
-            e = {
-                "id": f"ike-{p['itemNo']}", "vendor": "IKEA", "name": f"{p['name']} {p['type']}", "series": p["name"], "category": cat,
-                "w": W, "d": D, "h": H, "price": float(p["price"]), "url": p["url"], "image": p.get("image"),
-                "archetype": arch_for(cat, f"{p['name']} {p['type']}", W, D, H), "params": {}, "variants": [variant],
-                "tags": [p["name"]], "premium": p["name"] in PREMIUM_IKEA, "description": f"{p['type']}, {p.get('measure') or ''}".strip(", "),
-            }
-            groups[key] = e
-        else:
-            if len(g["variants"]) < 14:
-                g["variants"].append(variant)
+        if key in groups:
+            continue
+        full = f"{p['name']} {p['type']}"
+        members = [{"itemNo": p["itemNo"], "url": p["url"], "image": p.get("image"), "price": p["price"], "measure": p.get("measure"),
+                    "slug": p["url"]}] + [v for v in (p.get("variants") or []) if v.get("price")
+                                          and (not v.get("type") or v.get("type") == p.get("type"))
+                                          and (not p.get("measure") or not v.get("measure") or v.get("measure") == p.get("measure"))]
+        variants, names = [], set()
+        for v in members:
+            if v["itemNo"] in seen_item:
+                continue
+            d = design.get(v["itemNo"])
+            if not d:  # Rückfall: Ausführung aus dem URL-Slug (ohne Serien- und Typwörter)
+                slug = (v.get("url") or "").split("/p/")[-1].rsplit("-", 1)[0]
+                tr = str.maketrans({"ä": "ae", "ö": "oe", "ü": "ue", "å": "a", "é": "e"})
+                drop = set(re.findall(r"[a-z0-9]+", f"{p['name']} {p.get('type') or ''}".lower().translate(tr)))
+                d = " ".join(t for t in slug.split("-") if t not in drop)
+                d = d.replace("weiss", "weiß").replace("gruen", "grün").replace("aussen", "außen")
+            label = ikea_label(d) if d else "Standard"
+            if label.lower() in names:
+                continue
+            fb = slots_for(cat, d, d, full)
+            sl = slots_from(cat, d, full, fb) or fb
+            names.add(label.lower())
+            seen_item[v["itemNo"]] = True
+            variants.append({"name": label[:60], "slots": sl, "price": float(v["price"]), "url": v["url"], "image": v.get("image")})
+            if len(variants) >= 16:
+                break
+        if not variants:
+            continue
+        groups[key] = {
+            "id": f"ike-{p['itemNo']}", "vendor": "IKEA", "name": full, "series": p["name"], "category": cat,
+            "w": W, "d": D, "h": H, "price": min(v["price"] for v in variants), "url": p["url"], "image": p.get("image"),
+            "archetype": arch_for(cat, full, W, D, H), "params": {}, "variants": variants,
+            "tags": [p["name"]], "premium": p["name"] in PREMIUM_IKEA, "description": f"{p['type']}, {p.get('measure') or ''}".strip(", "),
+        }
     return [finalize(e) for e in groups.values()]
 
 
@@ -548,8 +653,9 @@ def jysk():
         series = series[0] if series else p["name"]
         col = sp.get("Farbe") or p["name"]
         key = (series, cat, W, D, H)
-        sl = slots_for(cat, col, mat, p["name"])
-        v = {"name": (sp.get("Farbe") or "Standard")[:40], "slots": sl, "price": price, "url": p["url"]}
+        fb = slots_for(cat, col, mat, p["name"])
+        sl = slots_from(cat, sp.get("Farbe") or "", p["name"] + " " + (sp.get("Material") or ""), fb) or fb
+        v = {"name": variant_label(sp.get("Farbe") or "Standard")[:40], "slots": sl, "price": price, "url": p["url"]}
         if key in out:
             if len(out[key]["variants"]) < 10 and not any(x["name"] == v["name"] for x in out[key]["variants"]):
                 out[key]["variants"].append(v)
@@ -645,7 +751,7 @@ TYLKO_COLORS = [  # Tylko-Farbnamen (DE) → Farbton/Material; längste zuerst p
     ("buttergelb", "#e8cf7d", "lacquer"), ("senfgelb", "#c99a2e", "lacquer"), ("salbeigrün", "#a5b39b", "lacquer"),
     ("olivgrün", "#6c7350", "lacquer"), ("waldgrün", "#34493b", "lacquer"), ("flieder", "#b9a7c4", "lacquer"),
     ("graphit", "#3c3e41", "lacquer"), ("dunkelgrau", "#4a4a48", "lacquer"), ("hellgrau", "#c4c3bf", "lacquer"),
-    ("cognac", "#9a5b34", "leather"), ("sand", "#cfb895", "lacquer"), ("beige", "#d9c9b1", "lacquer"), ("weiß", "#f1efe9", "lacquer"),
+    ("cognac", "#9a5b34", "leather"), ("khaki", "#8a8457", "lacquer"), ("anthrazit", "#3a3b3c", "lacquer"), ("multicolor", "#b9a58c", "lacquer"), ("sand", "#cfb895", "lacquer"), ("beige", "#d9c9b1", "lacquer"), ("weiß", "#f1efe9", "lacquer"),
     ("schwarz", "#1f1f1f", "lacquer"), ("grau", "#9b9a96", "lacquer"), ("grün", "#6c7350", "lacquer"), ("blau", "#3f5675", "lacquer"),
     ("rosa", "#e2bcb7", "lacquer"), ("gelb", "#e2c45a", "lacquer"), ("rot", "#9b2f2f", "lacquer"), ("braun", "#6f4d36", "lacquer"),
 ]
@@ -782,8 +888,9 @@ def tylko():
     # Ausdünnen: je (Linie, Kategorie) höchstens 60 Größen, nach Häufigkeit der Farben (beliebte Konfigurationen)
     out, per = [], {}
     for e in sorted(items, key=lambda e: -len(e["variants"])):
+        fix_geometry(e)
         k = (e["series"], e["category"])
-        if per.get(k, 0) >= 60:
+        if per.get(k, 0) >= 140:
             continue
         per[k] = per.get(k, 0) + 1
         out.append(e)
@@ -805,6 +912,9 @@ METAL_COLORS = {"messing": ("#c9a55c", "brass"), "gold": ("#c9a55c", "brass"), "
                 "weiß": ("#f2f1ed", "matte"), "beige": ("#d9cbb4", "matte"), "sand": ("#d8c7a8", "matte"), "braun": ("#6f4d36", "matte")}
 
 
+LAMP_MID_BRANDS = {"Albert Leuchten", "Nordlux", "Paul Neuhaus Leuchten", "SCHÖNER WOHNEN-Kollektion", "Ideallux", "Fabas Luce", "Design For The People by Nordlux", "By Rydens"}
+
+
 def cm(v):
     m = re.match(r"([\d.,]+)\s*(mm|cm|m)?", v or "")
     if not m:
@@ -820,11 +930,13 @@ def lamp_slots(a, name):
         mat = "plastic"
     sm = (a.get("Material des Schirms") or "").lower()
     sc_txt = (a.get("Farbe des Schirms") or "").lower()
+    from finish import _find_color
+    fc = _find_color(sc_txt)
     if "glas" in sm or "plexi" in sm or "acryl" in sm:
         shade = {"color": "#f6f4ee", "material": "opal"} if any(k in sc_txt for k in ("weiß", "opal", "satiniert", "milch")) or not sc_txt else (
-            {"color": "#e8eef0", "material": "glass"} if any(k in sc_txt for k in ("klar", "transparent")) else {"color": color_of(sc_txt, "#e8e2d6"), "material": "glass"})
+            {"color": "#e8eef0", "material": "glass"} if any(k in sc_txt for k in ("klar", "transparent")) else {"color": fc[0] if fc else "#e8e2d6", "material": "glass"})
     elif "stoff" in sm:
-        shade = {"color": color_of(sc_txt, "#efe9dd"), "material": "linen"}
+        shade = {"color": fc[0] if fc else "#efe9dd", "material": "linen"}
     elif "rattan" in sm or "geflecht" in sm:
         shade = {"color": "#c49a6c", "material": "rattan"}
     elif "papier" in sm:
@@ -847,7 +959,18 @@ def lampe():
         typ = a.get("Produktart")
         if typ not in LAMP_TYPE or not p.get("price") or (a.get("Verwendungsbereich") or "").lower().startswith("außen"):
             continue
+        if p["brand"] in LAMP_MID_BRANDS and float(p["price"]) < 99:
+            continue  # Mittelklasse-Marken: nur höherwertige Modelle
         cat, mount = LAMP_TYPE[typ]
+        nm_l = p["name"].lower()
+        # Produktname hat Vorrang vor „Produktart“ (z. B. Leseleuchte, die eine Wandleuchte ist)
+        for kw, ty in (("wandleuchte", "Wandleuchte"), ("wandlampe", "Wandleuchte"), ("stehleuchte", "Stehlampe"), ("stehlampe", "Stehlampe"),
+                       ("tischleuchte", "Tischleuchte"), ("tischlampe", "Tischleuchte"), ("pendelleuchte", "Pendelleuchte"),
+                       ("hängeleuchte", "Hängeleuchte"), ("deckenleuchte", "Deckenleuchte")):
+            if kw in nm_l:
+                typ = ty
+                cat, mount = LAMP_TYPE[ty]
+                break
         if cat == "tableLamp" and (cm(a.get("Höhe")) or 0) > 100:
             cat = "floorLamp"  # Leseleuchten in Stehhöhe
         name = re.sub(r",\s*\d+-flammig$", "", p["name"]).strip()
@@ -860,8 +983,8 @@ def lampe():
         DD = D or B or W
         HH = H or 30
         if cat == "tableLamp":
-            arch = "lampTask" if (typ == "Leseleuchte" or "tolomeo" in nl or (L and D and L > 2 * D)) else (
-                "lampTableGlobe" if form in ("kugel",) else ("lampTableMushroom" if any(k in nl for k in ("pilz", "mushroom", "panthella", "nessino", "eclisse")) or form == "halbrund" else "lampTableShade"))
+            arch = "lampTask" if (typ == "Leseleuchte" or any(k in nl for k in ("tolomeo", "demetra", "tizio", "gelenk", "schreibtischleuchte")) or (L and D and L > 2 * D)) else (
+                "lampTableGlobe" if form in ("kugel",) or "eclisse" in nl else ("lampTableMushroom" if any(k in nl for k in ("pilz", "mushroom", "panthella", "nessino", "eclisse")) or form == "halbrund" else "lampTableShade"))
             W = L if arch == "lampTask" and L else W
             DD = D or min(W, 30)
         elif cat == "floorLamp":
@@ -973,7 +1096,7 @@ def main():
     for label, items in groups:
         k = 0
         for e in items:
-            if e["id"] in seen:
+            if e["id"] in seen or (e["vendor"] not in ("Bestand",) and not e.get("concepts") and EXCLUDE_NAME.search(e["name"])):
                 continue
             seen.add(e["id"]); cat.append(e); k += 1
         print(f"{label}: {k}")

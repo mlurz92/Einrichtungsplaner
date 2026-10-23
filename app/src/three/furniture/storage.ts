@@ -223,14 +223,20 @@ export function bookcase(c: Ctx) {
 export function wardrobe(c: Ctx) {
   const { w, d, h, p, b } = c;
   const F = c.m("main");
-  const C = c.m("secondary", { color: "#f3f1ec", material: "matte" });
+  // Korpus: eigene Farbe nur bei Kombinationen (PAX-Rahmen + Fronten), sonst wie die Fronten
+  const C = c.slots.secondary ? c.m("secondary") : F;
+  const gapM = getMaterial({ color: "#1c1a18", material: "matte" });
   const doors = Math.max(1, Math.round(num(p, "doors", Math.round(w / 0.5))));
   const plinth = 0.04;
   b.box(w, h - 0.02, d - 0.02, C, 0, 0, -0.01);
+  // Sockel-Schattenfuge
+  b.box(w - 0.03, plinth - 0.004, 0.004, gapM, 0, 0.002, d / 2 - 0.03);
   const dw = w / doors;
   for (let i = 0; i < doors; i++) {
     const cx = -w / 2 + dw * (i + 0.5);
     b.box(dw - 0.004, h - plinth - 0.006, 0.02, F, cx, plinth, d / 2 - 0.01);
+    // Türfuge (dunkel, damit die Teilung auch bei gleicher Korpusfarbe sichtbar ist)
+    if (i > 0) b.box(0.003, h - plinth - 0.006, 0.006, gapM, -w / 2 + dw * i, plinth, d / 2 - 0.018);
     // integrierte Griffleiste (TONSTAD) als Schattenfuge oben
     if (str(p, "handle", "edge") === "edge") b.box(dw * 0.5, 0.012, 0.004, getMaterial({ color: "#2a2520", material: "matte" }), cx + (i % 2 ? -1 : 1) * dw * 0.18, h - 0.03, d / 2 + 0.001);
   }

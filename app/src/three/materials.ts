@@ -92,7 +92,11 @@ export function getMaterial(style: SlotStyle | undefined, fallback: SlotStyle = 
     side: def.side ?? THREE.FrontSide,
   });
   if (def.tex) {
-    const t = albedoTexture(def.tex, def.contrast ?? 1).clone();
+    // Helle Lasuren/Beizen (weiß gebeizte Eiche, Birke): Maserung zurücknehmen, sonst wirkt die Fläche grau
+    const lum = 0.2126 * col.r + 0.7152 * col.g + 0.0722 * col.b;
+    const woody = ["oak", "oakDark", "ash", "walnut", "mango", "burl"].includes(s.material);
+    const contrast = (def.contrast ?? 1) * (woody && lum > 0.55 ? 0.55 : 1);
+    const t = albedoTexture(def.tex, Math.round(contrast * 100) / 100).clone();
     t.repeat.set(1 / def.scale, 1 / def.scale);
     t.needsUpdate = true;
     p.map = t;

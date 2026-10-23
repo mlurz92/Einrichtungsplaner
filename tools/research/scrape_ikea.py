@@ -29,9 +29,20 @@ Q = [
  "FEJKA", "VILJESTARK", "BJÖRKSTA", "PJÄTTERYD", "KNOPPÄNG",
  # Outdoor
  "SEGERÖN", "ÄPPLARÖ", "NÄMMARÖ", "FALHOLMEN", "HÅMÖ", "SOLLERÖN",
+ # Erweiterung (Designserien, Massivholz, Polster)
+ "ÄPPLARYD", "HYLTARP", "SMEDSTORP", "LILLEHEM", "BACKSÄLEN", "MORABO", "FÄRLÖV", "NORSBORG", "GRÖNLID", "PÄRUP",
+ "EKENÄSET", "FAGERBACKEN", "LINNEBÄCK", "POÄNG", "VEDBO", "STOCKHOLM Sessel", "STOCKHOLM Tisch", "MÖRBYLÅNGA",
+ "VOXLÖV", "TOMMARYD", "KRAGSTA", "BORGEBY", "LISTERBY Beistelltisch", "STOLJAN", "LIDÅS", "TOSSBERG Stuhl",
+ "FJÄLLBO", "VIHALS", "LOMMARP", "SKRUVBY", "STUDSVIK", "VEBERÖD", "EKET", "IVAR", "HEMNES Sideboard", "IDANÄS Sideboard",
+ "BJÖRKSNÄS Sideboard", "STOCKHOLM Vitrine", "KLEPPSTAD", "SONGESAND", "NEIDEN", "BJÖRKSNÄS Bett", "STOCKHOLM Bett",
+ "MÅLSKYTT", "TOKABO Tischleuchte", "BRUNSTA", "STRANDMON Ohrensessel", "SKOTTORP", "PILBLAD Stehleuchte", "VINDKAST Leuchte",
+ "STOCKHOLM 2025 Leuchte", "STOCKHOLM 2025 Teppich", "STOCKHOLM 2025 Sofa", "STOCKHOLM 2025 Tisch", "STOCKHOLM 2025 Sessel",
+ "PS 2026", "BRÄNNBOLL", "TONSTAD Sideboard", "TONSTAD Bett", "HAUGA Kommode", "IDANÄS Kommode", "HEMNES Kommode",
+ "SANDSBERG Tisch", "EKEDALEN Ausziehtisch", "INGATORP Ausziehtisch", "SKOGSTA Tisch", "MÖCKELBY Tisch",
+ "ODGER Stuhl", "KARLPETTER Stuhl", "BERGMUND Stuhl", "KRYLBO Stuhl", "LISABO Couchtisch", "VITTSJÖ Regal",
 ]
 
-def search(q, size=40):
+def search(q, size=72):
     u = "https://sik.search.blue.cdtapps.com/de/de/search-result-page?" + urllib.parse.urlencode({"q": q, "size": size, "types": "PRODUCT"})
     with urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"}), timeout=60) as r:
         d = json.loads(r.read())
@@ -47,7 +58,13 @@ def search(q, size=40):
             "url": p.get("pipUrl"), "image": p.get("mainImageUrl"),
             "colors": [(c.get("name"), c.get("hex")) for c in p.get("colors") or []],
             "filterClass": p.get("filterClass"), "query": q,
-            "variantDesc": (p.get("gprDescription") or {}).get("variants"),
+            # Ausführung (z. B. „Gunnared beige“, „Eichenfurnier“) steht in den Bild-Alttexten „NAME Typ, …/Ausführung“
+            "alts": [i.get("altText") for i in p.get("allProductImage") or [] if (i.get("altText") or "").startswith(p.get("name") or "~")][:2],
+            "variants": [{
+                "itemNo": v.get("itemNo"), "url": v.get("pipUrl"), "image": v.get("mainImageUrl"), "alt": v.get("imageAlt"),
+                "type": v.get("typeName"), "measure": v.get("itemMeasureReferenceText"), "price": (v.get("salesPrice") or {}).get("numeral"),
+                "colors": [(c.get("name"), c.get("hex")) for c in v.get("colors") or []],
+            } for v in ((p.get("gprDescription") or {}).get("variants") or [])],
         })
     return out
 

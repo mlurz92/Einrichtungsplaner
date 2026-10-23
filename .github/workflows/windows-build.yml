@@ -28,6 +28,8 @@ jobs:
       - run: npm ci
       - run: npx tsc --noEmit -p .
       - run: npx vitest run
+      - name: Farb-/Materialparser (Katalog)
+        run: python3 ../tools/test_finish.py
       - run: npx vite build
 
   windows:
