@@ -220,7 +220,7 @@ export function App() {
         <aside className="flex w-[340px] shrink-0 flex-col border-r border-stone-200 bg-[#faf8f5]">
           <nav className="flex border-b border-stone-200">
             {TABS.map((t) => (
-              <button key={t.id} onClick={() => setTab(t.id)} className={`flex flex-1 flex-col items-center gap-0.5 py-2 text-[10.5px] font-medium transition ${tab === t.id ? "border-b-2 border-[#2f5d50] text-[#2f5d50]" : "text-stone-500 hover:text-stone-800"}`}>
+              <button key={t.id} onClick={() => setTab(t.id)} className={`flex flex-1 flex-col items-center gap-0.5 py-2 text-[10.5px] font-medium transition ${tab === t.id ? "border-b-2 border-accent text-accent-ink" : "text-stone-500 hover:text-stone-800"}`}>
                 <t.icon size={16} />
                 {t.label}
               </button>

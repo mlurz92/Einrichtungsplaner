@@ -7,7 +7,6 @@ import { FLOOR_PRESETS, WALL_MOODS } from "../data/paints";
 export function NewFurnishingDialog() {
   const open = useEditor((s) => s.newDialogOpen);
   const [name, setName] = useState("Meine Einrichtung WE 13");
-  const [kitchen, setKitchen] = useState(true);
   const [sanitary, setSanitary] = useState(true);
   const [washer, setWasher] = useState(true);
   const [mood, setMood] = useState(0);
@@ -19,7 +18,6 @@ export function NewFurnishingDialog() {
     const f = FLOOR_PRESETS.find((x) => x.id === floor);
     useEditor.getState().newFurnishing({
       name,
-      keepKitchen: kitchen,
       keepSanitary: sanitary,
       keepWasher: washer,
       wallColor: m.color,
@@ -47,16 +45,13 @@ export function NewFurnishingDialog() {
         <div className="mt-4 text-xs font-semibold uppercase tracking-wide text-stone-500">Bestand übernehmen</div>
         <div className="mt-1 flex flex-wrap gap-x-5 gap-y-1 text-sm">
           <label className="flex items-center gap-1.5">
-            <input type="checkbox" className="accent-emerald-800" checked={kitchen} onChange={(e) => setKitchen(e.target.checked)} /> Küche Alno (Bestand)
+            <input type="checkbox" className="" checked={sanitary} onChange={(e) => setSanitary(e.target.checked)} /> Sanitärobjekte
           </label>
           <label className="flex items-center gap-1.5">
-            <input type="checkbox" className="accent-emerald-800" checked={sanitary} onChange={(e) => setSanitary(e.target.checked)} /> Sanitärobjekte
-          </label>
-          <label className="flex items-center gap-1.5">
-            <input type="checkbox" className="accent-emerald-800" checked={washer} onChange={(e) => setWasher(e.target.checked)} /> Waschmaschine
+            <input type="checkbox" className="" checked={washer} onChange={(e) => setWasher(e.target.checked)} /> Waschmaschine
           </label>
         </div>
-        <p className="mt-1 text-[11px] text-stone-500">Böden im Bestand: Eichendielen 1,90 m; HWR, Bad und Dusche/WC Feinsteinzeug 60 × 60 cm „Iron“.</p>
+        <p className="mt-1 text-[11px] text-stone-500">Die Einbauküche Alno 2060 (Walnuss dunkel, Naturstein) mit Sideboard ist fest eingebaut. Böden im Bestand: Eichendielen 1,90 m; HWR, Bad und Dusche/WC Feinsteinzeug 60 × 60 cm „Iron“.</p>
         <div className="mt-4 text-xs font-semibold uppercase tracking-wide text-stone-500">Farbstimmung Wände/Decken</div>
         <div className="mt-1 flex flex-wrap gap-1">
           {WALL_MOODS.map((m, i) => (

@@ -179,11 +179,11 @@ export function TopBar() {
                 <input type="range" min={7} max={19.5} step={0.25} disabled={st.night} value={st.project.settings.timeOfDay ?? 15} onChange={(e) => setSetting("timeOfDay", Number(e.target.value))} className="w-full accent-amber-600" />
               </label>
               <label className="flex items-center gap-2">
-                <input type="checkbox" className="accent-emerald-800" checked={(st.project.settings.doorsOpen ?? 0) > 0.5} onChange={(e) => setSetting("doorsOpen", e.target.checked ? 0.9 : 0)} />
+                <input type="checkbox" className="" checked={(st.project.settings.doorsOpen ?? 0) > 0.5} onChange={(e) => setSetting("doorsOpen", e.target.checked ? 0.9 : 0)} />
                 <DoorOpen size={15} className="text-stone-500" /> Türen geöffnet
               </label>
               <label className="flex items-center gap-2">
-                <input type="checkbox" className="accent-emerald-800" checked={st.showCeiling} onChange={(e) => st.set("showCeiling", e.target.checked)} /> Decke anzeigen
+                <input type="checkbox" className="" checked={st.showCeiling} onChange={(e) => st.set("showCeiling", e.target.checked)} /> Decke anzeigen
               </label>
               <label className="block">
                 <span className="text-xs text-stone-500">Darstellungsqualität</span>
@@ -198,7 +198,7 @@ export function TopBar() {
         </>
       )}
       <label className="ml-2 flex items-center gap-1 text-xs text-stone-600" title="Fang (Raster und Wände), Alt hält ihn temporär an">
-        <input type="checkbox" className="accent-emerald-800" checked={st.project.settings.snap} onChange={(e) => setSetting("snap", e.target.checked)} /> Fang
+        <input type="checkbox" className="" checked={st.project.settings.snap} onChange={(e) => setSetting("snap", e.target.checked)} /> Fang
       </label>
       <button className="btn-ghost ml-1" title="Bedienung & Tastenkürzel (F1)" onClick={() => st.set("helpOpen", true)}>
         <Keyboard size={16} />
@@ -210,7 +210,7 @@ export function TopBar() {
         <button className="text-right" onClick={() => st.set("leftTab", "budget")} title="Budget öffnen">
           <div className={`text-sm font-semibold tabular-nums ${total > limit ? "text-red-700" : ""}`}>{fmtEuro(total)}</div>
           <div className="h-1 w-16 overflow-hidden rounded-full bg-stone-200 min-[1360px]:w-28">
-            <div className={`h-full ${total > limit ? "bg-red-600" : "bg-emerald-800"}`} style={{ width: `${Math.min(100, (total / limit) * 100)}%` }} />
+            <div className={`h-full ${total > limit ? "bg-red-600" : "bg-accent"}`} style={{ width: `${Math.min(100, (total / limit) * 100)}%` }} />
           </div>
         </button>
         <button className="btn-primary shrink-0" title="Speichern (Strg+S)" onClick={() => saveProject(false)}>

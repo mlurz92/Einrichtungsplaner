@@ -154,7 +154,7 @@ function SunSection() {
         </div>
       )}
       <label className="mt-1.5 flex items-center gap-1.5" title="Decke und Wände werfen immer Schatten, auch wenn sie ausgeblendet sind. Aus: Studiolicht von oben.">
-        <input type="checkbox" className="accent-emerald-800" checked={v.realDaylight} onChange={(e) => v.set("realDaylight", e.target.checked)} />
+        <input type="checkbox" className="" checked={v.realDaylight} onChange={(e) => v.set("realDaylight", e.target.checked)} />
         Sonne nur durch Fenster (realistisch)
       </label>
       <button className="mt-1 flex items-center gap-1 text-stone-500 hover:text-stone-800" onClick={() => setMore(!more)}>
@@ -225,7 +225,7 @@ function LampSection() {
   return (
     <Section id="lamp" title="Abendlicht" hint={night ? `an · ${k} K` : "aus"}>
       <label className="flex items-center gap-1.5">
-        <input type="checkbox" className="accent-emerald-800" checked={night} onChange={(e) => useEditor.getState().set("night", e.target.checked)} />
+        <input type="checkbox" className="" checked={night} onChange={(e) => useEditor.getState().set("night", e.target.checked)} />
         Leuchten an (Abendstimmung)
       </label>
       {night && (
@@ -320,7 +320,7 @@ function CameraSection() {
               <Eye size={13} />
             </button>
             <input
-              className="min-w-0 flex-1 rounded bg-transparent px-1 py-0.5 outline-none hover:bg-stone-100 focus:bg-white focus:ring-1 focus:ring-emerald-700/30"
+              className="min-w-0 flex-1 rounded bg-transparent px-1 py-0.5 outline-none hover:bg-stone-100 focus:bg-white focus:ring-1 focus:ring-accent/30"
               value={sv.name}
               onChange={(e) => patch({ views3d: views.map((x) => (x.id === sv.id ? { ...x, name: e.target.value } : x)) })}
             />

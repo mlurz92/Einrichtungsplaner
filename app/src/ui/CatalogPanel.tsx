@@ -62,7 +62,7 @@ const Card = memo(function Card({ c, vi, onOpen }: { c: CatalogItem; vi: number;
   const place = useEditor((s) => s.set);
   return (
     <div
-      className="group flex cursor-pointer gap-2.5 rounded-lg border border-transparent p-1.5 transition hover:border-stone-200 hover:bg-white hover:shadow-sm"
+      className="group flex cursor-pointer gap-2.5 rounded-lg border border-transparent p-1.5 transition hover:border-stone-200 hover:bg-card hover:shadow-sm"
       onClick={() => onOpen(c, vi)}
       draggable
       onDragStart={(e) => startCatalogDrag(e, c.id, vi)}
@@ -73,7 +73,7 @@ const Card = memo(function Card({ c, vi, onOpen }: { c: CatalogItem; vi: number;
       <div className="min-w-0 flex-1 py-0.5">
         <div className="flex items-center gap-1.5">
           <span className={`rounded px-1 text-[10px] font-semibold ${VENDOR_BADGE[c.vendor] ?? "bg-stone-200 text-stone-700"}`}>{c.vendor}</span>
-          {c.concepts?.length ? <span className="text-[10px] text-emerald-800">Konzept {c.concepts.join(", ")}</span> : null}
+          {c.concepts?.length ? <span className="text-[10px] text-accent-ink">Konzept {c.concepts.join(", ")}</span> : null}
           {c.premium && !c.concepts?.length ? <Sparkles size={11} className="text-amber-600" /> : null}
         </div>
         <div className="mt-0.5 line-clamp-2 text-[12.5px] font-medium leading-tight text-stone-800">{c.name}</div>
@@ -93,7 +93,7 @@ const Card = memo(function Card({ c, vi, onOpen }: { c: CatalogItem; vi: number;
         <div className="mt-0.5 flex items-center justify-between">
           <span className="text-[12px] font-semibold text-stone-900">{c.price > 0 ? fmtEuro(c.price) : "—"}</span>
           <button
-            className="rounded-md bg-[#2f5d50] px-1.5 py-0.5 text-[11px] font-medium text-white opacity-0 transition group-hover:opacity-100"
+            className="rounded-md bg-accent px-1.5 py-0.5 text-[11px] font-medium text-white opacity-0 transition group-hover:opacity-100"
             onClick={(e) => {
               e.stopPropagation();
               place("placing", { catalogId: c.id, variant: vi });
@@ -127,7 +127,7 @@ function Detail({ c, initial, onClose }: { c: CatalogItem; initial: number; onCl
         </button>
       </div>
       <div className="flex-1 overflow-auto p-3">
-        <div className="flex justify-center rounded-xl bg-gradient-to-b from-white to-stone-200/60 p-2">
+        <div className="flex justify-center rounded-xl bg-gradient-to-b from-card to-stone-200/60 p-2">
           <Thumb c={c} variant={variant} size={220} />
         </div>
         <div className="mt-3 text-[11px] font-semibold uppercase tracking-wide text-stone-500">
@@ -305,7 +305,7 @@ export function CatalogPanel() {
         </div>
         <div className="flex items-center gap-2 whitespace-nowrap text-xs">
           <label className="flex items-center gap-1.5 text-stone-700">
-            <input type="checkbox" checked={premium} onChange={(e) => setPremium(e.target.checked)} className="accent-emerald-800" />
+            <input type="checkbox" checked={premium} onChange={(e) => setPremium(e.target.checked)} className="" />
             Premium
           </label>
           <select className="field ml-auto w-auto py-0.5 text-xs" value={sort} onChange={(e) => setSort(e.target.value as typeof sort)}>
@@ -336,7 +336,7 @@ export function CatalogPanel() {
         </div>
       </div>
       {placing && (
-        <div className="flex items-center justify-between bg-emerald-900 px-3 py-1.5 text-xs text-white">
+        <div className="flex items-center justify-between bg-accent px-3 py-1.5 text-xs text-white">
           <span>Zum Platzieren in Plan/3D klicken (Umschalt = mehrfach)</span>
           <button className="underline" onClick={() => useEditor.getState().set("placing", null)}>
             Abbrechen

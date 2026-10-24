@@ -107,7 +107,7 @@ function Palette() {
                 {head && <div className="px-2.5 pb-0.5 pt-2 text-[10.5px] font-semibold uppercase tracking-wide text-stone-400">{head}</div>}
                 <button
                   data-i={i}
-                  className={`flex w-full items-center gap-2 rounded-md px-2.5 py-1.5 text-left text-sm ${i === idx ? "bg-stone-800 text-white" : "text-stone-700 hover:bg-stone-100"}`}
+                  className={`flex w-full items-center gap-2 rounded-md px-2.5 py-1.5 text-left text-sm ${i === idx ? "bg-inverse text-on-inverse" : "text-stone-700 hover:bg-stone-100"}`}
                   onMouseMove={() => i !== idx && setIdx(i)}
                   onClick={() => run(c)}
                 >

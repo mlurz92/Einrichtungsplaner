@@ -4,7 +4,7 @@ import { DEG, rotationForFace, segmentDistance, type WallFace } from "./geometry
 /** Möbel, die üblicherweise mit der Rückseite an der Wand stehen. */
 export const WALL_BACKED = new Set([
   "sofa", "sofaModular", "sofaCorner", "sofaBed", "console", "sideboard", "lowboard", "vitrine", "shelfOpen", "bookcase",
-  "wardrobe", "dresser", "nightstand", "bed", "bedWood", "desk", "deskStanding", "kitchenRun", "washer", "bench", "tylkoStorage",
+  "wardrobe", "dresser", "nightstand", "bed", "bedWood", "desk", "deskStanding", "kitchenRun", "kitchenAlno", "kitchenAlnoSide", "washer", "bench", "tylkoStorage",
 ]);
 
 export interface SnapGuide {

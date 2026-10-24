@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { BLACK, bool, num, tube, type Ctx } from "./common";
+import { lightMarker } from "./lighting";
 import { getMaterial } from "../materials";
 import { roundRectShape } from "../geom";
 
@@ -152,4 +153,195 @@ export function outdoorSofa(c: Ctx) {
   b.cushion(w - 0.12, 0.1, d - 0.12, C, 0, 0.35, 0.03, 0.2);
   b.cushion(w - 0.14, 0.38, 0.12, C, 0, 0.42, -d / 2 + 0.12, 0.25, -0.15);
   b.legsSquare([[-w / 2 + 0.03, -d / 2 + 0.03], [w / 2 - 0.03, -d / 2 + 0.03], [-w / 2 + 0.03, d / 2 - 0.03], [w / 2 - 0.03, d / 2 - 0.03]], 0.3, 0.04, F);
+}
+
+// ---------------------------------------------------------------- Einbauküche Alno 2060 (Höffner, Kaufvertrag 3037702)
+
+/** Griffleiste (schwarz) als flacher Aufsatzgriff an der Oberkante einer Front. */
+function gripBar(c: Ctx, x: number, y: number, z: number, len: number, vertical = false) {
+  const D = c.m("detail", BLACK);
+  if (vertical) c.b.box(0.012, len, 0.014, D, x, y, z + 0.007);
+  else c.b.box(len, 0.012, 0.014, D, x, y, z + 0.007);
+}
+
+/** Front mit 3-mm-Fugen; Griff oben (Unterschrank), unten (Oberschrank) oder seitlich (Hochschrank). */
+function front(c: Ctx, x0: number, x1: number, y0: number, y1: number, z: number, grip: "top" | "bottom" | "left" | "right" | "none" = "top") {
+  const F = c.m("main", { color: "#7a5236", material: "oakDark" });
+  const g = 0.0015;
+  const w = x1 - x0 - 2 * g, h = y1 - y0 - 2 * g;
+  c.b.box(w, h, 0.019, F, (x0 + x1) / 2, y0 + g, z + 0.0095);
+  const zf = z + 0.019;
+  if (grip === "top") gripBar(c, (x0 + x1) / 2, y1 - 0.035, zf, Math.max(0.1, w - 0.1));
+  else if (grip === "bottom") gripBar(c, (x0 + x1) / 2, y0 + 0.025, zf, Math.max(0.1, w - 0.1));
+  else if (grip === "left") gripBar(c, x0 + 0.035, y0 + 0.06, zf, h - 0.12, true);
+  else if (grip === "right") gripBar(c, x1 - 0.035, y0 + 0.06, zf, h - 0.12, true);
+}
+
+const PLINTH = 0.15;
+const BASE_TOP = 0.93; // Korpus 78 cm auf 15-cm-Sockel
+const WORK = 0.968; // + Natursteinplatte 38 mm (Arbeitshöhe ≈ 96 cm)
+const TALL_TOP = 2.358; // Hochschrank 220,8 cm + Sockel
+const UPPER_H = 0.78;
+
+/**
+ * Küchenzeile an der Westwand, maßgenau nach der Höffner-Planung (Breiten in mm von links/Fensterseite):
+ * 55 Passstück · 600 Geräte-Hochschrank Backofen · 16 Wange · 300 Auszug (cooking AGENT) · 800 Kochfeld-Unterschrank 2 Auszüge ·
+ * 450 Geschirrspüler · 450 Spüle · 300 2 Auszüge · 16 Wange · 600 Geräte-Hochschrank Kühl-Gefrier-Kombination · 53 Passstück.
+ * Oberschränke 900/500/900 mit Faltlifttüren und LED-Unterbauleuchten, Nischenrückwand Naturstein.
+ */
+export function kitchenAlno(c: Ctx) {
+  const { w, d, b } = c;
+  const F = c.m("main", { color: "#7a5236", material: "oakDark" });
+  const K = c.m("secondary", { color: "#1c1c1c", material: "matte" });
+  const T = c.m("top", { color: "#e3d7c1", material: "granite" });
+  const D = c.m("detail", BLACK);
+  const black = getMaterial({ color: "#151515", material: "matte" });
+  const glass = getMaterial({ color: "#0b0b0c", material: "gloss" });
+  const steel = getMaterial({ color: "#c6cbd0", material: "steel" });
+  const sinkM = getMaterial({ color: "#1f1f20", material: "stone" });
+  const zw = -d / 2; // Wand
+  const cd = 0.56; // Korpustiefe
+  const zf = zw + cd; // Vorderkante Korpus = Rückseite Front
+  // Breiten (Summe = 3,64 m; bei abweichender Länge werden die Passstücke angepasst)
+  const mods = [0.6, 0.016, 0.3, 0.8, 0.45, 0.45, 0.3, 0.016, 0.6];
+  const core = mods.reduce((a, v) => a + v, 0);
+  const fillL = Math.max(0.005, (w - core) * (55 / 108));
+  const xs: number[] = [-w / 2 + fillL];
+  for (const m of mods) xs.push(xs[xs.length - 1] + m);
+  const [xOven, xW1, xPull, xHob, xDw, xSink, xDr, xW2, xFridge, xEnd] = xs;
+  const runL = xW1 + 0.016, runR = xW2; // Arbeitsplatte/Oberschränke zwischen den Wangen
+
+  // Sockel (zurückgesetzt) über die ganze Länge
+  b.box(w - 0.01, PLINTH, cd - 0.07, black, 0, 0, zw + (cd - 0.07) / 2 + 0.005);
+  // Passstücke in Frontmaterial
+  b.box(fillL, TALL_TOP - PLINTH, 0.019, F, -w / 2 + fillL / 2, PLINTH, zf + 0.0095);
+  b.box(w / 2 - xEnd, TALL_TOP - PLINTH, 0.019, F, (xEnd + w / 2) / 2, PLINTH, zf + 0.0095);
+  b.box(w / 2 - xEnd, PLINTH, 0.019, black, (xEnd + w / 2) / 2, 0, zf - 0.05);
+  b.box(fillL, PLINTH, 0.019, black, -w / 2 + fillL / 2, 0, zf - 0.05);
+
+  // --- Geräte-Hochschrank Backofen: 2 Auszüge, Blende, Backofennische, Tür oben
+  b.box(0.6, TALL_TOP - PLINTH, cd, K, (xOven + xW1) / 2, PLINTH, zw + cd / 2);
+  front(c, xOven, xW1, PLINTH, 0.51, zf);
+  front(c, xOven, xW1, 0.51, 0.872, zf);
+  front(c, xOven, xW1, 0.872, 0.95, zf, "none");
+  {
+    // AEG-Pyrolyse-Backofen, schwarz: Glasfront mit Bedienleiste und Edelstahlgriff
+    const cx = (xOven + xW1) / 2, y0 = 0.952, oh = 0.595;
+    b.box(0.595, oh, 0.025, black, cx, y0, zf + 0.012);
+    b.box(0.57, oh - 0.13, 0.006, glass, cx, y0 + 0.02, zf + 0.026);
+    b.box(0.57, 0.085, 0.006, glass, cx, y0 + oh - 0.1, zf + 0.026);
+    b.box(0.12, 0.022, 0.002, getMaterial({ color: "#f2e8d8", material: "opal" }), cx, y0 + oh - 0.065, zf + 0.0295);
+    b.cyl(0.009, 0.009, 0.5, steel, cx, y0 + oh - 0.16, zf + 0.06, 16, 0, Math.PI / 2);
+    for (const s of [-1, 1]) b.box(0.014, 0.014, 0.034, steel, cx + s * 0.22, y0 + oh - 0.167, zf + 0.043);
+  }
+  front(c, xOven, xW1, 1.549, TALL_TOP, zf, "bottom");
+  // Wange (65 cm tief) neben dem Backofenschrank
+  b.box(0.016, TALL_TOP - PLINTH, d, F, xW1 + 0.008, PLINTH, 0);
+
+  // --- Unterschränke
+  b.box(runR - runL, BASE_TOP - PLINTH, cd, K, (runL + runR) / 2, PLINTH, zw + cd / 2);
+  const fy0 = PLINTH + 0.003, fy1 = BASE_TOP - 0.004;
+  front(c, xPull, xHob, fy0, fy1, zf);
+  front(c, xHob, xDw, fy0, 0.624, zf);
+  front(c, xHob, xDw, 0.624, fy1, zf);
+  front(c, xDw, xSink, fy0, fy1, zf);
+  front(c, xSink, xDr, fy0, fy1, zf);
+  front(c, xDr, xW2, fy0, 0.624, zf);
+  front(c, xDr, xW2, 0.624, fy1, zf);
+
+  // --- Arbeitsplatte Naturstein 38 mm, 61 cm tief, mit Ausschnitt für die Spüle (Auflage)
+  const td = 0.61;
+  const tz0 = zw, tz1 = zw + td;
+  const sinkW = 0.44, sinkD = 0.5;
+  const sx = (xSink + xDr) / 2, sz = zw + 0.03 + 0.02 + sinkD / 2 + 0.02;
+  const cut = { x0: sx - sinkW / 2 + 0.02, x1: sx + sinkW / 2 - 0.02, z0: sz - sinkD / 2 + 0.02, z1: sz + sinkD / 2 - 0.02 };
+  const slab = (x0: number, x1: number, z0: number, z1: number) => x1 - x0 > 0.001 && z1 - z0 > 0.001 && b.box(x1 - x0, WORK - BASE_TOP, z1 - z0, T, (x0 + x1) / 2, BASE_TOP, (z0 + z1) / 2);
+  slab(runL, cut.x0, tz0, tz1);
+  slab(cut.x1, runR, tz0, tz1);
+  slab(cut.x0, cut.x1, tz0, cut.z0);
+  slab(cut.x0, cut.x1, cut.z1, tz1);
+  // Franke Granitspüle Maris MRG 610-37, Black Matt, Auflage mit Becken
+  {
+    const rim = 0.006;
+    b.box(sinkW, rim, 0.022, sinkM, sx, WORK, sz - sinkD / 2 + 0.011);
+    b.box(sinkW, rim, 0.022, sinkM, sx, WORK, sz + sinkD / 2 - 0.011);
+    b.box(0.022, rim, sinkD, sinkM, sx - sinkW / 2 + 0.011, WORK, sz);
+    b.box(0.022, rim, sinkD, sinkM, sx + sinkW / 2 - 0.011, WORK, sz);
+    const depth = 0.19;
+    b.box(cut.x1 - cut.x0, 0.01, cut.z1 - cut.z0, sinkM, sx, WORK - depth, sz);
+    b.box(0.01, depth, cut.z1 - cut.z0, sinkM, cut.x0 + 0.005, WORK - depth, sz);
+    b.box(0.01, depth, cut.z1 - cut.z0, sinkM, cut.x1 - 0.005, WORK - depth, sz);
+    b.box(cut.x1 - cut.x0, depth, 0.01, sinkM, sx, WORK - depth, cut.z0 + 0.005);
+    b.box(cut.x1 - cut.x0, depth, 0.01, sinkM, sx, WORK - depth, cut.z1 - 0.005);
+    b.cyl(0.03, 0.03, 0.004, steel, sx, WORK - depth + 0.011, sz, 24);
+    // Armatur Franke Lina, schwarz matt, Hochdruck, hoher Auslauf
+    const tx = sx + 0.06, tz = zw + 0.04 + 0.02;
+    b.cyl(0.026, 0.028, 0.03, D, tx, WORK, tz, 24);
+    b.object(
+      tube(
+        [new THREE.Vector3(tx, WORK + 0.02, tz), new THREE.Vector3(tx, WORK + 0.3, tz), new THREE.Vector3(tx, WORK + 0.36, tz + 0.06), new THREE.Vector3(tx, WORK + 0.33, tz + 0.2), new THREE.Vector3(tx, WORK + 0.27, tz + 0.21)],
+        0.013,
+        D,
+      ),
+    );
+    b.box(0.012, 0.012, 0.09, D, tx + 0.03, WORK + 0.2, tz + 0.04);
+  }
+  // AEG-Induktionskochfeld 80 cm mit integriertem Dunstabzug (Auflage, Rahmen mattschwarz)
+  {
+    const hx = (xHob + xDw) / 2, hz = zw + 0.03 + 0.02 + 0.26;
+    b.box(0.8, 0.006, 0.52, glass, hx, WORK, hz);
+    b.box(0.8, 0.007, 0.006, black, hx, WORK, hz - 0.257);
+    b.box(0.8, 0.007, 0.006, black, hx, WORK, hz + 0.257);
+    b.box(0.006, 0.007, 0.52, black, hx - 0.397, WORK, hz);
+    b.box(0.006, 0.007, 0.52, black, hx + 0.397, WORK, hz);
+    // Abzugsöffnung in der Mitte mit Lamellen
+    b.box(0.09, 0.0075, 0.46, black, hx, WORK, hz);
+    for (let i = 0; i < 9; i++) b.box(0.003, 0.008, 0.44, getMaterial({ color: "#2b2b2b", material: "blackMetal" }), hx - 0.036 + i * 0.009, WORK, hz);
+    // Kochzonen (feine Markierung) und Bedienfeld
+    const ring = getMaterial({ color: "#3a3a3c", material: "matte" });
+    for (const s of [-1, 1]) for (const t of [-1, 1]) b.torus(0.085, 0.0015, ring, hx + s * 0.2, WORK + 0.0065, hz + t * 0.1);
+    b.box(0.3, 0.0005, 0.03, getMaterial({ color: "#7a7a7c", material: "matte" }), hx, WORK + 0.0062, hz + 0.23);
+  }
+  // Nischenrückwand Naturstein 20 mm zwischen Arbeitsplatte und Oberschränken
+  const upY = TALL_TOP - UPPER_H;
+  b.box(runR - runL, upY - WORK, 0.02, T, (runL + runR) / 2, WORK, zw + 0.01);
+  // Doppelsteckdose schwarz
+  b.box(0.15, 0.08, 0.012, D, xPull + 0.12, WORK + 0.18, zw + 0.026);
+
+  // --- Geräte-Hochschrank Kühl-Gefrier-Kombination (2 Türen, Griff zur Arbeitsplatte hin)
+  b.box(0.016, TALL_TOP - PLINTH, cd + 0.019, F, xW2 + 0.008, PLINTH, zw + (cd + 0.019) / 2);
+  b.box(0.6, TALL_TOP - PLINTH, cd, K, (xFridge + xEnd) / 2, PLINTH, zw + cd / 2);
+  front(c, xFridge, xEnd, PLINTH, WORK, zf, "left");
+  front(c, xFridge, xEnd, WORK, TALL_TOP, zf, "left");
+
+  // --- Oberschränke 90 / 50 / 90 mit Faltlifttüren (zwei Fronten übereinander), 35 cm tief
+  const ud = 0.35;
+  b.box(runR - runL, UPPER_H, ud, K, (runL + runR) / 2, upY, zw + ud / 2);
+  const ux = [runL, runL + 0.9, runL + 1.4, runR];
+  for (let i = 0; i < 3; i++) {
+    front(c, ux[i], ux[i + 1], upY, upY + UPPER_H / 2, zw + ud, "none");
+    front(c, ux[i], ux[i + 1], upY + UPPER_H / 2, TALL_TOP, zw + ud, "none");
+  }
+  // LED-Unterbauleuchten (leuchten im Abendmodus) mit Lichtpunkten
+  b.box(runR - runL - 0.06, 0.006, 0.018, getMaterial({ color: "#fff4e0", material: "opal" }), (runL + runR) / 2, upY - 0.006, zw + ud - 0.06);
+  for (const t of [0.2, 0.5, 0.8]) b.object(lightMarker(runL + (runR - runL) * t, upY - 0.03, zw + ud - 0.08, 420, "down"));
+}
+
+/** Sideboard gegenüber: 2 × Unterschrank 60 cm (35 cm tief) mit Wangen und Natursteinplatte. */
+export function kitchenAlnoSide(c: Ctx) {
+  const { w, d, b } = c;
+  const F = c.m("main", { color: "#7a5236", material: "oakDark" });
+  const K = c.m("secondary", { color: "#1c1c1c", material: "matte" });
+  const T = c.m("top", { color: "#e3d7c1", material: "granite" });
+  const black = getMaterial({ color: "#151515", material: "matte" });
+  const zw = -d / 2;
+  const cd = 0.35;
+  const top = c.h - 0.038;
+  const inner = w - 0.032;
+  b.box(inner, PLINTH, cd - 0.07, black, 0, 0, zw + (cd - 0.07) / 2);
+  b.box(inner, top - PLINTH, cd, K, 0, PLINTH, zw + cd / 2);
+  for (const s of [-1, 1]) b.box(0.016, top - PLINTH, cd + 0.023, F, s * (w / 2 - 0.008), PLINTH, zw + (cd + 0.023) / 2);
+  const x0 = -inner / 2;
+  for (let i = 0; i < 2; i++) front(c, x0 + (inner / 2) * i, x0 + (inner / 2) * (i + 1), PLINTH + 0.003, top - 0.004, zw + cd);
+  b.box(w, 0.038, d, T, 0, top, 0);
 }

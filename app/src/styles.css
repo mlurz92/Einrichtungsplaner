@@ -1,13 +1,155 @@
 @import "tailwindcss";
 
+/*
+ * Design-System „Glas“ (2.0): halbtransparente Flächen über Mica (Windows 11) bzw. einem weichen Farbverlauf.
+ * Alle Farben laufen über Variablen; das dunkle Design tauscht die Werte aus (data-theme="dark" an <html>).
+ */
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 @theme {
-  --font-sans: "Segoe UI Variable", "Segoe UI", Inter, system-ui, -apple-system, sans-serif;
-  --color-ink: #23211e;
+  --font-sans: "Segoe UI Variable Text", "Segoe UI Variable", "Segoe UI", Inter, system-ui, -apple-system, sans-serif;
+  --font-display: "Segoe UI Variable Display", "Segoe UI Variable", "Segoe UI", Inter, system-ui, sans-serif;
+  --font-mono: "Cascadia Mono", "Cascadia Code", Consolas, ui-monospace, monospace;
   --color-sand-50: #faf8f5;
   --color-sand-100: #f3f0ea;
   --color-sand-200: #e7e2d8;
   --color-sand-300: #d6cfc1;
-  --color-accent: #2f5d50;
+  --ease-fluent: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@theme inline {
+  --color-ink: var(--ui-ink);
+  --color-card: var(--ui-card);
+  --color-inverse: var(--ui-inverse);
+  --color-on-inverse: var(--ui-on-inverse);
+  --color-accent: var(--ui-accent);
+  --color-accent-hover: var(--ui-accent-hover);
+  --color-accent-ink: var(--ui-accent-ink);
+  --color-accent-soft: var(--ui-accent-soft);
+  --color-line: var(--ui-line);
+}
+
+:root {
+  color-scheme: light;
+  --ui-ink: #23211e;
+  --ui-card: #ffffff;
+  --ui-inverse: #2a2724;
+  --ui-on-inverse: #ffffff;
+  --ui-accent: #2f5d50;
+  --ui-accent-hover: #264d42;
+  --ui-accent-ink: #24493f;
+  --ui-accent-soft: rgb(47 93 80 / 0.1);
+  --ui-line: rgb(60 50 40 / 0.1);
+  --ui-focus: #2f6fd6;
+
+  /* Fensterhintergrund (ohne Mica) */
+  --ui-backdrop: #ece8e1;
+  --ui-backdrop-image:
+    radial-gradient(1200px 700px at 8% -10%, rgb(166 190 175 / 0.55), transparent 60%),
+    radial-gradient(1000px 800px at 105% 10%, rgb(216 190 160 / 0.5), transparent 55%),
+    radial-gradient(900px 700px at 50% 120%, rgb(120 160 160 / 0.35), transparent 60%);
+
+  /* Glasflächen */
+  --glass-bg: rgb(252 251 249 / 0.66);
+  --glass-bg-strong: rgb(252 251 249 / 0.82);
+  --glass-border: rgb(255 255 255 / 0.6);
+  --glass-edge: rgb(40 32 24 / 0.08);
+  --glass-highlight: inset 0 1px 0 rgb(255 255 255 / 0.7);
+  --glass-blur: 26px;
+  --glass-saturate: 1.7;
+  --shadow-float: 0 1px 2px rgb(30 24 18 / 0.06), 0 10px 30px -10px rgb(30 24 18 / 0.22);
+  --shadow-pop: 0 2px 6px rgb(30 24 18 / 0.08), 0 24px 60px -16px rgb(30 24 18 / 0.35);
+
+  --viewport-bg: #f6f4f0;
+  --scene-bg: #e9e7e2;
+
+  /* 2D-Plan */
+  --plan-bg: #f6f4f0;
+  --plan-grid: #e7e3dc;
+  --plan-grid-major: #dcd6cc;
+  --plan-wall: #2a2826;
+  --plan-label: #6b6459;
+  --plan-label-sub: #8b8478;
+  --plan-opening: #3b3d40;
+  --plan-reveal: #f6f4f0;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ui-ink: #ecebe8;
+  --ui-card: #2a2c30;
+  --ui-inverse: #e9e8e4;
+  --ui-on-inverse: #1d1e21;
+  --ui-accent: #3f8a74;
+  --ui-accent-hover: #4b9c84;
+  --ui-accent-ink: #8fd3bd;
+  --ui-accent-soft: rgb(95 174 150 / 0.16);
+  --ui-line: rgb(255 255 255 / 0.08);
+  --ui-focus: #6ea8ff;
+
+  --ui-backdrop: #16181b;
+  --ui-backdrop-image:
+    radial-gradient(1200px 700px at 8% -10%, rgb(47 93 80 / 0.45), transparent 60%),
+    radial-gradient(1000px 800px at 105% 10%, rgb(120 84 60 / 0.3), transparent 55%),
+    radial-gradient(900px 700px at 50% 120%, rgb(40 70 90 / 0.35), transparent 60%);
+
+  --glass-bg: rgb(32 34 38 / 0.62);
+  --glass-bg-strong: rgb(36 38 42 / 0.86);
+  --glass-border: rgb(255 255 255 / 0.08);
+  --glass-edge: rgb(0 0 0 / 0.35);
+  --glass-highlight: inset 0 1px 0 rgb(255 255 255 / 0.06);
+  --shadow-float: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 32px -10px rgb(0 0 0 / 0.55);
+  --shadow-pop: 0 2px 8px rgb(0 0 0 / 0.35), 0 28px 70px -16px rgb(0 0 0 / 0.7);
+
+  --viewport-bg: #1e2023;
+  --scene-bg: #24262a;
+
+  --plan-bg: #1f2124;
+  --plan-grid: #282a2e;
+  --plan-grid-major: #313338;
+  --plan-wall: #d9d6d0;
+  --plan-label: #b9b4ab;
+  --plan-label-sub: #8f8a82;
+  --plan-opening: #c9c6c0;
+  --plan-reveal: #1f2124;
+
+  /* Neutrale Skala umgekehrt: Klassen wie text-stone-500 oder border-stone-200 passen sich automatisch an */
+  --color-stone-50: #2b2d31;
+  --color-stone-100: #303236;
+  --color-stone-200: #3b3d42;
+  --color-stone-300: #4b4d53;
+  --color-stone-400: #74767c;
+  --color-stone-500: #9c9ea4;
+  --color-stone-600: #b5b7bc;
+  --color-stone-700: #cfd0d4;
+  --color-stone-800: #e3e4e7;
+  --color-stone-900: #f0f1f3;
+  --color-stone-950: #fafafa;
+
+  /* Hinweisfarben für Text auf dunklem Grund */
+  --color-amber-50: rgb(245 158 11 / 0.12);
+  --color-amber-100: rgb(245 158 11 / 0.2);
+  --color-amber-200: rgb(245 158 11 / 0.3);
+  --color-amber-600: #f6b54a;
+  --color-amber-700: #f5b44a;
+  --color-amber-800: #fbc56a;
+  --color-amber-900: #fcd68e;
+  --color-red-50: rgb(239 68 68 / 0.12);
+  --color-red-100: rgb(239 68 68 / 0.2);
+  --color-red-200: rgb(239 68 68 / 0.3);
+  --color-red-700: #f58b8b;
+  --color-red-800: #b42323;
+  --color-sky-50: rgb(14 165 233 / 0.12);
+  --color-sky-200: rgb(14 165 233 / 0.3);
+  --color-sky-700: #7dd3fc;
+  --color-sky-800: #a5e1fd;
+  --color-rose-700: #fda4af;
+  --color-emerald-50: rgb(16 185 129 / 0.12);
+  --color-emerald-200: rgb(16 185 129 / 0.3);
+  --color-emerald-700: #6ee7b7;
+  --color-emerald-800: #86efc5;
+  --color-violet-600: #7c5ce6;
 }
 
 html,
@@ -15,48 +157,218 @@ body,
 #root {
   height: 100%;
   margin: 0;
-  background: #f3f0ea;
-  color: #23211e;
+  overflow: hidden;
+}
+
+html {
+  background-color: var(--ui-backdrop);
+  background-image: var(--ui-backdrop-image);
+  background-attachment: fixed;
+  color: var(--ui-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  overflow: hidden;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Mica (Windows 11): Fensterhintergrund kommt vom System, die Seite bleibt durchsichtig */
+html[data-backdrop="mica"] {
+  background: transparent;
+}
+html[data-backdrop="mica"]:root {
+  --glass-bg: rgb(252 251 249 / 0.55);
+}
+html[data-backdrop="mica"][data-theme="dark"] {
+  --glass-bg: rgb(32 34 38 / 0.5);
+}
+
+body {
+  background: transparent;
+  color: var(--ui-ink);
+}
+
+::selection {
+  background: rgb(47 93 80 / 0.25);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #cfc7b9 transparent;
+  scrollbar-color: color-mix(in srgb, var(--color-stone-500) 45%, transparent) transparent;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--ui-focus);
+  outline-offset: 1px;
+  border-radius: 6px;
 }
 
 input[type="number"]::-webkit-inner-spin-button {
   opacity: 0.4;
 }
 
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+}
+
+/* ---------------------------------------------------------------- Glas */
+
+@utility glass {
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-highlight), 0 0 0 0.5px var(--glass-edge), var(--shadow-float);
+}
+
+@utility glass-strong {
+  background-color: var(--glass-bg-strong);
+  backdrop-filter: blur(40px) saturate(1.8);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-highlight), 0 0 0 0.5px var(--glass-edge), var(--shadow-pop);
+}
+
+/* Acrylic-Körnung für schwebende Flächen */
+@utility grain {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .035 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Transparenz aus (Einstellung, „schnell“ oder Systemvorgabe) */
+html[data-transparency="off"] {
+  --glass-bg: rgb(250 249 247);
+  --glass-bg-strong: rgb(252 251 249);
+  --ui-backdrop-image: none;
+}
+html[data-transparency="off"][data-theme="dark"] {
+  --glass-bg: rgb(36 38 42);
+  --glass-bg-strong: rgb(40 42 46);
+}
+html[data-transparency="off"] .glass,
+html[data-transparency="off"] .glass-strong {
+  backdrop-filter: none;
+}
+html[data-transparency="off"][data-backdrop="mica"] {
+  background: var(--ui-backdrop);
+}
+
+/* Modale Abdunklung mit Unschärfe */
+.scrim {
+  background: rgb(20 18 16 / 0.28);
+  backdrop-filter: blur(6px) saturate(1.1);
+  animation: fade-in 0.18s ease-out;
+}
+html[data-theme="dark"] .scrim {
+  background: rgb(0 0 0 / 0.45);
+}
+html[data-transparency="off"] .scrim {
+  backdrop-filter: none;
+}
+
+.pop-in {
+  animation: pop-in 0.22s var(--ease-fluent);
+}
+.slide-up {
+  animation: slide-up 0.26s var(--ease-fluent);
+}
+.fade-in {
+  animation: fade-in 0.16s ease-out;
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.975);
+  }
+}
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes toast-progress {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+html[data-motion="off"] *,
+html[data-motion="off"] *::before,
+html[data-motion="off"] *::after {
+  animation-duration: 0.001ms !important;
+  transition-duration: 0.001ms !important;
+}
+
+/* ---------------------------------------------------------------- Bausteine */
+
 .panel-title {
   @apply text-[11px] font-semibold uppercase tracking-[0.08em] text-stone-500;
 }
 
 .field {
-  @apply w-full rounded-md border border-stone-200 bg-white px-2 py-1 text-sm outline-none transition focus:border-emerald-700 focus:ring-2 focus:ring-emerald-700/15;
+  @apply w-full rounded-md border border-stone-200 bg-card/80 px-2 py-1 text-sm text-ink outline-none transition placeholder:text-stone-400 hover:border-stone-300 focus:border-accent focus:bg-card focus:ring-2 focus:ring-accent/20;
+  box-shadow: inset 0 -1px 0 rgb(0 0 0 / 0.04);
+}
+select.field {
+  @apply cursor-pointer appearance-none pr-6;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='%23888' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+}
+select option {
+  background: var(--ui-card);
+  color: var(--ui-ink);
 }
 
 .btn {
-  @apply inline-flex items-center justify-center gap-1.5 rounded-md border border-stone-200 bg-white px-2.5 py-1.5 text-sm text-stone-700 shadow-sm transition hover:bg-stone-50 active:translate-y-px disabled:opacity-40;
+  @apply inline-flex items-center justify-center gap-1.5 rounded-md border border-stone-200 bg-card/80 px-2.5 py-1.5 text-sm text-stone-700 shadow-sm transition select-none hover:border-stone-300 hover:bg-card active:translate-y-px active:bg-stone-50 disabled:pointer-events-none disabled:opacity-40;
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center gap-1.5 rounded-md bg-[#2f5d50] px-3 py-1.5 text-sm font-medium text-white shadow-sm transition hover:bg-[#264d42] active:translate-y-px disabled:opacity-40;
+  @apply inline-flex items-center justify-center gap-1.5 rounded-md bg-accent px-3 py-1.5 text-sm font-medium text-white transition select-none hover:bg-accent-hover active:translate-y-px disabled:pointer-events-none disabled:opacity-40;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.16), 0 1px 2px rgb(0 0 0 / 0.18), 0 4px 12px -4px color-mix(in srgb, var(--ui-accent) 60%, transparent);
 }
 
 .btn-ghost {
-  @apply inline-flex items-center justify-center gap-1.5 rounded-md px-2 py-1.5 text-sm text-stone-600 transition hover:bg-stone-200/60 disabled:opacity-40;
+  @apply inline-flex items-center justify-center gap-1.5 rounded-md px-2 py-1.5 text-sm text-stone-600 transition select-none hover:bg-stone-500/12 hover:text-stone-900 active:bg-stone-500/18 disabled:pointer-events-none disabled:opacity-35;
 }
 
+.btn-danger {
+  @apply inline-flex items-center justify-center gap-1.5 rounded-md bg-red-600 px-3 py-1.5 text-sm font-medium text-white transition hover:bg-red-700 active:translate-y-px;
+}
+
+/* Segmentschalter mit gleitender Markierung (siehe ui/Seg.tsx); einfache Variante über data-on */
 .seg {
-  @apply inline-flex rounded-lg border border-stone-200 bg-white p-0.5 shadow-sm;
+  @apply relative inline-flex rounded-lg bg-stone-500/10 p-0.5;
+  box-shadow: inset 0 0 0 1px var(--ui-line);
 }
 
 .seg > button {
-  @apply rounded-md px-2.5 py-1 text-xs font-medium text-stone-600 transition hover:text-stone-900;
+  @apply relative z-[1] rounded-md px-2.5 py-1 text-xs font-medium text-stone-600 transition-colors hover:text-stone-900;
+}
+
+.seg > .seg-thumb {
+  @apply pointer-events-none absolute top-0.5 bottom-0.5 z-0 rounded-md bg-card;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.12), 0 0 0 0.5px rgb(0 0 0 / 0.06);
+  transition:
+    left 0.28s var(--ease-fluent),
+    width 0.28s var(--ease-fluent);
 }
 
 @media (max-width: 1535px) {
@@ -67,18 +379,94 @@ input[type="number"]::-webkit-inner-spin-button {
 
 @media (max-width: 1359px) {
   .seg > button {
-    padding-inline: 0.3rem;
+    padding-inline: 0.32rem;
   }
 }
 
 .seg > button[data-on="true"] {
-  @apply bg-stone-800 text-white;
+  @apply text-stone-900;
+}
+.seg:not(:has(.seg-thumb)) > button[data-on="true"] {
+  @apply bg-card;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.12), 0 0 0 0.5px rgb(0 0 0 / 0.06);
 }
 
 .chip {
-  @apply inline-flex items-center rounded-full border border-stone-200 bg-white px-2 py-0.5 text-[11px] text-stone-600 transition hover:border-stone-400;
+  @apply inline-flex items-center rounded-full border border-stone-200 bg-card/70 px-2 py-0.5 text-[11px] text-stone-600 transition select-none hover:border-stone-400 hover:text-stone-900;
 }
 
 .chip[data-on="true"] {
-  @apply border-stone-800 bg-stone-800 text-white;
+  @apply border-accent bg-accent text-white;
+}
+
+/* Kontrollkästchen, Optionsfelder und Schieberegler im Systemstil */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--ui-accent);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.switch {
+  @apply relative inline-block h-[18px] w-8 shrink-0 cursor-pointer appearance-none rounded-full border border-stone-400 bg-transparent transition;
+}
+.switch::after {
+  content: "";
+  @apply absolute top-[3px] left-[3px] h-2.5 w-2.5 rounded-full bg-stone-600 transition-all;
+  transition-timing-function: var(--ease-fluent);
+}
+.switch:checked {
+  @apply border-accent bg-accent;
+}
+.switch:checked::after {
+  @apply left-[17px] bg-white;
+}
+.switch:active::after {
+  @apply w-3.5;
+}
+
+input[type="range"] {
+  accent-color: var(--ui-accent);
+  cursor: pointer;
+}
+
+kbd,
+.kbd {
+  @apply inline-flex min-w-[1.25rem] items-center justify-center rounded border border-stone-300 bg-card/70 px-1 font-sans text-[10px] font-medium text-stone-500;
+  box-shadow: inset 0 -1px 0 var(--ui-line);
+}
+
+/* Menüs und Listen */
+.menu {
+  @apply glass-strong grain min-w-56 rounded-xl p-1;
+}
+.menu-item {
+  @apply flex w-full items-center gap-2 rounded-md px-2.5 py-1.5 text-left text-sm text-stone-700 outline-none select-none hover:bg-stone-500/12 focus-visible:bg-stone-500/12 disabled:pointer-events-none disabled:opacity-40;
+}
+.menu-item[data-danger="true"] {
+  @apply text-red-700 hover:bg-red-600/12;
+}
+.menu-sep {
+  @apply mx-2 my-1 border-t border-stone-500/15;
+}
+.menu-label {
+  @apply px-2.5 pt-1.5 pb-0.5 text-[10.5px] font-semibold uppercase tracking-wide text-stone-400;
+}
+
+/* Leiste über einer Ansicht */
+.toolbar {
+  @apply glass flex items-center gap-0.5 rounded-xl p-1 text-xs;
+}
+.tool {
+  @apply inline-flex h-7 items-center justify-center gap-1.5 rounded-lg px-2 text-xs font-medium text-stone-600 transition select-none hover:bg-stone-500/12 hover:text-stone-900;
+}
+.tool[data-on="true"] {
+  @apply bg-accent text-white hover:bg-accent-hover hover:text-white;
+}
+
+/* Tooltip */
+.tip {
+  @apply glass-strong pointer-events-none fixed z-[200] max-w-80 rounded-lg px-2.5 py-1.5 text-xs leading-snug text-stone-800;
+  animation: fade-in 0.12s ease-out;
 }

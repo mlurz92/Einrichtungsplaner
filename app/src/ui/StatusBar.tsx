@@ -43,7 +43,7 @@ function SaveState() {
   if (!dirty)
     return (
       <span className="flex items-center gap-1 text-stone-500" title={filePath ?? undefined}>
-        <Check size={12} className="text-emerald-700" /> {file ? `Gespeichert in ${file}` : "Keine ungespeicherten Änderungen"}
+        <Check size={12} className="text-accent-ink" /> {file ? `Gespeichert in ${file}` : "Keine ungespeicherten Änderungen"}
       </span>
     );
   return (
@@ -79,7 +79,7 @@ export function ToastView() {
       <span>{toast.msg}</span>
       {toast.action && (
         <button
-          className="shrink-0 rounded-full bg-white/15 px-2.5 py-0.5 text-xs font-semibold hover:bg-white/25"
+          className="shrink-0 rounded-full bg-white/15 px-2.5 py-0.5 text-xs font-semibold hover:bg-card/25"
           onClick={() => {
             useEditor.getState().set("toast", null);
             toast.action!.run();

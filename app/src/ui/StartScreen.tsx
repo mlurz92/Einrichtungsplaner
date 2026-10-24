@@ -39,10 +39,10 @@ export function StartScreen() {
         <div className="grid gap-6 p-6 md:grid-cols-[1.4fr_1fr]">
           <div className="space-y-3">
             {hasWork && (
-              <button className="flex w-full items-center gap-3 rounded-xl border border-emerald-800/30 bg-white p-3 text-left shadow-sm hover:border-emerald-800" onClick={close}>
-                <ArrowRight size={18} className="text-emerald-800" />
+              <button className="flex w-full items-center gap-3 rounded-xl border border-accent/30 bg-white p-3 text-left shadow-sm hover:border-accent" onClick={close}>
+                <ArrowRight size={18} className="text-accent-ink" />
                 <div className="min-w-0 flex-1">
-                  <div className="text-sm font-semibold text-emerald-900">Weiterarbeiten: {project.name}</div>
+                  <div className="text-sm font-semibold text-accent-ink">Weiterarbeiten: {project.name}</div>
                   <div className="truncate text-xs text-stone-500">{st.filePath ? fileName(st.filePath) : "letzter Stand (automatisch gesichert)"}</div>
                 </div>
               </button>
@@ -52,7 +52,7 @@ export function StartScreen() {
               {concepts.map((c) => (
                 <button
                   key={c.id}
-                  className="overflow-hidden rounded-xl border border-stone-200 bg-white text-left shadow-sm transition hover:border-emerald-800 hover:shadow"
+                  className="overflow-hidden rounded-xl border border-stone-200 bg-white text-left shadow-sm transition hover:border-accent hover:shadow"
                   onClick={() => {
                     st.loadConcept(c.id);
                     close();
@@ -73,15 +73,15 @@ export function StartScreen() {
             </div>
             <div className="grid grid-cols-2 gap-2">
               <button
-                className="flex items-center gap-2 rounded-xl border-2 border-dashed border-emerald-800/40 bg-white p-3 text-left hover:border-emerald-800"
+                className="flex items-center gap-2 rounded-xl border-2 border-dashed border-accent/40 bg-white p-3 text-left hover:border-accent"
                 onClick={() => {
                   close();
                   st.set("newDialogOpen", true);
                 }}
               >
-                <FilePlus size={18} className="shrink-0 text-emerald-800" />
+                <FilePlus size={18} className="shrink-0 text-accent-ink" />
                 <span>
-                  <span className="block text-sm font-semibold text-emerald-900">Leere Wohnung</span>
+                  <span className="block text-sm font-semibold text-accent-ink">Leere Wohnung</span>
                   <span className="block text-xs text-stone-600">von Grund auf einrichten</span>
                 </span>
               </button>
@@ -100,7 +100,7 @@ export function StartScreen() {
                 <div className="panel-title mb-1.5">Zuletzt verwendet</div>
                 <div className="space-y-0.5">
                   {recent.map((r) => (
-                    <button key={r.path} className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left hover:bg-white" title={r.path} onClick={() => void openRecent(r.path)}>
+                    <button key={r.path} className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left hover:bg-card" title={r.path} onClick={() => void openRecent(r.path)}>
                       <Clock size={13} className="shrink-0 text-stone-400" />
                       <span className="min-w-0 flex-1">
                         <span className="block truncate text-sm">{r.name || fileName(r.path)}</span>
@@ -123,7 +123,7 @@ export function StartScreen() {
                   ))}
                 </tbody>
               </table>
-              <button className="mt-2 text-xs font-medium text-emerald-800 hover:underline" onClick={() => st.set("helpOpen", true)}>
+              <button className="mt-2 text-xs font-medium text-accent-ink hover:underline" onClick={() => st.set("helpOpen", true)}>
                 Alle Tastenkürzel (F1)
               </button>
             </div>

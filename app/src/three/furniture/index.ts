@@ -98,6 +98,8 @@ const REG: Partial<Record<Archetype, Fn>> = {
   outdoorChair: F.outdoorChair,
   outdoorSofa: F.outdoorSofa,
   kitchenRun: F.kitchenRun,
+  kitchenAlno: F.kitchenAlno,
+  kitchenAlnoSide: F.kitchenAlnoSide,
   bathtub: F.bathtub,
   toilet: F.toilet,
   washbasin: F.washbasin,

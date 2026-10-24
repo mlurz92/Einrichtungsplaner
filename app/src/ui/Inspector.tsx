@@ -128,7 +128,7 @@ function ItemInspector({ it }: { it: PlacedItem }) {
         >
           <Crosshair size={15} />
         </button>
-        <button className="btn-ghost" title={it.locked ? "Entsperren" : "Sperren"} onClick={() => up((x) => void (x.locked = !x.locked))}>
+        <button className="btn-ghost" title={it.builtIn ? "Fest eingebaut" : it.locked ? "Entsperren" : "Sperren"} disabled={it.builtIn} onClick={() => up((x) => void (x.locked = !x.locked))}>
           {it.locked ? <Lock size={15} /> : <Unlock size={15} />}
         </button>
         <button className="btn-ghost" title={it.hidden ? "Einblenden" : "Ausblenden"} onClick={() => up((x) => void (x.hidden = !x.hidden))}>
@@ -176,7 +176,7 @@ function ItemInspector({ it }: { it: PlacedItem }) {
           <Num label={it.mount === "ceiling" ? "Unterkante" : "Montagehöhe"} unit="cm" value={it.elev * 100} step={1} min={0} max={apartment.ceilingHeight * 100} onChange={(v) => up((x) => void (x.elev = v / 100))} />
         </div>
         {c && c.archetype !== "tvFrame" && (Math.abs(c.w - it.w * 100) > 0.5 || Math.abs(c.d - it.d * 100) > 0.5 || Math.abs(c.h - it.h * 100) > 0.5) && (
-          <button className="mt-2 text-xs text-emerald-800 underline" onClick={() => up((x) => void ((x.w = c.w / 100), (x.d = c.d / 100), (x.h = c.h / 100)))}>
+          <button className="mt-2 text-xs text-accent-ink underline" onClick={() => up((x) => void ((x.w = c.w / 100), (x.d = c.d / 100), (x.h = c.h / 100)))}>
             Katalogmaße wiederherstellen ({c.w} × {c.d} × {c.h} cm)
           </button>
         )}
@@ -237,7 +237,7 @@ function ItemInspector({ it }: { it: PlacedItem }) {
             <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
               {boolKeys.map((k) => (
                 <label key={k} className="flex items-center gap-1.5 text-xs text-stone-700">
-                  <input type="checkbox" className="accent-emerald-800" checked={!!it.params![k]} onChange={(e) => up((x) => void (x.params = { ...x.params, [k]: e.target.checked }))} />
+                  <input type="checkbox" className="" checked={!!it.params![k]} onChange={(e) => up((x) => void (x.params = { ...x.params, [k]: e.target.checked }))} />
                   {BOOL_PARAM_LABELS[k]}
                 </label>
               ))}
@@ -256,7 +256,7 @@ function ItemInspector({ it }: { it: PlacedItem }) {
                     {p.name}
                   </span>
                   {p.url && (
-                    <button className="text-emerald-800" title="Im Shop öffnen" onClick={() => openExternal(p.url!)}>
+                    <button className="text-accent-ink" title="Im Shop öffnen" onClick={() => openExternal(p.url!)}>
                       <ExternalLink size={13} />
                     </button>
                   )}
@@ -358,7 +358,7 @@ export function SurfaceEditor({ value, onChange, allowLower = true }: { value: W
       {allowLower && (
         <div className="rounded-md border border-stone-200 bg-white p-2">
           <label className="flex items-center gap-2 text-xs font-medium text-stone-700">
-            <input type="checkbox" className="accent-emerald-800" checked={!!lower && lower.height > 0} onChange={(e) => onChange({ ...value, lower: e.target.checked ? { height: 1.1, surface: { kind: "wainscot", color: "#f3f0e8" }, rail: true } : undefined })} />
+            <input type="checkbox" className="" checked={!!lower && lower.height > 0} onChange={(e) => onChange({ ...value, lower: e.target.checked ? { height: 1.1, surface: { kind: "wainscot", color: "#f3f0e8" }, rail: true } : undefined })} />
             Sockelzone / Vertäfelung / Zweifarbig
           </label>
           {lower && lower.height > 0 && (
@@ -379,7 +379,7 @@ export function SurfaceEditor({ value, onChange, allowLower = true }: { value: W
               <div className="flex items-center gap-2">
                 <input type="color" value={lower.surface.color} onChange={(e) => onChange({ ...value, lower: { ...lower, surface: { ...lower.surface, color: e.target.value } } })} className="h-8 w-10 rounded border border-stone-200 p-0.5" />
                 <label className="flex items-center gap-1 text-xs">
-                  <input type="checkbox" className="accent-emerald-800" checked={!!lower.rail} onChange={(e) => onChange({ ...value, lower: { ...lower, rail: e.target.checked } })} /> Abschlussleiste
+                  <input type="checkbox" className="" checked={!!lower.rail} onChange={(e) => onChange({ ...value, lower: { ...lower, rail: e.target.checked } })} /> Abschlussleiste
                 </label>
               </div>
             </div>

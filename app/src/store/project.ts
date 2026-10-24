@@ -130,7 +130,8 @@ export interface EditorState {
 
 export interface NewFurnishingOptions {
   name: string;
-  keepKitchen: boolean;
+  /** Ohne Wirkung seit 2.0: die Einbauküche ist immer vorhanden. */
+  keepKitchen?: boolean;
   keepSanitary: boolean;
   keepWasher: boolean;
   wallColor: string;
@@ -273,8 +274,29 @@ function emptyProject(): Project {
   } as Project;
 }
 
-/** Ältere Projektstände an den Bestand anpassen (Fliesen HWR/Bäder: Feinsteinzeug 60 × 60 „Iron“). */
+/** Frühere schematische Küche (bis 1.2.0), ersetzt durch die gekaufte Einbauküche. */
+const OLD_KITCHEN_ID = "bestand-k-che-alno-2060-bestand-schematisch-";
+
+/** Fest eingebaute Objekte (Einbauküche Alno 2060 mit Sideboard) in Referenzlage. */
+export function builtInItems(): PlacedItem[] {
+  return concepts[0].project.items.filter((i) => i.builtIn);
+}
+
+/**
+ * Ältere Projektstände an den Bestand anpassen: Fliesen HWR/Bäder (Feinsteinzeug 60 × 60 „Iron“) und
+ * Einbauküche – sie ist in jedem Projekt vorhanden, an fester Stelle und ersetzt die frühere schematische Küche.
+ */
 export function migrateProject(p: Project): Project {
+  if (Array.isArray(p.items)) {
+    const ref = builtInItems();
+    const items = p.items.filter((i) => i.catalogId !== OLD_KITCHEN_ID);
+    for (const b of ref) {
+      const k = items.findIndex((i) => i.catalogId === b.catalogId);
+      if (k < 0) items.push(structuredClone(b));
+      else items[k] = { ...items[k], x: b.x, y: b.y, rot: b.rot, elev: b.elev, w: b.w, d: b.d, h: b.h, mount: b.mount, room: b.room, existing: true, locked: true, builtIn: true };
+    }
+    if (items.length !== p.items.length || items.some((it, i) => it !== p.items[i])) p.items = items;
+  }
   for (const rid of ["13.05", "13.06", "13.07"]) {
     const f = p.rooms?.[rid]?.floor;
     if (f && f.kind === "tiles" && f.productName === "Feinsteinzeug 60 × 60 (Bestand)") {
@@ -488,6 +510,10 @@ export const useEditor = create<EditorState>((set, get) => ({
           if (!idset.has(it.id)) return it;
           const c = structuredClone(it);
           fn(c);
+          if (it.builtIn) {
+            // Einbauküche: Lage, Maße und Sperre bleiben unverändert
+            Object.assign(c, { x: it.x, y: it.y, rot: it.rot, elev: it.elev, w: it.w, d: it.d, h: it.h, mount: it.mount, locked: true, hidden: c.hidden, builtIn: true, existing: true });
+          }
           c.room = roomAt(apartment, c.x, c.y) ?? c.room;
           return c;
         }),
@@ -503,7 +529,8 @@ export const useEditor = create<EditorState>((set, get) => ({
     const locked = hit.filter((i) => i.locked).length;
     const n = hit.length - locked;
     if (!n) {
-      if (locked) get().showToast(`${plural(locked, "Objekt ist gesperrt", "Objekte sind gesperrt")} – zum Löschen erst entsperren`);
+      if (hit.some((i) => i.builtIn)) get().showToast("Die Einbauküche ist fest eingebaut und kann nicht gelöscht werden");
+      else if (locked) get().showToast(`${plural(locked, "Objekt ist gesperrt", "Objekte sind gesperrt")} – zum Löschen erst entsperren`);
       return;
     }
     get().commit(n === 1 ? `${hit.find((i) => !i.locked)?.label ?? "Objekt"} löschen` : `${n} Objekte löschen`);
@@ -511,9 +538,10 @@ export const useEditor = create<EditorState>((set, get) => ({
     get().showToast(`${plural(n, "Objekt", "Objekte")} gelöscht${locked ? ` (${locked} gesperrt, bleiben)` : ""}`, { action: { label: "Rückgängig", run: () => get().undo() } });
   },
   duplicateItems(ids) {
-    if (!ids.length) return;
+    if (!ids.length || !get().project.items.some((i) => ids.includes(i.id) && !i.builtIn)) return;
     get().commit(ids.length === 1 ? "Duplizieren" : `${ids.length} Objekte duplizieren`);
-    const items = get().project.items.filter((i) => ids.includes(i.id));
+    const items = get().project.items.filter((i) => ids.includes(i.id) && !i.builtIn);
+    if (!items.length) return;
     const copies = items.map((i) => {
       const c = structuredClone(i);
       c.id = uid();
@@ -528,7 +556,7 @@ export const useEditor = create<EditorState>((set, get) => ({
     set((s) => ({ project: { ...s.project, items: [...s.project.items, ...copies] }, selection: copies.map((c) => c.id) }));
   },
   copyItems(ids) {
-    const items = get().project.items.filter((i) => ids.includes(i.id));
+    const items = get().project.items.filter((i) => ids.includes(i.id) && !i.builtIn);
     if (!items.length) return 0;
     clipboard = structuredClone(items);
     pasteCount = 0;
@@ -630,7 +658,7 @@ export const useEditor = create<EditorState>((set, get) => ({
     p.subtitle = "Eigene Einrichtung WE 13";
     p.items = p.items.filter((i) => {
       const a = getCatalogItem(i.catalogId)?.archetype ?? "";
-      if (a === "kitchenRun") return o.keepKitchen;
+      if (i.builtIn) return true;
       if (a === "washer") return o.keepWasher;
       if (["bathtub", "toilet", "washbasin", "shower"].includes(a)) return o.keepSanitary;
       return false;

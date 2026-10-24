@@ -607,11 +607,11 @@ export function Plan2D() {
         <button className={`rounded px-2 py-1 ${measure.on ? "bg-violet-600 text-white" : "hover:bg-stone-100"}`} onClick={() => setMeasure((m) => ({ on: !m.on }))} title="Messen (M)">
           Messen
         </button>
-        <button className={`rounded px-2 py-1 ${showLabels ? "bg-stone-800 text-white" : "hover:bg-stone-100"}`} onClick={() => setShowLabels((v) => !v)} title="Positionsnummern">
+        <button className={`rounded px-2 py-1 ${showLabels ? "bg-inverse text-on-inverse" : "hover:bg-stone-100"}`} onClick={() => setShowLabels((v) => !v)} title="Positionsnummern">
           Pos.-Nr.
         </button>
         <button
-          className={`rounded px-2 py-1 ${showClearance ? "bg-emerald-800 text-white" : "hover:bg-stone-100"}`}
+          className={`rounded px-2 py-1 ${showClearance ? "bg-accent text-white" : "hover:bg-stone-100"}`}
           onClick={() => useEditor.getState().set("showClearance", !showClearance)}
           title="Bewegungsflächen, Türschwenkbereiche und Balkonzugänge einblenden (grün = ausreichend, gelb = eng, rot = zu wenig)"
         >

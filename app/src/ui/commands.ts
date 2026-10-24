@@ -124,6 +124,7 @@ export function toggleLock() {
   const s = st();
   const sel = s.project.items.filter((i) => s.selection.includes(i.id));
   if (!sel.length) return;
+  if (sel.length && sel.every((i) => i.builtIn)) return s.showToast("Die Einbauküche ist fest eingebaut und bleibt gesperrt");
   const lock = sel.some((i) => !i.locked);
   s.updateItems(s.selection, (it) => void (it.locked = lock), { label: lock ? "Sperren" : "Entsperren" });
   s.showToast(lock ? `${sel.length === 1 ? "Objekt" : `${sel.length} Objekte`} gesperrt – L entsperrt` : "Entsperrt");

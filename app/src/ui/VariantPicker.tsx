@@ -178,7 +178,7 @@ export function VariantPicker({ c, value, onChange, current, onHover }: { c: Cat
         <div className="mt-0.5 flex items-center justify-between gap-2 text-[11px] text-stone-500">
           <span className="truncate">{slotSummary(sel)}</span>
           {(sel.url ?? c.url) && (
-            <button className="flex shrink-0 items-center gap-0.5 text-emerald-800 hover:underline" onClick={() => openExternal((sel.url ?? c.url)!)} title="Diese Ausführung im Shop öffnen">
+            <button className="flex shrink-0 items-center gap-0.5 text-accent-ink hover:underline" onClick={() => openExternal((sel.url ?? c.url)!)} title="Diese Ausführung im Shop öffnen">
               Shop <ExternalLink size={11} />
             </button>
           )}

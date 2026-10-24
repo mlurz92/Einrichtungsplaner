@@ -3849,45 +3849,78 @@
 ]
 },
 {
-"id": "96970173e0",
-"catalogId": "bestand-k-che-alno-2060-bestand-schematisch-",
-"label": "Küche Alno 2060 (Bestand, schematisch)",
-"x": 1.0451,
-"y": 11.5067,
+"id": "06777b9429",
+"catalogId": "bestand-kueche-alno-2060",
+"label": "Einbauküche Alno 2060 Walnuss dunkel (Bestand)",
+"x": 1.0599,
+"y": 11.5088,
 "rot": 278,
 "elev": 0.0,
-"w": 3.628,
-"d": 0.62,
-"h": 2.3,
+"w": 3.648,
+"d": 0.65,
+"h": 2.358,
 "variant": "Bestand",
 "slots": {
 "main": {
-"color": "#4a3426",
-"material": "walnut"
+"color": "#7a5236",
+"material": "oakDark"
 },
 "secondary": {
-"color": "#7f9a86",
-"material": "lacquer"
+"color": "#1c1c1c",
+"material": "matte"
 },
 "top": {
-"color": "#e9e6df",
-"material": "stone"
+"color": "#e3d7c1",
+"material": "granite"
 },
 "detail": {
-"color": "#1d1d1d",
+"color": "#1b1b1b",
 "material": "blackMetal"
 }
 },
-"params": {
-"tallUnits": 1.2,
-"upper": true,
-"sink": 0.55,
-"hob": 0.3
-},
+"params": {},
 "mount": "floor",
 "room": "13.02",
 "existing": true,
-"locked": true
+"locked": true,
+"builtIn": true
+},
+{
+"id": "4852ca5411",
+"catalogId": "bestand-kueche-alno-2060-sideboard",
+"label": "Küchen-Sideboard Alno 2060 mit Natursteinplatte (Bestand)",
+"x": 3.3101,
+"y": 12.2722,
+"rot": 98,
+"elev": 0.0,
+"w": 1.236,
+"d": 0.375,
+"h": 0.968,
+"variant": "Bestand",
+"slots": {
+"main": {
+"color": "#7a5236",
+"material": "oakDark"
+},
+"secondary": {
+"color": "#1c1c1c",
+"material": "matte"
+},
+"top": {
+"color": "#e3d7c1",
+"material": "granite"
+},
+"detail": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.02",
+"existing": true,
+"locked": true,
+"builtIn": true
 },
 {
 "id": "1ecde27a86",
