@@ -311,8 +311,24 @@ function Resizer({ side }: { side: "left" | "right" }) {
   );
 }
 
+/** Neu platzierte Produkte für „Zuletzt“ im Katalog merken (Konzept laden zählt nicht). */
+function useRecentPlaced() {
+  useEffect(
+    () =>
+      useEditor.subscribe((s, prev) => {
+        const a = s.project.items;
+        const b = prev.project.items;
+        if (a === b || a.length <= b.length || a.length - b.length > 4) return;
+        const old = new Set(b.map((i) => i.id));
+        for (const it of a) if (!old.has(it.id) && !it.existing) useUi.getState().notePlaced(it.catalogId);
+      }),
+    [],
+  );
+}
+
 export function App() {
   useShortcuts();
+  useRecentPlaced();
   useWindowState();
   useFileOpening();
   const tab = useEditor((s) => s.leftTab);

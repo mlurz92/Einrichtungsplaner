@@ -36,6 +36,10 @@ jobs:
       - name: Farb-/Materialparser (Katalog)
         run: python3 ../tools/test_finish.py
       - run: npx vite build
+      - name: Browser für den Oberflächentest
+        run: npx playwright install --with-deps chromium
+      - name: Oberflächentest (Kopfleiste 1.200–1.920 px, Designs, Dialoge)
+        run: npm run ui-check
 
   windows:
     name: Windows-Installer (Tauri)

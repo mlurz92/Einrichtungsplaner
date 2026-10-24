@@ -937,7 +937,7 @@ export function Scene3D() {
       }}
     >
       <Canvas
-        shadows={{ type: THREE.PCFSoftShadowMap }}
+        shadows={{ type: THREE.PCFShadowMap }}
         dpr={quality === "niedrig" ? 1 : [1, 2]}
         frameloop={camera3d === "walk" || sunPlaying ? "always" : "demand"}
         gl={{ antialias: false, preserveDrawingBuffer: true, powerPreference: "high-performance", localClippingEnabled: true } as never}

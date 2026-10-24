@@ -19,6 +19,7 @@ import {
   RotateCw,
   Trash2,
   Unlock,
+  MousePointerClick,
 } from "lucide-react";
 import { alignOffsets, distributeOffsets, type AlignMode } from "../model/align";
 import { useEditor, getCatalogItem, itemPrice } from "../store/project";
@@ -30,6 +31,7 @@ import { VariantPicker } from "./VariantPicker";
 import { fmtEuro, nearestFace, normAngle, rotationForFace, segmentDistance } from "../model/geometry";
 import { openExternal } from "../platform";
 import { STATUS_ORDER, STATUS_STYLE } from "./status";
+import { Section as KitSection } from "./kit";
 
 function Num({ label, value, onChange, step = 1, unit, min, max, digits = 1 }: { label: string; value: number; onChange: (v: number) => void; step?: number; unit?: string; min?: number; max?: number; digits?: number }) {
   const [text, setText] = useState<string | null>(null);
@@ -58,21 +60,18 @@ function Num({ label, value, onChange, step = 1, unit, min, max, digits = 1 }: {
             }
           }}
         />
-        {unit && <span className="rounded-r-md border border-l-0 border-stone-200 bg-stone-50 px-1.5 py-1 text-xs text-stone-500">{unit}</span>}
+        {unit && <span className="rounded-r-md border border-l-0 border-stone-200 bg-stone-500/8 px-1.5 py-1 text-xs text-stone-500">{unit}</span>}
       </div>
     </label>
   );
 }
 
-function Section({ title, children, right }: { title: string; children: React.ReactNode; right?: React.ReactNode }) {
+/** Aufklappbarer Abschnitt; der Zustand bleibt je Abschnittstitel erhalten. */
+function Section({ title, children, right, closed }: { title: string; children: React.ReactNode; right?: React.ReactNode; closed?: boolean }) {
   return (
-    <div className="border-b border-stone-200 px-3 py-3">
-      <div className="mb-2 flex items-center justify-between">
-        <span className="panel-title">{title}</span>
-        {right}
-      </div>
+    <KitSection title={title} right={right} id={`insp.${title.replace(/\s*\(.*\)$/, "")}`} defaultOpen={!closed}>
       {children}
-    </div>
+    </KitSection>
   );
 }
 
@@ -281,7 +280,7 @@ function ItemInspector({ it }: { it: PlacedItem }) {
           </div>
         </Section>
       )}
-      <Section title="Notiz">
+      <Section title="Notiz" closed>
         <textarea className="field h-16 resize-none text-xs" value={it.note ?? ""} placeholder="z. B. Stoffmuster bestellen …" onChange={(e) => st.updateItems([it.id], (x) => void (x.note = e.target.value), { commit: false })} />
       </Section>
     </div>
@@ -638,22 +637,35 @@ export function Inspector() {
   if (selection.length > 1) return <MultiInspector ids={selection} />;
   if (face) return <FaceInspector key={face} faceId={face} />;
   if (room) return <RoomInspector key={room} roomId={room} />;
+  const tips: [string, string][] = [
+    ["Ziehen", "Katalogprodukt in Plan oder 3D ablegen"],
+    ["Alt", "beim Ziehen ohne Fang"],
+    ["R", "drehen ±15° (Umschalt: rückwärts)"],
+    ["Pfeile", "1 cm, mit Umschalt 10 cm"],
+    ["Rechtsklick", "Kontextmenü"],
+    ["Strg+D", "duplizieren"],
+    ["Entf", "löschen"],
+    ["Strg+K", "Befehl oder Produkt suchen"],
+    ["F1", "alle Tastenkürzel"],
+  ];
   return (
     <div className="p-4 text-sm text-stone-500">
-      Objekt, Wand oder Raum anklicken, um Eigenschaften zu bearbeiten.
-      <ul className="mt-3 list-disc space-y-1 pl-4 text-xs">
-        <li>Produkte aus dem Katalog direkt in Plan oder 3D ziehen</li>
-        <li>Ziehen: verschieben mit Wandfang (Alt = ohne Fang)</li>
-        <li>Freie Fläche ziehen: Ansicht verschieben (Plan) bzw. drehen (3D); Umschalt+Ziehen: Auswahlrahmen</li>
-        <li>Drehgriff bzw. R / Umschalt+R: ±15°</li>
-        <li>Pfeiltasten: 1 cm, mit Umschalt 10 cm</li>
-        <li>Entf: löschen · Strg+D: duplizieren</li>
-        <li>Strg+Z / Strg+Y: rückgängig / wiederholen</li>
-        <li>Strg+C / Strg+V: kopieren, an der Mausposition einfügen</li>
-        <li>M: messen · F: einpassen bzw. 3D-Fokus · 1/2/3: Ansicht</li>
-        <li>Strg+K: Befehl, Raum oder Produkt suchen</li>
-        <li>F1: alle Tastenkürzel</li>
-      </ul>
+      <div className="mx-auto mt-4 mb-3 grid h-12 w-12 place-items-center rounded-2xl bg-accent-soft text-accent-ink">
+        <MousePointerClick size={22} />
+      </div>
+      <p className="text-center text-[13px] text-stone-600">Objekt, Wand oder Raum anklicken, um Eigenschaften zu bearbeiten.</p>
+      <div className="mt-5 overflow-hidden rounded-xl border border-line bg-card/40">
+        {tips.map(([k, v]) => (
+          <div key={k} className="flex items-center justify-between gap-3 border-t border-line px-3 py-1.5 text-xs first:border-t-0">
+            <span className="flex gap-0.5">
+              {k.split("+").map((x) => (
+                <kbd key={x}>{x}</kbd>
+              ))}
+            </span>
+            <span className="text-right text-stone-500">{v}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
