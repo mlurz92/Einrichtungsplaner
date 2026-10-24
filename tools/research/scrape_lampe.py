@@ -87,7 +87,40 @@ def parse(url, s):
     }
 
 
+def length_cm(attrs):
+    """Größtes Längen-/Breitenmaß der Attributtabelle in cm (0, wenn keines angegeben)."""
+    vals = []
+    for k, v in attrs.items():
+        if re.match(r"(Länge|Breite)", k):
+            m = re.match(r"([\d.,]+)\s*(mm|cm)", v)
+            if m:
+                vals.append(float(m.group(1).replace(",", ".")) / (10 if m.group(2) == "mm" else 1))
+    return max(vals, default=0)
+
+
+def long_pendants(min_cm=130):
+    """Ergänzung (Esstisch-Pendel): alle Pendel-/Hängeleuchten der Marken ohne Seitenlimit, nur Länge ≥ min_cm,
+    angehängt an data/lampe_products.json (vorhandene URLs bleiben unverändert)."""
+    out = pathlib.Path(__file__).parent / "data" / "lampe_products.json"
+    have = json.loads(out.read_text())
+    known = {p["url"] for p in have}
+    global BRANDS
+    BRANDS = {b: 10 ** 6 for b in BRANDS}
+    urls = [u for u in product_urls() if u not in known and any(t in u for t in ("pendelleuchte", "haengeleuchte"))]
+    print(len(urls), "neue Pendel-Produktseiten", file=sys.stderr)
+    add = []
+    with cf.ThreadPoolExecutor(6) as ex:
+        for u, s in zip(urls, ex.map(get, urls)):
+            p = parse(u, s) if s else None
+            if p and min_cm <= length_cm(p["attrs"]) <= 250:  # > 250 cm: Angabe in mm als cm (Fabas)
+                add.append(p)
+    out.write_text(json.dumps(have + add, ensure_ascii=False, indent=0))
+    print(len(add), "lange Pendelleuchten ergänzt", file=sys.stderr)
+
+
 def main():
+    if "--lange-pendel" in sys.argv:
+        return long_pendants()
     urls = product_urls()
     print(len(urls), "Produktseiten", file=sys.stderr)
     res = []

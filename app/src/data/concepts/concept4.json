@@ -1212,70 +1212,75 @@
 ]
 },
 {
-"id": "7aef8aca3a",
-"catalogId": "wes-esstisch-okayama-aus-eichenholz-200-x-100-cm-141300",
+"id": "945d6769b1",
+"catalogId": "boc-alicante-3700128t0850a07",
 "pos": "E1",
-"label": "Holz-Esstisch Okayama, 200 x 100 cm",
+"label": "BoConcept Esstisch Alicante (Keramik aschgrau, Steinoptik)",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 0.0,
-"w": 2.0,
-"d": 1.0,
-"h": 0.75,
-"variant": "Eichenholz",
+"w": 1.83,
+"d": 0.99,
+"h": 0.745,
+"variant": "Keramik aschgrau, Steinoptik, Gestell matter aschgrauer Strukturlack",
 "slots": {
 "top": {
-"color": "#c9a477",
-"material": "oak"
+"color": "#8f8f8c",
+"material": "stone"
 },
 "main": {
-"color": "#c9a477",
-"material": "oak"
+"color": "#8f8f8c",
+"material": "stone"
 },
 "legs": {
-"color": "#c9a477",
-"material": "oak"
+"color": "#9a978f",
+"material": "matte"
 }
 },
-"params": {},
+"params": {
+"top": 0.025,
+"radius": 0.15,
+"base": "panel",
+"noApron": true
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E1",
-"name": "Holz-Esstisch Okayama, 200 x 100 cm",
-"variant": "Eichenholz",
-"vendor": "Westwing",
+"name": "BoConcept Esstisch Alicante (Keramik aschgrau, Steinoptik)",
+"variant": "Keramik aschgrau, Steinoptik, Gestell matter aschgrauer Strukturlack",
+"vendor": "Designhandel",
 "qty": 1,
-"unit": 1299.0,
-"url": "https://www.westwing.de/esstisch-okayama-aus-eichenholz-200-x-100-cm-141300.html",
-"dims": "B 200 × T 100 × H 75",
+"unit": 4299.0,
+"url": "https://www.boconcept.com/de-de/p/alicante/370t085-2:264-9:0128-13:0167/",
+"dims": "B 183 × T 99 × H 74.5",
 "delivery": null
 }
 ]
 },
 {
-"id": "a3d63dfd63",
-"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
+"id": "47a221556a",
+"catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E2",
-"label": "Polsterstuhl Ash",
-"x": 5.5045,
-"y": 8.9027,
+"label": "Polsterstuhl Tess",
+"x": 5.4629,
+"y": 8.9474,
 "rot": 278,
 "elev": 0.0,
-"w": 0.48,
-"d": 0.56,
-"h": 0.8,
-"variant": "Webstoff Off White, Eschenholz lackiert",
+"w": 0.49,
+"d": 0.64,
+"h": 0.84,
+"variant": "Samt Hellbeige, Goldfarben matt",
 "slots": {
 "main": {
-"color": "#ede8dc",
-"material": "fabric"
+"color": "#e3d8c5",
+"material": "velvet"
 },
 "legs": {
-"color": "#d9c4a2",
-"material": "ash"
+"color": "#c9a55c",
+"material": "brass"
 }
 },
 "params": {},
@@ -1284,38 +1289,38 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Polsterstuhl Ash",
-"variant": "Webstoff Off White, Eschenholz lackiert",
+"name": "Polsterstuhl Tess",
+"variant": "Samt Hellbeige, Goldfarben matt",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 309.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-1-171504.html",
-"dims": "B 48 × T 56 × H 80",
+"unit": 249.0,
+"url": "https://www.westwing.de/samt-polsterstuhl-tess-105031.html",
+"dims": "B 49 × T 64 × H 84",
 "delivery": null
 }
 ]
 },
 {
-"id": "7aeb0d1df6",
-"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
+"id": "1f58d32562",
+"catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E2",
-"label": "Polsterstuhl Ash",
-"x": 5.4141,
-"y": 9.5464,
+"label": "Polsterstuhl Tess",
+"x": 5.3794,
+"y": 9.5415,
 "rot": 278,
 "elev": 0.0,
-"w": 0.48,
-"d": 0.56,
-"h": 0.8,
-"variant": "Webstoff Off White, Eschenholz lackiert",
+"w": 0.49,
+"d": 0.64,
+"h": 0.84,
+"variant": "Samt Hellbeige, Goldfarben matt",
 "slots": {
 "main": {
-"color": "#ede8dc",
-"material": "fabric"
+"color": "#e3d8c5",
+"material": "velvet"
 },
 "legs": {
-"color": "#d9c4a2",
-"material": "ash"
+"color": "#c9a55c",
+"material": "brass"
 }
 },
 "params": {},
@@ -1324,38 +1329,38 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Polsterstuhl Ash",
-"variant": "Webstoff Off White, Eschenholz lackiert",
+"name": "Polsterstuhl Tess",
+"variant": "Samt Hellbeige, Goldfarben matt",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 309.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-1-171504.html",
-"dims": "B 48 × T 56 × H 80",
+"unit": 249.0,
+"url": "https://www.westwing.de/samt-polsterstuhl-tess-105031.html",
+"dims": "B 49 × T 64 × H 84",
 "delivery": null
 }
 ]
 },
 {
-"id": "e6913329fc",
-"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
+"id": "968c69b275",
+"catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E2",
-"label": "Polsterstuhl Ash",
-"x": 5.3236,
-"y": 10.1901,
+"label": "Polsterstuhl Tess",
+"x": 5.2959,
+"y": 10.1357,
 "rot": 278,
 "elev": 0.0,
-"w": 0.48,
-"d": 0.56,
-"h": 0.8,
-"variant": "Webstoff Off White, Eschenholz lackiert",
+"w": 0.49,
+"d": 0.64,
+"h": 0.84,
+"variant": "Samt Hellbeige, Goldfarben matt",
 "slots": {
 "main": {
-"color": "#ede8dc",
-"material": "fabric"
+"color": "#e3d8c5",
+"material": "velvet"
 },
 "legs": {
-"color": "#d9c4a2",
-"material": "ash"
+"color": "#c9a55c",
+"material": "brass"
 }
 },
 "params": {},
@@ -1364,38 +1369,38 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Polsterstuhl Ash",
-"variant": "Webstoff Off White, Eschenholz lackiert",
+"name": "Polsterstuhl Tess",
+"variant": "Samt Hellbeige, Goldfarben matt",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 309.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-1-171504.html",
-"dims": "B 48 × T 56 × H 80",
+"unit": 249.0,
+"url": "https://www.westwing.de/samt-polsterstuhl-tess-105031.html",
+"dims": "B 49 × T 64 × H 84",
 "delivery": null
 }
 ]
 },
 {
-"id": "c9cde32f35",
-"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
+"id": "dafe3de452",
+"catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E2",
-"label": "Polsterstuhl Ash",
-"x": 6.8117,
-"y": 9.0864,
+"label": "Polsterstuhl Tess",
+"x": 6.8394,
+"y": 9.1408,
 "rot": 98,
 "elev": 0.0,
-"w": 0.48,
-"d": 0.56,
-"h": 0.8,
-"variant": "Webstoff Off White, Eschenholz lackiert",
+"w": 0.49,
+"d": 0.64,
+"h": 0.84,
+"variant": "Samt Hellbeige, Goldfarben matt",
 "slots": {
 "main": {
-"color": "#ede8dc",
-"material": "fabric"
+"color": "#e3d8c5",
+"material": "velvet"
 },
 "legs": {
-"color": "#d9c4a2",
-"material": "ash"
+"color": "#c9a55c",
+"material": "brass"
 }
 },
 "params": {},
@@ -1404,38 +1409,38 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Polsterstuhl Ash",
-"variant": "Webstoff Off White, Eschenholz lackiert",
+"name": "Polsterstuhl Tess",
+"variant": "Samt Hellbeige, Goldfarben matt",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 309.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-1-171504.html",
-"dims": "B 48 × T 56 × H 80",
+"unit": 249.0,
+"url": "https://www.westwing.de/samt-polsterstuhl-tess-105031.html",
+"dims": "B 49 × T 64 × H 84",
 "delivery": null
 }
 ]
 },
 {
-"id": "e17880ccfd",
-"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
+"id": "69cce01f97",
+"catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E2",
-"label": "Polsterstuhl Ash",
-"x": 6.7212,
-"y": 9.7301,
+"label": "Polsterstuhl Tess",
+"x": 6.7559,
+"y": 9.735,
 "rot": 98,
 "elev": 0.0,
-"w": 0.48,
-"d": 0.56,
-"h": 0.8,
-"variant": "Webstoff Off White, Eschenholz lackiert",
+"w": 0.49,
+"d": 0.64,
+"h": 0.84,
+"variant": "Samt Hellbeige, Goldfarben matt",
 "slots": {
 "main": {
-"color": "#ede8dc",
-"material": "fabric"
+"color": "#e3d8c5",
+"material": "velvet"
 },
 "legs": {
-"color": "#d9c4a2",
-"material": "ash"
+"color": "#c9a55c",
+"material": "brass"
 }
 },
 "params": {},
@@ -1444,38 +1449,38 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Polsterstuhl Ash",
-"variant": "Webstoff Off White, Eschenholz lackiert",
+"name": "Polsterstuhl Tess",
+"variant": "Samt Hellbeige, Goldfarben matt",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 309.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-1-171504.html",
-"dims": "B 48 × T 56 × H 80",
+"unit": 249.0,
+"url": "https://www.westwing.de/samt-polsterstuhl-tess-105031.html",
+"dims": "B 49 × T 64 × H 84",
 "delivery": null
 }
 ]
 },
 {
-"id": "82b7539de1",
-"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
+"id": "64b40a5ef1",
+"catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E2",
-"label": "Polsterstuhl Ash",
-"x": 6.6308,
-"y": 10.3738,
+"label": "Polsterstuhl Tess",
+"x": 6.6724,
+"y": 10.3291,
 "rot": 98,
 "elev": 0.0,
-"w": 0.48,
-"d": 0.56,
-"h": 0.8,
-"variant": "Webstoff Off White, Eschenholz lackiert",
+"w": 0.49,
+"d": 0.64,
+"h": 0.84,
+"variant": "Samt Hellbeige, Goldfarben matt",
 "slots": {
 "main": {
-"color": "#ede8dc",
-"material": "fabric"
+"color": "#e3d8c5",
+"material": "velvet"
 },
 "legs": {
-"color": "#d9c4a2",
-"material": "ash"
+"color": "#c9a55c",
+"material": "brass"
 }
 },
 "params": {},
@@ -1484,38 +1489,38 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Polsterstuhl Ash",
-"variant": "Webstoff Off White, Eschenholz lackiert",
+"name": "Polsterstuhl Tess",
+"variant": "Samt Hellbeige, Goldfarben matt",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 309.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-1-171504.html",
-"dims": "B 48 × T 56 × H 80",
+"unit": 249.0,
+"url": "https://www.westwing.de/samt-polsterstuhl-tess-105031.html",
+"dims": "B 49 × T 64 × H 84",
 "delivery": null
 }
 ]
 },
 {
-"id": "0e81837fae",
-"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
+"id": "54f8835e47",
+"catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E12",
-"label": "Polsterstuhl Ash (Nischenplatz)",
+"label": "Polsterstuhl Tess (Nischenplatz)",
 "x": 7.513,
 "y": 7.34,
 "rot": 8,
 "elev": 0.0,
-"w": 0.48,
-"d": 0.56,
-"h": 0.8,
-"variant": "Webstoff Off White, Eschenholz lackiert",
+"w": 0.49,
+"d": 0.64,
+"h": 0.84,
+"variant": "Samt Hellbeige, Goldfarben matt",
 "slots": {
 "main": {
-"color": "#ede8dc",
-"material": "fabric"
+"color": "#e3d8c5",
+"material": "velvet"
 },
 "legs": {
-"color": "#d9c4a2",
-"material": "ash"
+"color": "#c9a55c",
+"material": "brass"
 }
 },
 "params": {},
@@ -1524,38 +1529,38 @@
 "parts": [
 {
 "pos": "E12",
-"name": "Polsterstuhl Ash",
-"variant": "Webstoff Off White, Eschenholz lackiert",
+"name": "Polsterstuhl Tess",
+"variant": "Samt Hellbeige, Goldfarben matt",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 309.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-1-171504.html",
-"dims": "B 48 × T 56 × H 80",
+"unit": 249.0,
+"url": "https://www.westwing.de/samt-polsterstuhl-tess-105031.html",
+"dims": "B 49 × T 64 × H 84",
 "delivery": null
 }
 ]
 },
 {
-"id": "e6774f669f",
-"catalogId": "lam-hollaender-costellazione-haengeleuchte-300-k-15195",
+"id": "8a1b589151",
+"catalogId": "lam-paul-neuhaus-adriana-pendelleuchte-2568-24",
 "pos": "E3",
-"label": "Holländer COSTELLAZIONE Hängeleuchte LED",
+"label": "Paul Neuhaus ADRIANA Pendelleuchte LED",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 1.4,
-"w": 1.22,
-"d": 0.05,
+"w": 1.79,
+"d": 0.055,
 "h": 0.15,
-"variant": "Gold",
+"variant": "Messing",
 "slots": {
 "main": {
 "color": "#c9a55c",
 "material": "brass"
 },
 "shade": {
-"color": "#f6f4ee",
-"material": "opal"
+"color": "#efe9dd",
+"material": "linen"
 },
 "frame": {
 "color": "#c9a55c",
@@ -1563,22 +1568,22 @@
 }
 },
 "params": {
-"heads": 5,
+"heads": 3,
 "shape": "dome",
-"maxHang": 1.56
+"maxHang": 1.8
 },
 "mount": "ceiling",
 "room": "13.01",
 "parts": [
 {
 "pos": "E3",
-"name": "Holländer COSTELLAZIONE Hängeleuchte LED",
-"variant": "Gold",
+"name": "Paul Neuhaus ADRIANA Pendelleuchte LED",
+"variant": "Messing",
 "vendor": "lampe.de",
 "qty": 1,
-"unit": 1099.99,
-"url": "https://www.lampe.de/hollaender-costellazione-haengeleuchte-300-k-15195.html",
-"dims": "B 122 × T 5 × H 15",
+"unit": 499.99,
+"url": "https://www.lampe.de/paul-neuhaus-adriana-pendelleuchte-2568-60.html",
+"dims": "B 179 × T 5.5 × H 15",
 "delivery": null
 }
 ]

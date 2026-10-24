@@ -550,22 +550,23 @@ def build(n):
         return (u * math.cos(a) - v * math.sin(a), u * math.sin(a) + v * math.cos(a))
     TU, TV = 7.35, 8.70
     tx, ty = wing(TU, TV)
+    # Seit 2.0.3: dunkle Stein-/Keramiktische (kein Holz), Stühle mit Metallgestell, Pendelleuchte ≥ 75 % der Tischlänge
     dining = {
-        1: dict(table=("wes-ausziehbarer-esstisch-benvenuto-200-250-x-110-cm-154433", "Walnussholz", None),
-                chair=("wes-holzstuhl-katya-mit-polsterung-159120", "Bouclé Olivgrün, dunkles Eichenholz"),
-                lamp=("lam-by-rydens-splendor-haengeleuchte-4200960-5503", "Gold", {"main": slot("#b8703e", "copper"), "frame": slot("#b8703e", "copper"), "shade": slot("#c98a3e", "glass")}),
+        1: dict(table=("hoe-juka-50309767", "Steinplatte Schwarz, Schrägsäule Metall bronzefarben", None),
+                chair=("wes-boucle-armlehnstuhl-adrien-159664", "Bouclé Olivgrün, Schwarz"),
+                lamp=("lam-paul-neuhaus-pure-e-popup-pendelleuchte-2558-97", "Bronze / Weiß", None),
                 rug=("ike-80593762", "Grün / weiß / schwarz handgewebt")),
-        2: dict(table=("wes-esstisch-lager-aus-glas-und-metall-200-x-90-cm-169092", "Silberfarben, Transparent", None),
+        2: dict(table=("hoe-giovanni-40305478", "Keramik Grau, Design-Gestell Edelstahl gebürstet", None),
                 chair=("wes-leder-stuhl-jordan-172068", "Leder Braun, Silberfarben glänzend"),
-                lamp=("lam-bopp-convex-haengeleuchte-42190309", "Aluminium", None),
+                lamp=("lam-hollaender-suopare-pendelleuchte-300-k-16111-s", "Silber", None),
                 rug=("ike-80593762", "Grau / weiß / schwarz handgewebt")),
-        3: dict(table=("wes-esstisch-carl-in-marmor-optik-180-x-90-cm-157048", "Beige in Marmor-Optik", None),
-                chair=("wes-polsterstuhl-ash-aus-eschenholz-5-171508", "Webstoff Türkisgrün, Eschenholz lackiert"),
-                lamp=("lam-schoener-wohnen-kollektion-lini-led-esstisch-pendelleuchte-5-flammig-1", "Weiß / Transparent", None),
+        3: dict(table=("hoe-talia-50304622", "Steinplatte Grau, Gestell Metall Schwarz", None),
+                chair=("wes-polsterstuhl-tess-166841", "Webstoff Off White, Schwarz matt"),
+                lamp=("lam-paul-neuhaus-rika-pendelleuchte-2115-18", "Schwarz / Rauchfarben", None),
                 rug=("ike-00640673", "Beige")),
-        4: dict(table=("wes-esstisch-okayama-aus-eichenholz-200-x-100-cm-141300", "Eichenholz", None),
-                chair=("wes-polsterstuhl-ash-aus-eschenholz-5-171508", "Webstoff Off White, Eschenholz lackiert"),
-                lamp=("lam-hollaender-costellazione-haengeleuchte-300-k-15195", "Gold", None),
+        4: dict(table=("boc-alicante-3700128t0850a07", "Keramik aschgrau, Steinoptik, Gestell matter aschgrauer Strukturlack", None),
+                chair=("wes-polsterstuhl-tess-166841", "Samt Hellbeige, Goldfarben matt"),
+                lamp=("lam-paul-neuhaus-adriana-pendelleuchte-2568-24", "Messing", None),
                 rug=("ike-00640673", "Elfenbeinweiß")),
     }[k]
     t_id, t_var, t_slots = dining["table"]
@@ -585,7 +586,7 @@ def build(n):
     # Lineare Pendelleuchte mittig über dem Tisch, parallel zur Längsachse, Unterkante 65 cm über der Tischplatte
     l_id, l_var, l_slots = dining["lamp"]
     lamp = MAIN_CATALOG[l_id]
-    assert lamp["w"] > 0.5 * tbl["w"], f"Konzept {k}: Pendelleuchte {lamp['w']} cm ≤ 50 % der Tischlänge {tbl['w']} cm"
+    assert 0.75 * tbl["w"] <= lamp["w"] <= tbl["w"], f"Konzept {k}: Pendelleuchte {lamp['w']} cm nicht 75–100 % der Tischlänge {tbl['w']} cm"
     B.add_cat("E3", l_id, l_var, [(tx, ty, W, round(tbl["h"] / 100 + 0.65, 2))], slots=l_slots)
     # Teppich: lange Seite entlang v, Überstand an den Stuhlseiten ≥ 60 cm (Stühle bleiben zurückgeschoben auf dem Teppich)
     r_id, r_var = dining["rug"]
@@ -909,6 +910,9 @@ def main():
         c = CATALOG.get(e["id"])
         if c is not None and e.get("concepts") != c["concepts"]:
             e["concepts"] = c["concepts"]
+            changed += 1
+        elif c is None and e.get("concepts"):
+            del e["concepts"]  # früher per add_cat platziert, in keinem Konzept mehr
             changed += 1
     if changed:
         (DATA / "catalog.json").write_text(json.dumps(main_cat, ensure_ascii=False, separators=(",", ":")))

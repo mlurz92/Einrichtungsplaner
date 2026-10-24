@@ -959,45 +959,47 @@
 ]
 },
 {
-"id": "4e72fe3561",
-"catalogId": "wes-esstisch-lager-aus-glas-und-metall-200-x-90-cm-169092",
+"id": "23420d640f",
+"catalogId": "hoe-giovanni-40305478",
 "pos": "E1",
-"label": "Esstisch Lager aus Glas und Metall, 200 x 90 cm",
+"label": "Esstisch Giovanni (Keramik Grau)",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 0.0,
-"w": 2.0,
+"w": 1.8,
 "d": 0.9,
-"h": 0.76,
-"variant": "Silberfarben, Transparent",
+"h": 0.757,
+"variant": "Keramik Grau, Design-Gestell Edelstahl gebürstet",
 "slots": {
 "top": {
-"color": "#e8eef0",
-"material": "glass"
+"color": "#4f4f4d",
+"material": "stone"
 },
 "main": {
-"color": "#e8eef0",
-"material": "glass"
+"color": "#4f4f4d",
+"material": "stone"
 },
 "legs": {
 "color": "#c6cbd0",
-"material": "chrome"
+"material": "steel"
 }
 },
-"params": {},
+"params": {
+"top": 0.02
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E1",
-"name": "Esstisch Lager aus Glas und Metall, 200 x 90 cm",
-"variant": "Silberfarben, Transparent",
-"vendor": "Westwing",
+"name": "Esstisch Giovanni (Keramik Grau)",
+"variant": "Keramik Grau, Design-Gestell Edelstahl gebürstet",
+"vendor": "Höffner",
 "qty": 1,
-"unit": 1149.0,
-"url": "https://www.westwing.de/esstisch-lager-aus-glas-und-metall-200-x-90-cm-169092.html",
-"dims": "B 200 × T 90 × H 76",
+"unit": 399.0,
+"url": "https://www.hoeffner.de/artikel/40305478",
+"dims": "B 180 × T 90 × H 75.7",
 "delivery": null
 }
 ]
@@ -1007,8 +1009,8 @@
 "catalogId": "wes-leder-stuhl-jordan-172068",
 "pos": "E2",
 "label": "Lederstuhl Jordan",
-"x": 5.5689,
-"y": 8.9118,
+"x": 5.562,
+"y": 8.9613,
 "rot": 278,
 "elev": 0.0,
 "w": 0.5,
@@ -1087,8 +1089,8 @@
 "catalogId": "wes-leder-stuhl-jordan-172068",
 "pos": "E2",
 "label": "Lederstuhl Jordan",
-"x": 5.388,
-"y": 10.1991,
+"x": 5.395,
+"y": 10.1496,
 "rot": 278,
 "elev": 0.0,
 "w": 0.5,
@@ -1127,8 +1129,8 @@
 "catalogId": "wes-leder-stuhl-jordan-172068",
 "pos": "E2",
 "label": "Lederstuhl Jordan",
-"x": 6.7473,
-"y": 9.0774,
+"x": 6.7404,
+"y": 9.1269,
 "rot": 98,
 "elev": 0.0,
 "w": 0.5,
@@ -1207,8 +1209,8 @@
 "catalogId": "wes-leder-stuhl-jordan-172068",
 "pos": "E2",
 "label": "Lederstuhl Jordan",
-"x": 6.5664,
-"y": 10.3647,
+"x": 6.5734,
+"y": 10.3152,
 "rot": 98,
 "elev": 0.0,
 "w": 0.5,
@@ -1283,49 +1285,49 @@
 ]
 },
 {
-"id": "047993e511",
-"catalogId": "lam-bopp-convex-haengeleuchte-42190309",
+"id": "26eb9eed1f",
+"catalogId": "lam-hollaender-suopare-pendelleuchte-300-k-16111-s",
 "pos": "E3",
-"label": "Bopp CONVEX Hängeleuchte LED",
+"label": "Holländer SUOPARE Pendelleuchte",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 1.41,
-"w": 1.2,
-"d": 0.12,
+"w": 1.5,
+"d": 0.11,
 "h": 0.15,
-"variant": "Aluminium",
+"variant": "Silber",
 "slots": {
 "main": {
-"color": "#c4c6c8",
-"material": "steel"
+"color": "#c6cbd0",
+"material": "chrome"
 },
 "shade": {
 "color": "#f6f4ee",
 "material": "opal"
 },
 "frame": {
-"color": "#c4c6c8",
-"material": "steel"
+"color": "#c6cbd0",
+"material": "chrome"
 }
 },
 "params": {
-"heads": 3,
+"heads": 4,
 "shape": "dome",
-"maxHang": 1.4
+"maxHang": 1.5
 },
 "mount": "ceiling",
 "room": "13.01",
 "parts": [
 {
 "pos": "E3",
-"name": "Bopp CONVEX Hängeleuchte LED",
-"variant": "Aluminium",
+"name": "Holländer SUOPARE Pendelleuchte",
+"variant": "Silber",
 "vendor": "lampe.de",
 "qty": 1,
-"unit": 739.99,
-"url": "https://www.lampe.de/bopp-convex-haengeleuchte-42190309.html",
-"dims": "B 120 × T 12 × H 15",
+"unit": 1359.99,
+"url": "https://www.lampe.de/hollaender-suopare-pendelleuchte-300-k-16111-s.html",
+"dims": "B 150 × T 11 × H 15",
 "delivery": null
 }
 ]
