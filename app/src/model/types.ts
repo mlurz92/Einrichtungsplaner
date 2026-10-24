@@ -420,6 +420,23 @@ export interface ProjectSettings {
   gridSize: number;
   timeOfDay: number;
   budgetLimit: number;
+  /** Sonnenstudie: Datum "JJJJ-MM-TT" (fehlt = heute), Lage von Norden im Plan (Grad im Uhrzeigersinn von „oben“), Standort. */
+  sunDate?: string;
+  northDeg?: number;
+  latitude?: number;
+  longitude?: number;
+  /** Lichtfarbe der Leuchten im Abendlicht (Kelvin). */
+  lampKelvin?: number;
+  /** Gespeicherte 3D-Ansichten. */
+  views3d?: SavedView3D[];
+}
+
+export interface SavedView3D {
+  id: string;
+  name: string;
+  pos: [number, number, number];
+  target: [number, number, number];
+  fov?: number;
 }
 
 // ---------- Grundriss ----------
