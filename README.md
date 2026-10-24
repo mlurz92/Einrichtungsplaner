@@ -10,6 +10,12 @@ hellem und dunklem Design, frei verstellbaren Seitenleisten, Kontextmenüs und G
 2D-Plan mit echten Bodenbelägen und eine aufgewertete 3D-Ansicht. Die gekaufte **Einbauküche Alno 2060** (Höffner)
 ist in jedem Projekt fest eingebaut.
 
+**Version 2.0.1** ersetzt in allen vier Konzepten den runden Esstisch durch einen rechteckigen Tisch für sechs Personen
+aus dem Katalog (Längsachse im Plan von oben nach unten), mit sechs passenden Stühlen, einem Teppich mit mindestens
+60 cm Überstand an den Stuhlseiten und einer linearen Pendelleuchte, die länger als die halbe Tischlänge ist. Der
+Installer frischt außerdem die Desktop-Verknüpfung und den Icon-Cache von Windows auf, damit das neue App-Icon sofort
+erscheint.
+
 ## Funktionen
 
 | Bereich | Umfang |
@@ -20,7 +26,7 @@ ist in jedem Projekt fest eingebaut.
 | 2D-Plan | Bodenbeläge in echter Farbe mit maßstäblichem Dielen-, Fischgrät-, Fliesen- oder Terrazzobild in Verlegerichtung, weiche Möbelschatten, Raumstempel mit Fläche und lichten Maßen, Werkzeugleiste aus Glas, Zoomleiste (+/−, Prozent = einpassen), Nordpfeil, Abstandsmaß anklicken = exakten Wandabstand eingeben, maßstäblich (cm), Drag & Drop aus dem Katalog, Wandfang (Rückseite automatisch zur Wand drehen, bündig, Eckfang, grüne Hilfslinien), Ablage auf Möbeln (Leuchten, Deko, TV), Mitbewegen aufgestellter Objekte, Ausrichten/Verteilen, Drehen mit 15°/8°-Raster, Größenänderung, Abstandsmaße zu den Wänden, Messwerkzeug, Mehrfachauswahl, Kollisionsanzeige, Positionsnummern |
 | 3D | Auswahlkontur und Maßangabe (B × T × H) am gewählten Objekt, Verlaufshintergrund passend zum Design, Bodenplatte unter der Wohnung, Blickrichtungsrose (N/O/S/W, Draufsicht), Holzmaserung in Verlegerichtung der Dielen, PBR-Materialien (CC0-Texturen), Sonnenstand nach Datum, Uhrzeit, Standort und Nordrichtung (NOAA, MEZ/MESZ) mit Tagesverlauf-Animation, Sonne fällt nur durch Fenster (Decke und volle Wandhöhe werfen immer Schatten), Abendlicht aus den Lichtpunkten der Leuchtenmodelle (Lumen, Lichtfarbe 2700–4000 K), Raumansichten auf Augenhöhe, gespeicherte Ansichten, Brennweite, Foto-Export Full HD/4K, Rundgang mit Möbelkollision und Sitzhöhe, Rendern nur bei Änderungen, Ambient Occlusion, Wandmodus **Auto** wie bei Die Sims (Wände, die Teile der Wohnung verdecken, werden kameraabhängig auf 15 cm gekappt; Wandobjekte bleiben sichtbar und werden von hinten durchscheinend), außerdem voll/Schnitt 1,30 m/flach, Taste W wechselt, Rundgang (WASD, Start mit längster Sichtachse), Türen öffnen, Ziehen und Ablegen von Objekten in 3D mit gleichem Fang, Fokus per Doppelklick/F |
 | Katalog | 5.373 Produkte mit 12.371 Hersteller-Ausführungen, jede mit eigenem Preis, Shop-Link und Produktfoto (Stand 24.10.2026): IKEA mit dem vollständigen Ausführungs-Wähler der Produktseite (z. B. SÖDERHAMN 3er-Sofa 19 Bezüge, BESTÅ Korpus/Front-Kombinationen inkl. Rahmenfronten), getrennte Achsen wie **Bezug × Gestell** (POÄNG, LANDSKRONA, SALTSJÖBADEN …); Westwing je Produktfamilie mit allen Farb-/Stoffausführungen, Farbe aus dem **Original-Stoffmuster** gemessen; Konzeptprodukte zusätzlich mit allen Ausführungen des Shopartikels; JYSK-Premiumklasse, Tylko Original/Tone/Smooth, 845 Designleuchten von lampe.de, Samsung The Frame 43–85″, OBI-Wandpaneele. Maße plausibilisiert (Raumhöhe 2,56 m als Obergrenze), Stoffe wie Bouclé, Chenille, Melange, Cord, Samt unterscheidbar; Filter nach Händler, Kategorie, **Farbe**, **Material**, Preis, **Breite** („passt in die Lücke“), „Premium“ – einklappbar mit Zähler und „Filter zurücksetzen“; **Rasteransicht** mit großen Vorschaubildern oder Liste; **Merkliste** (Stern) und **Zuletzt platziert**; Ausführungs-Punkte auf jeder Karte |
-| Konzepte | alle Positionen der vier Konzepte (Travertin·Kupfer·Salbei, Espresso·Petrol·Chrom, Stone·Petrol·Salbei, Ivory·Petrol·Messing) lagegenau, Budgets centgenau wie in den PDFs |
+| Konzepte | alle Positionen der vier Konzepte (Travertin·Kupfer·Salbei, Espresso·Petrol·Chrom, Stone·Petrol·Salbei, Ivory·Petrol·Messing) lagegenau, Budgets centgenau wie in den PDFs; Essplatz seit 2.0.1 rechteckig für 6 Personen aus dem Katalog (siehe Tabelle unten), die runden Tische der PDFs bleiben im Katalog |
 | Gestaltung | Wandfarbe (Alpina, Schöner Wohnen, Farrow & Ball u. a.), Kalkfarbe, Tapeten, Holzlamellen, Holzpaneele, Kassetten-Vertäfelung, Fliesen, Naturstein, Mikrozement, Sockelzone; Bodenbeläge per Vorlage (Bestand: Eichendielen 1,90 m, Bäder/HWR Feinsteinzeug 60×60 „Iron“; Fischgrät, Chevron, Räuchereiche, Nussbaum, Travertin, Marmor, Terrazzo, Mikrozement, Teppich), Decke (Farbe, Holzlamellen, Holzpaneel, Sichtbeton, Stuckprofil), Sockelleisten (Höhe, Farbe, Material), Innentüren (Farbe, glatt/Kassette/Nut, Beschläge), Fensterrahmen, Farbstimmung für die ganze Wohnung – je Raum, je Wand oder mit einem Klick für Wohnräume/Nassräume/alle |
 | Arbeitsablauf | Startseite (Konzept, leere Wohnung, Datei, zuletzt verwendet), Befehlssuche **Strg+K** (Befehle, Räume, Objekte, Katalogprodukte), benannte Undo-/Redo-Schritte (Pfeiltasten-/Drehschritte zusammengefasst), Hinweis mit „Rückgängig“ nach Löschen/Konzept laden, Kopieren/Ausschneiden/Einfügen an der Mausposition (Strg+C/X/V), Sperren **L** / Ausblenden **H**, Ansicht **1/2/3**, Statusleiste mit Kontexthinweisen und Speicherstand, Fenstertitel mit Datei und ●-Markierung, Abfrage beim Schließen mit ungespeicherten Änderungen, verständliche Fehlermeldungen beim Speichern/Öffnen/Export, Dateipfad und Ansichtseinstellungen bleiben über Neustarts erhalten; Fenstergröße und -position werden gespeichert; `.we13`-Dateien öffnen per Doppelklick im Explorer (auch in die laufende App) oder per Ziehen ins Fenster; Befehlssuche merkt sich zuletzt benutzte Befehle; Hinweis auf neue Versionen (GitHub-Releases, abschaltbar) |
 | Bedienung | Möbel nur bei direktem Treffer greifbar, Verschieben erst ab 4 px Mausweg, Teppiche erst nach Auswahl verschiebbar; Plan: Ziehen auf freier Fläche verschiebt die Ansicht, Umschalt+Ziehen = Auswahlrahmen; 3D: links drehen, rechts/Mitte verschieben, Zoom zum Mauszeiger |
@@ -36,6 +42,18 @@ ist in jedem Projekt fest eingebaut.
 | Budget | nach Raum/Händler/Kaufstatus, Kaufstatus je Position (geplant → bestellt → geliefert → aufgebaut) mit Summe „offen“, Rahmen, Einkaufsliste CSV (Excel) mit Status, Druck/PDF mit Abhakspalte |
 | Export | Projektdatei `.we13` (Format unverändert, Dateien aus 1.x öffnen weiter), 3D-Ansicht PNG, Grundriss PNG (dreifache Auflösung) und SVG – immer im hellen Design –, eigene GLB-Modelle importieren |
 
+### Essplatz der Konzepte (ab 2.0.1)
+
+| Konzept | Esstisch | Stühle (6 + Nischenplatz) | Teppich | Pendelleuchte |
+|---|---|---|---|---|
+| 1 Travertin · Kupfer · Salbei | Westwing Benvenuto, Walnuss, 200 × 110 cm (ausziehbar 250) | Westwing Katya, Bouclé Olivgrün / Eiche dunkel | IKEA STOCKHOLM 2025, 240 × 300, Grün/Weiß/Schwarz | By Rydens Splendor, 124 cm, Bernstein |
+| 2 Espresso · Petrol · Chrom | Westwing Lager, Glas/Metall, 200 × 90 cm | Westwing Jordan, Leder Braun / Chrom | IKEA STOCKHOLM 2025, 240 × 300, Grau/Weiß/Schwarz | Bopp Convex, 120 cm, Aluminium |
+| 3 Stone · Petrol · Salbei | Westwing Carl, Marmor-Optik Beige, 180 × 90 cm | Westwing Ash, Webstoff Türkisgrün / Esche | IKEA STOENSE, 240 × 350, Beige | Schöner Wohnen Lini, 110 cm, Weiß/Glas |
+| 4 Ivory · Petrol · Messing | Westwing Okayama, Eiche, 200 × 100 cm | Westwing Ash, Webstoff Off White / Esche | IKEA STOENSE, 240 × 350, Elfenbeinweiß | Holländer Costellazione, 122 cm, Gold |
+
+Tische stehen mittig zwischen Sofarücken und Sideboard (≥ 80 cm Bewegungsfläche vor dem Sideboard, 1,1–1,6 m hinter
+den Stühlen bis Wand bzw. Laufweg), die Pendelleuchte hängt in der Tischachse 65 cm über der Platte.
+
 ## Installation (Windows)
 
 Der Installer (`*.exe`, NSIS, bzw. `*.msi`) wird von GitHub Actions gebaut
@@ -43,6 +61,10 @@ Der Installer (`*.exe`, NSIS, bzw. `*.msi`) wird von GitHub Actions gebaut
 „release“ als GitHub-Release). WebView2 wird bei Bedarf automatisch nachinstalliert. Der Installer registriert die
 Dateiendung `.we13`. Ein Update installiert man einfach über die bestehende Version; Projekte, Merkliste und
 Einstellungen bleiben erhalten.
+
+Zeigt die Desktop-Verknüpfung nach einem Update noch das alte Icon, hält Windows es im Icon-Cache. Der Installer
+frischt den Cache seit 2.0.1 selbst auf; falls es dennoch bleibt: Verknüpfung löschen und über das Startmenü neu
+anlegen oder in einer Eingabeaufforderung `ie4uinit.exe -show` ausführen (bzw. abmelden und wieder anmelden).
 
 ## Entwicklung
 

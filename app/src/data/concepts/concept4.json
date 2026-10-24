@@ -1212,299 +1212,410 @@
 ]
 },
 {
-"id": "e6cef6aae6",
-"catalogId": "wes-runder-marmor-esstisch-abby",
+"id": "7aef8aca3a",
+"catalogId": "wes-esstisch-okayama-aus-eichenholz-200-x-100-cm-141300",
 "pos": "E1",
-"label": "Runder Marmor-Esstisch Abby",
-"x": 5.909,
-"y": 9.374,
-"rot": 0,
+"label": "Holz-Esstisch Okayama, 200 x 100 cm",
+"x": 6.0677,
+"y": 9.6383,
+"rot": 98,
 "elev": 0.0,
-"w": 1.2,
-"d": 1.2,
+"w": 2.0,
+"d": 1.0,
 "h": 0.75,
-"variant": "Hellbeige marmoriert / skulpturaler Säulenfuß Mangoholz dunkel",
+"variant": "Eichenholz",
 "slots": {
 "top": {
-"color": "#e7ddd0",
-"material": "marble"
+"color": "#c9a477",
+"material": "oak"
+},
+"main": {
+"color": "#c9a477",
+"material": "oak"
 },
 "legs": {
-"color": "#3e2c22",
-"material": "mango"
+"color": "#c9a477",
+"material": "oak"
 }
 },
-"params": {
-"round": true,
-"footD": 0.61,
-"base": "column"
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E1",
-"name": "Runder Marmor-Esstisch Abby",
-"variant": "Hellbeige marmoriert / skulpturaler Säulenfuß Mangoholz dunkel",
+"name": "Holz-Esstisch Okayama, 200 x 100 cm",
+"variant": "Eichenholz",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 1299.0,
-"url": "https://www.westwing.de/runder-marmor-esstisch-abby-o-120-cm-158094.html?simple=DEQ23WES66367-203159",
-"dims": "Ø 120 × H 75, Fuß Ø 61",
-"delivery": "7–8 Wo."
+"url": "https://www.westwing.de/esstisch-okayama-aus-eichenholz-200-x-100-cm-141300.html",
+"dims": "B 200 × T 100 × H 75",
+"delivery": null
 }
 ]
 },
 {
-"id": "ca7ff8bdfd",
-"catalogId": "wes-armlehnstuhl-nik-mit-polsterung",
+"id": "a3d63dfd63",
+"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
 "pos": "E2",
-"label": "Armlehnstuhl Nik mit Polsterung",
-"x": 6.524,
-"y": 8.91,
-"rot": 52.97,
+"label": "Polsterstuhl Ash",
+"x": 5.5045,
+"y": 8.9027,
+"rot": 278,
 "elev": 0.0,
-"w": 0.58,
-"d": 0.54,
+"w": 0.48,
+"d": 0.56,
 "h": 0.8,
-"variant": "Webstoff OFF WHITE / Eiche hell geölt",
+"variant": "Webstoff Off White, Eschenholz lackiert",
 "slots": {
 "main": {
-"color": "#efebe1",
+"color": "#ede8dc",
 "material": "fabric"
 },
 "legs": {
-"color": "#c9a477",
-"material": "oak"
+"color": "#d9c4a2",
+"material": "ash"
 }
 },
-"params": {
-"seatHeight": 0.48,
-"armHeight": 0.7
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Armlehnstuhl Nik mit Polsterung",
-"variant": "Webstoff OFF WHITE / Eiche hell geölt",
+"name": "Polsterstuhl Ash",
+"variant": "Webstoff Off White, Eschenholz lackiert",
 "vendor": "Westwing",
-"qty": 1.0,
-"unit": 269.0,
-"url": "https://www.westwing.de/armlehnstuhl-nik-mit-polsterung-164174.html?simple=DEQ24WES56286-211974",
-"dims": "B 58 × T 54 × H 80",
-"delivery": "2–4 WT"
+"qty": 1,
+"unit": 309.0,
+"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-1-171504.html",
+"dims": "B 48 × T 56 × H 80",
+"delivery": null
 }
 ]
 },
 {
-"id": "e5811e390e",
-"catalogId": "wes-armlehnstuhl-nik-mit-polsterung",
+"id": "7aeb0d1df6",
+"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
 "pos": "E2",
-"label": "Armlehnstuhl Nik mit Polsterung",
-"x": 5.445,
-"y": 8.759,
-"rot": 322.97,
+"label": "Polsterstuhl Ash",
+"x": 5.4141,
+"y": 9.5464,
+"rot": 278,
 "elev": 0.0,
-"w": 0.58,
-"d": 0.54,
+"w": 0.48,
+"d": 0.56,
 "h": 0.8,
-"variant": "Webstoff OFF WHITE / Eiche hell geölt",
+"variant": "Webstoff Off White, Eschenholz lackiert",
 "slots": {
 "main": {
-"color": "#efebe1",
+"color": "#ede8dc",
 "material": "fabric"
 },
 "legs": {
-"color": "#c9a477",
-"material": "oak"
+"color": "#d9c4a2",
+"material": "ash"
 }
 },
-"params": {
-"seatHeight": 0.48,
-"armHeight": 0.7
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Armlehnstuhl Nik mit Polsterung",
-"variant": "Webstoff OFF WHITE / Eiche hell geölt",
+"name": "Polsterstuhl Ash",
+"variant": "Webstoff Off White, Eschenholz lackiert",
 "vendor": "Westwing",
-"qty": 1.0,
-"unit": 269.0,
-"url": "https://www.westwing.de/armlehnstuhl-nik-mit-polsterung-164174.html?simple=DEQ24WES56286-211974",
-"dims": "B 58 × T 54 × H 80",
-"delivery": "2–4 WT"
+"qty": 1,
+"unit": 309.0,
+"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-1-171504.html",
+"dims": "B 48 × T 56 × H 80",
+"delivery": null
 }
 ]
 },
 {
-"id": "b91c60e0de",
-"catalogId": "wes-armlehnstuhl-nik-mit-polsterung",
+"id": "e6913329fc",
+"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
 "pos": "E2",
-"label": "Armlehnstuhl Nik mit Polsterung",
-"x": 5.294,
-"y": 9.837,
-"rot": 233.03,
+"label": "Polsterstuhl Ash",
+"x": 5.3236,
+"y": 10.1901,
+"rot": 278,
 "elev": 0.0,
-"w": 0.58,
-"d": 0.54,
+"w": 0.48,
+"d": 0.56,
 "h": 0.8,
-"variant": "Webstoff OFF WHITE / Eiche hell geölt",
+"variant": "Webstoff Off White, Eschenholz lackiert",
 "slots": {
 "main": {
-"color": "#efebe1",
+"color": "#ede8dc",
 "material": "fabric"
 },
 "legs": {
-"color": "#c9a477",
-"material": "oak"
+"color": "#d9c4a2",
+"material": "ash"
 }
 },
-"params": {
-"seatHeight": 0.48,
-"armHeight": 0.7
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Armlehnstuhl Nik mit Polsterung",
-"variant": "Webstoff OFF WHITE / Eiche hell geölt",
+"name": "Polsterstuhl Ash",
+"variant": "Webstoff Off White, Eschenholz lackiert",
 "vendor": "Westwing",
-"qty": 1.0,
-"unit": 269.0,
-"url": "https://www.westwing.de/armlehnstuhl-nik-mit-polsterung-164174.html?simple=DEQ24WES56286-211974",
-"dims": "B 58 × T 54 × H 80",
-"delivery": "2–4 WT"
+"qty": 1,
+"unit": 309.0,
+"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-1-171504.html",
+"dims": "B 48 × T 56 × H 80",
+"delivery": null
 }
 ]
 },
 {
-"id": "d633e9e456",
-"catalogId": "wes-armlehnstuhl-nik-mit-polsterung",
+"id": "c9cde32f35",
+"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
 "pos": "E2",
-"label": "Armlehnstuhl Nik mit Polsterung",
-"x": 6.372,
-"y": 9.989,
-"rot": 143.03,
+"label": "Polsterstuhl Ash",
+"x": 6.8117,
+"y": 9.0864,
+"rot": 98,
 "elev": 0.0,
-"w": 0.58,
-"d": 0.54,
+"w": 0.48,
+"d": 0.56,
 "h": 0.8,
-"variant": "Webstoff OFF WHITE / Eiche hell geölt",
+"variant": "Webstoff Off White, Eschenholz lackiert",
 "slots": {
 "main": {
-"color": "#efebe1",
+"color": "#ede8dc",
 "material": "fabric"
 },
 "legs": {
-"color": "#c9a477",
-"material": "oak"
+"color": "#d9c4a2",
+"material": "ash"
 }
 },
-"params": {
-"seatHeight": 0.48,
-"armHeight": 0.7
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Armlehnstuhl Nik mit Polsterung",
-"variant": "Webstoff OFF WHITE / Eiche hell geölt",
+"name": "Polsterstuhl Ash",
+"variant": "Webstoff Off White, Eschenholz lackiert",
 "vendor": "Westwing",
-"qty": 1.0,
-"unit": 269.0,
-"url": "https://www.westwing.de/armlehnstuhl-nik-mit-polsterung-164174.html?simple=DEQ24WES56286-211974",
-"dims": "B 58 × T 54 × H 80",
-"delivery": "2–4 WT"
+"qty": 1,
+"unit": 309.0,
+"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-1-171504.html",
+"dims": "B 48 × T 56 × H 80",
+"delivery": null
 }
 ]
 },
 {
-"id": "d87af2b60d",
-"catalogId": "wes-armlehnstuhl-nik-nischenplatz",
+"id": "e17880ccfd",
+"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
+"pos": "E2",
+"label": "Polsterstuhl Ash",
+"x": 6.7212,
+"y": 9.7301,
+"rot": 98,
+"elev": 0.0,
+"w": 0.48,
+"d": 0.56,
+"h": 0.8,
+"variant": "Webstoff Off White, Eschenholz lackiert",
+"slots": {
+"main": {
+"color": "#ede8dc",
+"material": "fabric"
+},
+"legs": {
+"color": "#d9c4a2",
+"material": "ash"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E2",
+"name": "Polsterstuhl Ash",
+"variant": "Webstoff Off White, Eschenholz lackiert",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 309.0,
+"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-1-171504.html",
+"dims": "B 48 × T 56 × H 80",
+"delivery": null
+}
+]
+},
+{
+"id": "82b7539de1",
+"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
+"pos": "E2",
+"label": "Polsterstuhl Ash",
+"x": 6.6308,
+"y": 10.3738,
+"rot": 98,
+"elev": 0.0,
+"w": 0.48,
+"d": 0.56,
+"h": 0.8,
+"variant": "Webstoff Off White, Eschenholz lackiert",
+"slots": {
+"main": {
+"color": "#ede8dc",
+"material": "fabric"
+},
+"legs": {
+"color": "#d9c4a2",
+"material": "ash"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E2",
+"name": "Polsterstuhl Ash",
+"variant": "Webstoff Off White, Eschenholz lackiert",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 309.0,
+"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-1-171504.html",
+"dims": "B 48 × T 56 × H 80",
+"delivery": null
+}
+]
+},
+{
+"id": "0e81837fae",
+"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
 "pos": "E12",
-"label": "Armlehnstuhl Nik (Nischenplatz)",
+"label": "Polsterstuhl Ash (Nischenplatz)",
 "x": 7.513,
 "y": 7.34,
 "rot": 8,
 "elev": 0.0,
-"w": 0.58,
-"d": 0.54,
+"w": 0.48,
+"d": 0.56,
 "h": 0.8,
-"variant": "Webstoff OFF WHITE / Eiche hell geölt",
+"variant": "Webstoff Off White, Eschenholz lackiert",
 "slots": {
 "main": {
-"color": "#efebe1",
+"color": "#ede8dc",
 "material": "fabric"
 },
 "legs": {
-"color": "#c9a477",
-"material": "oak"
+"color": "#d9c4a2",
+"material": "ash"
 }
 },
-"params": {
-"seatHeight": 0.48,
-"armHeight": 0.7
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E12",
-"name": "Armlehnstuhl Nik (Nischenplatz)",
-"variant": "Webstoff OFF WHITE / Eiche hell geölt",
+"name": "Polsterstuhl Ash",
+"variant": "Webstoff Off White, Eschenholz lackiert",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 269.0,
-"url": "https://www.westwing.de/armlehnstuhl-nik-mit-polsterung-164174.html?simple=DEQ24WES56286-211974",
-"dims": "B 58 × T 54 × H 80",
-"delivery": "2–4 WT"
+"unit": 309.0,
+"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-1-171504.html",
+"dims": "B 48 × T 56 × H 80",
+"delivery": null
 }
 ]
 },
 {
-"id": "e676ae006e",
-"catalogId": "des-gubi-semi-47-pendelleuchte-bonderup-thorup",
+"id": "e6774f669f",
+"catalogId": "lam-hollaender-costellazione-haengeleuchte-300-k-15195",
 "pos": "E3",
-"label": "Gubi Semi 47 Pendelleuchte (Bonderup & Thorup)",
-"x": 5.909,
-"y": 9.374,
-"rot": 0,
-"elev": 1.43,
-"w": 0.47,
-"d": 0.47,
-"h": 0.235,
-"variant": "MESSING glänzend; über AmbienteDirect",
+"label": "Holländer COSTELLAZIONE Hängeleuchte LED",
+"x": 6.0677,
+"y": 9.6383,
+"rot": 98,
+"elev": 1.4,
+"w": 1.22,
+"d": 0.05,
+"h": 0.15,
+"variant": "Gold",
 "slots": {
 "main": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
 "color": "#c9a55c",
 "material": "brass"
 }
 },
 "params": {
-"shape": "semi"
+"heads": 5,
+"shape": "dome",
+"maxHang": 1.56
 },
 "mount": "ceiling",
 "room": "13.01",
 "parts": [
 {
 "pos": "E3",
-"name": "Gubi Semi 47 Pendelleuchte (Bonderup & Thorup)",
-"variant": "MESSING glänzend; über AmbienteDirect",
-"vendor": "Designhandel",
+"name": "Holländer COSTELLAZIONE Hängeleuchte LED",
+"variant": "Gold",
+"vendor": "lampe.de",
 "qty": 1,
-"unit": 415.0,
-"url": "https://www.ambientedirect.com/gubi/semi-47-pendelleuchte_pid_28_4057.html?art=123112",
-"dims": "Ø 47 × H 23,5, Kabel 220",
-"delivery": "2–4 Wo. (Fertigung)"
+"unit": 1099.99,
+"url": "https://www.lampe.de/hollaender-costellazione-haengeleuchte-300-k-15195.html",
+"dims": "B 122 × T 5 × H 15",
+"delivery": null
+}
+]
+},
+{
+"id": "a39b6c5402",
+"catalogId": "ike-00640673",
+"pos": "E9",
+"label": "STOENSE Teppich Kurzflor",
+"x": 6.0677,
+"y": 9.6383,
+"rot": 8,
+"elev": 0.0,
+"w": 2.4,
+"d": 3.5,
+"h": 0.012,
+"variant": "Elfenbeinweiß",
+"slots": {
+"main": {
+"color": "#ede6d6",
+"material": "wool"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E9",
+"name": "STOENSE Teppich Kurzflor",
+"variant": "Elfenbeinweiß",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 169.0,
+"url": "https://www.ikea.com/de/de/p/stoense-teppich-kurzflor-elfenbeinweiss-00640673/",
+"dims": "B 240 × T 350 × H 1.2",
+"delivery": null
 }
 ]
 },
@@ -1686,50 +1797,12 @@
 ]
 },
 {
-"id": "d6f9d4aaca",
-"catalogId": "wes-runder-wollteppich-eleni-handgetuftet",
-"pos": "E9",
-"label": "Runder Wollteppich Eleni, handgetuftet",
-"x": 5.909,
-"y": 9.374,
-"rot": 0,
-"elev": 0.0,
-"w": 2.5,
-"d": 2.5,
-"h": 0.012,
-"variant": "OFF WHITE, Hoch-Tief-Kreisstruktur, Größe XL wählen",
-"slots": {
-"main": {
-"color": "#f0ebe1",
-"material": "wool"
-}
-},
-"params": {
-"pattern": "rings"
-},
-"mount": "floor",
-"room": "13.01",
-"parts": [
-{
-"pos": "E9",
-"name": "Runder Wollteppich Eleni, handgetuftet",
-"variant": "OFF WHITE, Hoch-Tief-Kreisstruktur, Größe XL wählen",
-"vendor": "Westwing",
-"qty": 1,
-"unit": 719.0,
-"url": "https://www.westwing.de/runder-wollteppich-eleni-handgetuftet-158947.html?simple=DEQ23WES34367-204246",
-"dims": "Ø 250",
-"delivery": "2–4 WT"
-}
-]
-},
-{
 "id": "d5705660e5",
 "catalogId": "wes-deko-schale-fountain-aus-steinzeug-ferm-living",
 "pos": "E10",
 "label": "Deko-Schale Fountain aus Steinzeug (Ferm Living)",
-"x": 5.909,
-"y": 9.374,
+"x": 6.0677,
+"y": 9.6383,
 "rot": 8,
 "elev": 0.75,
 "w": 0.41,
@@ -1766,8 +1839,8 @@
 "catalogId": "wes-kerzenhalter-stoff-nagel-3er-set",
 "pos": "E11",
 "label": "Kerzenhalter Stoff Nagel, 3er-Set",
-"x": 5.7,
-"y": 9.42,
+"x": 5.8587,
+"y": 9.6843,
 "rot": 0,
 "elev": 0.75,
 "w": 0.1,
@@ -1804,8 +1877,8 @@
 "catalogId": "wes-kerzenhalter-stoff-nagel-3er-set",
 "pos": "E11",
 "label": "Kerzenhalter Stoff Nagel, 3er-Set",
-"x": 5.74,
-"y": 9.32,
+"x": 5.8987,
+"y": 9.5843,
 "rot": 0,
 "elev": 0.75,
 "w": 0.1,
@@ -1842,8 +1915,8 @@
 "catalogId": "wes-kerzenhalter-stoff-nagel-3er-set",
 "pos": "E11",
 "label": "Kerzenhalter Stoff Nagel, 3er-Set",
-"x": 5.72,
-"y": 9.37,
+"x": 5.8787,
+"y": 9.6343,
 "rot": 0,
 "elev": 0.82,
 "w": 0.1,

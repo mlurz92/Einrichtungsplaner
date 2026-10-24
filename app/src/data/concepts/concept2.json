@@ -959,65 +959,65 @@
 ]
 },
 {
-"id": "b86099583c",
-"catalogId": "wes-runder-esstisch-noam-mit-marmor-tischplatte",
+"id": "4e72fe3561",
+"catalogId": "wes-esstisch-lager-aus-glas-und-metall-200-x-90-cm-169092",
 "pos": "E1",
-"label": "Runder Esstisch Noam mit Marmor-Tischplatte",
-"x": 5.909,
-"y": 9.374,
-"rot": 0,
+"label": "Esstisch Lager aus Glas und Metall, 200 x 90 cm",
+"x": 6.0677,
+"y": 9.6383,
+"rot": 98,
 "elev": 0.0,
-"w": 1.2,
-"d": 1.2,
+"w": 2.0,
+"d": 0.9,
 "h": 0.76,
-"variant": "DUNKELGRÜN marmoriert / Fuß Metall gebürstet silberfarben",
+"variant": "Silberfarben, Transparent",
 "slots": {
 "top": {
-"color": "#3f5d4e",
-"material": "marbleGreen"
+"color": "#e8eef0",
+"material": "glass"
+},
+"main": {
+"color": "#e8eef0",
+"material": "glass"
 },
 "legs": {
-"color": "#b9b4aa",
-"material": "steel"
+"color": "#c6cbd0",
+"material": "chrome"
 }
 },
-"params": {
-"round": true,
-"footD": 0.55,
-"base": "cone"
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E1",
-"name": "Runder Esstisch Noam mit Marmor-Tischplatte",
-"variant": "DUNKELGRÜN marmoriert / Fuß Metall gebürstet silberfarben",
+"name": "Esstisch Lager aus Glas und Metall, 200 x 90 cm",
+"variant": "Silberfarben, Transparent",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 1349.0,
-"url": "https://www.westwing.de/runder-esstisch-noam-mit-marmor-tischplatte-o-120-cm-163551.html",
-"dims": "Ø 120 × H 76",
-"delivery": "4–9 WT"
+"unit": 1149.0,
+"url": "https://www.westwing.de/esstisch-lager-aus-glas-und-metall-200-x-90-cm-169092.html",
+"dims": "B 200 × T 90 × H 76",
+"delivery": null
 }
 ]
 },
 {
-"id": "d12281737b",
-"catalogId": "wes-lederstuhl-jordan",
+"id": "b2e3c6ef7e",
+"catalogId": "wes-leder-stuhl-jordan-172068",
 "pos": "E2",
 "label": "Lederstuhl Jordan",
-"x": 6.524,
-"y": 8.91,
-"rot": 52.97,
+"x": 5.5689,
+"y": 8.9118,
+"rot": 278,
 "elev": 0.0,
 "w": 0.5,
 "d": 0.53,
 "h": 0.81,
-"variant": "Leder Braun / verchromter Metallrahmen",
+"variant": "Leder Braun, Silberfarben glänzend",
 "slots": {
 "main": {
-"color": "#6b4429",
+"color": "#7a5a43",
 "material": "leather"
 },
 "legs": {
@@ -1025,41 +1025,39 @@
 "material": "chrome"
 }
 },
-"params": {
-"seatHeight": 0.46
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
 "name": "Lederstuhl Jordan",
-"variant": "Leder Braun / verchromter Metallrahmen",
+"variant": "Leder Braun, Silberfarben glänzend",
 "vendor": "Westwing",
-"qty": 1.0,
+"qty": 1,
 "unit": 369.0,
 "url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
 "dims": "B 50 × T 53 × H 81",
-"delivery": "13–14 Wo."
+"delivery": null
 }
 ]
 },
 {
-"id": "088fb6de1c",
-"catalogId": "wes-lederstuhl-jordan",
+"id": "55af9c4acd",
+"catalogId": "wes-leder-stuhl-jordan-172068",
 "pos": "E2",
 "label": "Lederstuhl Jordan",
-"x": 5.445,
-"y": 8.759,
-"rot": 322.97,
+"x": 5.4785,
+"y": 9.5554,
+"rot": 278,
 "elev": 0.0,
 "w": 0.5,
 "d": 0.53,
 "h": 0.81,
-"variant": "Leder Braun / verchromter Metallrahmen",
+"variant": "Leder Braun, Silberfarben glänzend",
 "slots": {
 "main": {
-"color": "#6b4429",
+"color": "#7a5a43",
 "material": "leather"
 },
 "legs": {
@@ -1067,41 +1065,39 @@
 "material": "chrome"
 }
 },
-"params": {
-"seatHeight": 0.46
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
 "name": "Lederstuhl Jordan",
-"variant": "Leder Braun / verchromter Metallrahmen",
+"variant": "Leder Braun, Silberfarben glänzend",
 "vendor": "Westwing",
-"qty": 1.0,
+"qty": 1,
 "unit": 369.0,
 "url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
 "dims": "B 50 × T 53 × H 81",
-"delivery": "13–14 Wo."
+"delivery": null
 }
 ]
 },
 {
-"id": "48a751ae00",
-"catalogId": "wes-lederstuhl-jordan",
+"id": "c848fcf323",
+"catalogId": "wes-leder-stuhl-jordan-172068",
 "pos": "E2",
 "label": "Lederstuhl Jordan",
-"x": 5.294,
-"y": 9.837,
-"rot": 233.03,
+"x": 5.388,
+"y": 10.1991,
+"rot": 278,
 "elev": 0.0,
 "w": 0.5,
 "d": 0.53,
 "h": 0.81,
-"variant": "Leder Braun / verchromter Metallrahmen",
+"variant": "Leder Braun, Silberfarben glänzend",
 "slots": {
 "main": {
-"color": "#6b4429",
+"color": "#7a5a43",
 "material": "leather"
 },
 "legs": {
@@ -1109,41 +1105,39 @@
 "material": "chrome"
 }
 },
-"params": {
-"seatHeight": 0.46
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
 "name": "Lederstuhl Jordan",
-"variant": "Leder Braun / verchromter Metallrahmen",
+"variant": "Leder Braun, Silberfarben glänzend",
 "vendor": "Westwing",
-"qty": 1.0,
+"qty": 1,
 "unit": 369.0,
 "url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
 "dims": "B 50 × T 53 × H 81",
-"delivery": "13–14 Wo."
+"delivery": null
 }
 ]
 },
 {
-"id": "a9aaa98266",
-"catalogId": "wes-lederstuhl-jordan",
+"id": "a85152762f",
+"catalogId": "wes-leder-stuhl-jordan-172068",
 "pos": "E2",
 "label": "Lederstuhl Jordan",
-"x": 6.372,
-"y": 9.989,
-"rot": 143.03,
+"x": 6.7473,
+"y": 9.0774,
+"rot": 98,
 "elev": 0.0,
 "w": 0.5,
 "d": 0.53,
 "h": 0.81,
-"variant": "Leder Braun / verchromter Metallrahmen",
+"variant": "Leder Braun, Silberfarben glänzend",
 "slots": {
 "main": {
-"color": "#6b4429",
+"color": "#7a5a43",
 "material": "leather"
 },
 "legs": {
@@ -1151,28 +1145,106 @@
 "material": "chrome"
 }
 },
-"params": {
-"seatHeight": 0.46
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
 "name": "Lederstuhl Jordan",
-"variant": "Leder Braun / verchromter Metallrahmen",
+"variant": "Leder Braun, Silberfarben glänzend",
 "vendor": "Westwing",
-"qty": 1.0,
+"qty": 1,
 "unit": 369.0,
 "url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
 "dims": "B 50 × T 53 × H 81",
-"delivery": "13–14 Wo."
+"delivery": null
 }
 ]
 },
 {
-"id": "08c7eb6e28",
-"catalogId": "wes-lederstuhl-jordan-nischenplatz",
+"id": "06d96c2549",
+"catalogId": "wes-leder-stuhl-jordan-172068",
+"pos": "E2",
+"label": "Lederstuhl Jordan",
+"x": 6.6569,
+"y": 9.7211,
+"rot": 98,
+"elev": 0.0,
+"w": 0.5,
+"d": 0.53,
+"h": 0.81,
+"variant": "Leder Braun, Silberfarben glänzend",
+"slots": {
+"main": {
+"color": "#7a5a43",
+"material": "leather"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E2",
+"name": "Lederstuhl Jordan",
+"variant": "Leder Braun, Silberfarben glänzend",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 369.0,
+"url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
+"dims": "B 50 × T 53 × H 81",
+"delivery": null
+}
+]
+},
+{
+"id": "4391697ab9",
+"catalogId": "wes-leder-stuhl-jordan-172068",
+"pos": "E2",
+"label": "Lederstuhl Jordan",
+"x": 6.5664,
+"y": 10.3647,
+"rot": 98,
+"elev": 0.0,
+"w": 0.5,
+"d": 0.53,
+"h": 0.81,
+"variant": "Leder Braun, Silberfarben glänzend",
+"slots": {
+"main": {
+"color": "#7a5a43",
+"material": "leather"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E2",
+"name": "Lederstuhl Jordan",
+"variant": "Leder Braun, Silberfarben glänzend",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 369.0,
+"url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
+"dims": "B 50 × T 53 × H 81",
+"delivery": null
+}
+]
+},
+{
+"id": "26d33be3e7",
+"catalogId": "wes-leder-stuhl-jordan-172068",
 "pos": "E12",
 "label": "Lederstuhl Jordan (Nischenplatz)",
 "x": 7.513,
@@ -1182,10 +1254,10 @@
 "w": 0.5,
 "d": 0.53,
 "h": 0.81,
-"variant": "Leder Braun / verchromter Metallrahmen",
+"variant": "Leder Braun, Silberfarben glänzend",
 "slots": {
 "main": {
-"color": "#6b4429",
+"color": "#7a5a43",
 "material": "leather"
 },
 "legs": {
@@ -1193,58 +1265,108 @@
 "material": "chrome"
 }
 },
-"params": {
-"seatHeight": 0.46
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E12",
-"name": "Lederstuhl Jordan (Nischenplatz)",
-"variant": "Leder Braun / verchromter Metallrahmen",
+"name": "Lederstuhl Jordan",
+"variant": "Leder Braun, Silberfarben glänzend",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 369.0,
 "url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
 "dims": "B 50 × T 53 × H 81",
-"delivery": "13–14 Wo."
+"delivery": null
 }
 ]
 },
 {
-"id": "9f1c41c048",
-"catalogId": "des-tom-dixon-mirror-ball-pendelleuchte-led-40",
+"id": "047993e511",
+"catalogId": "lam-bopp-convex-haengeleuchte-42190309",
 "pos": "E3",
-"label": "Tom Dixon Mirror Ball Pendelleuchte LED Ø 40",
-"x": 5.909,
-"y": 9.374,
-"rot": 0,
-"elev": 1.43,
-"w": 0.4,
-"d": 0.4,
-"h": 0.4,
-"variant": "Chrom (verspiegelt); über Nordic Nest",
+"label": "Bopp CONVEX Hängeleuchte LED",
+"x": 6.0677,
+"y": 9.6383,
+"rot": 98,
+"elev": 1.41,
+"w": 1.2,
+"d": 0.12,
+"h": 0.15,
+"variant": "Aluminium",
 "slots": {
 "main": {
-"color": "#d9dde0",
-"material": "chrome"
+"color": "#c4c6c8",
+"material": "steel"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#c4c6c8",
+"material": "steel"
 }
 },
-"params": {},
+"params": {
+"heads": 3,
+"shape": "dome",
+"maxHang": 1.4
+},
 "mount": "ceiling",
 "room": "13.01",
 "parts": [
 {
 "pos": "E3",
-"name": "Tom Dixon Mirror Ball Pendelleuchte LED Ø 40",
-"variant": "Chrom (verspiegelt); über Nordic Nest",
-"vendor": "Designhandel",
+"name": "Bopp CONVEX Hängeleuchte LED",
+"variant": "Aluminium",
+"vendor": "lampe.de",
 "qty": 1,
-"unit": 769.0,
-"url": "https://www.nordicnest.de/marken/tom-dixon/mirror-ball-pendelleuchte-led-o40cm/",
-"dims": "Ø 40, Kabel 2,5 m",
-"delivery": "Versand ab 15.11."
+"unit": 739.99,
+"url": "https://www.lampe.de/bopp-convex-haengeleuchte-42190309.html",
+"dims": "B 120 × T 12 × H 15",
+"delivery": null
+}
+]
+},
+{
+"id": "99f90a0858",
+"catalogId": "ike-80593762",
+"pos": "E9",
+"label": "STOCKHOLM 2025 Teppich flach gewebt",
+"x": 6.0677,
+"y": 9.6383,
+"rot": 8,
+"elev": 0.0,
+"w": 2.4,
+"d": 3.0,
+"h": 0.012,
+"variant": "Grau / weiß / schwarz handgewebt",
+"slots": {
+"main": {
+"color": "#8f8f8b",
+"material": "wool"
+},
+"secondary": {
+"color": "#f3f1ec",
+"material": "wool"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E9",
+"name": "STOCKHOLM 2025 Teppich flach gewebt",
+"variant": "Grau / weiß / schwarz handgewebt",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 599.0,
+"url": "https://www.ikea.com/de/de/p/stockholm-2025-teppich-flach-gewebt-grau-weiss-schwarz-handgewebt-40590973/",
+"dims": "B 240 × T 300 × H 1.2",
+"delivery": null
 }
 ]
 },
@@ -1422,45 +1544,6 @@
 "url": "https://www.westwing.de/handgemaltes-leinwandbild-rust-168240.html",
 "dims": "B 90 × H 120",
 "delivery": "3–4 Wo."
-}
-]
-},
-{
-"id": "4872cba6aa",
-"catalogId": "wes-runder-wollteppich-amaro-handgewebt",
-"pos": "E9",
-"label": "Runder Wollteppich Amaro, handgewebt",
-"x": 5.909,
-"y": 9.374,
-"rot": 0,
-"elev": 0.0,
-"w": 2.5,
-"d": 2.5,
-"h": 0.012,
-"variant": "Terrakotta / Cremeweiß",
-"slots": {
-"main": {
-"color": "#b8653f",
-"material": "wool"
-}
-},
-"params": {
-"pattern": "relief",
-"color2": "#efe5d6"
-},
-"mount": "floor",
-"room": "13.01",
-"parts": [
-{
-"pos": "E9",
-"name": "Runder Wollteppich Amaro, handgewebt",
-"variant": "Terrakotta / Cremeweiß",
-"vendor": "Westwing",
-"qty": 1,
-"unit": 519.0,
-"url": "https://www.westwing.de/runder-wollteppich-amaro-handgewebt-161987.html?simple=DEQ24WES26662-897681",
-"dims": "Ø 250",
-"delivery": "4–9 WT"
 }
 ]
 },
