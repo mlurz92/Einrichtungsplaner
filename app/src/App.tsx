@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect, useRef } from "react";
 import { Boxes, ClipboardCheck, LayoutList, Palette, Sofa, Wallet } from "lucide-react";
-import { restoredFromAutosave, useEditor } from "./store/project";
+import { restoredFromAutosave, swapTargets, useEditor } from "./store/project";
 import { TopBar } from "./ui/TopBar";
 import { HelpOverlay } from "./ui/Help";
 import { NewFurnishingDialog } from "./ui/NewFurnishing";
@@ -135,7 +135,7 @@ function useShortcuts() {
         const next = order[(order.indexOf(st.wallMode) + 1) % order.length];
         st.set("wallMode", next);
         st.showToast(`Wände: ${WALL_TOAST[next]}`);
-      } else if (key === "t" && st.selection.length === 1) {
+      } else if (key === "t" && st.selection.length) {
         toggleSwap();
       } else if (key === "l" && st.selection.length) {
         toggleLock();
@@ -172,9 +172,8 @@ function SwapOverlay() {
   const it = useEditor((s) => (s.swapFor ? s.project.items.find((i) => i.id === s.swapFor) : undefined));
   useEffect(() => {
     const st = useEditor.getState();
-    if (!st.swapFor || selection[0] === st.swapFor) return;
-    const next = selection.length === 1 ? st.project.items.find((i) => i.id === selection[0]) : undefined;
-    st.set("swapFor", next && !next.existing ? next.id : null);
+    if (!st.swapFor || selection.includes(st.swapFor)) return;
+    st.set("swapFor", swapTargets(st.project.items, selection)?.anchor ?? null);
   }, [selection]);
   if (!swapFor || !it) return null;
   return (

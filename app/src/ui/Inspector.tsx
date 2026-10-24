@@ -22,7 +22,7 @@ import {
   MousePointerClick,
 } from "lucide-react";
 import { alignOffsets, distributeOffsets, type AlignMode } from "../model/align";
-import { useEditor, getCatalogItem, itemPrice } from "../store/project";
+import { useEditor, getCatalogItem, itemPrice, swapTargets } from "../store/project";
 import { CATEGORY_LABELS, apartment, roomNames, wallFaceById } from "../data";
 import type { MaterialKey, PlacedItem, Slot, Surface, SurfaceKind, WallFinish } from "../model/types";
 import { BOOL_PARAM_LABELS, CEILING_KINDS, CHOICE_PARAMS, CORNICE_SIZES, FLOOR_PRESETS, MATERIAL_LABELS, SKIRTING_PRESETS, PAINTS, PARAM_LABELS, SLOT_LABELS, SURFACE_KINDS, TILE_PATTERNS, WALLPAPER_PATTERNS } from "../data/paints";
@@ -187,7 +187,7 @@ function ItemInspector({ it }: { it: PlacedItem }) {
             value={Math.max(0, c.variants.findIndex((v) => v.name === it.variant))}
             current={it.variant}
             onChange={(i) => (st.set("swapPreview", null), st.applyVariant(it.id, i))}
-            onHover={(i) => st.set("swapPreview", i === null ? null : { id: it.id, catalogId: it.catalogId, variant: i })}
+            onHover={(i) => st.set("swapPreview", i === null ? null : { ids: [it.id], catalogId: it.catalogId, variant: i })}
           />
           <p className="mt-1.5 text-[10.5px] text-stone-500">Maus über ein Muster zeigt die Ausführung im Plan und in 3D.</p>
         </Section>
@@ -675,6 +675,8 @@ function MultiInspector({ ids }: { ids: string[] }) {
   const items = st.project.items.filter((i) => ids.includes(i.id));
   const sum = items.reduce((a, i) => a + itemPrice(i), 0);
   const movable = items.filter((i) => !i.locked);
+  const swap = swapTargets(st.project.items, ids);
+  const swapName = swap ? (st.project.items.find((i) => i.id === swap.anchor)?.label ?? getCatalogItem(st.project.items.find((i) => i.id === swap.anchor)!.catalogId)?.name) : "";
   const shift = (m: Map<string, [number, number]>) =>
     st.updateItems(
       [...m.keys()],
@@ -717,6 +719,16 @@ function MultiInspector({ ids }: { ids: string[] }) {
       </Section>
       <Section title={`${items.length} Objekte ausgewählt`}>
         <div className="text-sm">{fmtEuro(sum)}</div>
+        {swap && swap.ids.length > 1 && (
+          <button
+            className="btn mt-2 w-full justify-center"
+            title="Alle markierten gleichen Objekte gemeinsam tauschen – Position, Drehung und Bezug bleiben (T)"
+            onClick={() => st.set("swapFor", swap.anchor)}
+          >
+            <ArrowLeftRight size={14} /> {swap.ids.length}× {swapName} tauschen
+          </button>
+        )}
+        {swap && swap.skipped > 0 && swap.ids.length > 1 && <div className="mt-1 text-[11px] text-stone-500">{swap.skipped} andere markierte Objekte bleiben beim Tauschen unverändert.</div>}
         <div className="mt-2 grid grid-cols-2 gap-2">
           <button className="btn" onClick={() => st.duplicateItems(ids)}>
             <Copy size={14} /> Duplizieren

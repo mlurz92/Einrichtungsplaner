@@ -4,6 +4,7 @@ import type {
   FloorFinish,
   BudgetLine,
   CatalogItem,
+  Category,
   ItemPart,
   PlacedItem,
   Project,
@@ -14,7 +15,7 @@ import type {
   Vec2,
   WallFinish,
 } from "../model/types";
-import { localToPlan, nearestFace, roomAt, rotationForFace } from "../model/geometry";
+import { footprint, localToPlan, nearestFace, pointInPolygon, roomAt, rotationForFace } from "../model/geometry";
 import type { SnapGuide } from "../model/snap";
 import { applyPlacementSnap, setFrameMode } from "./placement";
 import { makeVariant, withVariant } from "../model/variant";
@@ -58,7 +59,7 @@ export interface EditorState {
   showClearance: boolean;
   placing: { catalogId: string; variant: number } | null;
   /** Vorschau beim Tauschen: Objekt wird in Plan/3D vorübergehend durch dieses Produkt ersetzt. */
-  swapPreview: { id: string; catalogId: string; variant: number } | null;
+  swapPreview: { ids: string[]; catalogId: string; variant: number } | null;
   /** Objekt, für das die Tauschliste offen ist (linke Leiste). */
   swapFor: string | null;
   past: Project[];
@@ -199,12 +200,24 @@ export function itemPrice(it: PlacedItem): number {
   return it.price ?? getCatalogItem(it.catalogId)?.price ?? 0;
 }
 
+const SEATING = new Set<Category>(["chair", "stool", "officeChair", "bench"]);
+const TABLES = new Set<Category>(["diningTable", "desk", "console", "coffeeTable"]);
+
+/** Sitzmöbel, dessen Vorderseite an einen Tisch zeigt (Punkt 30 cm vor der Sitzkante liegt auf der Tischplatte). */
+function atTable(it: PlacedItem, others: PlacedItem[]): boolean {
+  if (!SEATING.has(getCatalogItem(it.catalogId)?.category as Category)) return false;
+  const p = localToPlan(it, 0, it.d / 2 + 0.3);
+  return others.some((t) => t.id !== it.id && !t.hidden && TABLES.has(getCatalogItem(t.catalogId)?.category as Category) && pointInPolygon(p[0], p[1], footprint(t)));
+}
+
 /**
- * Ersatzobjekt beim Tauschen: gleiche Position, Drehung, Raum, Positionsnummer und Notiz.
+ * Ersatzobjekt beim Tauschen: gleiche Position, Drehung, Raum, Positionsnummer und Notiz; seitlich wird nie verschoben.
+ * Stühle am Tisch behalten den Abstand ihrer Vorderkante zur Tischkante (tiefere Stühle wachsen nach hinten).
  * Steht das Objekt mit der Rückseite an einer Wand, bleibt die Rückseite dort (tiefere Möbel wachsen in den Raum);
  * frei stehende Objekte und Deckenleuchten behalten ihren Mittelpunkt. Wand-/Aufsatzobjekte behalten ihre Höhe.
+ * `others` = übrige Objekte des Projekts (für die Tischerkennung).
  */
-export function swappedItem(old: PlacedItem, c: CatalogItem, variant: number): PlacedItem {
+export function swappedItem(old: PlacedItem, c: CatalogItem, variant: number, others: PlacedItem[] = []): PlacedItem {
   const n = newItemFromCatalog(c, variant, old.x, old.y, old.rot);
   n.id = old.id;
   n.pos = old.pos;
@@ -220,13 +233,17 @@ export function swappedItem(old: PlacedItem, c: CatalogItem, variant: number): P
     n.d = old.d;
     if (c.category === "curtain") n.h = old.h;
   }
-  if (c.mount !== "ceiling") {
+  const front = localToPlan(old, 0, 1);
+  const fx = front[0] - old.x;
+  const fy = front[1] - old.y;
+  if (SEATING.has(c.category) && atTable(old, others)) {
+    const edge = localToPlan(old, 0, old.d / 2);
+    n.x = edge[0] - fx * (n.d / 2);
+    n.y = edge[1] - fy * (n.d / 2);
+  } else if (c.mount !== "ceiling") {
     const back = localToPlan(old, 0, -old.d / 2);
     const nf = nearestFace(wallFaces, back[0], back[1], 0.12);
     if (nf || c.mount === "wall") {
-      const front = localToPlan(old, 0, 1);
-      const fx = front[0] - old.x;
-      const fy = front[1] - old.y;
       n.x = back[0] + fx * (n.d / 2);
       n.y = back[1] + fy * (n.d / 2);
     }
@@ -628,7 +645,8 @@ export const useEditor = create<EditorState>((set, get) => ({
     const c = getCatalogItem(catalogId);
     const olds = get().project.items.filter((i) => ids.includes(i.id));
     if (!c || !olds.length) return;
-    const repl = new Map(olds.map((o) => [o.id, swappedItem(o, c, variant)]));
+    const items = get().project.items;
+    const repl = new Map(olds.map((o) => [o.id, swappedItem(o, c, variant, items)]));
     const v = c.variants[variant]?.name;
     get().commit(olds.length === 1 ? `Tauschen gegen ${c.name}` : `${olds.length}× tauschen gegen ${c.name}`);
     set((s) => ({ project: { ...s.project, items: s.project.items.map((i) => repl.get(i.id) ?? i), updatedAt: new Date().toISOString() }, swapPreview: null }));
@@ -836,14 +854,31 @@ export function budgetSummary(p: Project) {
   return { lines, total, byVendor, byRoom, byStatus };
 }
 
+/**
+ * Tausch-Ziele einer (Mehrfach-)Auswahl: alle markierten Objekte mit demselben Produkt wie `preferId`
+ * bzw. – ohne Vorgabe – die größte Gruppe gleicher Objekte. Bestand, gesperrte und eingebaute Objekte bleiben außen vor.
+ * `skipped` = markierte Objekte, die dabei nicht getauscht werden.
+ */
+export function swapTargets(items: PlacedItem[], selection: string[], preferId?: string): { anchor: string; ids: string[]; skipped: number } | null {
+  const sel = selection.map((id) => items.find((i) => i.id === id)).filter((i): i is PlacedItem => !!i);
+  const ok = sel.filter((i) => !i.existing && !i.locked && !i.builtIn);
+  if (!ok.length) return null;
+  const groups = new Map<string, string[]>();
+  for (const i of ok) groups.set(i.catalogId, [...(groups.get(i.catalogId) ?? []), i.id]);
+  const pref = ok.find((i) => i.id === preferId);
+  const ids = pref ? groups.get(pref.catalogId)! : [...groups.values()].reduce((a, b) => (b.length > a.length ? b : a));
+  return { anchor: pref?.id ?? ids[0], ids, skipped: sel.length - ids.length };
+}
+
 /** Objektliste mit eingeblendeter Tausch-Vorschau (nur Anzeige, ändert das Projekt nicht). */
 export function withSwapPreview(items: PlacedItem[], pv: EditorState["swapPreview"]): PlacedItem[] {
   if (!pv) return items;
   const c = getCatalogItem(pv.catalogId);
   if (!c) return items;
+  const ids = new Set(pv.ids);
   return items.map((i) => {
-    if (i.id !== pv.id) return i;
-    if (i.catalogId !== pv.catalogId) return swappedItem(i, c, pv.variant);
+    if (!ids.has(i.id)) return i;
+    if (i.catalogId !== pv.catalogId) return swappedItem(i, c, pv.variant, items);
     // gleiche Ware, andere Ausführung: nur Farben/Materialien (Maße und Lage bleiben)
     const v = c.variants[pv.variant];
     return v ? { ...i, slots: v.slots, params: v.params ? { ...i.params, ...v.params } : i.params } : i;

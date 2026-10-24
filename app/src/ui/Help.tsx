@@ -39,6 +39,7 @@ const GROUPS: [string, [string, string][]][] = [
       ["Entf", "Löschen (Hinweis mit „Rückgängig“)"],
       ["L / H", "Sperren bzw. entsperren / Ein- bzw. Ausblenden"],
       ["T", "Tauschen: Alternativen mit Vorschau in Plan/3D (Maus oder ↑/↓), Enter tauscht; „Farbe beibehalten“ wählt die passende Hersteller-Ausführung"],
+      ["T bei Mehrfachauswahl", "Alle markierten gleichen Objekte (z. B. 6 Stühle) in einem Schritt tauschen; jedes behält Position, Drehung und Bezug (Tischkante, Wand oder Mitte). Andere markierte Objekte bleiben unverändert"],
       ["Ausführungen (Inspector)", "Musterkarte überfahren = Vorschau, Klick = übernehmen; bei Bezug × Gestell je Achse wählen, abgeblendet = andere Kombination"],
       ["Strg+A", "Alles auswählen"],
     ],
