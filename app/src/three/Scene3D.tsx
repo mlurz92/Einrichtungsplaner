@@ -128,7 +128,7 @@ function Environment() {
   const { day } = useSun();
   const probe = useMemo(() => new EnvironmentProbe(gl, quality === "niedrig" ? 128 : 256), [gl, quality]);
   useEffect(() => () => probe.dispose(), [probe]);
-  const st = useRef({ dirty: true, last: 0, pos: new THREE.Vector3(1e9, 0, 0), timer: 0, passes: 0, refineTimer: 0 });
+  const st = useRef({ dirty: true, last: 0, pos: new THREE.Vector3(1e9, 0, 0), timer: 0, passes: 0, refineTimer: 0, lamps: -1 });
   // Neu aufnehmen bei Änderungen an Einrichtung, Ausbau, Licht oder Uhrzeit
   useEffect(() => {
     const mark = () => {
@@ -159,6 +159,11 @@ function Environment() {
   }, [day, night, probe, invalidate]);
   useFrame(() => {
     const s = st.current;
+    if (s.lamps !== lampVersion) {
+      s.lamps = lampVersion;
+      s.dirty = true;
+      s.passes = 0;
+    }
     const spot = probeSpot(camera, useView3D.getState().interior || camera3d === "walk", s.pos.x > 1e8 ? PROBE_HOME : s.pos);
     if (!spot) return;
     const moved = spot.distanceTo(s.pos) > 0.8;
@@ -186,7 +191,7 @@ function Environment() {
     }
     // Belichtungsautomatik wie bei einer Kamera: mittlere Raumhelligkeit → Mittelgrau.
     // Abends etwas knapper belichtet, damit es nach Abend aussieht und nicht nach Tag.
-    gl.toneMappingExposure = THREE.MathUtils.clamp((night ? EXPOSURE_KEY_NIGHT : EXPOSURE_KEY) / probe.luminance, 0.3, 16);
+    gl.toneMappingExposure = THREE.MathUtils.clamp((night ? EXPOSURE_KEY_NIGHT : EXPOSURE_KEY) / probe.luminance, 0.3, night ? 4 : 12);
   });
   useEffect(() => {
     let tex: THREE.Texture | null = null;
@@ -222,8 +227,8 @@ function Environment() {
 /** Himmelshelligkeit am Tag relativ zur Sonne (diffuses Himmelslicht ≈ 20 % der Direktstrahlung). */
 const SKY_LEVEL = 0.35;
 /** Zielhelligkeit der Belichtungsautomatik (Mittelgrau, linear) bei Tag und am Abend. */
-const EXPOSURE_KEY = 0.36;
-const EXPOSURE_KEY_NIGHT = 0.12;
+const EXPOSURE_KEY = 0.42;
+const EXPOSURE_KEY_NIGHT = 0.085;
 
 const SHADOW_MAP = { hoch: 4096, mittel: 2048, niedrig: 1024 } as const;
 const SUN_LOW = new THREE.Color("#ffad66");
@@ -296,6 +301,9 @@ export function kelvinColor(k: number): THREE.Color {
   return new THREE.Color().setRGB(c(r), c(g), c(b), THREE.SRGBColorSpace);
 }
 
+/** Zähler für geänderte Leuchten-Lichtquellen (Umgebungssonde nimmt danach neu auf). */
+let lampVersion = 0;
+
 const LAMP_LIMIT = { hoch: 24, mittel: 12, niedrig: 6 } as const;
 
 /**
@@ -337,6 +345,10 @@ function LampLights() {
     });
     return () => cancelAnimationFrame(id);
   }, [night, items, scene, quality]);
+  // Erst nach dem Einhängen der Lichtquellen neu aufnehmen
+  useEffect(() => {
+    lampVersion++;
+  }, [lights]);
   // Teilweiser Weißabgleich wie beim Auge: 2700 K wirkt warm, aber nicht orange
   const color = useMemo(() => kelvinColor(kelvin).lerp(new THREE.Color("#ffffff"), 0.45), [kelvin]);
   if (!night) return null;

@@ -21,7 +21,7 @@ const VIEWS = [
   { id: "uebersicht", pos: [15.5, 13, 20], target: [7.5, 0, 8.5], fov: 42, time: 11 },
   { id: "wohnen", pos: [6.6, 1.62, 11.3], target: [4.8, 0.9, 5.6], fov: 62, time: 14 },
   { id: "kueche", pos: [5.4, 1.62, 10.2], target: [1.2, 0.95, 11.6], fov: 62, time: 11 },
-  { id: "essen", pos: [3.6, 1.5, 8.0], target: [6.4, 0.75, 10.2], fov: 58, time: 16 },
+  { id: "essen", pos: [5.0, 1.55, 6.9], target: [6.6, 0.75, 10.2], fov: 58, time: 16 },
   { id: "gegenlicht", pos: [4.2, 1.2, 6.6], target: [8.0, 1.0, 9.2], fov: 62, time: 15 },
   { id: "schlafen", pos: [4.4, 1.62, 12.9], target: [6.0, 0.7, 15.4], fov: 66, time: 12 },
 ];
@@ -68,7 +68,7 @@ try {
         },
         { v, night },
       );
-      await page.waitForTimeout(4000);
+      await page.waitForTimeout(night ? 9000 : 6000);
       const data = await page.evaluate((w) => globalThis.__we13view.getState().api.capture(w), WIDTH);
       if (!data) throw new Error(`Aufnahme ${v.id} fehlgeschlagen`);
       const name = `${v.id}_${night ? "abend" : "tag"}.png`;
@@ -94,8 +94,9 @@ try {
         return { mean: +(sum / n).toFixed(1), clipped: +((clip / n) * 100).toFixed(2) };
       }, data);
       m.exposure = await page.evaluate(() => +globalThis.__we13.gl.toneMappingExposure.toFixed(2));
+      m.probe = await page.evaluate(() => globalThis.__we13probe);
       stats.push({ name, ...m });
-      console.log(`${name}: Helligkeit ${m.mean}, ausgebrannt ${m.clipped} %, Belichtung ${m.exposure}`);
+      console.log(`${name}: Helligkeit ${m.mean}, ausgebrannt ${m.clipped} %, Belichtung ${m.exposure}, Sonde ${JSON.stringify(m.probe)}`);
     }
   }
   writeFileSync(join(OUT, "stats.json"), JSON.stringify(stats, null, 2));

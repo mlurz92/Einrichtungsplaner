@@ -9,9 +9,9 @@ import { cutUniforms } from "./cutaway";
 // Licht stammt aus den beleuchteten Raumflächen (zwei Lichtsprünge).
 
 /** Himmelsleuchtdichte am Zenit in Szeneneinheiten (Sonne 3,4 entspricht ~100 klx). */
-const SKY_ZENITH = new THREE.Color("#b9c8da");
-const SKY_HORIZON = new THREE.Color("#e8eef4");
-const GROUND = new THREE.Color("#8d8574");
+const SKY_ZENITH = new THREE.Color("#c4cfdb");
+const SKY_HORIZON = new THREE.Color("#eceef0");
+const GROUND = new THREE.Color("#8a8780");
 
 /** Himmel als kleines HDR-Panorama: Zenit blau, Horizont hell, Boden gedämpft. */
 export function skyTexture(): THREE.DataTexture {
@@ -22,7 +22,9 @@ export function skyTexture(): THREE.DataTexture {
     // j = 0 → unten (−90°), j = H−1 → oben (+90°)
     const el = ((j + 0.5) / H - 0.5) * Math.PI;
     if (el >= 0) c.copy(SKY_HORIZON).lerp(SKY_ZENITH, Math.pow(Math.sin(el), 0.6));
-    else c.copy(GROUND).multiplyScalar(0.3).lerp(GROUND.clone().multiplyScalar(0.22), Math.min(1, -el * 2));
+    // Sonnenbeschienener Boden draußen wirft etwa so viel Licht zurück, wie der Himmel abgibt
+    // (Albedo ~0,2 × Sonne); durch die Fenster erhellt es vor allem die Decke
+    else c.copy(GROUND).multiplyScalar(2.1).lerp(GROUND.clone().multiplyScalar(1.6), Math.min(1, -el * 2));
     for (let i = 0; i < W; i++) {
       const k = (j * W + i) * 4;
       data[k] = c.r;
@@ -48,7 +50,7 @@ const meterMat = new THREE.ShaderMaterial({
   fragmentShader: /* glsl */ `
     uniform samplerCube env;
     void main() {
-      float s = 0.0, w = 0.0;
+      float s = 0.0, w = 0.0, m = 0.0;
       for (int i = 0; i < 24; i++) {
         float z = 1.0 - (float(i) + 0.5) / 12.0;
         float r = sqrt(max(0.0, 1.0 - z * z));
@@ -58,14 +60,16 @@ const meterMat = new THREE.ShaderMaterial({
           // Waagerechte Blickrichtungen zählen stärker als Boden und Decke
           float k = 0.35 + 0.65 * (1.0 - abs(z));
           vec3 c = textureCube(env, d).rgb;
-          s += k * log2(max(1e-5, dot(c, vec3(0.2126, 0.7152, 0.0722))));
+          float l = dot(c, vec3(0.2126, 0.7152, 0.0722));
+          s += k * log2(max(1e-5, l));
+          m += k * min(l, 4.0);
           w += k;
         }
       }
       float v = clamp((s / w - ${LOG_MIN.toFixed(1)}) / ${(LOG_MAX - LOG_MIN).toFixed(1)}, 0.0, 1.0);
       // 16 Bit auf zwei Kanäle verteilt
-      float hi = floor(v * 255.0) / 255.0;
-      gl_FragColor = vec4(hi, fract(v * 255.0), 0.0, 1.0);
+      float u = clamp((log2(max(1e-5, m / w)) - ${LOG_MIN.toFixed(1)}) / ${(LOG_MAX - LOG_MIN).toFixed(1)}, 0.0, 1.0);
+      gl_FragColor = vec4(floor(v * 255.0) / 255.0, fract(v * 255.0), floor(u * 255.0) / 255.0, fract(u * 255.0));
     }`,
   depthTest: false,
   depthWrite: false,
@@ -84,6 +88,8 @@ export class EnvironmentProbe {
   private px = new Uint8Array(4);
   /** Mittlere Leuchtdichte (geometrisches Mittel) der letzten Aufnahme. */
   luminance = 0.18;
+  geoMean = 0.18;
+  mean = 0.18;
 
   constructor(private gl: THREE.WebGLRenderer, size = 256) {
     this.rt = new THREE.WebGLCubeRenderTarget(size, { type: THREE.HalfFloatType, generateMipmaps: false });
@@ -168,8 +174,13 @@ export class EnvironmentProbe {
     gl.render(meterScene, meterCam);
     gl.readRenderTargetPixels(this.meterRT, 0, 0, 1, 1, this.px);
     gl.setRenderTarget(prev);
-    const v = (this.px[0] + this.px[1] / 255) / 255;
-    this.luminance = Math.pow(2, LOG_MIN + v * (LOG_MAX - LOG_MIN));
+    const dec = (hi: number, lo: number) => Math.pow(2, LOG_MIN + ((hi + lo / 255) / 255) * (LOG_MAX - LOG_MIN));
+    this.geoMean = dec(this.px[0], this.px[1]);
+    this.mean = dec(this.px[2], this.px[3]);
+    // Mittelweg aus geometrischem Mittel (unempfindlich gegen helle Leuchten) und arithmetischem
+    // Mittel (unempfindlich gegen dunkle Fensterflächen bei Nacht)
+    this.luminance = Math.sqrt(this.geoMean * this.mean);
+    (globalThis as Record<string, unknown>).__we13probe = { geo: this.geoMean, mean: this.mean };
   }
 
   dispose() {
