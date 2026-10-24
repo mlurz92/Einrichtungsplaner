@@ -55,7 +55,7 @@ describe("Grundriss WE 13", () => {
 describe("Möblierungskonzepte", () => {
   // PDF-Summen mit dem seit v2.0.1 rechteckigen Essplatz aus dem Katalog (Tisch, 7 Stühle, Pendelleuchte, Teppich)
   // statt rundem Tisch, 5 Stühlen, Pendelleuchte(n) und rundem Teppich der PDF-Planung.
-  const pdfTotals: Record<string, number> = { concept1: 35105.29, concept2: 33555.37, concept3: 36887.12, concept4: 38402.39 };
+  const pdfTotals: Record<string, number> = { concept1: 34805.29, concept2: 33056.36, concept3: 34687.12, concept4: 38907.39 };
   for (const c of concepts) {
     it(`${c.subtitle}: Budget = PDF mit Katalog-Essplatz`, () => {
       const p = c.project;
@@ -118,11 +118,11 @@ describe("Essplatz der Konzepte", () => {
       expect((rugAcross - table.d) / 2).toBeGreaterThanOrEqual(0.6);
       expect(rugAlong).toBeGreaterThan(table.w + 0.6);
       expect(Math.hypot(rug.x - table.x, rug.y - table.y)).toBeLessThan(0.01);
-      // Pendelleuchte über dem Tisch, parallel, 75–100 % der Tischlänge
+      // Pendelleuchte über dem Tisch, parallel, 50–60 % der Tischlänge
       const lamp = items.find((i) => i.pos === "E3")!;
       expect(cat(lamp.catalogId).category).toBe("pendant");
-      expect(lamp.w).toBeGreaterThanOrEqual(table.w * 0.75);
-      expect(lamp.w).toBeLessThanOrEqual(table.w);
+      expect(lamp.w).toBeGreaterThanOrEqual(table.w * 0.5 - 1e-9);
+      expect(lamp.w).toBeLessThanOrEqual(table.w * 0.6 + 1e-9);
       expect(Math.hypot(lamp.x - table.x, lamp.y - table.y)).toBeLessThan(0.01);
       expect(lamp.rot).toBe(table.rot);
       expect(lamp.elev - (table.elev + table.h)).toBeGreaterThan(0.55);

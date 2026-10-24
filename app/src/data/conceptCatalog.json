@@ -4388,171 +4388,27 @@
 "concepts": []
 },
 {
-"id": "lam-paul-neuhaus-adriana-pendelleuchte-2568-24",
+"id": "lam-hollaender-castello-haengeleuchte-300-k-15190-s",
 "vendor": "lampe.de",
-"brand": "Paul Neuhaus Leuchten",
-"series": "Paul Neuhaus ADRIANA Pendelleuchte LED",
-"name": "Paul Neuhaus ADRIANA Pendelleuchte LED",
+"brand": "Holländer",
+"series": "Holländer CASTELLO Hängeleuchte LED",
+"name": "Holländer CASTELLO Hängeleuchte LED",
 "category": "pendant",
 "archetype": "pendantLinear",
-"w": 179.0,
-"d": 5.5,
+"w": 105.0,
+"d": 7.0,
 "h": 15.0,
-"price": 449.99,
-"url": "https://www.lampe.de/paul-neuhaus-adriana-pendelleuchte-2568-24.html",
-"image": "https://www.lampe.de/media/product/36388/700x700/paul-neuhaus-adriana-pendelleuchte-2568-24-0.jpg",
+"price": 1299.99,
+"url": "https://www.lampe.de/hollaender-castello-haengeleuchte-300-k-15190-s.html",
+"image": "https://www.lampe.de/media/product/130942/700x700/hollaender-castello-haengeleuchte-300-k-15190-s-0.jpg",
 "params": {
-"heads": 3,
+"heads": 6,
 "shape": "dome",
-"maxHang": 1.8
+"maxHang": 1.3
 },
 "variants": [
 {
-"name": "Braun",
-"slots": {
-"main": {
-"color": "#6f4d36",
-"material": "matte"
-},
-"shade": {
-"color": "#efe9dd",
-"material": "linen"
-},
-"frame": {
-"color": "#6f4d36",
-"material": "matte"
-}
-},
-"price": 449.99,
-"url": "https://www.lampe.de/paul-neuhaus-adriana-pendelleuchte-2568-24.html"
-},
-{
-"name": "Messing",
-"slots": {
-"main": {
-"color": "#c9a55c",
-"material": "brass"
-},
-"shade": {
-"color": "#efe9dd",
-"material": "linen"
-},
-"frame": {
-"color": "#c9a55c",
-"material": "brass"
-}
-},
-"price": 499.99,
-"url": "https://www.lampe.de/paul-neuhaus-adriana-pendelleuchte-2568-60.html"
-},
-{
-"name": "Aluminium",
-"slots": {
-"main": {
-"color": "#c4c6c8",
-"material": "steel"
-},
-"shade": {
-"color": "#f6f4ee",
-"material": "opal"
-},
-"frame": {
-"color": "#c4c6c8",
-"material": "steel"
-}
-},
-"price": 559.99,
-"url": "https://www.lampe.de/paul-neuhaus-adriana-pendelleuchte-2568-95.html"
-}
-],
-"premium": true,
-"tags": [
-"Paul Neuhaus Leuchten",
-"Pendelleuchte"
-],
-"description": "Pendelleuchte, 3-flammig; LED; Material: Metall; Schirm: Kunststoff; Abhängung bis 180 cm",
-"mount": "ceiling",
-"elev": 2.0,
-"resizable": false,
-"concepts": [
-4
-]
-},
-{
-"id": "lam-paul-neuhaus-pure-e-infinity-pendelleuchte-2221-15",
-"vendor": "lampe.de",
-"brand": "Paul Neuhaus Leuchten",
-"series": "Paul Neuhaus PURE E-Infinity Pendelleuchte LED",
-"name": "Paul Neuhaus PURE E-Infinity Pendelleuchte LED",
-"category": "pendant",
-"archetype": "pendantLinear",
-"w": 198.0,
-"d": 35.0,
-"h": 35.0,
-"price": 2499.0,
-"url": "https://www.lampe.de/paul-neuhaus-pure-e-infinity-pendelleuchte-2221-15.html",
-"image": "https://www.lampe.de/media/product/170551/700x700/paul-neuhaus-pure-e-infinity-pendelleuchte-2221-15-0.jpg",
-"params": {
-"heads": 10,
-"shape": "globe",
-"maxHang": 1.8
-},
-"variants": [
-{
-"name": "Grau / Rauchfarben",
-"slots": {
-"main": {
-"color": "#8d8d8a",
-"material": "matte"
-},
-"shade": {
-"color": "#6b6660",
-"material": "glass"
-},
-"frame": {
-"color": "#8d8d8a",
-"material": "matte"
-}
-},
-"price": 2499.0,
-"url": "https://www.lampe.de/paul-neuhaus-pure-e-infinity-pendelleuchte-2221-15.html"
-}
-],
-"premium": true,
-"tags": [
-"Paul Neuhaus Leuchten",
-"Pendelleuchte"
-],
-"description": "Pendelleuchte, 10-flammig; LED; Material: Metall; Schirm: Glas; Abhängung bis 180 cm",
-"mount": "ceiling",
-"elev": 2.0,
-"resizable": false,
-"concepts": [
-3
-]
-},
-{
-"id": "lam-paul-neuhaus-pure-e-popup-pendelleuchte-2558-15",
-"vendor": "lampe.de",
-"brand": "Paul Neuhaus Leuchten",
-"series": "Paul Neuhaus PURE E-Popup Pendelleuchte LED",
-"name": "Paul Neuhaus PURE E-Popup Pendelleuchte LED",
-"category": "pendant",
-"archetype": "pendantLinear",
-"w": 180.0,
-"d": 29.5,
-"h": 29.5,
-"price": 1799.0,
-"url": "https://www.lampe.de/paul-neuhaus-pure-e-popup-pendelleuchte-2558-15.html",
-"image": "https://www.lampe.de/media/product/170567/700x700/paul-neuhaus-pure-e-popup-pendelleuchte-2558-15-0.jpg",
-"params": {
-"heads": 18,
-"shape": "globe",
-"maxHang": 2.4
-},
-"variants": [
-{
-"name": "Silber / Weiß",
+"name": "Silber",
 "slots": {
 "main": {
 "color": "#c6cbd0",
@@ -4567,16 +4423,35 @@
 "material": "chrome"
 }
 },
-"price": 1799.0,
-"url": "https://www.lampe.de/paul-neuhaus-pure-e-popup-pendelleuchte-2558-15.html"
+"price": 1299.99,
+"url": "https://www.lampe.de/hollaender-castello-haengeleuchte-300-k-15190-s.html"
+},
+{
+"name": "Gold",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
+}
+},
+"price": 1299.99,
+"url": "https://www.lampe.de/hollaender-castello-haengeleuchte-300-k-15190.html"
 }
 ],
 "premium": true,
 "tags": [
-"Paul Neuhaus Leuchten",
-"Pendelleuchte"
+"Holländer",
+"Hängeleuchte"
 ],
-"description": "Pendelleuchte, 18-flammig; LED; Material: Aluminium; Schirm: Glas; Abhängung bis 240 cm",
+"description": "Hängeleuchte, 6-flammig; LED; Material: Metall; Abhängung bis 130 cm",
 "mount": "ceiling",
 "elev": 2.0,
 "resizable": false,
@@ -4585,43 +4460,96 @@
 ]
 },
 {
-"id": "lam-paul-neuhaus-pure-e-popup-pendelleuchte-2558-97",
+"id": "lam-hollaender-faraone-haengeleuchte-300-k-15191",
 "vendor": "lampe.de",
-"brand": "Paul Neuhaus Leuchten",
-"series": "Paul Neuhaus PURE E-Popup Pendelleuchte LED Bronze, 18-flammig, Fernbedienung",
-"name": "Paul Neuhaus PURE E-Popup Pendelleuchte LED Bronze, 18-flammig, Fernbedienung",
+"brand": "Holländer",
+"series": "Holländer FARAONE Hängeleuchte LED",
+"name": "Holländer FARAONE Hängeleuchte LED",
 "category": "pendant",
 "archetype": "pendantLinear",
-"w": 180.0,
-"d": 29.5,
-"h": 29.5,
-"price": 1799.0,
-"url": "https://www.lampe.de/paul-neuhaus-pure-e-popup-pendelleuchte-2558-97.html",
-"image": "https://www.lampe.de/media/product/170568/700x700/paul-neuhaus-pure-e-popup-pendelleuchte-2558-97-0.jpg",
+"w": 115.0,
+"d": 3.5,
+"h": 15.0,
+"price": 1004.99,
+"url": "https://www.lampe.de/hollaender-faraone-haengeleuchte-300-k-15191.html",
+"image": "https://www.lampe.de/media/product/75442/700x700/hollaender-faraone-haengeleuchte-300-k-15191-0.jpg",
 "params": {
-"heads": 18,
-"shape": "globe",
-"maxHang": 2.4
+"heads": 6,
+"shape": "dome",
+"maxHang": 1.5
 },
 "variants": [
 {
-"name": "Bronze / Weiß",
+"name": "Gold",
 "slots": {
 "main": {
-"color": "#8c6a43",
-"material": "matte"
+"color": "#c9a55c",
+"material": "brass"
 },
 "shade": {
 "color": "#f6f4ee",
 "material": "opal"
 },
 "frame": {
-"color": "#8c6a43",
+"color": "#c9a55c",
+"material": "brass"
+}
+},
+"price": 1004.99,
+"url": "https://www.lampe.de/hollaender-faraone-haengeleuchte-300-k-15191.html"
+}
+],
+"premium": true,
+"tags": [
+"Holländer",
+"Hängeleuchte"
+],
+"description": "Hängeleuchte, 6-flammig; LED; Material: Metall; Abhängung bis 150 cm",
+"mount": "ceiling",
+"elev": 2.0,
+"resizable": false,
+"concepts": [
+4
+]
+},
+{
+"id": "lam-paul-neuhaus-bowl-pendelleuchte-2288-23",
+"vendor": "lampe.de",
+"brand": "Paul Neuhaus Leuchten",
+"series": "Paul Neuhaus BOWL Pendelleuchte LED",
+"name": "Paul Neuhaus BOWL Pendelleuchte LED",
+"category": "pendant",
+"archetype": "pendantLinear",
+"w": 120.0,
+"d": 45.0,
+"h": 45.0,
+"price": 1499.0,
+"url": "https://www.lampe.de/paul-neuhaus-bowl-pendelleuchte-2288-23.html",
+"image": "https://www.lampe.de/media/product/169739/700x700/paul-neuhaus-bowl-pendelleuchte-2288-23-0.jpg",
+"params": {
+"heads": 12,
+"shape": "globe",
+"maxHang": 1.8
+},
+"variants": [
+{
+"name": "Braun / Rauchfarben",
+"slots": {
+"main": {
+"color": "#6f4d36",
+"material": "matte"
+},
+"shade": {
+"color": "#6b6660",
+"material": "glass"
+},
+"frame": {
+"color": "#6f4d36",
 "material": "matte"
 }
 },
-"price": 1799.0,
-"url": "https://www.lampe.de/paul-neuhaus-pure-e-popup-pendelleuchte-2558-97.html"
+"price": 1499.0,
+"url": "https://www.lampe.de/paul-neuhaus-bowl-pendelleuchte-2288-23.html"
 }
 ],
 "premium": true,
@@ -4629,12 +4557,65 @@
 "Paul Neuhaus Leuchten",
 "Pendelleuchte"
 ],
-"description": "Pendelleuchte, 18-flammig; LED; Material: Aluminium; Schirm: Glas; Abhängung bis 240 cm",
+"description": "Pendelleuchte, 12-flammig; LED; Material: Metall; Schirm: Glas; Abhängung bis 180 cm",
 "mount": "ceiling",
 "elev": 2.0,
 "resizable": false,
 "concepts": [
 1
+]
+},
+{
+"id": "lam-schoener-wohnen-kollektion-dubai-led-balkenpendelleuchte-13-flammig-ra",
+"vendor": "lampe.de",
+"brand": "SCHÖNER WOHNEN-Kollektion",
+"series": "SCHÖNER WOHNEN-Kollektion DUBAI LED Balkenpendelleuchte 13-flammig rauchfarbenes Glas 3000 Kelvin 350 Lumen 3 Watt Länge 118 cm",
+"name": "SCHÖNER WOHNEN-Kollektion DUBAI LED Balkenpendelleuchte 13-flammig rauchfarbenes Glas 3000 Kelvin 350 Lumen 3 Watt Länge 118 cm",
+"category": "pendant",
+"archetype": "pendantLinear",
+"w": 118.0,
+"d": 23.0,
+"h": 23.0,
+"price": 299.0,
+"url": "https://www.lampe.de/schoener-wohnen-kollektion-dubai-led-balkenpendelleuchte-13-flammig-rauchfarbenes-glas-3000-kelvin-350-lumen-3-watt-laenge-118-cm-14504-18.html",
+"image": "https://www.lampe.de/media/product/176068/700x700/schoener-wohnen-kollektion-dubai-led-balkenpendelleuchte-13-flammig-rauchfarbenes-glas-3000-kelvin-350-lumen-3-watt-laenge-118-cm-14504-18-0.jpg",
+"params": {
+"heads": 13,
+"shape": "globe",
+"maxHang": 1.5
+},
+"variants": [
+{
+"name": "Schwarz / Rauchfarben",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+},
+"shade": {
+"color": "#6b6660",
+"material": "glass"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"price": 299.0,
+"url": "https://www.lampe.de/schoener-wohnen-kollektion-dubai-led-balkenpendelleuchte-13-flammig-rauchfarbenes-glas-3000-kelvin-350-lumen-3-watt-laenge-118-cm-14504-18.html"
+}
+],
+"premium": true,
+"tags": [
+"SCHÖNER WOHNEN-Kollektion",
+"Pendelleuchte"
+],
+"description": "Pendelleuchte, 13-flammig; LED; Material: Metall; Schirm: Glas; Abhängung bis 150 cm",
+"mount": "ceiling",
+"elev": 2.0,
+"resizable": false,
+"concepts": [
+3
 ]
 },
 {

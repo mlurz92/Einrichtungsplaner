@@ -1295,49 +1295,49 @@
 ]
 },
 {
-"id": "c63743130f",
-"catalogId": "lam-paul-neuhaus-pure-e-infinity-pendelleuchte-2221-15",
+"id": "4630404b01",
+"catalogId": "lam-schoener-wohnen-kollektion-dubai-led-balkenpendelleuchte-13-flammig-ra",
 "pos": "E3",
-"label": "Paul Neuhaus PURE E-Infinity Pendelleuchte LED",
+"label": "SCHÖNER WOHNEN-Kollektion DUBAI LED Balkenpendelleuchte 13-flammig rauchfarbenes Glas 3000 Kelvin 350 Lumen 3 Watt Länge 118 cm",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 1.41,
-"w": 1.98,
-"d": 0.35,
-"h": 0.35,
-"variant": "Grau / Rauchfarben",
+"w": 1.18,
+"d": 0.23,
+"h": 0.23,
+"variant": "Schwarz / Rauchfarben",
 "slots": {
 "main": {
-"color": "#8d8d8a",
-"material": "matte"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
 "color": "#6b6660",
 "material": "glass"
 },
 "frame": {
-"color": "#8d8d8a",
-"material": "matte"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {
-"heads": 10,
+"heads": 13,
 "shape": "globe",
-"maxHang": 1.8
+"maxHang": 1.5
 },
 "mount": "ceiling",
 "room": "13.01",
 "parts": [
 {
 "pos": "E3",
-"name": "Paul Neuhaus PURE E-Infinity Pendelleuchte LED",
-"variant": "Grau / Rauchfarben",
+"name": "SCHÖNER WOHNEN-Kollektion DUBAI LED Balkenpendelleuchte 13-flammig rauchfarbenes Glas 3000 Kelvin 350 Lumen 3 Watt Länge 118 cm",
+"variant": "Schwarz / Rauchfarben",
 "vendor": "lampe.de",
 "qty": 1,
-"unit": 2499.0,
-"url": "https://www.lampe.de/paul-neuhaus-pure-e-infinity-pendelleuchte-2221-15.html",
-"dims": "B 198 × T 35 × H 35",
+"unit": 299.0,
+"url": "https://www.lampe.de/schoener-wohnen-kollektion-dubai-led-balkenpendelleuchte-13-flammig-rauchfarbenes-glas-3000-kelvin-350-lumen-3-watt-laenge-118-cm-14504-18.html",
+"dims": "B 118 × T 23 × H 23",
 "delivery": null
 }
 ]

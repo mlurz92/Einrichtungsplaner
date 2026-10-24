@@ -38,7 +38,7 @@ Wand oder Mitte).
 **Version 2.0.5** stellt den Essplatz aller vier Konzepte auf **rechteckige Keramiktische mit 200 × 100 cm** von
 Markenherstellern um (Mobitec Terra, bert plantagie Aiven, Musterring Picara, connubia by calligaris Master; Metallgestell,
 kein Holz), jeweils mit passenden Stühlen, handgewebten Wollteppichen von mindestens 240 cm Breite (70 cm Überstand an den
-Stuhlseiten) und einer linearen Pendelleuchte von 90–99 % der Tischlänge. Neu im Katalog sind die vier Tische und die
+Stuhlseiten) und einer Pendelleuchte von 50–60 % der Tischlänge (105–120 cm). Neu im Katalog sind die vier Tische und die
 Mobitec-Aura-Polsterstühle (Händler Möbel Letz); die Gestelle (konische Schrägbeine, X-Kufen mit Querstange, gekreuzte
 Schrägbeine, Vierkantbeine) sind in 2D/3D nach Produktfoto nachgebaut.
 
@@ -72,14 +72,14 @@ Schrägbeine, Vierkantbeine) sind in 2D/3D nach Produktfoto nachgebaut.
 
 | Konzept | Esstisch (rechteckig, 200 × 100 cm, Keramik, Metallgestell) | Stühle (6 + Nischenplatz) | Teppich | Pendelleuchte (Anteil Tischlänge) |
 |---|---|---|---|---|
-| 1 Travertin · Kupfer · Salbei | Mobitec Terra, Keramik calce nero, konische Schrägbeine Metall black, Schweizer Kante (ausziehbar 300) | Westwing Adrien, Bouclé Olivgrün / Metall Schwarz | IKEA STOCKHOLM 2025, Wolle handgewebt, 240 × 300, Grün/Weiß/Schwarz | Paul Neuhaus PURE E-Popup, Bronze, 180 cm (90 %) |
-| 2 Espresso · Petrol · Chrom | bert plantagie Aiven, Keramik dark marble, X-Kufengestell anthrazit mit Querstange | Westwing Jordan, Leder Braun / Chrom | IKEA STOCKHOLM 2025, Wolle handgewebt, 240 × 300, Grau/Weiß/Schwarz | Paul Neuhaus PURE E-Popup, Silber, 180 cm (90 %) |
-| 3 Stone · Petrol · Salbei | Musterring Picara, Keramik Pietra di Savoia anthracite, Vierkantbeine schwarz (ausziehbar) | Mobitec Aura, Flachgewebe Berry silver / Metall black | IKEA STOCKHOLM 2025, Wolle handgewebt, 240 × 350, Schwarz/Weiß/Hellgrün | Paul Neuhaus PURE E-Infinity, Grau / Rauchglas, 198 cm (99 %) |
-| 4 Ivory · Petrol · Messing | connubia by calligaris Master, Keramik-Glas Arenaria, gekreuzte Schrägbeine lava matt (ausziehbar 280) | Westwing Tess, Samt Hellbeige / Gold matt | Layered Stripe, Wolle handgewebt, 250 × 350, Greige | Paul Neuhaus Adriana, Messing, 179 cm (90 %) |
+| 1 Travertin · Kupfer · Salbei | Mobitec Terra, Keramik calce nero, konische Schrägbeine Metall black, Schweizer Kante (ausziehbar 300) | Westwing Adrien, Bouclé Olivgrün / Metall Schwarz | IKEA STOCKHOLM 2025, Wolle handgewebt, 240 × 300, Grün/Weiß/Schwarz | Paul Neuhaus BOWL, Braun / Rauchglas, 12 Kugeln, 120 cm (60 %) |
+| 2 Espresso · Petrol · Chrom | bert plantagie Aiven, Keramik dark marble, X-Kufengestell anthrazit mit Querstange | Westwing Jordan, Leder Braun / Chrom | IKEA STOCKHOLM 2025, Wolle handgewebt, 240 × 300, Grau/Weiß/Schwarz | Holländer CASTELLO, Silber, 105 cm (53 %) |
+| 3 Stone · Petrol · Salbei | Musterring Picara, Keramik Pietra di Savoia anthracite, Vierkantbeine schwarz (ausziehbar) | Mobitec Aura, Flachgewebe Berry silver / Metall black | IKEA STOCKHOLM 2025, Wolle handgewebt, 240 × 350, Schwarz/Weiß/Hellgrün | SCHÖNER WOHNEN DUBAI, Schwarz / Rauchglas, 13 Kugeln, 118 cm (59 %) |
+| 4 Ivory · Petrol · Messing | connubia by calligaris Master, Keramik-Glas Arenaria, gekreuzte Schrägbeine lava matt (ausziehbar 280) | Westwing Tess, Samt Hellbeige / Gold matt | Layered Stripe, Wolle handgewebt, 250 × 350, Greige | Holländer FARAONE, Gold, 115 cm (58 %) |
 
 Länger als 2,0 m darf der Tisch nicht sein: Zwischen Sofarücken und Sideboard bleiben 3,58 m.
 Tische stehen mittig zwischen Sofarücken und Sideboard (≥ 80 cm Bewegungsfläche vor dem Sideboard, 1,1–1,6 m hinter
-den Stühlen bis Wand bzw. Laufweg), die Pendelleuchte hängt in der Tischachse 65 cm über der Platte.
+den Stühlen bis Wand bzw. Laufweg), die Pendelleuchte (50–60 % der Tischlänge) hängt in der Tischachse 65 cm über der Platte.
 
 ### Längliche Stein- und Marmortische (ab 2.0.2)
 

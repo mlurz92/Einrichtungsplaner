@@ -1290,18 +1290,18 @@
 ]
 },
 {
-"id": "d7e80b285b",
-"catalogId": "lam-paul-neuhaus-pure-e-popup-pendelleuchte-2558-15",
+"id": "fffe7575be",
+"catalogId": "lam-hollaender-castello-haengeleuchte-300-k-15190-s",
 "pos": "E3",
-"label": "Paul Neuhaus PURE E-Popup Pendelleuchte LED",
+"label": "Holländer CASTELLO Hängeleuchte LED",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 1.42,
-"w": 1.8,
-"d": 0.295,
-"h": 0.295,
-"variant": "Silber / Weiß",
+"w": 1.05,
+"d": 0.07,
+"h": 0.15,
+"variant": "Silber",
 "slots": {
 "main": {
 "color": "#c6cbd0",
@@ -1317,22 +1317,22 @@
 }
 },
 "params": {
-"heads": 18,
-"shape": "globe",
-"maxHang": 2.4
+"heads": 6,
+"shape": "dome",
+"maxHang": 1.3
 },
 "mount": "ceiling",
 "room": "13.01",
 "parts": [
 {
 "pos": "E3",
-"name": "Paul Neuhaus PURE E-Popup Pendelleuchte LED",
-"variant": "Silber / Weiß",
+"name": "Holländer CASTELLO Hängeleuchte LED",
+"variant": "Silber",
 "vendor": "lampe.de",
 "qty": 1,
-"unit": 1799.0,
-"url": "https://www.lampe.de/paul-neuhaus-pure-e-popup-pendelleuchte-2558-15.html",
-"dims": "B 180 × T 29.5 × H 29.5",
+"unit": 1299.99,
+"url": "https://www.lampe.de/hollaender-castello-haengeleuchte-300-k-15190-s.html",
+"dims": "B 105 × T 7 × H 15",
 "delivery": null
 }
 ]
