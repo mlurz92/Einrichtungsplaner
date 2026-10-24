@@ -88,6 +88,7 @@ export type MaterialKey =
   | "marble"
   | "granite"
   | "marbleGreen"
+  | "marbleNoir"
   | "stone"
   | "ceramic"
   | "glass"

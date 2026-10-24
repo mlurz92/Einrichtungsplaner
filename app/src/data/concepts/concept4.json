@@ -1212,38 +1212,36 @@
 ]
 },
 {
-"id": "ac02d20b72",
-"catalogId": "let-connubia-by-calligaris-master-106174",
+"id": "38f1319787",
+"catalogId": "del-edge-25387",
 "pos": "E1",
-"label": "connubia by calligaris Esstisch Master (Keramik-Glas Arenaria)",
+"label": "DELIFE Esstisch Edge (Keramik Laminam® Noir Désir)",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 0.0,
 "w": 2.0,
 "d": 1.0,
-"h": 0.76,
-"variant": "Keramik-Glas Arenaria, Gestell Metall lava matt",
+"h": 0.74,
+"variant": "Laminam® Noir Désir Braun, V-Mittelfuß Flachstahl schwarz pulverbeschichtet",
 "slots": {
 "top": {
-"color": "#a59c8f",
-"material": "stone"
+"color": "#2b2520",
+"material": "marbleNoir"
 },
 "main": {
-"color": "#a59c8f",
-"material": "stone"
+"color": "#2b2520",
+"material": "marbleNoir"
 },
 "legs": {
-"color": "#4a4643",
-"material": "matte"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
 "params": {
-"top": 0.011,
-"radius": 0.005,
-"legStyle": "cross",
-"leg": 0.045,
-"inset": 0.2,
+"top": 0.01,
+"radius": 0.004,
+"legStyle": "edge",
 "noApron": true
 },
 "mount": "floor",
@@ -1251,13 +1249,13 @@
 "parts": [
 {
 "pos": "E1",
-"name": "connubia by calligaris Esstisch Master (Keramik-Glas Arenaria)",
-"variant": "Keramik-Glas Arenaria, Gestell Metall lava matt",
+"name": "DELIFE Esstisch Edge (Keramik Laminam® Noir Désir)",
+"variant": "Laminam® Noir Désir Braun, V-Mittelfuß Flachstahl schwarz pulverbeschichtet",
 "vendor": "Designhandel",
 "qty": 1,
-"unit": 1984.75,
-"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/calligaris/Master-von-connubia-by-calligaris-Esstisch-ca-200-x-100-cm::106174.html",
-"dims": "B 200 × T 100 × H 76",
+"unit": 769.9,
+"url": "https://www.delife.de/esstisch-edge-200x100cm-keramik/a-25387",
+"dims": "B 200 × T 100 × H 74",
 "delivery": null
 }
 ]
@@ -1550,7 +1548,7 @@
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
-"elev": 1.41,
+"elev": 1.39,
 "w": 1.15,
 "d": 0.035,
 "h": 0.15,

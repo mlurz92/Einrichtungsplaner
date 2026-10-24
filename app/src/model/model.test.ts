@@ -55,7 +55,7 @@ describe("Grundriss WE 13", () => {
 describe("Möblierungskonzepte", () => {
   // PDF-Summen mit dem seit v2.0.1 rechteckigen Essplatz aus dem Katalog (Tisch, 7 Stühle, Pendelleuchte, Teppich)
   // statt rundem Tisch, 5 Stühlen, Pendelleuchte(n) und rundem Teppich der PDF-Planung.
-  const pdfTotals: Record<string, number> = { concept1: 34805.29, concept2: 33056.36, concept3: 34687.12, concept4: 38907.39 };
+  const pdfTotals: Record<string, number> = { concept1: 31948.19, concept2: 31094.36, concept3: 31750.17, concept4: 37692.54 };
   for (const c of concepts) {
     it(`${c.subtitle}: Budget = PDF mit Katalog-Essplatz`, () => {
       const p = c.project;

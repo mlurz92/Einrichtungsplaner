@@ -89,7 +89,7 @@ export const MATERIAL_GROUPS: { id: string; label: string; keys: MaterialKey[] }
   { id: "leder", label: "Leder", keys: ["leather"] },
   { id: "holzhell", label: "Holz hell", keys: ["oak", "ash"] },
   { id: "holzdunkel", label: "Holz dunkel", keys: ["oakDark", "walnut", "burl", "mango"] },
-  { id: "stein", label: "Stein & Keramik", keys: ["travertine", "marble", "marbleGreen", "stone", "ceramic"] },
+  { id: "stein", label: "Stein & Keramik", keys: ["travertine", "marble", "marbleGreen", "marbleNoir", "stone", "ceramic"] },
   { id: "lack", label: "Lack & Kunststoff", keys: ["lacquer", "matte", "gloss", "plastic"] },
   { id: "metall", label: "Metall", keys: ["brass", "copper", "chrome", "steel", "blackMetal"] },
   { id: "glas", label: "Glas & Spiegel", keys: ["glass", "ribbedGlass", "opal", "mirror"] },

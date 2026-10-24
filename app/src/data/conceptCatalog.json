@@ -3018,118 +3018,64 @@
 ]
 },
 {
-"id": "let-mobitec-terra-59508",
+"id": "del-edge-25387",
 "vendor": "Designhandel",
-"brand": "Mobitec",
-"series": "Terra",
-"name": "Mobitec Esstisch Terra (Keramik calce nero)",
+"brand": "DELIFE",
+"series": "Edge",
+"name": "DELIFE Esstisch Edge (Keramik Laminam® Noir Désir)",
 "category": "diningTable",
 "w": 200.0,
 "d": 100.0,
-"h": 76.0,
-"price": 3627.0,
-"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/Mobitec/Terra-dining-von-Mobitec-Esstisch-in-Keramik-nero-Metall-black-ausziehbar::59508.html",
-"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/59508_0.jpg",
+"h": 74.0,
+"price": 769.9,
+"url": "https://www.delife.de/esstisch-edge-200x100cm-keramik/a-25387",
+"image": "https://www.delife.de/media/b3/1b/5f/1782543924/25387-20250811071518-esstisch-edge-200x100cm-keramik-laminam--noir-desir-braun-v-mittelfuss-schwarzcf3af4.jpeg",
 "archetype": "tableRect",
 "params": {
-"top": 0.024,
-"radius": 0.005,
-"leg": 0.055,
-"inset": 0.07,
-"splay": 0.05,
+"top": 0.01,
+"radius": 0.004,
+"legStyle": "edge",
 "noApron": true
 },
 "variants": [
 {
-"name": "Keramik calce nero, Gestell Metall black",
+"name": "Laminam® Noir Désir Braun, V-Mittelfuß Flachstahl schwarz pulverbeschichtet",
 "slots": {
 "top": {
-"color": "#2c2c2b",
-"material": "stone"
+"color": "#2b2520",
+"material": "marbleNoir"
 },
 "main": {
-"color": "#2c2c2b",
-"material": "stone"
+"color": "#2b2520",
+"material": "marbleNoir"
 },
 "legs": {
-"color": "#1d1d1d",
+"color": "#1b1b1b",
 "material": "blackMetal"
 }
 },
-"price": 3627.0,
-"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/Mobitec/Terra-dining-von-Mobitec-Esstisch-in-Keramik-nero-Metall-black-ausziehbar::59508.html",
-"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/59508_0.jpg"
+"price": 769.9,
+"url": "https://www.delife.de/esstisch-edge-200x100cm-keramik/a-25387",
+"image": "https://www.delife.de/media/b3/1b/5f/1782543924/25387-20250811071518-esstisch-edge-200x100cm-keramik-laminam--noir-desir-braun-v-mittelfuss-schwarzcf3af4.jpeg"
 }
 ],
 "tags": [
-"Mobitec",
+"DELIFE",
 "Steintisch",
+"Marmortisch",
+"Marmoroptik",
 "Keramik/Sinterstein",
 "Rechteckig 200 cm"
 ],
 "premium": true,
-"description": "Platte: Keramik calce nero (MDF 21 mm + Keramik 3 mm, Schweizer Kante) · Gestell: Gestell Metall black · Größe: 200 × 100 × 76 cm, rechteckig, Platz für 6–8 Personen · ausziehbar auf 300 cm (Klappeinlage 100 cm) · Preis Möbel Letz (online-moebel-kaufen.de) für diese Ausführung",
+"description": "Platte: Keramik Laminam® Noir Désir (Keramik auf Sicherheitsglas, 10 mm), schwarzbraun mit ockerfarbener und weißer Aderung · Gestell: V-Mittelfuß Flachstahl schwarz pulverbeschichtet, 150 × 50 × 70 cm, mittig unter der Platte · Größe: 200 × 100 × 74 cm, rechteckig, Platz für 6–8 Personen · Gewicht 129 kg · Preis DELIFE (delife.de), Art.-Nr. 25387",
 "mount": "floor",
 "resizable": false,
 "concepts": [
-1
-]
-},
-{
-"id": "let-musterring-picara-95268",
-"vendor": "Designhandel",
-"brand": "Musterring",
-"series": "Picara",
-"name": "Musterring Esstisch Picara (Keramik Pietra di Savoia anthracite)",
-"category": "diningTable",
-"w": 200.0,
-"d": 100.0,
-"h": 76.0,
-"price": 3706.85,
-"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/Musterring/Picara-von-Musterring-Esstisch-mit-Keramikplatte::95268.html",
-"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/95268_0.jpg",
-"archetype": "tableRect",
-"params": {
-"top": 0.03,
-"radius": 0.005,
-"legStyle": "square",
-"leg": 0.04,
-"inset": 0.03
-},
-"variants": [
-{
-"name": "Keramik Pietra di Savoia anthracite, Gestell Metall schwarz pulverbeschichtet",
-"slots": {
-"top": {
-"color": "#3c3c3a",
-"material": "stone"
-},
-"main": {
-"color": "#3c3c3a",
-"material": "stone"
-},
-"legs": {
-"color": "#1d1d1d",
-"material": "blackMetal"
-}
-},
-"price": 3706.85,
-"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/Musterring/Picara-von-Musterring-Esstisch-mit-Keramikplatte::95268.html",
-"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/95268_0.jpg"
-}
-],
-"tags": [
-"Musterring",
-"Steintisch",
-"Keramik/Sinterstein",
-"Rechteckig 200 cm"
-],
-"premium": true,
-"description": "Platte: Keramik Pietra di Savoia anthracite (Keramik 6 mm + Multiplex 24 mm) · Gestell: Gestell Metall schwarz pulverbeschichtet · Größe: 200 × 100 × 76 cm, rechteckig, Platz für 6–8 Personen · ausziehbar (Klappeinlage 100 cm) · Preis Möbel Letz (online-moebel-kaufen.de) für diese Ausführung",
-"mount": "floor",
-"resizable": false,
-"concepts": [
-3
+1,
+2,
+3,
+4
 ]
 },
 {
@@ -3264,122 +3210,6 @@
 "delivery": "7–8 Wo.",
 "description": "Wunschtisch; Marmorplatte auf MDF-Träger; lt. Shop bis 4 Personen, 5 mit Nischenstuhl E12, 6 knapp; 71 kg; Aufbauservice 39 €; Oberfläche matt geschliffen anfragen",
 "concepts": []
-},
-{
-"id": "let-bert-plantagie-aiven-55051",
-"vendor": "Designhandel",
-"brand": "bert plantagie",
-"series": "Aiven",
-"name": "bert plantagie Esstisch Aiven (Keramik dark marble)",
-"category": "diningTable",
-"w": 200.0,
-"d": 99.6,
-"h": 77.0,
-"price": 2731.9,
-"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/bert-plantagie/Aiven-von-bert-plantagie-Esstisch-mit-Keramik-Platte::55051.html",
-"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/55051_0.jpg",
-"archetype": "tableRect",
-"params": {
-"top": 0.02,
-"radius": 0.005,
-"legStyle": "xframe",
-"leg": 0.035,
-"inset": 0.36,
-"noApron": true
-},
-"variants": [
-{
-"name": "Keramik dark marble, Gestell Metall BP100 anthrazit, Querstange 120,5 cm",
-"slots": {
-"top": {
-"color": "#2a2a2c",
-"material": "marble"
-},
-"main": {
-"color": "#2a2a2c",
-"material": "marble"
-},
-"legs": {
-"color": "#353637",
-"material": "blackMetal"
-}
-},
-"price": 2731.9,
-"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/bert-plantagie/Aiven-von-bert-plantagie-Esstisch-mit-Keramik-Platte::55051.html",
-"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/55051_0.jpg"
-}
-],
-"tags": [
-"bert plantagie",
-"Steintisch",
-"Keramik/Sinterstein",
-"Rechteckig 200 cm"
-],
-"premium": true,
-"description": "Platte: Keramik dark marble · Gestell: Gestell Metall BP100 anthrazit, Querstange 120,5 cm · Größe: 200 × 99.6 × 77 cm, rechteckig, Platz für 6–8 Personen · Preis Möbel Letz (online-moebel-kaufen.de) für diese Ausführung",
-"mount": "floor",
-"resizable": false,
-"concepts": [
-2
-]
-},
-{
-"id": "let-connubia-by-calligaris-master-106174",
-"vendor": "Designhandel",
-"brand": "connubia by calligaris",
-"series": "Master",
-"name": "connubia by calligaris Esstisch Master (Keramik-Glas Arenaria)",
-"category": "diningTable",
-"w": 200.0,
-"d": 100.0,
-"h": 76.0,
-"price": 1984.75,
-"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/calligaris/Master-von-connubia-by-calligaris-Esstisch-ca-200-x-100-cm::106174.html",
-"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/106174_0.jpg",
-"archetype": "tableRect",
-"params": {
-"top": 0.011,
-"radius": 0.005,
-"legStyle": "cross",
-"leg": 0.045,
-"inset": 0.2,
-"noApron": true
-},
-"variants": [
-{
-"name": "Keramik-Glas Arenaria, Gestell Metall lava matt",
-"slots": {
-"top": {
-"color": "#a59c8f",
-"material": "stone"
-},
-"main": {
-"color": "#a59c8f",
-"material": "stone"
-},
-"legs": {
-"color": "#4a4643",
-"material": "matte"
-}
-},
-"price": 1984.75,
-"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/calligaris/Master-von-connubia-by-calligaris-Esstisch-ca-200-x-100-cm::106174.html",
-"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/106174_0.jpg"
-}
-],
-"tags": [
-"connubia by calligaris",
-"Steintisch",
-"Keramik/Sinterstein",
-"Rechteckig 200 cm"
-],
-"premium": true,
-"description": "Platte: Keramik-Glas Arenaria (Feinsteinzeug 3 mm + Floatglas 8 mm) · Gestell: Gestell Metall lava matt · Größe: 200 × 100 × 76 cm, rechteckig, Platz für 6–8 Personen · ausziehbar auf 280 cm (Klappverlängerung 80 cm) · Preis Möbel Letz (online-moebel-kaufen.de) für diese Ausführung",
-"mount": "floor",
-"resizable": false,
-"concepts": [
-4
-]
 },
 {
 "id": "wes-dimmbare-stehlampe-kushi-mundgeblasen-kdln",

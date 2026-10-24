@@ -5,6 +5,47 @@ import { ellipseShape, organicShape, roundRectShape } from "../geom";
 const topMat = (c: Ctx) => c.m("top", c.slots.main ?? OAK);
 const baseMat = (c: Ctx) => c.m("legs", c.slots.main ?? BLACK);
 
+type V3 = [number, number, number];
+
+/** Ebenes Blechdreieck als dünnes Prisma (flache Normalen → sichtbare Kantung zwischen zwei Dreiecken). */
+function plateTri(b: Ctx["b"], p: [V3, V3, V3], th: number, mat: THREE.Material) {
+  const [a, c, e] = p.map((q) => new THREE.Vector3(...q));
+  const n = c.clone().sub(a).cross(e.clone().sub(a)).normalize().multiplyScalar(th / 2);
+  const up = [a, c, e].map((v) => v.clone().add(n));
+  const dn = [a, c, e].map((v) => v.clone().sub(n));
+  const tris: THREE.Vector3[] = [up[0], up[1], up[2], dn[0], dn[2], dn[1]];
+  for (let i = 0; i < 3; i++) {
+    const j = (i + 1) % 3;
+    tris.push(dn[i], dn[j], up[j], dn[i], up[j], up[i]);
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute("position", new THREE.Float32BufferAttribute(tris.flatMap((v) => [v.x, v.y, v.z]), 3));
+  b.add(g, mat);
+}
+
+/**
+ * Gekanteter V-Mittelfuß (DELIFE Edge): zwei verwundene Stahlbleche, je mit der Standkante quer an einem Tischende
+ * und der Oberkante diagonal unter der Tischmitte; in der Seitenansicht überkreuzen sie sich (X), stirnseitig trapezförmig
+ * (50 cm unten, ca. 31 cm oben). Darüber flacher Rahmen mit Mittelplatte (2 cm), Platte 1 cm.
+ */
+function edgeBase(c: Ctx, y0: number, L: THREE.Material) {
+  const { w, d, b } = c;
+  const fx = w * 0.4, fz = d * 0.25, tx = w * 0.14, tz = d * 0.155, yb = y0 - 0.02, th = 0.008;
+  for (const sx of [-1, 1]) {
+    // Standkante quer am Tischende, Oberkante diagonal: hinten auf der eigenen Seite, vorn auf der Gegenseite
+    const A: V3 = [sx * fx, 0, -fz], B: V3 = [sx * fx, 0, fz];
+    const C: V3 = [-sx * tx, yb, tz], D: V3 = [sx * tx, yb, -tz];
+    // Kantung von der vorderen Standecke zur hinteren Oberecke
+    plateTri(b, [A, B, D], th, L);
+    plateTri(b, [B, C, D], th, L);
+  }
+  // Rahmen unter der Platte: Längs-/Querzargen 30 × 20 mm, Mittelplatte über den Blechoberkanten
+  const rx = w / 2 - 0.07, rz = d * 0.31;
+  for (const sz of [-1, 1]) b.box(2 * rx, 0.02, 0.03, L, 0, yb, sz * rz);
+  for (const sx of [-1, 1]) b.box(0.03, 0.02, 2 * rz, L, sx * rx, yb, 0);
+  b.box(w * 0.32, 0.008, 2 * rz, L, 0, yb, 0);
+}
+
 export function tableRect(c: Ctx) {
   const { w, d, h, p, b } = c;
   const T = topMat(c);
@@ -16,6 +57,10 @@ export function tableRect(c: Ctx) {
   const lx = w / 2 - inset, lz = d / 2 - inset;
   const style = str(p, "legStyle", "round");
   const y0 = h - t;
+  if (style === "edge") {
+    edgeBase(c, y0, L);
+    return;
+  }
   if (str(p, "base", "legs") === "panel") {
     for (const sx of [-1, 1]) b.box(0.05, h - t, d * 0.8, L, sx * (w / 2 - 0.15), 0, 0);
   } else if (style === "xframe") {

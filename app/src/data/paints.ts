@@ -118,6 +118,7 @@ export const MATERIAL_LABELS: Record<MaterialKey, string> = {
   marble: "Marmor",
   granite: "Naturstein poliert",
   marbleGreen: "Marmor grün",
+  marbleNoir: "Keramik Noir Désir",
   stone: "Stein/Beton",
   ceramic: "Keramik",
   glass: "Glas",
