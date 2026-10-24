@@ -1,7 +1,7 @@
 # Einrichtungsplaner WE 13
 
 Windows-Desktop-Anwendung zum maßstabsgetreuen Möblieren und Gestalten der Wohnung **WE 13** in 2D und 3D –
-mit Katalog hochwertiger Produkte von **Westwing, IKEA, JYSK, Tylko, Höffner, BoConcept**, Markentischen von **Mobitec, Musterring,
+mit Katalog hochwertiger Produkte von **Westwing, IKEA, JYSK, Tylko, Höffner, BoConcept, DELIFE**, Markentischen von **Mobitec, Musterring,
 bert plantagie und connubia by calligaris** und Designleuchten von **lampe.de**
 (Artemide, Tecnolumen, Serien Lighting, Bopp, Grossmann u. a.), **Samsung The Frame** und den vier vollständig
 übernommenen Möblierungskonzepten.
@@ -49,6 +49,16 @@ statt eingefärbter Marmortextur), der Fuß ist nach Maßzeichnung als zwei geka
 der Seitenansicht überkreuzen (Standkanten 160 cm auseinander, 50 cm breit), mit flachem Rahmen unter der Platte.
 Stühle, Teppiche und Pendelleuchten (50–60 % der Tischlänge) bleiben.
 
+**Version 2.0.7** nimmt das **komplette DELIFE-Sortiment** in den Katalog auf: 1.190 Produkte mit allen Ausführungen
+(Bezüge, Farben, Gestellarten und -farben, Plattendekore und -stärken, Ausrichtung links/rechts) mit eigenem Preis,
+Shop-Link und Produktfoto, Bezugsfarben aus den Produktfotos gemessen. Das Stuhlsystem **Flex** (Schalenform,
+Steppung, 4-Fuß konisch, Kreuz-, Kufen-, Holz-, Säulen- und Freischwingergestelle, Drehfunktion), die Tischgestelle
+(U-, Schräg-, Spinnen-, Glas-, Säulen-, Konus- und Bandgestelle, Oval-, Rund- und Bootsplatten, Baumkante), die
+Eckbank Taya-Flex, Ecksofas mit Ottomane links/rechts, zweifarbige Bezüge und Sideboards mit offenen Fächern sind in 2D
+und 3D nachgebaut; neues Material **Mikrofaser** (Velours-/Vintage-Optik). Am Essplatz aller vier Konzepte stehen jetzt
+**DELIFE-Flex-Polsterstühle in Taupe** mit schwarzem Gestell, passend zum V-Mittelfuß des Edge (6 Stühle + Nischenplatz,
+gleiche Ausrichtung, Armlehnen unter der Tischplatte); die Teppiche zeigen ihr Webmuster.
+
 ## Funktionen
 
 | Bereich | Umfang |
@@ -58,8 +68,8 @@ Stühle, Teppiche und Pendelleuchten (50–60 % der Tischlänge) bleiben.
 | Grundriss | exakt aus der Vektor-PDF rekonstruiert (Wandpolygone, Raumpolygone, 16 Öffnungen mit Rohbaubreiten, 8°-Flügel), Raumhöhe 2,56 m, Flächen identisch mit den Raumstempeln |
 | 2D-Plan | Bodenbeläge in echter Farbe mit maßstäblichem Dielen-, Fischgrät-, Fliesen- oder Terrazzobild in Verlegerichtung, weiche Möbelschatten, Raumstempel mit Fläche und lichten Maßen, Werkzeugleiste aus Glas, Zoomleiste (+/−, Prozent = einpassen), Nordpfeil, Abstandsmaß anklicken = exakten Wandabstand eingeben, maßstäblich (cm), Drag & Drop aus dem Katalog, Wandfang (Rückseite automatisch zur Wand drehen, bündig, Eckfang, grüne Hilfslinien), Ablage auf Möbeln (Leuchten, Deko, TV), Mitbewegen aufgestellter Objekte, Ausrichten/Verteilen, Drehen mit 15°/8°-Raster, Größenänderung, Abstandsmaße zu den Wänden, Messwerkzeug, Mehrfachauswahl, Kollisionsanzeige, Positionsnummern |
 | 3D | Auswahlkontur und Maßangabe (B × T × H) am gewählten Objekt, Verlaufshintergrund passend zum Design, Bodenplatte unter der Wohnung, Blickrichtungsrose (N/O/S/W, Draufsicht), Holzmaserung in Verlegerichtung der Dielen, PBR-Materialien (CC0-Texturen), Sonnenstand nach Datum, Uhrzeit, Standort und Nordrichtung (NOAA, MEZ/MESZ) mit Tagesverlauf-Animation, Sonne fällt nur durch Fenster (Decke und volle Wandhöhe werfen immer Schatten), Abendlicht aus den Lichtpunkten der Leuchtenmodelle (Lumen, Lichtfarbe 2700–4000 K), Raumansichten auf Augenhöhe, gespeicherte Ansichten, Brennweite, Foto-Export Full HD/4K, Rundgang mit Möbelkollision und Sitzhöhe, Spiegelungen und indirektes Licht aus einer Umgebungssonde der Wohnung (mehrere Lichtsprünge, Himmel und Außenboden durch die Fenster), Belichtungsautomatik, Neutral-Tone-Mapping, Rendern nur bei Änderungen, Ambient Occlusion, Wandmodus **Auto** wie bei Die Sims (Wände, die Teile der Wohnung verdecken, werden kameraabhängig auf 15 cm gekappt; Wandobjekte bleiben sichtbar und werden von hinten durchscheinend), außerdem voll/Schnitt 1,30 m/flach, Taste W wechselt, Rundgang (WASD, Start mit längster Sichtachse), Türen öffnen, Ziehen und Ablegen von Objekten in 3D mit gleichem Fang, Fokus per Doppelklick/F |
-| Katalog | 5.427 Produkte mit 12.432 Hersteller-Ausführungen, jede mit eigenem Preis, Shop-Link und Produktfoto (Stand 24.10.2026): IKEA mit dem vollständigen Ausführungs-Wähler der Produktseite (z. B. SÖDERHAMN 3er-Sofa 19 Bezüge, BESTÅ Korpus/Front-Kombinationen inkl. Rahmenfronten), getrennte Achsen wie **Bezug × Gestell** (POÄNG, LANDSKRONA, SALTSJÖBADEN …); Westwing je Produktfamilie mit allen Farb-/Stoffausführungen, Farbe aus dem **Original-Stoffmuster** gemessen; Konzeptprodukte zusätzlich mit allen Ausführungen des Shopartikels; JYSK-Premiumklasse, Tylko Original/Tone/Smooth, Stein-/Marmortische von Höffner und BoConcept, rechteckige Keramiktische 200 × 100 cm von Mobitec, Musterring, bert plantagie, connubia und DELIFE (Edge), 870 Designleuchten von lampe.de, Samsung The Frame 43–85″, OBI-Wandpaneele. Maße plausibilisiert (Raumhöhe 2,56 m als Obergrenze), Stoffe wie Bouclé, Chenille, Melange, Cord, Samt unterscheidbar; Filter nach Händler, Kategorie, **Farbe**, **Material**, Preis, **Breite** („passt in die Lücke“), „Premium“ – einklappbar mit Zähler und „Filter zurücksetzen“; **Rasteransicht** mit großen Vorschaubildern oder Liste; **Merkliste** (Stern) und **Zuletzt platziert**; Ausführungs-Punkte auf jeder Karte |
-| Konzepte | alle Positionen der vier Konzepte (Travertin·Kupfer·Salbei, Espresso·Petrol·Chrom, Stone·Petrol·Salbei, Ivory·Petrol·Messing) lagegenau, Budgets centgenau wie in den PDFs; Essplatz seit 2.0.5 mit rechteckigem Keramiktisch 200 × 100 cm für 6 Personen aus dem Katalog (siehe Tabelle unten), die Tische der PDFs und der Versionen 2.0.1–2.0.4 bleiben im Katalog |
+| Katalog | 6.616 Produkte mit 19.398 Hersteller-Ausführungen, jede mit eigenem Preis, Shop-Link und Produktfoto (Stand 24.10.2026): IKEA mit dem vollständigen Ausführungs-Wähler der Produktseite (z. B. SÖDERHAMN 3er-Sofa 19 Bezüge, BESTÅ Korpus/Front-Kombinationen inkl. Rahmenfronten), getrennte Achsen wie **Bezug × Gestell** (POÄNG, LANDSKRONA, SALTSJÖBADEN …); Westwing je Produktfamilie mit allen Farb-/Stoffausführungen, Farbe aus dem **Original-Stoffmuster** gemessen; Konzeptprodukte zusätzlich mit allen Ausführungen des Shopartikels; JYSK-Premiumklasse, Tylko Original/Tone/Smooth, Stein-/Marmortische von Höffner und BoConcept, rechteckige Keramiktische 200 × 100 cm von Mobitec, Musterring, bert plantagie, connubia und DELIFE (Edge), das komplette DELIFE-Sortiment (Stühle, Tische, Sofas, Betten, Sideboards, Deko), 870 Designleuchten von lampe.de, Samsung The Frame 43–85″, OBI-Wandpaneele. Maße plausibilisiert (Raumhöhe 2,56 m als Obergrenze), Stoffe wie Bouclé, Chenille, Mikrofaser, Melange, Cord, Samt unterscheidbar; Filter nach Händler, Kategorie, **Farbe**, **Material**, Preis, **Breite** („passt in die Lücke“), „Premium“ – einklappbar mit Zähler und „Filter zurücksetzen“; **Rasteransicht** mit großen Vorschaubildern oder Liste; **Merkliste** (Stern) und **Zuletzt platziert**; Ausführungs-Punkte auf jeder Karte |
+| Konzepte | alle Positionen der vier Konzepte (Travertin·Kupfer·Salbei, Espresso·Petrol·Chrom, Stone·Petrol·Salbei, Ivory·Petrol·Messing) lagegenau, Budgets centgenau wie in den PDFs; Essplatz seit 2.0.5 mit rechteckigem Keramiktisch 200 × 100 cm für 6 Personen aus dem Katalog, seit 2.0.7 mit DELIFE-Stühlen in Taupe (siehe Tabelle unten), die Tische und Stühle der PDFs und früherer Versionen bleiben im Katalog |
 | Gestaltung | Wandfarbe (Alpina, Schöner Wohnen, Farrow & Ball u. a.), Kalkfarbe, Tapeten, Holzlamellen, Holzpaneele, Kassetten-Vertäfelung, Fliesen, Naturstein, Mikrozement, Sockelzone; Bodenbeläge per Vorlage (Bestand: Eichendielen 1,90 m, Bäder/HWR Feinsteinzeug 60×60 „Iron“; Fischgrät, Chevron, Räuchereiche, Nussbaum, Travertin, Marmor, Terrazzo, Mikrozement, Teppich), Decke (Farbe, Holzlamellen, Holzpaneel, Sichtbeton, Stuckprofil), Sockelleisten (Höhe, Farbe, Material), Innentüren (Farbe, glatt/Kassette/Nut, Beschläge), Fensterrahmen, Farbstimmung für die ganze Wohnung – je Raum, je Wand oder mit einem Klick für Wohnräume/Nassräume/alle |
 | Arbeitsablauf | Startseite (Konzept, leere Wohnung, Datei, zuletzt verwendet), Befehlssuche **Strg+K** (Befehle, Räume, Objekte, Katalogprodukte), benannte Undo-/Redo-Schritte (Pfeiltasten-/Drehschritte zusammengefasst), Hinweis mit „Rückgängig“ nach Löschen/Konzept laden, Kopieren/Ausschneiden/Einfügen an der Mausposition (Strg+C/X/V), Sperren **L** / Ausblenden **H**, Ansicht **1/2/3**, Statusleiste mit Kontexthinweisen und Speicherstand, Fenstertitel mit Datei und ●-Markierung, Abfrage beim Schließen mit ungespeicherten Änderungen, verständliche Fehlermeldungen beim Speichern/Öffnen/Export, Dateipfad und Ansichtseinstellungen bleiben über Neustarts erhalten; Fenstergröße und -position werden gespeichert; `.we13`-Dateien öffnen per Doppelklick im Explorer (auch in die laufende App) oder per Ziehen ins Fenster; Befehlssuche merkt sich zuletzt benutzte Befehle; Hinweis auf neue Versionen (GitHub-Releases, abschaltbar) |
 | Bedienung | Möbel nur bei direktem Treffer greifbar, Verschieben erst ab 4 px Mausweg, Teppiche erst nach Auswahl verschiebbar; Plan: Ziehen auf freier Fläche verschiebt die Ansicht, Umschalt+Ziehen = Auswahlrahmen; 3D: links drehen, rechts/Mitte verschieben, Zoom zum Mauszeiger |
@@ -75,14 +85,20 @@ Stühle, Teppiche und Pendelleuchten (50–60 % der Tischlänge) bleiben.
 | Budget | nach Raum/Händler/Kaufstatus, Kaufstatus je Position (geplant → bestellt → geliefert → aufgebaut) mit Summe „offen“, Rahmen, Einkaufsliste CSV (Excel) mit Status, Druck/PDF mit Abhakspalte |
 | Export | Projektdatei `.we13` (Format unverändert, Dateien aus 1.x öffnen weiter), 3D-Ansicht PNG, Grundriss PNG (dreifache Auflösung) und SVG – immer im hellen Design –, eigene GLB-Modelle importieren |
 
-### Essplatz der Konzepte (ab 2.0.6)
+### Essplatz der Konzepte (ab 2.0.7)
 
-| Konzept | Esstisch (in allen Konzepten: DELIFE Edge, 200 × 100 × 74 cm, Keramik Laminam® Noir Désir Braun, V-Mittelfuß schwarz) | Stühle (6 + Nischenplatz) | Teppich | Pendelleuchte (Anteil Tischlänge) |
-|---|---|---|---|---|
-| 1 Travertin · Kupfer · Salbei | DELIFE Edge | Westwing Adrien, Bouclé Olivgrün / Metall Schwarz | IKEA STOCKHOLM 2025, Wolle handgewebt, 240 × 300, Grün/Weiß/Schwarz | Paul Neuhaus BOWL, Braun / Rauchglas, 12 Kugeln, 120 cm (60 %) |
-| 2 Espresso · Petrol · Chrom | DELIFE Edge | Westwing Jordan, Leder Braun / Chrom | IKEA STOCKHOLM 2025, Wolle handgewebt, 240 × 300, Grau/Weiß/Schwarz | Holländer CASTELLO, Silber, 105 cm (53 %) |
-| 3 Stone · Petrol · Salbei | DELIFE Edge | Mobitec Aura, Flachgewebe Berry silver / Metall black | IKEA STOCKHOLM 2025, Wolle handgewebt, 240 × 350, Schwarz/Weiß/Hellgrün | SCHÖNER WOHNEN DUBAI, Schwarz / Rauchglas, 13 Kugeln, 118 cm (59 %) |
-| 4 Ivory · Petrol · Messing | DELIFE Edge | Westwing Tess, Samt Hellbeige / Gold matt | Layered Stripe, Wolle handgewebt, 250 × 350, Greige | Holländer FARAONE, Gold, 115 cm (58 %) |
+In allen Konzepten: **DELIFE Esstisch Edge**, 200 × 100 × 74 cm, Keramik Laminam® Noir Désir Braun, V-Mittelfuß schwarz.
+Stühle (6 + Nischenplatz, je 7 Stück): DELIFE Flex, Bezug **Taupe**, Gestell Schwarz; Maße B × T × H, Sitz- und Armlehnenhöhe laut Datenblatt.
+
+| Konzept | Stühle | Maße / Sitz / Arm (cm) | Preis je Stuhl | Teppich | Pendelleuchte (Anteil Tischlänge) |
+|---|---|---|---|---|---|
+| 1 Travertin · Kupfer · Salbei | Zelia-Flex mit Armlehnen, 4-Fuß konisch, Mikrofaser Taupe Vintage, senkrecht gesteppter Rücken | 60 × 63 × 93 / 53 / 64 | 229,90 € | IKEA STOCKHOLM 2025, Wolle handgewebt, 240 × 300, Grün/Weiß/Schwarz | Paul Neuhaus BOWL, Braun / Rauchglas, 12 Kugeln, 120 cm (60 %) |
+| 2 Espresso · Petrol · Chrom | Pejo-Flex Freischwinger flach, Mikrofaser Taupe Vintage, Quernaht | 58 × 63 × 85 / 48 / 65 | 129,90 € | IKEA STOCKHOLM 2025, Wolle handgewebt, 240 × 300, Grau/Weiß/Schwarz | Holländer CASTELLO, Silber, 105 cm (53 %) |
+| 3 Stone · Petrol · Salbei | Nube-Flex, 4-Fuß konisch, Strukturstoff Soft Taupe, ovale Rückenlehne | 54 × 65 × 83 / 48 / – | 199,90 € | IKEA STOCKHOLM 2025, Wolle handgewebt, 240 × 350, Schwarz/Weiß/Hellgrün | SCHÖNER WOHNEN DUBAI, Schwarz / Rauchglas, 13 Kugeln, 118 cm (59 %) |
+| 4 Ivory · Petrol · Messing | Greg-Flex, 4-Fuß konisch, Mikrofaser Taupe Vintage, senkrecht gesteppter Rücken | 56 × 58 × 85 / 47 / 67 | 189,90 € | Layered Stripe, Wolle handgewebt, 250 × 350, Greige | Holländer FARAONE, Gold, 115 cm (58 %) |
+
+Die Armlehnen (64–67 cm) passen unter die Platte (Unterkante 73 cm, ohne Zarge); die Stühle stehen wie zuvor mit der
+Sitzkante 12 cm unter der Tischkante, 65 cm Achsabstand.
 
 Länger als 2,0 m darf der Tisch nicht sein: Zwischen Sofarücken und Sideboard bleiben 3,58 m.
 Tische stehen mittig zwischen Sofarücken und Sideboard (≥ 80 cm Bewegungsfläche vor dem Sideboard, 1,1–1,6 m hinter
@@ -124,6 +140,7 @@ BoConcept in der Standardkonfiguration, Möbel Letz für die abgebildete Ausfüh
 | | Möbel Letz | bert plantagie Aiven, Keramik dark marble | 200 × 99,6 × 77 | 2.731,90 € |
 | | Möbel Letz | connubia Master, Keramik-Glas Arenaria, ausziehbar bis 280 | 200 × 100 × 76 | 1.984,75 € |
 | | DELIFE | Edge, Keramik Laminam® Noir Désir Braun auf Sicherheitsglas, V-Mittelfuß schwarz | 200 × 100 × 74 | 769,90 € |
+| | DELIFE | weitere 131 längliche Keramiktische (Edge in 180–300 cm mit allen Gestellen und Laminam®-Dekoren, Oval- und Bootsformen) – Händlerfilter „DELIFE“ + Suche „Steintisch“ | 180–315 cm | laut DELIFE-Shop |
 | **Marmoroptik als Dekor** | Westwing | Carl (Dekorpapier) | 180 × 90 × 76 | 809 € |
 | | IKEA | MARIEDAMM, schwarz marmoriert | 180 × 100 × 75 | 349 € |
 | | JYSK | KRONDAL (Melamin), Marmor schwarz oder Travertin | 180 × 90 × 77 | 169 € |
@@ -169,6 +186,9 @@ Architektur: Tauri 2 (Rust) · React 19 · TypeScript · three.js / React Three 
 | `research/scrape_*.py`, `enrich_ikea.py` | Händlerdaten (Westwing inkl. aller Ausführungsseiten, IKEA, JYSK, Tylko-Feed über ladendirekt, lampe.de, Höffner- und BoConcept-Esstische), Stand 24.10.2026 |
 | `research/scrape_ikea_options.py` | IKEA-Ausführungs-Wähler je Produkt (alle Bezüge/Farben/Kombinationen mit Preis, Link, Bild) |
 | `research/swatch_colors.py` | Farbwert der Westwing-Stoffmuster (linear gemittelt, Schatten/Glanz ausgeblendet) |
+| `research/scrape_delife.py` | DELIFE-Sortiment (Shopware-Sitemap, je Ausführung eine Artikelseite: JSON-LD, Ausführungs-Wähler, Produktdetails), Stand 24.10.2026 |
+| `research/delife_colors.py` | Bezugsfarbe der DELIFE-Ausführungen aus dem Freisteller-Produktfoto (oberer Objektteil, linear gemittelt) |
+| `delife.py` | DELIFE → Katalog: Gruppierung je Familie/Gestell/Maß, Ausführungsachsen, Flex-Schalen und Gestelle, Tisch-/Plattenformen, Farbfamilie aus dem Ausführungsnamen |
 | `build_catalog.py` | Gesamtkatalog `app/src/data/catalog.json` (Ausführungstexte → Bauteilfarben über `finish.py`, Ausführungsachsen, Konzeptprodukte ergänzen) und `catalogAliases.json` (frühere IDs → neue IDs) |
 | `finish.py`, `test_finish.py` | Farb-/Materialparser für Händler-Ausführungen (IKEA-Bezugsnamen, Holzarten, Stein, Glas, Metall) inkl. Regressionstests |
 | `audit_catalog.py` | Qualitätsprüfung: Variantenname ↔ Farbe, gleich aussehende Varianten, Maße je Archetyp |

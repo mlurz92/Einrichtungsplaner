@@ -1,6 +1,6 @@
 [package]
 name = "einrichtungsplaner-we13"
-version = "2.0.6"
+version = "2.0.7"
 description = "Maßstabsgetreuer 2D/3D-Einrichtungsplaner für Wohnung WE 13"
 authors = ["mlurz92"]
 edition = "2021"

@@ -61,7 +61,7 @@ function axisSlot(c: CatalogItem, axis: number): Slot {
 
 function familyOf(v: CatalogVariant): string {
   const first = v.name.split(/[\s/,]+/)[0]?.toLowerCase() ?? "";
-  const known = ["bouclé", "boucle", "cord", "samt", "leder", "kunstleder", "webstoff", "leinen", "leinen-mix", "teddy", "chenille", "strukturstoff", "flachgewebe", "wolle", "kunstfell"];
+  const known = ["bouclé", "boucle", "cord", "samt", "leder", "kunstleder", "webstoff", "leinen", "leinen-mix", "teddy", "chenille", "mikrofaser", "strukturstoff", "flachgewebe", "wolle", "kunstfell"];
   if (known.includes(first)) return first.charAt(0).toUpperCase() + first.slice(1);
   const p = primarySlot(v.slots);
   return MATERIAL_GROUPS.find((g) => g.id === (p ? materialGroup(p.material) : ""))?.label ?? "Weitere";

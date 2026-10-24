@@ -85,7 +85,7 @@ export function colorFamily(hex: string): string {
 export const MATERIAL_GROUPS: { id: string; label: string; keys: MaterialKey[] }[] = [
   { id: "boucle", label: "Bouclé & Teddy", keys: ["boucle", "boucleMel", "teddy", "fur"] },
   { id: "samt", label: "Samt & Cord", keys: ["velvet", "cord"] },
-  { id: "stoff", label: "Webstoff & Leinen", keys: ["fabric", "melange", "chenille", "linen", "wool"] },
+  { id: "stoff", label: "Webstoff & Leinen", keys: ["fabric", "melange", "chenille", "microfiber", "linen", "wool"] },
   { id: "leder", label: "Leder", keys: ["leather"] },
   { id: "holzhell", label: "Holz hell", keys: ["oak", "ash"] },
   { id: "holzdunkel", label: "Holz dunkel", keys: ["oakDark", "walnut", "burl", "mango"] },

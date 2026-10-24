@@ -57,15 +57,36 @@ export function sideboard(c: Ctx) {
   const legH = num(p, "legHeight", 0.12);
   const doors = Math.max(1, Math.round(num(p, "doors", Math.max(2, Math.round(w / 0.45)))));
   const drawers = Math.round(num(p, "drawers", 0));
+  const open = Math.round(num(p, "open", 0));
   const style = str(p, "front", "flat");
   b.rbox(w, h - legH, d - 0.02, 0.008, M, 0, legH, -0.01, 2);
   const z = d / 2 - 0.01;
-  if (drawers > 0) {
-    const dw = (w - 0.04) / doors;
-    fronts(c, -w / 2 + 0.02, -w / 2 + 0.02 + dw * (doors - 1), legH + 0.02, h - 0.02, z, doors - 1, 1, style, str(p, "handle", style === "ribbed" ? "none" : "bar"));
-    fronts(c, -w / 2 + 0.02 + dw * (doors - 1), w / 2 - 0.02, legH + 0.02, h - 0.02, z, 1, drawers, style, "pull");
-  } else {
-    fronts(c, -w / 2 + 0.02, w / 2 - 0.02, legH + 0.02, h - 0.02, z, doors, 1, style, str(p, "handle", style === "ribbed" ? (c.slots.detail ? "bar" : "none") : "none"));
+  // Spalten: Türen, Schubladenturm (rechts), offene Fächer (openPos center = mittig, sonst rechts außen)
+  const kinds: ("door" | "drawer" | "open")[] = Array(drawers > 0 && !open ? doors - 1 : doors).fill("door");
+  if (drawers > 0) kinds.push("drawer");
+  if (open > 0) {
+    const at = str(p, "openPos", "end") === "center" ? Math.floor(kinds.length / 2) : kinds.length;
+    kinds.splice(at, 0, ...Array(open).fill("open"));
+  }
+  const cw = (w - 0.04) / kinds.length;
+  const handle = str(p, "handle", style === "ribbed" ? (c.slots.detail ? "bar" : "none") : drawers > 0 ? "bar" : "none");
+  const niche = getMaterial({ color: "#2a2623", material: "matte" });
+  for (let i = 0; i < kinds.length; ) {
+    let j = i;
+    while (j < kinds.length && kinds[j] === kinds[i] && kinds[i] !== "drawer") j++;
+    if (j === i) j = i + 1;
+    const x0 = -w / 2 + 0.02 + cw * i, x1 = -w / 2 + 0.02 + cw * j;
+    if (kinds[i] === "door") fronts(c, x0, x1, legH + 0.02, h - 0.02, z, j - i, 1, style, handle);
+    else if (kinds[i] === "drawer") fronts(c, x0, x1, legH + 0.02, h - 0.02, z, 1, drawers, style, "pull");
+    else {
+      // offenes Fach: dunkle Rückwand-/Schattenfläche und Fachboden
+      for (let k = i; k < j; k++) {
+        const xc = -w / 2 + 0.02 + cw * (k + 0.5);
+        b.box(cw - 0.03, h - legH - 0.05, 0.004, niche, xc, legH + 0.025, z - 0.002);
+        if (h - legH > 0.45) b.box(cw - 0.03, 0.018, 0.02, M, xc, legH + (h - legH) / 2, z);
+      }
+    }
+    i = j;
   }
   legsOrPlinth(c, legH, 0.08);
 }

@@ -33,6 +33,8 @@ export const MAT_DEFS: Record<MaterialKey, MatDef> = {
   melange: { tex: "weave", normalTex: "weave", scale: 0.18, roughness: 0.95, sheen: 0.3, sheenRoughness: 0.85, normalScale: 1.1, contrast: 1.0 },
   // Chenille (Kilanda, Westwing Chenille): weicher Flor mit leichtem Glanz
   chenille: { tex: "velvet", normalTex: "fabric", scale: 0.3, roughness: 0.85, sheen: 0.8, sheenRoughness: 0.55, normalScale: 0.7, contrast: 0.55 },
+  // Mikrofaser in Velours-/Vintage-Optik (DELIFE Flex): matter, kurzer Flor, leicht wolkige Farbstreuung
+  microfiber: { tex: "fabric", normalTex: "fabric", scale: 0.4, roughness: 0.95, sheen: 0.3, sheenRoughness: 0.8, normalScale: 0.4, contrast: 0.5 },
   // Bouclé meliert: Bouclé mit deutlicherer Farbstreuung
   boucleMel: { tex: "boucle", normalTex: "boucle", scale: 0.1, roughness: 1, sheen: 0.5, sheenRoughness: 0.9, normalScale: 1.7, contrast: 1.6 },
   // Kunstfell: langer, dichter Flor

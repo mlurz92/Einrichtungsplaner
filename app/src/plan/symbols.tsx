@@ -44,8 +44,26 @@ export function PlanSymbol({ it, arch }: { it: PlacedItem; arch: Archetype }) {
         </g>
       );
     }
-    case "sofaCorner":
-      return <g>{R(x0, y0, w, d * 0.45, 8)}{R(x0 + w * 0.6, y0, w * 0.4, d, 8)}{R(x0, y0, w, 20, 4, light)}</g>;
+    case "sofaCorner": {
+      // Ottomane/Recamiere an der Seite laut Ausführung (Front = +y: rechts = +x)
+      const cw = Math.min(w / 2, Number(it.params?.chaiseWidth ?? 0.95) * 100);
+      const cx = String(it.params?.side ?? "right") === "left" ? x0 : x0 + w - cw;
+      return <g>{R(x0, y0, w, d * 0.45, 8)}{R(cx, y0, cw, d, 8)}{R(x0, y0, w, 20, 4, light)}</g>;
+    }
+    case "benchFlex": {
+      const corner = Boolean(it.params?.corner);
+      const bd = corner ? Math.min(d / 2, Number(it.params?.benchDepth ?? 0.69) * 100) : d;
+      const left = String(it.params?.side ?? "right") === "left";
+      const back = it.params?.back === false ? 0 : 12;
+      return (
+        <g>
+          {R(x0, y0, w, bd, 5)}
+          {back > 0 && R(x0, y0, w, back, 3, light)}
+          {corner && R(left ? x0 : x0 + w - bd, y0 + bd - 1, bd, d - bd + 1, 5)}
+          {corner && back > 0 && R(left ? x0 : x0 + w - back, y0, back, d, 3, light)}
+        </g>
+      );
+    }
     case "sofaRound":
       return <g><path d={`M${x0},${y0 + d * 0.5} Q${x0},${y0} ${0},${y0} Q${-x0},${y0} ${-x0},${y0 + d * 0.5} Q${-x0},${-y0} 0,${-y0} Q${x0},${-y0} ${x0},${y0 + d * 0.5}Z`} fill={fill} stroke={stroke} strokeWidth={sw} /><path d={`M${x0 + 15},${y0 + d * 0.45} Q0,${y0 + 15} ${-x0 - 15},${y0 + d * 0.45}`} fill="none" stroke={stroke} strokeWidth={sw} /></g>;
     case "armchairRound":
@@ -53,6 +71,18 @@ export function PlanSymbol({ it, arch }: { it: PlacedItem; arch: Archetype }) {
     case "diningArmchair":
     case "armchairWing":
       return <g><rect x={x0} y={y0} width={w} height={d} rx={Math.min(w, d) * 0.42} fill={fill} stroke={stroke} strokeWidth={sw} /><rect x={x0 + w * 0.18} y={y0 + d * 0.22} width={w * 0.64} height={d * 0.62} rx={Math.min(w, d) * 0.25} fill={light} stroke={stroke} strokeWidth={sw * 0.7} /></g>;
+    case "chairFlex": {
+      // Polsterschale von oben: Rücken als Band hinten, Armlehnen seitlich, Sitz mit runden Vorderecken
+      const shell = String(it.params?.shell ?? "arm");
+      const t = Math.min(8, w * 0.13);
+      const r = shell === "tub" || shell === "shell" ? Math.min(w, d) * 0.4 : Math.min(w, d) * 0.22;
+      return (
+        <g>
+          <rect x={x0} y={y0} width={w} height={d} rx={r} fill={fill} stroke={stroke} strokeWidth={sw} />
+          {R(x0 + (shell === "arm" || shell === "tub" ? t : 2), y0 + t, w - 2 * (shell === "arm" || shell === "tub" ? t : 2), d - t - 2, Math.min(w, d) * 0.18, light)}
+        </g>
+      );
+    }
     case "diningChair":
     case "cantilever":
     case "barStool":
@@ -71,6 +101,15 @@ export function PlanSymbol({ it, arch }: { it: PlacedItem; arch: Archetype }) {
     case "bowl":
     case "candles":
       return <ellipse cx={0} cy={0} rx={w / 2} ry={d / 2} fill={fill} stroke={stroke} strokeWidth={sw} />;
+    case "tableRect": {
+      const shape = String(it.params?.shape ?? "rect");
+      if (shape === "oval" || shape === "round") return <ellipse cx={0} cy={0} rx={w / 2} ry={d / 2} fill={fill} stroke={stroke} strokeWidth={sw} />;
+      if (shape === "boat") {
+        const e = d * 0.39;
+        return <path d={`M${x0},${-e} Q0,${-d / 2 - (d / 2 - e)} ${-x0},${-e} L${-x0},${e} Q0,${d / 2 + (d / 2 - e)} ${x0},${e} Z`} fill={fill} stroke={stroke} strokeWidth={sw} />;
+      }
+      return R(x0, y0, w, d, Math.min(8, Number(it.params?.radius ?? 0.01) * 100));
+    }
     case "tableOval":
       return <ellipse cx={0} cy={0} rx={w / 2} ry={d / 2} fill={fill} stroke={stroke} strokeWidth={sw} />;
     case "coffeeDuo": {
