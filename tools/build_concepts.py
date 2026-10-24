@@ -225,18 +225,24 @@ class Builder:
             "url": p["url"], "note": p["note"], "category": category,
         })
 
-    def existing(self, label, category, arch, x, y, rot, dims, slots, mount="floor", params=None, elev=0.0):
-        cid = "bestand-" + re.sub(r"[^a-z0-9]+", "-", label.lower())[:40]
+    def existing(self, label, category, arch, x, y, rot, dims, slots, mount="floor", params=None, elev=0.0, cid=None, built_in=False, description=None):
+        cid = cid or "bestand-" + re.sub(r"[^a-z0-9]+", "-", label.lower())[:40]
         if cid not in CATALOG:
             CATALOG[cid] = {"id": cid, "vendor": "Bestand", "name": label, "category": category,
                             "w": round(dims[0] * 100, 1), "d": round(dims[1] * 100, 1), "h": round(dims[2] * 100, 1),
                             "price": 0, "archetype": arch, "params": params or {}, "mount": mount,
-                            "variants": [{"name": "Bestand", "slots": slots}], "tags": ["Bestand"], "concepts": []}
+                            "variants": [{"name": "Bestand", "slots": slots}], "tags": ["Bestand"] + (["Einbau"] if built_in else []), "concepts": [],
+                            "resizable": False if built_in else None}
+            if CATALOG[cid]["resizable"] is None:
+                del CATALOG[cid]["resizable"]
+            if description:
+                CATALOG[cid]["description"] = description
+        extra = {"builtIn": True} if built_in else {}
         self.items.append({
             "id": hashlib.md5(f"{self.n}-x-{label}-{x}-{y}".encode()).hexdigest()[:10], "catalogId": cid,
             "label": label, "x": round(x, 4), "y": round(y, 4), "rot": rot, "elev": elev,
             "w": dims[0], "d": dims[1], "h": dims[2], "variant": "Bestand", "slots": slots,
-            "params": params or {}, "mount": mount, "room": room_of(x, y), "existing": True, "locked": True,
+            "params": params or {}, "mount": mount, "room": room_of(x, y), "existing": True, "locked": True, **extra,
         })
 
     def finish(self):
@@ -696,7 +702,10 @@ def build(n):
     B.add("B2", "outdoor", "outdoorChair", [(1.347, 15.214, E), (2.436, 15.367, W)], (0.53, 0.55, 0.79), {"main": slot("#a7b59e", "matte")})
     B.add("B3", "outdoor", "outdoorSofa", [(10.134, 5.006, N0)], (1.52, 0.76, 0.76), {"main": slot("#f2f0eb", "matte"), "secondary": slot("#ded6c6", "fabric")})
 
-    # ================= BESTAND: Küche Alno 2060, Sanitär mattschwarz, Waschmaschine =================
+    # ================= BESTAND: Einbauküche Alno 2060 (Höffner, Kaufvertrag 3037702), Sanitär mattschwarz, Waschmaschine =================
+    # Küchenzeile an der Westwand (3.640 mm): Passstück, Geräte-Hochschrank 60 (Backofen), Wange, Unterschränke 30/80/45/45/30,
+    # Wange, Geräte-Hochschrank 60 (Kühl-Gefrier-Kombination), Passstück; Oberschränke 90/50/90 mit Faltlifttüren und LED.
+    # Gegenüber an der Ostwand: Sideboard aus 2 × Unterschrank 60 × 35 cm mit Wangen und Natursteinplatte, 763 mm von der Fensterwand.
     kp = next(r for r in APT["rooms"] if r["id"] == "13.02")["polygon"]
     (x1, y1), (x0, y0) = kp[1], kp[0]          # Westwand oben → unten
     L = math.hypot(x0 - x1, y0 - y1)
@@ -704,10 +713,28 @@ def build(n):
     nx, ny = -uy, ux                              # nach Osten (Raum)
     if nx < 0:
         nx, ny = -nx, -ny
-    mx, my = (x0 + x1) / 2 + nx * 0.31, (y0 + y1) / 2 + ny * 0.31
-    B.existing("Küche Alno 2060 (Bestand, schematisch)", "kitchen", "kitchenRun", mx, my, E, (round(L - 0.02, 3), 0.62, 2.30),
-               {"main": slot("#4a3426", "walnut"), "secondary": slot("#7f9a86", "lacquer"), "top": slot("#e9e6df", "stone"), "detail": slot("#1d1d1d", "blackMetal")},
-               params={"tallUnits": 1.20, "upper": True, "sink": 0.55, "hob": 0.30})
+    KD = 0.65
+    mx, my = (x0 + x1) / 2 + nx * KD / 2, (y0 + y1) / 2 + ny * KD / 2
+    k_slots = {"main": slot("#7a5236", "oakDark"), "secondary": slot("#1c1c1c", "matte"), "top": slot("#e3d7c1", "granite"), "detail": slot("#1b1b1b", "blackMetal")}
+    k_desc = ("Alno 2060, Front Walnuss-dunkel UV-Mattlack, Korpus schwarz, Griffleiste schwarz, Sockel 15 cm schwarz; "
+              "Arbeitsplatte und Nischenrückwand Naturstein Verde Eucalypto poliert (38 / 20 mm), Arbeitshöhe 96 cm; "
+              "AEG-Pyrolyse-Backofen, Induktionskochfeld mit integriertem Dunstabzug 80 cm, Geschirrspüler 45 cm vollintegriert, "
+              "Kühl-Gefrier-Kombination 178 cm, Franke Granitspüle Black Matt mit Armatur Lina; Oberschränke mit Faltlifttüren und LED-Unterbauleuchten. "
+              "Höffner Taucha, Kaufvertrag 3037702 vom 02.07.2026.")
+    B.existing("Einbauküche Alno 2060 Walnuss dunkel (Bestand)", "kitchen", "kitchenAlno", mx, my, E, (round(L, 3), KD, 2.358), k_slots,
+               cid="bestand-kueche-alno-2060", built_in=True, description=k_desc)
+    (sx0, sy0), (sx1, sy1) = kp[2], kp[3]        # Ostwand oben → unten (Fensterwand unten)
+    SL = math.hypot(sx1 - sx0, sy1 - sy0)
+    sux, suy = (sx1 - sx0) / SL, (sy1 - sy0) / SL
+    snx, sny = suy, -sux                         # nach Westen (Raum)
+    if snx > 0:
+        snx, sny = -snx, -sny
+    s_along = 0.763 + 1.236 / 2                  # Abstand der Mitte von der Fensterwand
+    SD = 0.375
+    cx, cy = sx1 - sux * s_along + snx * SD / 2, sy1 - suy * s_along + sny * SD / 2
+    B.existing("Küchen-Sideboard Alno 2060 mit Natursteinplatte (Bestand)", "kitchen", "kitchenAlnoSide", cx, cy, W, (1.236, SD, 0.968), k_slots,
+               cid="bestand-kueche-alno-2060-sideboard", built_in=True,
+               description="2 × Unterschrank 60 cm, Tiefe 35 cm, 1 Tür, Wangen Walnuss-dunkel, Natursteinplatte Verde Eucalypto 1.236 × 375 × 38 mm (Höffner, Kaufvertrag 3037702).")
     blk = slot("#1d1d1d", "blackMetal"); cer = slot("#f6f6f4", "ceramic")
     B.existing("Waschmaschine (Bestand)", "appliance", "washer", 11.662, 0.885, S0, (0.60, 0.60, 0.85), {"main": slot("#f4f4f2", "gloss"), "detail": slot("#2a2a2a", "glass")})
     B.existing("Wand-WC Bad (Bestand)", "bath", "toilet", 12.542, 0.86, S0, (0.37, 0.54, 0.40), {"main": cer, "detail": blk}, params={"plate": True})

@@ -199,6 +199,56 @@ export function PlanSymbol({ it, arch }: { it: PlacedItem; arch: Archetype }) {
           {[0, 1, 2, 3].map((i) => <circle key={i} cx={x0 + Number(it.params?.tallUnits ?? 1.2) * 100 + (w - Number(it.params?.tallUnits ?? 1.2) * 100) * Number(it.params?.hob ?? 0.3) + (i % 2 ? 12 : -12)} cy={(i < 2 ? -10 : 10)} r={8} fill="none" stroke={stroke} strokeWidth={0.6} />)}
         </g>
       );
+    case "kitchenAlno": {
+      // Maße wie im 3D-Modell (cm): Passstück 5,5 · Hochschrank 60 · Wange 1,6 · 30 · 80 · 45 · 45 · 30 · Wange 1,6 · Hochschrank 60 · Passstück
+      const core = 60 + 1.6 + 30 + 80 + 45 + 45 + 30 + 1.6 + 60;
+      const fl = Math.max(0.5, (w - core) * (55 / 108));
+      const xs = [x0 + fl];
+      for (const m of [60, 1.6, 30, 80, 45, 45, 30, 1.6, 60]) xs.push(xs[xs.length - 1] + m);
+      const front = it.slots.main?.color ?? "#7a5236";
+      const top = it.slots.top?.color ?? "#e3d7c1";
+      const tall = tint(front, 0.55);
+      const cab = 56;
+      const tallBox = (a: number, b: number) => (
+        <g>
+          {R(a, y0, b - a, cab + 2, 0.5, tall)}
+          <path d={`M${a},${y0}L${b},${y0 + cab + 2}M${a},${y0 + cab + 2}L${b},${y0}`} stroke={stroke} strokeWidth={0.5} />
+        </g>
+      );
+      const hx = (xs[3] + xs[4]) / 2, hz = y0 + 31;
+      const sx = (xs[5] + xs[6]) / 2, sz = y0 + 30;
+      return (
+        <g>
+          {R(xs[2], y0, xs[7] - xs[2], 61, 0.5, tint(top, 0.1))}
+          {[3, 4, 5, 6].map((i) => <line key={i} x1={xs[i]} y1={y0 + 40} x2={xs[i]} y2={y0 + 61} stroke={stroke} strokeWidth={0.4} opacity={0.5} />)}
+          {tallBox(xs[0], xs[1])}
+          {tallBox(xs[8], xs[9])}
+          {R(xs[1], y0, 1.6, d, 0, front)}
+          {R(xs[7], y0, 1.6, cab + 2, 0, front)}
+          {R(-w / 2, y0, fl, cab, 0, tint(front, 0.35))}
+          {R(xs[9], y0, -x0 - xs[9], cab, 0, tint(front, 0.35))}
+          {R(hx - 40, hz - 26, 80, 52, 2, "#1f1f20", "#000")}
+          <rect x={hx - 4.5} y={hz - 23} width={9} height={46} fill="#3a3a3a" />
+          {[-1, 1].map((a) => [-1, 1].map((b) => <circle key={`${a}${b}`} cx={hx + a * 20} cy={hz + b * 10} r={8} fill="none" stroke="#666" strokeWidth={0.5} />))}
+          {R(sx - 22, sz - 25, 44, 50, 4, "#2a2a2b", "#000")}
+          {R(sx - 18, sz - 21, 36, 42, 5, "#3b3b3d", "#111")}
+          <circle cx={sx + 6} cy={y0 + 6} r={2.6} fill="#111" />
+          <rect x={xs[2]} y={y0} width={xs[7] - xs[2]} height={35} fill="none" stroke={stroke} strokeWidth={0.6} strokeDasharray="4 3" />
+        </g>
+      );
+    }
+    case "kitchenAlnoSide": {
+      const front = it.slots.main?.color ?? "#7a5236";
+      const top = it.slots.top?.color ?? "#e3d7c1";
+      return (
+        <g>
+          {R(x0, y0, w, d, 0.5, tint(top, 0.1))}
+          {R(x0, y0, 1.6, d, 0, front)}
+          {R(-x0 - 1.6, y0, 1.6, d, 0, front)}
+          <line x1={0} y1={y0 + d - 6} x2={0} y2={-y0} stroke={stroke} strokeWidth={0.4} opacity={0.6} />
+        </g>
+      );
+    }
     case "bathtub":
       return <g>{R(x0, y0, w, d, 6, "#fff")}{R(x0 + 6, y0 + 6, w - 12, d - 12, 18, "#f3f6f7")}</g>;
     case "toilet":

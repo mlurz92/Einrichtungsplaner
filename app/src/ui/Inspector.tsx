@@ -19,6 +19,7 @@ import {
   RotateCw,
   Trash2,
   Unlock,
+  MousePointerClick,
 } from "lucide-react";
 import { alignOffsets, distributeOffsets, type AlignMode } from "../model/align";
 import { useEditor, getCatalogItem, itemPrice } from "../store/project";
@@ -30,6 +31,7 @@ import { VariantPicker } from "./VariantPicker";
 import { fmtEuro, nearestFace, normAngle, rotationForFace, segmentDistance } from "../model/geometry";
 import { openExternal } from "../platform";
 import { STATUS_ORDER, STATUS_STYLE } from "./status";
+import { Section as KitSection } from "./kit";
 
 function Num({ label, value, onChange, step = 1, unit, min, max, digits = 1 }: { label: string; value: number; onChange: (v: number) => void; step?: number; unit?: string; min?: number; max?: number; digits?: number }) {
   const [text, setText] = useState<string | null>(null);
@@ -58,21 +60,18 @@ function Num({ label, value, onChange, step = 1, unit, min, max, digits = 1 }: {
             }
           }}
         />
-        {unit && <span className="rounded-r-md border border-l-0 border-stone-200 bg-stone-50 px-1.5 py-1 text-xs text-stone-500">{unit}</span>}
+        {unit && <span className="rounded-r-md border border-l-0 border-stone-200 bg-stone-500/8 px-1.5 py-1 text-xs text-stone-500">{unit}</span>}
       </div>
     </label>
   );
 }
 
-function Section({ title, children, right }: { title: string; children: React.ReactNode; right?: React.ReactNode }) {
+/** Aufklappbarer Abschnitt; der Zustand bleibt je Abschnittstitel erhalten. */
+function Section({ title, children, right, closed }: { title: string; children: React.ReactNode; right?: React.ReactNode; closed?: boolean }) {
   return (
-    <div className="border-b border-stone-200 px-3 py-3">
-      <div className="mb-2 flex items-center justify-between">
-        <span className="panel-title">{title}</span>
-        {right}
-      </div>
+    <KitSection title={title} right={right} id={`insp.${title.replace(/\s*\(.*\)$/, "")}`} defaultOpen={!closed}>
       {children}
-    </div>
+    </KitSection>
   );
 }
 
@@ -128,7 +127,7 @@ function ItemInspector({ it }: { it: PlacedItem }) {
         >
           <Crosshair size={15} />
         </button>
-        <button className="btn-ghost" title={it.locked ? "Entsperren" : "Sperren"} onClick={() => up((x) => void (x.locked = !x.locked))}>
+        <button className="btn-ghost" title={it.builtIn ? "Fest eingebaut" : it.locked ? "Entsperren" : "Sperren"} disabled={it.builtIn} onClick={() => up((x) => void (x.locked = !x.locked))}>
           {it.locked ? <Lock size={15} /> : <Unlock size={15} />}
         </button>
         <button className="btn-ghost" title={it.hidden ? "Einblenden" : "Ausblenden"} onClick={() => up((x) => void (x.hidden = !x.hidden))}>
@@ -176,7 +175,7 @@ function ItemInspector({ it }: { it: PlacedItem }) {
           <Num label={it.mount === "ceiling" ? "Unterkante" : "Montagehöhe"} unit="cm" value={it.elev * 100} step={1} min={0} max={apartment.ceilingHeight * 100} onChange={(v) => up((x) => void (x.elev = v / 100))} />
         </div>
         {c && c.archetype !== "tvFrame" && (Math.abs(c.w - it.w * 100) > 0.5 || Math.abs(c.d - it.d * 100) > 0.5 || Math.abs(c.h - it.h * 100) > 0.5) && (
-          <button className="mt-2 text-xs text-emerald-800 underline" onClick={() => up((x) => void ((x.w = c.w / 100), (x.d = c.d / 100), (x.h = c.h / 100)))}>
+          <button className="mt-2 text-xs text-accent-ink underline" onClick={() => up((x) => void ((x.w = c.w / 100), (x.d = c.d / 100), (x.h = c.h / 100)))}>
             Katalogmaße wiederherstellen ({c.w} × {c.d} × {c.h} cm)
           </button>
         )}
@@ -197,7 +196,7 @@ function ItemInspector({ it }: { it: PlacedItem }) {
         <div className="space-y-2">
           {slots.map(([slot, s]) => (
             <div key={slot} className="flex items-center gap-2">
-              <input type="color" value={s.color} onChange={(e) => st.setSlot(it.id, slot, { color: e.target.value })} className="h-8 w-9 cursor-pointer rounded border border-stone-200 bg-white p-0.5" />
+              <input type="color" value={s.color} onChange={(e) => st.setSlot(it.id, slot, { color: e.target.value })} className="h-8 w-9 cursor-pointer rounded border border-stone-200 bg-card p-0.5" />
               <div className="min-w-0 flex-1">
                 <div className="text-[11px] text-stone-500">{SLOT_LABELS[slot] ?? slot}</div>
                 <select className="field py-0.5 text-xs" value={s.material} onChange={(e) => st.setSlot(it.id, slot, { material: e.target.value as MaterialKey })}>
@@ -237,7 +236,7 @@ function ItemInspector({ it }: { it: PlacedItem }) {
             <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
               {boolKeys.map((k) => (
                 <label key={k} className="flex items-center gap-1.5 text-xs text-stone-700">
-                  <input type="checkbox" className="accent-emerald-800" checked={!!it.params![k]} onChange={(e) => up((x) => void (x.params = { ...x.params, [k]: e.target.checked }))} />
+                  <input type="checkbox" className="" checked={!!it.params![k]} onChange={(e) => up((x) => void (x.params = { ...x.params, [k]: e.target.checked }))} />
                   {BOOL_PARAM_LABELS[k]}
                 </label>
               ))}
@@ -249,14 +248,14 @@ function ItemInspector({ it }: { it: PlacedItem }) {
         <Section title="Stückliste & Preis">
           <div className="space-y-1.5">
             {(it.parts ?? []).map((p, i) => (
-              <div key={i} className="rounded-md bg-white p-2 text-xs shadow-sm ring-1 ring-stone-200">
+              <div key={i} className="rounded-md bg-card p-2 text-xs shadow-sm ring-1 ring-stone-200">
                 <div className="flex justify-between gap-2">
                   <span className="font-medium">
                     {p.pos ? `${p.pos} · ` : ""}
                     {p.name}
                   </span>
                   {p.url && (
-                    <button className="text-emerald-800" title="Im Shop öffnen" onClick={() => openExternal(p.url!)}>
+                    <button className="text-accent-ink" title="Im Shop öffnen" onClick={() => openExternal(p.url!)}>
                       <ExternalLink size={13} />
                     </button>
                   )}
@@ -281,7 +280,7 @@ function ItemInspector({ it }: { it: PlacedItem }) {
           </div>
         </Section>
       )}
-      <Section title="Notiz">
+      <Section title="Notiz" closed>
         <textarea className="field h-16 resize-none text-xs" value={it.note ?? ""} placeholder="z. B. Stoffmuster bestellen …" onChange={(e) => st.updateItems([it.id], (x) => void (x.note = e.target.value), { commit: false })} />
       </Section>
     </div>
@@ -347,7 +346,7 @@ export function SurfaceEditor({ value, onChange, allowLower = true }: { value: W
       </div>
       {value.base.productName && <div className="text-xs text-stone-600">{value.base.productName}</div>}
       {(value.base.kind === "paint" || value.base.kind === "limewash") && (
-        <div className="max-h-40 overflow-auto rounded-md border border-stone-200 bg-white p-1.5">
+        <div className="max-h-40 overflow-auto rounded-md border border-stone-200 bg-card p-1.5">
           <div className="grid grid-cols-8 gap-1">
             {PAINTS.map((p) => (
               <button key={p.brand + p.name} title={`${p.brand} – ${p.name}${p.note ? ` (${p.note})` : ""}`} onClick={() => setBase({ color: p.hex, productName: `${p.brand} ${p.name}` })} className={`aspect-square rounded border ${value.base.color.toLowerCase() === p.hex ? "border-stone-900 ring-2 ring-stone-900/30" : "border-stone-300"}`} style={{ background: p.hex }} />
@@ -356,9 +355,9 @@ export function SurfaceEditor({ value, onChange, allowLower = true }: { value: W
         </div>
       )}
       {allowLower && (
-        <div className="rounded-md border border-stone-200 bg-white p-2">
+        <div className="rounded-md border border-stone-200 bg-card p-2">
           <label className="flex items-center gap-2 text-xs font-medium text-stone-700">
-            <input type="checkbox" className="accent-emerald-800" checked={!!lower && lower.height > 0} onChange={(e) => onChange({ ...value, lower: e.target.checked ? { height: 1.1, surface: { kind: "wainscot", color: "#f3f0e8" }, rail: true } : undefined })} />
+            <input type="checkbox" className="" checked={!!lower && lower.height > 0} onChange={(e) => onChange({ ...value, lower: e.target.checked ? { height: 1.1, surface: { kind: "wainscot", color: "#f3f0e8" }, rail: true } : undefined })} />
             Sockelzone / Vertäfelung / Zweifarbig
           </label>
           {lower && lower.height > 0 && (
@@ -379,7 +378,7 @@ export function SurfaceEditor({ value, onChange, allowLower = true }: { value: W
               <div className="flex items-center gap-2">
                 <input type="color" value={lower.surface.color} onChange={(e) => onChange({ ...value, lower: { ...lower, surface: { ...lower.surface, color: e.target.value } } })} className="h-8 w-10 rounded border border-stone-200 p-0.5" />
                 <label className="flex items-center gap-1 text-xs">
-                  <input type="checkbox" className="accent-emerald-800" checked={!!lower.rail} onChange={(e) => onChange({ ...value, lower: { ...lower, rail: e.target.checked } })} /> Abschlussleiste
+                  <input type="checkbox" className="" checked={!!lower.rail} onChange={(e) => onChange({ ...value, lower: { ...lower, rail: e.target.checked } })} /> Abschlussleiste
                 </label>
               </div>
             </div>
@@ -638,22 +637,35 @@ export function Inspector() {
   if (selection.length > 1) return <MultiInspector ids={selection} />;
   if (face) return <FaceInspector key={face} faceId={face} />;
   if (room) return <RoomInspector key={room} roomId={room} />;
+  const tips: [string, string][] = [
+    ["Ziehen", "Katalogprodukt in Plan oder 3D ablegen"],
+    ["Alt", "beim Ziehen ohne Fang"],
+    ["R", "drehen ±15° (Umschalt: rückwärts)"],
+    ["Pfeile", "1 cm, mit Umschalt 10 cm"],
+    ["Rechtsklick", "Kontextmenü"],
+    ["Strg+D", "duplizieren"],
+    ["Entf", "löschen"],
+    ["Strg+K", "Befehl oder Produkt suchen"],
+    ["F1", "alle Tastenkürzel"],
+  ];
   return (
     <div className="p-4 text-sm text-stone-500">
-      Objekt, Wand oder Raum anklicken, um Eigenschaften zu bearbeiten.
-      <ul className="mt-3 list-disc space-y-1 pl-4 text-xs">
-        <li>Produkte aus dem Katalog direkt in Plan oder 3D ziehen</li>
-        <li>Ziehen: verschieben mit Wandfang (Alt = ohne Fang)</li>
-        <li>Freie Fläche ziehen: Ansicht verschieben (Plan) bzw. drehen (3D); Umschalt+Ziehen: Auswahlrahmen</li>
-        <li>Drehgriff bzw. R / Umschalt+R: ±15°</li>
-        <li>Pfeiltasten: 1 cm, mit Umschalt 10 cm</li>
-        <li>Entf: löschen · Strg+D: duplizieren</li>
-        <li>Strg+Z / Strg+Y: rückgängig / wiederholen</li>
-        <li>Strg+C / Strg+V: kopieren, an der Mausposition einfügen</li>
-        <li>M: messen · F: einpassen bzw. 3D-Fokus · 1/2/3: Ansicht</li>
-        <li>Strg+K: Befehl, Raum oder Produkt suchen</li>
-        <li>F1: alle Tastenkürzel</li>
-      </ul>
+      <div className="mx-auto mt-4 mb-3 grid h-12 w-12 place-items-center rounded-2xl bg-accent-soft text-accent-ink">
+        <MousePointerClick size={22} />
+      </div>
+      <p className="text-center text-[13px] text-stone-600">Objekt, Wand oder Raum anklicken, um Eigenschaften zu bearbeiten.</p>
+      <div className="mt-5 overflow-hidden rounded-xl border border-line bg-card/40">
+        {tips.map(([k, v]) => (
+          <div key={k} className="flex items-center justify-between gap-3 border-t border-line px-3 py-1.5 text-xs first:border-t-0">
+            <span className="flex gap-0.5">
+              {k.split("+").map((x) => (
+                <kbd key={x}>{x}</kbd>
+              ))}
+            </span>
+            <span className="text-right text-stone-500">{v}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

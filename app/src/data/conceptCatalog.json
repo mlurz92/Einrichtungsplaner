@@ -2813,49 +2813,90 @@
 ]
 },
 {
-"id": "bestand-k-che-alno-2060-bestand-schematisch-",
+"id": "bestand-kueche-alno-2060",
 "vendor": "Bestand",
-"name": "Küche Alno 2060 (Bestand, schematisch)",
+"name": "Einbauküche Alno 2060 Walnuss dunkel (Bestand)",
 "category": "kitchen",
-"w": 362.8,
-"d": 62.0,
-"h": 230.0,
+"w": 364.8,
+"d": 65.0,
+"h": 235.8,
 "price": 0,
-"archetype": "kitchenRun",
-"params": {
-"tallUnits": 1.2,
-"upper": true,
-"sink": 0.55,
-"hob": 0.3
-},
+"archetype": "kitchenAlno",
+"params": {},
 "mount": "floor",
 "variants": [
 {
 "name": "Bestand",
 "slots": {
 "main": {
-"color": "#4a3426",
-"material": "walnut"
+"color": "#7a5236",
+"material": "oakDark"
 },
 "secondary": {
-"color": "#7f9a86",
-"material": "lacquer"
+"color": "#1c1c1c",
+"material": "matte"
 },
 "top": {
-"color": "#e9e6df",
-"material": "stone"
+"color": "#e3d7c1",
+"material": "granite"
 },
 "detail": {
-"color": "#1d1d1d",
+"color": "#1b1b1b",
 "material": "blackMetal"
 }
 }
 }
 ],
 "tags": [
-"Bestand"
+"Bestand",
+"Einbau"
 ],
-"concepts": []
+"concepts": [],
+"resizable": false,
+"description": "Alno 2060, Front Walnuss-dunkel UV-Mattlack, Korpus schwarz, Griffleiste schwarz, Sockel 15 cm schwarz; Arbeitsplatte und Nischenrückwand Naturstein Verde Eucalypto poliert (38 / 20 mm), Arbeitshöhe 96 cm; AEG-Pyrolyse-Backofen, Induktionskochfeld mit integriertem Dunstabzug 80 cm, Geschirrspüler 45 cm vollintegriert, Kühl-Gefrier-Kombination 178 cm, Franke Granitspüle Black Matt mit Armatur Lina; Oberschränke mit Faltlifttüren und LED-Unterbauleuchten. Höffner Taucha, Kaufvertrag 3037702 vom 02.07.2026."
+},
+{
+"id": "bestand-kueche-alno-2060-sideboard",
+"vendor": "Bestand",
+"name": "Küchen-Sideboard Alno 2060 mit Natursteinplatte (Bestand)",
+"category": "kitchen",
+"w": 123.6,
+"d": 37.5,
+"h": 96.8,
+"price": 0,
+"archetype": "kitchenAlnoSide",
+"params": {},
+"mount": "floor",
+"variants": [
+{
+"name": "Bestand",
+"slots": {
+"main": {
+"color": "#7a5236",
+"material": "oakDark"
+},
+"secondary": {
+"color": "#1c1c1c",
+"material": "matte"
+},
+"top": {
+"color": "#e3d7c1",
+"material": "granite"
+},
+"detail": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Bestand",
+"Einbau"
+],
+"concepts": [],
+"resizable": false,
+"description": "2 × Unterschrank 60 cm, Tiefe 35 cm, 1 Tür, Wangen Walnuss-dunkel, Natursteinplatte Verde Eucalypto 1.236 × 375 × 38 mm (Höffner, Kaufvertrag 3037702)."
 },
 {
 "id": "wes-tv-lowboard-cadi-aus-eichenholz",

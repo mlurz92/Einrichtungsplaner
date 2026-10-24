@@ -49,3 +49,6 @@ export const mmToFov = (mm: number) => (2 * Math.atan(12 / mm) * 180) / Math.PI;
 
 // Zugriff für automatisierte Tests/Diagnose
 (globalThis as unknown as Record<string, unknown>).__we13view = useView3D;
+
+// Zugriff für automatisierte Tests/Diagnose
+(globalThis as unknown as Record<string, unknown>).__we13view = useView3D;

@@ -263,16 +263,18 @@ export function floorTexture(kind: string, color: string, plankL = 1.9, plankW =
       g.fillStyle = shade(color, tint);
       g.fillRect(0, 0, w, h);
       if (grain) {
-        // schmaler Streifen der Maserung, längs zur Diele (Maserung der Quelle verläuft horizontal)
+        // Schmaler Streifen der Maserung, längs zur Diele: Die Fasern der Quelle laufen senkrecht,
+        // der Streifen wird daher um 90° gedreht eingesetzt (Maserung = Verlegerichtung).
         g.globalCompositeOperation = "multiply";
-        const sh = Math.max(8, grain.width * (h / w) * 0.9);
-        const sy = R() * (grain.height - sh);
-        const flip = R() > 0.5;
-        if (flip) {
+        const sw = Math.max(8, grain.height * (h / w) * 0.9);
+        const sx = R() * (grain.width - sw);
+        if (R() > 0.5) {
           g.translate(w, 0);
           g.scale(-1, 1);
         }
-        g.drawImage(grain, 0, sy, grain.width, sh, 0, 0, w, h);
+        g.translate(0, h);
+        g.rotate(-Math.PI / 2);
+        g.drawImage(grain, sx, 0, sw, grain.height, 0, 0, h, w);
         g.globalCompositeOperation = "source-over";
       }
       g.restore();
@@ -675,4 +677,85 @@ export function rugTexture(pattern: string, color: string, color2?: string): { m
   const res = { map: canvasTex(c), normal: canvasTex(heightToNormal(hc, 2.5), false), size: [1, 1] as [number, number] };
   procCache.set(key, res);
   return { map: res.map, normal: res.normal };
+}
+
+/**
+ * Polierter Naturstein mit Flocken (z. B. „Verde Eucalypto“ der Küche): cremige Grundmasse mit
+ * unregelmäßigen Einschlüssen in Dunkelbraun, Rost, Graugrün und Weiß. Kachel 0,8 m.
+ */
+export function graniteTexture(color: string): { map: THREE.Texture; size: number } {
+  const key = `granite|${color}`;
+  const hit = procCache.get(key);
+  if (hit) return { map: hit.map, size: hit.size[0] };
+  const S = 0.8;
+  const PX = 1024;
+  const c = document.createElement("canvas");
+  c.width = c.height = PX;
+  const g = c.getContext("2d")!;
+  const R = rng(4711);
+  g.fillStyle = color;
+  g.fillRect(0, 0, PX, PX);
+  // weiche Wolken in der Grundmasse
+  for (let i = 0; i < 140; i++) {
+    const x = R() * PX, y = R() * PX, r = 40 + R() * 160;
+    const gr = g.createRadialGradient(x, y, 0, x, y, r);
+    const col = R() < 0.5 ? shade(color, 0.9) : shade(color, 1.06);
+    gr.addColorStop(0, col);
+    gr.addColorStop(1, "rgba(0,0,0,0)");
+    g.globalAlpha = 0.16;
+    g.fillStyle = gr;
+    g.fillRect(x - r, y - r, 2 * r, 2 * r);
+  }
+  g.globalAlpha = 1;
+  const flakes: [string, number][] = [
+    ["#2f2b28", 0.14],
+    ["#4a3b31", 0.1],
+    ["#8f5f45", 0.09],
+    ["#b58a68", 0.1],
+    ["#8d9180", 0.1],
+    ["#b2b6a4", 0.1],
+    ["#f6f0e4", 0.27],
+    [shade(color, 0.82), 0.1],
+  ];
+  const pick = () => {
+    let t = R();
+    for (const [col, p] of flakes) if ((t -= p) <= 0) return col;
+    return flakes[0][0];
+  };
+  // Draw wraps around the edges so the tile repeats without seams
+  const blob = (x: number, y: number, r: number, col: string, ang: number, stretch: number) => {
+    for (const ox of [-PX, 0, PX])
+      for (const oy of [-PX, 0, PX]) {
+        if (x + ox < -r * 2 || x + ox > PX + r * 2 || y + oy < -r * 2 || y + oy > PX + r * 2) continue;
+        g.save();
+        g.translate(x + ox, y + oy);
+        g.rotate(ang);
+        g.scale(stretch, 1);
+        g.fillStyle = col;
+        g.beginPath();
+        const n = 6 + Math.floor(R() * 4);
+        for (let k = 0; k < n; k++) {
+          const a = (k / n) * Math.PI * 2, rr = r * (0.45 + R() * 0.7);
+          if (k === 0) g.moveTo(Math.cos(a) * rr, Math.sin(a) * rr);
+          else g.lineTo(Math.cos(a) * rr, Math.sin(a) * rr);
+        }
+        g.closePath();
+        g.fill();
+        g.restore();
+      }
+  };
+  for (let i = 0; i < 3000; i++) {
+    const r = 1.2 + R() * R() * R() * 15;
+    blob(R() * PX, R() * PX, r, pick(), R() * Math.PI, 1 + R() * 1.6);
+  }
+  // feine Sprenkel
+  for (let i = 0; i < 6000; i++) {
+    g.fillStyle = R() < 0.45 ? "#4a423b" : "#fbf6ec";
+    g.globalAlpha = 0.5 + R() * 0.5;
+    g.fillRect(R() * PX, R() * PX, 1 + R() * 1.6, 1 + R() * 1.6);
+  }
+  g.globalAlpha = 1;
+  const map = canvasTex(c);
+  procCache.set(key, { map, size: [S, S] });
+  return { map, size: S };
 }

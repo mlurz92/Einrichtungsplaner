@@ -1,4 +1,5 @@
 import { ArrowRight, Clock, FilePlus, FolderOpen, X } from "lucide-react";
+import { Dialog } from "./kit";
 import { concepts } from "../data";
 import { budgetSummary, restoredFromAutosave, useEditor } from "../store/project";
 import { fmtEuro } from "../model/geometry";
@@ -17,32 +18,32 @@ export function StartScreen() {
   const open = useEditor((s) => s.startOpen);
   const project = useEditor((s) => s.project);
   const recent = useRecentFiles();
-  if (!open) return null;
   const st = useEditor.getState();
   const close = () => st.set("startOpen", false);
   const hasWork = restoredFromAutosave || st.past.length > 0 || st.dirty || !!st.filePath;
   return (
-    <div className="fixed inset-0 z-[100] grid place-items-center bg-black/35 p-4" onClick={close}>
-      <div className="max-h-full w-full max-w-4xl overflow-auto rounded-2xl bg-[#faf8f5] shadow-2xl" onClick={(e) => e.stopPropagation()}>
-        <div className="flex items-start justify-between border-b border-stone-200 px-6 py-5">
-          <div className="flex items-center gap-3">
-            <img src={`${import.meta.env.BASE_URL}favicon.png`} alt="" className="h-11 w-11" draggable={false} />
+    <Dialog open={open} onClose={close} bare width="max-w-4xl">
+      <div>
+        <div className="relative flex items-start justify-between overflow-hidden border-b border-line px-6 py-6">
+          <div className="pointer-events-none absolute inset-0 opacity-70" style={{ background: "radial-gradient(600px 200px at 0% 0%, var(--ui-accent-soft), transparent 70%), radial-gradient(500px 220px at 100% 0%, rgb(200 140 90 / 0.14), transparent 70%)" }} />
+          <div className="relative flex items-center gap-4">
+            <img src={`${import.meta.env.BASE_URL}favicon.png`} alt="" className="h-14 w-14 drop-shadow-md" draggable={false} />
             <div>
-              <h2 className="text-lg font-semibold">Einrichtungsplaner WE 13</h2>
+              <h2 className="text-xl font-semibold tracking-tight">Einrichtungsplaner WE 13</h2>
               <p className="text-sm text-stone-600">Womit möchtest du beginnen?</p>
             </div>
           </div>
-          <button className="btn-ghost" onClick={close} title="Schließen (Esc)">
+          <button data-close className="btn-ghost relative h-8 w-8 p-0" onClick={close} title="Schließen (Esc)">
             <X size={16} />
           </button>
         </div>
         <div className="grid gap-6 p-6 md:grid-cols-[1.4fr_1fr]">
           <div className="space-y-3">
             {hasWork && (
-              <button className="flex w-full items-center gap-3 rounded-xl border border-emerald-800/30 bg-white p-3 text-left shadow-sm hover:border-emerald-800" onClick={close}>
-                <ArrowRight size={18} className="text-emerald-800" />
+              <button className="flex w-full items-center gap-3 rounded-xl border border-accent/30 bg-accent-soft p-3 text-left shadow-sm transition hover:border-accent hover:shadow" data-autofocus onClick={close}>
+                <ArrowRight size={18} className="text-accent-ink" />
                 <div className="min-w-0 flex-1">
-                  <div className="text-sm font-semibold text-emerald-900">Weiterarbeiten: {project.name}</div>
+                  <div className="text-sm font-semibold text-accent-ink">Weiterarbeiten: {project.name}</div>
                   <div className="truncate text-xs text-stone-500">{st.filePath ? fileName(st.filePath) : "letzter Stand (automatisch gesichert)"}</div>
                 </div>
               </button>
@@ -52,13 +53,13 @@ export function StartScreen() {
               {concepts.map((c) => (
                 <button
                   key={c.id}
-                  className="overflow-hidden rounded-xl border border-stone-200 bg-white text-left shadow-sm transition hover:border-emerald-800 hover:shadow"
+                  className="group overflow-hidden rounded-xl border border-line bg-card text-left shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-accent hover:shadow-lg"
                   onClick={() => {
                     st.loadConcept(c.id);
                     close();
                   }}
                 >
-                  <span className="flex h-6">
+                  <span className="flex h-10 transition-[height] duration-300 group-hover:h-12">
                     {c.palette.map((p) => (
                       <span key={p} className="flex-1" style={{ background: p }} />
                     ))}
@@ -73,19 +74,19 @@ export function StartScreen() {
             </div>
             <div className="grid grid-cols-2 gap-2">
               <button
-                className="flex items-center gap-2 rounded-xl border-2 border-dashed border-emerald-800/40 bg-white p-3 text-left hover:border-emerald-800"
+                className="flex items-center gap-2 rounded-xl border-2 border-dashed border-accent/40 bg-card/60 p-3 text-left transition hover:border-accent hover:bg-card"
                 onClick={() => {
                   close();
                   st.set("newDialogOpen", true);
                 }}
               >
-                <FilePlus size={18} className="shrink-0 text-emerald-800" />
+                <FilePlus size={18} className="shrink-0 text-accent-ink" />
                 <span>
-                  <span className="block text-sm font-semibold text-emerald-900">Leere Wohnung</span>
+                  <span className="block text-sm font-semibold text-accent-ink">Leere Wohnung</span>
                   <span className="block text-xs text-stone-600">von Grund auf einrichten</span>
                 </span>
               </button>
-              <button className="flex items-center gap-2 rounded-xl border border-stone-200 bg-white p-3 text-left hover:border-stone-400" onClick={() => void openProject()}>
+              <button className="flex items-center gap-2 rounded-xl border border-line bg-card p-3 text-left transition hover:border-stone-400 hover:shadow" onClick={() => void openProject()}>
                 <FolderOpen size={18} className="shrink-0 text-stone-600" />
                 <span>
                   <span className="block text-sm font-semibold">Datei öffnen …</span>
@@ -100,7 +101,7 @@ export function StartScreen() {
                 <div className="panel-title mb-1.5">Zuletzt verwendet</div>
                 <div className="space-y-0.5">
                   {recent.map((r) => (
-                    <button key={r.path} className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left hover:bg-white" title={r.path} onClick={() => void openRecent(r.path)}>
+                    <button key={r.path} className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left transition hover:bg-stone-500/10" title={r.path} onClick={() => void openRecent(r.path)}>
                       <Clock size={13} className="shrink-0 text-stone-400" />
                       <span className="min-w-0 flex-1">
                         <span className="block truncate text-sm">{r.name || fileName(r.path)}</span>
@@ -116,20 +117,20 @@ export function StartScreen() {
               <table className="w-full text-xs">
                 <tbody>
                   {TIPS.map(([k, v]) => (
-                    <tr key={k} className="border-t border-stone-200/70">
+                    <tr key={k} className="border-t border-line">
                       <td className="whitespace-nowrap py-1.5 pr-3 align-top font-semibold text-stone-800">{k}</td>
                       <td className="py-1.5 text-stone-600">{v}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
-              <button className="mt-2 text-xs font-medium text-emerald-800 hover:underline" onClick={() => st.set("helpOpen", true)}>
+              <button className="mt-2 text-xs font-medium text-accent-ink hover:underline" onClick={() => st.set("helpOpen", true)}>
                 Alle Tastenkürzel (F1)
               </button>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </Dialog>
   );
 }

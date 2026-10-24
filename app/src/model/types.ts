@@ -85,6 +85,7 @@ export type MaterialKey =
   | "gloss"
   | "travertine"
   | "marble"
+  | "granite"
   | "marbleGreen"
   | "stone"
   | "ceramic"
@@ -197,6 +198,8 @@ export type Archetype =
   | "outdoorChair"
   | "outdoorSofa"
   | "kitchenRun"
+  | "kitchenAlno"
+  | "kitchenAlnoSide"
   | "bathtub"
   | "toilet"
   | "washbasin"
@@ -290,6 +293,8 @@ export interface PlacedItem {
   opening?: string;
   /** Kennzeichnet Bestand (nicht im Budget). */
   existing?: boolean;
+  /** Fest eingebaut (Einbauküche): bleibt gesperrt, wird nicht gelöscht, getauscht oder verschoben. */
+  builtIn?: boolean;
   /** Stückliste (Kaufpositionen), aus denen das Objekt besteht – z. B. PAX-Korpus + Türen + Einsätze. */
   parts?: ItemPart[];
   /** Kaufstatus (fehlt = geplant). */

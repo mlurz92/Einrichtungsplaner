@@ -23,7 +23,7 @@ export function Swatch({ s, second, img, size = 28, selected, dim, title, onClic
       {img && imgOk && <img src={img} alt="" loading="lazy" draggable={false} onError={() => setImgOk(false)} className="absolute inset-0 h-full w-full object-cover" />}
       {second && <span className="absolute bottom-0 right-0 h-[38%] w-[38%] rounded-tl-md ring-1 ring-white/70" style={{ background: swatchBackground(second) }} />}
       {selected && (
-        <span className="absolute left-0.5 top-0.5 rounded-full bg-white/85 p-px text-stone-900">
+        <span className="absolute left-0.5 top-0.5 rounded-full bg-card/85 p-px text-stone-900">
           <Check size={9} strokeWidth={3} />
         </span>
       )}
@@ -167,7 +167,7 @@ export function VariantPicker({ c, value, onChange, current, onHover }: { c: Cat
           </div>
         </div>
       )}
-      <div className="mt-2 rounded-md bg-white px-2 py-1.5 text-xs shadow-sm ring-1 ring-stone-200">
+      <div className="mt-2 rounded-md bg-card px-2 py-1.5 text-xs shadow-sm ring-1 ring-stone-200">
         <div className="flex items-start justify-between gap-2">
           <span className="font-medium text-stone-800">{current === "Individuell" ? "Individuell angepasst" : sel.name}</span>
           <span className="whitespace-nowrap font-semibold">
@@ -178,7 +178,7 @@ export function VariantPicker({ c, value, onChange, current, onHover }: { c: Cat
         <div className="mt-0.5 flex items-center justify-between gap-2 text-[11px] text-stone-500">
           <span className="truncate">{slotSummary(sel)}</span>
           {(sel.url ?? c.url) && (
-            <button className="flex shrink-0 items-center gap-0.5 text-emerald-800 hover:underline" onClick={() => openExternal((sel.url ?? c.url)!)} title="Diese Ausführung im Shop öffnen">
+            <button className="flex shrink-0 items-center gap-0.5 text-accent-ink hover:underline" onClick={() => openExternal((sel.url ?? c.url)!)} title="Diese Ausführung im Shop öffnen">
               Shop <ExternalLink size={11} />
             </button>
           )}

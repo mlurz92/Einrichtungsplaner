@@ -54,6 +54,8 @@ const FRONT_RULES: Partial<Record<string, Rule>> = {
   shelf: { min: 50, good: 70, what: "vor dem Regal" },
   desk: { min: 80, good: 100, what: "für den Stuhl am Schreibtisch" },
   kitchenRun: { min: 100, good: 120, what: "vor der Küchenzeile" },
+  kitchenAlno: { min: 100, good: 120, what: "vor der Küchenzeile" },
+  kitchenAlnoSide: { min: 90, good: 120, what: "vor dem Küchen-Sideboard" },
   washer: { min: 70, good: 90, what: "vor der Waschmaschine" },
   toilet: { min: 55, good: 70, what: "vor dem WC" },
   washbasin: { min: 55, good: 70, what: "vor dem Waschtisch" },

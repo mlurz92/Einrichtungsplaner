@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import type { MaterialKey, SlotStyle } from "../model/types";
-import { ALBEDO_GAIN, albedoTexture, dataTexture, ribNormal, type TexKey } from "./textures";
+import { ALBEDO_GAIN, albedoTexture, dataTexture, graniteTexture, ribNormal, type TexKey } from "./textures";
 
 // Physikalisch basierte Materialvorlagen. UVs der Möbelgeometrien sind in Metern angelegt
 // (siehe geom.ts → worldUV); "scale" gibt die Kachelgröße der Textur in Metern an.
@@ -53,6 +53,8 @@ export const MAT_DEFS: Record<MaterialKey, MatDef> = {
   matte: { scale: 1, roughness: 0.82 },
   gloss: { scale: 1, roughness: 0.1, clearcoat: 1, clearcoatRoughness: 0.05 },
   travertine: { tex: "travertine", normalTex: "travertine", scale: 1.2, roughness: 0.62, normalScale: 0.6, contrast: 0.9 },
+  // Polierter Naturstein mit Flocken (Arbeitsplatte der Küche); Textur prozedural aus der Grundfarbe
+  granite: { scale: 0.8, roughness: 0.16, clearcoat: 0.55, clearcoatRoughness: 0.12 },
   marble: { tex: "marble", normalTex: "marble", scale: 1.0, roughness: 0.18, clearcoat: 0.6, clearcoatRoughness: 0.1, normalScale: 0.2, contrast: 1.1 },
   marbleGreen: { tex: "marblegreen", normalTex: "marblegreen", scale: 0.9, roughness: 0.15, clearcoat: 0.8, clearcoatRoughness: 0.08, normalScale: 0.2, contrast: 1.6 },
   stone: { tex: "concrete", normalTex: "concrete", scale: 1.2, roughness: 0.75, normalScale: 0.5, contrast: 0.6 },
@@ -109,6 +111,13 @@ export function getMaterial(style: SlotStyle | undefined, fallback: SlotStyle = 
     t.needsUpdate = true;
     p.map = t;
     p.color.multiplyScalar(ALBEDO_GAIN);
+  }
+  if (s.material === "granite") {
+    const t = graniteTexture(s.color);
+    p.map = t.map.clone();
+    p.map.repeat.set(1 / t.size, 1 / t.size);
+    p.map.needsUpdate = true;
+    p.color.set("#ffffff");
   }
   if (def.normalTex) {
     const n = dataTexture(def.normalTex, "normal").clone();

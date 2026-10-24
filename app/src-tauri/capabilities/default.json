@@ -1,12 +1,18 @@
 {
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
-  "description": "Berechtigungen des Hauptfensters: Fenstertitel und Schließen-Abfrage, Datei-Dialoge, Lesen/Schreiben vom Nutzer gewählter Dateien, Shop-Links im Browser öffnen",
-  "windows": ["main"],
+  "description": "Berechtigungen des Hauptfensters: Fenstertitel, Design und Vollbild, Schließen-Abfrage, Oberflächengröße, Datei-Dialoge, Lesen/Schreiben vom Nutzer gewählter Dateien, Shop-Links im Browser öffnen",
+  "windows": [
+    "main"
+  ],
   "permissions": [
     "core:default",
     "core:window:allow-set-title",
     "core:window:allow-destroy",
+    "core:window:allow-set-theme",
+    "core:window:allow-set-fullscreen",
+    "core:window:allow-is-fullscreen",
+    "core:webview:allow-set-webview-zoom",
     "dialog:default",
     "dialog:allow-open",
     "dialog:allow-save",
@@ -15,8 +21,37 @@
     "fs:allow-write-text-file",
     "fs:allow-read-file",
     "fs:allow-write-file",
-    { "identifier": "fs:scope", "allow": [{ "path": "$HOME/**" }, { "path": "$DOCUMENT/**" }, { "path": "$DESKTOP/**" }, { "path": "$DOWNLOAD/**" }, { "path": "$PICTURE/**" }, { "path": "**" }] },
+    {
+      "identifier": "fs:scope",
+      "allow": [
+        {
+          "path": "$HOME/**"
+        },
+        {
+          "path": "$DOCUMENT/**"
+        },
+        {
+          "path": "$DESKTOP/**"
+        },
+        {
+          "path": "$DOWNLOAD/**"
+        },
+        {
+          "path": "$PICTURE/**"
+        },
+        {
+          "path": "**"
+        }
+      ]
+    },
     "opener:default",
-    { "identifier": "opener:allow-open-url", "allow": [{ "url": "https://*" }] }
+    {
+      "identifier": "opener:allow-open-url",
+      "allow": [
+        {
+          "url": "https://*"
+        }
+      ]
+    }
   ]
 }

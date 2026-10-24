@@ -11,7 +11,7 @@ const ARCHETYPES = new Set([
   "pendantGlobe", "pendantDome", "pendantCluster", "pendantMirrorBall", "ceilingDome", "ceilingDisc", "wallGlobe", "wallSconce",
   "rugRect", "rugRound", "rugOrganic", "curtain", "art", "artPair", "mirrorRound", "mirrorArch", "mirrorRect", "plantTree", "plantBush",
   "plantPot", "vase", "books", "tray", "bowl", "candles", "cushion", "throw", "tv", "tvFrame", "tylkoStorage", "pendantLinear", "lampTask", "lamella", "molding", "panelWall", "outdoorTable",
-  "outdoorChair", "outdoorSofa", "kitchenRun", "bathtub", "toilet", "washbasin", "shower", "washer", "box", "glb",
+  "outdoorChair", "outdoorSofa", "kitchenRun", "kitchenAlno", "kitchenAlnoSide", "bathtub", "toilet", "washbasin", "shower", "washer", "box", "glb",
 ]);
 
 describe("Grundriss WE 13", () => {

@@ -117,7 +117,7 @@ export function SwapPanel({ it, onClose }: { it: PlacedItem; onClose: () => void
   };
 
   return (
-    <div className="flex h-full flex-col bg-[#faf8f5]" onKeyDown={onKey}>
+    <div className="flex h-full flex-col bg-surface" onKeyDown={onKey}>
       <div className="flex items-center gap-2 border-b border-stone-200 px-3 py-2">
         <ArrowLeftRight size={15} className="text-stone-500" />
         <div className="min-w-0 flex-1">
@@ -165,12 +165,12 @@ export function SwapPanel({ it, onClose }: { it: PlacedItem; onClose: () => void
         </div>
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
           <label className="flex items-center gap-1.5 text-stone-700" title="Bei jedem Vorschlag die Hersteller-Ausführung wählen, die der jetzigen Farbe und dem Material am nächsten kommt">
-            <input type="checkbox" className="accent-emerald-800" checked={keepColor} onChange={(e) => setKeepColor(e.target.checked)} />
+            <input type="checkbox" className="" checked={keepColor} onChange={(e) => setKeepColor(e.target.checked)} />
             Farbe beibehalten
           </label>
           {(RELATED[anchor.cat as Category]?.length ?? 0) > 0 && (
             <label className="flex items-center gap-1.5 text-stone-700" title={(RELATED[anchor.cat as Category] ?? []).map((k) => CATEGORY_LABELS[k]).join(", ")}>
-              <input type="checkbox" className="accent-emerald-800" checked={related} onChange={(e) => setRelated(e.target.checked)} />
+              <input type="checkbox" className="" checked={related} onChange={(e) => setRelated(e.target.checked)} />
               verwandte Kategorien
             </label>
           )}
@@ -188,7 +188,7 @@ export function SwapPanel({ it, onClose }: { it: PlacedItem; onClose: () => void
             <div
               key={x.id}
               data-row={i}
-              className={`group flex cursor-pointer gap-2 rounded-lg border p-1.5 transition ${i === cursor ? "border-emerald-700 bg-white shadow-sm" : "border-transparent hover:border-stone-200 hover:bg-white hover:shadow-sm"}`}
+              className={`group flex cursor-pointer gap-2 rounded-lg border p-1.5 transition ${i === cursor ? "border-accent bg-card shadow-sm" : "border-transparent hover:border-stone-200 hover:bg-card hover:shadow-sm"}`}
               onMouseEnter={() => (setCursor(i), preview(row))}
               onClick={() => apply(row)}
               title={isCurrent ? "Aktuelles Produkt – Klick übernimmt die gewählte Ausführung" : "Klicken zum Tauschen"}
@@ -199,7 +199,7 @@ export function SwapPanel({ it, onClose }: { it: PlacedItem; onClose: () => void
                   <span className="font-semibold text-stone-700">{x.vendor}</span>
                   {x.brand && x.brand !== x.vendor && <span className="truncate">{x.brand}</span>}
                   {x.category !== anchor.cat && <span className="rounded bg-stone-200 px-1">{CATEGORY_LABELS[x.category]}</span>}
-                  {isCurrent && <span className="rounded bg-emerald-800 px-1 text-white">aktuell</span>}
+                  {isCurrent && <span className="rounded bg-accent px-1 text-white">aktuell</span>}
                 </div>
                 <div className="line-clamp-2 text-[12px] font-medium leading-tight text-stone-800">{x.name}</div>
                 <div className="mt-0.5 flex flex-wrap gap-x-1.5 text-[10.5px] tabular-nums text-stone-500">
@@ -229,8 +229,8 @@ export function SwapPanel({ it, onClose }: { it: PlacedItem; onClose: () => void
               </div>
               <div className="flex shrink-0 flex-col items-end justify-between py-0.5 text-right">
                 <span className="text-[12px] font-semibold">{price > 0 ? fmtEuro(price) : "—"}</span>
-                {!isCurrent && Math.abs(diff) >= 1 && <span className={`text-[10.5px] ${diff > 0 ? "text-rose-700" : "text-emerald-700"}`}>{diff > 0 ? "+" : "−"}{fmtEuro(Math.abs(diff))}</span>}
-                <span className="rounded-md bg-[#2f5d50] px-1.5 py-0.5 text-[10.5px] font-medium text-white opacity-0 transition group-hover:opacity-100">Tauschen</span>
+                {!isCurrent && Math.abs(diff) >= 1 && <span className={`text-[10.5px] ${diff > 0 ? "text-rose-700" : "text-accent-ink"}`}>{diff > 0 ? "+" : "−"}{fmtEuro(Math.abs(diff))}</span>}
+                <span className="rounded-md bg-accent px-1.5 py-0.5 text-[10.5px] font-medium text-white opacity-0 transition group-hover:opacity-100">Tauschen</span>
               </div>
             </div>
           );
@@ -240,7 +240,7 @@ export function SwapPanel({ it, onClose }: { it: PlacedItem; onClose: () => void
       <div className="flex items-center justify-between gap-2 border-t border-stone-200 px-3 py-2 text-[11px] text-stone-500">
         {twins.length > 1 ? (
           <label className="flex items-center gap-1.5 text-stone-700">
-            <input type="checkbox" className="accent-emerald-800" checked={all} onChange={(e) => setAll(e.target.checked)} />
+            <input type="checkbox" className="" checked={all} onChange={(e) => setAll(e.target.checked)} />
             alle {twins.length} gleichen Objekte tauschen
           </label>
         ) : (

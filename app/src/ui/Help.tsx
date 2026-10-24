@@ -1,5 +1,8 @@
-import { X } from "lucide-react";
+import { useState } from "react";
+import { Keyboard, Search } from "lucide-react";
 import { useEditor } from "../store/project";
+import { Dialog } from "./kit";
+import { matches } from "./commands";
 
 const GROUPS: [string, [string, string][]][] = [
   [
@@ -11,6 +14,11 @@ const GROUPS: [string, [string, string][]][] = [
       ["Strg+Z / Strg+Y", "Rückgängig / Wiederholen – Schritte sind benannt (Tooltip, Statusleiste)"],
       ["1 / 2 / 3", "Nur Plan / Plan und 3D / nur 3D"],
       ["F1 oder ?", "Diese Hilfe"],
+      ["Strg+,", "Einstellungen: Design (hell, dunkel, wie Windows), Transparenz, Oberflächengröße"],
+      ["Strg+B / Strg+Umschalt+B", "Linke / rechte Leiste ein- oder ausblenden; Leistenrand ziehen ändert die Breite"],
+      ["F11", "Vollbild"],
+      ["Rechtsklick", "Kontextmenü für Objekte und freie Planfläche (Plan und 3D)"],
+      [".we13 ins Fenster ziehen", "Projekt öffnen; Doppelklick im Explorer öffnet es in der laufenden App"],
       ["Esc", "Dialog schließen, Platzieren abbrechen, Auswahl aufheben"],
     ],
   ],
@@ -41,6 +49,8 @@ const GROUPS: [string, [string, string][]][] = [
       ["F", "Plan einpassen; in 3D Kamera auf die Auswahl"],
       ["Doppelklick (3D)", "Kamera auf Objekt"],
       ["M", "Messen im Plan"],
+      ["+ / −", "Plan vergrößern / verkleinern (Zoomleiste unten rechts, Prozentwert = einpassen)"],
+      ["Abstandsmaß anklicken", "Exakten Wandabstand in cm eingeben – das Objekt rückt passend"],
       ["W", "Wanddarstellung wechseln: Auto (verdeckende Wände 15 cm, wie Die Sims) → Schnitt → Flach → Voll"],
       ["Plan: Ziehen auf freier Fläche, mittlere/rechte Taste", "Ansicht verschieben; Mausrad zoomt zum Mauszeiger"],
       ["3D: links ziehen / rechts oder Mitte ziehen", "Ansicht drehen / verschieben; Möbel nur bei direktem Treffer mit links"],
@@ -49,38 +59,52 @@ const GROUPS: [string, [string, string][]][] = [
   ],
 ];
 
+function Keys({ k }: { k: string }) {
+  // „Strg+Z / Strg+Y“ → Tasten als Kappen; Beschreibungen in Worten bleiben Text
+  if (!/^[A-ZÄÖÜa-z0-9+/ ,.?−↑↓F-]+$/.test(k) || k.split(" ").length > 6 || /[a-zäöü]{4,}/.test(k.replace(/Strg|Umschalt|Entf|Esc|Alt/g, "")))
+    return <span className="font-medium text-stone-800">{k}</span>;
+  return (
+    <span className="flex flex-wrap items-center gap-1">
+      {k.split(/\s*\/\s*|\s+oder\s+/).map((combo, i) => (
+        <span key={i} className="flex items-center gap-0.5">
+          {i > 0 && <span className="mr-1 text-stone-400">/</span>}
+          {combo.split("+").map((x, j) => (
+            <kbd key={j}>{x.trim()}</kbd>
+          ))}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 export function HelpOverlay() {
   const open = useEditor((s) => s.helpOpen);
-  if (!open) return null;
+  const [q, setQ] = useState("");
   const close = () => useEditor.getState().set("helpOpen", false);
+  const groups = GROUPS.map(([t, rows]) => [t, q ? rows.filter(([k, v]) => matches(`${k} ${v}`, q)) : rows] as const).filter(([, r]) => r.length);
   return (
-    <div className="fixed inset-0 z-[100] grid place-items-center bg-black/30 p-4" onClick={close}>
-      <div className="max-h-full w-full max-w-2xl overflow-auto rounded-xl bg-white p-5 shadow-2xl" onClick={(e) => e.stopPropagation()}>
-        <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-base font-semibold">Bedienung & Tastenkürzel</h2>
-          <button className="btn-ghost" onClick={close} title="Schließen (Esc)">
-            <X size={16} />
-          </button>
-        </div>
-        {GROUPS.map(([title, rows]) => (
-          <div key={title} className="mb-3">
-            <div className="panel-title mb-1">{title}</div>
-            <table className="w-full text-sm">
-              <tbody>
-                {rows.map(([k, v]) => (
-                  <tr key={k} className="border-t border-stone-100">
-                    <td className="py-1.5 pr-4 align-top font-medium whitespace-nowrap text-stone-800">{k}</td>
-                    <td className="py-1.5 text-stone-600">{v}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+    <Dialog open={open} onClose={close} title="Bedienung & Tastenkürzel" icon={<Keyboard size={18} />} width="max-w-3xl">
+      <label className="relative mb-3 block">
+        <Search size={14} className="pointer-events-none absolute top-1/2 left-2.5 -translate-y-1/2 text-stone-400" />
+        <input className="field pl-8" placeholder="Kürzel oder Funktion suchen …" value={q} onChange={(e) => setQ(e.target.value)} autoFocus />
+      </label>
+      {groups.map(([title, rows]) => (
+        <div key={title} className="mb-4">
+          <div className="panel-title mb-1">{title}</div>
+          <div className="overflow-hidden rounded-xl border border-line bg-card/50">
+            {rows.map(([k, v]) => (
+              <div key={k} className="grid grid-cols-[minmax(160px,38%)_1fr] gap-4 border-t border-line px-3 py-2 text-sm first:border-t-0">
+                <Keys k={k} />
+                <span className="text-stone-600">{v}</span>
+              </div>
+            ))}
           </div>
-        ))}
-        <p className="mt-3 text-xs text-stone-500">
-          Pendelleuchten über Tischen werden automatisch mittig und 65 cm über der Tischplatte gehängt, sonst mit mind. 2,00 m Durchgangshöhe. Tischleuchten, Deko und The Frame (Standfuß) stellen sich auf Sideboards, Kommoden und Tische; diese nehmen beim Verschieben alles mit, was auf ihnen steht.
-        </p>
-      </div>
-    </div>
+        </div>
+      ))}
+      {!groups.length && <div className="py-6 text-center text-sm text-stone-500">Nichts gefunden.</div>}
+      <p className="mt-1 text-xs text-stone-500">
+        Pendelleuchten über Tischen werden automatisch mittig und 65 cm über der Tischplatte gehängt, sonst mit mind. 2,00 m Durchgangshöhe. Tischleuchten, Deko und The Frame (Standfuß) stellen sich auf Sideboards, Kommoden und Tische; diese nehmen beim Verschieben alles mit, was auf ihnen steht.
+      </p>
+    </Dialog>
   );
 }

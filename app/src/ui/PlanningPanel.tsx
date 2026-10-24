@@ -38,7 +38,7 @@ function CheckSection() {
       title="Planungs-Check"
       right={
         <label className="flex items-center gap-1 text-[11px] text-stone-600" title="Bewegungsflächen und Türschwenkbereiche im Plan einblenden">
-          <input type="checkbox" className="accent-emerald-800" checked={st.showClearance} onChange={(e) => st.set("showClearance", e.target.checked)} />
+          <input type="checkbox" className="" checked={st.showClearance} onChange={(e) => st.set("showClearance", e.target.checked)} />
           im Plan zeigen
         </label>
       }
@@ -54,7 +54,7 @@ function CheckSection() {
         ))}
       </div>
       {findings.length === 0 && (
-        <div className="flex items-center gap-2 rounded-md bg-emerald-50 p-2 text-xs text-emerald-900">
+        <div className="flex items-center gap-2 rounded-md bg-emerald-50 p-2 text-xs text-accent-ink">
           <Check size={14} /> Keine Konflikte: Bewegungsflächen, Türen, Balkonzugänge und Lieferweg sind in Ordnung.
         </div>
       )}
@@ -64,7 +64,7 @@ function CheckSection() {
           return (
             <button
               key={f.id}
-              className="flex w-full items-start gap-2 rounded-md bg-white p-2 text-left text-xs shadow-sm ring-1 ring-stone-200 hover:ring-stone-400"
+              className="flex w-full items-start gap-2 rounded-md bg-card p-2 text-left text-xs shadow-sm ring-1 ring-stone-200 hover:ring-stone-400"
               onClick={() => {
                 st.select(f.itemIds.filter((id) => st.project.items.some((i) => i.id === id)));
                 st.requestFocus(f.at[0], f.at[1]);
@@ -117,7 +117,7 @@ function VariantsSection() {
           const total = budgetSummary({ ...st.project, items: v.items, budget: v.budget }).total;
           const on = target?.kind === "variant" && target.id === v.id;
           return (
-            <div key={v.id} className={`rounded-md bg-white p-2 text-xs shadow-sm ring-1 ${on ? "ring-emerald-800" : "ring-stone-200"}`}>
+            <div key={v.id} className={`rounded-md bg-card p-2 text-xs shadow-sm ring-1 ${on ? "ring-accent" : "ring-stone-200"}`}>
               <div className="flex items-center gap-1">
                 {editing === v.id ? (
                   <input className="field py-0.5 text-xs" autoFocus defaultValue={v.name} onBlur={(e) => (st.renameVariant(v.id, e.target.value.trim() || v.name), setEditing(null))} onKeyDown={(e) => e.key === "Enter" && (e.target as HTMLInputElement).blur()} />
@@ -179,7 +179,7 @@ function VariantsSection() {
                 <td>Gesamt</td>
                 <td className="text-right">{fmtEuro(diff.totalA).replace(",00", "")}</td>
                 <td className="text-right">{fmtEuro(curTotal).replace(",00", "")}</td>
-                <td className={`text-right ${diff.totalB > diff.totalA ? "text-red-700" : "text-emerald-800"}`}>{signed(diff.totalB - diff.totalA)}</td>
+                <td className={`text-right ${diff.totalB > diff.totalA ? "text-red-700" : "text-accent-ink"}`}>{signed(diff.totalB - diff.totalA)}</td>
               </tr>
               <tr>
                 <td>Objekte</td>
@@ -199,7 +199,7 @@ function VariantsSection() {
                 ))}
             </tbody>
           </table>
-          <DiffList title="Neu" color="text-emerald-800" rows={diff.added.map((i) => itemName(i))} />
+          <DiffList title="Neu" color="text-accent-ink" rows={diff.added.map((i) => itemName(i))} />
           <DiffList title="Entfallen" color="text-red-700" rows={diff.removed.map((i) => itemName(i))} />
           <DiffList title="Getauscht" color="text-stone-700" rows={diff.swapped.map((s) => `${itemName(s.a)} → ${itemName(s.b)}`)} />
           <DiffList title="Andere Farbe/Ausführung" color="text-stone-700" rows={diff.restyled.map((s) => `${itemName(s.b)}: ${s.a.variant ?? "–"} → ${s.b.variant ?? "–"}`)} />
@@ -236,7 +236,7 @@ function DiffList({ title, rows, color }: { title: string; rows: string[]; color
         </div>
       ))}
       {rows.length > 4 && (
-        <button className="pl-2 text-[11px] text-emerald-800 hover:underline" onClick={() => setOpen((o) => !o)}>
+        <button className="pl-2 text-[11px] text-accent-ink hover:underline" onClick={() => setOpen((o) => !o)}>
           {open ? "weniger" : `alle ${rows.length} zeigen`}
         </button>
       )}

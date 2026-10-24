@@ -8,7 +8,7 @@ import { getCatalogItem } from "./project";
 const SURFACES = new Set([
   "sideboard", "lowboard", "console", "dresser", "nightstand", "tableRect", "tableRound", "tableOval", "tablePedestal",
   "coffeeDuo", "coffeeBlock", "coffeeRound", "sideRound", "sideContainer", "desk", "deskStanding", "shelfOpen", "bookcase",
-  "vitrine", "kitchenRun", "washer", "outdoorTable", "tylkoStorage",
+  "vitrine", "kitchenRun", "kitchenAlno", "kitchenAlnoSide", "washer", "outdoorTable", "tylkoStorage",
 ]);
 /** Objekte, die auf Möbeln abgestellt werden können. */
 const PLACEABLE = new Set([
@@ -24,6 +24,14 @@ const CEIL_CAPTURE = 0.3;
 
 const arch = (it: PlacedItem) => getCatalogItem(it.catalogId)?.archetype ?? "box";
 
+/** Höhe der nutzbaren Oberseite (Küchenzeilen: Arbeitsplatte statt Oberkante der Hochschränke). */
+export function surfaceTop(s: PlacedItem): number {
+  const a = arch(s);
+  if (a === "kitchenAlno") return s.elev + 0.968;
+  if (a === "kitchenRun") return s.elev + 0.9;
+  return s.elev + s.h;
+}
+
 export function isPlaceable(it: PlacedItem): boolean {
   if (it.mount !== "floor") return false;
   const a = arch(it);
@@ -36,7 +44,7 @@ export function supportUnder(it: PlacedItem, items: PlacedItem[]): PlacedItem | 
   for (const s of items) {
     if (s.id === it.id || s.hidden || s.mount !== "floor" || !SURFACES.has(arch(s))) continue;
     if (!pointInPolygon(it.x, it.y, footprint(s))) continue;
-    if (!best || s.elev + s.h > best.elev + best.h) best = s;
+    if (!best || surfaceTop(s) > surfaceTop(best)) best = s;
   }
   return best;
 }
@@ -44,7 +52,7 @@ export function supportUnder(it: PlacedItem, items: PlacedItem[]): PlacedItem | 
 /** Objekte, die auf `s` stehen (werden beim Verschieben mitgenommen). */
 export function ridersOf(s: PlacedItem, items: PlacedItem[]): PlacedItem[] {
   if (s.mount !== "floor" || !SURFACES.has(arch(s))) return [];
-  const top = s.elev + s.h;
+  const top = surfaceTop(s);
   return items.filter((it) => it.id !== s.id && isPlaceable(it) && Math.abs(it.elev - top) < 0.03 && pointInPolygon(it.x, it.y, footprint(s)));
 }
 
@@ -66,7 +74,7 @@ export function applyPlacementSnap(it: PlacedItem, items: PlacedItem[], baseRot:
   if (it.mount !== "floor") return [];
   if (isPlaceable(it)) {
     const s = supportUnder(it, items);
-    it.elev = s ? s.elev + s.h : 0;
+    it.elev = s ? surfaceTop(s) : 0;
     if (s && a === "tvFrame") {
       const diff = Math.abs(((baseRot - s.rot + 540) % 360) - 180);
       if (diff <= 50 || diff >= 130) it.rot = s.rot;
@@ -143,7 +151,7 @@ export function setFrameMode(it: PlacedItem, stand: boolean, items: PlacedItem[]
     it.d = Number(p.standD) || 0.25;
     it.h = panelH + (Number(p.feetH) || 0.034);
     const s = supportUnder(it, items);
-    it.elev = s ? s.elev + s.h : 0;
+    it.elev = s ? surfaceTop(s) : 0;
   } else {
     it.params = { ...p, stand: false };
     it.mount = "wall";

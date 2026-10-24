@@ -41,7 +41,7 @@ export function ObjectsPanel() {
               return (
                 <div
                   key={it.id}
-                  className={`flex cursor-pointer items-center gap-2 rounded-md px-1.5 py-1 text-xs ${sel ? "bg-stone-800 text-white" : "hover:bg-white"}`}
+                  className={`flex cursor-pointer items-center gap-2 rounded-md px-1.5 py-1 text-xs ${sel ? "bg-inverse text-on-inverse" : "hover:bg-card"}`}
                   onClick={(e) => {
                     st.select([it.id], e.shiftKey || e.ctrlKey);
                     st.requestFocus(it.x, it.y);
@@ -80,15 +80,15 @@ export function ConceptsPanel() {
       <p className="text-xs leading-relaxed text-stone-600">
         Die vier Möblierungskonzepte sind vollständig übernommen – alle Positionen mit exakten Planpositionen, Maßen, Farben, Preisen und Shop-Links. Ein Konzept laden ersetzt das aktuelle Projekt (rückgängig mit Strg+Z).
       </p>
-      <button className="w-full rounded-xl border-2 border-dashed border-emerald-800/40 bg-white p-3 text-left hover:border-emerald-800" onClick={() => st.set("newDialogOpen", true)}>
-        <div className="text-sm font-semibold text-emerald-900">Leere Wohnung von Grund auf einrichten</div>
+      <button className="w-full rounded-xl border-2 border-dashed border-accent/40 bg-card p-3 text-left hover:border-accent" onClick={() => st.set("newDialogOpen", true)}>
+        <div className="text-sm font-semibold text-accent-ink">Leere Wohnung von Grund auf einrichten</div>
         <div className="mt-0.5 text-xs text-stone-600">Bestand wählen (Küche, Sanitär), Farbstimmung und Boden festlegen, dann frei möblieren und gestalten.</div>
       </button>
       {concepts.map((c) => {
         const b = budgetSummary(c.project).total;
         const active = st.project.conceptId === c.id;
         return (
-          <div key={c.id} className={`overflow-hidden rounded-xl border bg-white shadow-sm ${active ? "border-emerald-800 ring-2 ring-emerald-800/20" : "border-stone-200"}`}>
+          <div key={c.id} className={`overflow-hidden rounded-xl border bg-card shadow-sm ${active ? "border-accent ring-2 ring-accent/20" : "border-stone-200"}`}>
             <div className="flex h-8">
               {c.palette.map((p) => (
                 <div key={p} className="flex-1" style={{ background: p }} />
@@ -120,7 +120,7 @@ function Swatches({ options, value, onPick }: { options: [string, string][]; val
   return (
     <div className="flex flex-wrap gap-1">
       {options.map(([c, l]) => (
-        <button key={c} title={l} onClick={() => onPick(c)} className={`h-6 w-6 rounded-full border ${value === c ? "ring-2 ring-emerald-800 ring-offset-1" : "border-stone-300"}`} style={{ background: c }} />
+        <button key={c} title={l} onClick={() => onPick(c)} className={`h-6 w-6 rounded-full border ${value === c ? "ring-2 ring-accent ring-offset-1" : "border-stone-300"}`} style={{ background: c }} />
       ))}
     </div>
   );
@@ -226,7 +226,7 @@ export function BudgetPanel() {
           <span className="text-xs text-stone-500">Rahmen bis {fmtEuro(limit)}</span>
         </div>
         <div className="mt-2 h-2 overflow-hidden rounded-full bg-stone-200">
-          <div className={`h-full ${b.total > limit ? "bg-red-600" : "bg-emerald-800"}`} style={{ width: `${pct}%` }} />
+          <div className={`h-full ${b.total > limit ? "bg-red-600" : "bg-accent"}`} style={{ width: `${pct}%` }} />
         </div>
         <div className="mt-2 flex h-2 overflow-hidden rounded-full">
           {Object.entries(b.byVendor).map(([v, s]) => (
@@ -288,7 +288,7 @@ export function BudgetPanel() {
               <span className="text-xs font-semibold tabular-nums">{fmtEuro(lines.reduce((a, l) => a + l.total, 0))}</span>
             </div>
             {lines.map((l, i) => (
-              <div key={i} className="flex items-start gap-2 rounded px-1 py-0.5 text-[11.5px] hover:bg-white">
+              <div key={i} className="flex items-start gap-2 rounded px-1 py-0.5 text-[11.5px] hover:bg-card">
                 <span className="w-10 shrink-0 font-mono text-[10px] text-stone-500">{l.pos ?? ""}</span>
                 <span className="min-w-0 flex-1">
                   {l.url ? (
