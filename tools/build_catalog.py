@@ -998,6 +998,82 @@ def boconcept():
     return out
 
 
+# ------------------------------------------------------------------ Möbel Letz (Markenhersteller, rechteckige Keramiktische 200 × 100 cm)
+# Auswahl aus scrape_letz.py: Artikel → (Marke, Modell, Konfiguration, Aufpreis Größe, Platte, Gestell, Gestellform)
+# Maße der gewählten Größenoption (L × T × H in cm), Preis = Shoppreis der abgebildeten Ausführung + Aufpreis der Größe.
+LETZ = {
+    "59508": ("Mobitec", "Terra", (200, 100, 76), 0, "Keramik calce nero (MDF 21 mm + Keramik 3 mm, Schweizer Kante)", ("#2c2c2b", "stone"),
+              ("Gestell Metall black", "#1d1d1d", "blackMetal"), {"top": 0.024, "radius": 0.005, "leg": 0.055, "inset": 0.07, "splay": 0.05, "noApron": True},
+              "ausziehbar auf 300 cm (Klappeinlage 100 cm)"),
+    "95268": ("Musterring", "Picara", (200, 100, 76), 43.35, "Keramik Pietra di Savoia anthracite (Keramik 6 mm + Multiplex 24 mm)", ("#3c3c3a", "stone"),
+              ("Gestell Metall schwarz pulverbeschichtet", "#1d1d1d", "blackMetal"), {"top": 0.03, "radius": 0.005, "legStyle": "square", "leg": 0.04, "inset": 0.03},
+              "ausziehbar (Klappeinlage 100 cm)"),
+    "55051": ("bert plantagie", "Aiven", (200, 99.6, 77), 0, "Keramik dark marble", ("#2a2a2c", "marble"),
+              ("Gestell Metall BP100 anthrazit, Querstange 120,5 cm", "#353637", "blackMetal"), {"top": 0.02, "radius": 0.005, "legStyle": "xframe", "leg": 0.035, "inset": 0.36, "noApron": True},
+              None),
+    "106174": ("connubia by calligaris", "Master", (200, 100, 76), 0, "Keramik-Glas Arenaria (Feinsteinzeug 3 mm + Floatglas 8 mm)", ("#a59c8f", "stone"),
+               ("Gestell Metall lava matt", "#4a4643", "matte"), {"top": 0.011, "radius": 0.005, "legStyle": "cross", "leg": 0.045, "inset": 0.2, "noApron": True},
+               "ausziehbar auf 280 cm (Klappverlängerung 80 cm)"),
+}
+
+
+# Passende Polsterstühle der Tischhersteller: Artikel → (Marke, Modell, Archetyp, Parameter, Bezug, Gestell)
+LETZ_CHAIRS = {
+    "58285": ("Mobitec", "Aura", "diningChair", {"seatHeight": 0.5}, ("Flachgewebe Berry silver", "#b9b8b4", "fabric"), ("Gestell Metall black", "#1d1d1d", "blackMetal")),
+    "58353": ("Mobitec", "Aura Armlehnstuhl", "diningArmchair", {"seatHeight": 0.5, "armHeight": 0.665}, ("Flachgewebe Berry silver", "#b9b8b4", "fabric"),
+              ("Gestell Metall black", "#1d1d1d", "blackMetal")),
+}
+
+
+def letz_chairs(rows):
+    out = []
+    for p in rows:
+        if p["id"] not in LETZ_CHAIRS or not p.get("price"):
+            continue
+        brand, model, arch, params, (cover, cc, cm), (legs_txt, lc, lm) = LETZ_CHAIRS[p["id"]]
+        W, H, D = (float(p["dims"][k].replace(",", ".")) for k in ("Breite", "Höhe", "Tiefe"))
+        image = (p["images"] or [None])[0]
+        v = {"name": f"{cover}, {legs_txt}", "slots": {"main": {"color": cc, "material": cm}, "legs": {"color": lc, "material": lm}},
+             "price": p["price"], "url": p["url"], "image": image}
+        e = {
+            "id": f"let-{re.sub(r'[^a-z0-9]+', '-', (brand + ' ' + model).lower()).strip('-')}-{p['id']}", "vendor": "Designhandel", "brand": brand, "series": "Aura",
+            "name": f"{brand} {model}", "category": "chair", "w": W, "d": D, "h": H, "price": p["price"], "url": p["url"], "image": image,
+            "archetype": arch, "params": dict(params), "variants": [v], "tags": [brand, "Polsterstuhl"], "premium": True,
+            "description": f"Bezug: {cover} · Gestell: {legs_txt} · Sitz und Rücken: Buchenrahmen mit Gurtung und HR-Schaum · "
+                           f"{W:g} × {D:g} × {H:g} cm · weitere Bezüge und 22 Gestellfarben lt. Hersteller",
+        }
+        out.append(finalize(e))
+    return out
+
+
+def letz():
+    f = RES / "letz_products.json"
+    if not f.exists():
+        return []
+    rows = json.loads(f.read_text())
+    out = letz_chairs(rows)
+    for p in rows:
+        if p["id"] not in LETZ or not p.get("price"):
+            continue
+        brand, model, (W, D, H), extra, plate, (top, top_mat), (legs_txt, legs, legs_mat), params, ext = LETZ[p["id"]]
+        price = round(p["price"] + extra, 2)
+        image = (p["images"] or [None])[0]
+        v = {"name": f"{plate.split(' (')[0]}, {legs_txt}", "slots": {"top": {"color": top, "material": top_mat}, "main": {"color": top, "material": top_mat},
+             "legs": {"color": legs, "material": legs_mat}}, "price": price, "url": p["url"], "image": image}
+        desc = [f"Platte: {plate}", f"Gestell: {legs_txt}", f"Größe: {W:g} × {D:g} × {H:g} cm, rechteckig, Platz für 6–8 Personen"]
+        if ext:
+            desc.append(ext)
+        desc.append("Preis Möbel Letz (online-moebel-kaufen.de) für diese Ausführung")
+        e = {
+            "id": f"let-{re.sub(r'[^a-z0-9]+', '-', (brand + ' ' + model).lower()).strip('-')}-{p['id']}", "vendor": "Designhandel", "brand": brand, "series": model,
+            "name": f"{brand} Esstisch {model} ({plate.split(' (')[0]})", "category": "diningTable", "w": W, "d": D, "h": H, "price": price,
+            "url": p["url"], "image": image, "archetype": "tableRect", "params": dict(params), "variants": [v],
+            "tags": [brand] + stone_tags(plate) + ["Keramik/Sinterstein", "Rechteckig 200 cm"], "premium": True, "description": " · ".join(desc),
+        }
+        out.append(finalize(e))
+    return out
+
+
 # Längliche Marmortische der übrigen Händler: Kennzeichnung echter Marmor vs. Optik (Shopangaben zum Plattenmaterial)
 MARBLE_TABLES = {
     "wes-oval-dining-table-marmo-200-x-90-cm-en-25gae91508": "Echter Marmor (auf MDF)",
@@ -1521,7 +1597,7 @@ def write_aliases(cat):
 
 
 def main():
-    groups = [("Konzepte", concept_items()), ("Westwing", merge_color_variants(westwing())), ("IKEA", merge_color_variants(ikea())), ("JYSK", merge_color_variants(jysk())), ("Tylko", tylko()), ("lampe.de", lampe()), ("Höffner", hoeffner()), ("BoConcept", boconcept()), ("Ergänzungen", generic_items())]
+    groups = [("Konzepte", concept_items()), ("Westwing", merge_color_variants(westwing())), ("IKEA", merge_color_variants(ikea())), ("JYSK", merge_color_variants(jysk())), ("Tylko", tylko()), ("lampe.de", lampe()), ("Höffner", hoeffner()), ("BoConcept", boconcept()), ("Möbel Letz", letz()), ("Ergänzungen", generic_items())]
     seen = set(); cat = []
     for label, items in groups:
         k = 0

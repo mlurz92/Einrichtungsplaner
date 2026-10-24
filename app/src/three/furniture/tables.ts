@@ -14,9 +14,36 @@ export function tableRect(c: Ctx) {
   const leg = num(p, "leg", h < 0.5 ? 0.035 : 0.045);
   const inset = num(p, "inset", 0.06);
   const lx = w / 2 - inset, lz = d / 2 - inset;
+  const style = str(p, "legStyle", "round");
+  const y0 = h - t;
   if (str(p, "base", "legs") === "panel") {
     for (const sx of [-1, 1]) b.box(0.05, h - t, d * 0.8, L, sx * (w / 2 - 0.15), 0, 0);
-  } else if (str(p, "legStyle", "round") === "square") {
+  } else if (style === "xframe") {
+    // Kufen-/X-Gestell (bert plantagie Aiven): je Ende zwei Beinpaare, die vom Scheitel unter der Platte zu beiden Seiten
+    // in Längsrichtung auslaufen, Querstange zwischen den Scheiteln
+    const ax = w / 2 - inset, z = d / 2 - 0.12, spread = 0.26;
+    for (const sx of [-1, 1]) {
+      for (const sz of [-1, 1]) {
+        b.strut([sx * ax, y0, sz * (z - 0.02)], [sx * (ax + spread), 0, sz * z], leg, L, true);
+        b.strut([sx * ax, y0, sz * (z - 0.02)], [sx * (ax - spread), 0, sz * z], leg, L, true);
+      }
+      b.box(leg, leg, 2 * z - 0.04, L, sx * ax, y0 - leg, 0);
+    }
+    b.box(2 * ax, leg, leg, L, 0, y0 - leg * 1.2, 0);
+  } else if (style === "cross") {
+    // Gekreuzte Schrägbeine (connubia Master): je Ende und Seite zwei Beine, die sich in der Seitenansicht überkreuzen
+    const ax = w / 2 - inset, z = d / 2 - 0.16, s2 = 0.2;
+    for (const sx of [-1, 1]) {
+      for (const sz of [-1, 1]) {
+        b.strut([sx * (ax - s2), y0, sz * (z - 0.06)], [sx * (ax + s2 * 0.6), 0, sz * z], leg, L, false, 0.8);
+        b.strut([sx * (ax + s2 * 0.5), y0, sz * (z - 0.1)], [sx * (ax - s2 * 1.1), 0, sz * (z + 0.04)], leg, L, false, 0.8);
+      }
+    }
+  } else if (num(p, "splay", 0) > 0) {
+    // Leicht schräg ausgestellte, konische Beine (Mobitec Terra)
+    const sp = num(p, "splay", 0);
+    for (const sx of [-1, 1]) for (const sz of [-1, 1]) b.strut([sx * (lx - sp), y0, sz * (lz - sp * 0.6)], [sx * lx, 0, sz * lz], leg, L, false, 0.6);
+  } else if (style === "square") {
     b.legsSquare([[-lx, -lz], [lx, -lz], [-lx, lz], [lx, lz]], h - t, leg, L);
   } else {
     b.legs([[-lx, -lz], [lx, -lz], [-lx, lz], [lx, lz]], h - t, leg / 2, L, 0.75);

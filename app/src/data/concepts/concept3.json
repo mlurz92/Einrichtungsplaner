@@ -951,25 +951,25 @@
 ]
 },
 {
-"id": "f386023a7f",
-"catalogId": "hoe-talia-50304622",
+"id": "3274194c6c",
+"catalogId": "let-musterring-picara-95268",
 "pos": "E1",
-"label": "Esstisch Talia (Steinplatte Grau)",
+"label": "Musterring Esstisch Picara (Keramik Pietra di Savoia anthracite)",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 0.0,
-"w": 1.7,
-"d": 0.9,
-"h": 0.77,
-"variant": "Steinplatte Grau, Gestell Metall Schwarz",
+"w": 2.0,
+"d": 1.0,
+"h": 0.76,
+"variant": "Keramik Pietra di Savoia anthracite, Gestell Metall schwarz pulverbeschichtet",
 "slots": {
 "top": {
-"color": "#4a4a48",
+"color": "#3c3c3a",
 "material": "stone"
 },
 "main": {
-"color": "#4a4a48",
+"color": "#3c3c3a",
 "material": "stone"
 },
 "legs": {
@@ -978,44 +978,44 @@
 }
 },
 "params": {
-"top": 0.02,
+"top": 0.03,
+"radius": 0.005,
 "legStyle": "square",
 "leg": 0.04,
-"inset": 0.12,
-"noApron": true
+"inset": 0.03
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E1",
-"name": "Esstisch Talia (Steinplatte Grau)",
-"variant": "Steinplatte Grau, Gestell Metall Schwarz",
-"vendor": "Höffner",
+"name": "Musterring Esstisch Picara (Keramik Pietra di Savoia anthracite)",
+"variant": "Keramik Pietra di Savoia anthracite, Gestell Metall schwarz pulverbeschichtet",
+"vendor": "Designhandel",
 "qty": 1,
-"unit": 879.0,
-"url": "https://www.hoeffner.de/artikel/50304622",
-"dims": "B 170 × T 90 × H 77",
+"unit": 3706.85,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/Musterring/Picara-von-Musterring-Esstisch-mit-Keramikplatte::95268.html",
+"dims": "B 200 × T 100 × H 76",
 "delivery": null
 }
 ]
 },
 {
-"id": "2fe23fa7a9",
-"catalogId": "wes-polsterstuhl-tess-166841",
+"id": "daaf0a73c3",
+"catalogId": "let-mobitec-aura-58285",
 "pos": "E2",
-"label": "Polsterstuhl Tess",
-"x": 5.5075,
-"y": 8.9536,
+"label": "Mobitec Aura",
+"x": 5.4649,
+"y": 8.8972,
 "rot": 278,
 "elev": 0.0,
-"w": 0.49,
+"w": 0.51,
 "d": 0.64,
-"h": 0.84,
-"variant": "Webstoff Off White, Schwarz matt",
+"h": 0.91,
+"variant": "Flachgewebe Berry silver, Gestell Metall black",
 "slots": {
 "main": {
-"color": "#ede8dc",
+"color": "#b9b8b4",
 "material": "fabric"
 },
 "legs": {
@@ -1023,39 +1023,41 @@
 "material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"seatHeight": 0.5
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Polsterstuhl Tess",
-"variant": "Webstoff Off White, Schwarz matt",
-"vendor": "Westwing",
+"name": "Mobitec Aura",
+"variant": "Flachgewebe Berry silver, Gestell Metall black",
+"vendor": "Designhandel",
 "qty": 1,
-"unit": 229.0,
-"url": "https://www.westwing.de/polsterstuhl-tess-152157.html",
-"dims": "B 49 × T 64 × H 84",
+"unit": 329.0,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Stuehle/Mobitec/Aura-von-Mobitec-Polsterstuhl-im-modernen-Design::58285.html",
+"dims": "B 51 × T 64 × H 91",
 "delivery": null
 }
 ]
 },
 {
-"id": "995dcfeabd",
-"catalogId": "wes-polsterstuhl-tess-166841",
+"id": "ae2b2ccaf8",
+"catalogId": "let-mobitec-aura-58285",
 "pos": "E2",
-"label": "Polsterstuhl Tess",
-"x": 5.424,
-"y": 9.5478,
+"label": "Mobitec Aura",
+"x": 5.3745,
+"y": 9.5408,
 "rot": 278,
 "elev": 0.0,
-"w": 0.49,
+"w": 0.51,
 "d": 0.64,
-"h": 0.84,
-"variant": "Webstoff Off White, Schwarz matt",
+"h": 0.91,
+"variant": "Flachgewebe Berry silver, Gestell Metall black",
 "slots": {
 "main": {
-"color": "#ede8dc",
+"color": "#b9b8b4",
 "material": "fabric"
 },
 "legs": {
@@ -1063,39 +1065,41 @@
 "material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"seatHeight": 0.5
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Polsterstuhl Tess",
-"variant": "Webstoff Off White, Schwarz matt",
-"vendor": "Westwing",
+"name": "Mobitec Aura",
+"variant": "Flachgewebe Berry silver, Gestell Metall black",
+"vendor": "Designhandel",
 "qty": 1,
-"unit": 229.0,
-"url": "https://www.westwing.de/polsterstuhl-tess-152157.html",
-"dims": "B 49 × T 64 × H 84",
+"unit": 329.0,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Stuehle/Mobitec/Aura-von-Mobitec-Polsterstuhl-im-modernen-Design::58285.html",
+"dims": "B 51 × T 64 × H 91",
 "delivery": null
 }
 ]
 },
 {
-"id": "b06396e69d",
-"catalogId": "wes-polsterstuhl-tess-166841",
+"id": "61d65812f4",
+"catalogId": "let-mobitec-aura-58285",
 "pos": "E2",
-"label": "Polsterstuhl Tess",
-"x": 5.3405,
-"y": 10.142,
+"label": "Mobitec Aura",
+"x": 5.284,
+"y": 10.1845,
 "rot": 278,
 "elev": 0.0,
-"w": 0.49,
+"w": 0.51,
 "d": 0.64,
-"h": 0.84,
-"variant": "Webstoff Off White, Schwarz matt",
+"h": 0.91,
+"variant": "Flachgewebe Berry silver, Gestell Metall black",
 "slots": {
 "main": {
-"color": "#ede8dc",
+"color": "#b9b8b4",
 "material": "fabric"
 },
 "legs": {
@@ -1103,39 +1107,41 @@
 "material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"seatHeight": 0.5
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Polsterstuhl Tess",
-"variant": "Webstoff Off White, Schwarz matt",
-"vendor": "Westwing",
+"name": "Mobitec Aura",
+"variant": "Flachgewebe Berry silver, Gestell Metall black",
+"vendor": "Designhandel",
 "qty": 1,
-"unit": 229.0,
-"url": "https://www.westwing.de/polsterstuhl-tess-152157.html",
-"dims": "B 49 × T 64 × H 84",
+"unit": 329.0,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Stuehle/Mobitec/Aura-von-Mobitec-Polsterstuhl-im-modernen-Design::58285.html",
+"dims": "B 51 × T 64 × H 91",
 "delivery": null
 }
 ]
 },
 {
-"id": "6b736d07b1",
-"catalogId": "wes-polsterstuhl-tess-166841",
+"id": "b0fcb22460",
+"catalogId": "let-mobitec-aura-58285",
 "pos": "E2",
-"label": "Polsterstuhl Tess",
-"x": 6.7948,
-"y": 9.1346,
+"label": "Mobitec Aura",
+"x": 6.8513,
+"y": 9.092,
 "rot": 98,
 "elev": 0.0,
-"w": 0.49,
+"w": 0.51,
 "d": 0.64,
-"h": 0.84,
-"variant": "Webstoff Off White, Schwarz matt",
+"h": 0.91,
+"variant": "Flachgewebe Berry silver, Gestell Metall black",
 "slots": {
 "main": {
-"color": "#ede8dc",
+"color": "#b9b8b4",
 "material": "fabric"
 },
 "legs": {
@@ -1143,39 +1149,41 @@
 "material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"seatHeight": 0.5
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Polsterstuhl Tess",
-"variant": "Webstoff Off White, Schwarz matt",
-"vendor": "Westwing",
+"name": "Mobitec Aura",
+"variant": "Flachgewebe Berry silver, Gestell Metall black",
+"vendor": "Designhandel",
 "qty": 1,
-"unit": 229.0,
-"url": "https://www.westwing.de/polsterstuhl-tess-152157.html",
-"dims": "B 49 × T 64 × H 84",
+"unit": 329.0,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Stuehle/Mobitec/Aura-von-Mobitec-Polsterstuhl-im-modernen-Design::58285.html",
+"dims": "B 51 × T 64 × H 91",
 "delivery": null
 }
 ]
 },
 {
-"id": "dac2e7cf05",
-"catalogId": "wes-polsterstuhl-tess-166841",
+"id": "e4ff104d4c",
+"catalogId": "let-mobitec-aura-58285",
 "pos": "E2",
-"label": "Polsterstuhl Tess",
-"x": 6.7113,
-"y": 9.7287,
+"label": "Mobitec Aura",
+"x": 6.7609,
+"y": 9.7357,
 "rot": 98,
 "elev": 0.0,
-"w": 0.49,
+"w": 0.51,
 "d": 0.64,
-"h": 0.84,
-"variant": "Webstoff Off White, Schwarz matt",
+"h": 0.91,
+"variant": "Flachgewebe Berry silver, Gestell Metall black",
 "slots": {
 "main": {
-"color": "#ede8dc",
+"color": "#b9b8b4",
 "material": "fabric"
 },
 "legs": {
@@ -1183,39 +1191,41 @@
 "material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"seatHeight": 0.5
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Polsterstuhl Tess",
-"variant": "Webstoff Off White, Schwarz matt",
-"vendor": "Westwing",
+"name": "Mobitec Aura",
+"variant": "Flachgewebe Berry silver, Gestell Metall black",
+"vendor": "Designhandel",
 "qty": 1,
-"unit": 229.0,
-"url": "https://www.westwing.de/polsterstuhl-tess-152157.html",
-"dims": "B 49 × T 64 × H 84",
+"unit": 329.0,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Stuehle/Mobitec/Aura-von-Mobitec-Polsterstuhl-im-modernen-Design::58285.html",
+"dims": "B 51 × T 64 × H 91",
 "delivery": null
 }
 ]
 },
 {
-"id": "b26dfb492d",
-"catalogId": "wes-polsterstuhl-tess-166841",
+"id": "b33f571029",
+"catalogId": "let-mobitec-aura-58285",
 "pos": "E2",
-"label": "Polsterstuhl Tess",
-"x": 6.6278,
-"y": 10.3229,
+"label": "Mobitec Aura",
+"x": 6.6704,
+"y": 10.3793,
 "rot": 98,
 "elev": 0.0,
-"w": 0.49,
+"w": 0.51,
 "d": 0.64,
-"h": 0.84,
-"variant": "Webstoff Off White, Schwarz matt",
+"h": 0.91,
+"variant": "Flachgewebe Berry silver, Gestell Metall black",
 "slots": {
 "main": {
-"color": "#ede8dc",
+"color": "#b9b8b4",
 "material": "fabric"
 },
 "legs": {
@@ -1223,39 +1233,41 @@
 "material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"seatHeight": 0.5
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Polsterstuhl Tess",
-"variant": "Webstoff Off White, Schwarz matt",
-"vendor": "Westwing",
+"name": "Mobitec Aura",
+"variant": "Flachgewebe Berry silver, Gestell Metall black",
+"vendor": "Designhandel",
 "qty": 1,
-"unit": 229.0,
-"url": "https://www.westwing.de/polsterstuhl-tess-152157.html",
-"dims": "B 49 × T 64 × H 84",
+"unit": 329.0,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Stuehle/Mobitec/Aura-von-Mobitec-Polsterstuhl-im-modernen-Design::58285.html",
+"dims": "B 51 × T 64 × H 91",
 "delivery": null
 }
 ]
 },
 {
-"id": "8cbaeee368",
-"catalogId": "wes-polsterstuhl-tess-166841",
+"id": "76ba6a4de1",
+"catalogId": "let-mobitec-aura-58285",
 "pos": "E12",
-"label": "Polsterstuhl Tess (Nischenplatz)",
+"label": "Mobitec Aura (Nischenplatz)",
 "x": 7.513,
 "y": 7.34,
 "rot": 8,
 "elev": 0.0,
-"w": 0.49,
+"w": 0.51,
 "d": 0.64,
-"h": 0.84,
-"variant": "Webstoff Off White, Schwarz matt",
+"h": 0.91,
+"variant": "Flachgewebe Berry silver, Gestell Metall black",
 "slots": {
 "main": {
-"color": "#ede8dc",
+"color": "#b9b8b4",
 "material": "fabric"
 },
 "legs": {
@@ -1263,35 +1275,37 @@
 "material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"seatHeight": 0.5
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E12",
-"name": "Polsterstuhl Tess",
-"variant": "Webstoff Off White, Schwarz matt",
-"vendor": "Westwing",
+"name": "Mobitec Aura",
+"variant": "Flachgewebe Berry silver, Gestell Metall black",
+"vendor": "Designhandel",
 "qty": 1,
-"unit": 229.0,
-"url": "https://www.westwing.de/polsterstuhl-tess-152157.html",
-"dims": "B 49 × T 64 × H 84",
+"unit": 329.0,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Stuehle/Mobitec/Aura-von-Mobitec-Polsterstuhl-im-modernen-Design::58285.html",
+"dims": "B 51 × T 64 × H 91",
 "delivery": null
 }
 ]
 },
 {
-"id": "de8218ffae",
-"catalogId": "lam-paul-neuhaus-rika-pendelleuchte-2115-18",
+"id": "4630404b01",
+"catalogId": "lam-schoener-wohnen-kollektion-dubai-led-balkenpendelleuchte-13-flammig-ra",
 "pos": "E3",
-"label": "Paul Neuhaus Rika Pendelleuchte LED",
+"label": "SCHÖNER WOHNEN-Kollektion DUBAI LED Balkenpendelleuchte 13-flammig rauchfarbenes Glas 3000 Kelvin 350 Lumen 3 Watt Länge 118 cm",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
-"elev": 1.42,
-"w": 1.35,
-"d": 0.31,
-"h": 0.31,
+"elev": 1.41,
+"w": 1.18,
+"d": 0.23,
+"h": 0.23,
 "variant": "Schwarz / Rauchfarben",
 "slots": {
 "main": {
@@ -1308,31 +1322,31 @@
 }
 },
 "params": {
-"heads": 7,
+"heads": 13,
 "shape": "globe",
-"maxHang": 1.8
+"maxHang": 1.5
 },
 "mount": "ceiling",
 "room": "13.01",
 "parts": [
 {
 "pos": "E3",
-"name": "Paul Neuhaus Rika Pendelleuchte LED",
+"name": "SCHÖNER WOHNEN-Kollektion DUBAI LED Balkenpendelleuchte 13-flammig rauchfarbenes Glas 3000 Kelvin 350 Lumen 3 Watt Länge 118 cm",
 "variant": "Schwarz / Rauchfarben",
 "vendor": "lampe.de",
 "qty": 1,
-"unit": 581.04,
-"url": "https://www.lampe.de/paul-neuhaus-rika-pendelleuchte-2115-18.html",
-"dims": "B 135 × T 31 × H 31",
+"unit": 299.0,
+"url": "https://www.lampe.de/schoener-wohnen-kollektion-dubai-led-balkenpendelleuchte-13-flammig-rauchfarbenes-glas-3000-kelvin-350-lumen-3-watt-laenge-118-cm-14504-18.html",
+"dims": "B 118 × T 23 × H 23",
 "delivery": null
 }
 ]
 },
 {
-"id": "d6fcd4e525",
-"catalogId": "ike-00640673",
+"id": "f116f51263",
+"catalogId": "ike-50593810",
 "pos": "E9",
-"label": "STOENSE Teppich Kurzflor",
+"label": "STOCKHOLM 2025 Teppich flach gewebt",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 8,
@@ -1340,10 +1354,14 @@
 "w": 2.4,
 "d": 3.5,
 "h": 0.012,
-"variant": "Beige",
+"variant": "Schwarz / weiß / hellgrün handgewebt",
 "slots": {
 "main": {
-"color": "#d6c7ae",
+"color": "#1d1d1d",
+"material": "wool"
+},
+"secondary": {
+"color": "#f3f1ec",
 "material": "wool"
 }
 },
@@ -1353,12 +1371,12 @@
 "parts": [
 {
 "pos": "E9",
-"name": "STOENSE Teppich Kurzflor",
-"variant": "Beige",
+"name": "STOCKHOLM 2025 Teppich flach gewebt",
+"variant": "Schwarz / weiß / hellgrün handgewebt",
 "vendor": "IKEA",
 "qty": 1,
-"unit": 169.0,
-"url": "https://www.ikea.com/de/de/p/stoense-teppich-kurzflor-beige-40640671/",
+"unit": 499.0,
+"url": "https://www.ikea.com/de/de/p/stockholm-2025-teppich-flach-gewebt-schwarz-weiss-hellgruen-handgewebt-50593810/",
 "dims": "B 240 × T 350 × H 1.2",
 "delivery": null
 }

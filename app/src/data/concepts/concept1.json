@@ -1006,48 +1006,52 @@
 ]
 },
 {
-"id": "9496925f4a",
-"catalogId": "hoe-juka-50309767",
+"id": "87da67005a",
+"catalogId": "let-mobitec-terra-59508",
 "pos": "E1",
-"label": "Esstisch Juka (Steinplatte Schwarz)",
+"label": "Mobitec Esstisch Terra (Keramik calce nero)",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 0.0,
 "w": 2.0,
 "d": 1.0,
-"h": 0.757,
-"variant": "Steinplatte Schwarz, Schrägsäule Metall bronzefarben",
+"h": 0.76,
+"variant": "Keramik calce nero, Gestell Metall black",
 "slots": {
 "top": {
-"color": "#2b2b2a",
+"color": "#2c2c2b",
 "material": "stone"
 },
 "main": {
-"color": "#2b2b2a",
+"color": "#2c2c2b",
 "material": "stone"
 },
 "legs": {
-"color": "#8c6a43",
-"material": "lacquer"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {
-"top": 0.02,
-"footD": 0.6
+"top": 0.024,
+"radius": 0.005,
+"leg": 0.055,
+"inset": 0.07,
+"splay": 0.05,
+"noApron": true
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E1",
-"name": "Esstisch Juka (Steinplatte Schwarz)",
-"variant": "Steinplatte Schwarz, Schrägsäule Metall bronzefarben",
-"vendor": "Höffner",
+"name": "Mobitec Esstisch Terra (Keramik calce nero)",
+"variant": "Keramik calce nero, Gestell Metall black",
+"vendor": "Designhandel",
 "qty": 1,
-"unit": 1519.0,
-"url": "https://www.hoeffner.de/artikel/50309767",
-"dims": "B 200 × T 100 × H 75.7",
+"unit": 3627.0,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/Mobitec/Terra-dining-von-Mobitec-Esstisch-in-Keramik-nero-Metall-black-ausziehbar::59508.html",
+"dims": "B 200 × T 100 × H 76",
 "delivery": null
 }
 ]
@@ -1333,49 +1337,49 @@
 ]
 },
 {
-"id": "187abcee9f",
-"catalogId": "lam-paul-neuhaus-pure-e-popup-pendelleuchte-2558-97",
+"id": "eb76375bfd",
+"catalogId": "lam-paul-neuhaus-bowl-pendelleuchte-2288-23",
 "pos": "E3",
-"label": "Paul Neuhaus PURE E-Popup Pendelleuchte LED Bronze, 18-flammig, Fernbedienung",
+"label": "Paul Neuhaus BOWL Pendelleuchte LED",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 1.41,
-"w": 1.8,
-"d": 0.295,
-"h": 0.295,
-"variant": "Bronze / Weiß",
+"w": 1.2,
+"d": 0.45,
+"h": 0.45,
+"variant": "Braun / Rauchfarben",
 "slots": {
 "main": {
-"color": "#8c6a43",
+"color": "#6f4d36",
 "material": "matte"
 },
 "shade": {
-"color": "#f6f4ee",
-"material": "opal"
+"color": "#6b6660",
+"material": "glass"
 },
 "frame": {
-"color": "#8c6a43",
+"color": "#6f4d36",
 "material": "matte"
 }
 },
 "params": {
-"heads": 18,
+"heads": 12,
 "shape": "globe",
-"maxHang": 2.4
+"maxHang": 1.8
 },
 "mount": "ceiling",
 "room": "13.01",
 "parts": [
 {
 "pos": "E3",
-"name": "Paul Neuhaus PURE E-Popup Pendelleuchte LED Bronze, 18-flammig, Fernbedienung",
-"variant": "Bronze / Weiß",
+"name": "Paul Neuhaus BOWL Pendelleuchte LED",
+"variant": "Braun / Rauchfarben",
 "vendor": "lampe.de",
 "qty": 1,
-"unit": 1799.0,
-"url": "https://www.lampe.de/paul-neuhaus-pure-e-popup-pendelleuchte-2558-97.html",
-"dims": "B 180 × T 29.5 × H 29.5",
+"unit": 1499.0,
+"url": "https://www.lampe.de/paul-neuhaus-bowl-pendelleuchte-2288-23.html",
+"dims": "B 120 × T 45 × H 45",
 "delivery": null
 }
 ]

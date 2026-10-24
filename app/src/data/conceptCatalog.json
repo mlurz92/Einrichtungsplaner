@@ -1785,6 +1785,53 @@
 "concepts": []
 },
 {
+"id": "let-mobitec-aura-58285",
+"vendor": "Designhandel",
+"brand": "Mobitec",
+"series": "Aura",
+"name": "Mobitec Aura",
+"category": "chair",
+"w": 51.0,
+"d": 64.0,
+"h": 91.0,
+"price": 329.0,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Stuehle/Mobitec/Aura-von-Mobitec-Polsterstuhl-im-modernen-Design::58285.html",
+"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/58285_0.jpg",
+"archetype": "diningChair",
+"params": {
+"seatHeight": 0.5
+},
+"variants": [
+{
+"name": "Flachgewebe Berry silver, Gestell Metall black",
+"slots": {
+"main": {
+"color": "#b9b8b4",
+"material": "fabric"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"price": 329.0,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Stuehle/Mobitec/Aura-von-Mobitec-Polsterstuhl-im-modernen-Design::58285.html",
+"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/58285_0.jpg"
+}
+],
+"tags": [
+"Mobitec",
+"Polsterstuhl"
+],
+"premium": true,
+"description": "Bezug: Flachgewebe Berry silver · Gestell: Gestell Metall black · Sitz und Rücken: Buchenrahmen mit Gurtung und HR-Schaum · 51 × 64 × 91 cm · weitere Bezüge und 22 Gestellfarben lt. Hersteller",
+"mount": "floor",
+"resizable": false,
+"concepts": [
+3
+]
+},
+{
 "id": "wes-polsterstuhl-tess-166841",
 "vendor": "Westwing",
 "brand": "Westwing Collection",
@@ -1936,7 +1983,6 @@
 "mount": "floor",
 "resizable": false,
 "concepts": [
-3,
 4
 ]
 },
@@ -2972,188 +3018,37 @@
 ]
 },
 {
-"id": "boc-alicante-3700128t0850a07",
+"id": "let-mobitec-terra-59508",
 "vendor": "Designhandel",
-"brand": "BoConcept",
-"series": "Alicante",
-"name": "BoConcept Esstisch Alicante (Keramik aschgrau, Steinoptik)",
-"category": "diningTable",
-"w": 183.0,
-"d": 99.0,
-"h": 74.5,
-"price": 4299.0,
-"url": "https://www.boconcept.com/de-de/p/alicante/370t085-2:264-9:0128-13:0167/",
-"image": "https://assets.boconcept.com/14e0f9ac-c12c-4643-86bd-b16800b05ba0/2676396_PNG-Web%2072dpi.png?format=pjpg&auto=webp&fit=bounds&width=800&quality=70",
-"archetype": "tableRect",
-"params": {
-"top": 0.025,
-"radius": 0.15,
-"base": "panel",
-"noApron": true
-},
-"variants": [
-{
-"name": "Keramik aschgrau, Steinoptik, Gestell matter aschgrauer Strukturlack",
-"slots": {
-"top": {
-"color": "#8f8f8c",
-"material": "stone"
-},
-"main": {
-"color": "#8f8f8c",
-"material": "stone"
-},
-"legs": {
-"color": "#9a978f",
-"material": "matte"
-}
-},
-"price": 4299.0,
-"url": "https://www.boconcept.com/de-de/p/alicante/370t085-2:264-9:0128-13:0167/",
-"image": "https://assets.boconcept.com/14e0f9ac-c12c-4643-86bd-b16800b05ba0/2676396_PNG-Web%2072dpi.png?format=pjpg&auto=webp&fit=bounds&width=800&quality=70"
-}
-],
-"tags": [
-"BoConcept",
-"Steintisch",
-"Keramik/Sinterstein"
-],
-"premium": true,
-"description": "Platte: Keramik aschgrau, Steinoptik · Größe lt. Hersteller: H74½xB99xL183/263cm · Form: rechteckig · ausziehbar bis 263 cm · Design: ARDE · Preis für die Standardkonfiguration",
-"mount": "floor",
-"resizable": false,
-"concepts": [
-4
-]
-},
-{
-"id": "hoe-giovanni-40305478",
-"vendor": "Höffner",
-"name": "Esstisch Giovanni (Keramik Grau)",
-"category": "diningTable",
-"w": 180.0,
-"d": 90.0,
-"h": 75.7,
-"price": 399.0,
-"url": "https://www.hoeffner.de/artikel/40305478",
-"image": "https://media.hoeffner.de/medias/medium/40305478_8-202410081312.webp",
-"archetype": "tableOval",
-"params": {
-"top": 0.02
-},
-"variants": [
-{
-"name": "Keramik Grau, Design-Gestell Edelstahl gebürstet",
-"slots": {
-"top": {
-"color": "#4f4f4d",
-"material": "stone"
-},
-"main": {
-"color": "#4f4f4d",
-"material": "stone"
-},
-"legs": {
-"color": "#c6cbd0",
-"material": "steel"
-}
-},
-"price": 399.0,
-"url": "https://www.hoeffner.de/artikel/40305478",
-"image": "https://media.hoeffner.de/medias/medium/40305478_8-202410081312.webp"
-}
-],
-"tags": [
-"Steintisch",
-"Keramik/Sinterstein"
-],
-"premium": false,
-"description": "Platte: Keramik Grau (1,1 cm) · Form: bootsförmig · Platz für ca. 6 Personen",
-"mount": "floor",
-"resizable": false,
-"concepts": [
-2
-]
-},
-{
-"id": "hoe-juka-50309767",
-"vendor": "Höffner",
-"name": "Esstisch Juka (Steinplatte Schwarz)",
+"brand": "Mobitec",
+"series": "Terra",
+"name": "Mobitec Esstisch Terra (Keramik calce nero)",
 "category": "diningTable",
 "w": 200.0,
 "d": 100.0,
-"h": 75.7,
-"price": 1519.0,
-"url": "https://www.hoeffner.de/artikel/50309767",
-"image": "https://media.hoeffner.de/medias/medium/50309767_1-202609301200.webp",
-"archetype": "tablePedestal",
-"params": {
-"top": 0.02,
-"footD": 0.6
-},
-"variants": [
-{
-"name": "Steinplatte Schwarz, Schrägsäule Metall bronzefarben",
-"slots": {
-"top": {
-"color": "#2b2b2a",
-"material": "stone"
-},
-"main": {
-"color": "#2b2b2a",
-"material": "stone"
-},
-"legs": {
-"color": "#8c6a43",
-"material": "lacquer"
-}
-},
-"price": 1519.0,
-"url": "https://www.hoeffner.de/artikel/50309767",
-"image": "https://media.hoeffner.de/medias/medium/50309767_1-202609301200.webp"
-}
-],
-"tags": [
-"Steintisch",
-"Keramik/Sinterstein"
-],
-"premium": true,
-"description": "Platte: Steinplatte Schwarz (1 cm) · Form: bootsförmig · Platz für ca. 8 Personen · Höffner-Aktionspreis 771,04 € statt 1519 €",
-"mount": "floor",
-"resizable": false,
-"concepts": [
-1
-]
-},
-{
-"id": "hoe-talia-50304622",
-"vendor": "Höffner",
-"name": "Esstisch Talia (Steinplatte Grau)",
-"category": "diningTable",
-"w": 170.0,
-"d": 90.0,
-"h": 77.0,
-"price": 879.0,
-"url": "https://www.hoeffner.de/artikel/50304622",
-"image": "https://media.hoeffner.de/medias/medium/50304622_1-202510281336.webp",
+"h": 76.0,
+"price": 3627.0,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/Mobitec/Terra-dining-von-Mobitec-Esstisch-in-Keramik-nero-Metall-black-ausziehbar::59508.html",
+"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/59508_0.jpg",
 "archetype": "tableRect",
 "params": {
-"top": 0.02,
-"legStyle": "square",
-"leg": 0.04,
-"inset": 0.12,
+"top": 0.024,
+"radius": 0.005,
+"leg": 0.055,
+"inset": 0.07,
+"splay": 0.05,
 "noApron": true
 },
 "variants": [
 {
-"name": "Steinplatte Grau, Gestell Metall Schwarz",
+"name": "Keramik calce nero, Gestell Metall black",
 "slots": {
 "top": {
-"color": "#4a4a48",
+"color": "#2c2c2b",
 "material": "stone"
 },
 "main": {
-"color": "#4a4a48",
+"color": "#2c2c2b",
 "material": "stone"
 },
 "legs": {
@@ -3161,17 +3056,76 @@
 "material": "blackMetal"
 }
 },
-"price": 879.0,
-"url": "https://www.hoeffner.de/artikel/50304622",
-"image": "https://media.hoeffner.de/medias/medium/50304622_1-202510281336.webp"
+"price": 3627.0,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/Mobitec/Terra-dining-von-Mobitec-Esstisch-in-Keramik-nero-Metall-black-ausziehbar::59508.html",
+"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/59508_0.jpg"
 }
 ],
 "tags": [
+"Mobitec",
 "Steintisch",
-"Keramik/Sinterstein"
+"Keramik/Sinterstein",
+"Rechteckig 200 cm"
 ],
-"premium": false,
-"description": "Platte: Steinplatte Grau (1,1 cm) · Form: rechteckig · Platz für ca. 6 Personen, 8 Personen · Höffner-Aktionspreis 446,18 € statt 879 € · ausziehbar bis 215 cm",
+"premium": true,
+"description": "Platte: Keramik calce nero (MDF 21 mm + Keramik 3 mm, Schweizer Kante) · Gestell: Gestell Metall black · Größe: 200 × 100 × 76 cm, rechteckig, Platz für 6–8 Personen · ausziehbar auf 300 cm (Klappeinlage 100 cm) · Preis Möbel Letz (online-moebel-kaufen.de) für diese Ausführung",
+"mount": "floor",
+"resizable": false,
+"concepts": [
+1
+]
+},
+{
+"id": "let-musterring-picara-95268",
+"vendor": "Designhandel",
+"brand": "Musterring",
+"series": "Picara",
+"name": "Musterring Esstisch Picara (Keramik Pietra di Savoia anthracite)",
+"category": "diningTable",
+"w": 200.0,
+"d": 100.0,
+"h": 76.0,
+"price": 3706.85,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/Musterring/Picara-von-Musterring-Esstisch-mit-Keramikplatte::95268.html",
+"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/95268_0.jpg",
+"archetype": "tableRect",
+"params": {
+"top": 0.03,
+"radius": 0.005,
+"legStyle": "square",
+"leg": 0.04,
+"inset": 0.03
+},
+"variants": [
+{
+"name": "Keramik Pietra di Savoia anthracite, Gestell Metall schwarz pulverbeschichtet",
+"slots": {
+"top": {
+"color": "#3c3c3a",
+"material": "stone"
+},
+"main": {
+"color": "#3c3c3a",
+"material": "stone"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"price": 3706.85,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/Musterring/Picara-von-Musterring-Esstisch-mit-Keramikplatte::95268.html",
+"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/95268_0.jpg"
+}
+],
+"tags": [
+"Musterring",
+"Steintisch",
+"Keramik/Sinterstein",
+"Rechteckig 200 cm"
+],
+"premium": true,
+"description": "Platte: Keramik Pietra di Savoia anthracite (Keramik 6 mm + Multiplex 24 mm) · Gestell: Gestell Metall schwarz pulverbeschichtet · Größe: 200 × 100 × 76 cm, rechteckig, Platz für 6–8 Personen · ausziehbar (Klappeinlage 100 cm) · Preis Möbel Letz (online-moebel-kaufen.de) für diese Ausführung",
 "mount": "floor",
 "resizable": false,
 "concepts": [
@@ -3310,6 +3264,122 @@
 "delivery": "7–8 Wo.",
 "description": "Wunschtisch; Marmorplatte auf MDF-Träger; lt. Shop bis 4 Personen, 5 mit Nischenstuhl E12, 6 knapp; 71 kg; Aufbauservice 39 €; Oberfläche matt geschliffen anfragen",
 "concepts": []
+},
+{
+"id": "let-bert-plantagie-aiven-55051",
+"vendor": "Designhandel",
+"brand": "bert plantagie",
+"series": "Aiven",
+"name": "bert plantagie Esstisch Aiven (Keramik dark marble)",
+"category": "diningTable",
+"w": 200.0,
+"d": 99.6,
+"h": 77.0,
+"price": 2731.9,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/bert-plantagie/Aiven-von-bert-plantagie-Esstisch-mit-Keramik-Platte::55051.html",
+"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/55051_0.jpg",
+"archetype": "tableRect",
+"params": {
+"top": 0.02,
+"radius": 0.005,
+"legStyle": "xframe",
+"leg": 0.035,
+"inset": 0.36,
+"noApron": true
+},
+"variants": [
+{
+"name": "Keramik dark marble, Gestell Metall BP100 anthrazit, Querstange 120,5 cm",
+"slots": {
+"top": {
+"color": "#2a2a2c",
+"material": "marble"
+},
+"main": {
+"color": "#2a2a2c",
+"material": "marble"
+},
+"legs": {
+"color": "#353637",
+"material": "blackMetal"
+}
+},
+"price": 2731.9,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/bert-plantagie/Aiven-von-bert-plantagie-Esstisch-mit-Keramik-Platte::55051.html",
+"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/55051_0.jpg"
+}
+],
+"tags": [
+"bert plantagie",
+"Steintisch",
+"Keramik/Sinterstein",
+"Rechteckig 200 cm"
+],
+"premium": true,
+"description": "Platte: Keramik dark marble · Gestell: Gestell Metall BP100 anthrazit, Querstange 120,5 cm · Größe: 200 × 99.6 × 77 cm, rechteckig, Platz für 6–8 Personen · Preis Möbel Letz (online-moebel-kaufen.de) für diese Ausführung",
+"mount": "floor",
+"resizable": false,
+"concepts": [
+2
+]
+},
+{
+"id": "let-connubia-by-calligaris-master-106174",
+"vendor": "Designhandel",
+"brand": "connubia by calligaris",
+"series": "Master",
+"name": "connubia by calligaris Esstisch Master (Keramik-Glas Arenaria)",
+"category": "diningTable",
+"w": 200.0,
+"d": 100.0,
+"h": 76.0,
+"price": 1984.75,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/calligaris/Master-von-connubia-by-calligaris-Esstisch-ca-200-x-100-cm::106174.html",
+"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/106174_0.jpg",
+"archetype": "tableRect",
+"params": {
+"top": 0.011,
+"radius": 0.005,
+"legStyle": "cross",
+"leg": 0.045,
+"inset": 0.2,
+"noApron": true
+},
+"variants": [
+{
+"name": "Keramik-Glas Arenaria, Gestell Metall lava matt",
+"slots": {
+"top": {
+"color": "#a59c8f",
+"material": "stone"
+},
+"main": {
+"color": "#a59c8f",
+"material": "stone"
+},
+"legs": {
+"color": "#4a4643",
+"material": "matte"
+}
+},
+"price": 1984.75,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/calligaris/Master-von-connubia-by-calligaris-Esstisch-ca-200-x-100-cm::106174.html",
+"image": "https://online-moebel-kaufen.de/shop/images/product_images/info_images/106174_0.jpg"
+}
+],
+"tags": [
+"connubia by calligaris",
+"Steintisch",
+"Keramik/Sinterstein",
+"Rechteckig 200 cm"
+],
+"premium": true,
+"description": "Platte: Keramik-Glas Arenaria (Feinsteinzeug 3 mm + Floatglas 8 mm) · Gestell: Gestell Metall lava matt · Größe: 200 × 100 × 76 cm, rechteckig, Platz für 6–8 Personen · ausziehbar auf 280 cm (Klappverlängerung 80 cm) · Preis Möbel Letz (online-moebel-kaufen.de) für diese Ausführung",
+"mount": "floor",
+"resizable": false,
+"concepts": [
+4
+]
 },
 {
 "id": "wes-dimmbare-stehlampe-kushi-mundgeblasen-kdln",
@@ -4318,23 +4388,23 @@
 "concepts": []
 },
 {
-"id": "lam-hollaender-suopare-pendelleuchte-300-k-16111-s",
+"id": "lam-hollaender-castello-haengeleuchte-300-k-15190-s",
 "vendor": "lampe.de",
 "brand": "Holländer",
-"series": "Holländer SUOPARE Pendelleuchte",
-"name": "Holländer SUOPARE Pendelleuchte",
+"series": "Holländer CASTELLO Hängeleuchte LED",
+"name": "Holländer CASTELLO Hängeleuchte LED",
 "category": "pendant",
 "archetype": "pendantLinear",
-"w": 150.0,
-"d": 11.0,
+"w": 105.0,
+"d": 7.0,
 "h": 15.0,
-"price": 1359.99,
-"url": "https://www.lampe.de/hollaender-suopare-pendelleuchte-300-k-16111-s.html",
-"image": "https://www.lampe.de/media/product/140024/700x700/hollaender-suopare-pendelleuchte-300-k-16111-s-0.jpg",
+"price": 1299.99,
+"url": "https://www.lampe.de/hollaender-castello-haengeleuchte-300-k-15190-s.html",
+"image": "https://www.lampe.de/media/product/130942/700x700/hollaender-castello-haengeleuchte-300-k-15190-s-0.jpg",
 "params": {
-"heads": 4,
+"heads": 6,
 "shape": "dome",
-"maxHang": 1.5
+"maxHang": 1.3
 },
 "variants": [
 {
@@ -4353,16 +4423,35 @@
 "material": "chrome"
 }
 },
-"price": 1359.99,
-"url": "https://www.lampe.de/hollaender-suopare-pendelleuchte-300-k-16111-s.html"
+"price": 1299.99,
+"url": "https://www.lampe.de/hollaender-castello-haengeleuchte-300-k-15190-s.html"
+},
+{
+"name": "Gold",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
+}
+},
+"price": 1299.99,
+"url": "https://www.lampe.de/hollaender-castello-haengeleuchte-300-k-15190.html"
 }
 ],
 "premium": true,
 "tags": [
 "Holländer",
-"Pendelleuchte"
+"Hängeleuchte"
 ],
-"description": "Pendelleuchte, 4-flammig; GU5.3; Material: Metall; Abhängung bis 150 cm",
+"description": "Hängeleuchte, 6-flammig; LED; Material: Metall; Abhängung bis 130 cm",
 "mount": "ceiling",
 "elev": 2.0,
 "resizable": false,
@@ -4371,89 +4460,51 @@
 ]
 },
 {
-"id": "lam-paul-neuhaus-adriana-pendelleuchte-2568-24",
+"id": "lam-hollaender-faraone-haengeleuchte-300-k-15191",
 "vendor": "lampe.de",
-"brand": "Paul Neuhaus Leuchten",
-"series": "Paul Neuhaus ADRIANA Pendelleuchte LED",
-"name": "Paul Neuhaus ADRIANA Pendelleuchte LED",
+"brand": "Holländer",
+"series": "Holländer FARAONE Hängeleuchte LED",
+"name": "Holländer FARAONE Hängeleuchte LED",
 "category": "pendant",
 "archetype": "pendantLinear",
-"w": 179.0,
-"d": 5.5,
+"w": 115.0,
+"d": 3.5,
 "h": 15.0,
-"price": 449.99,
-"url": "https://www.lampe.de/paul-neuhaus-adriana-pendelleuchte-2568-24.html",
-"image": "https://www.lampe.de/media/product/36388/700x700/paul-neuhaus-adriana-pendelleuchte-2568-24-0.jpg",
+"price": 1004.99,
+"url": "https://www.lampe.de/hollaender-faraone-haengeleuchte-300-k-15191.html",
+"image": "https://www.lampe.de/media/product/75442/700x700/hollaender-faraone-haengeleuchte-300-k-15191-0.jpg",
 "params": {
-"heads": 3,
+"heads": 6,
 "shape": "dome",
-"maxHang": 1.8
+"maxHang": 1.5
 },
 "variants": [
 {
-"name": "Braun",
-"slots": {
-"main": {
-"color": "#6f4d36",
-"material": "matte"
-},
-"shade": {
-"color": "#efe9dd",
-"material": "linen"
-},
-"frame": {
-"color": "#6f4d36",
-"material": "matte"
-}
-},
-"price": 449.99,
-"url": "https://www.lampe.de/paul-neuhaus-adriana-pendelleuchte-2568-24.html"
-},
-{
-"name": "Messing",
+"name": "Gold",
 "slots": {
 "main": {
 "color": "#c9a55c",
 "material": "brass"
-},
-"shade": {
-"color": "#efe9dd",
-"material": "linen"
-},
-"frame": {
-"color": "#c9a55c",
-"material": "brass"
-}
-},
-"price": 499.99,
-"url": "https://www.lampe.de/paul-neuhaus-adriana-pendelleuchte-2568-60.html"
-},
-{
-"name": "Aluminium",
-"slots": {
-"main": {
-"color": "#c4c6c8",
-"material": "steel"
 },
 "shade": {
 "color": "#f6f4ee",
 "material": "opal"
 },
 "frame": {
-"color": "#c4c6c8",
-"material": "steel"
+"color": "#c9a55c",
+"material": "brass"
 }
 },
-"price": 559.99,
-"url": "https://www.lampe.de/paul-neuhaus-adriana-pendelleuchte-2568-95.html"
+"price": 1004.99,
+"url": "https://www.lampe.de/hollaender-faraone-haengeleuchte-300-k-15191.html"
 }
 ],
 "premium": true,
 "tags": [
-"Paul Neuhaus Leuchten",
-"Pendelleuchte"
+"Holländer",
+"Hängeleuchte"
 ],
-"description": "Pendelleuchte, 3-flammig; LED; Material: Metall; Schirm: Kunststoff; Abhängung bis 180 cm",
+"description": "Hängeleuchte, 6-flammig; LED; Material: Metall; Abhängung bis 150 cm",
 "mount": "ceiling",
 "elev": 2.0,
 "resizable": false,
@@ -4462,43 +4513,43 @@
 ]
 },
 {
-"id": "lam-paul-neuhaus-pure-e-popup-pendelleuchte-2558-97",
+"id": "lam-paul-neuhaus-bowl-pendelleuchte-2288-23",
 "vendor": "lampe.de",
 "brand": "Paul Neuhaus Leuchten",
-"series": "Paul Neuhaus PURE E-Popup Pendelleuchte LED Bronze, 18-flammig, Fernbedienung",
-"name": "Paul Neuhaus PURE E-Popup Pendelleuchte LED Bronze, 18-flammig, Fernbedienung",
+"series": "Paul Neuhaus BOWL Pendelleuchte LED",
+"name": "Paul Neuhaus BOWL Pendelleuchte LED",
 "category": "pendant",
 "archetype": "pendantLinear",
-"w": 180.0,
-"d": 29.5,
-"h": 29.5,
-"price": 1799.0,
-"url": "https://www.lampe.de/paul-neuhaus-pure-e-popup-pendelleuchte-2558-97.html",
-"image": "https://www.lampe.de/media/product/170568/700x700/paul-neuhaus-pure-e-popup-pendelleuchte-2558-97-0.jpg",
+"w": 120.0,
+"d": 45.0,
+"h": 45.0,
+"price": 1499.0,
+"url": "https://www.lampe.de/paul-neuhaus-bowl-pendelleuchte-2288-23.html",
+"image": "https://www.lampe.de/media/product/169739/700x700/paul-neuhaus-bowl-pendelleuchte-2288-23-0.jpg",
 "params": {
-"heads": 18,
+"heads": 12,
 "shape": "globe",
-"maxHang": 2.4
+"maxHang": 1.8
 },
 "variants": [
 {
-"name": "Bronze / Weiß",
+"name": "Braun / Rauchfarben",
 "slots": {
 "main": {
-"color": "#8c6a43",
+"color": "#6f4d36",
 "material": "matte"
 },
 "shade": {
-"color": "#f6f4ee",
-"material": "opal"
+"color": "#6b6660",
+"material": "glass"
 },
 "frame": {
-"color": "#8c6a43",
+"color": "#6f4d36",
 "material": "matte"
 }
 },
-"price": 1799.0,
-"url": "https://www.lampe.de/paul-neuhaus-pure-e-popup-pendelleuchte-2558-97.html"
+"price": 1499.0,
+"url": "https://www.lampe.de/paul-neuhaus-bowl-pendelleuchte-2288-23.html"
 }
 ],
 "premium": true,
@@ -4506,7 +4557,7 @@
 "Paul Neuhaus Leuchten",
 "Pendelleuchte"
 ],
-"description": "Pendelleuchte, 18-flammig; LED; Material: Aluminium; Schirm: Glas; Abhängung bis 240 cm",
+"description": "Pendelleuchte, 12-flammig; LED; Material: Metall; Schirm: Glas; Abhängung bis 180 cm",
 "mount": "ceiling",
 "elev": 2.0,
 "resizable": false,
@@ -4515,23 +4566,23 @@
 ]
 },
 {
-"id": "lam-paul-neuhaus-rika-pendelleuchte-2115-18",
+"id": "lam-schoener-wohnen-kollektion-dubai-led-balkenpendelleuchte-13-flammig-ra",
 "vendor": "lampe.de",
-"brand": "Paul Neuhaus Leuchten",
-"series": "Paul Neuhaus Rika Pendelleuchte LED",
-"name": "Paul Neuhaus Rika Pendelleuchte LED",
+"brand": "SCHÖNER WOHNEN-Kollektion",
+"series": "SCHÖNER WOHNEN-Kollektion DUBAI LED Balkenpendelleuchte 13-flammig rauchfarbenes Glas 3000 Kelvin 350 Lumen 3 Watt Länge 118 cm",
+"name": "SCHÖNER WOHNEN-Kollektion DUBAI LED Balkenpendelleuchte 13-flammig rauchfarbenes Glas 3000 Kelvin 350 Lumen 3 Watt Länge 118 cm",
 "category": "pendant",
 "archetype": "pendantLinear",
-"w": 135.0,
-"d": 31.0,
-"h": 31.0,
-"price": 581.04,
-"url": "https://www.lampe.de/paul-neuhaus-rika-pendelleuchte-2115-18.html",
-"image": "https://www.lampe.de/media/product/162075/700x700/paul-neuhaus-rika-pendelleuchte-2115-18-0.jpg",
+"w": 118.0,
+"d": 23.0,
+"h": 23.0,
+"price": 299.0,
+"url": "https://www.lampe.de/schoener-wohnen-kollektion-dubai-led-balkenpendelleuchte-13-flammig-rauchfarbenes-glas-3000-kelvin-350-lumen-3-watt-laenge-118-cm-14504-18.html",
+"image": "https://www.lampe.de/media/product/176068/700x700/schoener-wohnen-kollektion-dubai-led-balkenpendelleuchte-13-flammig-rauchfarbenes-glas-3000-kelvin-350-lumen-3-watt-laenge-118-cm-14504-18-0.jpg",
 "params": {
-"heads": 7,
+"heads": 13,
 "shape": "globe",
-"maxHang": 1.8
+"maxHang": 1.5
 },
 "variants": [
 {
@@ -4550,16 +4601,16 @@
 "material": "blackMetal"
 }
 },
-"price": 581.04,
-"url": "https://www.lampe.de/paul-neuhaus-rika-pendelleuchte-2115-18.html"
+"price": 299.0,
+"url": "https://www.lampe.de/schoener-wohnen-kollektion-dubai-led-balkenpendelleuchte-13-flammig-rauchfarbenes-glas-3000-kelvin-350-lumen-3-watt-laenge-118-cm-14504-18.html"
 }
 ],
 "premium": true,
 "tags": [
-"Paul Neuhaus Leuchten",
+"SCHÖNER WOHNEN-Kollektion",
 "Pendelleuchte"
 ],
-"description": "Pendelleuchte, 7-flammig; LED; Material: Metall; Schirm: Glas; Abhängung bis 180 cm",
+"description": "Pendelleuchte, 13-flammig; LED; Material: Metall; Schirm: Glas; Abhängung bis 150 cm",
 "mount": "ceiling",
 "elev": 2.0,
 "resizable": false,
@@ -4866,6 +4917,45 @@
 ]
 },
 {
+"id": "wes-hand-woven-low-pile-wool-sicilian-stripe-en-25lyd29670",
+"vendor": "Westwing",
+"brand": "Layered",
+"name": "Handgewebter Kurzflor-Wollteppich Stripe",
+"category": "rug",
+"w": 250.0,
+"d": 350.0,
+"h": 1.5,
+"price": 2799.0,
+"url": "https://www.westwing.de/hand-woven-low-pile-wool-sicilian-stripe-en-25lyd29670.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25LYD29670-189163_834601d2cbda0e28eddcdeec3579f7de_dtl_1.jpg",
+"archetype": "rugRect",
+"params": {},
+"variants": [
+{
+"name": "Standard",
+"slots": {
+"main": {
+"color": "#bdb5a8",
+"material": "wool"
+}
+},
+"price": 2799.0,
+"url": "https://www.westwing.de/hand-woven-low-pile-wool-sicilian-stripe-en-25lyd29670.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25LYD29670-189163_834601d2cbda0e28eddcdeec3579f7de_dtl_1.jpg"
+}
+],
+"tags": [
+"Layered"
+],
+"premium": true,
+"description": "B 250 cm, L 350 cm · Florhöhe: 1.2 cm ·  · Unser Tipp: Wir empfehlen, den Raum für Deinen neuen Teppich genau auszumessen, da Teppiche oft zu klein gekauft werden.",
+"mount": "floor",
+"resizable": true,
+"concepts": [
+4
+]
+},
+{
 "id": "wes-handgewebter-wollteppich-amaro",
 "vendor": "Westwing",
 "name": "Handgewebter Wollteppich Amaro",
@@ -5125,102 +5215,46 @@
 ]
 },
 {
-"id": "ike-00640673",
+"id": "ike-50593810",
 "vendor": "IKEA",
-"name": "STOENSE Teppich Kurzflor",
-"series": "STOENSE",
+"name": "STOCKHOLM 2025 Teppich flach gewebt",
+"series": "STOCKHOLM 2025",
 "category": "rug",
 "w": 240.0,
 "d": 350.0,
 "h": 1.2,
-"price": 59.99,
-"url": "https://www.ikea.com/de/de/p/stoense-teppich-kurzflor-elfenbeinweiss-00640673/",
-"image": "https://www.ikea.com/de/de/images/products/stoense-teppich-kurzflor-elfenbeinweiss__0624402_pe691814_s5.jpg",
+"price": 499.0,
+"url": "https://www.ikea.com/de/de/p/stockholm-2025-teppich-flach-gewebt-schwarz-weiss-hellgruen-handgewebt-50593810/",
+"image": "https://www.ikea.com/de/de/images/products/stockholm-2025-teppich-flach-gewebt-schwarz-weiss-hellgruen-handgewebt__1290827_pe934755_s5.jpg",
 "archetype": "rugRect",
 "params": {},
 "variants": [
 {
-"name": "Elfenbeinweiß",
+"name": "Schwarz / weiß / hellgrün handgewebt",
 "slots": {
 "main": {
-"color": "#ede6d6",
+"color": "#1d1d1d",
+"material": "wool"
+},
+"secondary": {
+"color": "#f3f1ec",
 "material": "wool"
 }
 },
-"price": 169.0,
-"url": "https://www.ikea.com/de/de/p/stoense-teppich-kurzflor-elfenbeinweiss-00640673/",
-"image": "https://www.ikea.com/de/de/images/products/stoense-teppich-kurzflor-elfenbeinweiss__0624402_pe691814_s5.jpg",
-"opts": [
-"Elfenbeinweiß"
-]
-},
-{
-"name": "Blassgrün",
-"slots": {
-"main": {
-"color": "#5d7a5a",
-"material": "wool"
-}
-},
-"price": 59.99,
-"url": "https://www.ikea.com/de/de/p/stoense-teppich-kurzflor-blassgruen-40629145/",
-"image": "https://www.ikea.com/de/de/images/products/stoense-teppich-kurzflor-blassgruen__1492281_pe1004363_s5.jpg",
-"opts": [
-"Blassgrün"
-]
-},
-{
-"name": "Mittelgrau",
-"slots": {
-"main": {
-"color": "#8b8b88",
-"material": "wool"
-}
-},
-"price": 59.99,
-"url": "https://www.ikea.com/de/de/p/stoense-teppich-kurzflor-mittelgrau-40427005/",
-"image": "https://www.ikea.com/de/de/images/products/stoense-teppich-kurzflor-mittelgrau__0624371_pe691789_s5.jpg",
-"opts": [
-"Mittelgrau"
-]
-},
-{
-"name": "Beige",
-"slots": {
-"main": {
-"color": "#d6c7ae",
-"material": "wool"
-}
-},
-"price": 169.0,
-"url": "https://www.ikea.com/de/de/p/stoense-teppich-kurzflor-beige-40640671/",
-"image": "https://www.ikea.com/de/de/images/products/stoense-teppich-kurzflor-beige__1405718_pe970549_s5.jpg",
-"opts": [
-"Beige"
-]
+"price": 499.0,
+"url": "https://www.ikea.com/de/de/p/stockholm-2025-teppich-flach-gewebt-schwarz-weiss-hellgruen-handgewebt-50593810/",
+"image": "https://www.ikea.com/de/de/images/products/stockholm-2025-teppich-flach-gewebt-schwarz-weiss-hellgruen-handgewebt__1290827_pe934755_s5.jpg"
 }
 ],
 "tags": [
-"STOENSE"
+"STOCKHOLM 2025"
 ],
-"premium": false,
-"description": "Teppich Kurzflor, 240x350 cm",
-"axes": [
-{
-"name": "Farbe",
-"values": [
-"Elfenbeinweiß",
-"Blassgrün",
-"Mittelgrau",
-"Beige"
-]
-}
-],
+"premium": true,
+"description": "Teppich flach gewebt, 240x350 cm",
 "mount": "floor",
 "resizable": true,
 "concepts": [
-3,
-4
+3
 ]
 },
 {

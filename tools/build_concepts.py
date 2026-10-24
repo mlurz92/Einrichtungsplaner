@@ -550,24 +550,25 @@ def build(n):
         return (u * math.cos(a) - v * math.sin(a), u * math.sin(a) + v * math.cos(a))
     TU, TV = 7.35, 8.70
     tx, ty = wing(TU, TV)
-    # Seit 2.0.3: dunkle Stein-/Keramiktische (kein Holz), Stühle mit Metallgestell, Pendelleuchte ≥ 75 % der Tischlänge
+    # Seit 2.0.5: rechteckige Keramiktische 200 × 100 cm von Markenherstellern (kein Holz, Metallgestell), passende Polsterstühle,
+    # Wollteppiche ≥ 240 cm breit (≥ 70 cm Überstand an den Stuhlseiten), lineare Pendelleuchte 50–60 % der Tischlänge
     dining = {
-        1: dict(table=("hoe-juka-50309767", "Steinplatte Schwarz, Schrägsäule Metall bronzefarben", None),
+        1: dict(table=("let-mobitec-terra-59508", "Keramik calce nero, Gestell Metall black", None),
                 chair=("wes-boucle-armlehnstuhl-adrien-159664", "Bouclé Olivgrün, Schwarz"),
-                lamp=("lam-paul-neuhaus-pure-e-popup-pendelleuchte-2558-97", "Bronze / Weiß", None),
+                lamp=("lam-paul-neuhaus-bowl-pendelleuchte-2288-23", "Braun / Rauchfarben", None),
                 rug=("ike-80593762", "Grün / weiß / schwarz handgewebt")),
-        2: dict(table=("hoe-giovanni-40305478", "Keramik Grau, Design-Gestell Edelstahl gebürstet", None),
+        2: dict(table=("let-bert-plantagie-aiven-55051", "Keramik dark marble, Gestell Metall BP100 anthrazit, Querstange 120,5 cm", None),
                 chair=("wes-leder-stuhl-jordan-172068", "Leder Braun, Silberfarben glänzend"),
-                lamp=("lam-hollaender-suopare-pendelleuchte-300-k-16111-s", "Silber", None),
+                lamp=("lam-hollaender-castello-haengeleuchte-300-k-15190-s", "Silber", None),
                 rug=("ike-80593762", "Grau / weiß / schwarz handgewebt")),
-        3: dict(table=("hoe-talia-50304622", "Steinplatte Grau, Gestell Metall Schwarz", None),
-                chair=("wes-polsterstuhl-tess-166841", "Webstoff Off White, Schwarz matt"),
-                lamp=("lam-paul-neuhaus-rika-pendelleuchte-2115-18", "Schwarz / Rauchfarben", None),
-                rug=("ike-00640673", "Beige")),
-        4: dict(table=("boc-alicante-3700128t0850a07", "Keramik aschgrau, Steinoptik, Gestell matter aschgrauer Strukturlack", None),
+        3: dict(table=("let-musterring-picara-95268", "Keramik Pietra di Savoia anthracite, Gestell Metall schwarz pulverbeschichtet", None),
+                chair=("let-mobitec-aura-58285", "Flachgewebe Berry silver, Gestell Metall black"),
+                lamp=("lam-schoener-wohnen-kollektion-dubai-led-balkenpendelleuchte-13-flammig-ra", "Schwarz / Rauchfarben", None),
+                rug=("ike-50593810", "Schwarz / weiß / hellgrün handgewebt")),
+        4: dict(table=("let-connubia-by-calligaris-master-106174", "Keramik-Glas Arenaria, Gestell Metall lava matt", None),
                 chair=("wes-polsterstuhl-tess-166841", "Samt Hellbeige, Goldfarben matt"),
-                lamp=("lam-paul-neuhaus-adriana-pendelleuchte-2568-24", "Messing", None),
-                rug=("ike-00640673", "Elfenbeinweiß")),
+                lamp=("lam-hollaender-faraone-haengeleuchte-300-k-15191", "Gold", None),
+                rug=("wes-hand-woven-low-pile-wool-sicilian-stripe-en-25lyd29670", "Standard")),
     }[k]
     t_id, t_var, t_slots = dining["table"]
     tbl = MAIN_CATALOG[t_id]
@@ -586,7 +587,7 @@ def build(n):
     # Lineare Pendelleuchte mittig über dem Tisch, parallel zur Längsachse, Unterkante 65 cm über der Tischplatte
     l_id, l_var, l_slots = dining["lamp"]
     lamp = MAIN_CATALOG[l_id]
-    assert 0.75 * tbl["w"] <= lamp["w"] <= tbl["w"], f"Konzept {k}: Pendelleuchte {lamp['w']} cm nicht 75–100 % der Tischlänge {tbl['w']} cm"
+    assert 0.5 * tbl["w"] <= lamp["w"] <= 0.6 * tbl["w"], f"Konzept {k}: Pendelleuchte {lamp['w']} cm nicht 50–60 % der Tischlänge {tbl['w']} cm"
     B.add_cat("E3", l_id, l_var, [(tx, ty, W, round(tbl["h"] / 100 + 0.65, 2))], slots=l_slots)
     # Teppich: lange Seite entlang v, Überstand an den Stuhlseiten ≥ 60 cm (Stühle bleiben zurückgeschoben auf dem Teppich)
     r_id, r_var = dining["rug"]
