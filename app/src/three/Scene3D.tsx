@@ -128,15 +128,20 @@ function Environment() {
   const { day } = useSun();
   const probe = useMemo(() => new EnvironmentProbe(gl, quality === "niedrig" ? 128 : 256), [gl, quality]);
   useEffect(() => () => probe.dispose(), [probe]);
-  const st = useRef({ dirty: true, last: 0, pos: new THREE.Vector3(1e9, 0, 0), timer: 0, passes: 0, refineTimer: 0, lamps: -1 });
+  const st = useRef({ dirty: true, last: 0, pos: new THREE.Vector3(1e9, 0, 0), timer: 0, passes: 0, refineTimer: 0, lamps: -1, settle: 0, cam: new THREE.Matrix4() });
   // Neu aufnehmen bei Änderungen an Einrichtung, Ausbau, Licht oder Uhrzeit
   useEffect(() => {
+    const settle = (ms: number) => {
+      st.current.settle = performance.now() + ms;
+    };
     const mark = () => {
       st.current.dirty = true;
       st.current.passes = 0;
       invalidate();
     };
     const u1 = useEditor.subscribe((s, p) => {
+      // Beim Ziehen von Möbeln erst nach kurzer Ruhe neu aufnehmen
+      if (s.project !== p.project) settle(250);
       if (s.project !== p.project || s.night !== p.night || s.showCeiling !== p.showCeiling || s.camera3d !== p.camera3d) mark();
     });
     const u2 = useView3D.subscribe((s, p) => {
@@ -168,8 +173,19 @@ function Environment() {
     if (!spot) return;
     const moved = spot.distanceTo(s.pos) > 0.8;
     if (!s.dirty && !moved) return;
-    const now = performance.now();
-    // Höchstens etwa dreimal pro Sekunde (Tagesverlauf, Verschieben von Möbeln)
+    let now = performance.now();
+    // Kamera in Bewegung: erst aufnehmen, wenn sie kurz stillsteht (flüssiges Drehen)
+    if (!s.cam.equals(camera.matrixWorld)) {
+      s.cam.copy(camera.matrixWorld);
+      if (moved) s.settle = Math.max(s.settle, now + 150);
+    }
+    if (now < s.settle) {
+      clearTimeout(s.timer);
+      s.timer = window.setTimeout(() => invalidate(), s.settle - now + 10);
+      return;
+    }
+    now = performance.now();
+    // Höchstens etwa dreimal pro Sekunde (Tagesverlauf)
     if (now - s.last < 300) {
       clearTimeout(s.timer);
       s.timer = window.setTimeout(() => invalidate(), 320);
