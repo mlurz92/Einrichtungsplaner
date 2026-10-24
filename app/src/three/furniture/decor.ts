@@ -397,7 +397,7 @@ export function tvFrame(c: Ctx) {
     const tex = artTexture(str(p, "motif", "everlast"), str(p, "artC1", "#e7dfd2"), str(p, "artC2", "#7f8f7a"), Math.round(c.seed * 17) % 97);
     tex.rotation = Math.PI / 2;
     tex.center.set(0.5, 0.5);
-    const artMat = new THREE.MeshStandardMaterial({ map: tex, emissiveMap: tex, emissive: "#ffffff", emissiveIntensity: 0.18, roughness: 0.95 });
+    const artMat = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.95 });
     const art = new THREE.Mesh(new THREE.PlaneGeometry(sw - 2 * mount * (sw / sh) * 0.75, sh - 2 * mount), artMat);
     art.position.set(0, feetH + fw + sh / 2, zs + 0.0008);
     b.object(art);
