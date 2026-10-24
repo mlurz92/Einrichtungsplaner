@@ -14,6 +14,7 @@ export type Vendor =
   | "OBI"
   | "Samsung"
   | "lampe.de"
+  | "Höffner"
   | "Fachhandel"
   | "Bestand";
 

@@ -12,7 +12,7 @@ import { DND_TYPE } from "./dnd";
 import { VariantPicker, slotSummary } from "./VariantPicker";
 import { COLOR_FAMILIES, MATERIAL_GROUPS, matchVariant, primarySlot } from "../model/color";
 
-const VENDORS = ["Westwing", "IKEA", "JYSK", "Designhandel", "Tylko", "Samsung", "lampe.de", "OBI", "Fachhandel"];
+const VENDORS = ["Westwing", "IKEA", "JYSK", "Designhandel", "Tylko", "Samsung", "lampe.de", "Höffner", "OBI", "Fachhandel"];
 
 export function Thumb({ c, variant = 0, size = 96 }: { c: CatalogItem; variant?: number; size?: number }) {
   const [url, setUrl] = useState<string | null>(null);
@@ -47,6 +47,7 @@ const VENDOR_BADGE: Record<string, string> = {
   Tylko: "bg-[#ff3c00] text-white",
   Samsung: "bg-[#1428a0] text-white",
   "lampe.de": "bg-[#f4b400] text-[#1d1d1d]",
+  Höffner: "bg-[#e30613] text-white",
 };
 
 /** Katalog-Drag & Drop: Vorschau läuft über den Platzierungsmodus, Ablage in 2D/3D. */

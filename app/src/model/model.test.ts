@@ -144,6 +144,21 @@ describe("Katalog", () => {
       expect(c.variants.length, c.name).toBeGreaterThan(0);
     }
   });
+  it("führt längliche Stein- und Marmortische mit Plattenkennzeichnung (Höffner, BoConcept)", () => {
+    const marble = baseCatalog.filter((c) => c.tags?.includes("Steintisch"));
+    expect(marble.filter((c) => c.vendor === "Höffner").length).toBeGreaterThanOrEqual(16);
+    expect(marble.filter((c) => c.brand === "BoConcept").length).toBeGreaterThanOrEqual(5);
+    expect(marble.filter((c) => c.tags?.includes("Marmortisch")).length).toBeGreaterThanOrEqual(15);
+    expect(marble.some((c) => c.tags?.some((t) => t.startsWith("Echter Marmor")))).toBe(true);
+    for (const c of marble) {
+      expect(c.category, c.name).toBe("diningTable");
+      expect(c.w, c.name).toBeGreaterThanOrEqual(159);
+      expect(c.archetype, c.name).not.toBe("tableRound");
+      expect(c.description, c.name).toMatch(/^Platte: /);
+      expect(c.url, c.name).toMatch(/^https:\/\//);
+      expect(c.price, c.name).toBeGreaterThan(0);
+    }
+  });
   it("Überschneidungstest erkennt Überlappung", () => {
     const a = footprint({ x: 0, y: 0, rot: 0, w: 1, d: 1 });
     const b = footprint({ x: 0.9, y: 0, rot: 45, w: 1, d: 1 });
