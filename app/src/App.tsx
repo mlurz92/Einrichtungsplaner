@@ -5,6 +5,7 @@ import { TopBar } from "./ui/TopBar";
 import { HelpOverlay } from "./ui/Help";
 import { NewFurnishingDialog } from "./ui/NewFurnishing";
 import { CatalogPanel } from "./ui/CatalogPanel";
+import { SwapPanel } from "./ui/SwapPanel";
 import { Inspector } from "./ui/Inspector";
 import { BudgetPanel, ConceptsPanel, DesignPanel, ObjectsPanel } from "./ui/Panels";
 import { PlanningPanel } from "./ui/PlanningPanel";
@@ -14,7 +15,7 @@ import { openProject, saveProject } from "./ui/fileops";
 import { StartScreen } from "./ui/StartScreen";
 import { CommandPalette } from "./ui/CommandPalette";
 import { CloseDialog, StatusBar, ToastView } from "./ui/StatusBar";
-import { focusSelection, pasteHere, toggleHidden, toggleLock } from "./ui/commands";
+import { focusSelection, pasteHere, toggleHidden, toggleLock, toggleSwap } from "./ui/commands";
 import { fileName } from "./ui/recent";
 import { interceptWindowClose, isTauri, setWindowTitle } from "./platform";
 
@@ -95,6 +96,7 @@ function useShortcuts() {
       } else if (e.key === "Escape") {
         if (st.helpOpen) return st.set("helpOpen", false);
         if (st.placing) return st.set("placing", null);
+        if (st.swapFor) return st.set("swapFor", null);
         st.select([]);
         st.selectFace(null);
       } else if (st.camera3d === "walk" && st.viewMode !== "plan" && ["w", "a", "s", "d"].includes(key)) {
@@ -108,6 +110,8 @@ function useShortcuts() {
         const next = order[(order.indexOf(st.wallMode) + 1) % order.length];
         st.set("wallMode", next);
         st.showToast(`Wände: ${WALL_TOAST[next]}`);
+      } else if (key === "t" && st.selection.length === 1) {
+        toggleSwap();
       } else if (key === "l" && st.selection.length) {
         toggleLock();
       } else if (key === "h" && st.selection.length) {
@@ -134,6 +138,25 @@ function useShortcuts() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
+}
+
+/** Tauschliste über der linken Leiste; folgt der Auswahl, solange sie offen ist. */
+function SwapOverlay() {
+  const swapFor = useEditor((s) => s.swapFor);
+  const selection = useEditor((s) => s.selection);
+  const it = useEditor((s) => (s.swapFor ? s.project.items.find((i) => i.id === s.swapFor) : undefined));
+  useEffect(() => {
+    const st = useEditor.getState();
+    if (!st.swapFor || selection[0] === st.swapFor) return;
+    const next = selection.length === 1 ? st.project.items.find((i) => i.id === selection[0]) : undefined;
+    st.set("swapFor", next && !next.existing ? next.id : null);
+  }, [selection]);
+  if (!swapFor || !it) return null;
+  return (
+    <div className="absolute inset-0 z-30 shadow-xl">
+      <SwapPanel key={swapFor} it={it} onClose={() => useEditor.getState().set("swapFor", null)} />
+    </div>
+  );
 }
 
 function movableSelection() {
@@ -203,7 +226,8 @@ export function App() {
               </button>
             ))}
           </nav>
-          <div className="min-h-0 flex-1">
+          <div className="relative min-h-0 flex-1">
+            <SwapOverlay />
             {tab === "katalog" && <CatalogPanel />}
             {tab === "gestaltung" && <DesignPanel />}
             {tab === "objekte" && <ObjectsPanel />}

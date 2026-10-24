@@ -80,7 +80,7 @@ function build(c: CatalogItem, variantIdx: number): THREE.Group {
   const v = c.variants[variantIdx] ?? c.variants[0];
   const slots = (v?.slots ?? {}) as Partial<Record<Slot, SlotStyle>>;
   const w = Math.max(c.w / 100, 0.02), d = Math.max(c.d / 100, 0.02), h = Math.max(c.h / 100, 0.02);
-  const obj = buildFurniture({ archetype: c.archetype, w, d, h, slots, params: c.params, model: c.model, seedKey: c.id });
+  const obj = buildFurniture({ archetype: c.archetype, w, d, h, slots, params: v?.params ? { ...c.params, ...v.params } : c.params, model: c.model, seedKey: c.id });
   const g = new THREE.Group();
   g.add(obj);
   return g;

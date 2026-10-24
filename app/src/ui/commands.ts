@@ -46,6 +46,15 @@ export function selectionCenter(): [number, number] | null {
   return [sel.reduce((a, i) => a + i.x, 0) / sel.length, sel.reduce((a, i) => a + i.y, 0) / sel.length];
 }
 
+/** Tauschliste für das ausgewählte Objekt öffnen/schließen. */
+export function toggleSwap() {
+  const s = st();
+  const it = s.project.items.find((i) => i.id === s.selection[0]);
+  if (s.swapFor || !it) return s.set("swapFor", null);
+  if (it.existing) return s.showToast("Bestand kann nicht getauscht werden");
+  s.set("swapFor", it.id);
+}
+
 export function pasteHere() {
   st().pasteItems(pointer.over === "plan" ? pointer.plan : null);
 }
@@ -70,6 +79,7 @@ export function staticCommands(): Command[] {
     { id: "dup", group: "Bearbeiten", label: "Auswahl duplizieren", kbd: "Strg+D", enabled: hasSel, run: () => st().duplicateItems(st().selection) },
     { id: "del", group: "Bearbeiten", label: "Auswahl löschen", kbd: "Entf", enabled: hasSel, run: () => st().removeItems(st().selection) },
     { id: "all", group: "Bearbeiten", label: "Alles auswählen", kbd: "Strg+A", run: () => st().select(st().project.items.filter((i) => !i.locked).map((i) => i.id)) },
+    { id: "swap", group: "Bearbeiten", label: "Objekt tauschen (Alternativen mit Vorschau) …", kbd: "T", keywords: "ersetzen austauschen alternative", enabled: () => st().selection.length === 1, run: toggleSwap },
     { id: "lock", group: "Bearbeiten", label: "Auswahl sperren / entsperren", kbd: "L", enabled: hasSel, run: toggleLock },
     { id: "hide", group: "Bearbeiten", label: "Auswahl ein-/ausblenden", kbd: "H", enabled: hasSel, run: toggleHidden },
     { id: "focus", group: "Ansicht", label: "Kamera auf Auswahl", kbd: "F", enabled: hasSel, run: focusSelection },

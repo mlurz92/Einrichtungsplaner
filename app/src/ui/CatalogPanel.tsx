@@ -1,4 +1,4 @@
-import { memo, useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
+import { memo, useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import { ExternalLink, Plus, Search, Sparkles, X } from "lucide-react";
 import { CATEGORY_GROUPS, CATEGORY_LABELS, apartment, roomNames } from "../data";
 import { allCatalog, useEditor } from "../store/project";
@@ -7,6 +7,8 @@ import { getThumbnail } from "../three/thumbnails";
 import { openExternal } from "../platform";
 import { fmtEuro, polygonCentroid } from "../model/geometry";
 import { DND_TYPE } from "./dnd";
+import { VariantPicker, slotSummary } from "./VariantPicker";
+import { COLOR_FAMILIES, MATERIAL_GROUPS, matchVariant, primarySlot } from "../model/color";
 
 const VENDORS = ["Westwing", "IKEA", "JYSK", "Designhandel", "Tylko", "Samsung", "lampe.de", "OBI", "Fachhandel"];
 
@@ -56,18 +58,18 @@ function endCatalogDrag(e: React.DragEvent) {
   if (e.dataTransfer.dropEffect === "none") useEditor.getState().set("placing", null);
 }
 
-const Card = memo(function Card({ c, onOpen }: { c: CatalogItem; onOpen: (c: CatalogItem) => void }) {
+const Card = memo(function Card({ c, vi, onOpen }: { c: CatalogItem; vi: number; onOpen: (c: CatalogItem, vi: number) => void }) {
   const place = useEditor((s) => s.set);
   return (
     <div
       className="group flex cursor-pointer gap-2.5 rounded-lg border border-transparent p-1.5 transition hover:border-stone-200 hover:bg-white hover:shadow-sm"
-      onClick={() => onOpen(c)}
+      onClick={() => onOpen(c, vi)}
       draggable
-      onDragStart={(e) => startCatalogDrag(e, c.id, 0)}
+      onDragStart={(e) => startCatalogDrag(e, c.id, vi)}
       onDragEnd={endCatalogDrag}
       title="In den Plan oder die 3D-Ansicht ziehen"
     >
-      <Thumb c={c} size={76} />
+      <Thumb c={c} variant={vi} size={76} />
       <div className="min-w-0 flex-1 py-0.5">
         <div className="flex items-center gap-1.5">
           <span className={`rounded px-1 text-[10px] font-semibold ${VENDOR_BADGE[c.vendor] ?? "bg-stone-200 text-stone-700"}`}>{c.vendor}</span>
@@ -75,8 +77,18 @@ const Card = memo(function Card({ c, onOpen }: { c: CatalogItem; onOpen: (c: Cat
           {c.premium && !c.concepts?.length ? <Sparkles size={11} className="text-amber-600" /> : null}
         </div>
         <div className="mt-0.5 line-clamp-2 text-[12.5px] font-medium leading-tight text-stone-800">{c.name}</div>
-        <div className="mt-0.5 text-[11px] text-stone-500">
-          {Math.round(c.w)} × {Math.round(c.d)} × {Math.round(c.h)} cm{c.variants.length > 1 ? ` · ${c.variants.length} Varianten` : ""}
+        <div className="mt-0.5 flex items-center gap-1.5 text-[11px] text-stone-500">
+          <span className="shrink-0">
+            {Math.round(c.w)} × {Math.round(c.d)} × {Math.round(c.h)} cm
+          </span>
+          {c.variants.length > 1 && (
+            <span className="flex min-w-0 items-center gap-0.5" title={`${c.variants.length} Ausführungen: ${c.variants.slice(0, 12).map((v) => v.name).join(", ")}${c.variants.length > 12 ? " …" : ""}`}>
+              {c.variants.slice(0, 7).map((v, k) => (
+                <span key={k} className={`h-2.5 w-2.5 shrink-0 rounded-full ring-1 ${k === vi ? "ring-stone-800" : "ring-black/10"}`} style={{ background: primarySlot(v.slots)?.color ?? "#ccc" }} />
+              ))}
+              {c.variants.length > 7 && <span className="text-[10px]">+{c.variants.length - 7}</span>}
+            </span>
+          )}
         </div>
         <div className="mt-0.5 flex items-center justify-between">
           <span className="text-[12px] font-semibold text-stone-900">{c.price > 0 ? fmtEuro(c.price) : "—"}</span>
@@ -84,7 +96,7 @@ const Card = memo(function Card({ c, onOpen }: { c: CatalogItem; onOpen: (c: Cat
             className="rounded-md bg-[#2f5d50] px-1.5 py-0.5 text-[11px] font-medium text-white opacity-0 transition group-hover:opacity-100"
             onClick={(e) => {
               e.stopPropagation();
-              place("placing", { catalogId: c.id, variant: 0 });
+              place("placing", { catalogId: c.id, variant: vi });
             }}
           >
             Platzieren
@@ -95,8 +107,8 @@ const Card = memo(function Card({ c, onOpen }: { c: CatalogItem; onOpen: (c: Cat
   );
 });
 
-function Detail({ c, onClose }: { c: CatalogItem; onClose: () => void }) {
-  const [variant, setVariant] = useState(0);
+function Detail({ c, initial, onClose }: { c: CatalogItem; initial: number; onClose: () => void }) {
+  const [variant, setVariant] = useState(initial);
   const st = useEditor();
   const v = c.variants[variant];
   const placeInRoom = () => {
@@ -128,19 +140,15 @@ function Detail({ c, onClose }: { c: CatalogItem; onClose: () => void }) {
         </div>
         <div className="mt-1 text-lg font-semibold">{(v?.price ?? c.price) > 0 ? fmtEuro(v?.price ?? c.price) : "Preis auf Anfrage"}</div>
         {c.delivery && <div className="text-xs text-stone-500">Lieferzeit: {c.delivery}</div>}
-        {c.variants.length > 1 && (
+        {c.variants.length > 1 ? (
           <div className="mt-3">
-            <div className="panel-title mb-1.5">Varianten</div>
-            <div className="flex flex-wrap gap-1.5">
-              {c.variants.map((vv, i) => {
-                const col = vv.slots.main?.color ?? vv.slots.top?.color ?? vv.slots.frame?.color ?? "#ccc";
-                return (
-                  <button key={i} title={vv.name} onClick={() => setVariant(i)} className={`h-7 w-7 rounded-full border-2 ${i === variant ? "border-stone-900" : "border-white"} shadow ring-1 ring-stone-300`} style={{ background: col }} />
-                );
-              })}
+            <div className="panel-title mb-1.5">
+              Ausführungen des Herstellers <span className="font-normal normal-case text-stone-400">({c.variants.length})</span>
             </div>
-            <div className="mt-1 text-xs text-stone-600">{v?.name}</div>
+            <VariantPicker c={c} value={variant} onChange={setVariant} />
           </div>
+        ) : (
+          v && <div className="mt-2 text-xs text-stone-600">{v.name !== "Standard" ? `${v.name} · ` : ""}{slotSummary(v)}</div>
         )}
         {c.description && <p className="mt-3 text-xs leading-relaxed text-stone-600">{c.description}</p>}
         {(v?.url ?? c.url) && (
@@ -182,14 +190,17 @@ export function CatalogPanel() {
   const [premium, setPremium] = useState(true);
   const [sort, setSort] = useState<"relevanz" | "preis" | "preis-" | "name">("relevanz");
   const [maxPrice, setMaxPrice] = useState<number>(0);
-  const [open, setOpen] = useState<CatalogItem | null>(null);
+  const [open, setOpen] = useState<{ c: CatalogItem; vi: number } | null>(null);
+  const [colorF, setColorF] = useState("");
+  const [matF, setMatF] = useState("");
   const customCount = useEditor((s) => s.project.customCatalog?.length ?? 0);
   const placing = useEditor((s) => s.placing);
 
-  const list = useMemo(() => {
+  const result = useMemo(() => {
     void customCount;
     const terms = dq.toLowerCase().split(/\s+/).filter(Boolean);
     const groupCats = group === "Alle" ? null : new Set(CATEGORY_GROUPS.find((g) => g.label === group)?.cats);
+    const vis = new Map<string, number>();
     let l = allCatalog().filter((c) => {
       if (c.vendor === "Bestand") return false;
       if (vendors.length && !vendors.includes(c.vendor)) return false;
@@ -198,8 +209,17 @@ export function CatalogPanel() {
       if (premium && !c.premium && !c.concepts?.length) return false;
       if (maxPrice && c.price > maxPrice) return false;
       if (terms.length) {
-        const hay = `${c.name} ${c.vendor} ${c.series ?? ""} ${CATEGORY_LABELS[c.category] ?? ""} ${c.variants.map((v) => v.name).join(" ")} ${c.tags?.join(" ") ?? ""}`.toLowerCase();
+        const hay = `${c.name} ${c.vendor} ${c.brand ?? ""} ${c.series ?? ""} ${CATEGORY_LABELS[c.category] ?? ""} ${c.variants.map((v) => v.name).join(" ")} ${c.tags?.join(" ") ?? ""}`.toLowerCase();
         if (!terms.every((t) => hay.includes(t))) return false;
+      }
+      if (colorF || matF) {
+        const vi = matchVariant(c, colorF, matF);
+        if (vi < 0) return false;
+        vis.set(c.id, vi);
+      } else if (terms.length && c.variants.length > 1) {
+        // Suchbegriff trifft eine Ausführung („Bouclé“, „Walnuss“) → diese zeigen
+        const vi = c.variants.findIndex((v) => terms.some((t) => v.name.toLowerCase().includes(t)));
+        if (vi > 0) vis.set(c.id, vi);
       }
       return true;
     });
@@ -207,8 +227,11 @@ export function CatalogPanel() {
     else if (sort === "preis-") l = l.sort((a, b) => b.price - a.price);
     else if (sort === "name") l = l.sort((a, b) => a.name.localeCompare(b.name, "de"));
     else l = l.sort((a, b) => (b.concepts?.length ? 1 : 0) - (a.concepts?.length ? 1 : 0) || (b.premium ? 1 : 0) - (a.premium ? 1 : 0));
-    return l;
-  }, [dq, vendors, group, cat, premium, sort, maxPrice, customCount]);
+    // Treffer, die nur der Premium-Filter verbirgt (Hinweis bei leerer/kurzer Liste)
+    const hiddenPremium = premium && l.length < 8 ? allCatalog().filter((c) => !c.premium && !c.concepts?.length && c.vendor !== "Bestand" && (!terms.length || terms.every((t) => `${c.name} ${c.vendor} ${c.brand ?? ""} ${c.series ?? ""} ${CATEGORY_LABELS[c.category] ?? ""} ${c.variants.map((v) => v.name).join(" ")}`.toLowerCase().includes(t))) && (!groupCats || groupCats.has(c.category)) && (!cat || c.category === cat) && (!vendors.length || vendors.includes(c.vendor))).length : 0;
+    return { l, vis, hiddenPremium };
+  }, [dq, vendors, group, cat, premium, sort, maxPrice, customCount, colorF, matF]);
+  const list = result.l;
 
   // Fensterung (nur sichtbare Karten rendern)
   const scroller = useRef<HTMLDivElement>(null);
@@ -223,11 +246,12 @@ export function CatalogPanel() {
   }, []);
   useEffect(() => {
     scroller.current?.scrollTo({ top: 0 });
-  }, [dq, vendors, group, cat, premium, sort, maxPrice]);
+  }, [dq, vendors, group, cat, premium, sort, maxPrice, colorF, matF]);
   const ROW = 92;
   const first = Math.max(0, Math.floor(scrollTop / ROW) - 4);
   const last = Math.min(list.length, Math.ceil((scrollTop + viewH) / ROW) + 4);
 
+  const onOpen = useCallback((c: CatalogItem, vi: number) => setOpen({ c, vi }), []);
   const cats = group === "Alle" ? [] : CATEGORY_GROUPS.find((g) => g.label === group)?.cats ?? [];
 
   return (
@@ -260,6 +284,25 @@ export function CatalogPanel() {
             ))}
           </div>
         )}
+        <div className="flex items-center gap-1" role="group" aria-label="Farbe">
+          {COLOR_FAMILIES.map((f) => (
+            <button
+              key={f.id}
+              title={`Ausführung in ${f.label}`}
+              onClick={() => setColorF(colorF === f.id ? "" : f.id)}
+              className={`h-[18px] w-[18px] shrink-0 rounded-full ring-1 transition ${colorF === f.id ? "ring-2 ring-stone-900 ring-offset-1" : "ring-black/15 hover:ring-stone-500"}`}
+              style={{ background: f.swatch }}
+            />
+          ))}
+          <select className="field ml-auto py-0.5 text-xs" style={{ width: 118 }} value={matF} onChange={(e) => setMatF(e.target.value)} title="Material (Bezug, Platte, Korpus oder Gestell)">
+            <option value="">Material</option>
+            {MATERIAL_GROUPS.map((g) => (
+              <option key={g.id} value={g.id}>
+                {g.label}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className="flex items-center gap-2 whitespace-nowrap text-xs">
           <label className="flex items-center gap-1.5 text-stone-700">
             <input type="checkbox" checked={premium} onChange={(e) => setPremium(e.target.checked)} className="accent-emerald-800" />
@@ -280,7 +323,17 @@ export function CatalogPanel() {
             ))}
           </select>
         </div>
-        <div className="text-[11px] text-stone-500">{list.length.toLocaleString("de-DE")} Produkte</div>
+        <div className="flex items-center justify-between text-[11px] text-stone-500">
+          <span>
+            {list.length.toLocaleString("de-DE")} Produkte
+            {colorF || matF ? ` in ${[COLOR_FAMILIES.find((f) => f.id === colorF)?.label, MATERIAL_GROUPS.find((g) => g.id === matF)?.label].filter(Boolean).join(" · ")}` : ""}
+          </span>
+          {(colorF || matF) && (
+            <button className="underline" onClick={() => (setColorF(""), setMatF(""))}>
+              Farbe/Material zurücksetzen
+            </button>
+          )}
+        </div>
       </div>
       {placing && (
         <div className="flex items-center justify-between bg-emerald-900 px-3 py-1.5 text-xs text-white">
@@ -290,16 +343,21 @@ export function CatalogPanel() {
           </button>
         </div>
       )}
+      {result.hiddenPremium > 0 && (
+        <button className="mx-3 mt-2 rounded-md bg-amber-50 px-2 py-1.5 text-left text-xs text-amber-900 ring-1 ring-amber-200 hover:bg-amber-100" onClick={() => setPremium(false)}>
+          {result.hiddenPremium.toLocaleString("de-DE")} weitere Treffer außerhalb der Premium-Auswahl – <span className="underline">anzeigen</span>
+        </button>
+      )}
       <div ref={scroller} className="relative flex-1 overflow-auto px-2 py-1" onScroll={(e) => setScrollTop((e.target as HTMLDivElement).scrollTop)}>
         <div style={{ height: list.length * ROW, position: "relative" }}>
           {list.slice(first, last).map((c, i) => (
             <div key={c.id} style={{ position: "absolute", top: (first + i) * ROW, left: 0, right: 0, height: ROW }}>
-              <Card c={c} onOpen={setOpen} />
+              <Card c={c} vi={result.vis.get(c.id) ?? 0} onOpen={onOpen} />
             </div>
           ))}
         </div>
       </div>
-      {open && <Detail c={open} onClose={() => setOpen(null)} />}
+      {open && <Detail key={open.c.id} c={open.c} initial={open.vi} onClose={() => setOpen(null)} />}
     </div>
   );
 }

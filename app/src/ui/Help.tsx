@@ -30,6 +30,8 @@ const GROUPS: [string, [string, string][]][] = [
       ["Strg+D", "Duplizieren"],
       ["Entf", "Löschen (Hinweis mit „Rückgängig“)"],
       ["L / H", "Sperren bzw. entsperren / Ein- bzw. Ausblenden"],
+      ["T", "Tauschen: Alternativen mit Vorschau in Plan/3D (Maus oder ↑/↓), Enter tauscht; „Farbe beibehalten“ wählt die passende Hersteller-Ausführung"],
+      ["Ausführungen (Inspector)", "Musterkarte überfahren = Vorschau, Klick = übernehmen; bei Bezug × Gestell je Achse wählen, abgeblendet = andere Kombination"],
       ["Strg+A", "Alles auswählen"],
     ],
   ],

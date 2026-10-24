@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { apartment, baseCatalog, concepts, wallFaces } from "../data";
+import { apartment, baseCatalog, catalogAliases, concepts, wallFaces } from "../data";
 import type {
   FloorFinish,
   BudgetLine,
@@ -55,6 +55,10 @@ export interface EditorState {
   /** Bewegungsflächen und Türschwenkbereiche im Plan einblenden. */
   showClearance: boolean;
   placing: { catalogId: string; variant: number } | null;
+  /** Vorschau beim Tauschen: Objekt wird in Plan/3D vorübergehend durch dieses Produkt ersetzt. */
+  swapPreview: { id: string; catalogId: string; variant: number } | null;
+  /** Objekt, für das die Tauschliste offen ist (linke Leiste). */
+  swapFor: string | null;
   past: Project[];
   future: Project[];
   /** Bezeichnungen der Undo-/Redo-Schritte (parallel zu past/future). */
@@ -100,6 +104,7 @@ export interface EditorState {
   /** Zwischenablage einfügen; `at` = Planposition für den Mittelpunkt der eingefügten Gruppe. */
   pasteItems(at?: Vec2 | null): void;
   replaceItem(id: string, catalogId: string, variant: number): void;
+  replaceItems(ids: string[], catalogId: string, variant: number): void;
   applyVariant(id: string, variant: number): void;
   setSlot(id: string, slot: Slot, style: Partial<SlotStyle>): void;
   setWallFinish(faceIds: string[], finish: WallFinish | null): void;
@@ -171,7 +176,7 @@ function uid(): string {
 let catalogIndex = new Map<string, CatalogItem>(baseCatalog.map((c) => [c.id, c]));
 
 export function getCatalogItem(id: string): CatalogItem | undefined {
-  return catalogIndex.get(id);
+  return catalogIndex.get(id) ?? (catalogAliases[id] ? catalogIndex.get(catalogAliases[id]) : undefined);
 }
 
 export function allCatalog(): CatalogItem[] {
@@ -187,6 +192,41 @@ export function itemPrice(it: PlacedItem): number {
   if (it.existing) return 0;
   if (it.parts && it.parts.length) return it.parts.reduce((a, p) => a + p.qty * p.unit, 0);
   return it.price ?? getCatalogItem(it.catalogId)?.price ?? 0;
+}
+
+/**
+ * Ersatzobjekt beim Tauschen: gleiche Position, Drehung, Raum, Positionsnummer und Notiz.
+ * Steht das Objekt mit der Rückseite an einer Wand, bleibt die Rückseite dort (tiefere Möbel wachsen in den Raum);
+ * frei stehende Objekte und Deckenleuchten behalten ihren Mittelpunkt. Wand-/Aufsatzobjekte behalten ihre Höhe.
+ */
+export function swappedItem(old: PlacedItem, c: CatalogItem, variant: number): PlacedItem {
+  const n = newItemFromCatalog(c, variant, old.x, old.y, old.rot);
+  n.id = old.id;
+  n.pos = old.pos;
+  n.opening = old.opening;
+  n.room = old.room;
+  n.note = old.note;
+  n.hidden = old.hidden;
+  if (c.mount === old.mount && c.mount !== "floor") n.elev = old.elev;
+  else if (c.mount === "floor" && old.mount === "floor") n.elev = old.elev;
+  // konfigurierbare Maße (Teppiche, Vorhänge, Lamellen) übernehmen
+  if (c.resizable && getCatalogItem(old.catalogId)?.resizable) {
+    n.w = old.w;
+    n.d = old.d;
+    if (c.category === "curtain") n.h = old.h;
+  }
+  if (c.mount !== "ceiling") {
+    const back = localToPlan(old, 0, -old.d / 2);
+    const nf = nearestFace(wallFaces, back[0], back[1], 0.12);
+    if (nf || c.mount === "wall") {
+      const front = localToPlan(old, 0, 1);
+      const fx = front[0] - old.x;
+      const fy = front[1] - old.y;
+      n.x = back[0] + fx * (n.d / 2);
+      n.y = back[1] + fy * (n.d / 2);
+    }
+  }
+  return n;
 }
 
 export function newItemFromCatalog(c: CatalogItem, variantIdx: number, x: number, y: number, rot = 0): PlacedItem {
@@ -208,7 +248,7 @@ export function newItemFromCatalog(c: CatalogItem, variantIdx: number, x: number
     h: c.h / 100,
     variant: v?.name,
     slots: structuredClone(v?.slots ?? {}),
-    params: structuredClone(c.params ?? {}),
+    params: structuredClone({ ...(c.params ?? {}), ...(v?.params ?? {}) }),
     mount: c.mount,
     room: roomAt(apartment, x, y),
     parts: c.price > 0 || (v?.price ?? 0) > 0 ? parts : [],
@@ -300,6 +340,8 @@ export const useEditor = create<EditorState>((set, get) => ({
   leftTab: prefs.leftTab || "katalog",
   showClearance: false,
   placing: null,
+  swapPreview: null,
+  swapFor: null,
   past: [],
   future: [],
   pastLabels: [],
@@ -528,24 +570,17 @@ export const useEditor = create<EditorState>((set, get) => ({
     set((s) => ({ project: { ...s.project, items: [...s.project.items, ...copies], updatedAt: new Date().toISOString() }, selection: copies.map((c) => c.id) }));
   },
   replaceItem(id, catalogId, variant) {
+    get().replaceItems([id], catalogId, variant);
+  },
+  replaceItems(ids, catalogId, variant) {
     const c = getCatalogItem(catalogId);
-    const old = get().project.items.find((i) => i.id === id);
-    if (!c || !old) return;
-    const n = newItemFromCatalog(c, variant, old.x, old.y, old.rot);
-    n.id = old.id;
-    n.pos = old.pos;
-    n.opening = old.opening;
-    if (c.mount === old.mount || (c.mount !== "floor" && old.mount !== "floor")) n.elev = c.mount === "floor" ? old.elev : n.elev;
-    // Rückseite bleibt an derselben Stelle (z. B. an der Wand)
-    const back = localToPlan(old, 0, -old.d / 2);
-    const front = localToPlan(old, 0, 1);
-    const fx = front[0] - old.x;
-    const fy = front[1] - old.y;
-    n.x = back[0] + fx * (n.d / 2);
-    n.y = back[1] + fy * (n.d / 2);
-    get().commit(`Tauschen gegen ${c.name}`);
-    set((s) => ({ project: { ...s.project, items: s.project.items.map((i) => (i.id === id ? n : i)) } }));
-    get().showToast(`Getauscht: ${c.name}`);
+    const olds = get().project.items.filter((i) => ids.includes(i.id));
+    if (!c || !olds.length) return;
+    const repl = new Map(olds.map((o) => [o.id, swappedItem(o, c, variant)]));
+    const v = c.variants[variant]?.name;
+    get().commit(olds.length === 1 ? `Tauschen gegen ${c.name}` : `${olds.length}× tauschen gegen ${c.name}`);
+    set((s) => ({ project: { ...s.project, items: s.project.items.map((i) => repl.get(i.id) ?? i), updatedAt: new Date().toISOString() }, swapPreview: null }));
+    get().showToast(`Getauscht${olds.length > 1 ? ` (${olds.length}×)` : ""}: ${c.name}${v && v !== "Standard" ? ` · ${v}` : ""}`, { action: { label: "Rückgängig", run: () => get().undo() } });
   },
   applyVariant(id, variant) {
     const it = get().project.items.find((i) => i.id === id);
@@ -555,6 +590,7 @@ export const useEditor = create<EditorState>((set, get) => ({
     get().updateItems([id], (x) => {
       x.variant = v.name;
       x.slots = structuredClone(v.slots);
+      if (v.params) x.params = { ...x.params, ...v.params };
       if (x.parts?.length === 1) x.parts[0] = { ...x.parts[0], unit: v.price ?? x.parts[0].unit, variant: v.name, url: v.url ?? x.parts[0].url };
     }, { label: `Variante „${v.name}“` });
   },
@@ -748,4 +784,18 @@ export function budgetSummary(p: Project) {
   const byStatus: Record<PurchaseStatus, number> = { geplant: 0, bestellt: 0, geliefert: 0, aufgebaut: 0 };
   for (const l of lines) byStatus[l.status] += l.total;
   return { lines, total, byVendor, byRoom, byStatus };
+}
+
+/** Objektliste mit eingeblendeter Tausch-Vorschau (nur Anzeige, ändert das Projekt nicht). */
+export function withSwapPreview(items: PlacedItem[], pv: EditorState["swapPreview"]): PlacedItem[] {
+  if (!pv) return items;
+  const c = getCatalogItem(pv.catalogId);
+  if (!c) return items;
+  return items.map((i) => {
+    if (i.id !== pv.id) return i;
+    if (i.catalogId !== pv.catalogId) return swappedItem(i, c, pv.variant);
+    // gleiche Ware, andere Ausführung: nur Farben/Materialien (Maße und Lage bleiben)
+    const v = c.variants[pv.variant];
+    return v ? { ...i, slots: v.slots, params: v.params ? { ...i.params, ...v.params } : i.params } : i;
+  });
 }
