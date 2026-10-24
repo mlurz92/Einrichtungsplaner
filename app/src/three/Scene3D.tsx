@@ -20,7 +20,7 @@ import { applyPlacementSnap, beginDrag, dragUpdate, isFlatFloorItem } from "../s
 import { DEFAULT_SITE, sunDirection, sunPosition, sunTimes } from "./solar";
 import { useView3D } from "./viewStore";
 import { inFurniture, roomPole } from "./views";
-import { EnvironmentProbe } from "./probe";
+import { EnvironmentProbe, whiteBalance } from "./probe";
 import { View3DPanel } from "../ui/View3DPanel";
 import { useResolvedTheme } from "../ui/prefs";
 import { useContextMenu, type CtxEntry } from "../ui/kit";
@@ -208,6 +208,11 @@ function Environment() {
     // Belichtungsautomatik wie bei einer Kamera: mittlere Raumhelligkeit → Mittelgrau.
     // Abends etwas knapper belichtet, damit es nach Abend aussieht und nicht nach Tag.
     gl.toneMappingExposure = THREE.MathUtils.clamp((night ? EXPOSURE_KEY_NIGHT : EXPOSURE_KEY) / probe.luminance, 0.3, night ? 4 : 12);
+    // Weißabgleich nur in Innenansichten am Tag; die Übersicht steht vor dem neutral abgestimmten
+    // Verlauf, und abends bleibt das Leuchtenlicht bewusst warm
+    whiteBalance.gain = !night && (useView3D.getState().interior || camera3d === "walk") ? probe.whiteBalance : NEUTRAL;
+    // Der Verlaufshintergrund ist bereits fertig abgestimmt: Belichtung für ihn aufheben
+    if (!(camera3d === "walk" && !night)) scene.backgroundIntensity = 1 / gl.toneMappingExposure;
   });
   useEffect(() => {
     let tex: THREE.Texture | null = null;
@@ -234,9 +239,9 @@ function Environment() {
     scene.environmentIntensity = 1;
     // Verlauf ist bereits abgestimmt; nur der HDR-Himmel im Rundgang folgt der Dämmerung
     const d = night ? 0 : day;
-    scene.backgroundIntensity = camera3d === "walk" ? 0.15 + 0.75 * d : 1;
+    scene.backgroundIntensity = camera3d === "walk" ? 0.15 + 0.75 * d : 1 / gl.toneMappingExposure;
     setNightGlow(night ? 2.2 : 0);
-  }, [night, scene, day, camera3d]);
+  }, [night, scene, day, camera3d, gl]);
   return null;
 }
 
@@ -245,6 +250,7 @@ const SKY_LEVEL = 0.35;
 /** Zielhelligkeit der Belichtungsautomatik (Mittelgrau, linear) bei Tag und am Abend. */
 const EXPOSURE_KEY = 0.42;
 const EXPOSURE_KEY_NIGHT = 0.085;
+const NEUTRAL = new THREE.Color(1, 1, 1);
 
 const SHADOW_MAP = { hoch: 4096, mittel: 2048, niedrig: 1024 } as const;
 const SUN_LOW = new THREE.Color("#ffad66");
@@ -1023,6 +1029,7 @@ function Effects() {
   return (
     <EffectComposer multisampling={0} enableNormalPass={false} autoClear={false}>
       <N8AO aoRadius={0.45} distanceFalloff={0.6} intensity={quality === "hoch" ? 2.2 : 1.6} quality={quality === "hoch" ? "high" : "medium"} halfRes={quality !== "hoch"} />
+      <primitive object={whiteBalance} />
       <Bloom intensity={night ? 0.55 : 0.08} luminanceThreshold={night ? 0.85 : 0.98} mipmapBlur />
       <Outline visibleEdgeColor={0x2f7cf6} hiddenEdgeColor={0x2f7cf6} edgeStrength={6} pulseSpeed={0} blur xRay={false} width={1200} />
       <ToneMapping mode={ToneMappingMode.NEUTRAL} />

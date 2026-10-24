@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { wallClipPlanes } from "./surfaces";
 import { cutUniforms } from "./cutaway";
+import { Effect } from "postprocessing";
 
 // Umgebungssonde: Statt einer Studio-Umgebung (helle Leuchtflächen, die sich in jeder glatten
 // Oberfläche spiegeln) wird die Wohnung selbst aus Sicht eines Raumpunkts in eine Würfelkarte
@@ -51,6 +52,7 @@ const meterMat = new THREE.ShaderMaterial({
     uniform samplerCube env;
     void main() {
       float s = 0.0, w = 0.0, m = 0.0;
+      vec3 mc = vec3(0.0);
       for (int i = 0; i < 24; i++) {
         float z = 1.0 - (float(i) + 0.5) / 12.0;
         float r = sqrt(max(0.0, 1.0 - z * z));
@@ -63,13 +65,19 @@ const meterMat = new THREE.ShaderMaterial({
           float l = dot(c, vec3(0.2126, 0.7152, 0.0722));
           s += k * log2(max(1e-5, l));
           m += k * min(l, 4.0);
+          mc += k * c * (min(l, 4.0) / max(l, 1e-5));
           w += k;
         }
       }
       float v = clamp((s / w - ${LOG_MIN.toFixed(1)}) / ${(LOG_MAX - LOG_MIN).toFixed(1)}, 0.0, 1.0);
       // 16 Bit auf zwei Kanäle verteilt
       float u = clamp((log2(max(1e-5, m / w)) - ${LOG_MIN.toFixed(1)}) / ${(LOG_MAX - LOG_MIN).toFixed(1)}, 0.0, 1.0);
-      gl_FragColor = vec4(floor(v * 255.0) / 255.0, fract(v * 255.0), floor(u * 255.0) / 255.0, fract(u * 255.0));
+      // Pixel 2: Farbstich (Rot- und Blauanteil relativ zur Leuchtdichte, 0–2) für den Weißabgleich
+      vec3 cm = mc / max(1e-5, m);
+      vec2 q = clamp(vec2(cm.r, cm.b) / max(1e-5, dot(cm, vec3(0.2126, 0.7152, 0.0722))) * 0.5, 0.0, 1.0);
+      gl_FragColor = gl_FragCoord.x < 1.0
+        ? vec4(floor(v * 255.0) / 255.0, fract(v * 255.0), floor(u * 255.0) / 255.0, fract(u * 255.0))
+        : vec4(floor(q.x * 255.0) / 255.0, fract(q.x * 255.0), floor(q.y * 255.0) / 255.0, fract(q.y * 255.0));
     }`,
   depthTest: false,
   depthWrite: false,
@@ -84,8 +92,10 @@ export class EnvironmentProbe {
   private pm: THREE.PMREMGenerator;
   private env: THREE.WebGLRenderTarget | null = null;
   private sky = skyTexture();
-  private meterRT = new THREE.WebGLRenderTarget(1, 1);
-  private px = new Uint8Array(4);
+  private meterRT = new THREE.WebGLRenderTarget(2, 1);
+  private px = new Uint8Array(8);
+  /** Weißabgleich: Verstärkung je Kanal (Leuchtdichte neutral). */
+  whiteBalance = new THREE.Color(1, 1, 1);
   /** Mittlere Leuchtdichte (geometrisches Mittel) der letzten Aufnahme. */
   luminance = 0.18;
   geoMean = 0.18;
@@ -172,7 +182,7 @@ export class EnvironmentProbe {
     meterMat.uniforms.env.value = this.rt.texture;
     gl.setRenderTarget(this.meterRT);
     gl.render(meterScene, meterCam);
-    gl.readRenderTargetPixels(this.meterRT, 0, 0, 1, 1, this.px);
+    gl.readRenderTargetPixels(this.meterRT, 0, 0, 2, 1, this.px);
     gl.setRenderTarget(prev);
     const dec = (hi: number, lo: number) => Math.pow(2, LOG_MIN + ((hi + lo / 255) / 255) * (LOG_MAX - LOG_MIN));
     this.geoMean = dec(this.px[0], this.px[1]);
@@ -180,7 +190,14 @@ export class EnvironmentProbe {
     // Mittelweg aus geometrischem Mittel (unempfindlich gegen helle Leuchten) und arithmetischem
     // Mittel (unempfindlich gegen dunkle Fensterflächen bei Nacht)
     this.luminance = Math.sqrt(this.geoMean * this.mean);
-    (globalThis as Record<string, unknown>).__we13probe = { geo: this.geoMean, mean: this.mean };
+    // Teilweiser Weißabgleich wie Auge bzw. Kamera: Farbstich des Raumlichts (z. B. warmes
+    // Licht vom dunklen Eichenboden) zu 50 % ausgleichen, auf Leuchtdichte 1 normiert
+    const r = ((this.px[4] + this.px[5] / 255) / 255) * 2, b = ((this.px[6] + this.px[7] / 255) / 255) * 2;
+    const g = (1 - 0.2126 * r - 0.0722 * b) / 0.7152;
+    const wb = new THREE.Color(Math.pow(1 / Math.max(r, 0.2), 0.5), Math.pow(1 / Math.max(g, 0.2), 0.5), Math.pow(1 / Math.max(b, 0.2), 0.5));
+    const wl = 0.2126 * wb.r + 0.7152 * wb.g + 0.0722 * wb.b;
+    this.whiteBalance.setRGB(wb.r / wl, wb.g / wl, wb.b / wl);
+    (globalThis as Record<string, unknown>).__we13probe = { geo: this.geoMean, mean: this.mean, wb: this.whiteBalance.toArray().map((v) => +v.toFixed(3)) };
   }
 
   dispose() {
@@ -191,3 +208,22 @@ export class EnvironmentProbe {
     this.sky.dispose();
   }
 }
+
+/** Weißabgleich in der Nachbearbeitung (vor dem Tone Mapping), Verstärkung aus der Sonde. */
+export class WhiteBalanceEffect extends Effect {
+  constructor() {
+    super(
+      "WhiteBalance",
+      /* glsl */ `uniform vec3 gain;
+      void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor) {
+        outputColor = vec4(inputColor.rgb * gain, inputColor.a);
+      }`,
+      { uniforms: new Map([["gain", new THREE.Uniform(new THREE.Color(1, 1, 1))]]) },
+    );
+  }
+  set gain(c: THREE.Color) {
+    (this.uniforms.get("gain")!.value as THREE.Color).copy(c);
+  }
+}
+
+export const whiteBalance = new WhiteBalanceEffect();
