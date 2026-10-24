@@ -1431,106 +1431,170 @@
 "concepts": []
 },
 {
-"id": "wes-holzstuhl-katya-mit-polsterung-159120",
+"id": "wes-boucle-armlehnstuhl-adrien-159664",
 "vendor": "Westwing",
 "brand": "Westwing Collection",
-"name": "Holzstuhl Katya mit Polsterung",
+"name": "Bouclé-Armlehnstuhl Adrien",
 "category": "chair",
-"w": 49.0,
-"d": 51.0,
+"w": 56.0,
+"d": 56.0,
 "h": 82.0,
-"price": 279.0,
-"url": "https://www.westwing.de/holzstuhl-katya-mit-polsterung-159120.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ23WES39047-204442_2416b8e93650a227453c7a6ebd20a58e_dtl_1.jpg",
-"archetype": "diningChair",
+"price": 269.0,
+"url": "https://www.westwing.de/boucle-armlehnstuhl-adrien-159664.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES34181-205362_42c9748699c2ee14f1e7547fe16e7cc7_dtl_1.jpg",
+"archetype": "diningArmchair",
 "params": {},
 "variants": [
 {
-"name": "Webstoff Weinrot, Eichenholz Weinrot",
+"name": "Bouclé Beige, Schwarz",
 "slots": {
 "main": {
-"color": "#6e232f",
-"material": "fabric"
+"color": "#d6c7ae",
+"material": "boucle"
 },
 "legs": {
-"color": "#6e232f",
-"material": "oak"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
-"price": 309.0,
-"url": "https://www.westwing.de/holzstuhl-katya-mit-polsterung-159120.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ23WES39047-204442_2416b8e93650a227453c7a6ebd20a58e_dtl_1.jpg"
+"price": 299.0,
+"url": "https://www.westwing.de/boucle-armlehnstuhl-adrien-159664.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES34181-205362_42c9748699c2ee14f1e7547fe16e7cc7_dtl_1.jpg"
 },
 {
-"name": "Bouclé Olivgrün, dunkles Eichenholz",
+"name": "Bouclé Hellbeige, Hellbeige",
+"slots": {
+"main": {
+"color": "#e3d8c5",
+"material": "boucle"
+},
+"legs": {
+"color": "#e3d8c5",
+"material": "lacquer"
+}
+},
+"price": 269.0,
+"url": "https://www.westwing.de/boucle-armlehnstuhl-adrien-1-de-24wes08910.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES08910-220837_6871141c007e1b2459d7fe896dcdd171_dtl_1.jpg"
+},
+{
+"name": "Bouclé Korallrot, Korallrot",
+"slots": {
+"main": {
+"color": "#b23a32",
+"material": "boucle"
+},
+"legs": {
+"color": "#b23a32",
+"material": "lacquer"
+}
+},
+"price": 269.0,
+"url": "https://www.westwing.de/boucle-armlehnstuhl-adrien-2-de-24wes59219.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES59219-220830_a839f69521e095327e44fbc5c82faee1_dtl_1.jpg"
+},
+{
+"name": "Bouclé Olivgrün, Schwarz",
 "slots": {
 "main": {
 "color": "#6e7450",
 "material": "boucle"
 },
 "legs": {
-"color": "#38291f",
-"material": "oakDark"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
-"price": 279.0,
-"url": "https://www.westwing.de/fsc-katya-chair-dark-wood-copenhagen-green-en-25wes25686.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25WES25686-859430_3bc0b2ae5e76fc9eb541962261434c3e_dtl_1.jpg"
+"price": 309.0,
+"url": "https://www.westwing.de/adrien-chair-with-armrest-upholstered-olive-green-with-black-frame-56-51-cm-en-25wes41902.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25WES41902-713605_1041bb5f4a71afe20acd28eca5f92a15_dtl_1.jpg"
 },
 {
-"name": "Bouclé Weiß, Eichenholz",
+"name": "Bouclé Schwarz, Schwarz",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "boucle"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"price": 299.0,
+"url": "https://www.westwing.de/boucle-armlehnstuhl-adrien-159666.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES75912-205364_2f970c999933bb31c26d94fcce99f280_dtl_1.jpg"
+},
+{
+"name": "Bouclé Weiß, Schwarz",
 "slots": {
 "main": {
 "color": "#f3f1ec",
 "material": "boucle"
 },
 "legs": {
-"color": "#c9a477",
-"material": "oak"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
-"price": 309.0,
-"url": "https://www.westwing.de/holzstuhl-katya-mit-boucle-polsterung-159118.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ23WES92112-204440_41e6098c9d8d55650a819d8a2fbdd973_dtl_1.jpg"
+"price": 269.0,
+"url": "https://www.westwing.de/boucle-armlehnstuhl-adrien-159662.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES10207-205360_e479605b1dbc5e8ebad437fe470cc928_dtl_1.jpg"
 },
 {
-"name": "Bouclé Weiß, Eichenholz Dunkelbraun",
+"name": "Cord Braun, Hellbraun",
 "slots": {
 "main": {
-"color": "#f3f1ec",
-"material": "boucle"
+"color": "#7a5a43",
+"material": "cord"
 },
 "legs": {
-"color": "#4e3a2c",
-"material": "oak"
+"color": "#b08a63",
+"material": "lacquer"
 }
 },
 "price": 309.0,
-"url": "https://www.westwing.de/holzstuhl-katya-mit-boucle-polsterung-159119.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ23WES98362-204441_fceb708ea02ac690bbc05c7ae9aee78d_dtl_1.jpg"
+"url": "https://www.westwing.de/del23ehl04_adrien_upholstered-chair_cord_b-51-cm-h-82-cm-t-56-cm-en-26wes62216.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ26WES62216-563876_63b83233d8ae746b40e28bcfd99daacb_dtl_1.jpg"
 },
 {
-"name": "Senfgelb",
+"name": "Cord Hellblau, Blau",
 "slots": {
 "main": {
-"color": "#c49a2e",
-"material": "fabric"
+"color": "#a9c1d6",
+"material": "cord"
 },
 "legs": {
-"color": "#a37a52",
-"material": "oak"
+"color": "#3f6680",
+"material": "lacquer"
 }
 },
 "price": 309.0,
-"url": "https://www.westwing.de/holzstuhl-katya-mit-polsterung-159121.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ23WES91659-204443_d30517f942b25151bf3685304b95f43d_dtl_1.jpg"
+"url": "https://www.westwing.de/del23ehl04_adrien_upholstered-chair_cord_b-51-cm-h-82-cm-t-56-cm-en-26wes26056.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ26WES26056-911069_186050ba04ee148df5296235e95006b9_dtl_1.jpg"
+},
+{
+"name": "Cord Hellbraun, Cremeweiß",
+"slots": {
+"main": {
+"color": "#b08a63",
+"material": "cord"
+},
+"legs": {
+"color": "#ede6d8",
+"material": "lacquer"
+}
+},
+"price": 309.0,
+"url": "https://www.westwing.de/del23ehl04_adrien_upholstered-chair_cord_b-51-cm-h-82-cm-t-56-cm-en-26wes74347.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ26WES74347-147856_7147ffc4ebc56685b58a974f71b54a7a_dtl_1.jpg"
 }
 ],
 "tags": [
 "Westwing Collection"
 ],
 "premium": true,
-"description": "Gesamtmaße: B 49 cm, H 82 cm, T 51 cm · Sitzmaße: B 47 cm, H 48 cm, T 43 cm · Beine: H 44 cm ·  · Maximale Belastbarkeit: 120 kg",
+"description": "Gesamtmaße: B 56 cm, H 82 cm, T 56 cm · Sitzmaße: B 52 cm, H 49 cm, T 46 cm · Armlehnen: H 67 cm ·  · Maximale Belastbarkeit: 120 kg",
 "mount": "floor",
 "resizable": false,
 "concepts": [
@@ -1721,123 +1785,154 @@
 "concepts": []
 },
 {
-"id": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
+"id": "wes-polsterstuhl-tess-166841",
 "vendor": "Westwing",
 "brand": "Westwing Collection",
-"name": "Polsterstuhl Ash",
+"name": "Polsterstuhl Tess",
 "category": "chair",
-"w": 48.0,
-"d": 56.0,
-"h": 80.0,
-"price": 299.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-5-171508.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES14485-221761_9e45f51c0b8660d3e6c226ee8268f1d7_dtl_1.jpg",
+"w": 49.0,
+"d": 64.0,
+"h": 84.0,
+"price": 199.0,
+"url": "https://www.westwing.de/polsterstuhl-tess-166841.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES29441-215644_1ac99d4bf16f41ec68025b0065ceaeda_dtl_1.jpg",
 "archetype": "diningChair",
 "params": {},
 "variants": [
 {
-"name": "Webstoff Taupe, Eschenholz dunkelbraun lackiert",
-"slots": {
-"main": {
-"color": "#a49482",
-"material": "fabric"
-},
-"legs": {
-"color": "#4e3a2c",
-"material": "ash"
-}
-},
-"price": 309.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-5-171508.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES14485-221761_9e45f51c0b8660d3e6c226ee8268f1d7_dtl_1.jpg"
-},
-{
-"name": "Webstoff Dunkelbraun, Eschenholz lackiert",
+"name": "Webstoff Dunkelbraun, Silberfarben glänzend",
 "slots": {
 "main": {
 "color": "#4e3a2c",
 "material": "fabric"
 },
 "legs": {
-"color": "#d9c4a2",
-"material": "ash"
+"color": "#c6cbd0",
+"material": "chrome"
 }
 },
-"price": 309.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-2-171505.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES59367-221758_2ca01bd46244e696ccf8b67682f54755_dtl_1.jpg"
+"price": 229.0,
+"url": "https://www.westwing.de/polsterstuhl-tess-166841.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES29441-215644_1ac99d4bf16f41ec68025b0065ceaeda_dtl_1.jpg"
 },
 {
-"name": "Webstoff Graublau, Eschenholz dunkelbraun lackiert",
+"name": "Samt Beige, Goldfarben matt",
 "slots": {
 "main": {
-"color": "#5b6f84",
-"material": "fabric"
+"color": "#d6c7ae",
+"material": "velvet"
 },
 "legs": {
-"color": "#4e3a2c",
-"material": "ash"
+"color": "#c9a55c",
+"material": "brass"
 }
 },
-"price": 299.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-6-171509.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES90888-221762_430c12f95615c9f4186f2dedb4c4f045_dtl_1.jpg"
+"price": 229.0,
+"url": "https://www.westwing.de/samt-polsterstuhl-tess-136324.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ21WES48125-171641_8ede0eb56273ad6c710c010e8c721221_dtl_1.jpg"
 },
 {
-"name": "Webstoff Off White, Eschenholz dunkelbraun lackiert",
+"name": "Samt Dunkelgrün, Goldfarben matt",
+"slots": {
+"main": {
+"color": "#2f4a3a",
+"material": "velvet"
+},
+"legs": {
+"color": "#c9a55c",
+"material": "brass"
+}
+},
+"price": 199.0,
+"url": "https://www.westwing.de/samt-polsterstuhl-tess-136327.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ21WES51068-171644_1f442d0fea0f2488e03ee23e36daa5e4_dtl_1.jpg"
+},
+{
+"name": "Samt Hellbeige, Goldfarben matt",
+"slots": {
+"main": {
+"color": "#e3d8c5",
+"material": "velvet"
+},
+"legs": {
+"color": "#c9a55c",
+"material": "brass"
+}
+},
+"price": 249.0,
+"url": "https://www.westwing.de/samt-polsterstuhl-tess-105031.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ19WES20006-131616_74f7029e7472e0a1f173b314bb508408_dtl_1.jpg"
+},
+{
+"name": "Samt Orange, Goldfarben matt",
+"slots": {
+"main": {
+"color": "#d07a2f",
+"material": "velvet"
+},
+"legs": {
+"color": "#c9a55c",
+"material": "brass"
+}
+},
+"price": 229.0,
+"url": "https://www.westwing.de/samt-polsterstuhl-tess-in-orange-von-chris-glass-147093.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ22WES94338-187303_32f1d3ca7cf74892dc0719ca7bd9f77d_dtl_1.jpg"
+},
+{
+"name": "Webstoff Off White, Schwarz matt",
 "slots": {
 "main": {
 "color": "#ede8dc",
 "material": "fabric"
 },
 "legs": {
-"color": "#4e3a2c",
-"material": "ash"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
-"price": 309.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-4-171507.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES29478-221760_42715c421a504e37932eeb0ef66a6b49_dtl_1.jpg"
+"price": 229.0,
+"url": "https://www.westwing.de/polsterstuhl-tess-152157.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ23WES17865-195267_bd91ce400910f20da2a74d760f0256d8_dtl_1.jpg"
 },
 {
-"name": "Webstoff Off White, Eschenholz lackiert",
+"name": "Webstoff Off White, Silberfarben glänzend",
 "slots": {
 "main": {
 "color": "#ede8dc",
 "material": "fabric"
 },
 "legs": {
-"color": "#d9c4a2",
-"material": "ash"
+"color": "#c6cbd0",
+"material": "chrome"
 }
 },
-"price": 309.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-1-171504.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES50563-221757_2bb0fd44ae9b6a4dcbc1feb82539eee2_dtl_1.jpg"
+"price": 229.0,
+"url": "https://www.westwing.de/polsterstuhl-tess-166839.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES29791-215642_23740b63d8b2153e7f5e40e2692fdc83_dtl_1.jpg"
 },
 {
-"name": "Webstoff Türkisgrün, Eschenholz lackiert",
+"name": "Webstoff Schwarz, Schwarz matt",
 "slots": {
 "main": {
-"color": "#3f8f8f",
+"color": "#1d1d1d",
 "material": "fabric"
 },
 "legs": {
-"color": "#d9c4a2",
-"material": "ash"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
-"price": 299.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-3-171506.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES81434-221759_331ee5155474ba61d33d228626133a0d_dtl_1.jpg",
-"soldOut": true
+"price": 229.0,
+"url": "https://www.westwing.de/polsterstuhl-tess-152158.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ23WES74657-195268_6322aa6cf7dff2aba4daea162b491398_dtl_1.jpg"
 }
 ],
 "tags": [
 "Westwing Collection"
 ],
 "premium": true,
-"description": "Gesamtmaße: B 48 cm, H 80 cm, T 56 cm · Sitzmaße: B 48 cm, H 49 cm, T 42 cm  ·  · Maximale Belastbarkeit: 120 kg",
+"description": "Gesamtmaße: B 49 cm, H 84 cm, T 64 cm · Sitzmaße: B 47 cm, H 50 cm, T 46 cm ·  · Maximale Sitzbelastbarkeit: 120 kg",
 "mount": "floor",
 "resizable": false,
 "concepts": [
@@ -2877,160 +2972,103 @@
 ]
 },
 {
-"id": "wes-ausziehbarer-esstisch-benvenuto-200-250-x-110-cm-154433",
-"vendor": "Westwing",
-"brand": "Kare Design",
-"name": "Ausziehbarer Esstisch Benvenuto, 200 - 250 x 110 cm",
+"id": "boc-alicante-3700128t0850a07",
+"vendor": "Designhandel",
+"brand": "BoConcept",
+"series": "Alicante",
+"name": "BoConcept Esstisch Alicante (Keramik aschgrau, Steinoptik)",
 "category": "diningTable",
-"w": 200.0,
-"d": 110.0,
-"h": 75.0,
-"price": 1699.0,
-"url": "https://www.westwing.de/ausziehbarer-esstisch-benvenuto-200-250-x-110-cm-154433.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ23KAR73840-198214_ff704cc8517cc2fd2677fac558faddd9_dtl_1.jpg",
+"w": 183.0,
+"d": 99.0,
+"h": 74.5,
+"price": 4299.0,
+"url": "https://www.boconcept.com/de-de/p/alicante/370t085-2:264-9:0128-13:0167/",
+"image": "https://assets.boconcept.com/14e0f9ac-c12c-4643-86bd-b16800b05ba0/2676396_PNG-Web%2072dpi.png?format=pjpg&auto=webp&fit=bounds&width=800&quality=70",
 "archetype": "tableRect",
-"params": {},
+"params": {
+"top": 0.025,
+"radius": 0.15,
+"base": "panel",
+"noApron": true
+},
 "variants": [
 {
-"name": "Walnussholz",
+"name": "Keramik aschgrau, Steinoptik, Gestell matter aschgrauer Strukturlack",
 "slots": {
 "top": {
-"color": "#6b4a33",
-"material": "walnut"
+"color": "#8f8f8c",
+"material": "stone"
 },
 "main": {
-"color": "#6b4a33",
-"material": "walnut"
+"color": "#8f8f8c",
+"material": "stone"
 },
 "legs": {
-"color": "#6b4a33",
-"material": "walnut"
+"color": "#9a978f",
+"material": "matte"
 }
 },
-"price": 1699.0,
-"url": "https://www.westwing.de/ausziehbarer-esstisch-benvenuto-200-250-x-110-cm-154433.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ23KAR73840-198214_ff704cc8517cc2fd2677fac558faddd9_dtl_1.jpg"
+"price": 4299.0,
+"url": "https://www.boconcept.com/de-de/p/alicante/370t085-2:264-9:0128-13:0167/",
+"image": "https://assets.boconcept.com/14e0f9ac-c12c-4643-86bd-b16800b05ba0/2676396_PNG-Web%2072dpi.png?format=pjpg&auto=webp&fit=bounds&width=800&quality=70"
 }
 ],
 "tags": [
-"Kare Design"
+"BoConcept",
+"Steintisch",
+"Keramik/Sinterstein"
 ],
 "premium": true,
-"description": "Gesamtmaße: B 200 cm, H 75 cm, T 110 cm · Verlängert: B 250 cm",
+"description": "Platte: Keramik aschgrau, Steinoptik · Größe lt. Hersteller: H74½xB99xL183/263cm · Form: rechteckig · ausziehbar bis 263 cm · Design: ARDE · Preis für die Standardkonfiguration",
 "mount": "floor",
 "resizable": false,
 "concepts": [
-1
+4
 ]
 },
 {
-"id": "wes-esstisch-carl-in-marmor-optik-180-x-90-cm-157048",
-"vendor": "Westwing",
-"brand": "Westwing Collection",
-"name": "Esstisch Carl in Marmor-Optik, 180 x 90 cm",
+"id": "hoe-giovanni-40305478",
+"vendor": "Höffner",
+"name": "Esstisch Giovanni (Keramik Grau)",
 "category": "diningTable",
 "w": 180.0,
 "d": 90.0,
-"h": 76.0,
-"price": 809.0,
-"url": "https://www.westwing.de/esstisch-carl-in-marmor-optik-180-x-90-cm-157048.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ23WES37673-201620_2291de7ea10629ab05d657966830107e_dtl_1.jpg",
-"archetype": "tableRect",
-"params": {},
+"h": 75.7,
+"price": 399.0,
+"url": "https://www.hoeffner.de/artikel/40305478",
+"image": "https://media.hoeffner.de/medias/medium/40305478_8-202410081312.webp",
+"archetype": "tableOval",
+"params": {
+"top": 0.02
+},
 "variants": [
 {
-"name": "Beige in Marmor-Optik",
+"name": "Keramik Grau, Design-Gestell Edelstahl gebürstet",
 "slots": {
 "top": {
-"color": "#d6c7ae",
-"material": "marble"
+"color": "#4f4f4d",
+"material": "stone"
 },
 "main": {
-"color": "#d6c7ae",
-"material": "marble"
-},
-"legs": {
-"color": "#1d1d1d",
-"material": "blackMetal"
-}
-},
-"price": 809.0,
-"url": "https://www.westwing.de/esstisch-carl-in-marmor-optik-180-x-90-cm-157048.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ23WES37673-201620_2291de7ea10629ab05d657966830107e_dtl_1.jpg"
-},
-{
-"name": "Marmor-Optik Schwarz",
-"slots": {
-"top": {
-"color": "#1d1d1d",
-"material": "marble"
-},
-"main": {
-"color": "#1d1d1d",
-"material": "marble"
-},
-"legs": {
-"color": "#1d1d1d",
-"material": "blackMetal"
-}
-},
-"price": 849.0,
-"url": "https://www.westwing.de/esstisch-carl-in-marmor-optik-180-x-90-cm-157047.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ23WES92361-201619_5269ba00ce223e128541dc7655bf4896_dtl_1.jpg"
-}
-],
-"tags": [
-"Westwing Collection"
-],
-"premium": true,
-"description": "Gesamtmaße: B 180 cm, H 76 cm, T 90 cm · Stärke der Tischplatte: H 5 cm ·  · Eigengewicht: 43 kg · Maximale Belastbarkeit: 150 kg",
-"mount": "floor",
-"resizable": false,
-"concepts": [
-3
-]
-},
-{
-"id": "wes-esstisch-lager-aus-glas-und-metall-200-x-90-cm-169092",
-"vendor": "Westwing",
-"brand": "Ferm Living",
-"name": "Esstisch Lager aus Glas und Metall, 200 x 90 cm",
-"category": "diningTable",
-"w": 200.0,
-"d": 90.0,
-"h": 76.0,
-"price": 1149.0,
-"url": "https://www.westwing.de/esstisch-lager-aus-glas-und-metall-200-x-90-cm-169092.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24FER04846-218596_88f88523cedc7270f4d0847249307343_dtl_1.jpg",
-"archetype": "tableRect",
-"params": {},
-"variants": [
-{
-"name": "Silberfarben, Transparent",
-"slots": {
-"top": {
-"color": "#e8eef0",
-"material": "glass"
-},
-"main": {
-"color": "#e8eef0",
-"material": "glass"
+"color": "#4f4f4d",
+"material": "stone"
 },
 "legs": {
 "color": "#c6cbd0",
-"material": "chrome"
+"material": "steel"
 }
 },
-"price": 1149.0,
-"url": "https://www.westwing.de/esstisch-lager-aus-glas-und-metall-200-x-90-cm-169092.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24FER04846-218596_88f88523cedc7270f4d0847249307343_dtl_1.jpg"
+"price": 399.0,
+"url": "https://www.hoeffner.de/artikel/40305478",
+"image": "https://media.hoeffner.de/medias/medium/40305478_8-202410081312.webp"
 }
 ],
 "tags": [
-"Ferm Living"
+"Steintisch",
+"Keramik/Sinterstein"
 ],
-"premium": true,
-"description": "Gesamtmaße: B 200 cm, H 76 cm, T 90 cm · Stärke der Tischplatte: 1.2 cm ·  · Eigengewicht: 71 kg · Maximale Belastbarkeit: 100 kg",
+"premium": false,
+"description": "Platte: Keramik Grau (1,1 cm) · Form: bootsförmig · Platz für ca. 6 Personen",
 "mount": "floor",
 "resizable": false,
 "concepts": [
@@ -3038,50 +3076,106 @@
 ]
 },
 {
-"id": "wes-esstisch-okayama-aus-eichenholz-200-x-100-cm-141300",
-"vendor": "Westwing",
-"brand": "Gallery Direct",
-"name": "Holz-Esstisch Okayama, 200 x 100 cm",
+"id": "hoe-juka-50309767",
+"vendor": "Höffner",
+"name": "Esstisch Juka (Steinplatte Schwarz)",
 "category": "diningTable",
 "w": 200.0,
 "d": 100.0,
-"h": 75.0,
-"price": 1299.0,
-"url": "https://www.westwing.de/esstisch-okayama-aus-eichenholz-200-x-100-cm-141300.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ22GAL94139-178773_f8f25e07bf64c83f9e84848154ce247e_dtl_1.jpg",
-"archetype": "tableRect",
-"params": {},
+"h": 75.7,
+"price": 1519.0,
+"url": "https://www.hoeffner.de/artikel/50309767",
+"image": "https://media.hoeffner.de/medias/medium/50309767_1-202609301200.webp",
+"archetype": "tablePedestal",
+"params": {
+"top": 0.02,
+"footD": 0.6
+},
 "variants": [
 {
-"name": "Eichenholz",
+"name": "Steinplatte Schwarz, Schrägsäule Metall bronzefarben",
 "slots": {
 "top": {
-"color": "#c9a477",
-"material": "oak"
+"color": "#2b2b2a",
+"material": "stone"
 },
 "main": {
-"color": "#c9a477",
-"material": "oak"
+"color": "#2b2b2a",
+"material": "stone"
 },
 "legs": {
-"color": "#c9a477",
-"material": "oak"
+"color": "#8c6a43",
+"material": "lacquer"
 }
 },
-"price": 1299.0,
-"url": "https://www.westwing.de/esstisch-okayama-aus-eichenholz-200-x-100-cm-141300.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ22GAL94139-178773_f8f25e07bf64c83f9e84848154ce247e_dtl_1.jpg"
+"price": 1519.0,
+"url": "https://www.hoeffner.de/artikel/50309767",
+"image": "https://media.hoeffner.de/medias/medium/50309767_1-202609301200.webp"
 }
 ],
 "tags": [
-"Gallery Direct"
+"Steintisch",
+"Keramik/Sinterstein"
 ],
 "premium": true,
-"description": "B 200 cm, H 75 cm, T 100 cm",
+"description": "Platte: Steinplatte Schwarz (1 cm) · Form: bootsförmig · Platz für ca. 8 Personen · Höffner-Aktionspreis 771,04 € statt 1519 €",
 "mount": "floor",
 "resizable": false,
 "concepts": [
-4
+1
+]
+},
+{
+"id": "hoe-talia-50304622",
+"vendor": "Höffner",
+"name": "Esstisch Talia (Steinplatte Grau)",
+"category": "diningTable",
+"w": 170.0,
+"d": 90.0,
+"h": 77.0,
+"price": 879.0,
+"url": "https://www.hoeffner.de/artikel/50304622",
+"image": "https://media.hoeffner.de/medias/medium/50304622_1-202510281336.webp",
+"archetype": "tableRect",
+"params": {
+"top": 0.02,
+"legStyle": "square",
+"leg": 0.04,
+"inset": 0.12,
+"noApron": true
+},
+"variants": [
+{
+"name": "Steinplatte Grau, Gestell Metall Schwarz",
+"slots": {
+"top": {
+"color": "#4a4a48",
+"material": "stone"
+},
+"main": {
+"color": "#4a4a48",
+"material": "stone"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"price": 879.0,
+"url": "https://www.hoeffner.de/artikel/50304622",
+"image": "https://media.hoeffner.de/medias/medium/50304622_1-202510281336.webp"
+}
+],
+"tags": [
+"Steintisch",
+"Keramik/Sinterstein"
+],
+"premium": false,
+"description": "Platte: Steinplatte Grau (1,1 cm) · Form: rechteckig · Platz für ca. 6 Personen, 8 Personen · Höffner-Aktionspreis 446,18 € statt 879 € · ausziehbar bis 215 cm",
+"mount": "floor",
+"resizable": false,
+"concepts": [
+3
 ]
 },
 {
@@ -4109,112 +4203,6 @@
 ]
 },
 {
-"id": "lam-bopp-convex-haengeleuchte-42190309",
-"vendor": "lampe.de",
-"brand": "Bopp Leuchten",
-"series": "Bopp CONVEX Hängeleuchte LED",
-"name": "Bopp CONVEX Hängeleuchte LED",
-"category": "pendant",
-"archetype": "pendantLinear",
-"w": 120.0,
-"d": 12.0,
-"h": 15.0,
-"price": 739.99,
-"url": "https://www.lampe.de/bopp-convex-haengeleuchte-42190309.html",
-"image": "https://www.lampe.de/media/product/54529/700x700/bopp-convex-haengeleuchte-42190309-0.jpg",
-"params": {
-"heads": 3,
-"shape": "dome",
-"maxHang": 1.4
-},
-"variants": [
-{
-"name": "Aluminium",
-"slots": {
-"main": {
-"color": "#c4c6c8",
-"material": "steel"
-},
-"shade": {
-"color": "#f6f4ee",
-"material": "opal"
-},
-"frame": {
-"color": "#c4c6c8",
-"material": "steel"
-}
-},
-"price": 739.99,
-"url": "https://www.lampe.de/bopp-convex-haengeleuchte-42190309.html"
-}
-],
-"premium": true,
-"tags": [
-"Bopp Leuchten",
-"Hängeleuchte",
-"Made in Germany"
-],
-"description": "Hängeleuchte, 3-flammig; LED; Material: Aluminium; Abhängung bis 140 cm",
-"mount": "ceiling",
-"elev": 2.0,
-"resizable": false,
-"concepts": [
-2
-]
-},
-{
-"id": "lam-by-rydens-splendor-haengeleuchte-4200960-5503",
-"vendor": "lampe.de",
-"brand": "By Rydens",
-"series": "By Rydens Splendor Hängeleuchte Bernsteinfarben,",
-"name": "By Rydens Splendor Hängeleuchte Bernsteinfarben,",
-"category": "pendant",
-"archetype": "pendantLinear",
-"w": 124.0,
-"d": 24.0,
-"h": 24.0,
-"price": 715.0,
-"url": "https://www.lampe.de/by-rydens-splendor-haengeleuchte-4200960-5503.html",
-"image": "https://www.lampe.de/media/product/45133/700x700/by-rydens-splendor-haengeleuchte-4200960-5503-0.jpg",
-"params": {
-"heads": 25,
-"shape": "globe"
-},
-"variants": [
-{
-"name": "Gold",
-"slots": {
-"main": {
-"color": "#c9a55c",
-"material": "brass"
-},
-"shade": {
-"color": "#f6f4ee",
-"material": "opal"
-},
-"frame": {
-"color": "#c9a55c",
-"material": "brass"
-}
-},
-"price": 715.0,
-"url": "https://www.lampe.de/by-rydens-splendor-haengeleuchte-4200960-5503.html"
-}
-],
-"premium": true,
-"tags": [
-"By Rydens",
-"Hängeleuchte"
-],
-"description": "Hängeleuchte, 25-flammig; G9; Material: Metall; Schirm: Glas",
-"mount": "ceiling",
-"elev": 2.0,
-"resizable": false,
-"concepts": [
-1
-]
-},
-{
 "id": "wes-dimmbare-pendelleuchte-kushi-mundgeblasen-kdln",
 "vendor": "Westwing",
 "name": "Dimmbare Pendelleuchte Kushi, mundgeblasen (kdln)",
@@ -4330,51 +4318,142 @@
 "concepts": []
 },
 {
-"id": "lam-hollaender-costellazione-haengeleuchte-300-k-15195",
+"id": "lam-hollaender-suopare-pendelleuchte-300-k-16111-s",
 "vendor": "lampe.de",
 "brand": "Holländer",
-"series": "Holländer COSTELLAZIONE Hängeleuchte LED",
-"name": "Holländer COSTELLAZIONE Hängeleuchte LED",
+"series": "Holländer SUOPARE Pendelleuchte",
+"name": "Holländer SUOPARE Pendelleuchte",
 "category": "pendant",
 "archetype": "pendantLinear",
-"w": 122.0,
-"d": 5.0,
+"w": 150.0,
+"d": 11.0,
 "h": 15.0,
-"price": 1099.99,
-"url": "https://www.lampe.de/hollaender-costellazione-haengeleuchte-300-k-15195.html",
-"image": "https://www.lampe.de/media/product/130947/700x700/hollaender-costellazione-haengeleuchte-300-k-15195-0.jpg",
+"price": 1359.99,
+"url": "https://www.lampe.de/hollaender-suopare-pendelleuchte-300-k-16111-s.html",
+"image": "https://www.lampe.de/media/product/140024/700x700/hollaender-suopare-pendelleuchte-300-k-16111-s-0.jpg",
 "params": {
-"heads": 5,
+"heads": 4,
 "shape": "dome",
-"maxHang": 1.56
+"maxHang": 1.5
 },
 "variants": [
 {
-"name": "Gold",
+"name": "Silber",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#c6cbd0",
+"material": "chrome"
 },
 "shade": {
 "color": "#f6f4ee",
 "material": "opal"
 },
 "frame": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#c6cbd0",
+"material": "chrome"
 }
 },
-"price": 1099.99,
-"url": "https://www.lampe.de/hollaender-costellazione-haengeleuchte-300-k-15195.html"
+"price": 1359.99,
+"url": "https://www.lampe.de/hollaender-suopare-pendelleuchte-300-k-16111-s.html"
 }
 ],
 "premium": true,
 "tags": [
 "Holländer",
-"Hängeleuchte"
+"Pendelleuchte"
 ],
-"description": "Hängeleuchte, 5-flammig; LED; Material: Metall; Abhängung bis 156 cm",
+"description": "Pendelleuchte, 4-flammig; GU5.3; Material: Metall; Abhängung bis 150 cm",
+"mount": "ceiling",
+"elev": 2.0,
+"resizable": false,
+"concepts": [
+2
+]
+},
+{
+"id": "lam-paul-neuhaus-adriana-pendelleuchte-2568-24",
+"vendor": "lampe.de",
+"brand": "Paul Neuhaus Leuchten",
+"series": "Paul Neuhaus ADRIANA Pendelleuchte LED",
+"name": "Paul Neuhaus ADRIANA Pendelleuchte LED",
+"category": "pendant",
+"archetype": "pendantLinear",
+"w": 179.0,
+"d": 5.5,
+"h": 15.0,
+"price": 449.99,
+"url": "https://www.lampe.de/paul-neuhaus-adriana-pendelleuchte-2568-24.html",
+"image": "https://www.lampe.de/media/product/36388/700x700/paul-neuhaus-adriana-pendelleuchte-2568-24-0.jpg",
+"params": {
+"heads": 3,
+"shape": "dome",
+"maxHang": 1.8
+},
+"variants": [
+{
+"name": "Braun",
+"slots": {
+"main": {
+"color": "#6f4d36",
+"material": "matte"
+},
+"shade": {
+"color": "#efe9dd",
+"material": "linen"
+},
+"frame": {
+"color": "#6f4d36",
+"material": "matte"
+}
+},
+"price": 449.99,
+"url": "https://www.lampe.de/paul-neuhaus-adriana-pendelleuchte-2568-24.html"
+},
+{
+"name": "Messing",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#efe9dd",
+"material": "linen"
+},
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
+}
+},
+"price": 499.99,
+"url": "https://www.lampe.de/paul-neuhaus-adriana-pendelleuchte-2568-60.html"
+},
+{
+"name": "Aluminium",
+"slots": {
+"main": {
+"color": "#c4c6c8",
+"material": "steel"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#c4c6c8",
+"material": "steel"
+}
+},
+"price": 559.99,
+"url": "https://www.lampe.de/paul-neuhaus-adriana-pendelleuchte-2568-95.html"
+}
+],
+"premium": true,
+"tags": [
+"Paul Neuhaus Leuchten",
+"Pendelleuchte"
+],
+"description": "Pendelleuchte, 3-flammig; LED; Material: Metall; Schirm: Kunststoff; Abhängung bis 180 cm",
 "mount": "ceiling",
 "elev": 2.0,
 "resizable": false,
@@ -4383,51 +4462,104 @@
 ]
 },
 {
-"id": "lam-schoener-wohnen-kollektion-lini-led-esstisch-pendelleuchte-5-flammig-1",
+"id": "lam-paul-neuhaus-pure-e-popup-pendelleuchte-2558-97",
 "vendor": "lampe.de",
-"brand": "SCHÖNER WOHNEN-Kollektion",
-"series": "Schöner Wohnen-Kollektion LINI LED Esstisch-Pendelleuchte 5-flammig 110 cm",
-"name": "Schöner Wohnen-Kollektion LINI LED Esstisch-Pendelleuchte 5-flammig 110 cm",
+"brand": "Paul Neuhaus Leuchten",
+"series": "Paul Neuhaus PURE E-Popup Pendelleuchte LED Bronze, 18-flammig, Fernbedienung",
+"name": "Paul Neuhaus PURE E-Popup Pendelleuchte LED Bronze, 18-flammig, Fernbedienung",
 "category": "pendant",
 "archetype": "pendantLinear",
-"w": 110.0,
-"d": 10.0,
-"h": 15.0,
-"price": 299.0,
-"url": "https://www.lampe.de/schoener-wohnen-kollektion-lini-led-esstisch-pendelleuchte-5-flammig-110-cm-14993-16.html",
-"image": "https://www.lampe.de/media/product/176089/700x700/schoener-wohnen-kollektion-lini-led-esstisch-pendelleuchte-5-flammig-110-cm-14993-16-0.jpg",
+"w": 180.0,
+"d": 29.5,
+"h": 29.5,
+"price": 1799.0,
+"url": "https://www.lampe.de/paul-neuhaus-pure-e-popup-pendelleuchte-2558-97.html",
+"image": "https://www.lampe.de/media/product/170568/700x700/paul-neuhaus-pure-e-popup-pendelleuchte-2558-97-0.jpg",
 "params": {
-"heads": 5,
+"heads": 18,
 "shape": "globe",
-"maxHang": 2.2
+"maxHang": 2.4
 },
 "variants": [
 {
-"name": "Weiß / Transparent",
+"name": "Bronze / Weiß",
 "slots": {
 "main": {
-"color": "#f2f1ed",
+"color": "#8c6a43",
 "material": "matte"
 },
 "shade": {
-"color": "#e8eef0",
-"material": "glass"
+"color": "#f6f4ee",
+"material": "opal"
 },
 "frame": {
-"color": "#f2f1ed",
+"color": "#8c6a43",
 "material": "matte"
 }
 },
-"price": 299.0,
-"url": "https://www.lampe.de/schoener-wohnen-kollektion-lini-led-esstisch-pendelleuchte-5-flammig-110-cm-14993-16.html"
+"price": 1799.0,
+"url": "https://www.lampe.de/paul-neuhaus-pure-e-popup-pendelleuchte-2558-97.html"
 }
 ],
 "premium": true,
 "tags": [
-"SCHÖNER WOHNEN-Kollektion",
+"Paul Neuhaus Leuchten",
 "Pendelleuchte"
 ],
-"description": "Pendelleuchte, 5-flammig; LED; Material: Metall; Schirm: Glas; Abhängung bis 220 cm",
+"description": "Pendelleuchte, 18-flammig; LED; Material: Aluminium; Schirm: Glas; Abhängung bis 240 cm",
+"mount": "ceiling",
+"elev": 2.0,
+"resizable": false,
+"concepts": [
+1
+]
+},
+{
+"id": "lam-paul-neuhaus-rika-pendelleuchte-2115-18",
+"vendor": "lampe.de",
+"brand": "Paul Neuhaus Leuchten",
+"series": "Paul Neuhaus Rika Pendelleuchte LED",
+"name": "Paul Neuhaus Rika Pendelleuchte LED",
+"category": "pendant",
+"archetype": "pendantLinear",
+"w": 135.0,
+"d": 31.0,
+"h": 31.0,
+"price": 581.04,
+"url": "https://www.lampe.de/paul-neuhaus-rika-pendelleuchte-2115-18.html",
+"image": "https://www.lampe.de/media/product/162075/700x700/paul-neuhaus-rika-pendelleuchte-2115-18-0.jpg",
+"params": {
+"heads": 7,
+"shape": "globe",
+"maxHang": 1.8
+},
+"variants": [
+{
+"name": "Schwarz / Rauchfarben",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+},
+"shade": {
+"color": "#6b6660",
+"material": "glass"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"price": 581.04,
+"url": "https://www.lampe.de/paul-neuhaus-rika-pendelleuchte-2115-18.html"
+}
+],
+"premium": true,
+"tags": [
+"Paul Neuhaus Leuchten",
+"Pendelleuchte"
+],
+"description": "Pendelleuchte, 7-flammig; LED; Material: Metall; Schirm: Glas; Abhängung bis 180 cm",
 "mount": "ceiling",
 "elev": 2.0,
 "resizable": false,

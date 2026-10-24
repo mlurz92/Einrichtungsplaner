@@ -1006,70 +1006,73 @@
 ]
 },
 {
-"id": "92c3697b43",
-"catalogId": "wes-ausziehbarer-esstisch-benvenuto-200-250-x-110-cm-154433",
+"id": "9496925f4a",
+"catalogId": "hoe-juka-50309767",
 "pos": "E1",
-"label": "Ausziehbarer Esstisch Benvenuto, 200 - 250 x 110 cm",
+"label": "Esstisch Juka (Steinplatte Schwarz)",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 0.0,
 "w": 2.0,
-"d": 1.1,
-"h": 0.75,
-"variant": "Walnussholz",
+"d": 1.0,
+"h": 0.757,
+"variant": "Steinplatte Schwarz, Schrägsäule Metall bronzefarben",
 "slots": {
 "top": {
-"color": "#6b4a33",
-"material": "walnut"
+"color": "#2b2b2a",
+"material": "stone"
 },
 "main": {
-"color": "#6b4a33",
-"material": "walnut"
+"color": "#2b2b2a",
+"material": "stone"
 },
 "legs": {
-"color": "#6b4a33",
-"material": "walnut"
+"color": "#8c6a43",
+"material": "lacquer"
 }
 },
-"params": {},
+"params": {
+"top": 0.02,
+"footD": 0.6
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E1",
-"name": "Ausziehbarer Esstisch Benvenuto, 200 - 250 x 110 cm",
-"variant": "Walnussholz",
-"vendor": "Westwing",
+"name": "Esstisch Juka (Steinplatte Schwarz)",
+"variant": "Steinplatte Schwarz, Schrägsäule Metall bronzefarben",
+"vendor": "Höffner",
 "qty": 1,
-"unit": 1699.0,
-"url": "https://www.westwing.de/ausziehbarer-esstisch-benvenuto-200-250-x-110-cm-154433.html",
-"dims": "B 200 × T 110 × H 75",
+"unit": 1519.0,
+"url": "https://www.hoeffner.de/artikel/50309767",
+"dims": "B 200 × T 100 × H 75.7",
 "delivery": null
 }
 ]
 },
 {
-"id": "d459244ff2",
-"catalogId": "wes-holzstuhl-katya-mit-polsterung-159120",
+"id": "499664a7eb",
+"catalogId": "wes-boucle-armlehnstuhl-adrien-159664",
 "pos": "E2",
-"label": "Holzstuhl Katya mit Polsterung",
-"x": 5.4798,
-"y": 8.8992,
+"label": "Bouclé-Armlehnstuhl Adrien",
+"x": 5.5045,
+"y": 8.9027,
 "rot": 278,
 "elev": 0.0,
-"w": 0.49,
-"d": 0.51,
+"w": 0.56,
+"d": 0.56,
 "h": 0.82,
-"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"variant": "Bouclé Olivgrün, Schwarz",
 "slots": {
 "main": {
 "color": "#6e7450",
 "material": "boucle"
 },
 "legs": {
-"color": "#38291f",
-"material": "oakDark"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {},
@@ -1078,38 +1081,38 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Holzstuhl Katya mit Polsterung",
-"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"name": "Bouclé-Armlehnstuhl Adrien",
+"variant": "Bouclé Olivgrün, Schwarz",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 279.0,
-"url": "https://www.westwing.de/fsc-katya-chair-dark-wood-copenhagen-green-en-25wes25686.html",
-"dims": "B 49 × T 51 × H 82",
+"unit": 309.0,
+"url": "https://www.westwing.de/adrien-chair-with-armrest-upholstered-olive-green-with-black-frame-56-51-cm-en-25wes41902.html",
+"dims": "B 56 × T 56 × H 82",
 "delivery": null
 }
 ]
 },
 {
-"id": "b68f2b8eec",
-"catalogId": "wes-holzstuhl-katya-mit-polsterung-159120",
+"id": "10a3f78288",
+"catalogId": "wes-boucle-armlehnstuhl-adrien-159664",
 "pos": "E2",
-"label": "Holzstuhl Katya mit Polsterung",
-"x": 5.3893,
-"y": 9.5429,
+"label": "Bouclé-Armlehnstuhl Adrien",
+"x": 5.4141,
+"y": 9.5464,
 "rot": 278,
 "elev": 0.0,
-"w": 0.49,
-"d": 0.51,
+"w": 0.56,
+"d": 0.56,
 "h": 0.82,
-"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"variant": "Bouclé Olivgrün, Schwarz",
 "slots": {
 "main": {
 "color": "#6e7450",
 "material": "boucle"
 },
 "legs": {
-"color": "#38291f",
-"material": "oakDark"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {},
@@ -1118,38 +1121,38 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Holzstuhl Katya mit Polsterung",
-"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"name": "Bouclé-Armlehnstuhl Adrien",
+"variant": "Bouclé Olivgrün, Schwarz",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 279.0,
-"url": "https://www.westwing.de/fsc-katya-chair-dark-wood-copenhagen-green-en-25wes25686.html",
-"dims": "B 49 × T 51 × H 82",
+"unit": 309.0,
+"url": "https://www.westwing.de/adrien-chair-with-armrest-upholstered-olive-green-with-black-frame-56-51-cm-en-25wes41902.html",
+"dims": "B 56 × T 56 × H 82",
 "delivery": null
 }
 ]
 },
 {
-"id": "0979d27930",
-"catalogId": "wes-holzstuhl-katya-mit-polsterung-159120",
+"id": "b2af0b7be7",
+"catalogId": "wes-boucle-armlehnstuhl-adrien-159664",
 "pos": "E2",
-"label": "Holzstuhl Katya mit Polsterung",
-"x": 5.2989,
-"y": 10.1866,
+"label": "Bouclé-Armlehnstuhl Adrien",
+"x": 5.3236,
+"y": 10.1901,
 "rot": 278,
 "elev": 0.0,
-"w": 0.49,
-"d": 0.51,
+"w": 0.56,
+"d": 0.56,
 "h": 0.82,
-"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"variant": "Bouclé Olivgrün, Schwarz",
 "slots": {
 "main": {
 "color": "#6e7450",
 "material": "boucle"
 },
 "legs": {
-"color": "#38291f",
-"material": "oakDark"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {},
@@ -1158,38 +1161,38 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Holzstuhl Katya mit Polsterung",
-"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"name": "Bouclé-Armlehnstuhl Adrien",
+"variant": "Bouclé Olivgrün, Schwarz",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 279.0,
-"url": "https://www.westwing.de/fsc-katya-chair-dark-wood-copenhagen-green-en-25wes25686.html",
-"dims": "B 49 × T 51 × H 82",
+"unit": 309.0,
+"url": "https://www.westwing.de/adrien-chair-with-armrest-upholstered-olive-green-with-black-frame-56-51-cm-en-25wes41902.html",
+"dims": "B 56 × T 56 × H 82",
 "delivery": null
 }
 ]
 },
 {
-"id": "7ff92b0665",
-"catalogId": "wes-holzstuhl-katya-mit-polsterung-159120",
+"id": "beadc6e439",
+"catalogId": "wes-boucle-armlehnstuhl-adrien-159664",
 "pos": "E2",
-"label": "Holzstuhl Katya mit Polsterung",
-"x": 6.8365,
-"y": 9.0899,
+"label": "Bouclé-Armlehnstuhl Adrien",
+"x": 6.8117,
+"y": 9.0864,
 "rot": 98,
 "elev": 0.0,
-"w": 0.49,
-"d": 0.51,
+"w": 0.56,
+"d": 0.56,
 "h": 0.82,
-"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"variant": "Bouclé Olivgrün, Schwarz",
 "slots": {
 "main": {
 "color": "#6e7450",
 "material": "boucle"
 },
 "legs": {
-"color": "#38291f",
-"material": "oakDark"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {},
@@ -1198,38 +1201,38 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Holzstuhl Katya mit Polsterung",
-"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"name": "Bouclé-Armlehnstuhl Adrien",
+"variant": "Bouclé Olivgrün, Schwarz",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 279.0,
-"url": "https://www.westwing.de/fsc-katya-chair-dark-wood-copenhagen-green-en-25wes25686.html",
-"dims": "B 49 × T 51 × H 82",
+"unit": 309.0,
+"url": "https://www.westwing.de/adrien-chair-with-armrest-upholstered-olive-green-with-black-frame-56-51-cm-en-25wes41902.html",
+"dims": "B 56 × T 56 × H 82",
 "delivery": null
 }
 ]
 },
 {
-"id": "ce4946a3cb",
-"catalogId": "wes-holzstuhl-katya-mit-polsterung-159120",
+"id": "c78d21122c",
+"catalogId": "wes-boucle-armlehnstuhl-adrien-159664",
 "pos": "E2",
-"label": "Holzstuhl Katya mit Polsterung",
-"x": 6.746,
-"y": 9.7336,
+"label": "Bouclé-Armlehnstuhl Adrien",
+"x": 6.7212,
+"y": 9.7301,
 "rot": 98,
 "elev": 0.0,
-"w": 0.49,
-"d": 0.51,
+"w": 0.56,
+"d": 0.56,
 "h": 0.82,
-"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"variant": "Bouclé Olivgrün, Schwarz",
 "slots": {
 "main": {
 "color": "#6e7450",
 "material": "boucle"
 },
 "legs": {
-"color": "#38291f",
-"material": "oakDark"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {},
@@ -1238,38 +1241,38 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Holzstuhl Katya mit Polsterung",
-"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"name": "Bouclé-Armlehnstuhl Adrien",
+"variant": "Bouclé Olivgrün, Schwarz",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 279.0,
-"url": "https://www.westwing.de/fsc-katya-chair-dark-wood-copenhagen-green-en-25wes25686.html",
-"dims": "B 49 × T 51 × H 82",
+"unit": 309.0,
+"url": "https://www.westwing.de/adrien-chair-with-armrest-upholstered-olive-green-with-black-frame-56-51-cm-en-25wes41902.html",
+"dims": "B 56 × T 56 × H 82",
 "delivery": null
 }
 ]
 },
 {
-"id": "e7ef0797fd",
-"catalogId": "wes-holzstuhl-katya-mit-polsterung-159120",
+"id": "da4132bc48",
+"catalogId": "wes-boucle-armlehnstuhl-adrien-159664",
 "pos": "E2",
-"label": "Holzstuhl Katya mit Polsterung",
-"x": 6.6555,
-"y": 10.3773,
+"label": "Bouclé-Armlehnstuhl Adrien",
+"x": 6.6308,
+"y": 10.3738,
 "rot": 98,
 "elev": 0.0,
-"w": 0.49,
-"d": 0.51,
+"w": 0.56,
+"d": 0.56,
 "h": 0.82,
-"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"variant": "Bouclé Olivgrün, Schwarz",
 "slots": {
 "main": {
 "color": "#6e7450",
 "material": "boucle"
 },
 "legs": {
-"color": "#38291f",
-"material": "oakDark"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {},
@@ -1278,38 +1281,38 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Holzstuhl Katya mit Polsterung",
-"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"name": "Bouclé-Armlehnstuhl Adrien",
+"variant": "Bouclé Olivgrün, Schwarz",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 279.0,
-"url": "https://www.westwing.de/fsc-katya-chair-dark-wood-copenhagen-green-en-25wes25686.html",
-"dims": "B 49 × T 51 × H 82",
+"unit": 309.0,
+"url": "https://www.westwing.de/adrien-chair-with-armrest-upholstered-olive-green-with-black-frame-56-51-cm-en-25wes41902.html",
+"dims": "B 56 × T 56 × H 82",
 "delivery": null
 }
 ]
 },
 {
-"id": "aa74720a2b",
-"catalogId": "wes-holzstuhl-katya-mit-polsterung-159120",
+"id": "68d3c0b0c6",
+"catalogId": "wes-boucle-armlehnstuhl-adrien-159664",
 "pos": "E12",
-"label": "Holzstuhl Katya mit Polsterung (Nischenplatz)",
+"label": "Bouclé-Armlehnstuhl Adrien (Nischenplatz)",
 "x": 7.513,
 "y": 7.34,
 "rot": 8,
 "elev": 0.0,
-"w": 0.49,
-"d": 0.51,
+"w": 0.56,
+"d": 0.56,
 "h": 0.82,
-"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"variant": "Bouclé Olivgrün, Schwarz",
 "slots": {
 "main": {
 "color": "#6e7450",
 "material": "boucle"
 },
 "legs": {
-"color": "#38291f",
-"material": "oakDark"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {},
@@ -1318,60 +1321,61 @@
 "parts": [
 {
 "pos": "E12",
-"name": "Holzstuhl Katya mit Polsterung",
-"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"name": "Bouclé-Armlehnstuhl Adrien",
+"variant": "Bouclé Olivgrün, Schwarz",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 279.0,
-"url": "https://www.westwing.de/fsc-katya-chair-dark-wood-copenhagen-green-en-25wes25686.html",
-"dims": "B 49 × T 51 × H 82",
+"unit": 309.0,
+"url": "https://www.westwing.de/adrien-chair-with-armrest-upholstered-olive-green-with-black-frame-56-51-cm-en-25wes41902.html",
+"dims": "B 56 × T 56 × H 82",
 "delivery": null
 }
 ]
 },
 {
-"id": "080532eeec",
-"catalogId": "lam-by-rydens-splendor-haengeleuchte-4200960-5503",
+"id": "187abcee9f",
+"catalogId": "lam-paul-neuhaus-pure-e-popup-pendelleuchte-2558-97",
 "pos": "E3",
-"label": "By Rydens Splendor Hängeleuchte Bernsteinfarben,",
+"label": "Paul Neuhaus PURE E-Popup Pendelleuchte LED Bronze, 18-flammig, Fernbedienung",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
-"elev": 1.4,
-"w": 1.24,
-"d": 0.24,
-"h": 0.24,
-"variant": "Gold",
+"elev": 1.41,
+"w": 1.8,
+"d": 0.295,
+"h": 0.295,
+"variant": "Bronze / Weiß",
 "slots": {
 "main": {
-"color": "#b8703e",
-"material": "copper"
-},
-"frame": {
-"color": "#b8703e",
-"material": "copper"
+"color": "#8c6a43",
+"material": "matte"
 },
 "shade": {
-"color": "#c98a3e",
-"material": "glass"
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#8c6a43",
+"material": "matte"
 }
 },
 "params": {
-"heads": 25,
-"shape": "globe"
+"heads": 18,
+"shape": "globe",
+"maxHang": 2.4
 },
 "mount": "ceiling",
 "room": "13.01",
 "parts": [
 {
 "pos": "E3",
-"name": "By Rydens Splendor Hängeleuchte Bernsteinfarben,",
-"variant": "Gold",
+"name": "Paul Neuhaus PURE E-Popup Pendelleuchte LED Bronze, 18-flammig, Fernbedienung",
+"variant": "Bronze / Weiß",
 "vendor": "lampe.de",
 "qty": 1,
-"unit": 715.0,
-"url": "https://www.lampe.de/by-rydens-splendor-haengeleuchte-4200960-5503.html",
-"dims": "B 124 × T 24 × H 24",
+"unit": 1799.0,
+"url": "https://www.lampe.de/paul-neuhaus-pure-e-popup-pendelleuchte-2558-97.html",
+"dims": "B 180 × T 29.5 × H 29.5",
 "delivery": null
 }
 ]

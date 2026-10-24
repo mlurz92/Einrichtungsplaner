@@ -951,26 +951,72 @@
 ]
 },
 {
-"id": "109ec48337",
-"catalogId": "wes-esstisch-carl-in-marmor-optik-180-x-90-cm-157048",
+"id": "f386023a7f",
+"catalogId": "hoe-talia-50304622",
 "pos": "E1",
-"label": "Esstisch Carl in Marmor-Optik, 180 x 90 cm",
+"label": "Esstisch Talia (Steinplatte Grau)",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 0.0,
-"w": 1.8,
+"w": 1.7,
 "d": 0.9,
-"h": 0.76,
-"variant": "Beige in Marmor-Optik",
+"h": 0.77,
+"variant": "Steinplatte Grau, Gestell Metall Schwarz",
 "slots": {
 "top": {
-"color": "#d6c7ae",
-"material": "marble"
+"color": "#4a4a48",
+"material": "stone"
 },
 "main": {
-"color": "#d6c7ae",
-"material": "marble"
+"color": "#4a4a48",
+"material": "stone"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"params": {
+"top": 0.02,
+"legStyle": "square",
+"leg": 0.04,
+"inset": 0.12,
+"noApron": true
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E1",
+"name": "Esstisch Talia (Steinplatte Grau)",
+"variant": "Steinplatte Grau, Gestell Metall Schwarz",
+"vendor": "Höffner",
+"qty": 1,
+"unit": 879.0,
+"url": "https://www.hoeffner.de/artikel/50304622",
+"dims": "B 170 × T 90 × H 77",
+"delivery": null
+}
+]
+},
+{
+"id": "2fe23fa7a9",
+"catalogId": "wes-polsterstuhl-tess-166841",
+"pos": "E2",
+"label": "Polsterstuhl Tess",
+"x": 5.5075,
+"y": 8.9536,
+"rot": 278,
+"elev": 0.0,
+"w": 0.49,
+"d": 0.64,
+"h": 0.84,
+"variant": "Webstoff Off White, Schwarz matt",
+"slots": {
+"main": {
+"color": "#ede8dc",
+"material": "fabric"
 },
 "legs": {
 "color": "#1d1d1d",
@@ -982,39 +1028,39 @@
 "room": "13.01",
 "parts": [
 {
-"pos": "E1",
-"name": "Esstisch Carl in Marmor-Optik, 180 x 90 cm",
-"variant": "Beige in Marmor-Optik",
+"pos": "E2",
+"name": "Polsterstuhl Tess",
+"variant": "Webstoff Off White, Schwarz matt",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 809.0,
-"url": "https://www.westwing.de/esstisch-carl-in-marmor-optik-180-x-90-cm-157048.html",
-"dims": "B 180 × T 90 × H 76",
+"unit": 229.0,
+"url": "https://www.westwing.de/polsterstuhl-tess-152157.html",
+"dims": "B 49 × T 64 × H 84",
 "delivery": null
 }
 ]
 },
 {
-"id": "94fe45077d",
-"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
+"id": "995dcfeabd",
+"catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E2",
-"label": "Polsterstuhl Ash",
-"x": 5.5471,
-"y": 8.9592,
+"label": "Polsterstuhl Tess",
+"x": 5.424,
+"y": 9.5478,
 "rot": 278,
 "elev": 0.0,
-"w": 0.48,
-"d": 0.56,
-"h": 0.8,
-"variant": "Webstoff Türkisgrün, Eschenholz lackiert",
+"w": 0.49,
+"d": 0.64,
+"h": 0.84,
+"variant": "Webstoff Off White, Schwarz matt",
 "slots": {
 "main": {
-"color": "#3f8f8f",
+"color": "#ede8dc",
 "material": "fabric"
 },
 "legs": {
-"color": "#d9c4a2",
-"material": "ash"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {},
@@ -1023,38 +1069,38 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Polsterstuhl Ash",
-"variant": "Webstoff Türkisgrün, Eschenholz lackiert",
+"name": "Polsterstuhl Tess",
+"variant": "Webstoff Off White, Schwarz matt",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 299.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-3-171506.html",
-"dims": "B 48 × T 56 × H 80",
+"unit": 229.0,
+"url": "https://www.westwing.de/polsterstuhl-tess-152157.html",
+"dims": "B 49 × T 64 × H 84",
 "delivery": null
 }
 ]
 },
 {
-"id": "8ae019692e",
-"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
+"id": "b06396e69d",
+"catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E2",
-"label": "Polsterstuhl Ash",
-"x": 5.4636,
-"y": 9.5534,
+"label": "Polsterstuhl Tess",
+"x": 5.3405,
+"y": 10.142,
 "rot": 278,
 "elev": 0.0,
-"w": 0.48,
-"d": 0.56,
-"h": 0.8,
-"variant": "Webstoff Türkisgrün, Eschenholz lackiert",
+"w": 0.49,
+"d": 0.64,
+"h": 0.84,
+"variant": "Webstoff Off White, Schwarz matt",
 "slots": {
 "main": {
-"color": "#3f8f8f",
+"color": "#ede8dc",
 "material": "fabric"
 },
 "legs": {
-"color": "#d9c4a2",
-"material": "ash"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {},
@@ -1063,78 +1109,38 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Polsterstuhl Ash",
-"variant": "Webstoff Türkisgrün, Eschenholz lackiert",
+"name": "Polsterstuhl Tess",
+"variant": "Webstoff Off White, Schwarz matt",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 299.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-3-171506.html",
-"dims": "B 48 × T 56 × H 80",
+"unit": 229.0,
+"url": "https://www.westwing.de/polsterstuhl-tess-152157.html",
+"dims": "B 49 × T 64 × H 84",
 "delivery": null
 }
 ]
 },
 {
-"id": "9427ac9261",
-"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
+"id": "6b736d07b1",
+"catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E2",
-"label": "Polsterstuhl Ash",
-"x": 5.3801,
-"y": 10.1475,
-"rot": 278,
-"elev": 0.0,
-"w": 0.48,
-"d": 0.56,
-"h": 0.8,
-"variant": "Webstoff Türkisgrün, Eschenholz lackiert",
-"slots": {
-"main": {
-"color": "#3f8f8f",
-"material": "fabric"
-},
-"legs": {
-"color": "#d9c4a2",
-"material": "ash"
-}
-},
-"params": {},
-"mount": "floor",
-"room": "13.01",
-"parts": [
-{
-"pos": "E2",
-"name": "Polsterstuhl Ash",
-"variant": "Webstoff Türkisgrün, Eschenholz lackiert",
-"vendor": "Westwing",
-"qty": 1,
-"unit": 299.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-3-171506.html",
-"dims": "B 48 × T 56 × H 80",
-"delivery": null
-}
-]
-},
-{
-"id": "6530549fa6",
-"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
-"pos": "E2",
-"label": "Polsterstuhl Ash",
-"x": 6.7552,
-"y": 9.129,
+"label": "Polsterstuhl Tess",
+"x": 6.7948,
+"y": 9.1346,
 "rot": 98,
 "elev": 0.0,
-"w": 0.48,
-"d": 0.56,
-"h": 0.8,
-"variant": "Webstoff Türkisgrün, Eschenholz lackiert",
+"w": 0.49,
+"d": 0.64,
+"h": 0.84,
+"variant": "Webstoff Off White, Schwarz matt",
 "slots": {
 "main": {
-"color": "#3f8f8f",
+"color": "#ede8dc",
 "material": "fabric"
 },
 "legs": {
-"color": "#d9c4a2",
-"material": "ash"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {},
@@ -1143,38 +1149,38 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Polsterstuhl Ash",
-"variant": "Webstoff Türkisgrün, Eschenholz lackiert",
+"name": "Polsterstuhl Tess",
+"variant": "Webstoff Off White, Schwarz matt",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 299.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-3-171506.html",
-"dims": "B 48 × T 56 × H 80",
+"unit": 229.0,
+"url": "https://www.westwing.de/polsterstuhl-tess-152157.html",
+"dims": "B 49 × T 64 × H 84",
 "delivery": null
 }
 ]
 },
 {
-"id": "67e18b928f",
-"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
+"id": "dac2e7cf05",
+"catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E2",
-"label": "Polsterstuhl Ash",
-"x": 6.6717,
-"y": 9.7232,
+"label": "Polsterstuhl Tess",
+"x": 6.7113,
+"y": 9.7287,
 "rot": 98,
 "elev": 0.0,
-"w": 0.48,
-"d": 0.56,
-"h": 0.8,
-"variant": "Webstoff Türkisgrün, Eschenholz lackiert",
+"w": 0.49,
+"d": 0.64,
+"h": 0.84,
+"variant": "Webstoff Off White, Schwarz matt",
 "slots": {
 "main": {
-"color": "#3f8f8f",
+"color": "#ede8dc",
 "material": "fabric"
 },
 "legs": {
-"color": "#d9c4a2",
-"material": "ash"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {},
@@ -1183,38 +1189,38 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Polsterstuhl Ash",
-"variant": "Webstoff Türkisgrün, Eschenholz lackiert",
+"name": "Polsterstuhl Tess",
+"variant": "Webstoff Off White, Schwarz matt",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 299.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-3-171506.html",
-"dims": "B 48 × T 56 × H 80",
+"unit": 229.0,
+"url": "https://www.westwing.de/polsterstuhl-tess-152157.html",
+"dims": "B 49 × T 64 × H 84",
 "delivery": null
 }
 ]
 },
 {
-"id": "28ce231ba0",
-"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
+"id": "b26dfb492d",
+"catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E2",
-"label": "Polsterstuhl Ash",
-"x": 6.5882,
-"y": 10.3173,
+"label": "Polsterstuhl Tess",
+"x": 6.6278,
+"y": 10.3229,
 "rot": 98,
 "elev": 0.0,
-"w": 0.48,
-"d": 0.56,
-"h": 0.8,
-"variant": "Webstoff Türkisgrün, Eschenholz lackiert",
+"w": 0.49,
+"d": 0.64,
+"h": 0.84,
+"variant": "Webstoff Off White, Schwarz matt",
 "slots": {
 "main": {
-"color": "#3f8f8f",
+"color": "#ede8dc",
 "material": "fabric"
 },
 "legs": {
-"color": "#d9c4a2",
-"material": "ash"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {},
@@ -1223,38 +1229,38 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Polsterstuhl Ash",
-"variant": "Webstoff Türkisgrün, Eschenholz lackiert",
+"name": "Polsterstuhl Tess",
+"variant": "Webstoff Off White, Schwarz matt",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 299.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-3-171506.html",
-"dims": "B 48 × T 56 × H 80",
+"unit": 229.0,
+"url": "https://www.westwing.de/polsterstuhl-tess-152157.html",
+"dims": "B 49 × T 64 × H 84",
 "delivery": null
 }
 ]
 },
 {
-"id": "6f98d91cfa",
-"catalogId": "wes-polsterstuhl-ash-aus-eschenholz-5-171508",
+"id": "8cbaeee368",
+"catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E12",
-"label": "Polsterstuhl Ash (Nischenplatz)",
+"label": "Polsterstuhl Tess (Nischenplatz)",
 "x": 7.513,
 "y": 7.34,
 "rot": 8,
 "elev": 0.0,
-"w": 0.48,
-"d": 0.56,
-"h": 0.8,
-"variant": "Webstoff Türkisgrün, Eschenholz lackiert",
+"w": 0.49,
+"d": 0.64,
+"h": 0.84,
+"variant": "Webstoff Off White, Schwarz matt",
 "slots": {
 "main": {
-"color": "#3f8f8f",
+"color": "#ede8dc",
 "material": "fabric"
 },
 "legs": {
-"color": "#d9c4a2",
-"material": "ash"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {},
@@ -1263,61 +1269,61 @@
 "parts": [
 {
 "pos": "E12",
-"name": "Polsterstuhl Ash",
-"variant": "Webstoff Türkisgrün, Eschenholz lackiert",
+"name": "Polsterstuhl Tess",
+"variant": "Webstoff Off White, Schwarz matt",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 299.0,
-"url": "https://www.westwing.de/polsterstuhl-ash-aus-eschenholz-3-171506.html",
-"dims": "B 48 × T 56 × H 80",
+"unit": 229.0,
+"url": "https://www.westwing.de/polsterstuhl-tess-152157.html",
+"dims": "B 49 × T 64 × H 84",
 "delivery": null
 }
 ]
 },
 {
-"id": "9b433d773b",
-"catalogId": "lam-schoener-wohnen-kollektion-lini-led-esstisch-pendelleuchte-5-flammig-1",
+"id": "de8218ffae",
+"catalogId": "lam-paul-neuhaus-rika-pendelleuchte-2115-18",
 "pos": "E3",
-"label": "Schöner Wohnen-Kollektion LINI LED Esstisch-Pendelleuchte 5-flammig 110 cm",
+"label": "Paul Neuhaus Rika Pendelleuchte LED",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
-"elev": 1.41,
-"w": 1.1,
-"d": 0.1,
-"h": 0.15,
-"variant": "Weiß / Transparent",
+"elev": 1.42,
+"w": 1.35,
+"d": 0.31,
+"h": 0.31,
+"variant": "Schwarz / Rauchfarben",
 "slots": {
 "main": {
-"color": "#f2f1ed",
-"material": "matte"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
-"color": "#e8eef0",
+"color": "#6b6660",
 "material": "glass"
 },
 "frame": {
-"color": "#f2f1ed",
-"material": "matte"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {
-"heads": 5,
+"heads": 7,
 "shape": "globe",
-"maxHang": 2.2
+"maxHang": 1.8
 },
 "mount": "ceiling",
 "room": "13.01",
 "parts": [
 {
 "pos": "E3",
-"name": "Schöner Wohnen-Kollektion LINI LED Esstisch-Pendelleuchte 5-flammig 110 cm",
-"variant": "Weiß / Transparent",
+"name": "Paul Neuhaus Rika Pendelleuchte LED",
+"variant": "Schwarz / Rauchfarben",
 "vendor": "lampe.de",
 "qty": 1,
-"unit": 299.0,
-"url": "https://www.lampe.de/schoener-wohnen-kollektion-lini-led-esstisch-pendelleuchte-5-flammig-110-cm-14993-16.html",
-"dims": "B 110 × T 10 × H 15",
+"unit": 581.04,
+"url": "https://www.lampe.de/paul-neuhaus-rika-pendelleuchte-2115-18.html",
+"dims": "B 135 × T 31 × H 31",
 "delivery": null
 }
 ]
