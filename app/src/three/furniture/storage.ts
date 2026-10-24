@@ -20,6 +20,14 @@ function fronts(c: Ctx, x0: number, x1: number, y0: number, y1: number, z: numbe
         const rw = fw / n;
         for (let k = 0; k < n; k++) b.cyl(rw * 0.5, rw * 0.5, fh, M, cx - fw / 2 + rw * (k + 0.5), fy, z + 0.004, 10);
         b.box(fw, fh, 0.012, M, cx, fy, z - 0.006);
+      } else if (style === "frame") {
+        // Rahmenfront (z. B. BESTÅ Hanviken/Laxviken): vertiefte Füllung, umlaufender Rahmen
+        const f = Math.min(0.055, fw * 0.14, fh * 0.14);
+        b.box(fw, fh, 0.012, M, cx, fy, z - 0.004);
+        b.box(fw, f, 0.02, M, cx, fy, z);
+        b.box(fw, f, 0.02, M, cx, fy + fh - f, z);
+        b.box(f, fh - 2 * f, 0.02, M, cx - fw / 2 + f / 2, fy + f, z);
+        b.box(f, fh - 2 * f, 0.02, M, cx + fw / 2 - f / 2, fy + f, z);
       } else {
         b.box(fw, fh, 0.018, M, cx, fy, z);
       }

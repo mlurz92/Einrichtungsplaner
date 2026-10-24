@@ -417,43 +417,97 @@ WW_CAT = {
 }
 
 
+UPHOLSTERY = ("sofa", "armchair", "pouf", "bench", "bed", "chair", "officeChair", "stool", "curtain", "textile")
+
+
+def _ww_key(u):
+    return (u or "").split("?")[0].rstrip("/")
+
+
 def westwing():
+    """Westwing: je Produktfamilie (über die Farbauswahl verlinkte Seiten) ein Eintrag mit allen Ausführungen.
+    Preis, Bild und Link stammen von der jeweiligen Ausführungsseite; Stoffe erhalten den Farbwert des Original-Stoffmusters."""
     f = RES / "westwing_products.json"
     if not f.exists():
         return []
+    raw = [p for p in json.loads(f.read_text()) if not p.get("err") and p.get("name") and p.get("price")]
+    swatch_hex = json.loads((RES / "westwing_swatches.json").read_text()) if (RES / "westwing_swatches.json").exists() else {}
+    by_url = {_ww_key(p["url"]): p for p in raw}
+    # Union-Find über die Links der Farbauswahl
+    parent = {k: k for k in by_url}
+
+    def find(k):
+        while parent[k] != k:
+            parent[k] = parent[parent[k]]
+            k = parent[k]
+        return k
+    link_info = {}
+    for p in raw:
+        k = _ww_key(p["url"])
+        for l in p.get("variantLinks") or []:
+            lk = _ww_key(l["url"])
+            link_info.setdefault(lk, l)
+            if lk in parent:
+                parent[find(lk)] = find(k)
+    fams = {}
+    for p in raw:  # Reihenfolge der Kategorie-Listen (Beliebtheit) bestimmt den Stellvertreter
+        fams.setdefault(find(_ww_key(p["url"])), []).append(p)
     out = []
-    for p in json.loads(f.read_text()):
-        if p.get("err") or not p.get("name") or not p.get("price"):
-            continue
-        cat = WW_CAT.get(p["category"], "decor")
-        W, D, H = parse_westwing(p.get("size"), cat)
-        if cat == "outdoor" and "sofa" in p["category"]:
-            pass
-        name = p["name"]
-        col = p.get("colorDisplay") or ""
-        if re.search(r"firesafety|artwall", col, re.I):
-            col = ""
-        variants = []
-        fb = slots_for(cat, col, p.get("materialText", ""), name)
-        main_slots = slots_from(cat, col or (p.get("materialText") or ""), name, fb) or fb
-        variants.append({"name": variant_label(col) if col else "Standard", "slots": main_slots})
-        for v in (p.get("variants") or [])[:16]:
-            vv = v.strip()
-            if not vv or vv.lower() == (col or "").lower() or re.search(r"firesafety|artwall", vv, re.I):
-                continue
-            sl = slots_from(cat, vv, name, None)
-            if sl is None:
-                continue  # Variante ohne erkennbare Farbe/Material (z. B. Motivname) – nicht darstellbar
-            variants.append({"name": variant_label(vv), "slots": sl})
-        e = {
-            "id": "wes-" + re.sub(r"[^a-z0-9]+", "-", p["url"].split("/")[-1].replace(".html", ""))[:60],
-            "vendor": "Westwing", "brand": p.get("brand"), "name": name, "category": cat,
-            "w": W, "d": D, "h": H, "price": float(p["price"]), "url": p["url"], "image": p.get("image"),
-            "archetype": arch_for(cat, name, W, D, H), "params": {}, "variants": variants,
-            "tags": [t for t in (p.get("brand"),) if t], "premium": (p.get("brand") or "").startswith("Westwing") or float(p["price"]) >= 400,
-            "description": (p.get("size") or "").replace("\n", " · ")[:240],
-        }
-        out.append(finalize(e))
+    for members in fams.values():
+        rep = next((m for m in members if not m.get("variantOf")), members[0])
+        cat = WW_CAT.get(rep["category"], "decor")
+        # Ausführungen mit abweichenden Maßen bilden eigene Einträge
+        by_dims = {}
+        for m in members:
+            W, D, H = parse_westwing(m.get("size"), cat)
+            near = lambda a, b: (a is None and b is None) or (a is not None and b is not None and abs(a - b) <= 3)  # noqa: E731
+            key = next((k for k in by_dims if near(k[0], W) and near(k[1], D) and near(k[2], H)), (W, D, H))
+            by_dims.setdefault(key, []).append(m)
+        for (W, D, H), ms in by_dims.items():
+            head = rep if rep in ms else ms[0]
+            name = head["name"]
+            variants, names = [], set()
+            for m in [head] + [x for x in ms if x is not head]:
+                li = link_info.get(_ww_key(m["url"])) or {}
+                col = li.get("name") or m.get("colorDisplay") or ""
+                if re.search(r"firesafety|artwall", col, re.I):
+                    col = ""
+                label = variant_label(col) if col else "Standard"
+                if label.lower() in names:
+                    continue
+                fb = slots_for(cat, col, m.get("materialText", ""), name)
+                sl = slots_from(cat, col or (m.get("materialText") or ""), name, fb) or fb
+                sw = li.get("swatch")
+                hexv = swatch_hex.get(sw) if sw else None
+                if hexv and cat in UPHOLSTERY and "main" in sl:
+                    sl = {**sl, "main": {**sl["main"], "color": hexv}}
+                names.add(label.lower())
+                v = {"name": label, "slots": sl, "price": float(m["price"]), "url": _ww_key(m["url"]), "image": m.get("image")}
+                if sw and "fabric_sample_image" in sw:
+                    v["swatch"] = sw.replace("width=40", "width=96")
+                if m.get("available") is False:
+                    v["soldOut"] = True
+                variants.append(v)
+            # Farbnamen der Auswahl ohne eigene Seite (nicht gelesen) wie bisher als reine Farbvariante
+            for l in head.get("variantLinks") or []:
+                label = variant_label(l["name"])
+                if label.lower() in names or _ww_key(l["url"]) in by_url:
+                    continue
+                sl = slots_from(cat, l["name"], name, None)
+                if sl is None:
+                    continue
+                names.add(label.lower())
+                variants.append({"name": label, "slots": sl})
+            price = min(v.get("price") or 1e9 for v in variants)
+            e = {
+                "id": "wes-" + re.sub(r"[^a-z0-9]+", "-", head["url"].split("/")[-1].split("?")[0].replace(".html", ""))[:60],
+                "vendor": "Westwing", "brand": head.get("brand"), "name": name, "category": cat,
+                "w": W, "d": D, "h": H, "price": float(price if price < 1e9 else head["price"]), "url": _ww_key(head["url"]), "image": head.get("image"),
+                "archetype": arch_for(cat, name, W, D, H), "params": {}, "variants": variants[:60],
+                "tags": [t for t in (head.get("brand"),) if t], "premium": (head.get("brand") or "").startswith("Westwing") or float(head["price"]) >= 400,
+                "description": (head.get("size") or "").replace("\n", " · ")[:240],
+            }
+            out.append(finalize(e))
     return out
 
 
@@ -571,6 +625,72 @@ def ikea_label(design):
     return variant_label(" / ".join(keep or parts))
 
 
+IKEA_MEASURE = re.compile(r",\s*((?:\d|Ø)[\d.,x×\s/-]*\s*(?:cm|mm)\b.*)$")
+
+
+# Frontserien mit bekannter Gestaltung (IKEA-Produktseiten): Rahmenfronten vs. glatte Fronten
+IKEA_FRONTS = {"hanviken": "frame", "laxviken": "frame", "lappviken": "flat", "selsviken": "flat", "kallviken": "flat", "västerviken": "flat"}
+
+
+def ikea_front_style(design):
+    t = (design or "").lower()
+    return next((v for k, v in IKEA_FRONTS.items() if k in t), None)
+
+
+def ikea_option_variants(p, cat, full, opt, seen_item):
+    """Alle Ausführungen laut Ausführungs-Wähler der Produktseite (gleicher Typ, gleiches Maß).
+    Achsen (z. B. „Bezug“, „Farbe“, „Farbe Gestell“) werden mitgeführt, damit die App Kombinationen getrennt anbieten kann."""
+    typ = (p.get("type") or "").strip()
+    meas = (p.get("measure") or "").replace(" ", "")
+    variants, names = [], set()
+    axes = [{"name": a["title"].strip() or "Ausführung", "values": []} for a in opt.get("axes") or []]
+    for pg in opt["pages"]:
+        desc = pg.get("desc") or ""
+        if not pg.get("price") or not desc:
+            continue
+        m = IKEA_MEASURE.search(desc)
+        pm = m.group(1).replace(" ", "") if m else ""
+        body = desc[:m.start()] if m else desc
+        ptype, _, design = body.partition(",")
+        if ptype.strip() != typ:
+            continue
+        if meas and pm and pm != meas:
+            continue
+        label = ikea_label(design.strip()) if design.strip() else "Standard"
+        if label.lower() in names:
+            continue
+        fb = slots_for(cat, design, design, full)
+        sl = slots_from(cat, design, full, fb) or fb
+        names.add(label.lower())
+        if pg.get("itemNo"):
+            seen_item[pg["itemNo"]] = True
+        v = {"name": label[:60], "slots": sl, "price": float(pg["price"]), "url": pg["url"], "image": pg.get("image")}
+        fs = ikea_front_style(design)
+        if fs and cat in ("sideboard", "lowboard", "dresser", "cabinet", "nightstand"):
+            v["params"] = {"front": fs}
+        if axes:
+            opts = []
+            for a in axes:
+                raw_val = (pg.get("sel") or {}).get(a["name"]) or (pg.get("sel") or {}).get(a["name"] + " ") or ""
+                val = ikea_label(raw_val) if raw_val else "–"
+                opts.append(val)
+                if val not in a["values"]:
+                    a["values"].append(val)
+            v["opts"] = opts
+        variants.append(v)
+        if len(variants) >= 60:
+            break
+    # Achsen ohne Auswahl (nur ein Wert) entfallen; die Optionen der Varianten werden entsprechend gekürzt
+    keep = [i for i, a in enumerate(axes) if len(a["values"]) > 1]
+    if not keep or len(variants) < 2:
+        for v in variants:
+            v.pop("opts", None)
+        return variants, None
+    for v in variants:
+        v["opts"] = [v["opts"][i] for i in keep]
+    return variants, [axes[i] for i in keep]
+
+
 def ikea():
     f = RES / "ikea_products.json"
     if not f.exists():
@@ -589,6 +709,7 @@ def ikea():
         for a in p.get("alts") or []:
             if a.startswith(f"{p['name']} {p.get('type') or ''},"):
                 design.setdefault(p["itemNo"], ikea_design(a))
+    options = json.loads((RES / "ikea_options.json").read_text()) if (RES / "ikea_options.json").exists() else {}
     groups, seen_item = {}, {}
     for p in raw:
         cat = ikea_cat(p.get("type"))
@@ -640,12 +761,20 @@ def ikea():
                 break
         if not variants:
             continue
+        axes = None
+        opt = options.get(p["url"])
+        if opt and opt.get("pages"):
+            ov, oa = ikea_option_variants(p, cat, full, opt, seen_item)
+            if len(ov) >= len(variants):
+                variants, axes = ov, oa
         groups[key] = {
             "id": f"ike-{p['itemNo']}", "vendor": "IKEA", "name": full, "series": p["name"], "category": cat,
             "w": W, "d": D, "h": H, "price": min(v["price"] for v in variants), "url": p["url"], "image": p.get("image"),
             "archetype": arch_for(cat, full, W, D, H), "params": {}, "variants": variants,
             "tags": [p["name"]], "premium": p["name"] in PREMIUM_IKEA, "description": f"{p['type']}, {p.get('measure') or ''}".strip(", "),
         }
+        if axes:
+            groups[key]["axes"] = axes
     return [finalize(e) for e in groups.values()]
 
 
@@ -1140,7 +1269,7 @@ def merge_color_variants(items):
             tgt = index[key]
             have = {v["name"].lower() for v in tgt["variants"]}
             for v in e["variants"]:
-                if v["name"].lower() not in have and len(tgt["variants"]) < 24:
+                if v["name"].lower() not in have and len(tgt["variants"]) < 60:
                     v = dict(v)
                     v.setdefault("price", e["price"])
                     v.setdefault("url", e.get("url"))
@@ -1153,6 +1282,83 @@ def merge_color_variants(items):
         index[key] = e
         out.append(e)
     return out
+
+
+def _norm_url(u):
+    u = (u or "").split("?")[0].rstrip("/").lower()
+    m = re.search(r"ikea\.com/.*-(s?\d{8})$", u)
+    return "ikea:" + m.group(1).lstrip("s") if m else u
+
+
+def _url_index(cat):
+    idx = {}
+    for e in cat:
+        if e["vendor"] in ("Bestand",) or e.get("concepts"):
+            continue
+        for u in [e.get("url")] + [v.get("url") for v in e["variants"]]:
+            if u:
+                idx.setdefault(_norm_url(u), e)
+    return idx
+
+
+def enrich_concepts(cat):
+    """Konzeptprodukte erhalten alle Hersteller-Ausführungen des gleichen Shopartikels (die Konzeptfarbe bleibt Ausführung 1)."""
+    idx = _url_index(cat)
+    n = 0
+    for e in cat:
+        if not e.get("concepts") or not e.get("url"):
+            continue
+        src = idx.get(_norm_url(e["url"]))
+        if not src or src["category"] != e["category"]:
+            continue
+        have = {v["name"].lower() for v in e["variants"]}
+        e["variants"][0].setdefault("price", e["price"])
+        e["variants"][0].setdefault("url", e["url"])
+        for v in src["variants"]:
+            if v["name"].lower() not in have and len(e["variants"]) < 60:
+                v = {k: val for k, val in v.items() if k != "opts"}
+                e["variants"].append(v)
+                have.add(v["name"].lower())
+                n += 1
+    print("Konzeptprodukte ergänzt um", n, "Ausführungen")
+
+
+def write_aliases(cat):
+    """Frühere Katalog-IDs (gespeicherte Projekte) → neue IDs, falls sich ein Eintrag beim Neuaufbau umbenannt hat."""
+    f_old, f_alias = DATA / "catalog.json", DATA / "catalogAliases.json"
+    aliases = json.loads(f_alias.read_text()) if f_alias.exists() else {}
+    ids = {e["id"] for e in cat}
+    if f_old.exists():
+        old = json.loads(f_old.read_text())
+        idx = _url_index(cat)
+        by_name = {(e["vendor"], e["name"]): e for e in cat}
+        for o in old:
+            if o["id"] in ids or o["id"] in aliases:
+                continue
+            hit = None
+            for u in [o.get("url")] + [v.get("url") for v in o.get("variants") or []]:
+                if u and _norm_url(u) in idx:
+                    hit = idx[_norm_url(u)]
+                    break
+            hit = hit or by_name.get((o["vendor"], o["name"]))
+            if not hit:
+                cands = [e for e in cat if e["vendor"] == o["vendor"] and e["category"] == o["category"]]
+                cands.sort(key=lambda e: abs(e["w"] - o["w"]) + abs(e["d"] - o["d"]) + abs(e["h"] - o["h"]))
+                hit = cands[0] if cands else None
+            if hit:
+                aliases[o["id"]] = hit["id"]
+    # Ketten auflösen, Ziele müssen existieren
+    for k in list(aliases):
+        t, seen = aliases[k], set()
+        while t not in ids and t in aliases and t not in seen:
+            seen.add(t)
+            t = aliases[t]
+        if t in ids and k not in ids:
+            aliases[k] = t
+        else:
+            aliases.pop(k)
+    f_alias.write_text(json.dumps(dict(sorted(aliases.items())), ensure_ascii=False, indent=0))
+    print("Aliase:", len(aliases))
 
 
 def main():
@@ -1168,6 +1374,8 @@ def main():
                 continue
             seen.add(e["id"]); cat.append(e); k += 1
         print(f"{label}: {k}")
+    enrich_concepts(cat)
+    write_aliases(cat)
     for e in cat:
         for kk in ("w", "d", "h", "price"):
             if isinstance(e.get(kk), (int, float)):

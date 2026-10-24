@@ -1,5 +1,6 @@
 import apartmentJson from "./apartment.json";
 import catalogJson from "./catalog.json";
+import aliasJson from "./catalogAliases.json";
 import c1 from "./concepts/concept1.json";
 import c2 from "./concepts/concept2.json";
 import c3 from "./concepts/concept3.json";
@@ -12,6 +13,8 @@ export const wallFaces: WallFace[] = computeWallFaces(apartment);
 export const wallFaceById = new Map(wallFaces.map((f) => [f.id, f]));
 
 export const baseCatalog = catalogJson as unknown as CatalogItem[];
+/** Frühere Katalog-IDs → aktuelle IDs (gespeicherte Projekte bleiben nach einem Katalog-Neuaufbau gültig). */
+export const catalogAliases = aliasJson as Record<string, string>;
 
 export const concepts: { id: string; title: string; subtitle: string; palette: string[]; project: Project }[] = [
   { id: "concept1", title: "Travertin · Kupfer · Salbei", subtitle: "Konzept 1", palette: ["#d8bc94", "#e3d6c1", "#5e4130", "#b9aa97", "#a7b59e", "#b8703e"], project: c1 as unknown as Project },

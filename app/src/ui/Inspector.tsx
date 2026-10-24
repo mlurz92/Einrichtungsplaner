@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import {
   AlignCenterHorizontal,
   AlignCenterVertical,
@@ -21,11 +21,12 @@ import {
   Unlock,
 } from "lucide-react";
 import { alignOffsets, distributeOffsets, type AlignMode } from "../model/align";
-import { useEditor, getCatalogItem, allCatalog, itemPrice } from "../store/project";
+import { useEditor, getCatalogItem, itemPrice } from "../store/project";
 import { CATEGORY_LABELS, apartment, roomNames, wallFaceById } from "../data";
 import type { MaterialKey, PlacedItem, Slot, Surface, SurfaceKind, WallFinish } from "../model/types";
 import { BOOL_PARAM_LABELS, CEILING_KINDS, CHOICE_PARAMS, CORNICE_SIZES, FLOOR_PRESETS, MATERIAL_LABELS, SKIRTING_PRESETS, PAINTS, PARAM_LABELS, SLOT_LABELS, SURFACE_KINDS, TILE_PATTERNS, WALLPAPER_PATTERNS } from "../data/paints";
 import { Thumb } from "./CatalogPanel";
+import { VariantPicker } from "./VariantPicker";
 import { fmtEuro, nearestFace, normAngle, rotationForFace, segmentDistance } from "../model/geometry";
 import { openExternal } from "../platform";
 import { STATUS_ORDER, STATUS_STYLE } from "./status";
@@ -75,57 +76,10 @@ function Section({ title, children, right }: { title: string; children: React.Re
   );
 }
 
-function SwapList({ it, onDone }: { it: PlacedItem; onDone: () => void }) {
-  const c = getCatalogItem(it.catalogId);
-  const [vendor, setVendor] = useState("");
-  const [tol, setTol] = useState(0.3);
-  const st = useEditor();
-  const alts = useMemo(() => {
-    if (!c) return [];
-    const W = it.w * 100, D = it.d * 100;
-    return allCatalog()
-      .filter((x) => x.category === c.category && x.id !== c.id && x.vendor !== "Bestand" && (!vendor || x.vendor === vendor))
-      .map((x) => ({ x, fit: Math.abs(x.w - W) / W + Math.abs(x.d - D) / Math.max(D, 1) * 0.6 }))
-      .filter((a) => a.fit <= tol * 2)
-      .sort((a, b) => a.fit - b.fit)
-      .slice(0, 60);
-  }, [c, it.w, it.d, vendor, tol]);
-  return (
-    <div>
-      <div className="mb-2 flex items-center gap-1">
-        {["", "Westwing", "IKEA", "JYSK"].map((v) => (
-          <button key={v} className="chip" data-on={vendor === v} onClick={() => setVendor(v)}>
-            {v || "Alle"}
-          </button>
-        ))}
-        <select className="field ml-auto w-auto py-0.5 text-xs" value={tol} onChange={(e) => setTol(Number(e.target.value))}>
-          <option value={0.1}>Maße ±10 %</option>
-          <option value={0.3}>±30 %</option>
-          <option value={1}>beliebig</option>
-        </select>
-      </div>
-      <div className="max-h-[42vh] space-y-1 overflow-auto">
-        {alts.map(({ x }) => (
-          <button key={x.id} className="flex w-full items-center gap-2 rounded-md p-1 text-left hover:bg-white hover:shadow-sm" onClick={() => (st.replaceItem(it.id, x.id, 0), onDone())}>
-            <Thumb c={x} size={48} />
-            <div className="min-w-0 flex-1">
-              <div className="truncate text-xs font-medium">{x.name}</div>
-              <div className="text-[11px] text-stone-500">
-                {x.vendor} · {Math.round(x.w)}×{Math.round(x.d)}×{Math.round(x.h)} · {x.price > 0 ? fmtEuro(x.price) : "—"}
-              </div>
-            </div>
-          </button>
-        ))}
-        {!alts.length && <div className="text-xs text-stone-500">Keine passenden Alternativen.</div>}
-      </div>
-    </div>
-  );
-}
-
 function ItemInspector({ it }: { it: PlacedItem }) {
   const st = useEditor();
   const c = getCatalogItem(it.catalogId);
-  const [swap, setSwap] = useState(false);
+  const swapOpen = useEditor((s) => s.swapFor === it.id);
   const up = (fn: (x: PlacedItem) => void) => st.updateItems([it.id], fn);
   const price = itemPrice(it);
   const slots = Object.entries(it.slots) as [Slot, { color: string; material: MaterialKey }][];
@@ -146,7 +100,7 @@ function ItemInspector({ it }: { it: PlacedItem }) {
         </div>
       </div>
       <div className="flex flex-wrap gap-1 border-b border-stone-200 px-3 py-2">
-        <button className="btn-ghost" title="Tauschen" onClick={() => setSwap((s) => !s)} disabled={it.existing}>
+        <button className={swapOpen ? "btn-primary px-2 py-1 text-xs" : "btn-ghost"} title={it.existing ? "Bestand kann nicht getauscht werden" : "Alternativen mit Vorschau (T)"} onClick={() => st.set("swapFor", swapOpen ? null : it.id)} disabled={it.existing}>
           <ArrowLeftRight size={15} /> Tauschen
         </button>
         <button className="btn-ghost" title="Duplizieren (Strg+D)" onClick={() => st.duplicateItems([it.id])}>
@@ -184,11 +138,6 @@ function ItemInspector({ it }: { it: PlacedItem }) {
           <Trash2 size={15} />
         </button>
       </div>
-      {swap && (
-        <Section title="Alternativen (gleiche Kategorie, passende Maße)">
-          <SwapList it={it} onDone={() => setSwap(false)} />
-        </Section>
-      )}
       {c?.archetype === "tvFrame" && (
         <Section title="Samsung The Frame">
           <div className="flex flex-wrap items-center gap-2">
@@ -233,13 +182,15 @@ function ItemInspector({ it }: { it: PlacedItem }) {
         )}
       </Section>
       {c && c.variants.length > 1 && (
-        <Section title={`Varianten (${c.variants.length})`}>
-          <div className="flex flex-wrap gap-1.5">
-            {c.variants.map((v, i) => (
-              <button key={i} title={v.name} onClick={() => st.applyVariant(it.id, i)} className={`h-7 w-7 rounded-full border-2 shadow ring-1 ring-stone-300 ${it.variant === v.name ? "border-stone-900" : "border-white"}`} style={{ background: v.slots.main?.color ?? v.slots.top?.color ?? v.slots.frame?.color ?? "#ccc" }} />
-            ))}
-          </div>
-          <div className="mt-1 text-xs text-stone-600">{it.variant}</div>
+        <Section title={`Ausführungen des Herstellers (${c.variants.length})`}>
+          <VariantPicker
+            c={c}
+            value={Math.max(0, c.variants.findIndex((v) => v.name === it.variant))}
+            current={it.variant}
+            onChange={(i) => (st.set("swapPreview", null), st.applyVariant(it.id, i))}
+            onHover={(i) => st.set("swapPreview", i === null ? null : { id: it.id, catalogId: it.catalogId, variant: i })}
+          />
+          <p className="mt-1.5 text-[10.5px] text-stone-500">Maus über ein Muster zeigt die Ausführung im Plan und in 3D.</p>
         </Section>
       )}
       <Section title="Farben & Materialien">

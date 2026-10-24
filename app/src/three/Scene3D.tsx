@@ -7,7 +7,7 @@ import { ToneMappingMode } from "postprocessing";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
 import { apartment, wallFaces } from "../data";
-import { useEditor, getCatalogItem, newItemFromCatalog } from "../store/project";
+import { useEditor, getCatalogItem, newItemFromCatalog, withSwapPreview } from "../store/project";
 import type { PlacedItem } from "../model/types";
 import { buildApartment } from "./apartment";
 import { ItemMesh } from "./ItemMesh";
@@ -373,7 +373,9 @@ function useDrag(controls: React.RefObject<CameraControls | null>) {
 }
 
 function Items({ controls }: { controls: React.RefObject<CameraControls | null> }) {
-  const items = useEditor((s) => s.project.items);
+  const rawItems = useEditor((s) => s.project.items);
+  const swapPreview = useEditor((s) => s.swapPreview);
+  const items = useMemo(() => withSwapPreview(rawItems, swapPreview), [rawItems, swapPreview]);
   const selection = useEditor((s) => s.selection);
   const hoverId = useEditor((s) => s.hoverId);
   const setHover = useEditor((s) => s.setHover);

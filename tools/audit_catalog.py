@@ -134,9 +134,10 @@ def main():
             col = main_color(v.get("slots") or {})
             fi = family_of_name(v["name"].split("/")[0].split(",")[0])
             cols = [x["color"] for x in (v.get("slots") or {}).values() if isinstance(x, dict) and x.get("color")]
-            if col and fi is not None and not any(family_ok(fi, c) for c in cols):
+            # Farben aus Original-Stoffmustern gelten als gemessen (z. B. „Olivgrün“ eines Bouclés ist oft khaki-braun)
+            if col and fi is not None and not v.get("swatch") and not any(family_ok(fi, c) for c in cols):
                 issues["color"].append({"id": e["id"], "vendor": e["vendor"], "name": e["name"], "variant": v["name"], "color": col, "family": FAMILIES[fi][0]})
-            sig = json.dumps(v.get("slots"), sort_keys=True)
+            sig = json.dumps([v.get("slots"), v.get("params")], sort_keys=True)
             if sig in seen and seen[sig] != v["name"]:
                 issues["duplicate"].append({"id": e["id"], "vendor": e["vendor"], "a": seen[sig], "b": v["name"]})
             seen.setdefault(sig, v["name"])

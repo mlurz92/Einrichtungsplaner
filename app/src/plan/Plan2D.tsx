@@ -1,6 +1,6 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { apartment, roomNames, wallFaces } from "../data";
-import { useEditor, getCatalogItem, newItemFromCatalog } from "../store/project";
+import { useEditor, getCatalogItem, newItemFromCatalog, withSwapPreview } from "../store/project";
 import type { PlacedItem, Vec2 } from "../model/types";
 import {
   DEG,
@@ -137,7 +137,8 @@ export function Plan2D() {
     [vb],
   );
 
-  const items = project.items;
+  const swapPreview = useEditor((s) => s.swapPreview);
+  const items = useMemo(() => withSwapPreview(project.items, swapPreview), [project.items, swapPreview]);
   const conflicts = useMemo(() => {
     const c = new Set<string>();
     const floor = items.filter((i) => i.mount === "floor" && !i.hidden && i.elev < 0.05);

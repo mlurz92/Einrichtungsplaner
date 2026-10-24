@@ -184,7 +184,7 @@ export const BOOL_PARAM_LABELS: Record<string, string> = {
 /** Auswahl-Parameter (Ausführung). */
 export const CHOICE_PARAMS: Record<string, { label: string; options: [string, string][] }> = {
   pattern: { label: "Muster", options: [["slant", "Slant (versetzt)"], ["grid", "Grid (Raster)"], ["gradient", "Gradient"]] },
-  front: { label: "Fronten", options: [["flat", "glatt"], ["ribbed", "geriffelt"]] },
+  front: { label: "Fronten", options: [["flat", "glatt"], ["frame", "Rahmen"], ["ribbed", "geriffelt"]] },
   handle: { label: "Griffe", options: [["bar", "Stange"], ["knob", "Knopf"], ["pull", "Griffleiste"], ["edge", "Griffkante"], ["none", "grifflos"]] },
 };
 

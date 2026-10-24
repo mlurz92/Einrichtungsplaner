@@ -40,6 +40,19 @@ Q = [
  "PS 2026", "BRÄNNBOLL", "TONSTAD Sideboard", "TONSTAD Bett", "HAUGA Kommode", "IDANÄS Kommode", "HEMNES Kommode",
  "SANDSBERG Tisch", "EKEDALEN Ausziehtisch", "INGATORP Ausziehtisch", "SKOGSTA Tisch", "MÖCKELBY Tisch",
  "ODGER Stuhl", "KARLPETTER Stuhl", "BERGMUND Stuhl", "KRYLBO Stuhl", "LISABO Couchtisch", "VITTSJÖ Regal",
+ # Erweiterung Okt. 2026 (weitere Serien mit Farb-/Bezugsvarianten)
+ "FRIHETEN", "HOLMSUND", "EKTORP", "HAGALUND", "BRISSUND", "GLOSTAD", "KNOPPARP", "LÅNGARYD", "ESKILSTUNA", "HAVBERG",
+ "OSKARSHAMN", "TULLSTA", "BINGSTA", "DYVLINGE", "LILLEHEM Sessel", "ÄPPLARYD Sessel", "UPPLAND Sessel",
+ "TEODORES", "STEFAN", "NORRMNÄS", "TOBIAS", "LEIFARNE", "JANINGE", "GUNDE", "MÅNHULT", "SKOGSBO", "LIDÅS Stuhl", "SVENBERTIL",
+ "DANDERYD", "NORDVIKEN", "JOKKMOKK", "VANGSTA", "LANEBERG", "TORSKLINT", "MELLTORP", "NORDEN",
+ "BRIMNES", "MALM", "KOPPANG", "SONGESAND Kommode", "NORDKISA", "GALANT", "BRUSALI", "PLATSA", "STUVA", "BESTÅ Kombination",
+ "BESTÅ TV-Bank", "BESTÅ Schrank", "HAVSTA Vitrine", "FABRIKÖR Vitrine", "KALLAX Regal", "BILLY Bücherregal", "EKET Schrank",
+ "NEIDEN", "SAGSTUA", "KOPARDAL", "GRIMSBU", "ASKVOLL", "VEVELSTAD", "IDANÄS Polsterbett", "HAUGA Polsterbett", "SLATTUM Polsterbett",
+ "BEKANT", "MARKUS", "JÄRVFJÄLLET", "FLINTAN", "LAGKAPTEN", "SKRUVSTA",
+ "RANARP", "LERSTA", "JANSJÖ", "TERTIAL", "NÄVLINGE", "FORSÅ", "KLABB", "TÄLLBYN", "VAXMYRA", "SVALLET", "RISBYN", "HOLMÖ",
+ "MISTERHULT", "REGOLIT", "NYMÖ", "ÅRSTID Stehleuchte", "SOLHETTA", "STRANDMON Stehleuchte",
+ "STOENSE", "VONSBÄK", "ÖRSLEV", "TIPHEDE", "PERSBOL Teppich", "HOVET", "ÖSTERNÄS", "TOFTBYN", "LETTAN",
+ "SKARPÖ", "TORPARÖ", "KUDDARNA",
 ]
 
 def search(q, size=72):

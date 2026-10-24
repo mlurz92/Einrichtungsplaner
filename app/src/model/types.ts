@@ -211,6 +211,20 @@ export interface CatalogVariant {
   price?: number;
   url?: string;
   image?: string;
+  /** Wert je Ausführungsachse (Reihenfolge wie CatalogItem.axes). */
+  opts?: string[];
+  /** Original-Stoffmuster des Herstellers (Bild-URL). */
+  swatch?: string;
+  /** Laut Shop derzeit ausverkauft. */
+  soldOut?: boolean;
+  /** Ausführungsabhängige Parameter (z. B. Frontstil). */
+  params?: Record<string, number | string | boolean>;
+}
+
+/** Ausführungsachse des Herstellers, z. B. „Bezug“ oder „Farbe Gestell“. */
+export interface CatalogAxis {
+  name: string;
+  values: string[];
 }
 
 export interface CatalogItem {
@@ -233,6 +247,8 @@ export interface CatalogItem {
   /** Montagehöhe Unterkante (m) für Wand-/Aufsatzobjekte. */
   elev?: number;
   variants: CatalogVariant[];
+  /** Kombinierbare Ausführungsachsen (nur wenn der Hersteller mehrere Wahlmöglichkeiten trennt). */
+  axes?: CatalogAxis[];
   tags?: string[];
   premium?: boolean;
   /** Konzepte, in denen das Produkt verwendet wird. */
