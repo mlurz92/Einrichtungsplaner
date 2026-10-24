@@ -28,6 +28,7 @@ import { BOOL_PARAM_LABELS, CEILING_KINDS, CHOICE_PARAMS, CORNICE_SIZES, FLOOR_P
 import { Thumb } from "./CatalogPanel";
 import { fmtEuro, nearestFace, normAngle, rotationForFace, segmentDistance } from "../model/geometry";
 import { openExternal } from "../platform";
+import { STATUS_ORDER, STATUS_STYLE } from "./status";
 
 function Num({ label, value, onChange, step = 1, unit, min, max, digits = 1 }: { label: string; value: number; onChange: (v: number) => void; step?: number; unit?: string; min?: number; max?: number; digits?: number }) {
   const [text, setText] = useState<string | null>(null);
@@ -314,6 +315,17 @@ function ItemInspector({ it }: { it: PlacedItem }) {
                   {p.delivery ? ` · ${p.delivery}` : ""}
                 </div>
               </div>
+            ))}
+          </div>
+        </Section>
+      )}
+      {!it.existing && (
+        <Section title="Kaufstatus">
+          <div className="seg w-full">
+            {STATUS_ORDER.map((s) => (
+              <button key={s} className="flex-1" data-on={(it.status ?? "geplant") === s} onClick={() => st.setStatus([it.id], [], s)}>
+                {STATUS_STYLE[s].label}
+              </button>
             ))}
           </div>
         </Section>

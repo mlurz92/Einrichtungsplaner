@@ -108,9 +108,10 @@ function csvCell(v: unknown) {
 export async function exportShoppingList() {
   const p = useEditor.getState().project;
   const b = budgetSummary(p);
-  const rows = [["Pos.", "Raum", "Produkt", "Händler", "Anzahl", "Einzelpreis €", "Summe €", "Link"]];
-  for (const l of b.lines) rows.push([l.pos ?? "", roomNames[l.room] ?? l.room, l.name, l.vendor, String(+l.qty.toFixed(2)).replace(".", ","), l.unit.toFixed(2).replace(".", ","), l.total.toFixed(2).replace(".", ","), l.url ?? ""]);
-  rows.push(["", "", "Gesamt", "", "", "", b.total.toFixed(2).replace(".", ","), ""]);
+  const rows = [["Pos.", "Raum", "Produkt", "Händler", "Anzahl", "Einzelpreis €", "Summe €", "Status", "Link"]];
+  for (const l of b.lines) rows.push([l.pos ?? "", roomNames[l.room] ?? l.room, l.name, l.vendor, String(+l.qty.toFixed(2)).replace(".", ","), l.unit.toFixed(2).replace(".", ","), l.total.toFixed(2).replace(".", ","), l.status, l.url ?? ""]);
+  rows.push(["", "", "Gesamt", "", "", "", b.total.toFixed(2).replace(".", ","), "", ""]);
+  rows.push(["", "", "davon noch offen (geplant)", "", "", "", b.byStatus.geplant.toFixed(2).replace(".", ","), "", ""]);
   const csv = "﻿" + rows.map((r) => r.map(csvCell).join(";")).join("\r\n");
   await exportFile(() => saveText(csv, "WE13_Einkaufsliste.csv", [{ name: "CSV (Excel)", extensions: ["csv"] }]));
 }
@@ -131,8 +132,8 @@ export function printBudget() {
   table{width:100%;border-collapse:collapse}td,th{padding:3px 6px;border-bottom:1px solid #e5e2dc;text-align:left}td.n{text-align:right;white-space:nowrap}th{font-size:11px;color:#666}
   .tot{font-weight:700;font-size:14px;margin-top:16px}</style></head><body>
   <h1>${p.name}</h1><div>${p.subtitle ?? ""}</div><div>Stand ${new Date().toLocaleDateString("de-DE")} · Preise inkl. MwSt. laut Händlerangaben</div>
-  ${[...byRoom.entries()].map(([room, ls]) => `<h2>${room}</h2><table><tr><th>Pos.</th><th>Produkt</th><th>Händler</th><th>Anz.</th><th>Einzel</th><th>Summe</th></tr>${ls.map((l) => `<tr><td>${l.pos ?? ""}</td><td>${l.name}</td><td>${l.vendor}</td><td class="n">${+l.qty.toFixed(2)}</td><td class="n">${eur(l.unit)}</td><td class="n">${eur(l.total)}</td></tr>`).join("")}</table>`).join("")}
-  <div class="tot">Gesamt: ${eur(b.total)}</div><script>setTimeout(()=>print(),300)</script></body></html>`);
+  ${[...byRoom.entries()].map(([room, ls]) => `<h2>${room}</h2><table><tr><th>Pos.</th><th>Produkt</th><th>Händler</th><th>Anz.</th><th>Einzel</th><th>Summe</th><th>Status</th></tr>${ls.map((l) => `<tr><td>${l.pos ?? ""}</td><td>${l.name}</td><td>${l.vendor}</td><td class="n">${+l.qty.toFixed(2)}</td><td class="n">${eur(l.unit)}</td><td class="n">${eur(l.total)}</td><td>${l.status === "geplant" ? "☐" : "☑ " + l.status}</td></tr>`).join("")}</table>`).join("")}
+  <div class="tot">Gesamt: ${eur(b.total)} · davon offen: ${eur(b.byStatus.geplant)}</div><script>setTimeout(()=>print(),300)</script></body></html>`);
   w.document.close();
 }
 

@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
-import { Boxes, LayoutList, Palette, Sofa, Wallet } from "lucide-react";
+import { Boxes, ClipboardCheck, LayoutList, Palette, Sofa, Wallet } from "lucide-react";
 import { restoredFromAutosave, useEditor } from "./store/project";
 import { TopBar } from "./ui/TopBar";
 import { HelpOverlay } from "./ui/Help";
@@ -7,6 +7,7 @@ import { NewFurnishingDialog } from "./ui/NewFurnishing";
 import { CatalogPanel } from "./ui/CatalogPanel";
 import { Inspector } from "./ui/Inspector";
 import { BudgetPanel, ConceptsPanel, DesignPanel, ObjectsPanel } from "./ui/Panels";
+import { PlanningPanel } from "./ui/PlanningPanel";
 import { Plan2D } from "./plan/Plan2D";
 import { normAngle } from "./model/geometry";
 import { openProject, saveProject } from "./ui/fileops";
@@ -24,6 +25,7 @@ const TABS = [
   { id: "gestaltung", label: "Gestaltung", icon: Palette },
   { id: "objekte", label: "Objekte", icon: LayoutList },
   { id: "konzepte", label: "Konzepte", icon: Boxes },
+  { id: "planung", label: "Planung", icon: ClipboardCheck },
   { id: "budget", label: "Budget", icon: Wallet },
 ] as const;
 
@@ -206,6 +208,7 @@ export function App() {
             {tab === "gestaltung" && <DesignPanel />}
             {tab === "objekte" && <ObjectsPanel />}
             {tab === "konzepte" && <ConceptsPanel />}
+            {tab === "planung" && <PlanningPanel />}
             {tab === "budget" && <BudgetPanel />}
           </div>
         </aside>

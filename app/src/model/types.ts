@@ -276,7 +276,11 @@ export interface PlacedItem {
   existing?: boolean;
   /** Stückliste (Kaufpositionen), aus denen das Objekt besteht – z. B. PAX-Korpus + Türen + Einsätze. */
   parts?: ItemPart[];
+  /** Kaufstatus (fehlt = geplant). */
+  status?: PurchaseStatus;
 }
+
+export type PurchaseStatus = "geplant" | "bestellt" | "geliefert" | "aufgebaut";
 
 export interface ItemPart {
   pos?: string;
@@ -303,6 +307,7 @@ export interface BudgetLine {
   note?: string;
   variant?: string;
   category?: string;
+  status?: PurchaseStatus;
 }
 
 export type SurfaceKind =
@@ -388,6 +393,19 @@ export interface Project {
   settings: ProjectSettings;
   /** Benutzerdefinierte Katalogeinträge (z. B. importierte GLB). */
   customCatalog?: CatalogItem[];
+  /** Gespeicherte Planungsvarianten (Momentaufnahmen von Möblierung, Ausbau und Budget). */
+  variants?: ProjectVariant[];
+}
+
+export interface ProjectVariant {
+  id: string;
+  name: string;
+  createdAt: string;
+  items: PlacedItem[];
+  budget: BudgetLine[];
+  rooms: Record<string, RoomFinish>;
+  walls: Record<string, WallFinish>;
+  settings: ProjectSettings;
 }
 
 export interface ProjectSettings {
