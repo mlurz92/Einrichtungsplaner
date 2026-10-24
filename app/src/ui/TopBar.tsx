@@ -210,7 +210,7 @@ export function TopBar() {
           <span className="hidden w-20 text-left min-[1600px]:inline">Suchen …</span>
           <kbd className="hidden min-[1440px]:inline-flex">Strg K</kbd>
         </button>
-        <button className="btn-ghost h-8 w-8 p-0" title="Bedienung & Tastenkürzel (F1)" onClick={() => st.set("helpOpen", true)}>
+        <button className="btn-ghost h-8 w-8 p-0 max-[1359px]:hidden!" title="Bedienung & Tastenkürzel (F1)" onClick={() => st.set("helpOpen", true)}>
           <Keyboard size={16} />
         </button>
         <button className="btn-ghost h-8 w-8 p-0" title="Einstellungen (Strg+,)" onClick={() => st.set("settingsOpen", true)}>
