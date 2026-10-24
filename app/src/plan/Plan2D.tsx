@@ -17,6 +17,7 @@ import {
 import { PlanSymbol } from "./symbols";
 import { DND_TYPE, type CatalogDrop } from "../ui/dnd";
 import { applyPlacementSnap, beginDrag, dragUpdate, isFlatFloorItem, type DragStart } from "../store/placement";
+import { pointer } from "../ui/pointer";
 
 const S = 100; // SVG-Einheit = cm
 const P = (v: number) => v * S;
@@ -198,7 +199,7 @@ export function Plan2D() {
       const it = items.find((i) => i.id === selection[0])!;
       if (handle === "rot") setDrag({ kind: "rotate", id: it.id, cx: it.x, cy: it.y, a0: Math.atan2(p[1] - it.y, p[0] - it.x), r0: it.rot });
       else setDrag({ kind: "resize", id: it.id, side: handle as "l" | "r" | "f" | "b", orig: structuredClone(it) });
-      st.commit();
+      st.commit(handle === "rot" ? "Drehen" : "Größe ändern");
       return;
     }
     const id = itemAt(e.target);
@@ -235,6 +236,8 @@ export function Plan2D() {
   const onMove = (e: React.PointerEvent) => {
     const p = toPlan(e.clientX, e.clientY);
     setCursor(p);
+    pointer.plan = p;
+    pointer.over = "plan";
     if (!drag) {
       const id = itemAt(e.target);
       useEditor.getState().setHover(id);
@@ -253,7 +256,7 @@ export function Plan2D() {
       // Erst ab 4 px Mausweg verschieben (Klick bleibt Klick)
       if (!drag.moved && Math.hypot(e.clientX - drag.sx, e.clientY - drag.sy) < 4) return;
       if (!drag.moved) {
-        st.commit();
+        st.commit(drag.ds.ids.length > 1 ? `${drag.ds.ids.length} Objekte verschieben` : "Verschieben");
         setDrag({ ...drag, moved: true });
       }
       if (snapOn) {
@@ -316,6 +319,8 @@ export function Plan2D() {
   useEffect(() => {
     const k = (e: KeyboardEvent) => {
       if ((e.target as HTMLElement)?.tagName === "INPUT" || (e.target as HTMLElement)?.tagName === "TEXTAREA") return;
+      const st = useEditor.getState();
+      if (st.paletteOpen || st.startOpen || st.closeAsk || e.ctrlKey || e.metaKey || e.altKey) return;
       if (e.key === "m" || e.key === "M") setMeasure((m) => ({ on: !m.on }));
       if (e.key === "Escape") setMeasure({ on: false });
       if (e.key === "f" && !e.ctrlKey) fit();
@@ -381,7 +386,10 @@ export function Plan2D() {
         onPointerDown={onDown}
         onPointerMove={onMove}
         onPointerUp={onUp}
-        onPointerLeave={() => setCursor(null)}
+        onPointerLeave={() => {
+          setCursor(null);
+          pointer.over = null;
+        }}
         onDragOver={(e) => {
           if (!e.dataTransfer.types.includes(DND_TYPE)) return;
           e.preventDefault();

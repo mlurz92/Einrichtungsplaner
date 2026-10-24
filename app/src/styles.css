@@ -59,6 +59,18 @@ input[type="number"]::-webkit-inner-spin-button {
   @apply rounded-md px-2.5 py-1 text-xs font-medium text-stone-600 transition hover:text-stone-900;
 }
 
+@media (max-width: 1535px) {
+  .seg > button {
+    padding-inline: 0.45rem;
+  }
+}
+
+@media (max-width: 1359px) {
+  .seg > button {
+    padding-inline: 0.3rem;
+  }
+}
+
 .seg > button[data-on="true"] {
   @apply bg-stone-800 text-white;
 }

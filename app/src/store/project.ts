@@ -10,6 +10,7 @@ import type {
   RoomFinish,
   Slot,
   SlotStyle,
+  Vec2,
   WallFinish,
 } from "../model/types";
 import { localToPlan, nearestFace, roomAt, rotationForFace } from "../model/geometry";
@@ -19,6 +20,22 @@ import { applyPlacementSnap, setFrameMode } from "./placement";
 export type ViewMode = "plan" | "3d" | "split";
 export type Camera3D = "orbit" | "walk" | "top";
 export type WallMode = "auto" | "full" | "cut" | "low";
+export type LeftTab = "katalog" | "gestaltung" | "objekte" | "konzepte" | "budget";
+
+export interface Toast {
+  id: number;
+  msg: string;
+  kind: "info" | "error";
+  /** Schaltfläche im Hinweis, z. B. „Rückgängig“. */
+  action?: { label: string; run: () => void };
+}
+
+export interface ToastOptions {
+  kind?: Toast["kind"];
+  action?: Toast["action"];
+  /** Anzeigedauer in ms (Standard 3,2 s, mit Aktion oder Fehler 7 s). */
+  duration?: number;
+}
 
 export interface EditorState {
   project: Project;
@@ -32,24 +49,37 @@ export interface EditorState {
   showCeiling: boolean;
   night: boolean;
   quality: "hoch" | "mittel" | "niedrig";
-  leftTab: "katalog" | "gestaltung" | "objekte" | "konzepte" | "budget";
+  leftTab: LeftTab;
   placing: { catalogId: string; variant: number } | null;
   past: Project[];
   future: Project[];
+  /** Bezeichnungen der Undo-/Redo-Schritte (parallel zu past/future). */
+  pastLabels: string[];
+  futureLabels: string[];
   dirty: boolean;
   filePath: string | null;
-  toast: string | null;
+  toast: Toast | null;
   focusRequest: { x: number; y: number; t: number } | null;
   /** Hilfslinien des Wandfangs während des Ziehens. */
   snapGuides: SnapGuide[];
   helpOpen: boolean;
   newDialogOpen: boolean;
+  /** Startseite (Konzept, leere Wohnung, Datei, zuletzt verwendet). */
+  startOpen: boolean;
+  /** Befehlssuche (Strg+K). */
+  paletteOpen: boolean;
+  /** Abfrage beim Schließen des Fensters mit ungespeicherten Änderungen. */
+  closeAsk: boolean;
 
   // Aktionen
-  setProject(p: Project, opts?: { keepHistory?: boolean; filePath?: string | null }): void;
+  setProject(p: Project, opts?: { keepHistory?: boolean; filePath?: string | null; label?: string }): void;
   loadConcept(id: string): void;
   newEmptyProject(): void;
-  commit(): void;
+  /**
+   * Undo-Schritt anlegen. `coalesce`: aufeinanderfolgende Schritte mit gleichem Schlüssel
+   * innerhalb von 1,2 s werden zu einem Schritt zusammengefasst (z. B. Pfeiltasten).
+   */
+  commit(label?: string, coalesce?: string): void;
   undo(): void;
   redo(): void;
   select(ids: string[], additive?: boolean): void;
@@ -58,9 +88,13 @@ export interface EditorState {
   setHover(id: string | null): void;
   set<K extends keyof EditorState>(k: K, v: EditorState[K]): void;
   addFromCatalog(catalogId: string, variant: number, x: number, y: number, rot?: number): string | null;
-  updateItems(ids: string[], fn: (it: PlacedItem) => void, opts?: { commit?: boolean }): void;
+  updateItems(ids: string[], fn: (it: PlacedItem) => void, opts?: { commit?: boolean; label?: string; coalesce?: string }): void;
   removeItems(ids: string[]): void;
   duplicateItems(ids: string[]): void;
+  copyItems(ids: string[]): number;
+  cutItems(ids: string[]): void;
+  /** Zwischenablage einfügen; `at` = Planposition für den Mittelpunkt der eingefügten Gruppe. */
+  pasteItems(at?: Vec2 | null): void;
   replaceItem(id: string, catalogId: string, variant: number): void;
   applyVariant(id: string, variant: number): void;
   setSlot(id: string, slot: Slot, style: Partial<SlotStyle>): void;
@@ -68,7 +102,7 @@ export interface EditorState {
   setRoomFinish(roomId: string, patch: Partial<RoomFinish>): void;
   updateBudget(lines: BudgetLine[]): void;
   addCustomCatalog(item: CatalogItem): void;
-  showToast(msg: string): void;
+  showToast(msg: string, opts?: ToastOptions): void;
   requestFocus(x: number, y: number): void;
   setFrameStand(id: string, stand: boolean): void;
   /** Ausbau auf mehrere Räume anwenden (ein Undo-Schritt). */
@@ -91,6 +125,29 @@ export interface NewFurnishingOptions {
 }
 
 const AUTOSAVE_KEY = "we13.autosave.v1";
+/** Dateipfad und Speicherzustand zur automatischen Sicherung (überlebt Neustart). */
+const AUTOSAVE_META_KEY = "we13.autosave.meta.v1";
+/** Ansichtseinstellungen (Ansicht, Seitenleiste, Wände, Qualität). */
+const PREFS_KEY = "we13.prefs.v1";
+const HISTORY_LIMIT = 120;
+
+function readJson<T>(key: string): T | null {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? (JSON.parse(raw) as T) : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeJson(key: string, v: unknown): boolean {
+  try {
+    localStorage.setItem(key, JSON.stringify(v));
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 export function cloneProject(p: Project): Project {
   return structuredClone(p);
@@ -190,8 +247,32 @@ function loadAutosave(): Project | null {
 
 const urlParams = typeof location !== "undefined" ? new URLSearchParams(location.search) : new URLSearchParams();
 const urlConcept = concepts.find((c) => c.id === urlParams.get("concept"));
-const initial = urlConcept ? structuredClone(urlConcept.project) : loadAutosave() ?? structuredClone(concepts[0].project);
+const autosaved = urlConcept ? null : loadAutosave();
+/** true, wenn beim Start der letzte Arbeitsstand wiederhergestellt wurde. */
+export const restoredFromAutosave = !!autosaved;
+const autosaveMeta = autosaved ? readJson<{ filePath?: string | null; dirty?: boolean }>(AUTOSAVE_META_KEY) : null;
+const initial = urlConcept ? structuredClone(urlConcept.project) : autosaved ?? structuredClone(concepts[0].project);
 rebuildCatalogIndex(initial);
+
+interface Prefs {
+  viewMode?: ViewMode;
+  leftTab?: LeftTab;
+  wallMode?: WallMode;
+  quality?: EditorState["quality"];
+  showCeiling?: boolean;
+}
+const prefs = readJson<Prefs>(PREFS_KEY) ?? {};
+const firstStart = !urlConcept && !autosaved && !urlParams.has("view");
+
+let lastCommit: { key: string; t: number } | null = null;
+let toastSeq = 0;
+let toastTimer: ReturnType<typeof setTimeout> | undefined;
+let clipboard: PlacedItem[] = [];
+let pasteCount = 0;
+
+function plural(n: number, one: string, many: string) {
+  return `${n} ${n === 1 ? one : many}`;
+}
 
 export const useEditor = create<EditorState>((set, get) => ({
   project: initial,
@@ -199,34 +280,43 @@ export const useEditor = create<EditorState>((set, get) => ({
   selectedFace: null,
   selectedRoom: null,
   hoverId: null,
-  viewMode: (urlParams.get("view") as ViewMode) || "split",
+  viewMode: (urlParams.get("view") as ViewMode) || prefs.viewMode || "split",
   camera3d: (urlParams.get("cam") as Camera3D) || "orbit",
-  wallMode: (urlParams.get("walls") as WallMode) || "auto",
-  showCeiling: false,
+  wallMode: (urlParams.get("walls") as WallMode) || prefs.wallMode || "auto",
+  showCeiling: prefs.showCeiling ?? false,
   night: urlParams.get("night") === "1",
-  quality: (urlParams.get("q") as EditorState["quality"]) || "hoch",
-  leftTab: "katalog",
+  quality: (urlParams.get("q") as EditorState["quality"]) || prefs.quality || "hoch",
+  leftTab: prefs.leftTab || "katalog",
   placing: null,
   past: [],
   future: [],
-  dirty: false,
-  filePath: null,
+  pastLabels: [],
+  futureLabels: [],
+  dirty: autosaveMeta?.dirty ?? false,
+  filePath: autosaveMeta?.filePath ?? null,
   toast: null,
   focusRequest: null,
   snapGuides: [],
   helpOpen: false,
   newDialogOpen: false,
+  startOpen: firstStart,
+  paletteOpen: false,
+  closeAsk: false,
 
   setProject(p, opts) {
     p = migrateProject(p);
     rebuildCatalogIndex(p);
+    lastCommit = null;
+    const keep = !!opts?.keepHistory;
     set({
       project: p,
       selection: [],
       selectedFace: null,
       selectedRoom: null,
-      past: opts?.keepHistory ? [...get().past, get().project].slice(-100) : [],
+      past: keep ? [...get().past, get().project].slice(-HISTORY_LIMIT) : [],
+      pastLabels: keep ? [...get().pastLabels, opts?.label ?? "Projekt wechseln"].slice(-HISTORY_LIMIT) : [],
       future: [],
+      futureLabels: [],
       dirty: false,
       filePath: opts?.filePath ?? null,
     });
@@ -236,29 +326,67 @@ export const useEditor = create<EditorState>((set, get) => ({
     if (!c) return;
     const p = structuredClone(c.project);
     p.updatedAt = new Date().toISOString();
-    get().setProject(p, { keepHistory: true });
-    get().showToast(`${c.subtitle} geladen: ${c.title}`);
+    get().setProject(p, { keepHistory: true, label: `${c.subtitle} laden` });
+    get().showToast(`${c.subtitle} geladen: ${c.title}`, { action: { label: "Rückgängig", run: () => get().undo() } });
   },
   newEmptyProject() {
-    get().setProject(emptyProject(), { keepHistory: true });
+    get().setProject(emptyProject(), { keepHistory: true, label: "Leere Wohnung" });
+    get().showToast("Leere Wohnung (nur Bestand)", { action: { label: "Rückgängig", run: () => get().undo() } });
   },
-  commit() {
-    const { project, past } = get();
-    set({ past: [...past, cloneProject(project)].slice(-120), future: [], dirty: true });
+  commit(label, coalesce) {
+    const now = Date.now();
+    if (coalesce && lastCommit?.key === coalesce && now - lastCommit.t < 1200 && get().past.length) {
+      lastCommit.t = now;
+      set({ future: [], futureLabels: [], dirty: true });
+      return;
+    }
+    lastCommit = coalesce ? { key: coalesce, t: now } : null;
+    const { project, past, pastLabels } = get();
+    set({
+      past: [...past, cloneProject(project)].slice(-HISTORY_LIMIT),
+      pastLabels: [...pastLabels, label ?? "Bearbeiten"].slice(-HISTORY_LIMIT),
+      future: [],
+      futureLabels: [],
+      dirty: true,
+    });
   },
   undo() {
-    const { past, project, future } = get();
+    const { past, pastLabels, project, future, futureLabels, selection } = get();
     if (!past.length) return;
     const prev = past[past.length - 1];
+    const label = pastLabels[pastLabels.length - 1] ?? "Bearbeiten";
     rebuildCatalogIndex(prev);
-    set({ project: prev, past: past.slice(0, -1), future: [cloneProject(project), ...future].slice(0, 120), dirty: true });
+    lastCommit = null;
+    const ids = new Set(prev.items.map((i) => i.id));
+    set({
+      project: prev,
+      past: past.slice(0, -1),
+      pastLabels: pastLabels.slice(0, -1),
+      future: [cloneProject(project), ...future].slice(0, HISTORY_LIMIT),
+      futureLabels: [label, ...futureLabels].slice(0, HISTORY_LIMIT),
+      selection: selection.filter((id) => ids.has(id)),
+      dirty: true,
+    });
+    get().showToast(`Rückgängig: ${label}`);
   },
   redo() {
-    const { past, project, future } = get();
+    const { past, pastLabels, project, future, futureLabels, selection } = get();
     if (!future.length) return;
     const next = future[0];
+    const label = futureLabels[0] ?? "Bearbeiten";
     rebuildCatalogIndex(next);
-    set({ project: next, future: future.slice(1), past: [...past, cloneProject(project)], dirty: true });
+    lastCommit = null;
+    const ids = new Set(next.items.map((i) => i.id));
+    set({
+      project: next,
+      future: future.slice(1),
+      futureLabels: futureLabels.slice(1),
+      past: [...past, cloneProject(project)].slice(-HISTORY_LIMIT),
+      pastLabels: [...pastLabels, label].slice(-HISTORY_LIMIT),
+      selection: selection.filter((id) => ids.has(id)),
+      dirty: true,
+    });
+    get().showToast(`Wiederholt: ${label}`);
   },
   select(ids, additive) {
     const cur = get().selection;
@@ -291,12 +419,12 @@ export const useEditor = create<EditorState>((set, get) => ({
       else it.rot = roomAt(apartment, x, y) && ["13.01", "13.02", "13.03", "13.07", "13.09"].includes(roomAt(apartment, x, y)!) ? 8 : 0;
     }
     applyPlacementSnap(it, get().project.items, it.rot, get().project.settings.snap);
-    get().commit();
+    get().commit(`${c.name} platzieren`);
     set((s) => ({ project: { ...s.project, items: [...s.project.items, it], updatedAt: new Date().toISOString() }, selection: [it.id] }));
     return it.id;
   },
   updateItems(ids, fn, opts) {
-    if (opts?.commit !== false) get().commit();
+    if (opts?.commit !== false) get().commit(opts?.label, opts?.coalesce);
     const idset = new Set(ids);
     set((s) => ({
       project: {
@@ -315,13 +443,21 @@ export const useEditor = create<EditorState>((set, get) => ({
   },
   removeItems(ids) {
     if (!ids.length) return;
-    get().commit();
     const idset = new Set(ids);
+    const hit = get().project.items.filter((i) => idset.has(i.id));
+    const locked = hit.filter((i) => i.locked).length;
+    const n = hit.length - locked;
+    if (!n) {
+      if (locked) get().showToast(`${plural(locked, "Objekt ist gesperrt", "Objekte sind gesperrt")} – zum Löschen erst entsperren`);
+      return;
+    }
+    get().commit(n === 1 ? `${hit.find((i) => !i.locked)?.label ?? "Objekt"} löschen` : `${n} Objekte löschen`);
     set((s) => ({ project: { ...s.project, items: s.project.items.filter((i) => !idset.has(i.id) || i.locked) }, selection: [] }));
+    get().showToast(`${plural(n, "Objekt", "Objekte")} gelöscht${locked ? ` (${locked} gesperrt, bleiben)` : ""}`, { action: { label: "Rückgängig", run: () => get().undo() } });
   },
   duplicateItems(ids) {
     if (!ids.length) return;
-    get().commit();
+    get().commit(ids.length === 1 ? "Duplizieren" : `${ids.length} Objekte duplizieren`);
     const items = get().project.items.filter((i) => ids.includes(i.id));
     const copies = items.map((i) => {
       const c = structuredClone(i);
@@ -335,6 +471,48 @@ export const useEditor = create<EditorState>((set, get) => ({
       return c;
     });
     set((s) => ({ project: { ...s.project, items: [...s.project.items, ...copies] }, selection: copies.map((c) => c.id) }));
+  },
+  copyItems(ids) {
+    const items = get().project.items.filter((i) => ids.includes(i.id));
+    if (!items.length) return 0;
+    clipboard = structuredClone(items);
+    pasteCount = 0;
+    get().showToast(`${plural(items.length, "Objekt", "Objekte")} kopiert – Strg+V fügt an der Mausposition ein`);
+    return items.length;
+  },
+  cutItems(ids) {
+    const movable = get().project.items.filter((i) => ids.includes(i.id) && !i.locked).map((i) => i.id);
+    if (!movable.length) return;
+    get().copyItems(movable);
+    get().removeItems(movable);
+  },
+  pasteItems(at) {
+    if (!clipboard.length) {
+      get().showToast("Zwischenablage ist leer – erst Objekte mit Strg+C kopieren");
+      return;
+    }
+    const cx = clipboard.reduce((a, i) => a + i.x, 0) / clipboard.length;
+    const cy = clipboard.reduce((a, i) => a + i.y, 0) / clipboard.length;
+    pasteCount++;
+    const [dx, dy] = at ? [at[0] - cx, at[1] - cy] : [0.25 * pasteCount, 0.25 * pasteCount];
+    const known = clipboard.filter((i) => getCatalogItem(i.catalogId));
+    if (!known.length) {
+      get().showToast("Kopierte Objekte stammen aus einem anderen Projekt und sind hier nicht im Katalog", { kind: "error" });
+      return;
+    }
+    const copies = known.map((i) => {
+      const c = structuredClone(i);
+      c.id = uid();
+      c.locked = false;
+      c.existing = false;
+      c.pos = undefined;
+      c.x += dx;
+      c.y += dy;
+      c.room = roomAt(apartment, c.x, c.y) ?? c.room;
+      return c;
+    });
+    get().commit(copies.length === 1 ? `${copies[0].label ?? "Objekt"} einfügen` : `${copies.length} Objekte einfügen`);
+    set((s) => ({ project: { ...s.project, items: [...s.project.items, ...copies], updatedAt: new Date().toISOString() }, selection: copies.map((c) => c.id) }));
   },
   replaceItem(id, catalogId, variant) {
     const c = getCatalogItem(catalogId);
@@ -352,7 +530,7 @@ export const useEditor = create<EditorState>((set, get) => ({
     const fy = front[1] - old.y;
     n.x = back[0] + fx * (n.d / 2);
     n.y = back[1] + fy * (n.d / 2);
-    get().commit();
+    get().commit(`Tauschen gegen ${c.name}`);
     set((s) => ({ project: { ...s.project, items: s.project.items.map((i) => (i.id === id ? n : i)) } }));
     get().showToast(`Getauscht: ${c.name}`);
   },
@@ -365,17 +543,17 @@ export const useEditor = create<EditorState>((set, get) => ({
       x.variant = v.name;
       x.slots = structuredClone(v.slots);
       if (x.parts?.length === 1) x.parts[0] = { ...x.parts[0], unit: v.price ?? x.parts[0].unit, variant: v.name, url: v.url ?? x.parts[0].url };
-    });
+    }, { label: `Variante „${v.name}“` });
   },
   setSlot(id, slot, style) {
     get().updateItems([id], (x) => {
       const cur = x.slots[slot] ?? { color: "#cccccc", material: "matte" };
       x.slots[slot] = { ...cur, ...style };
       x.variant = "Individuell";
-    });
+    }, { label: "Farbe/Material", coalesce: `slot:${id}:${slot}` });
   },
   setWallFinish(faceIds, finish) {
-    get().commit();
+    get().commit("Wandgestaltung", `wall:${faceIds.join(",")}`);
     set((s) => {
       const walls = { ...s.project.walls };
       for (const f of faceIds) {
@@ -386,7 +564,7 @@ export const useEditor = create<EditorState>((set, get) => ({
     });
   },
   applyToRooms(roomIds, fn) {
-    get().commit();
+    get().commit(roomIds.length === 1 ? "Raumausbau" : `Ausbau für ${roomIds.length} Räume`);
     set((s) => {
       const rooms = { ...s.project.rooms };
       for (const id of roomIds) if (rooms[id]) rooms[id] = fn(structuredClone(rooms[id]), id);
@@ -394,7 +572,7 @@ export const useEditor = create<EditorState>((set, get) => ({
     });
   },
   setSettings(patch) {
-    get().commit();
+    get().commit("Einstellungen", `settings:${Object.keys(patch).join(",")}`);
     set((s) => ({ project: { ...s.project, settings: { ...s.project.settings, ...patch } }, dirty: true }));
   },
   newFurnishing(o) {
@@ -416,36 +594,38 @@ export const useEditor = create<EditorState>((set, get) => ({
       f.wall = wet ? { ...f.wall, base: { kind: "paint", color: o.wallColor, productName: o.wallProduct } } : { base: { kind: "paint", color: o.wallColor, productName: o.wallProduct } };
       if (o.floor && r.floor === "parkett") f.floor = { ...o.floor, angle: f.floor.angle };
     }
-    get().setProject(p, { keepHistory: true });
+    get().setProject(p, { keepHistory: true, label: "Neue Einrichtung" });
   },
   setRoomFinish(roomId, patch) {
-    get().commit();
+    get().commit("Raumausbau", `room:${roomId}:${Object.keys(patch).join(",")}`);
     set((s) => ({
       project: { ...s.project, rooms: { ...s.project.rooms, [roomId]: { ...s.project.rooms[roomId], ...structuredClone(patch) } } },
       dirty: true,
     }));
   },
   updateBudget(lines) {
-    get().commit();
+    get().commit("Budget", "budget");
     set((s) => ({ project: { ...s.project, budget: lines } }));
   },
   addCustomCatalog(item) {
-    get().commit();
+    get().commit(`${item.name} importieren`);
     set((s) => {
       const p = { ...s.project, customCatalog: [...(s.project.customCatalog ?? []), item] };
       rebuildCatalogIndex(p);
       return { project: p };
     });
   },
-  showToast(msg) {
-    set({ toast: msg });
-    setTimeout(() => {
-      if (get().toast === msg) set({ toast: null });
-    }, 3200);
+  showToast(msg, opts) {
+    const t: Toast = { id: ++toastSeq, msg, kind: opts?.kind ?? "info", action: opts?.action };
+    set({ toast: t });
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      if (get().toast?.id === t.id) set({ toast: null });
+    }, opts?.duration ?? (t.action || t.kind === "error" ? 7000 : 3200));
   },
   setFrameStand(id, stand) {
     const items = get().project.items;
-    get().updateItems([id], (it) => setFrameMode(it, stand, items));
+    get().updateItems([id], (it) => setFrameMode(it, stand, items), { label: stand ? "The Frame: Standfuß" : "The Frame: Wandmontage" });
   },
   requestFocus(x, y) {
     set({ focusRequest: { x, y, t: Date.now() } });
@@ -455,18 +635,30 @@ export const useEditor = create<EditorState>((set, get) => ({
 // Zugriff für automatisierte Tests/Diagnose
 (globalThis as unknown as Record<string, unknown>).__we13store = useEditor;
 
-// Autosave (entprellt)
+// Autosave (entprellt) samt Dateipfad/Speicherzustand; einmaliger Hinweis, wenn der Speicher nicht reicht
 let saveTimer: ReturnType<typeof setTimeout> | undefined;
+let autosaveWarned = false;
+/** Zeitpunkt der letzten erfolgreichen automatischen Sicherung. */
+export let lastAutosave: Date | null = null;
 useEditor.subscribe((s, prev) => {
+  if (s.filePath !== prev.filePath || s.dirty !== prev.dirty) writeJson(AUTOSAVE_META_KEY, { filePath: s.filePath, dirty: s.dirty });
   if (s.project === prev.project) return;
   clearTimeout(saveTimer);
   saveTimer = setTimeout(() => {
-    try {
-      localStorage.setItem(AUTOSAVE_KEY, JSON.stringify(s.project));
-    } catch {
-      /* Speicher voll – ignorieren */
+    if (writeJson(AUTOSAVE_KEY, s.project)) {
+      lastAutosave = new Date();
+      autosaveWarned = false;
+    } else if (!autosaveWarned) {
+      autosaveWarned = true;
+      useEditor.getState().showToast("Automatische Sicherung nicht möglich (Projekt zu groß, z. B. durch importierte Modelle) – bitte mit Strg+S speichern", { kind: "error", duration: 10000 });
     }
   }, 700);
+});
+
+// Ansichtseinstellungen merken
+useEditor.subscribe((s, prev) => {
+  if (s.viewMode === prev.viewMode && s.leftTab === prev.leftTab && s.wallMode === prev.wallMode && s.quality === prev.quality && s.showCeiling === prev.showCeiling) return;
+  writeJson(PREFS_KEY, { viewMode: s.viewMode, leftTab: s.leftTab, wallMode: s.wallMode, quality: s.quality, showCeiling: s.showCeiling } satisfies Prefs);
 });
 
 export function budgetSummary(p: Project) {

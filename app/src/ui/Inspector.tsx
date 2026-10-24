@@ -686,7 +686,9 @@ export function Inspector() {
         <li>Pfeiltasten: 1 cm, mit Umschalt 10 cm</li>
         <li>Entf: löschen · Strg+D: duplizieren</li>
         <li>Strg+Z / Strg+Y: rückgängig / wiederholen</li>
-        <li>M: messen · F: einpassen bzw. 3D-Fokus</li>
+        <li>Strg+C / Strg+V: kopieren, an der Mausposition einfügen</li>
+        <li>M: messen · F: einpassen bzw. 3D-Fokus · 1/2/3: Ansicht</li>
+        <li>Strg+K: Befehl, Raum oder Produkt suchen</li>
         <li>F1: alle Tastenkürzel</li>
       </ul>
     </div>
