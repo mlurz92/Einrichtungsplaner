@@ -120,6 +120,21 @@ export function dataTexture(key: TexKey, kind: "normal" | "rough"): THREE.Textur
   return t;
 }
 
+/** Fertig eingefärbte Farbtextur (sRGB), z. B. Keramikdekore mit mehrfarbiger Aderung, die sich nicht einfärben lassen. */
+export function colorTexture(name: string): THREE.Texture {
+  const k = `color|${name}`;
+  let t = dataTexCache.get(k);
+  if (!t) {
+    trackStart();
+    t = texLoader.load(`${BASE}assets/textures/${name}_color.webp`, trackEnd, undefined, trackEnd);
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    t.colorSpace = THREE.SRGBColorSpace;
+    t.anisotropy = 8;
+    dataTexCache.set(k, t);
+  }
+  return t;
+}
+
 /** Mittelwert der Rauheitstexturen (Grünkanal, 0–1), zur Normierung in materials.ts/surfaces.ts. */
 export const ROUGH_MEAN: Record<TexKey, number> = {
   oak: 0.553, walnut: 0.328, darkwood: 0.544, burl: 0.329, boucle: 0.84, linen: 0.829, velvet: 0.679, fabric: 0.825, weave: 0.919,

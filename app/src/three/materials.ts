@@ -1,12 +1,14 @@
 import * as THREE from "three";
 import type { MaterialKey, SlotStyle } from "../model/types";
-import { ALBEDO_GAIN, ROUGH_MEAN, albedoTexture, dataTexture, graniteTexture, ribNormal, type TexKey } from "./textures";
+import { ALBEDO_GAIN, ROUGH_MEAN, albedoTexture, colorTexture, dataTexture, graniteTexture, ribNormal, type TexKey } from "./textures";
 
 // Physikalisch basierte Materialvorlagen. UVs der Möbelgeometrien sind in Metern angelegt
 // (siehe geom.ts → worldUV); "scale" gibt die Kachelgröße der Textur in Metern an.
 
 interface MatDef {
   tex?: TexKey;
+  /** Fertig eingefärbte Textur (public/assets/textures/<name>_color.webp); Slotfarbe dient nur 2D-Plan und Listen */
+  colorTex?: string;
   normalTex?: TexKey;
   roughTex?: TexKey;
   scale: number;
@@ -56,6 +58,9 @@ export const MAT_DEFS: Record<MaterialKey, MatDef> = {
   granite: { scale: 0.8, roughness: 0.14 },
   marble: { tex: "marble", normalTex: "marble", scale: 1.0, roughness: 0.16, normalScale: 0.2, contrast: 1.1 },
   marbleGreen: { tex: "marblegreen", normalTex: "marblegreen", scale: 0.9, roughness: 0.14, normalScale: 0.2, contrast: 1.6 },
+  // Laminam® Noir Désir (Keramik auf Glas): schwarzbraun, ockerfarbene Adern mit hellem Kern, seidenglänzend.
+  // Textur: tools/gen_noirdesir.py, 2048 px = 2,0 m, Adern schräg zur Tischlänge
+  marbleNoir: { colorTex: "noirdesir", scale: 2.0, roughness: 0.22, clearcoat: 0.25, clearcoatRoughness: 0.12 },
   stone: { tex: "concrete", normalTex: "concrete", scale: 1.2, roughness: 0.75, normalScale: 0.5, contrast: 0.6 },
   ceramic: { scale: 1, roughness: 0.2 },
   glass: { scale: 1, roughness: 0.04, transmission: 0.96, opacity: 0.35 },
@@ -123,6 +128,13 @@ export function getMaterial(style: SlotStyle | undefined, fallback: SlotStyle = 
     p.map = t;
     p.color.multiplyScalar(ALBEDO_GAIN);
     capAlbedo(p.color);
+  }
+  if (def.colorTex) {
+    const t = colorTexture(def.colorTex).clone();
+    t.repeat.set(1 / def.scale, 1 / def.scale);
+    t.needsUpdate = true;
+    p.map = t;
+    p.color.set("#ffffff");
   }
   if (s.material === "granite") {
     const t = graniteTexture(s.color);
