@@ -864,6 +864,160 @@ def jysk():
     return list(out.values())
 
 
+# ------------------------------------------------------------------ Höffner (längliche Marmor-/Keramiktische)
+# Auswahl aus scrape_hoeffner.py: Artikel → (Archetyp, Plattenkennzeichnung, Platte, Gestell). Höffner führt keinen
+# Naturmarmor; „Stein“ mit 1,1–1,2 cm Stärke ist gesinterter Stein/Keramik in Marmor- bzw. Travertinoptik.
+HOEFFNER = {
+    "50309628": ("tableRect", "Steinplatte Marmoroptik Weiß", ("#ecebe8", "marble"), ("Gestell Metall Creme", "#e6dfd0", "lacquer")),
+    "50309630": ("tableOval", "Steinplatte Marmoroptik Schwarz", ("#1d1d1d", "marble"), ("Gestell Metall Schwarz", "#1d1d1d", "blackMetal")),
+    "50305017": ("tableRect", "Keramik Marmoroptik Weiß", ("#efece6", "marble"), ("Gestell Metall Beige", "#cdbfa6", "lacquer")),
+    "50309655": ("tableRect", "Keramik marmoriert Beige", ("#d8cbb5", "marble"), ("Gestell Metall Beige", "#d3c6ae", "lacquer")),
+    "40309354": ("tableOval", "Dekton Entzo Marmoroptik Weiß", ("#eeece8", "marble"), ("Säulengestell Anthrazit", "#3a3b3c", "lacquer")),
+    "40307949": ("tableOval", "Keramik Himalaya Crystal Weiß", ("#ebe9e4", "marble"), ("Wangengestell Anthrazit matt", "#3a3b3c", "matte")),
+    "50309632": ("tableRect", "Steinplatte Travertinoptik", ("#e4ddd0", "travertine"), ("Gestell Metall Khaki", "#b5ab94", "lacquer")),
+    # Stein-/Keramiktische in Uni- und Steinoptik
+    "50309767": ("tableOval", "Steinplatte Schwarz", ("#2b2b2a", "stone"), ("Schrägsäule Metall bronzefarben", "#8c6a43", "lacquer")),
+    "50304622": ("tableRect", "Steinplatte Grau", ("#4a4a48", "stone"), ("Gestell Metall Schwarz", "#1d1d1d", "blackMetal")),
+    "14306788": ("tableRect", "Keramik Grau auf Glas", ("#6e6e6b", "stone"), ("Gestell Metall Schwarz", "#1d1d1d", "blackMetal")),
+    "40305662": ("tableOval", "Keramik Schwarz auf Glas", ("#2a2a2a", "stone"), ("Gestell Metall Schwarz", "#1d1d1d", "blackMetal")),
+    "14303161": ("tableRect", "Keramik Anthrazit auf Glas", ("#4a4a48", "stone"), ("Gestell Metall Schwarz matt", "#1d1d1d", "blackMetal")),
+    "50304676": ("tableRect", "Keramik Grau", ("#6b6b68", "stone"), ("Gestell Metall Dunkelgrau", "#4a4a48", "lacquer")),
+    "40309358": ("tableRect", "Dekton Trilium Steinoptik Anthrazit", ("#3a3b3c", "stone"), ("Gestell Metall Anthrazit", "#3a3b3c", "lacquer")),
+    "40308767": ("tableRect", "Sinterstein Hellbeige", ("#e9e6df", "ceramic"), ("Gestell Metall Weiß", "#f4f2ee", "lacquer")),
+    "40305478": ("tableOval", "Keramik Grau", ("#4f4f4d", "stone"), ("Design-Gestell Edelstahl gebürstet", "#c6cbd0", "steel")),
+}
+
+
+def stone_tags(plate):
+    """„Steintisch“ für alle Stein-/Keramikplatten, zusätzlich „Marmortisch“ bei Marmor-/Travertin(optik)."""
+    t = ["Steintisch"]
+    if re.search(r"marm|travertin|himalaya", plate, re.I):
+        t += ["Marmortisch", "Travertinoptik" if "Travertin" in plate else "Marmoroptik"]
+    return t
+
+
+# Gestell/Plattenform nach Produktfoto (Archetyp-Parameter: top = Plattenstärke, radius = Eckradius, base = panel für Wangen/Säulen)
+TABLE_FORM = {
+    "50309628": ("tableRect", {"top": 0.02, "radius": 0.08, "legStyle": "square", "inset": 0.3, "noApron": True}),  # Jonida X-Gestell
+    "50309630": ("tablePedestal", {"top": 0.02, "footD": 0.55}),  # Jihan V-Säule auf ovalem Fuß
+    "50305017": ("tableRect", {"top": 0.02, "radius": 0.02, "legStyle": "square", "inset": 0.3, "noApron": True}),  # Jason
+    "50309655": ("tableRect", {"top": 0.03, "radius": 0.3, "leg": 0.09, "inset": 0.12, "noApron": True}),  # Gota Säulenbeine
+    "40309354": ("tablePedestal", {"top": 0.02, "footD": 0.6}),  # Navarra Säule
+    "40307949": ("tableRect", {"top": 0.025, "radius": 0.45, "base": "panel", "noApron": True}),  # Lucca Wangen
+    "50309632": ("tableRect", {"top": 0.02, "radius": 0.12, "base": "panel", "noApron": True}),  # Jogi zwei Säulen
+    "50309767": ("tablePedestal", {"top": 0.02, "footD": 0.6}),  # Juka Schrägsäule
+    "50304622": ("tableRect", {"top": 0.02, "legStyle": "square", "leg": 0.04, "inset": 0.12, "noApron": True}),  # Talia
+    "14306788": ("tableRect", {"top": 0.02, "legStyle": "square", "inset": 0.3, "noApron": True}),  # Julien
+    "40305662": ("tableOval", {"top": 0.02}),  # Bryan
+    "14303161": ("tableRect", {"top": 0.02, "legStyle": "square", "inset": 0.3, "noApron": True}),  # Nora X-Gestell
+    "50304676": ("tableRect", {"top": 0.02, "legStyle": "square", "inset": 0.3, "noApron": True}),  # Guste
+    "40309358": ("tableRect", {"top": 0.02, "legStyle": "square", "noApron": True}),  # Navarra rechteckig
+    "40308767": ("tableRect", {"top": 0.02, "base": "panel", "noApron": True}),  # Bela V-Gestell
+    "40305478": ("tableOval", {"top": 0.02}),  # Giovanni
+    "Augusta": ("tableRect", {"top": 0.02, "radius": 0.02, "leg": 0.03, "inset": 0.08, "noApron": True}),
+    "Santiago": ("tableOval", {"top": 0.025}),
+    "Volterra": ("tableRect", {"top": 0.025, "radius": 0.3, "base": "panel", "noApron": True}),
+    "Alicante": ("tableRect", {"top": 0.025, "radius": 0.15, "base": "panel", "noApron": True}),
+    "Fiorentina": ("tableRect", {"top": 0.025, "radius": 0.15, "base": "panel", "noApron": True}),
+}
+
+
+def hoeffner():
+    f = RES / "hoeffner_products.json"
+    if not f.exists():
+        return []
+    out = []
+    for p in json.loads(f.read_text()):
+        if p["id"] not in HOEFFNER:
+            continue
+        arch, plate, (top, top_mat), (legs_txt, legs, legs_mat) = HOEFFNER[p["id"]]
+        sp = p["specs"]
+        W, D, H = (float(sp[k].replace(" cm", "").replace(",", ".")) for k in ("Gesamtlänge", "Gesamtbreite", "Gesamthöhe"))
+        price = p["listPrice"] or p["price"]
+        name = p["name"].split()[-1]  # Modellname steht bei Höffner am Ende („Keramiktisch ausziehbar Julien“)
+        v = {"name": f"{plate}, {legs_txt}", "slots": {"top": {"color": top, "material": top_mat}, "main": {"color": top, "material": top_mat},
+             "legs": {"color": legs, "material": legs_mat}}, "price": price, "url": p["url"], "image": p["image"]}
+        desc = [f"Platte: {plate}" + (f" ({sp['Stärke Tischplatte']})" if sp.get("Stärke Tischplatte") else ""), f"Form: {sp.get('Form')}",
+                f"Platz für ca. {sp.get('Platz für ca.')}"]
+        if p["listPrice"] and p["price"] < p["listPrice"]:
+            desc.append(f"Höffner-Aktionspreis {p['price']:.2f} € statt {p['listPrice']:.0f} €".replace(".", ","))
+        if sp.get("Ausziehbar bis"):
+            desc.append(f"ausziehbar bis {sp['Ausziehbar bis']}")
+        elif "ausziehbar" in " ".join(p["highlights"] + [p.get("description") or ""]).lower():
+            desc.append("ausziehbar")
+        e = {
+            "id": f"hoe-{re.sub(r'[^a-z0-9]+', '-', name.lower()).strip('-')}-{p['id']}", "vendor": "Höffner", "name": f"Esstisch {name} ({plate})", "category": "diningTable",
+            "w": W, "d": D, "h": H, "price": price, "url": p["url"], "image": p["image"],
+            "archetype": TABLE_FORM.get(p["id"], (arch,))[0], "params": dict(TABLE_FORM.get(p["id"], (arch, {}))[1]),
+            "variants": [v], "tags": stone_tags(plate) + ["Keramik/Sinterstein"],
+            "premium": price >= 1000, "description": " · ".join(desc),
+        }
+        out.append(finalize(e))
+    return out
+
+
+# ------------------------------------------------------------------ BoConcept (Keramiktische, Standardkonfiguration)
+# Name → (Archetyp, Plattenkennzeichnung, Platte, Gestell); Maße und Preise aus scrape_boconcept.py
+BOCONCEPT = {
+    "Augusta": ("tableRect", "Keramik dunkle Marmoroptik", ("#26272a", "marble"), ("Beine mattschwarzer Strukturlack", "#1d1d1d", "blackMetal")),
+    "Santiago": ("tableOval", "Keramik braune Marmoroptik", ("#b9aa98", "marble"), ("Säulen dunkles Eichenfurnier", "#3e2c22", "oakDark")),
+    "Volterra": ("tableRect", "Keramik warmbeige Marmoroptik", ("#e6e0d3", "marble"), ("U-Säule warmgrauer Stahl", "#7d776e", "lacquer")),
+    "Alicante": ("tableRect", "Keramik aschgrau, Steinoptik", ("#8f8f8c", "stone"), ("Gestell matter aschgrauer Strukturlack", "#9a978f", "matte")),
+    "Fiorentina": ("tableRect", "Keramik aschgrau hell, Steinoptik", ("#d9d8d4", "stone"), ("Säule matter aschgrauer Strukturlack", "#9a978f", "matte")),
+}
+
+
+def boconcept():
+    f = RES / "boconcept_products.json"
+    if not f.exists():
+        return []
+    out = []
+    for p in json.loads(f.read_text()):
+        if p.get("name") not in BOCONCEPT or not p.get("price"):
+            continue
+        arch, plate, (top, top_mat), (legs_txt, legs, legs_mat) = BOCONCEPT[p["name"]]
+        cm_ = lambda k: float(re.match(r"[\d.,]+", p["dims"][k]).group(0).replace(",", ".")) + (0.5 if "½" in p["dims"][k].split("/")[0] else 0)
+        W, D, H = cm_("length"), cm_("width"), cm_("height")
+        image = p["image"].replace("width=1920", "width=800")
+        v = {"name": f"{plate}, {legs_txt}", "slots": {"top": {"color": top, "material": top_mat}, "main": {"color": top, "material": top_mat},
+             "legs": {"color": legs, "material": legs_mat}}, "price": p["price"], "url": p["url"], "image": image}
+        desc = [f"Platte: {plate}", f"Größe lt. Hersteller: {p['attrs'].get('Größe', [''])[0]}", f"Form: {p['attrs'].get('Form', [''])[0]}"]
+        if p["dims"].get("lengthExtendable"):
+            desc.append(f"ausziehbar bis {p['dims']['lengthExtendable']}")
+        if p["attrs"].get("Design von"):
+            desc.append(f"Design: {p['attrs']['Design von'][0]}")
+        desc.append("Preis für die Standardkonfiguration")
+        e = {
+            "id": f"boc-{p['name'].lower()}-{p['sku'].lower()}", "vendor": "Designhandel", "brand": "BoConcept", "series": p["name"],
+            "name": f"BoConcept Esstisch {p['name']} ({plate})", "category": "diningTable", "w": W, "d": D, "h": H, "price": p["price"],
+            "url": p["url"], "image": image, "archetype": TABLE_FORM.get(p["name"], (arch,))[0],
+            "params": dict(TABLE_FORM.get(p["name"], (arch, {}))[1]), "variants": [v],
+            "tags": ["BoConcept"] + stone_tags(plate) + ["Keramik/Sinterstein"], "premium": True, "description": " · ".join(desc),
+        }
+        out.append(finalize(e))
+    return out
+
+
+# Längliche Marmortische der übrigen Händler: Kennzeichnung echter Marmor vs. Optik (Shopangaben zum Plattenmaterial)
+MARBLE_TABLES = {
+    "wes-oval-dining-table-marmo-200-x-90-cm-en-25gae91508": "Echter Marmor (auf MDF)",
+    "wes-marmor-esstisch-artistico-160-x-90-cm-173617": "Echter Marmor (massiv, 4 cm)",
+    "wes-esstisch-jackson-131144": "Keramik Marmoroptik",
+    "wes-esstisch-carl-in-marmor-optik-180-x-90-cm-157048": "Marmoroptik (Dekorpapier)",
+    "ike-20576124": "Marmoroptik (Dekor)",
+    "jys-esstisch-krondal-90x180-marmor-schwarz": "Marmoroptik (Melamin)",
+}
+
+
+def tag_marble_tables(cat):
+    for e in cat:
+        label = MARBLE_TABLES.get(e["id"])
+        if label:
+            e["tags"] = list(dict.fromkeys((e.get("tags") or []) + ["Steintisch", "Marmortisch", label]))
+            if label not in (e.get("description") or ""):
+                e["description"] = f"Platte: {label}" + (" · " + e["description"] if e.get("description") else "")
+
+
 def concept_items():
     f = DATA / "conceptCatalog.json"
     items = json.loads(f.read_text()) if f.exists() else []
@@ -1290,11 +1444,16 @@ def _norm_url(u):
     return "ikea:" + m.group(1).lstrip("s") if m else u
 
 
+def is_concept(e):
+    """Konzeptprodukt, auch wenn es (z. B. als ersetzter Esstisch) aktuell in keinem Konzept platziert ist."""
+    return bool(e.get("concepts")) or "Konzept" in (e.get("tags") or [])
+
+
 def _url_index(cat):
+    """Shop-URL → Shopeintrag. Aus dem Hauptkatalog übernommene Konzeptprodukte (ohne Tag „Konzept“) zählen mit,
+    denn ihr Shopartikel steht danach nur noch einmal im Katalog."""
     idx = {}
-    for e in cat:
-        if e["vendor"] in ("Bestand",) or e.get("concepts"):
-            continue
+    for e in sorted((e for e in cat if e["vendor"] not in ("Bestand",) and "Konzept" not in (e.get("tags") or [])), key=is_concept):
         for u in [e.get("url")] + [v.get("url") for v in e["variants"]]:
             if u:
                 idx.setdefault(_norm_url(u), e)
@@ -1306,10 +1465,10 @@ def enrich_concepts(cat):
     idx = _url_index(cat)
     n = 0
     for e in cat:
-        if not e.get("concepts") or not e.get("url"):
+        if not is_concept(e) or not e.get("url"):
             continue
         src = idx.get(_norm_url(e["url"]))
-        if not src or src["category"] != e["category"]:
+        if not src or src is e or src["category"] != e["category"]:
             continue
         have = {v["name"].lower() for v in e["variants"]}
         e["variants"][0].setdefault("price", e["price"])
@@ -1362,19 +1521,20 @@ def write_aliases(cat):
 
 
 def main():
-    groups = [("Konzepte", concept_items()), ("Westwing", merge_color_variants(westwing())), ("IKEA", merge_color_variants(ikea())), ("JYSK", merge_color_variants(jysk())), ("Tylko", tylko()), ("lampe.de", lampe()), ("Ergänzungen", generic_items())]
+    groups = [("Konzepte", concept_items()), ("Westwing", merge_color_variants(westwing())), ("IKEA", merge_color_variants(ikea())), ("JYSK", merge_color_variants(jysk())), ("Tylko", tylko()), ("lampe.de", lampe()), ("Höffner", hoeffner()), ("BoConcept", boconcept()), ("Ergänzungen", generic_items())]
     seen = set(); cat = []
     for label, items in groups:
         k = 0
         for e in items:
-            if e["id"] in seen or (e["vendor"] not in ("Bestand",) and not e.get("concepts") and EXCLUDE_NAME.search(e["name"])):
+            if e["id"] in seen or (e["vendor"] not in ("Bestand",) and not is_concept(e) and EXCLUDE_NAME.search(e["name"])):
                 continue
             # Raumhöhe WE 13 = 2,56 m: höhere Standmöbel passen nicht in die Wohnung
-            if e.get("mount", "floor") == "floor" and e["h"] > 252 and e["archetype"] not in ("curtain", "lamella", "panelWall", "molding") and not e.get("concepts"):
+            if e.get("mount", "floor") == "floor" and e["h"] > 252 and e["archetype"] not in ("curtain", "lamella", "panelWall", "molding") and not is_concept(e):
                 continue
             seen.add(e["id"]); cat.append(e); k += 1
         print(f"{label}: {k}")
     enrich_concepts(cat)
+    tag_marble_tables(cat)
     write_aliases(cat)
     for e in cat:
         for kk in ("w", "d", "h", "price"):
