@@ -263,16 +263,18 @@ export function floorTexture(kind: string, color: string, plankL = 1.9, plankW =
       g.fillStyle = shade(color, tint);
       g.fillRect(0, 0, w, h);
       if (grain) {
-        // schmaler Streifen der Maserung, längs zur Diele (Maserung der Quelle verläuft horizontal)
+        // Schmaler Streifen der Maserung, längs zur Diele: Die Fasern der Quelle laufen senkrecht,
+        // der Streifen wird daher um 90° gedreht eingesetzt (Maserung = Verlegerichtung).
         g.globalCompositeOperation = "multiply";
-        const sh = Math.max(8, grain.width * (h / w) * 0.9);
-        const sy = R() * (grain.height - sh);
-        const flip = R() > 0.5;
-        if (flip) {
+        const sw = Math.max(8, grain.height * (h / w) * 0.9);
+        const sx = R() * (grain.width - sw);
+        if (R() > 0.5) {
           g.translate(w, 0);
           g.scale(-1, 1);
         }
-        g.drawImage(grain, 0, sy, grain.width, sh, 0, 0, w, h);
+        g.translate(0, h);
+        g.rotate(-Math.PI / 2);
+        g.drawImage(grain, sx, 0, sw, grain.height, 0, 0, h, w);
         g.globalCompositeOperation = "source-over";
       }
       g.restore();
