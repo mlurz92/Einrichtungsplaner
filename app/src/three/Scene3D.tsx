@@ -128,7 +128,7 @@ function Environment() {
   const { day } = useSun();
   const probe = useMemo(() => new EnvironmentProbe(gl, quality === "niedrig" ? 128 : 256), [gl, quality]);
   useEffect(() => () => probe.dispose(), [probe]);
-  const st = useRef({ dirty: true, last: 0, pos: new THREE.Vector3(1e9, 0, 0), timer: 0, passes: 0, refineTimer: 0, lamps: -1, settle: 0, cam: new THREE.Matrix4() });
+  const st = useRef({ dirty: true, last: 0, pos: new THREE.Vector3(1e9, 0, 0), timer: 0, passes: 0, refineTimer: 0, lamps: -1, settle: 0, waitSince: 0, cam: new THREE.Matrix4() });
   // Neu aufnehmen bei Änderungen an Einrichtung, Ausbau, Licht oder Uhrzeit
   useEffect(() => {
     const settle = (ms: number) => {
@@ -174,10 +174,17 @@ function Environment() {
     const moved = spot.distanceTo(s.pos) > 0.8;
     if (!s.dirty && !moved) return;
     let now = performance.now();
-    // Kamera in Bewegung: erst aufnehmen, wenn sie kurz stillsteht (flüssiges Drehen)
-    if (!s.cam.equals(camera.matrixWorld)) {
+    // Kamera in Bewegung: erst aufnehmen, wenn sie kurz stillsteht (flüssiges Drehen), spätestens
+    // aber nach 1,5 s (Dämpfung der Kamerasteuerung erzeugt noch winzige Bewegungen)
+    const e = camera.matrixWorld.elements, c = s.cam.elements;
+    let still = true;
+    for (let i = 0; i < 16; i++) if (Math.abs(e[i] - c[i]) > 2e-3) still = false;
+    if (!still) {
       s.cam.copy(camera.matrixWorld);
-      if (moved) s.settle = Math.max(s.settle, now + 150);
+      if (moved) {
+        if (!s.waitSince) s.waitSince = now;
+        if (now - s.waitSince < 1500) s.settle = Math.max(s.settle, now + 150);
+      }
     }
     if (now < s.settle) {
       clearTimeout(s.timer);
@@ -193,6 +200,7 @@ function Environment() {
     }
     s.last = now;
     s.dirty = false;
+    s.waitSince = 0;
     s.pos.copy(spot);
     const d = night ? 0 : day;
     scene.environment = probe.capture(scene, spot, night ? 0.006 : 0.012 + SKY_LEVEL * d, s.passes > 0);
@@ -207,10 +215,9 @@ function Environment() {
     }
     // Belichtungsautomatik wie bei einer Kamera: mittlere Raumhelligkeit → Mittelgrau.
     // Abends etwas knapper belichtet, damit es nach Abend aussieht und nicht nach Tag.
-    gl.toneMappingExposure = THREE.MathUtils.clamp((night ? EXPOSURE_KEY_NIGHT : EXPOSURE_KEY) / probe.luminance, 0.3, night ? 4 : 12);
-    // Weißabgleich nur in Innenansichten am Tag; die Übersicht steht vor dem neutral abgestimmten
-    // Verlauf, und abends bleibt das Leuchtenlicht bewusst warm
-    whiteBalance.gain = !night && (useView3D.getState().interior || camera3d === "walk") ? probe.whiteBalance : NEUTRAL;
+    gl.toneMappingExposure = THREE.MathUtils.clamp((night ? EXPOSURE_KEY_NIGHT : EXPOSURE_KEY) / probe.luminance, night ? 0.15 : 0.3, night ? 4 : 12);
+    // Weißabgleich nur am Tag; abends bleibt das Leuchtenlicht bewusst warm
+    whiteBalance.gain = night ? NEUTRAL : probe.whiteBalance;
     // Der Verlaufshintergrund ist bereits fertig abgestimmt: Belichtung für ihn aufheben
     if (!(camera3d === "walk" && !night)) scene.backgroundIntensity = 1 / gl.toneMappingExposure;
   });
@@ -249,7 +256,7 @@ function Environment() {
 const SKY_LEVEL = 0.35;
 /** Zielhelligkeit der Belichtungsautomatik (Mittelgrau, linear) bei Tag und am Abend. */
 const EXPOSURE_KEY = 0.42;
-const EXPOSURE_KEY_NIGHT = 0.085;
+const EXPOSURE_KEY_NIGHT = 0.18;
 const NEUTRAL = new THREE.Color(1, 1, 1);
 
 const SHADOW_MAP = { hoch: 4096, mittel: 2048, niedrig: 1024 } as const;

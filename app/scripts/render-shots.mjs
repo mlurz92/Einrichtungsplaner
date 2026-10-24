@@ -68,7 +68,16 @@ try {
         },
         { v, night },
       );
-      await page.waitForTimeout(night ? 9000 : 6000);
+      // Warten, bis Umgebungssonde und Belichtung zur Ansicht passen (Software-Rendering ist langsam)
+      let prev = "";
+      for (let i = 0; i < 30; i++) {
+        await page.waitForTimeout(3000);
+        const cur = await page.evaluate(() => JSON.stringify([globalThis.__we13probe, globalThis.__we13.gl.toneMappingExposure]));
+        // Innenansichten: Sonde muss am Kamerastandort stehen
+        const at = await page.evaluate((p) => { const q = globalThis.__we13probe?.pos; return !q || p[1] > 3 || Math.hypot(q[0] - p[0], q[2] - p[2]) < 0.05; }, v.pos);
+        if (cur === prev && at) break;
+        prev = cur;
+      }
       const data = await page.evaluate((w) => globalThis.__we13view.getState().api.capture(w), WIDTH);
       if (!data) throw new Error(`Aufnahme ${v.id} fehlgeschlagen`);
       const name = `${v.id}_${night ? "abend" : "tag"}.png`;

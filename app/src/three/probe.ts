@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { wallClipPlanes } from "./surfaces";
 import { cutUniforms } from "./cutaway";
-import { Effect } from "postprocessing";
+import { Effect, EffectAttribute } from "postprocessing";
 
 // Umgebungssonde: Statt einer Studio-Umgebung (helle Leuchtflächen, die sich in jeder glatten
 // Oberfläche spiegeln) wird die Wohnung selbst aus Sicht eines Raumpunkts in eine Würfelkarte
@@ -99,6 +99,7 @@ export class EnvironmentProbe {
   /** Mittlere Leuchtdichte (geometrisches Mittel) der letzten Aufnahme. */
   luminance = 0.18;
   geoMean = 0.18;
+  private captures = 0;
   mean = 0.18;
 
   constructor(private gl: THREE.WebGLRenderer, size = 256) {
@@ -123,6 +124,7 @@ export class EnvironmentProbe {
       clip: wallClipPlanes[0].constant,
       cut: cutUniforms.uCutOn.value,
       shadowAuto: gl.shadowMap.autoUpdate,
+      autoClear: gl.autoClear,
     };
     // Sonde sieht die vollständige Wohnung: volle Wandhöhe, Decke, ohne Glas und Hilfsflächen
     const hidden: THREE.Object3D[] = [];
@@ -145,6 +147,9 @@ export class EnvironmentProbe {
     cutUniforms.uCutOn.value = 0;
     // Schattenkarten stammen aus dem letzten Bild; nicht je Würfelseite neu rendern
     gl.shadowMap.autoUpdate = false;
+    // Die Nachbearbeitung schaltet autoClear ab; ohne Löschen blieben Tiefe und Farbe der
+    // vorigen Aufnahme stehen und neue Flächen würden verworfen
+    gl.autoClear = true;
     scene.background = this.sky;
     scene.backgroundIntensity = Math.max(0.004, skyLevel);
     this.cam.position.copy(pos);
@@ -168,6 +173,7 @@ export class EnvironmentProbe {
       wallClipPlanes[0].constant = keep.clip;
       cutUniforms.uCutOn.value = keep.cut;
       gl.shadowMap.autoUpdate = keep.shadowAuto;
+      gl.autoClear = keep.autoClear;
       scene.background = keep.bg;
       scene.backgroundIntensity = keep.bgI;
       scene.environment = keep.env;
@@ -197,7 +203,7 @@ export class EnvironmentProbe {
     const wb = new THREE.Color(Math.pow(1 / Math.max(r, 0.2), 0.5), Math.pow(1 / Math.max(g, 0.2), 0.5), Math.pow(1 / Math.max(b, 0.2), 0.5));
     const wl = 0.2126 * wb.r + 0.7152 * wb.g + 0.0722 * wb.b;
     this.whiteBalance.setRGB(wb.r / wl, wb.g / wl, wb.b / wl);
-    (globalThis as Record<string, unknown>).__we13probe = { geo: this.geoMean, mean: this.mean, wb: this.whiteBalance.toArray().map((v) => +v.toFixed(3)) };
+    (globalThis as Record<string, unknown>).__we13probe = { n: ++this.captures, pos: this.cam.position.toArray().map((v) => +v.toFixed(2)), geo: this.geoMean, mean: this.mean, wb: this.whiteBalance.toArray().map((v) => +v.toFixed(3)) };
   }
 
   dispose() {
@@ -214,11 +220,12 @@ export class WhiteBalanceEffect extends Effect {
   constructor() {
     super(
       "WhiteBalance",
+      // Hintergrund (Tiefe 1) bleibt unverändert: der Verlauf ist bereits neutral abgestimmt
       /* glsl */ `uniform vec3 gain;
-      void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor) {
-        outputColor = vec4(inputColor.rgb * gain, inputColor.a);
+      void mainImage(const in vec4 inputColor, const in vec2 uv, const in float depth, out vec4 outputColor) {
+        outputColor = vec4(depth < 0.99999 ? inputColor.rgb * gain : inputColor.rgb, inputColor.a);
       }`,
-      { uniforms: new Map([["gain", new THREE.Uniform(new THREE.Color(1, 1, 1))]]) },
+      { attributes: EffectAttribute.DEPTH, uniforms: new Map([["gain", new THREE.Uniform(new THREE.Color(1, 1, 1))]]) },
     );
   }
   set gain(c: THREE.Color) {
