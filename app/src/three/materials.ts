@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import type { MaterialKey, SlotStyle } from "../model/types";
-import { ALBEDO_GAIN, albedoTexture, dataTexture, graniteTexture, ribNormal, type TexKey } from "./textures";
+import { ALBEDO_GAIN, ROUGH_MEAN, albedoTexture, dataTexture, graniteTexture, ribNormal, type TexKey } from "./textures";
 
 // Physikalisch basierte Materialvorlagen. UVs der Möbelgeometrien sind in Metern angelegt
 // (siehe geom.ts → worldUV); "scale" gibt die Kachelgröße der Textur in Metern an.
@@ -23,7 +23,6 @@ interface MatDef {
   emissive?: number;
   ribs?: number;
   side?: THREE.Side;
-  envMapIntensity?: number;
 }
 
 export const MAT_DEFS: Record<MaterialKey, MatDef> = {
@@ -44,8 +43,8 @@ export const MAT_DEFS: Record<MaterialKey, MatDef> = {
   leather: { tex: "leather", normalTex: "leather", roughTex: "leather", scale: 0.35, roughness: 0.5, clearcoat: 0.15, clearcoatRoughness: 0.5, normalScale: 0.6, contrast: 0.5 },
   wool: { tex: "wool", normalTex: "wool", scale: 0.35, roughness: 1, sheen: 0.4, sheenRoughness: 1, normalScale: 1.4, contrast: 0.7 },
   oak: { tex: "oakfine", normalTex: "oakfine", roughTex: "oakfine", scale: 1.1, roughness: 0.55, normalScale: 0.5, contrast: 1.1 },
-  oakDark: { tex: "oakfine", normalTex: "oakfine", scale: 1.1, roughness: 0.42, clearcoat: 0.15, normalScale: 0.4, contrast: 1.3 },
-  walnut: { tex: "walnut", normalTex: "walnut", scale: 1.0, roughness: 0.45, clearcoat: 0.12, normalScale: 0.4, contrast: 1.0 },
+  oakDark: { tex: "oakfine", normalTex: "oakfine", scale: 1.1, roughness: 0.5, clearcoat: 0.12, normalScale: 0.4, contrast: 1.3 },
+  walnut: { tex: "walnut", normalTex: "walnut", scale: 1.0, roughness: 0.5, clearcoat: 0.1, normalScale: 0.4, contrast: 1.0 },
   burl: { tex: "burl", normalTex: "burl", scale: 0.7, roughness: 0.3, clearcoat: 0.7, clearcoatRoughness: 0.15, normalScale: 0.3, contrast: 1.4 },
   mango: { tex: "darkwood", normalTex: "darkwood", scale: 1.0, roughness: 0.5, normalScale: 0.5, contrast: 1.1 },
   ash: { tex: "oakfine", normalTex: "oakfine", scale: 0.9, roughness: 0.55, normalScale: 0.5, contrast: 0.9 },
@@ -54,26 +53,38 @@ export const MAT_DEFS: Record<MaterialKey, MatDef> = {
   gloss: { scale: 1, roughness: 0.1, clearcoat: 1, clearcoatRoughness: 0.05 },
   travertine: { tex: "travertine", normalTex: "travertine", scale: 1.2, roughness: 0.62, normalScale: 0.6, contrast: 0.9 },
   // Polierter Naturstein mit Flocken (Arbeitsplatte der Küche); Textur prozedural aus der Grundfarbe
-  granite: { scale: 0.8, roughness: 0.16, clearcoat: 0.55, clearcoatRoughness: 0.12 },
-  marble: { tex: "marble", normalTex: "marble", scale: 1.0, roughness: 0.18, clearcoat: 0.6, clearcoatRoughness: 0.1, normalScale: 0.2, contrast: 1.1 },
-  marbleGreen: { tex: "marblegreen", normalTex: "marblegreen", scale: 0.9, roughness: 0.15, clearcoat: 0.8, clearcoatRoughness: 0.08, normalScale: 0.2, contrast: 1.6 },
+  granite: { scale: 0.8, roughness: 0.14 },
+  marble: { tex: "marble", normalTex: "marble", scale: 1.0, roughness: 0.16, normalScale: 0.2, contrast: 1.1 },
+  marbleGreen: { tex: "marblegreen", normalTex: "marblegreen", scale: 0.9, roughness: 0.14, normalScale: 0.2, contrast: 1.6 },
   stone: { tex: "concrete", normalTex: "concrete", scale: 1.2, roughness: 0.75, normalScale: 0.5, contrast: 0.6 },
-  ceramic: { scale: 1, roughness: 0.3, clearcoat: 0.4, clearcoatRoughness: 0.2 },
-  glass: { scale: 1, roughness: 0.04, transmission: 0.96, opacity: 0.35, envMapIntensity: 1.2 },
+  ceramic: { scale: 1, roughness: 0.2 },
+  glass: { scale: 1, roughness: 0.04, transmission: 0.96, opacity: 0.35 },
   ribbedGlass: { scale: 0.3, roughness: 0.2, transmission: 0.85, opacity: 0.5, ribs: 24, normalScale: 0.8 },
   opal: { scale: 1, roughness: 0.35, transmission: 0.0, emissive: 0.0 },
-  mirror: { scale: 1, roughness: 0.02, metalness: 1, envMapIntensity: 1.4 },
+  mirror: { scale: 1, roughness: 0.02, metalness: 1 },
   brass: { tex: "brushed", normalTex: "brushed", scale: 0.4, roughness: 0.28, metalness: 1, normalScale: 0.15, contrast: 0.25 },
   copper: { tex: "brushed", normalTex: "brushed", scale: 0.4, roughness: 0.3, metalness: 1, normalScale: 0.15, contrast: 0.25 },
-  chrome: { scale: 1, roughness: 0.05, metalness: 1, envMapIntensity: 1.3 },
+  chrome: { scale: 1, roughness: 0.06, metalness: 1 },
   steel: { tex: "brushed", normalTex: "brushed", scale: 0.4, roughness: 0.32, metalness: 1, normalScale: 0.2, contrast: 0.3 },
-  blackMetal: { scale: 1, roughness: 0.45, metalness: 0.5 },
+  // Pulverbeschichteter Stahl: Lack ist ein Dielektrikum (metalness 0)
+  blackMetal: { scale: 1, roughness: 0.5 },
   rattan: { tex: "rattan", normalTex: "rattan", scale: 0.3, roughness: 0.75, normalScale: 1, contrast: 1.0 },
   plastic: { scale: 1, roughness: 0.4 },
   paper: { scale: 1, roughness: 0.9 },
   canvas: { tex: "linen", scale: 0.3, roughness: 0.95, contrast: 0.25 },
   plant: { scale: 1, roughness: 0.65, side: THREE.DoubleSide },
 };
+
+/**
+ * Mittlere Albedo einer texturierten Fläche auf 0,85 begrenzen (heller Lack, weißer Stoff):
+ * Farbe × ALBEDO_GAIN läge bei sehr hellen Tönen sonst über 1 und die Fläche würde mehr Licht
+ * zurückwerfen, als auf sie fällt.
+ */
+export function capAlbedo(c: THREE.Color, max = 0.85 * ALBEDO_GAIN) {
+  const m = Math.max(c.r, c.g, c.b);
+  if (m > max) c.multiplyScalar(max / m);
+  return c;
+}
 
 const cache = new Map<string, THREE.Material>();
 
@@ -111,6 +122,7 @@ export function getMaterial(style: SlotStyle | undefined, fallback: SlotStyle = 
     t.needsUpdate = true;
     p.map = t;
     p.color.multiplyScalar(ALBEDO_GAIN);
+    capAlbedo(p.color);
   }
   if (s.material === "granite") {
     const t = graniteTexture(s.color);
@@ -138,6 +150,9 @@ export function getMaterial(style: SlotStyle | undefined, fallback: SlotStyle = 
     r.repeat.set(1 / def.scale, 1 / def.scale);
     r.needsUpdate = true;
     p.roughnessMap = r;
+    // three multipliziert Rauheit und Textur: auf den Mittelwert der Textur normieren,
+    // sonst wird die Fläche deutlich glatter (z. B. Leder 0,5 × 0,37 ≈ 0,18) als vorgesehen
+    p.roughness = Math.min(1, def.roughness / ROUGH_MEAN[def.roughTex]);
   }
   if (def.sheen) {
     p.sheen = def.sheen;
@@ -146,7 +161,8 @@ export function getMaterial(style: SlotStyle | undefined, fallback: SlotStyle = 
   }
   if (def.clearcoat) {
     p.clearcoat = def.clearcoat;
-    p.clearcoatRoughness = def.clearcoatRoughness ?? 0.2;
+    // Möbellack ist meist seidenmatt; ein glatter Klarlack verdoppelt sonst sichtbar die Spiegelung
+    p.clearcoatRoughness = def.clearcoatRoughness ?? 0.4;
   }
   if (def.transmission) {
     p.transmission = def.transmission;
@@ -155,7 +171,6 @@ export function getMaterial(style: SlotStyle | undefined, fallback: SlotStyle = 
     p.transparent = true;
     p.opacity = 1;
   }
-  if (def.envMapIntensity) p.envMapIntensity = def.envMapIntensity;
   if (s.material === "opal") {
     p.emissive = new THREE.Color("#fff1d6");
     p.emissiveIntensity = nightGlow;

@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import type { FloorFinish, Surface } from "../model/types";
-import { ALBEDO_GAIN, albedoTexture, dataTexture, floorTexture, wallPatternTexture } from "./textures";
+import { capAlbedo } from "./materials";
+import { ALBEDO_GAIN, ROUGH_MEAN, albedoTexture, dataTexture, floorTexture, wallPatternTexture } from "./textures";
 
 // Materialien für Wand-, Boden- und Deckenflächen. Geometrie-UVs sind in Metern angelegt.
 
@@ -31,7 +32,7 @@ export function surfaceMaterial(s: Surface): THREE.MeshPhysicalMaterial {
       break;
     case "limewash":
       m.map = withRepeat(albedoTexture("limewash", 1.6), 1.8 * (s.scale ?? 1));
-      m.color.multiplyScalar(ALBEDO_GAIN);
+      capAlbedo(m.color.multiplyScalar(ALBEDO_GAIN));
       m.normalMap = withRepeat(dataTexture("limewash", "normal"), 1.8);
       m.normalScale.set(0.35, 0.35);
       m.roughness = 0.97;
@@ -39,20 +40,20 @@ export function surfaceMaterial(s: Surface): THREE.MeshPhysicalMaterial {
     case "concrete":
     case "microcement":
       m.map = withRepeat(albedoTexture("concrete", 0.9), 2.2);
-      m.color.multiplyScalar(ALBEDO_GAIN);
+      capAlbedo(m.color.multiplyScalar(ALBEDO_GAIN));
       m.normalMap = withRepeat(dataTexture("concrete", "normal"), 2.2);
       m.normalScale.set(0.3, 0.3);
       m.roughness = 0.85;
       break;
     case "stone":
       m.map = withRepeat(albedoTexture("travertine", 1), 1.4);
-      m.color.multiplyScalar(ALBEDO_GAIN);
+      capAlbedo(m.color.multiplyScalar(ALBEDO_GAIN));
       m.normalMap = withRepeat(dataTexture("travertine", "normal"), 1.4);
       m.roughness = 0.55;
       break;
     case "fabric":
       m.map = withRepeat(albedoTexture("linen", 0.8), 0.4);
-      m.color.multiplyScalar(ALBEDO_GAIN);
+      capAlbedo(m.color.multiplyScalar(ALBEDO_GAIN));
       m.normalMap = withRepeat(dataTexture("linen", "normal"), 0.4);
       m.sheen = 0.3;
       break;
@@ -68,8 +69,8 @@ export function surfaceMaterial(s: Surface): THREE.MeshPhysicalMaterial {
         m.normalMap = withRepeat(t.normal, t.size);
         m.normalScale.set(0.6, 0.6);
       }
-      m.roughness = s.kind === "tiles" ? 0.25 : 0.8;
-      if (s.kind === "tiles") m.clearcoat = 0.4;
+      // Glasierte Fliesen: eine glatte Glasur, kein zusätzlicher Klarlack
+      m.roughness = s.kind === "tiles" ? 0.18 : 0.8;
       break;
     }
     case "lamella":
@@ -96,9 +97,11 @@ export function floorMaterial(f: FloorFinish): { mat: THREE.MeshPhysicalMaterial
     m.normalScale.set(0.6, 0.6);
   }
   if (f.kind === "planks" || f.kind === "herringbone" || f.kind === "chevron") {
-    m.clearcoat = 0.08;
-    m.clearcoatRoughness = 0.5;
+    // Geölte bzw. matt lackierte Dielen: mittlere Rauheit 0,5 (Textur auf ihren Mittelwert normiert)
+    m.clearcoat = 0.05;
+    m.clearcoatRoughness = 0.45;
     m.roughnessMap = dataTexture("oak", "rough");
+    m.roughness = Math.min(1, 0.5 / ROUGH_MEAN.oak);
   }
   if (f.kind === "carpet") {
     m.color.set(f.color);

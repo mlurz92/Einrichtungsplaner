@@ -81,9 +81,9 @@ function mesh(g: THREE.BufferGeometry, m: THREE.Material, cast = false, receive 
 const wallSolidMat = new THREE.MeshPhysicalMaterial({ color: "#ebe7df", roughness: 0.95, clippingPlanes: wallClipPlanes });
 const wallPocheMat = new THREE.MeshBasicMaterial({ color: "#2f2c29", side: THREE.BackSide, clippingPlanes: wallClipPlanes });
 const slabMat = new THREE.MeshPhysicalMaterial({ color: "#d9d5cd", roughness: 0.95 });
-const frameMat = new THREE.MeshPhysicalMaterial({ color: "#3b3d40", roughness: 0.45, metalness: 0.3, clippingPlanes: wallClipPlanes });
+const frameMat = new THREE.MeshPhysicalMaterial({ color: "#3b3d40", roughness: 0.55, clippingPlanes: wallClipPlanes });
 const glassMat = new THREE.MeshPhysicalMaterial({ color: "#eef4f6", roughness: 0.02, transmission: 0.97, thickness: 0.006, ior: 1.5, transparent: true, clippingPlanes: wallClipPlanes });
-const doorMat = new THREE.MeshPhysicalMaterial({ color: "#f4f3ef", roughness: 0.4, clearcoat: 0.2, clippingPlanes: wallClipPlanes });
+const doorMat = new THREE.MeshPhysicalMaterial({ color: "#f4f3ef", roughness: 0.45, clearcoat: 0.1, clearcoatRoughness: 0.4, clippingPlanes: wallClipPlanes });
 const entranceMat = new THREE.MeshPhysicalMaterial({ color: "#6e6c69", roughness: 0.5, clippingPlanes: wallClipPlanes });
 const handleMat = clipped(getMaterial({ color: "#1d1d1d", material: "blackMetal" }));
 
@@ -102,7 +102,7 @@ function doorHandleMat(finish: string): THREE.Material {
   }
   return m;
 }
-const railMat = new THREE.MeshPhysicalMaterial({ color: "#3b3d40", roughness: 0.4, metalness: 0.4 });
+const railMat = new THREE.MeshPhysicalMaterial({ color: "#3b3d40", roughness: 0.5 });
 
 export interface ApartmentBuild {
   group: THREE.Group;
