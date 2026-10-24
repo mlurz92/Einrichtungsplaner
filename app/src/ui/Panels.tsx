@@ -208,7 +208,7 @@ export function BudgetPanel() {
   const limit = project.settings.budgetLimit || 40000;
   const b = useMemo(() => budgetSummary(project), [project]);
   const pct = Math.min(100, (b.total / limit) * 100);
-  const vendorColors: Record<string, string> = { Westwing: "#1f1f1f", IKEA: "#0058a3", JYSK: "#143c8a", Designhandel: "#b8703e", Tylko: "#7f9a86", OBI: "#e35f1d", Fachhandel: "#a8a29e" };
+  const vendorColors: Record<string, string> = { Westwing: "#1f1f1f", IKEA: "#0058a3", JYSK: "#143c8a", Designhandel: "#b8703e", DELIFE: "#c8a96a", Tylko: "#7f9a86", OBI: "#e35f1d", Fachhandel: "#a8a29e" };
   const [group, setGroup] = useState<"room" | "vendor" | "status">("room");
   const grouped = useMemo(() => {
     const m = new Map<string, typeof b.lines>();

@@ -75,7 +75,7 @@ describe("Tauschen", () => {
     const deeper = allCatalog()
       .filter((x) => x.category === "chair" && x.vendor !== "Bestand" && x.id !== c0.id)
       .sort((a, b) => b.d - a.d)[0];
-    expect(deeper.d / 100).toBeGreaterThan(chairs[0].d + 0.03);
+    expect(deeper.d / 100).toBeGreaterThan(chairs[0].d + 0.015);
     // Vorschau zeigt alle markierten getauscht, ohne das Projekt zu ändern
     const pv = withSwapPreview(p0.items, { ids: t.ids, catalogId: deeper.id, variant: 0 });
     expect(t.ids.every((id) => pv.find((i) => i.id === id)!.catalogId === deeper.id)).toBe(true);

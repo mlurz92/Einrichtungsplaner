@@ -312,6 +312,12 @@ def fix_geometry(e):
                 e["w"], e["d"] = mw + 10, ml + 12
             if not (20 <= e["h"] <= 140):
                 e["h"] = 100.0
+    # Teppichmuster nach Produktfoto (Essplatzteppiche der Konzepte)
+    if a == "rugRect" and "STOCKHOLM 2025" in e["name"] and "flach gewebt" in nl0:
+        hell = any(v["name"].lower().startswith("schwarz / weiß / hellgrün") for v in e["variants"])
+        e["params"] = {**(e.get("params") or {}), "pattern": "steps" if hell else "birch"}
+    if a == "rugRect" and e["vendor"] == "Westwing" and re.search(r"\bstripe\b", nl0):
+        e["params"] = {**(e.get("params") or {}), "pattern": "bands"}
     if a.startswith("armchair") and e["w"] < 45:
         e["w"], e["d"] = 75.0, 80.0
     if a == "armchairWing" and e["h"] < 90:
@@ -1074,31 +1080,11 @@ def letz():
     return out
 
 
-# ------------------------------------------------------------------ DELIFE (Direktversand, Artikel 25387, Angaben lt. delife.de, 24.10.2026)
-DELIFE_EDGE_URL = "https://www.delife.de/esstisch-edge-200x100cm-keramik/a-25387"
-DELIFE_EDGE_IMG = ("https://www.delife.de/media/b3/1b/5f/1782543924/25387-20250811071518-esstisch-edge-200x100cm-keramik-laminam--"
-                   "noir-desir-braun-v-mittelfuss-schwarzcf3af4.jpeg")
-
-
+# ------------------------------------------------------------------ DELIFE (Direktversand, komplettes Sortiment lt. delife.de, 24.10.2026)
 def delife():
-    """Esstisch Edge 200 × 100 cm: Laminam®-Keramik Noir Désir auf Sicherheitsglas (1 cm), gekanteter V-Mittelfuß aus Flachstahl."""
-    W, D, H, price = 200, 100, 74, 769.90
-    plate = "Keramik Laminam® Noir Désir (Keramik auf Sicherheitsglas, 10 mm)"
-    legs_txt = "V-Mittelfuß Flachstahl schwarz pulverbeschichtet"
-    top = {"color": "#2b2520", "material": "marbleNoir"}
-    v = {"name": f"Laminam® Noir Désir Braun, {legs_txt}", "slots": {"top": top, "main": top, "legs": {"color": "#1b1b1b", "material": "blackMetal"}},
-         "price": price, "url": DELIFE_EDGE_URL, "image": DELIFE_EDGE_IMG}
-    desc = [f"Platte: {plate}, schwarzbraun mit ockerfarbener und weißer Aderung", f"Gestell: {legs_txt}, 150 × 50 × 70 cm, mittig unter der Platte",
-            f"Größe: {W} × {D} × {H} cm, rechteckig, Platz für 6–8 Personen", "Gewicht 129 kg", "Preis DELIFE (delife.de), Art.-Nr. 25387"]
-    e = {
-        "id": "del-edge-25387", "vendor": "Designhandel", "brand": "DELIFE", "series": "Edge",
-        "name": "DELIFE Esstisch Edge (Keramik Laminam® Noir Désir)", "category": "diningTable", "w": W, "d": D, "h": H, "price": price,
-        "url": DELIFE_EDGE_URL, "image": DELIFE_EDGE_IMG, "archetype": "tableRect",
-        "params": {"top": 0.01, "radius": 0.004, "legStyle": "edge", "noApron": True}, "variants": [v],
-        "tags": ["DELIFE", "Steintisch", "Marmortisch", "Marmoroptik", "Keramik/Sinterstein", "Rechteckig 200 cm"], "premium": True,
-        "description": " · ".join(desc),
-    }
-    return [finalize(e)]
+    """Alle DELIFE-Möbel mit allen Ausführungen (delife.py); der Esstisch Edge 200 × 100 Noir Désir behält die ID del-edge-25387."""
+    import delife as dl
+    return dl.entries(arch_for, finalize, stone_tags)
 
 
 # Längliche Marmortische der übrigen Händler: Kennzeichnung echter Marmor vs. Optik (Shopangaben zum Plattenmaterial)
@@ -1625,6 +1611,13 @@ def write_aliases(cat):
 
 def main():
     groups = [("Konzepte", concept_items()), ("Westwing", merge_color_variants(westwing())), ("IKEA", merge_color_variants(ikea())), ("JYSK", merge_color_variants(jysk())), ("Tylko", tylko()), ("lampe.de", lampe()), ("Höffner", hoeffner()), ("BoConcept", boconcept()), ("Möbel Letz", letz()), ("DELIFE", delife()), ("Ergänzungen", generic_items())]
+    # Aus dem Hauptkatalog übernommene Konzeptprodukte (ohne Tag „Konzept“) mit dem frischen Shopeintrag aktualisieren
+    # (Farben, Ausführungen, Parameter), die Konzeptzuordnung bleibt
+    fresh = {e["id"]: e for label, items in groups[1:] for e in items}
+    for i, e in enumerate(groups[0][1]):
+        f = fresh.get(e["id"])
+        if f and "Konzept" not in (e.get("tags") or []) and f["vendor"] == e["vendor"]:
+            groups[0][1][i] = {**f, "concepts": e.get("concepts", [])}
     seen = set(); cat = []
     for label, items in groups:
         k = 0

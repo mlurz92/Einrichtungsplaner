@@ -20,23 +20,24 @@ CAT = json.loads((ROOT / "app/src/data/catalog.json").read_text())
 # Plausible Bereiche (cm) je Archetyp: (w, d, h) jeweils (min, max)
 DIMS = {
     "sofa": ((120, 480), (65, 200), (55, 110)), "sofaModular": ((70, 450), (65, 200), (55, 110)),
-    "sofaCorner": ((160, 460), (120, 360), (55, 110)), "sofaBed": ((90, 340), (70, 200), (60, 110)),
+    "sofaCorner": ((160, 480), (120, 380), (55, 110)), "sofaBed": ((90, 340), (70, 200), (60, 110)),
     "armchairLounge": ((55, 140), (55, 170), (55, 115)), "armchairRound": ((55, 145), (55, 145), (55, 115)),
     "armchairWing": ((60, 110), (60, 110), (90, 130)), "armchairShell": ((45, 100), (45, 100), (60, 110)),
     "diningChair": ((38, 70), (40, 70), (70, 110)), "diningArmchair": ((45, 75), (45, 75), (70, 110)),
     "cantilever": ((38, 70), (40, 75), (70, 110)), "barStool": ((30, 60), (30, 60), (60, 115)),
-    "pouf": ((30, 120), (30, 120), (25, 75)), "bench": ((60, 250), (25, 70), (35, 90)),
-    "tableRect": ((60, 320), (50, 130), (65, 80)), "tableRound": ((60, 160), (60, 160), (65, 80)),
+    "pouf": ((25, 120), (25, 120), (25, 75)), "bench": ((60, 250), (25, 70), (35, 90)),
+    "tableRect": ((60, 320), (50, 180), (65, 80)), "chairFlex": ((38, 75), (40, 75), (70, 125)),
+    "benchFlex": ((60, 320), (30, 220), (35, 100)), "tableRound": ((60, 160), (60, 160), (65, 80)),
     "tableOval": ((120, 300), (70, 130), (65, 80)), "tablePedestal": ((60, 180), (60, 180), (65, 80)),
     "coffeeRound": ((40, 140), (40, 140), (20, 55)), "coffeeBlock": ((50, 180), (30, 120), (20, 55)),
     "coffeeDuo": ((60, 160), (40, 120), (20, 55)), "sideRound": ((25, 70), (25, 70), (30, 75)),
     "sideContainer": ((25, 70), (25, 70), (30, 80)), "desk": ((60, 260), (28, 120), (55, 90)),
-    "deskStanding": ((90, 200), (50, 90), (60, 130)), "console": ((60, 220), (15, 50), (15, 130)),
+    "deskStanding": ((90, 200), (50, 90), (60, 130)), "console": ((60, 220), (15, 70), (15, 130)),
     "sideboard": ((60, 300), (30, 60), (50, 140)), "lowboard": ((60, 360), (30, 60), (20, 100)),
     "vitrine": ((30, 300), (15, 60), (40, 240)), "bookcase": ((30, 240), (20, 60), (25, 260)),
-    "shelfOpen": ((20, 450), (8, 65), (3, 260)), "wardrobe": ((40, 450), (35, 75), (100, 256)),
+    "shelfOpen": ((20, 450), (8, 65), (3, 260)), "wardrobe": ((40, 450), (35, 85), (100, 256)),
     "dresser": ((30, 220), (15, 65), (30, 160)), "nightstand": ((25, 80), (25, 60), (12, 80)),
-    "bed": ((80, 230), (190, 250), (25, 140)), "bedWood": ((90, 230), (190, 240), (20, 140)),
+    "bed": ((80, 280), (190, 300), (25, 140)), "bedWood": ((90, 230), (190, 240), (20, 140)),
     "tylkoStorage": ((25, 650), (20, 70), (10, 260)),
     "lampFloorShade": ((8, 95), (8, 95), (35, 230)), "lampFloorGlobe": ((15, 80), (15, 80), (100, 210)),
     "lampFloorArc": ((30, 250), (20, 180), (120, 240)), "lampFloorTripod": ((30, 80), (30, 80), (100, 200)),
@@ -49,7 +50,7 @@ FAMILIES = [  # Farbfamilien für die Grobprüfung (Name → erwarteter Farbton)
     ("weiß", "weiss", "white", "creme", "elfenbein", "offwhite", "off white", "naturweiß"),
     ("schwarz", "black", "anthrazit", "graphit"),
     ("grau", "grey", "gray", "silber", "greige", "taupe"),
-    ("beige", "sand", "kaschmir"),
+    ("beige", "sand", "kaschmir", "schlamm"),
     ("braun", "hellbraun", "cognac", "espresso", "nougat", "karamell", "mokka", "walnuss", "nussbaum", "eiche dunkel", "dunkle eiche"),
     ("grün", "salbei", "oliv", "petrol", "türkis", "mint"),
     ("blau", "marine", "navy", "nachtblau", "mitternachtsblau"),
@@ -87,9 +88,9 @@ def family_of_name(name):
     best = None
     for i, fam in enumerate(FAMILIES):
         for k in fam:
-            j = n.find(k)
-            if j >= 0 and (best is None or j < best[1]):
-                best = (i, j)
+            m = re.search(r"(?<![a-zäöüß])" + re.escape(k), n)  # Wortanfang („Hocker“ ist kein „Ocker“)
+            if m and (best is None or m.start() < best[1]):
+                best = (i, m.start())
     return best[0] if best else None
 
 

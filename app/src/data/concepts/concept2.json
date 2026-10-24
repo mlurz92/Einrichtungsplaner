@@ -1008,281 +1008,323 @@
 ]
 },
 {
-"id": "b2e3c6ef7e",
-"catalogId": "wes-leder-stuhl-jordan-172068",
+"id": "8002895438",
+"catalogId": "del-pejo-flex-freischwinger-flach-20764",
 "pos": "E2",
-"label": "Lederstuhl Jordan",
-"x": 5.5194,
-"y": 8.9048,
+"label": "Freischwinger Pejo-Flex flach",
+"x": 5.4699,
+"y": 8.8979,
 "rot": 278,
 "elev": 0.0,
-"w": 0.5,
-"d": 0.53,
-"h": 0.81,
-"variant": "Leder Braun, Silberfarben glänzend",
+"w": 0.58,
+"d": 0.63,
+"h": 0.85,
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#7a5a43",
-"material": "leather"
+"color": "#8f7d6e",
+"material": "microfiber"
 },
 "legs": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"shell": "arm",
+"stitch": "seam",
+"base": "cantilever",
+"seatHeight": 0.48,
+"armHeight": 0.65
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Lederstuhl Jordan",
-"variant": "Leder Braun, Silberfarben glänzend",
-"vendor": "Westwing",
+"name": "Freischwinger Pejo-Flex flach",
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 369.0,
-"url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
-"dims": "B 50 × T 53 × H 81",
+"unit": 129.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe/a-20814",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "55af9c4acd",
-"catalogId": "wes-leder-stuhl-jordan-172068",
+"id": "ea3ef3b625",
+"catalogId": "del-pejo-flex-freischwinger-flach-20764",
 "pos": "E2",
-"label": "Lederstuhl Jordan",
-"x": 5.4289,
-"y": 9.5485,
+"label": "Freischwinger Pejo-Flex flach",
+"x": 5.3794,
+"y": 9.5415,
 "rot": 278,
 "elev": 0.0,
-"w": 0.5,
-"d": 0.53,
-"h": 0.81,
-"variant": "Leder Braun, Silberfarben glänzend",
+"w": 0.58,
+"d": 0.63,
+"h": 0.85,
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#7a5a43",
-"material": "leather"
+"color": "#8f7d6e",
+"material": "microfiber"
 },
 "legs": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"shell": "arm",
+"stitch": "seam",
+"base": "cantilever",
+"seatHeight": 0.48,
+"armHeight": 0.65
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Lederstuhl Jordan",
-"variant": "Leder Braun, Silberfarben glänzend",
-"vendor": "Westwing",
+"name": "Freischwinger Pejo-Flex flach",
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 369.0,
-"url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
-"dims": "B 50 × T 53 × H 81",
+"unit": 129.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe/a-20814",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "c848fcf323",
-"catalogId": "wes-leder-stuhl-jordan-172068",
+"id": "d0a525095c",
+"catalogId": "del-pejo-flex-freischwinger-flach-20764",
 "pos": "E2",
-"label": "Lederstuhl Jordan",
-"x": 5.3385,
-"y": 10.1922,
+"label": "Freischwinger Pejo-Flex flach",
+"x": 5.289,
+"y": 10.1852,
 "rot": 278,
 "elev": 0.0,
-"w": 0.5,
-"d": 0.53,
-"h": 0.81,
-"variant": "Leder Braun, Silberfarben glänzend",
+"w": 0.58,
+"d": 0.63,
+"h": 0.85,
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#7a5a43",
-"material": "leather"
+"color": "#8f7d6e",
+"material": "microfiber"
 },
 "legs": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"shell": "arm",
+"stitch": "seam",
+"base": "cantilever",
+"seatHeight": 0.48,
+"armHeight": 0.65
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Lederstuhl Jordan",
-"variant": "Leder Braun, Silberfarben glänzend",
-"vendor": "Westwing",
+"name": "Freischwinger Pejo-Flex flach",
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 369.0,
-"url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
-"dims": "B 50 × T 53 × H 81",
+"unit": 129.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe/a-20814",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "a85152762f",
-"catalogId": "wes-leder-stuhl-jordan-172068",
+"id": "f7e28693e4",
+"catalogId": "del-pejo-flex-freischwinger-flach-20764",
 "pos": "E2",
-"label": "Lederstuhl Jordan",
-"x": 6.7968,
-"y": 9.0843,
+"label": "Freischwinger Pejo-Flex flach",
+"x": 6.8464,
+"y": 9.0913,
 "rot": 98,
 "elev": 0.0,
-"w": 0.5,
-"d": 0.53,
-"h": 0.81,
-"variant": "Leder Braun, Silberfarben glänzend",
+"w": 0.58,
+"d": 0.63,
+"h": 0.85,
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#7a5a43",
-"material": "leather"
+"color": "#8f7d6e",
+"material": "microfiber"
 },
 "legs": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"shell": "arm",
+"stitch": "seam",
+"base": "cantilever",
+"seatHeight": 0.48,
+"armHeight": 0.65
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Lederstuhl Jordan",
-"variant": "Leder Braun, Silberfarben glänzend",
-"vendor": "Westwing",
+"name": "Freischwinger Pejo-Flex flach",
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 369.0,
-"url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
-"dims": "B 50 × T 53 × H 81",
+"unit": 129.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe/a-20814",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "06d96c2549",
-"catalogId": "wes-leder-stuhl-jordan-172068",
+"id": "fd4857d3be",
+"catalogId": "del-pejo-flex-freischwinger-flach-20764",
 "pos": "E2",
-"label": "Lederstuhl Jordan",
-"x": 6.7064,
-"y": 9.728,
+"label": "Freischwinger Pejo-Flex flach",
+"x": 6.7559,
+"y": 9.735,
 "rot": 98,
 "elev": 0.0,
-"w": 0.5,
-"d": 0.53,
-"h": 0.81,
-"variant": "Leder Braun, Silberfarben glänzend",
+"w": 0.58,
+"d": 0.63,
+"h": 0.85,
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#7a5a43",
-"material": "leather"
+"color": "#8f7d6e",
+"material": "microfiber"
 },
 "legs": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"shell": "arm",
+"stitch": "seam",
+"base": "cantilever",
+"seatHeight": 0.48,
+"armHeight": 0.65
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Lederstuhl Jordan",
-"variant": "Leder Braun, Silberfarben glänzend",
-"vendor": "Westwing",
+"name": "Freischwinger Pejo-Flex flach",
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 369.0,
-"url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
-"dims": "B 50 × T 53 × H 81",
+"unit": 129.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe/a-20814",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "4391697ab9",
-"catalogId": "wes-leder-stuhl-jordan-172068",
+"id": "0926b340aa",
+"catalogId": "del-pejo-flex-freischwinger-flach-20764",
 "pos": "E2",
-"label": "Lederstuhl Jordan",
-"x": 6.6159,
-"y": 10.3717,
+"label": "Freischwinger Pejo-Flex flach",
+"x": 6.6654,
+"y": 10.3787,
 "rot": 98,
 "elev": 0.0,
-"w": 0.5,
-"d": 0.53,
-"h": 0.81,
-"variant": "Leder Braun, Silberfarben glänzend",
+"w": 0.58,
+"d": 0.63,
+"h": 0.85,
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#7a5a43",
-"material": "leather"
+"color": "#8f7d6e",
+"material": "microfiber"
 },
 "legs": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"shell": "arm",
+"stitch": "seam",
+"base": "cantilever",
+"seatHeight": 0.48,
+"armHeight": 0.65
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Lederstuhl Jordan",
-"variant": "Leder Braun, Silberfarben glänzend",
-"vendor": "Westwing",
+"name": "Freischwinger Pejo-Flex flach",
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 369.0,
-"url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
-"dims": "B 50 × T 53 × H 81",
+"unit": 129.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe/a-20814",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "26d33be3e7",
-"catalogId": "wes-leder-stuhl-jordan-172068",
+"id": "5974a99aa4",
+"catalogId": "del-pejo-flex-freischwinger-flach-20764",
 "pos": "E12",
-"label": "Lederstuhl Jordan (Nischenplatz)",
+"label": "Freischwinger Pejo-Flex flach (Nischenplatz)",
 "x": 7.513,
 "y": 7.34,
 "rot": 8,
 "elev": 0.0,
-"w": 0.5,
-"d": 0.53,
-"h": 0.81,
-"variant": "Leder Braun, Silberfarben glänzend",
+"w": 0.58,
+"d": 0.63,
+"h": 0.85,
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#7a5a43",
-"material": "leather"
+"color": "#8f7d6e",
+"material": "microfiber"
 },
 "legs": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"shell": "arm",
+"stitch": "seam",
+"base": "cantilever",
+"seatHeight": 0.48,
+"armHeight": 0.65
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E12",
-"name": "Lederstuhl Jordan",
-"variant": "Leder Braun, Silberfarben glänzend",
-"vendor": "Westwing",
+"name": "Freischwinger Pejo-Flex flach",
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 369.0,
-"url": "https://www.westwing.de/lederstuhl-jordan-2-de-24wes89351.html",
-"dims": "B 50 × T 53 × H 81",
+"unit": 129.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe/a-20814",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
@@ -1358,7 +1400,9 @@
 "material": "wool"
 }
 },
-"params": {},
+"params": {
+"pattern": "birch"
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [

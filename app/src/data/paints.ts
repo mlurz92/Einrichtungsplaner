@@ -98,6 +98,7 @@ export const MATERIAL_LABELS: Record<MaterialKey, string> = {
   boucleMel: "Bouclé meliert",
   melange: "Webstoff meliert",
   chenille: "Chenille",
+  microfiber: "Mikrofaser",
   fur: "Kunstfell",
   teddy: "Teddy-Bouclé",
   velvet: "Samt",

@@ -1000,295 +1000,316 @@
 ]
 },
 {
-"id": "daaf0a73c3",
-"catalogId": "let-mobitec-aura-58285",
+"id": "241b05364b",
+"catalogId": "del-nube-flex-gestell-konisch-36424",
 "pos": "E2",
-"label": "Mobitec Aura",
-"x": 5.4649,
-"y": 8.8972,
+"label": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
+"x": 5.46,
+"y": 8.8965,
 "rot": 278,
 "elev": 0.0,
-"w": 0.51,
-"d": 0.64,
-"h": 0.91,
-"variant": "Flachgewebe Berry silver, Gestell Metall black",
+"w": 0.54,
+"d": 0.65,
+"h": 0.83,
+"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#b9b8b4",
-"material": "fabric"
+"color": "#8c817a",
+"material": "melange"
 },
 "legs": {
-"color": "#1d1d1d",
+"color": "#1b1b1b",
 "material": "blackMetal"
 }
 },
 "params": {
-"seatHeight": 0.5
+"shell": "shell",
+"stitch": "none",
+"base": "cone",
+"seatHeight": 0.48
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Mobitec Aura",
-"variant": "Flachgewebe Berry silver, Gestell Metall black",
-"vendor": "Designhandel",
+"name": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
+"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 329.0,
-"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Stuehle/Mobitec/Aura-von-Mobitec-Polsterstuhl-im-modernen-Design::58285.html",
-"dims": "B 51 × T 64 × H 91",
+"unit": 199.9,
+"url": "https://www.delife.de/esszimmerstuhl-nube-flex-taupe/a-45407",
+"dims": "B 54 × T 65 × H 83",
 "delivery": null
 }
 ]
 },
 {
-"id": "ae2b2ccaf8",
-"catalogId": "let-mobitec-aura-58285",
+"id": "5b12f4f6d9",
+"catalogId": "del-nube-flex-gestell-konisch-36424",
 "pos": "E2",
-"label": "Mobitec Aura",
-"x": 5.3745,
-"y": 9.5408,
+"label": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
+"x": 5.3695,
+"y": 9.5401,
 "rot": 278,
 "elev": 0.0,
-"w": 0.51,
-"d": 0.64,
-"h": 0.91,
-"variant": "Flachgewebe Berry silver, Gestell Metall black",
+"w": 0.54,
+"d": 0.65,
+"h": 0.83,
+"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#b9b8b4",
-"material": "fabric"
+"color": "#8c817a",
+"material": "melange"
 },
 "legs": {
-"color": "#1d1d1d",
+"color": "#1b1b1b",
 "material": "blackMetal"
 }
 },
 "params": {
-"seatHeight": 0.5
+"shell": "shell",
+"stitch": "none",
+"base": "cone",
+"seatHeight": 0.48
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Mobitec Aura",
-"variant": "Flachgewebe Berry silver, Gestell Metall black",
-"vendor": "Designhandel",
+"name": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
+"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 329.0,
-"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Stuehle/Mobitec/Aura-von-Mobitec-Polsterstuhl-im-modernen-Design::58285.html",
-"dims": "B 51 × T 64 × H 91",
+"unit": 199.9,
+"url": "https://www.delife.de/esszimmerstuhl-nube-flex-taupe/a-45407",
+"dims": "B 54 × T 65 × H 83",
 "delivery": null
 }
 ]
 },
 {
-"id": "61d65812f4",
-"catalogId": "let-mobitec-aura-58285",
+"id": "b7e337f45e",
+"catalogId": "del-nube-flex-gestell-konisch-36424",
 "pos": "E2",
-"label": "Mobitec Aura",
-"x": 5.284,
-"y": 10.1845,
+"label": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
+"x": 5.2791,
+"y": 10.1838,
 "rot": 278,
 "elev": 0.0,
-"w": 0.51,
-"d": 0.64,
-"h": 0.91,
-"variant": "Flachgewebe Berry silver, Gestell Metall black",
+"w": 0.54,
+"d": 0.65,
+"h": 0.83,
+"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#b9b8b4",
-"material": "fabric"
+"color": "#8c817a",
+"material": "melange"
 },
 "legs": {
-"color": "#1d1d1d",
+"color": "#1b1b1b",
 "material": "blackMetal"
 }
 },
 "params": {
-"seatHeight": 0.5
+"shell": "shell",
+"stitch": "none",
+"base": "cone",
+"seatHeight": 0.48
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Mobitec Aura",
-"variant": "Flachgewebe Berry silver, Gestell Metall black",
-"vendor": "Designhandel",
+"name": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
+"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 329.0,
-"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Stuehle/Mobitec/Aura-von-Mobitec-Polsterstuhl-im-modernen-Design::58285.html",
-"dims": "B 51 × T 64 × H 91",
+"unit": 199.9,
+"url": "https://www.delife.de/esszimmerstuhl-nube-flex-taupe/a-45407",
+"dims": "B 54 × T 65 × H 83",
 "delivery": null
 }
 ]
 },
 {
-"id": "b0fcb22460",
-"catalogId": "let-mobitec-aura-58285",
+"id": "a1ef989558",
+"catalogId": "del-nube-flex-gestell-konisch-36424",
 "pos": "E2",
-"label": "Mobitec Aura",
-"x": 6.8513,
-"y": 9.092,
+"label": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
+"x": 6.8563,
+"y": 9.0927,
 "rot": 98,
 "elev": 0.0,
-"w": 0.51,
-"d": 0.64,
-"h": 0.91,
-"variant": "Flachgewebe Berry silver, Gestell Metall black",
+"w": 0.54,
+"d": 0.65,
+"h": 0.83,
+"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#b9b8b4",
-"material": "fabric"
+"color": "#8c817a",
+"material": "melange"
 },
 "legs": {
-"color": "#1d1d1d",
+"color": "#1b1b1b",
 "material": "blackMetal"
 }
 },
 "params": {
-"seatHeight": 0.5
+"shell": "shell",
+"stitch": "none",
+"base": "cone",
+"seatHeight": 0.48
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Mobitec Aura",
-"variant": "Flachgewebe Berry silver, Gestell Metall black",
-"vendor": "Designhandel",
+"name": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
+"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 329.0,
-"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Stuehle/Mobitec/Aura-von-Mobitec-Polsterstuhl-im-modernen-Design::58285.html",
-"dims": "B 51 × T 64 × H 91",
+"unit": 199.9,
+"url": "https://www.delife.de/esszimmerstuhl-nube-flex-taupe/a-45407",
+"dims": "B 54 × T 65 × H 83",
 "delivery": null
 }
 ]
 },
 {
-"id": "e4ff104d4c",
-"catalogId": "let-mobitec-aura-58285",
+"id": "32eb86784c",
+"catalogId": "del-nube-flex-gestell-konisch-36424",
 "pos": "E2",
-"label": "Mobitec Aura",
-"x": 6.7609,
-"y": 9.7357,
+"label": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
+"x": 6.7658,
+"y": 9.7364,
 "rot": 98,
 "elev": 0.0,
-"w": 0.51,
-"d": 0.64,
-"h": 0.91,
-"variant": "Flachgewebe Berry silver, Gestell Metall black",
+"w": 0.54,
+"d": 0.65,
+"h": 0.83,
+"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#b9b8b4",
-"material": "fabric"
+"color": "#8c817a",
+"material": "melange"
 },
 "legs": {
-"color": "#1d1d1d",
+"color": "#1b1b1b",
 "material": "blackMetal"
 }
 },
 "params": {
-"seatHeight": 0.5
+"shell": "shell",
+"stitch": "none",
+"base": "cone",
+"seatHeight": 0.48
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Mobitec Aura",
-"variant": "Flachgewebe Berry silver, Gestell Metall black",
-"vendor": "Designhandel",
+"name": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
+"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 329.0,
-"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Stuehle/Mobitec/Aura-von-Mobitec-Polsterstuhl-im-modernen-Design::58285.html",
-"dims": "B 51 × T 64 × H 91",
+"unit": 199.9,
+"url": "https://www.delife.de/esszimmerstuhl-nube-flex-taupe/a-45407",
+"dims": "B 54 × T 65 × H 83",
 "delivery": null
 }
 ]
 },
 {
-"id": "b33f571029",
-"catalogId": "let-mobitec-aura-58285",
+"id": "8ad89a8eea",
+"catalogId": "del-nube-flex-gestell-konisch-36424",
 "pos": "E2",
-"label": "Mobitec Aura",
-"x": 6.6704,
-"y": 10.3793,
+"label": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
+"x": 6.6753,
+"y": 10.38,
 "rot": 98,
 "elev": 0.0,
-"w": 0.51,
-"d": 0.64,
-"h": 0.91,
-"variant": "Flachgewebe Berry silver, Gestell Metall black",
+"w": 0.54,
+"d": 0.65,
+"h": 0.83,
+"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#b9b8b4",
-"material": "fabric"
+"color": "#8c817a",
+"material": "melange"
 },
 "legs": {
-"color": "#1d1d1d",
+"color": "#1b1b1b",
 "material": "blackMetal"
 }
 },
 "params": {
-"seatHeight": 0.5
+"shell": "shell",
+"stitch": "none",
+"base": "cone",
+"seatHeight": 0.48
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Mobitec Aura",
-"variant": "Flachgewebe Berry silver, Gestell Metall black",
-"vendor": "Designhandel",
+"name": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
+"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 329.0,
-"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Stuehle/Mobitec/Aura-von-Mobitec-Polsterstuhl-im-modernen-Design::58285.html",
-"dims": "B 51 × T 64 × H 91",
+"unit": 199.9,
+"url": "https://www.delife.de/esszimmerstuhl-nube-flex-taupe/a-45407",
+"dims": "B 54 × T 65 × H 83",
 "delivery": null
 }
 ]
 },
 {
-"id": "76ba6a4de1",
-"catalogId": "let-mobitec-aura-58285",
+"id": "68a17c2fba",
+"catalogId": "del-nube-flex-gestell-konisch-36424",
 "pos": "E12",
-"label": "Mobitec Aura (Nischenplatz)",
+"label": "Esszimmerstuhl Nube-Flex 4-Fuß konisch (Nischenplatz)",
 "x": 7.513,
 "y": 7.34,
 "rot": 8,
 "elev": 0.0,
-"w": 0.51,
-"d": 0.64,
-"h": 0.91,
-"variant": "Flachgewebe Berry silver, Gestell Metall black",
+"w": 0.54,
+"d": 0.65,
+"h": 0.83,
+"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#b9b8b4",
-"material": "fabric"
+"color": "#8c817a",
+"material": "melange"
 },
 "legs": {
-"color": "#1d1d1d",
+"color": "#1b1b1b",
 "material": "blackMetal"
 }
 },
 "params": {
-"seatHeight": 0.5
+"shell": "shell",
+"stitch": "none",
+"base": "cone",
+"seatHeight": 0.48
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E12",
-"name": "Mobitec Aura",
-"variant": "Flachgewebe Berry silver, Gestell Metall black",
-"vendor": "Designhandel",
+"name": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
+"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 329.0,
-"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Stuehle/Mobitec/Aura-von-Mobitec-Polsterstuhl-im-modernen-Design::58285.html",
-"dims": "B 51 × T 64 × H 91",
+"unit": 199.9,
+"url": "https://www.delife.de/esszimmerstuhl-nube-flex-taupe/a-45407",
+"dims": "B 54 × T 65 × H 83",
 "delivery": null
 }
 ]
@@ -1364,7 +1385,9 @@
 "material": "wool"
 }
 },
-"params": {},
+"params": {
+"pattern": "steps"
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [

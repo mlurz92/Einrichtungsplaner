@@ -25,6 +25,8 @@ const REG: Partial<Record<Archetype, Fn>> = {
   diningArmchair: S.diningArmchair,
   diningChair: S.diningChair,
   cantilever: S.cantilever,
+  chairFlex: S.chairFlex,
+  benchFlex: S.benchFlex,
   barStool: S.barStool,
   pouf: S.pouf,
   bench: S.bench,

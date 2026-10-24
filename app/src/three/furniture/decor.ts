@@ -11,18 +11,22 @@ function rugMaterial(c: Ctx, w: number, d: number) {
   const pattern = str(c.p, "pattern", "plain");
   const base = getMaterial(s) as THREE.MeshPhysicalMaterial;
   if (pattern === "plain") return base;
-  const key = `${pattern}|${s.color}|${c.p.color2 ?? ""}|${w.toFixed(2)}|${d.toFixed(2)}`;
+  // Zweitfarbe: Parameter color2 oder Bauteil „secondary“ (z. B. Weiß der IKEA-STOCKHOLM-Teppiche)
+  const color2 = (c.p.color2 as string | undefined) ?? c.slots.secondary?.color;
+  const key = `${pattern}|${s.color}|${color2 ?? ""}|${w.toFixed(2)}|${d.toFixed(2)}`;
   const hit = rugCache.get(key);
   if (hit) return hit;
-  const t = rugTexture(pattern, s.color, c.p.color2 as string | undefined);
+  const t = rugTexture(pattern, s.color, color2);
   const m = base.clone();
   m.color.set("#ffffff");
   m.map = t.map.clone();
   m.normalMap = t.normal.clone();
-  const tile = pattern === "rings" ? w : 0.8;
-  m.map.repeat.set(1 / tile, 1 / tile);
-  m.normalMap.repeat.set(1 / tile, 1 / tile);
-  if (pattern === "rings") {
+  // Muster über den ganzen Teppich (Ringe, Bahnen, Bänder) bzw. gekachelt (Flor, Zopf)
+  const whole = ["rings", "birch", "steps", "bands"].includes(pattern);
+  const [tx, tz] = pattern === "rings" ? [w, w] : whole ? [w, d] : [0.8, 0.8];
+  m.map.repeat.set(1 / tx, 1 / tz);
+  m.normalMap.repeat.set(1 / tx, 1 / tz);
+  if (whole) {
     m.map.offset.set(0.5, 0.5);
     m.normalMap.offset.set(0.5, 0.5);
   }

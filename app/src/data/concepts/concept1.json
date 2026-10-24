@@ -1055,281 +1055,323 @@
 ]
 },
 {
-"id": "499664a7eb",
-"catalogId": "wes-boucle-armlehnstuhl-adrien-159664",
+"id": "2ce0353f78",
+"catalogId": "del-zelia-flex-gestell-konisch-33745",
 "pos": "E2",
-"label": "Bouclé-Armlehnstuhl Adrien",
-"x": 5.5045,
-"y": 8.9027,
+"label": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"x": 5.4699,
+"y": 8.8979,
 "rot": 278,
 "elev": 0.0,
-"w": 0.56,
-"d": 0.56,
-"h": 0.82,
-"variant": "Bouclé Olivgrün, Schwarz",
+"w": 0.6,
+"d": 0.63,
+"h": 0.93,
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#6e7450",
-"material": "boucle"
+"color": "#a49482",
+"material": "microfiber"
 },
 "legs": {
-"color": "#1d1d1d",
+"color": "#1b1b1b",
 "material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"shell": "arm",
+"stitch": "channel",
+"base": "cone",
+"seatHeight": 0.53,
+"armHeight": 0.64
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Bouclé-Armlehnstuhl Adrien",
-"variant": "Bouclé Olivgrün, Schwarz",
-"vendor": "Westwing",
+"name": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 309.0,
-"url": "https://www.westwing.de/adrien-chair-with-armrest-upholstered-olive-green-with-black-frame-56-51-cm-en-25wes41902.html",
-"dims": "B 56 × T 56 × H 82",
+"unit": 229.9,
+"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-taupe/a-33797",
+"dims": "B 60 × T 63 × H 93",
 "delivery": null
 }
 ]
 },
 {
-"id": "10a3f78288",
-"catalogId": "wes-boucle-armlehnstuhl-adrien-159664",
+"id": "ac82a2f1c3",
+"catalogId": "del-zelia-flex-gestell-konisch-33745",
 "pos": "E2",
-"label": "Bouclé-Armlehnstuhl Adrien",
-"x": 5.4141,
-"y": 9.5464,
+"label": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"x": 5.3794,
+"y": 9.5415,
 "rot": 278,
 "elev": 0.0,
-"w": 0.56,
-"d": 0.56,
-"h": 0.82,
-"variant": "Bouclé Olivgrün, Schwarz",
+"w": 0.6,
+"d": 0.63,
+"h": 0.93,
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#6e7450",
-"material": "boucle"
+"color": "#a49482",
+"material": "microfiber"
 },
 "legs": {
-"color": "#1d1d1d",
+"color": "#1b1b1b",
 "material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"shell": "arm",
+"stitch": "channel",
+"base": "cone",
+"seatHeight": 0.53,
+"armHeight": 0.64
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Bouclé-Armlehnstuhl Adrien",
-"variant": "Bouclé Olivgrün, Schwarz",
-"vendor": "Westwing",
+"name": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 309.0,
-"url": "https://www.westwing.de/adrien-chair-with-armrest-upholstered-olive-green-with-black-frame-56-51-cm-en-25wes41902.html",
-"dims": "B 56 × T 56 × H 82",
+"unit": 229.9,
+"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-taupe/a-33797",
+"dims": "B 60 × T 63 × H 93",
 "delivery": null
 }
 ]
 },
 {
-"id": "b2af0b7be7",
-"catalogId": "wes-boucle-armlehnstuhl-adrien-159664",
+"id": "3cefd4fd06",
+"catalogId": "del-zelia-flex-gestell-konisch-33745",
 "pos": "E2",
-"label": "Bouclé-Armlehnstuhl Adrien",
-"x": 5.3236,
-"y": 10.1901,
+"label": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"x": 5.289,
+"y": 10.1852,
 "rot": 278,
 "elev": 0.0,
-"w": 0.56,
-"d": 0.56,
-"h": 0.82,
-"variant": "Bouclé Olivgrün, Schwarz",
+"w": 0.6,
+"d": 0.63,
+"h": 0.93,
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#6e7450",
-"material": "boucle"
+"color": "#a49482",
+"material": "microfiber"
 },
 "legs": {
-"color": "#1d1d1d",
+"color": "#1b1b1b",
 "material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"shell": "arm",
+"stitch": "channel",
+"base": "cone",
+"seatHeight": 0.53,
+"armHeight": 0.64
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Bouclé-Armlehnstuhl Adrien",
-"variant": "Bouclé Olivgrün, Schwarz",
-"vendor": "Westwing",
+"name": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 309.0,
-"url": "https://www.westwing.de/adrien-chair-with-armrest-upholstered-olive-green-with-black-frame-56-51-cm-en-25wes41902.html",
-"dims": "B 56 × T 56 × H 82",
+"unit": 229.9,
+"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-taupe/a-33797",
+"dims": "B 60 × T 63 × H 93",
 "delivery": null
 }
 ]
 },
 {
-"id": "beadc6e439",
-"catalogId": "wes-boucle-armlehnstuhl-adrien-159664",
+"id": "e4e9db7ddf",
+"catalogId": "del-zelia-flex-gestell-konisch-33745",
 "pos": "E2",
-"label": "Bouclé-Armlehnstuhl Adrien",
-"x": 6.8117,
-"y": 9.0864,
+"label": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"x": 6.8464,
+"y": 9.0913,
 "rot": 98,
 "elev": 0.0,
-"w": 0.56,
-"d": 0.56,
-"h": 0.82,
-"variant": "Bouclé Olivgrün, Schwarz",
+"w": 0.6,
+"d": 0.63,
+"h": 0.93,
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#6e7450",
-"material": "boucle"
+"color": "#a49482",
+"material": "microfiber"
 },
 "legs": {
-"color": "#1d1d1d",
+"color": "#1b1b1b",
 "material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"shell": "arm",
+"stitch": "channel",
+"base": "cone",
+"seatHeight": 0.53,
+"armHeight": 0.64
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Bouclé-Armlehnstuhl Adrien",
-"variant": "Bouclé Olivgrün, Schwarz",
-"vendor": "Westwing",
+"name": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 309.0,
-"url": "https://www.westwing.de/adrien-chair-with-armrest-upholstered-olive-green-with-black-frame-56-51-cm-en-25wes41902.html",
-"dims": "B 56 × T 56 × H 82",
+"unit": 229.9,
+"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-taupe/a-33797",
+"dims": "B 60 × T 63 × H 93",
 "delivery": null
 }
 ]
 },
 {
-"id": "c78d21122c",
-"catalogId": "wes-boucle-armlehnstuhl-adrien-159664",
+"id": "dafd1bdd14",
+"catalogId": "del-zelia-flex-gestell-konisch-33745",
 "pos": "E2",
-"label": "Bouclé-Armlehnstuhl Adrien",
-"x": 6.7212,
-"y": 9.7301,
+"label": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"x": 6.7559,
+"y": 9.735,
 "rot": 98,
 "elev": 0.0,
-"w": 0.56,
-"d": 0.56,
-"h": 0.82,
-"variant": "Bouclé Olivgrün, Schwarz",
+"w": 0.6,
+"d": 0.63,
+"h": 0.93,
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#6e7450",
-"material": "boucle"
+"color": "#a49482",
+"material": "microfiber"
 },
 "legs": {
-"color": "#1d1d1d",
+"color": "#1b1b1b",
 "material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"shell": "arm",
+"stitch": "channel",
+"base": "cone",
+"seatHeight": 0.53,
+"armHeight": 0.64
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Bouclé-Armlehnstuhl Adrien",
-"variant": "Bouclé Olivgrün, Schwarz",
-"vendor": "Westwing",
+"name": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 309.0,
-"url": "https://www.westwing.de/adrien-chair-with-armrest-upholstered-olive-green-with-black-frame-56-51-cm-en-25wes41902.html",
-"dims": "B 56 × T 56 × H 82",
+"unit": 229.9,
+"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-taupe/a-33797",
+"dims": "B 60 × T 63 × H 93",
 "delivery": null
 }
 ]
 },
 {
-"id": "da4132bc48",
-"catalogId": "wes-boucle-armlehnstuhl-adrien-159664",
+"id": "4a01615b1f",
+"catalogId": "del-zelia-flex-gestell-konisch-33745",
 "pos": "E2",
-"label": "Bouclé-Armlehnstuhl Adrien",
-"x": 6.6308,
-"y": 10.3738,
+"label": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"x": 6.6654,
+"y": 10.3787,
 "rot": 98,
 "elev": 0.0,
-"w": 0.56,
-"d": 0.56,
-"h": 0.82,
-"variant": "Bouclé Olivgrün, Schwarz",
+"w": 0.6,
+"d": 0.63,
+"h": 0.93,
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#6e7450",
-"material": "boucle"
+"color": "#a49482",
+"material": "microfiber"
 },
 "legs": {
-"color": "#1d1d1d",
+"color": "#1b1b1b",
 "material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"shell": "arm",
+"stitch": "channel",
+"base": "cone",
+"seatHeight": 0.53,
+"armHeight": 0.64
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Bouclé-Armlehnstuhl Adrien",
-"variant": "Bouclé Olivgrün, Schwarz",
-"vendor": "Westwing",
+"name": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 309.0,
-"url": "https://www.westwing.de/adrien-chair-with-armrest-upholstered-olive-green-with-black-frame-56-51-cm-en-25wes41902.html",
-"dims": "B 56 × T 56 × H 82",
+"unit": 229.9,
+"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-taupe/a-33797",
+"dims": "B 60 × T 63 × H 93",
 "delivery": null
 }
 ]
 },
 {
-"id": "68d3c0b0c6",
-"catalogId": "wes-boucle-armlehnstuhl-adrien-159664",
+"id": "35172d3053",
+"catalogId": "del-zelia-flex-gestell-konisch-33745",
 "pos": "E12",
-"label": "Bouclé-Armlehnstuhl Adrien (Nischenplatz)",
+"label": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch (Nischenplatz)",
 "x": 7.513,
 "y": 7.34,
 "rot": 8,
 "elev": 0.0,
-"w": 0.56,
-"d": 0.56,
-"h": 0.82,
-"variant": "Bouclé Olivgrün, Schwarz",
+"w": 0.6,
+"d": 0.63,
+"h": 0.93,
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#6e7450",
-"material": "boucle"
+"color": "#a49482",
+"material": "microfiber"
 },
 "legs": {
-"color": "#1d1d1d",
+"color": "#1b1b1b",
 "material": "blackMetal"
 }
 },
-"params": {},
+"params": {
+"shell": "arm",
+"stitch": "channel",
+"base": "cone",
+"seatHeight": 0.53,
+"armHeight": 0.64
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E12",
-"name": "Bouclé-Armlehnstuhl Adrien",
-"variant": "Bouclé Olivgrün, Schwarz",
-"vendor": "Westwing",
+"name": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 309.0,
-"url": "https://www.westwing.de/adrien-chair-with-armrest-upholstered-olive-green-with-black-frame-56-51-cm-en-25wes41902.html",
-"dims": "B 56 × T 56 × H 82",
+"unit": 229.9,
+"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-taupe/a-33797",
+"dims": "B 60 × T 63 × H 93",
 "delivery": null
 }
 ]
@@ -1405,7 +1447,9 @@
 "material": "wool"
 }
 },
-"params": {},
+"params": {
+"pattern": "birch"
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [

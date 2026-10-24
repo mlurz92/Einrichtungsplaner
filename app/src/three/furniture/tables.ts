@@ -46,12 +46,157 @@ function edgeBase(c: Ctx, y0: number, L: THREE.Material) {
   b.box(w * 0.32, 0.008, 2 * rz, L, 0, yb, 0);
 }
 
+/** Baumkante (Live-Edge): Längskanten leicht gewellt, Stirnseiten gerade gesägt. */
+function liveEdgeShape(w: number, d: number, seed: number): THREE.Shape {
+  const n = 40;
+  const wob = (t: number, k: number) => 0.012 * Math.sin(t * 7.3 + seed * k) + 0.007 * Math.sin(t * 17.1 + seed * 2.1 * k) + 0.004 * Math.sin(t * 31 + k);
+  const pts: THREE.Vector2[] = [];
+  for (let i = 0; i <= n; i++) {
+    const t = i / n;
+    const taper = Math.sin(Math.PI * t) ** 0.35;
+    pts.push(new THREE.Vector2(-w / 2 + w * t, -d / 2 - 0.004 + (wob(t, 1) - 0.012) * taper));
+  }
+  for (let i = n; i >= 0; i--) {
+    const t = i / n;
+    const taper = Math.sin(Math.PI * t) ** 0.35;
+    pts.push(new THREE.Vector2(-w / 2 + w * t, d / 2 + 0.004 - (wob(t, 2) - 0.012) * taper));
+  }
+  return new THREE.Shape(pts);
+}
+
+/**
+ * DELIFE-Gestelle unter Esstischen (Maße lt. Datenblatt „Maße Gestell“, frameW/frameD in m):
+ * uframe (Kufe breit/schmal), slant (Kufe schräg, unten breiter), spider (Beinpaare aus zwei Knoten diagonal zu den Ecken),
+ * glass (Glaswangen), pillars (Säulen), cone (Doppelkonus), ribbon (gebogenes Band: w, infinity, wave, origami).
+ */
+function delifeBase(c: Ctx, style: string, y0: number, L: THREE.Material) {
+  const { w, d, p, b } = c;
+  const over = num(p, "overhang", 0.2);
+  const fw = num(p, "frameW", 0.075), fd = num(p, "frameD", Math.min(d - 0.3, 0.64));
+  const s = num(p, "bar", style === "slant" || style === "uframe" ? 0.04 : 0.06);
+  const ex = w / 2 - over - fw / 2;
+  if (style === "uframe" || style === "slant") {
+    const spread = style === "slant" ? num(p, "slant", 0.08) : 0;
+    for (const sx of [-1, 1]) {
+      // Rahmen in der Querebene, bei „schräg“ unten weiter außen (in Längsrichtung geneigt)
+      const xt = sx * ex, xb = sx * (ex + spread);
+      const zt = fd / 2, ztop = y0 - s / 2, ybot = s / 2;
+      const corners: [number, number, number][] = [[xb, ybot, -zt], [xb, ybot, zt], [xt, ztop, zt], [xt, ztop, -zt]];
+      for (let i = 0; i < 4; i++) {
+        const a = corners[i], e = corners[(i + 1) % 4];
+        const A = new THREE.Vector3(...a), E = new THREE.Vector3(...e);
+        const len = A.distanceTo(E);
+        const g = new THREE.BoxGeometry(fw, len + s, s);
+        g.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), E.clone().sub(A).normalize()));
+        const m = A.clone().add(E).multiplyScalar(0.5);
+        b.add(g, L, m.x, m.y, m.z);
+      }
+    }
+    return;
+  }
+  if (style === "spider") {
+    // Mittelträger unter der Platte, an beiden Enden je zwei Beine diagonal zu den Ecken (Draufsicht X)
+    const hx = num(p, "hubX", 0.18), gx = num(p, "frameW", 1.4) / 2, gz = num(p, "frameD", 0.75) / 2;
+    const sq = str(p, "bar", "flat") !== "round";
+    const sz = num(p, "legSize", 0.05);
+    b.box(2 * hx + 0.1, 0.05, 0.08, L, 0, y0 - 0.05, 0);
+    for (const sx of [-1, 1]) for (const zz of [-1, 1]) b.strut([sx * hx, y0 - 0.03, zz * 0.03], [sx * gx, 0, zz * gz], sz, L, sq, sq ? 1 : 0.7);
+    return;
+  }
+  if (style === "glass") {
+    const G = c.m("legs", { color: "#e8eef0", material: "glass" });
+    for (const sx of [-1, 1]) b.box(0.02, y0, fd, G, sx * (w / 2 - over), 0, 0);
+    return;
+  }
+  if (style === "pillars") {
+    const n = Math.max(1, Math.round(num(p, "pillars", w > 2.2 ? 3 : 2)));
+    const r = num(p, "pillarD", 0.3) / 2;
+    const span = n > 1 ? w - 2 * over - 2 * r : 0;
+    for (let i = 0; i < n; i++) b.cyl(r, r, y0, L, n > 1 ? -span / 2 + (span * i) / (n - 1) : 0, 0, 0, 40);
+    return;
+  }
+  if (style === "cone") {
+    // Zwei Konen mit gemeinsamer Spitze, elliptisch gestreckt (Cono)
+    const gw = num(p, "frameW", 0.77), gd = num(p, "frameD", 0.57);
+    const g = new THREE.LatheGeometry([new THREE.Vector2(0, 0), new THREE.Vector2(0.5, 0), new THREE.Vector2(0.16, 0.5), new THREE.Vector2(0.5, 1), new THREE.Vector2(0, 1)], 48);
+    g.scale(gw, y0, gd);
+    b.add(g, L, 0, 0, 0);
+    return;
+  }
+  if (style === "ribbon") {
+    // Gebogenes Stahlband (Querschnitt Länge × Höhe), Breite = Gestelltiefe
+    const kind = str(p, "ribbon", "w");
+    const gw = num(p, "frameW", 1.2) / 2, gd = num(p, "frameD", 0.5), th = 0.012;
+    const pts: THREE.Vector2[] = [];
+    const N = 64;
+    for (let i = 0; i <= N; i++) {
+      const t = i / N;
+      let x: number, y: number;
+      if (kind === "infinity") {
+        // Lemniskate (∞) in der Seitenansicht: Band läuft zweimal über den Boden und unter die Platte
+        const a = t * Math.PI * 2, q = 1 + Math.sin(a) ** 2;
+        x = (gw * Math.cos(a)) / q;
+        y = y0 / 2 + ((y0 / 2 - 0.006) * Math.sin(a) * Math.cos(a)) / q / 0.3536;
+      } else if (kind === "wave") {
+        x = gw * 0.25 * Math.sin(t * Math.PI * 3);
+        y = t * y0;
+      } else if (kind === "origami") {
+        const k = t * 4;
+        x = -gw + (2 * gw * t);
+        y = (Math.floor(k) % 2 === 0 ? k % 1 : 1 - (k % 1)) * y0;
+      } else {
+        // W: von der Platte nach unten, Mitte wieder hoch
+        x = -gw + 2 * gw * t;
+        y = y0 * (0.5 + 0.5 * Math.cos(t * Math.PI * 4));
+      }
+      pts.push(new THREE.Vector2(x, Math.max(th / 2, Math.min(y0 - th / 2, y))));
+    }
+    const path = new THREE.CatmullRomCurve3(pts.map((q) => new THREE.Vector3(q.x, q.y, 0)));
+    const frames = path.getSpacedPoints(160);
+    for (let i = 0; i < frames.length - 1; i++) {
+      const A = frames[i], E = frames[i + 1];
+      const len = A.distanceTo(E);
+      const g = new THREE.BoxGeometry(len + 0.002, th, gd);
+      g.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(1, 0, 0), E.clone().sub(A).normalize()));
+      const m = A.clone().add(E).multiplyScalar(0.5);
+      b.add(g, L, m.x, m.y, m.z);
+    }
+    if (kind === "wave") b.box(gw * 1.1, 0.012, gd * 1.4, L, 0, 0, 0);
+    return;
+  }
+}
+
+/** Bootsform: Längsseiten nach außen gewölbt (Mitte volle Tiefe, Enden 78 %), Stirnseiten gerade mit gerundeten Ecken. */
+function boatShape(w: number, d: number): THREE.Shape {
+  const s = new THREE.Shape();
+  const e = d * 0.39, r = Math.min(0.04, d * 0.05);
+  s.moveTo(-w / 2, -e + r);
+  s.quadraticCurveTo(-w / 2, -e, -w / 2 + r, -e - r * 0.15);
+  s.quadraticCurveTo(0, -d / 2 - (d / 2 - e) * 1.0, w / 2 - r, -e - r * 0.15);
+  s.quadraticCurveTo(w / 2, -e, w / 2, -e + r);
+  s.lineTo(w / 2, e - r);
+  s.quadraticCurveTo(w / 2, e, w / 2 - r, e + r * 0.15);
+  s.quadraticCurveTo(0, d / 2 + (d / 2 - e) * 1.0, -w / 2 + r, e + r * 0.15);
+  s.quadraticCurveTo(-w / 2, e, -w / 2, e - r);
+  s.closePath();
+  return s;
+}
+
+function rectTopShape(c: Ctx, w: number, d: number): THREE.Shape {
+  const shape = str(c.p, "shape", "rect");
+  if (bool(c.p, "liveEdge")) return liveEdgeShape(w, d, c.seed % 97);
+  if (shape === "oval" || shape === "round") return ellipseShape(w, d);
+  if (shape === "boat") return boatShape(w, d);
+  return roundRectShape(w, d, num(c.p, "radius", 0.01));
+}
+
+/** Rechteck-, Oval-, Rund- oder Bootsplatte (shape) auf Beinen bzw. DELIFE-/Edge-Gestell (legStyle). */
 export function tableRect(c: Ctx) {
   const { w, d, h, p, b } = c;
   const T = topMat(c);
   const L = baseMat(c);
   const t = num(p, "top", h < 0.5 ? 0.04 : 0.035);
-  b.extrudeXZ(roundRectShape(w, d, num(p, "radius", 0.01)), t, T, h - t, 0.002);
+  b.extrudeXZ(rectTopShape(c, w, d), t, T, h - t, 0.002);
   const leg = num(p, "leg", h < 0.5 ? 0.035 : 0.045);
   const inset = num(p, "inset", 0.06);
   const lx = w / 2 - inset, lz = d / 2 - inset;
@@ -59,6 +204,10 @@ export function tableRect(c: Ctx) {
   const y0 = h - t;
   if (style === "edge") {
     edgeBase(c, y0, L);
+    return;
+  }
+  if (["uframe", "slant", "spider", "glass", "pillars", "cone", "ribbon"].includes(style)) {
+    delifeBase(c, style, y0, L);
     return;
   }
   if (str(p, "base", "legs") === "panel") {

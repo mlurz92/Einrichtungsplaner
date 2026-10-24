@@ -681,6 +681,48 @@ export function rugTexture(pattern: string, color: string, color2?: string): { m
       hg.ellipse(R() * 512, R() * 512, 10 + R() * 18, 7 + R() * 12, R() * 3, 0, Math.PI * 2);
       hg.fill();
     }
+  } else if (pattern === "birch") {
+    // IKEA STOCKHOLM 2025 (handgewebt): Längsbahnen in wechselnden Grüntönen mit Webmelange, schmale cremefarbene
+    // Längsstreifen mit kurzen schwarzen Querstrichen („Birkenstämme“)
+    const lanes = 8, lw = 512 / lanes;
+    for (let i = 0; i < lanes; i++)
+      for (let y = 0; y < 512; y += 40 + Math.floor(R() * 70)) {
+        g.fillStyle = shade(color, 0.9 + R() * 0.18);
+        g.fillRect(i * lw, y, lw, 110);
+      }
+    for (let i = 0; i < 3000; i++) {
+      g.fillStyle = shade(color, 0.7 + R() * 0.6);
+      g.fillRect(R() * 512, R() * 512, 6 + R() * 14, 1.5);
+    }
+    for (let i = 1; i < lanes; i++) {
+      const x = i * lw - 6;
+      g.fillStyle = c2;
+      g.fillRect(x, 0, 12, 512);
+      hg.fillStyle = "#9a9a9a";
+      hg.fillRect(x, 0, 12, 512);
+      g.fillStyle = "#1d1d1d";
+      for (let y = R() * 60; y < 512; y += 40 + R() * 70) g.fillRect(x + (R() < 0.5 ? -4 : 6), y, 8, 3);
+    }
+  } else if (pattern === "steps") {
+    // IKEA STOCKHOLM 2025 schwarz/weiß/hellgrün: Querbänder mit getreppter Kante, feine hellgrüne Linien
+    g.fillStyle = c2;
+    const rows = 14, rh = 512 / rows;
+    for (let r = 0; r < rows; r++) {
+      const y = r * rh;
+      g.fillRect(0, y + rh * 0.55, 512, rh * 0.45);
+      for (let k = 0; k < 4; k++) g.fillRect((k * 128 + (r % 2) * 64 + 32) % 512, y + rh * 0.3, 52, rh * 0.3);
+      g.fillStyle = "#b9cd8c";
+      g.fillRect(0, y + rh * 0.52, 512, 1.5);
+      g.fillStyle = c2;
+    }
+  } else if (pattern === "bands") {
+    // Kurzflor-Wollteppich „Stripe“: Ton-in-Ton-Querbänder mit eingetieften Fugen
+    for (let y = 0; y < 512; y += 64) {
+      g.fillStyle = shade(color, (y / 64) % 2 ? 0.97 : 1.03);
+      g.fillRect(0, y, 512, 64);
+      hg.fillStyle = "#4a4a4a";
+      hg.fillRect(0, y, 512, 4);
+    }
   } else if (pattern === "zigzag") {
     g.strokeStyle = c2;
     g.lineWidth = 14;
