@@ -4,7 +4,6 @@ import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber"
 import { CameraControls, Html, PointerLockControls } from "@react-three/drei";
 import { EffectComposer, N8AO, SMAA, Bloom, ToneMapping, Outline, Selection } from "@react-three/postprocessing";
 import { ToneMappingMode } from "postprocessing";
-import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
 import { apartment, wallFaces } from "../data";
 import { useEditor, getCatalogItem, newItemFromCatalog, withSwapPreview } from "../store/project";
@@ -20,7 +19,8 @@ import { DND_TYPE, type CatalogDrop } from "../ui/dnd";
 import { applyPlacementSnap, beginDrag, dragUpdate, isFlatFloorItem } from "../store/placement";
 import { DEFAULT_SITE, sunDirection, sunPosition, sunTimes } from "./solar";
 import { useView3D } from "./viewStore";
-import { inFurniture } from "./views";
+import { inFurniture, roomPole } from "./views";
+import { EnvironmentProbe, whiteBalance } from "./probe";
 import { View3DPanel } from "../ui/View3DPanel";
 import { useResolvedTheme } from "../ui/prefs";
 import { useContextMenu, type CtxEntry } from "../ui/kit";
@@ -97,22 +97,123 @@ function GroundPlate() {
   );
 }
 
+/** Kamera- bzw. Blickpunkt in Raumhöhe als Standort der Umgebungssonde (innerhalb der Wohnung). */
+function probeSpot(camera: THREE.Camera, interior: boolean, fallback: THREE.Vector3): THREE.Vector3 | null {
+  const indoor = (x: number, z: number) => apartment.rooms.some((r) => !r.outdoor && pointInPolygon(x, z, r.polygon)) && !apartment.walls.some((w) => pointInPolygon(x, z, w));
+  const p = camera.position;
+  if (interior && indoor(p.x, p.z)) return new THREE.Vector3(p.x, THREE.MathUtils.clamp(p.y, 1.0, 1.7), p.z);
+  // Von außen: Schnittpunkt der Blickrichtung mit der Ebene in 1,2 m Höhe
+  const d = camera.getWorldDirection(new THREE.Vector3());
+  if (d.y < -0.05) {
+    const t = (p.y - 1.2) / -d.y;
+    const q = p.clone().addScaledVector(d, t);
+    if (indoor(q.x, q.z)) return q;
+  }
+  return fallback;
+}
+
+/** Ruhepunkt der Sonde ohne Blick in die Wohnung: Mitte des größten Raums. */
+const PROBE_HOME = (() => {
+  const r = apartment.rooms[0];
+  const [x, y] = roomPole(r.polygon as [number, number][]);
+  return new THREE.Vector3(x, 1.3, y);
+})();
+
 function Environment() {
-  const { gl, scene } = useThree();
+  const { gl, scene, camera, invalidate } = useThree();
   const theme = useResolvedTheme();
   const camera3d = useEditor((s) => s.camera3d);
   const night = useEditor((s) => s.night);
+  const quality = useEditor((s) => s.quality);
   const { day } = useSun();
+  const probe = useMemo(() => new EnvironmentProbe(gl, quality === "niedrig" ? 128 : 256), [gl, quality]);
+  useEffect(() => () => probe.dispose(), [probe]);
+  const st = useRef({ dirty: true, last: 0, pos: new THREE.Vector3(1e9, 0, 0), timer: 0, passes: 0, refineTimer: 0, lamps: -1, settle: 0, cam: new THREE.Matrix4() });
+  // Neu aufnehmen bei Änderungen an Einrichtung, Ausbau, Licht oder Uhrzeit
   useEffect(() => {
-    const pm = new THREE.PMREMGenerator(gl);
-    const env = pm.fromScene(new RoomEnvironment(), 0.04).texture;
-    scene.environment = env;
-    scene.environmentIntensity = 0.55;
-    return () => {
-      env.dispose();
-      pm.dispose();
+    const settle = (ms: number) => {
+      st.current.settle = performance.now() + ms;
     };
-  }, [gl, scene]);
+    const mark = () => {
+      st.current.dirty = true;
+      st.current.passes = 0;
+      invalidate();
+    };
+    const u1 = useEditor.subscribe((s, p) => {
+      // Beim Ziehen von Möbeln erst nach kurzer Ruhe neu aufnehmen
+      if (s.project !== p.project) settle(250);
+      if (s.project !== p.project || s.night !== p.night || s.showCeiling !== p.showCeiling || s.camera3d !== p.camera3d) mark();
+    });
+    const u2 = useView3D.subscribe((s, p) => {
+      if (s.animTime !== p.animTime || s.realDaylight !== p.realDaylight || s.interior !== p.interior) mark();
+    });
+    // Texturen und Modelle laden nachträglich
+    const t1 = setTimeout(mark, 1500);
+    const t2 = setTimeout(mark, 5000);
+    return () => {
+      u1();
+      u2();
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [invalidate]);
+  useEffect(() => {
+    st.current.dirty = true;
+    st.current.passes = 0;
+    invalidate();
+  }, [day, night, probe, invalidate]);
+  useFrame(() => {
+    const s = st.current;
+    if (s.lamps !== lampVersion) {
+      s.lamps = lampVersion;
+      s.dirty = true;
+      s.passes = 0;
+    }
+    const spot = probeSpot(camera, useView3D.getState().interior || camera3d === "walk", s.pos.x > 1e8 ? PROBE_HOME : s.pos);
+    if (!spot) return;
+    const moved = spot.distanceTo(s.pos) > 0.8;
+    if (!s.dirty && !moved) return;
+    let now = performance.now();
+    // Kamera in Bewegung: erst aufnehmen, wenn sie kurz stillsteht (flüssiges Drehen)
+    if (!s.cam.equals(camera.matrixWorld)) {
+      s.cam.copy(camera.matrixWorld);
+      if (moved) s.settle = Math.max(s.settle, now + 150);
+    }
+    if (now < s.settle) {
+      clearTimeout(s.timer);
+      s.timer = window.setTimeout(() => invalidate(), s.settle - now + 10);
+      return;
+    }
+    now = performance.now();
+    // Höchstens etwa dreimal pro Sekunde (Tagesverlauf)
+    if (now - s.last < 300) {
+      clearTimeout(s.timer);
+      s.timer = window.setTimeout(() => invalidate(), 320);
+      return;
+    }
+    s.last = now;
+    s.dirty = false;
+    s.pos.copy(spot);
+    const d = night ? 0 : day;
+    scene.environment = probe.capture(scene, spot, night ? 0.006 : 0.012 + SKY_LEVEL * d, s.passes > 0);
+    // Zwei Nachaufnahmen ergänzen weitere Lichtsprünge (Raum wird gleichmäßiger ausgeleuchtet)
+    if (s.passes < 2) {
+      s.passes++;
+      clearTimeout(s.refineTimer);
+      s.refineTimer = window.setTimeout(() => {
+        s.dirty = true;
+        invalidate();
+      }, 350);
+    }
+    // Belichtungsautomatik wie bei einer Kamera: mittlere Raumhelligkeit → Mittelgrau.
+    // Abends etwas knapper belichtet, damit es nach Abend aussieht und nicht nach Tag.
+    gl.toneMappingExposure = THREE.MathUtils.clamp((night ? EXPOSURE_KEY_NIGHT : EXPOSURE_KEY) / probe.luminance, 0.3, night ? 4 : 12);
+    // Weißabgleich nur in Innenansichten am Tag; die Übersicht steht vor dem neutral abgestimmten
+    // Verlauf, und abends bleibt das Leuchtenlicht bewusst warm
+    whiteBalance.gain = !night && (useView3D.getState().interior || camera3d === "walk") ? probe.whiteBalance : NEUTRAL;
+    // Der Verlaufshintergrund ist bereits fertig abgestimmt: Belichtung für ihn aufheben
+    if (!(camera3d === "walk" && !night)) scene.backgroundIntensity = 1 / gl.toneMappingExposure;
+  });
   useEffect(() => {
     let tex: THREE.Texture | null = null;
     let cancelled = false;
@@ -134,15 +235,22 @@ function Environment() {
     };
   }, [camera3d, night, scene, theme]);
   useEffect(() => {
-    // Himmel/Umgebung folgen der Dämmerung
-    const d = night ? 0 : day;
-    scene.environmentIntensity = night ? 0.08 : 0.12 + 0.43 * d;
+    // Die Sonde liefert physikalisch skalierte Umgebung → keine zusätzliche Verstärkung
+    scene.environmentIntensity = 1;
     // Verlauf ist bereits abgestimmt; nur der HDR-Himmel im Rundgang folgt der Dämmerung
-    scene.backgroundIntensity = camera3d === "walk" ? 0.15 + 0.75 * d : 1;
+    const d = night ? 0 : day;
+    scene.backgroundIntensity = camera3d === "walk" ? 0.15 + 0.75 * d : 1 / gl.toneMappingExposure;
     setNightGlow(night ? 2.2 : 0);
-  }, [night, scene, day, camera3d]);
+  }, [night, scene, day, camera3d, gl]);
   return null;
 }
+
+/** Himmelshelligkeit am Tag relativ zur Sonne (diffuses Himmelslicht ≈ 20 % der Direktstrahlung). */
+const SKY_LEVEL = 0.35;
+/** Zielhelligkeit der Belichtungsautomatik (Mittelgrau, linear) bei Tag und am Abend. */
+const EXPOSURE_KEY = 0.42;
+const EXPOSURE_KEY_NIGHT = 0.085;
+const NEUTRAL = new THREE.Color(1, 1, 1);
 
 const SHADOW_MAP = { hoch: 4096, mittel: 2048, niedrig: 1024 } as const;
 const SUN_LOW = new THREE.Color("#ffad66");
@@ -184,8 +292,8 @@ function Sun() {
   const d = night ? 0 : day;
   return (
     <>
-      <hemisphereLight args={["#f3f1ec", "#b9ad9c", night ? 0.05 : 0.08 + 0.47 * d]} />
-      <ambientLight intensity={night ? 0.04 : 0.03 + 0.09 * d} />
+      {/* Himmels- und Raumlicht kommt aus der Umgebungssonde; nur ein Hauch Grundhelligkeit */}
+      <ambientLight intensity={night ? 0.006 : 0.01 + 0.02 * d} />
       <directionalLight
         ref={ref}
         position={pos}
@@ -214,6 +322,9 @@ export function kelvinColor(k: number): THREE.Color {
   const c = (v: number) => THREE.MathUtils.clamp(v, 0, 255) / 255;
   return new THREE.Color().setRGB(c(r), c(g), c(b), THREE.SRGBColorSpace);
 }
+
+/** Zähler für geänderte Leuchten-Lichtquellen (Umgebungssonde nimmt danach neu auf). */
+let lampVersion = 0;
 
 const LAMP_LIMIT = { hoch: 24, mittel: 12, niedrig: 6 } as const;
 
@@ -256,6 +367,10 @@ function LampLights() {
     });
     return () => cancelAnimationFrame(id);
   }, [night, items, scene, quality]);
+  // Erst nach dem Einhängen der Lichtquellen neu aufnehmen
+  useEffect(() => {
+    lampVersion++;
+  }, [lights]);
   // Teilweiser Weißabgleich wie beim Auge: 2700 K wirkt warm, aber nicht orange
   const color = useMemo(() => kelvinColor(kelvin).lerp(new THREE.Color("#ffffff"), 0.45), [kelvin]);
   if (!night) return null;
@@ -914,6 +1029,7 @@ function Effects() {
   return (
     <EffectComposer multisampling={0} enableNormalPass={false} autoClear={false}>
       <N8AO aoRadius={0.45} distanceFalloff={0.6} intensity={quality === "hoch" ? 2.2 : 1.6} quality={quality === "hoch" ? "high" : "medium"} halfRes={quality !== "hoch"} />
+      <primitive object={whiteBalance} />
       <Bloom intensity={night ? 0.55 : 0.08} luminanceThreshold={night ? 0.85 : 0.98} mipmapBlur />
       <Outline visibleEdgeColor={0x2f7cf6} hiddenEdgeColor={0x2f7cf6} edgeStrength={6} pulseSpeed={0} blur xRay={false} width={1200} />
       <ToneMapping mode={ToneMappingMode.NEUTRAL} />

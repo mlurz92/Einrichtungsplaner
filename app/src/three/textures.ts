@@ -120,6 +120,13 @@ export function dataTexture(key: TexKey, kind: "normal" | "rough"): THREE.Textur
   return t;
 }
 
+/** Mittelwert der Rauheitstexturen (Grünkanal, 0–1), zur Normierung in materials.ts/surfaces.ts. */
+export const ROUGH_MEAN: Record<TexKey, number> = {
+  oak: 0.553, walnut: 0.328, darkwood: 0.544, burl: 0.329, boucle: 0.84, linen: 0.829, velvet: 0.679, fabric: 0.825, weave: 0.919,
+  wool: 0.649, leather: 0.365, marble: 0.069, marblewhite: 0.116, marblegreen: 0.06, travertine: 0.037, plaster: 0.791,
+  limewash: 0.841, concrete: 0.516, rattan: 0.612, brushed: 0.47, oakfine: 0.482,
+};
+
 const albedoTexCache = new Map<string, THREE.Texture>();
 
 export function albedoTexture(key: TexKey, contrast = 1): THREE.Texture {
