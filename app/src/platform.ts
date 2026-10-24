@@ -130,3 +130,82 @@ export function dataUrlToBytes(url: string): Uint8Array {
   for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
   return out;
 }
+
+/** Fenster-Titelleiste und Mica an das Farbschema anpassen (null = wie Windows). */
+export async function applyNativeTheme(theme: "light" | "dark" | null) {
+  if (!isTauri) return;
+  try {
+    const { getCurrentWindow } = await import("@tauri-apps/api/window");
+    await getCurrentWindow().setTheme(theme);
+  } catch {
+    /* ältere Systeme: Standard */
+  }
+}
+
+/** Systemhintergrund des Fensters: "mica" unter Windows 11, sonst null (eigener Verlauf). */
+export async function nativeBackdrop(): Promise<"mica" | null> {
+  if (!isTauri) return null;
+  try {
+    const { invoke } = await import("@tauri-apps/api/core");
+    return (await invoke<string | null>("backdrop_kind")) === "mica" ? "mica" : null;
+  } catch {
+    return null;
+  }
+}
+
+/** Oberflächengröße (Desktop: WebView-Zoom, Browser: CSS-Zoom). */
+export async function setUiZoom(f: number) {
+  if (isTauri) {
+    try {
+      const { getCurrentWebview } = await import("@tauri-apps/api/webview");
+      await getCurrentWebview().setZoom(f);
+      return;
+    } catch {
+      /* Fallback unten */
+    }
+  }
+  (document.documentElement.style as CSSStyleDeclaration & { zoom: string }).zoom = f === 1 ? "" : String(f);
+}
+
+/** Beim Start übergebene Projektdatei (Doppelklick auf .we13 im Explorer). */
+export async function takeStartupFile(): Promise<string | null> {
+  if (!isTauri) return null;
+  try {
+    const { invoke } = await import("@tauri-apps/api/core");
+    return (await invoke<string | null>("startup_file")) ?? null;
+  } catch {
+    return null;
+  }
+}
+
+/** Projektdateien, die eine zweite App-Instanz weiterreicht (Doppelklick bei laufender App). */
+export async function onOpenFileRequest(cb: (path: string) => void): Promise<() => void> {
+  if (!isTauri) return () => {};
+  const { listen } = await import("@tauri-apps/api/event");
+  return listen<string>("open-file", (e) => cb(e.payload));
+}
+
+/** Vollbild (F11) umschalten. */
+export async function toggleFullscreen() {
+  if (isTauri) {
+    const { getCurrentWindow } = await import("@tauri-apps/api/window");
+    const w = getCurrentWindow();
+    await w.setFullscreen(!(await w.isFullscreen()));
+    return;
+  }
+  if (document.fullscreenElement) await document.exitFullscreen();
+  else await document.documentElement.requestFullscreen();
+}
+
+/** App-Version (Desktop: aus tauri.conf.json, Browser: aus package.json). */
+export async function appVersion(): Promise<string> {
+  if (isTauri) {
+    try {
+      const { getVersion } = await import("@tauri-apps/api/app");
+      return await getVersion();
+    } catch {
+      /* Fallback */
+    }
+  }
+  return __APP_VERSION__;
+}

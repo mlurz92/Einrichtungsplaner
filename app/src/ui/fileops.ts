@@ -32,7 +32,8 @@ export async function saveProject(as = false): Promise<boolean> {
   }
 }
 
-function loadProjectText(content: string, path: string) {
+/** Projekt aus Dateiinhalt laden (Öffnen, Doppelklick auf .we13, Ziehen ins Fenster). */
+export function loadProjectText(content: string, path: string) {
   const st = useEditor.getState();
   let p: Project;
   try {
@@ -80,15 +81,67 @@ export async function exportScreenshot() {
   await exportFile(() => saveBinary(dataUrlToBytes(url), "WE13_Ansicht.png", [{ name: "PNG", extensions: ["png"] }]));
 }
 
-export async function exportPlanSvg() {
-  const svg = document.querySelector<SVGSVGElement>("#viewport2d svg");
-  if (!svg) {
-    useEditor.getState().showToast("2D-Plan ist nicht geöffnet");
-    return;
+/**
+ * Grundriss-SVG für den Export vorbereiten: Designvariablen werden mit den Werten des hellen Designs
+ * fest eingesetzt (druckt sich unabhängig vom aktuellen Design), Bedienelemente entfernt.
+ */
+function planForExport(): { svg: SVGSVGElement; w: number; h: number } | null {
+  const src = document.querySelector<SVGSVGElement>("#viewport2d svg[data-plan]") ?? document.querySelector<SVGSVGElement>("#viewport2d svg");
+  if (!src) {
+    useEditor.getState().showToast("2D-Plan ist nicht geöffnet – Ansicht 2D oder Geteilt wählen");
+    return null;
   }
-  const clone = svg.cloneNode(true) as SVGSVGElement;
+  const root = document.documentElement;
+  const theme = root.dataset.theme;
+  root.dataset.theme = "light";
+  const cs = getComputedStyle(root);
+  const resolve = (v: string) => v.replace(/var\((--[\w-]+)\)/g, (_, n: string) => cs.getPropertyValue(n).trim() || "#000");
+  const clone = src.cloneNode(true) as SVGSVGElement;
+  for (const el of [clone, ...clone.querySelectorAll("*")]) {
+    for (const a of [...el.attributes]) if (a.value.includes("var(")) el.setAttribute(a.name, resolve(a.value));
+  }
+  root.dataset.theme = theme;
+  clone.querySelectorAll("[data-noexport]").forEach((n) => n.remove());
+  const r = src.getBoundingClientRect();
   clone.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-  await exportFile(() => saveText(new XMLSerializer().serializeToString(clone), "WE13_Grundriss.svg", [{ name: "SVG", extensions: ["svg"] }]));
+  clone.setAttribute("width", String(Math.round(r.width)));
+  clone.setAttribute("height", String(Math.round(r.height)));
+  clone.style.background = resolve("var(--plan-bg)");
+  return { svg: clone, w: r.width, h: r.height };
+}
+
+export async function exportPlanSvg() {
+  const p = planForExport();
+  if (!p) return;
+  await exportFile(() => saveText(new XMLSerializer().serializeToString(p.svg), "WE13_Grundriss.svg", [{ name: "SVG", extensions: ["svg"] }]));
+}
+
+/** Grundriss als hochaufgelöstes Bild (dreifache Bildschirmauflösung). */
+export async function exportPlanPng() {
+  const p = planForExport();
+  if (!p) return;
+  const scale = 3;
+  const url = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(p.svg)], { type: "image/svg+xml" }));
+  try {
+    const img = new Image();
+    await new Promise<void>((res, rej) => {
+      img.onload = () => res();
+      img.onerror = () => rej(new Error("Grundriss konnte nicht gerendert werden"));
+      img.src = url;
+    });
+    const c = document.createElement("canvas");
+    c.width = Math.round(p.w * scale);
+    c.height = Math.round(p.h * scale);
+    const g = c.getContext("2d")!;
+    g.fillStyle = p.svg.style.background || "#fff";
+    g.fillRect(0, 0, c.width, c.height);
+    g.drawImage(img, 0, 0, c.width, c.height);
+    await exportFile(() => saveBinary(dataUrlToBytes(c.toDataURL("image/png")), "WE13_Grundriss.png", [{ name: "PNG", extensions: ["png"] }]));
+  } catch (e) {
+    useEditor.getState().showToast(`Export fehlgeschlagen: ${errText(e)}`, { kind: "error" });
+  } finally {
+    URL.revokeObjectURL(url);
+  }
 }
 
 async function exportFile(run: () => Promise<string | null>) {

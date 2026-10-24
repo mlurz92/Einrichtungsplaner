@@ -15,6 +15,10 @@ import {
   snapAngle,
 } from "../model/geometry";
 import { PlanSymbol } from "./symbols";
+import { FloorPattern } from "./floors";
+import { Ratio, Maximize, Minus, Plus, Ruler, Hash, SquareDashed } from "lucide-react";
+import { useContextMenu } from "../ui/kit";
+import { itemContextEntries, planContextEntries } from "../ui/commands";
 import { DND_TYPE, type CatalogDrop } from "../ui/dnd";
 import { applyPlacementSnap, beginDrag, dragUpdate, isFlatFloorItem, type DragStart } from "../store/placement";
 import { pointer } from "../ui/pointer";
@@ -24,7 +28,8 @@ const S = 100; // SVG-Einheit = cm
 const P = (v: number) => v * S;
 const pts = (poly: Vec2[]) => poly.map(([x, y]) => `${P(x)},${P(y)}`).join(" ");
 
-const FLOOR_FILL: Record<string, string> = { planks: "#efe3cf", herringbone: "#efe3cf", chevron: "#efe3cf", tiles: "#eceae6", deck: "#e6dccd", stone: "#ece6db", carpet: "#e7e2da", microcement: "#e2e0dc", terrazzo: "#e6e1d8" };
+const SEL = "#2f7cf6";
+const FONT = "Segoe UI Variable Text, Segoe UI, Inter, system-ui";
 const WALL_POLY = apartment.walls;
 
 type Drag =
@@ -60,13 +65,14 @@ const ItemSym = memo(function ItemSym({ it, selected, hovered, conflict, showLab
   return (
     <g transform={`translate(${P(it.x)},${P(it.y)}) rotate(${it.rot})`} data-item={it.id} style={{ cursor: it.locked ? "default" : "move" }} opacity={it.hidden ? 0.25 : dashed ? 0.9 : 1}>
       <PlanSymbol it={it} arch={arch} />
+      {selected && <rect x={-P(it.w) / 2 - 2} y={-P(it.d) / 2 - 2} width={P(it.w) + 4} height={P(it.d) + 4} rx={2} fill={SEL} fillOpacity={0.07} stroke={SEL} strokeOpacity={0.28} strokeWidth={5} vectorEffect="non-scaling-stroke" pointerEvents="none" />}
       {(selected || hovered || conflict) && (
-        <rect x={-P(it.w) / 2 - 1.5} y={-P(it.d) / 2 - 1.5} width={P(it.w) + 3} height={P(it.d) + 3} fill="none" stroke={conflict && !selected ? "#dc2626" : selected ? "#2563eb" : "#60a5fa"} strokeWidth={selected ? 1.6 : 1} strokeDasharray={conflict && !selected ? "3 2" : undefined} vectorEffect="non-scaling-stroke" />
+        <rect x={-P(it.w) / 2 - 2} y={-P(it.d) / 2 - 2} width={P(it.w) + 4} height={P(it.d) + 4} rx={2} fill="none" stroke={conflict && !selected ? "#dc2626" : selected ? SEL : "#7fb0ff"} strokeWidth={selected ? 1.5 : 1.1} strokeDasharray={conflict && !selected ? "3 2" : undefined} vectorEffect="non-scaling-stroke" pointerEvents="none" />
       )}
       {showLabel && it.pos && (
         <g transform={`rotate(${-it.rot})`} pointerEvents="none">
-          <rect x={-it.pos.length * 3.3 - 4} y={-7} width={it.pos.length * 6.6 + 8} height={14} rx={7} fill="#2f3a31" opacity={0.85} />
-          <text x={0} y={4} fontSize={10} textAnchor="middle" fill="#fff" fontFamily="Inter, system-ui" fontWeight={600}>
+          <rect x={-it.pos.length * 3.3 - 4} y={-7} width={it.pos.length * 6.6 + 8} height={14} rx={7} fill="#24493f" opacity={0.88} />
+          <text x={0} y={4} fontSize={10} textAnchor="middle" fill="#fff" fontFamily={FONT} fontWeight={600}>
             {it.pos}
           </text>
         </g>
@@ -82,6 +88,7 @@ export function Plan2D() {
   const selectedFace = useEditor((s) => s.selectedFace);
   const hoverId = useEditor((s) => s.hoverId);
   const placing = useEditor((s) => s.placing);
+  const selectedRoom = useEditor((s) => s.selectedRoom);
   const showClearance = useEditor((s) => s.showClearance);
   const checks = useChecks();
   const flagged = useMemo(() => {
@@ -96,6 +103,11 @@ export function Plan2D() {
   const [cursor, setCursor] = useState<Vec2 | null>(null);
   const [measure, setMeasure] = useState<{ on: boolean; a?: Vec2; b?: Vec2 }>({ on: false });
   const [showLabels, setShowLabels] = useState(true);
+  const [editDim, setEditDim] = useState<{ i: number; value: string } | null>(null);
+  const fitW = useRef(1650);
+  const ctxStart = useRef<{ x: number; y: number } | null>(null);
+  const north = project.settings.northDeg ?? 0;
+  const showDims = project.settings.showDimensions !== false;
   const sel = useMemo(() => new Set(selection), [selection]);
 
   // Größe beobachten und Ansicht einpassen
@@ -114,8 +126,17 @@ export function Plan2D() {
     let vw = W, vh = H;
     if (W / H > aspect) vh = W / aspect;
     else vw = H * aspect;
+    fitW.current = vw;
     setVb([P(bx0) - 60 - (vw - W) / 2, P(by0) - 60 - (vh - H) / 2, vw, vh]);
   }, [size]);
+  /** Um die Mitte zoomen (Zoomleiste, Tasten + und −). */
+  const zoomBy = useCallback((f: number) => {
+    setVb(([x, y, w, h]) => {
+      const nw = Math.min(6000, Math.max(80, w * f));
+      const nh = (h * nw) / w;
+      return [x + (w - nw) / 2, y + (h - nh) / 2, nw, nh];
+    });
+  }, []);
   useEffect(() => fit(), [fit]);
   // Fokus-Anfrage
   const focus = useEditor((s) => s.focusRequest);
@@ -136,6 +157,13 @@ export function Plan2D() {
     },
     [vb],
   );
+  /** Planpunkt (m) → Bildschirmposition relativ zur Ansicht (px). */
+  const toView = (p: Vec2): [number, number] => {
+    const s = Math.max(vb[2] / size.w, vb[3] / size.h);
+    const ox = vb[0] + (vb[2] - size.w * s) / 2;
+    const oy = vb[1] + (vb[3] - size.h * s) / 2;
+    return [(P(p[0]) - ox) / s, (P(p[1]) - oy) / s];
+  };
 
   const swapPreview = useEditor((s) => s.swapPreview);
   const items = useMemo(() => withSwapPreview(project.items, swapPreview), [project.items, swapPreview]);
@@ -189,6 +217,8 @@ export function Plan2D() {
     const st = useEditor.getState();
     const p = toPlan(e.clientX, e.clientY);
     (e.target as Element).setPointerCapture?.(e.pointerId);
+    setEditDim(null);
+    if (e.button === 2) ctxStart.current = { x: e.clientX, y: e.clientY };
     if (e.button === 1 || e.button === 2 || (e.button === 0 && e.nativeEvent.getModifierState?.("Space"))) {
       setDrag({ kind: "pan", sx: e.clientX, sy: e.clientY, vb });
       return;
@@ -312,7 +342,18 @@ export function Plan2D() {
     }
   };
 
-  const onUp = () => {
+  const onUp = (e: React.PointerEvent) => {
+    // Rechtsklick ohne Ziehen: Kontextmenü
+    const cs = ctxStart.current;
+    ctxStart.current = null;
+    if (e.button === 2 && cs && Math.hypot(e.clientX - cs.x, e.clientY - cs.y) < 5) {
+      setDrag(null);
+      const id = itemAt(e.target);
+      const at = toPlan(e.clientX, e.clientY);
+      const entries = id ? itemContextEntries(id) : planContextEntries(at, { measure: () => setMeasure({ on: true }), fit });
+      useContextMenu.getState().open(e.clientX, e.clientY, entries);
+      return;
+    }
     if (drag?.kind === "marquee") {
       const [x0, x1] = [Math.min(drag.p0[0], drag.p1[0]), Math.max(drag.p0[0], drag.p1[0])];
       const [y0, y1] = [Math.min(drag.p0[1], drag.p1[1]), Math.max(drag.p0[1], drag.p1[1])];
@@ -332,17 +373,19 @@ export function Plan2D() {
       if (st.paletteOpen || st.startOpen || st.closeAsk || e.ctrlKey || e.metaKey || e.altKey) return;
       if (e.key === "m" || e.key === "M") setMeasure((m) => ({ on: !m.on }));
       if (e.key === "Escape") setMeasure({ on: false });
-      if (e.key === "f" && !e.ctrlKey) fit();
+      if (e.key === "f" && !e.ctrlKey && !st.selection.length) fit();
+      if (e.key === "+" || e.key === "=") zoomBy(1 / 1.25);
+      if (e.key === "-") zoomBy(1.25);
     };
     window.addEventListener("keydown", k);
     return () => window.removeEventListener("keydown", k);
-  }, [fit]);
+  }, [fit, zoomBy]);
 
   // ---------------------------------------------------------------- Abstandsmaße der Auswahl
   const selItem = selection.length === 1 ? items.find((i) => i.id === selection[0]) : undefined;
   const dims = useMemo(() => {
     if (!selItem || selItem.mount !== "floor") return [];
-    const out: { a: Vec2; b: Vec2; len: number }[] = [];
+    const out: { a: Vec2; b: Vec2; len: number; d: Vec2 }[] = [];
     const a = selItem.rot * DEG;
     const dirs: [Vec2, number][] = [
       [[-Math.sin(a), Math.cos(a)], selItem.d / 2],
@@ -353,7 +396,7 @@ export function Plan2D() {
     for (const [d, half] of dirs) {
       const o: Vec2 = [selItem.x + d[0] * half, selItem.y + d[1] * half];
       const t = rayToWalls(o, d, 5);
-      if (t !== null && t > 0.005) out.push({ a: o, b: [o[0] + d[0] * t, o[1] + d[1] * t], len: t });
+      if (t !== null && t > 0.005) out.push({ a: o, b: [o[0] + d[0] * t, o[1] + d[1] * t], len: t, d });
     }
     return out;
   }, [selItem]);
@@ -385,9 +428,12 @@ export function Plan2D() {
   }, [items]);
 
   return (
-    <div className="relative h-full w-full select-none overflow-hidden bg-[#f6f4f0]" onContextMenu={(e) => e.preventDefault()}>
+    <div className="@container relative h-full w-full select-none overflow-hidden" style={{ background: "var(--plan-bg)" }} onContextMenu={(e) => e.preventDefault()}>
       <svg
         ref={svgRef}
+        data-plan
+        role="img"
+        aria-label="Grundriss der Wohnung WE 13"
         className="h-full w-full"
         viewBox={vb.join(" ")}
         preserveAspectRatio="xMidYMid meet"
@@ -420,33 +466,42 @@ export function Plan2D() {
       >
         <defs>
           <pattern id="grid10" width={10} height={10} patternUnits="userSpaceOnUse">
-            <path d="M10 0H0V10" fill="none" stroke="#e7e3dc" strokeWidth={0.3} />
+            <path d="M10 0H0V10" fill="none" style={{ stroke: "var(--plan-grid)" }} strokeWidth={0.3} />
           </pattern>
           <pattern id="grid100" width={100} height={100} patternUnits="userSpaceOnUse">
             <rect width={100} height={100} fill="url(#grid10)" />
-            <path d="M100 0H0V100" fill="none" stroke="#dcd6cc" strokeWidth={0.6} />
+            <path d="M100 0H0V100" fill="none" style={{ stroke: "var(--plan-grid-major)" }} strokeWidth={0.6} />
           </pattern>
-          <pattern id="planks" width={190} height={19} patternUnits="userSpaceOnUse">
-            <path d="M0 19H190M120 0V19" stroke="#e2d2b9" strokeWidth={0.5} fill="none" />
-          </pattern>
-          <pattern id="tiles60" width={60} height={60} patternUnits="userSpaceOnUse">
-            <path d="M60 0H0V60" stroke="#d8d4cd" strokeWidth={0.5} fill="none" />
-          </pattern>
+          {/* weicher Schatten unter Möbeln */}
+          <filter id="plan-shadow" x="-10%" y="-10%" width="120%" height="120%" colorInterpolationFilters="sRGB">
+            <feDropShadow dx={0} dy={1.6} stdDeviation={1.8} floodColor="#1d150c" floodOpacity={0.22} />
+          </filter>
+          {/* Innenschatten der Wände in die Räume */}
+          <filter id="wall-shadow" x="-5%" y="-5%" width="110%" height="110%">
+            <feGaussianBlur stdDeviation={3.5} />
+          </filter>
+          {apartment.rooms.map((r) => {
+            const fin = project.rooms[r.id];
+            if (!fin) return null;
+            const c = polygonCentroid(r.polygon);
+            return <FloorPattern key={r.id} id={`floor-${r.id.replace(".", "-")}`} f={fin.floor} cx={P(c[0])} cy={P(c[1])} />;
+          })}
         </defs>
         <rect x={vb[0] - 5000} y={vb[1] - 5000} width={vb[2] + 10000} height={vb[3] + 10000} fill="url(#grid100)" />
-        {/* Räume */}
-        {apartment.rooms.map((r) => {
-          const fin = project.rooms[r.id];
-          const kind = fin?.floor.kind ?? "planks";
-          const c = polygonCentroid(r.polygon);
-          const ang = fin?.floor.angle ?? 0;
-          return (
-            <g key={r.id}>
-              <polygon points={pts(r.polygon)} fill={FLOOR_FILL[kind] ?? "#eee"} data-room={r.id} />
-              <polygon points={pts(r.polygon)} fill={`url(#${kind === "tiles" ? "tiles60" : "planks"})`} transform={kind === "tiles" ? undefined : `rotate(${ang} ${P(c[0])} ${P(c[1])})`} pointerEvents="none" opacity={0.9} />
-            </g>
-          );
-        })}
+        {/* Räume mit Belag */}
+        {apartment.rooms.map((r) => (
+          <polygon key={r.id} points={pts(r.polygon)} fill={project.rooms[r.id] ? `url(#floor-${r.id.replace(".", "-")})` : "#ece6db"} data-room={r.id} />
+        ))}
+        {/* Auswahl eines Raums */}
+        {selectedRoom && !selection.length && !selectedFace && apartment.rooms.find((r) => r.id === selectedRoom) && (
+          <polygon points={pts(apartment.rooms.find((r) => r.id === selectedRoom)!.polygon)} fill={SEL} fillOpacity={0.06} stroke={SEL} strokeOpacity={0.6} strokeWidth={1.4} strokeDasharray="6 4" vectorEffect="non-scaling-stroke" pointerEvents="none" />
+        )}
+        {/* Schattenkante entlang der Wände */}
+        <g filter="url(#wall-shadow)" opacity={0.28} pointerEvents="none">
+          {WALL_POLY.map((w, i) => (
+            <polygon key={i} points={pts(w)} fill="none" stroke="#2b2116" strokeWidth={5} />
+          ))}
+        </g>
         {/* Wandflächen (Farbband + Auswahl) */}
         {wallFaces.map((f) => {
           if (f.wallRatio < 0.2) return null;
@@ -479,12 +534,14 @@ export function Plan2D() {
             />
           ))}
         {/* Objekte */}
-        {sortedItems.map((it) => (
-          <ItemSym key={it.id} it={it} selected={sel.has(it.id)} hovered={hoverId === it.id} conflict={conflicts.has(it.id) || flagged.has(it.id)} showLabel={labelVisible} />
-        ))}
+        <g filter={drag?.kind === "move" && drag.moved ? undefined : "url(#plan-shadow)"}>
+          {sortedItems.map((it) => (
+            <ItemSym key={it.id} it={it} selected={sel.has(it.id)} hovered={hoverId === it.id} conflict={conflicts.has(it.id) || flagged.has(it.id)} showLabel={labelVisible} />
+          ))}
+        </g>
         {/* Wände */}
         {WALL_POLY.map((w, i) => (
-          <polygon key={i} points={pts(w)} fill="#2a2826" pointerEvents="none" />
+          <polygon key={i} points={pts(w)} style={{ fill: "var(--plan-wall)" }} pointerEvents="none" />
         ))}
         {/* Öffnungen */}
         {apartment.openings.map((o) => {
@@ -499,9 +556,9 @@ export function Plan2D() {
             const sh: Vec2 = [cx - mid[0], cy - mid[1]];
             return (
               <g key={o.id} pointerEvents="none">
-                <polygon points={pts(o.reveal)} fill="#ffffff" />
+                <polygon points={pts(o.reveal)} style={{ fill: "var(--plan-window)" }} />
                 {[-0.025, 0.025].map((k) => (
-                  <line key={k} x1={P(a[0] + sh[0] + n[0] * k)} y1={P(a[1] + sh[1] + n[1] * k)} x2={P(b[0] + sh[0] + n[0] * k)} y2={P(b[1] + sh[1] + n[1] * k)} stroke="#3b3d40" strokeWidth={0.8} />
+                  <line key={k} x1={P(a[0] + sh[0] + n[0] * k)} y1={P(a[1] + sh[1] + n[1] * k)} x2={P(b[0] + sh[0] + n[0] * k)} y2={P(b[1] + sh[1] + n[1] * k)} style={{ stroke: "var(--plan-opening)" }} strokeWidth={0.8} />
                 ))}
               </g>
             );
@@ -521,63 +578,87 @@ export function Plan2D() {
           const closedEnd: Vec2 = [h[0] + u[0] * (L - 0.04), h[1] + u[1] * (L - 0.04)];
           return (
             <g key={o.id} pointerEvents="none">
-              <polygon points={pts(o.reveal)} fill="#f6f4f0" />
-              <line x1={P(h[0])} y1={P(h[1])} x2={P(leafEnd[0])} y2={P(leafEnd[1])} stroke="#3b3d40" strokeWidth={1.4} />
+              <polygon points={pts(o.reveal)} style={{ fill: "var(--plan-reveal)" }} />
+              <line x1={P(h[0])} y1={P(h[1])} x2={P(leafEnd[0])} y2={P(leafEnd[1])} style={{ stroke: "var(--plan-opening)" }} strokeWidth={1.6} strokeLinecap="round" />
               <path d={`M${P(leafEnd[0])},${P(leafEnd[1])} A${P(L - 0.04)},${P(L - 0.04)} 0 0 ${sw > 0 ? 0 : 1} ${P(closedEnd[0])},${P(closedEnd[1])}`} fill="none" stroke="#9a948a" strokeWidth={0.6} strokeDasharray="3 2" />
             </g>
           );
         })}
         {apartment.railings.map((r, i) => (
-          <line key={i} x1={P(r.a[0])} y1={P(r.a[1])} x2={P(r.b[0])} y2={P(r.b[1])} stroke="#3b3d40" strokeWidth={2} strokeDasharray="6 2" pointerEvents="none" />
+          <line key={i} x1={P(r.a[0])} y1={P(r.a[1])} x2={P(r.b[0])} y2={P(r.b[1])} style={{ stroke: "var(--plan-opening)" }} strokeWidth={2} strokeDasharray="6 2" pointerEvents="none" />
         ))}
-        {/* Raumstempel */}
+        {/* Raumstempel: Name, Nummer, Fläche und bei Rechteckräumen die lichten Maße */}
         {apartment.rooms.map((r) => {
           const c = polygonCentroid(r.polygon);
           const fs = Math.max(9, Math.min(16, 10 / pxPerCm));
+          const xs = r.polygon.map((q) => q[0]);
+          const ys = r.polygon.map((q) => q[1]);
+          const rect = r.polygon.length === 4;
+          const dimTxt = rect ? `${(Math.max(...xs) - Math.min(...xs)).toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} × ${(Math.max(...ys) - Math.min(...ys)).toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} m` : null;
           return (
-            <g key={`l${r.id}`} pointerEvents="none" opacity={0.75}>
-              <text x={P(c[0])} y={P(c[1])} fontSize={fs} textAnchor="middle" fill="#6b6459" fontFamily="Inter, system-ui" fontWeight={600} letterSpacing={1.5}>
+            <g key={`l${r.id}`} pointerEvents="none" opacity={0.85}>
+              <text x={P(c[0])} y={P(c[1])} fontSize={fs} textAnchor="middle" style={{ fill: "var(--plan-label)", paintOrder: "stroke", stroke: "var(--plan-bg)", strokeOpacity: 0.55, strokeWidth: fs * 0.25 }} fontFamily={FONT} fontWeight={650} letterSpacing={1.4}>
                 {roomNames[r.id].toUpperCase()}
               </text>
-              <text x={P(c[0])} y={P(c[1]) + fs * 1.15} fontSize={fs * 0.8} textAnchor="middle" fill="#8b8478" fontFamily="Inter, system-ui">
+              <text x={P(c[0])} y={P(c[1]) + fs * 1.15} fontSize={fs * 0.78} textAnchor="middle" style={{ fill: "var(--plan-label-sub)" }} fontFamily={FONT}>
                 {r.id} · {r.area.toLocaleString("de-DE", { maximumFractionDigits: 2 })} m²
               </text>
+              {showDims && dimTxt && (
+                <text x={P(c[0])} y={P(c[1]) + fs * 2.15} fontSize={fs * 0.7} textAnchor="middle" style={{ fill: "var(--plan-label-sub)" }} fontFamily={FONT} opacity={0.85}>
+                  {dimTxt}
+                </text>
+              )}
             </g>
           );
         })}
-        {/* Abstandsmaße */}
+        {/* Abstandsmaße zur Wand – anklicken setzt einen exakten Abstand */}
         {dims.map((d, i) => {
           const mx = (d.a[0] + d.b[0]) / 2, my = (d.a[1] + d.b[1]) / 2;
+          const k = Math.max(1, 1.1 / Math.max(0.35, pxPerCm));
+          const editable = !!selItem && !selItem.locked;
           return (
-            <g key={i} pointerEvents="none">
-              <line x1={P(d.a[0])} y1={P(d.a[1])} x2={P(d.b[0])} y2={P(d.b[1])} stroke="#dc6b2f" strokeWidth={0.9} markerEnd="" vectorEffect="non-scaling-stroke" />
-              <circle cx={P(d.b[0])} cy={P(d.b[1])} r={1.6} fill="#dc6b2f" />
-              <rect x={P(mx) - 15} y={P(my) - 7} width={30} height={13} rx={3} fill="#fff" stroke="#dc6b2f" strokeWidth={0.6} />
-              <text x={P(mx)} y={P(my) + 3.2} fontSize={8.5} textAnchor="middle" fill="#b45309" fontFamily="Inter, system-ui" fontWeight={600}>
-                {fmtCm(d.len)}
-              </text>
+            <g key={i}>
+              <line x1={P(d.a[0])} y1={P(d.a[1])} x2={P(d.b[0])} y2={P(d.b[1])} stroke="#dc6b2f" strokeWidth={1} vectorEffect="non-scaling-stroke" pointerEvents="none" />
+              <circle cx={P(d.b[0])} cy={P(d.b[1])} r={1.6 * k} fill="#dc6b2f" pointerEvents="none" />
+              <g
+                transform={`translate(${P(mx)},${P(my)}) scale(${k})`}
+                style={{ cursor: editable ? "text" : "default" }}
+                data-noexport-hover
+                onPointerDown={(e) => {
+                  if (e.button !== 0 || !editable) return;
+                  e.stopPropagation();
+                  setEditDim({ i, value: fmtCm(d.len) });
+                }}
+              >
+                <title>{editable ? "Abstand zur Wand – anklicken und exakten Wert in cm eingeben" : "Abstand zur Wand"}</title>
+                <rect x={-17} y={-7.5} width={34} height={14} rx={7} fill="#fff" stroke="#dc6b2f" strokeWidth={0.7} />
+                <text x={0} y={3.2} fontSize={8.5} textAnchor="middle" fill="#b45309" fontFamily={FONT} fontWeight={650}>
+                  {fmtCm(d.len)}
+                </text>
+              </g>
             </g>
           );
         })}
         {/* Griffe der Auswahl */}
         {selItem && !selItem.locked && (
           <g transform={`translate(${P(selItem.x)},${P(selItem.y)}) rotate(${selItem.rot})`}>
-            <line x1={0} y1={-P(selItem.d) / 2} x2={0} y2={-P(selItem.d) / 2 - 22} stroke="#2563eb" strokeWidth={1} />
-            <circle cx={0} cy={-P(selItem.d) / 2 - 26} r={6} fill="#fff" stroke="#2563eb" strokeWidth={1.5} data-handle="rot" style={{ cursor: "grab" }} />
+            <line x1={0} y1={-P(selItem.d) / 2 - 2} x2={0} y2={-P(selItem.d) / 2 - 20} stroke={SEL} strokeWidth={1} vectorEffect="non-scaling-stroke" />
+            <circle cx={0} cy={-P(selItem.d) / 2 - 26} r={6.5} fill="#fff" stroke={SEL} strokeWidth={1.5} data-handle="rot" style={{ cursor: "grab" }} />
+            <path d={`M-2.6 ${-P(selItem.d) / 2 - 27.5}a3 3 0 1 1 0.4 3`} fill="none" stroke={SEL} strokeWidth={1} pointerEvents="none" />
             {getCatalogItem(selItem.catalogId)?.resizable !== false &&
               ([
                 ["r", P(selItem.w) / 2, 0],
                 ["l", -P(selItem.w) / 2, 0],
                 ["f", 0, P(selItem.d) / 2],
                 ["b", 0, -P(selItem.d) / 2],
-              ] as const).map(([k, x, y]) => <rect key={k} x={x - 3.5} y={y - 3.5} width={7} height={7} fill="#2563eb" stroke="#fff" strokeWidth={1} data-handle={k} style={{ cursor: k === "l" || k === "r" ? "ew-resize" : "ns-resize" }} />)}
+              ] as const).map(([k, x, y]) => <rect key={k} x={x - 4} y={y - 4} width={8} height={8} rx={2} fill="#fff" stroke={SEL} strokeWidth={1.5} data-handle={k} style={{ cursor: k === "l" || k === "r" ? "ew-resize" : "ns-resize" }} />)}
           </g>
         )}
         {/* Platzierungsvorschau */}
         {ghost && (
           <g transform={`translate(${P(ghost.it.x)},${P(ghost.it.y)}) rotate(${ghost.it.rot})`} opacity={0.7} pointerEvents="none">
             <PlanSymbol it={ghost.it} arch={ghost.arch} />
-            <rect x={-P(ghost.it.w) / 2} y={-P(ghost.it.d) / 2} width={P(ghost.it.w)} height={P(ghost.it.d)} fill="none" stroke="#2563eb" strokeDasharray="4 2" />
+            <rect x={-P(ghost.it.w) / 2} y={-P(ghost.it.d) / 2} width={P(ghost.it.w)} height={P(ghost.it.d)} rx={2} fill={SEL} fillOpacity={0.06} stroke={SEL} strokeDasharray="4 2" vectorEffect="non-scaling-stroke" />
           </g>
         )}
         {/* Hilfslinien Wandfang */}
@@ -585,7 +666,7 @@ export function Plan2D() {
           <line key={i} x1={P(g.a[0])} y1={P(g.a[1])} x2={P(g.b[0])} y2={P(g.b[1])} stroke="#16a34a" strokeWidth={3} strokeLinecap="round" opacity={0.9} vectorEffect="non-scaling-stroke" pointerEvents="none" />
         ))}
         {drag?.kind === "marquee" && (
-          <rect x={P(Math.min(drag.p0[0], drag.p1[0]))} y={P(Math.min(drag.p0[1], drag.p1[1]))} width={P(Math.abs(drag.p1[0] - drag.p0[0]))} height={P(Math.abs(drag.p1[1] - drag.p0[1]))} fill="#2563eb" fillOpacity={0.08} stroke="#2563eb" strokeDasharray="4 3" pointerEvents="none" />
+          <rect x={P(Math.min(drag.p0[0], drag.p1[0]))} y={P(Math.min(drag.p0[1], drag.p1[1]))} width={P(Math.abs(drag.p1[0] - drag.p0[0]))} height={P(Math.abs(drag.p1[1] - drag.p0[1]))} fill={SEL} fillOpacity={0.08} stroke={SEL} strokeDasharray="4 3" vectorEffect="non-scaling-stroke" pointerEvents="none" />
         )}
         {measure.a && (
           <g pointerEvents="none">
@@ -594,7 +675,7 @@ export function Plan2D() {
               const b = measure.b ?? cursor ?? measure.a;
               const L = Math.hypot(b[0] - measure.a[0], b[1] - measure.a[1]);
               return (
-                <text x={P((measure.a[0] + b[0]) / 2)} y={P((measure.a[1] + b[1]) / 2) - 6} fontSize={11} textAnchor="middle" fill="#6d28d9" fontWeight={700} fontFamily="Inter">
+                <text x={P((measure.a[0] + b[0]) / 2)} y={P((measure.a[1] + b[1]) / 2) - 6} fontSize={11} textAnchor="middle" fill="#6d28d9" fontWeight={700} fontFamily={FONT} style={{ paintOrder: "stroke", stroke: "#fff", strokeWidth: 3 }}>
                   {fmtCm(L)} cm
                 </text>
               );
@@ -602,35 +683,96 @@ export function Plan2D() {
           </g>
         )}
       </svg>
-      {/* Overlay-Bedienelemente */}
-      <div className="pointer-events-auto absolute left-3 top-3 flex gap-1 rounded-lg border border-stone-200 bg-white/90 p-1 text-xs shadow-sm backdrop-blur">
-        <button className={`rounded px-2 py-1 ${measure.on ? "bg-violet-600 text-white" : "hover:bg-stone-100"}`} onClick={() => setMeasure((m) => ({ on: !m.on }))} title="Messen (M)">
-          Messen
+      {/* Werkzeugleiste */}
+      <div className="toolbar absolute left-3 top-3 whitespace-nowrap" role="toolbar" aria-label="Planwerkzeuge">
+        <button className="tool" data-on={measure.on} onClick={() => setMeasure((m) => ({ on: !m.on }))} title="Messen: zwei Punkte anklicken (M)">
+          <Ruler size={14} /> <span className="hidden @[620px]:inline">Messen</span>
         </button>
-        <button className={`rounded px-2 py-1 ${showLabels ? "bg-inverse text-on-inverse" : "hover:bg-stone-100"}`} onClick={() => setShowLabels((v) => !v)} title="Positionsnummern">
-          Pos.-Nr.
+        <button className="tool" data-on={showLabels} onClick={() => setShowLabels((v) => !v)} title="Positionsnummern der Einkaufsliste einblenden">
+          <Hash size={14} /> <span className="hidden @[620px]:inline">Pos.-Nr.</span>
         </button>
-        <button
-          className={`rounded px-2 py-1 ${showClearance ? "bg-accent text-white" : "hover:bg-stone-100"}`}
-          onClick={() => useEditor.getState().set("showClearance", !showClearance)}
-          title="Bewegungsflächen, Türschwenkbereiche und Balkonzugänge einblenden (grün = ausreichend, gelb = eng, rot = zu wenig)"
-        >
-          Freiflächen
+        <button className="tool" data-on={showClearance} onClick={() => useEditor.getState().set("showClearance", !showClearance)} title="Bewegungsflächen, Türschwenkbereiche und Balkonzugänge einblenden (grün = ausreichend, gelb = eng, rot = zu wenig)">
+          <SquareDashed size={14} /> <span className="hidden @[620px]:inline">Freiflächen</span>
         </button>
-        <button className="rounded px-2 py-1 hover:bg-stone-100" onClick={fit} title="Einpassen (F)">
-          Einpassen
+        <button className="tool" data-on={showDims} onClick={() => useEditor.setState((s) => ({ project: { ...s.project, settings: { ...s.project.settings, showDimensions: !showDims } } }))} title="Raummaße in den Raumstempeln">
+          <Ratio size={14} /> <span className="hidden @[620px]:inline">Maße</span>
         </button>
       </div>
-      <div className="pointer-events-none absolute bottom-2 left-3 flex items-center gap-3 rounded bg-white/85 px-2 py-1 font-mono text-[11px] text-stone-600 shadow-sm">
-        <span>{cursor ? `x ${cursor[0].toFixed(3)} · y ${cursor[1].toFixed(3)} m` : "–"}</span>
+      {/* Nordpfeil */}
+      <div className="glass absolute right-3 top-3 grid h-11 w-11 place-items-center rounded-full" title={`Norden (${north}° – unter Darstellung 3D einstellbar)`}>
+        <svg width={30} height={30} viewBox="-15 -15 30 30" style={{ transform: `rotate(${north}deg)` }} aria-hidden>
+          <path d="M0 -11L5 4L0 1.5L-5 4Z" fill="var(--ui-accent)" />
+          <path d="M0 11L5 4L0 1.5L-5 4Z" fill="currentColor" className="text-stone-400" opacity={0.6} />
+          <text y={-5.5} fontSize={0} />
+        </svg>
+        <span className="pointer-events-none absolute top-0.5 text-[8px] font-bold text-accent-ink" style={{ transform: `rotate(${north}deg) translateY(-1px)`, transformOrigin: "50% 21px" }}>
+          N
+        </span>
+      </div>
+      {/* Zoom */}
+      <div className="toolbar absolute bottom-3 right-3" role="toolbar" aria-label="Zoom">
+        <button className="tool w-7 px-0" onClick={() => zoomBy(1.25)} title="Verkleinern (−)">
+          <Minus size={14} />
+        </button>
+        <button className="tool w-14 whitespace-nowrap px-0 tabular-nums" onClick={fit} title="Ganze Wohnung einpassen (F)">
+          {Math.round((fitW.current / vb[2]) * 100)} %
+        </button>
+        <button className="tool w-7 px-0" onClick={() => zoomBy(1 / 1.25)} title="Vergrößern (+)">
+          <Plus size={14} />
+        </button>
+        <div className="mx-0.5 h-4 w-px bg-stone-500/20" />
+        <button className="tool w-7 px-0" onClick={fit} title="Einpassen (F)">
+          <Maximize size={14} />
+        </button>
+      </div>
+      {/* Statuszeile */}
+      <div className="glass pointer-events-none absolute bottom-3 left-3 flex h-9 items-center gap-3 rounded-xl px-3 text-[11px] text-stone-600">
+        <span className="hidden w-36 font-mono tabular-nums @[560px]:inline">{cursor ? `x ${cursor[0].toFixed(2)} · y ${cursor[1].toFixed(2)} m` : "–"}</span>
         <ScaleBar pxPerCm={pxPerCm} />
-        {conflicts.size > 0 && <span className="text-red-600">{conflicts.size} Objekte überschneiden sich</span>}
+        {conflicts.size > 0 && <span className="font-medium whitespace-nowrap text-red-700">{conflicts.size} <span className="hidden @[720px]:inline">Objekte überschneiden sich</span><span className="@[720px]:hidden">Überschneidungen</span></span>}
         {checks.findings.length > 0 && (
-          <button className="pointer-events-auto text-amber-700 hover:underline" onClick={() => useEditor.setState({ leftTab: "planung", showClearance: true })}>
-            Planungs-Check: {checks.findings.length} {checks.findings.length === 1 ? "Hinweis" : "Hinweise"}
+          <button className="pointer-events-auto font-medium whitespace-nowrap text-amber-700 hover:underline" onClick={() => useEditor.setState({ leftTab: "planung", showClearance: true })}>
+            <span className="hidden @[640px]:inline">Planungs-Check: </span>
+            {checks.findings.length} {checks.findings.length === 1 ? "Hinweis" : "Hinweise"}
           </button>
         )}
       </div>
+      {/* Exakten Abstand eingeben */}
+      {editDim && selItem && dims[editDim.i] && (() => {
+        const d = dims[editDim.i];
+        const [sx, sy] = toView([(d.a[0] + d.b[0]) / 2, (d.a[1] + d.b[1]) / 2]);
+        const apply = () => {
+          const v = Number(editDim.value.replace(",", ".")) / 100;
+          setEditDim(null);
+          if (!Number.isFinite(v) || v < 0 || v > 10) return;
+          const delta = d.len - v;
+          useEditor.getState().updateItems([selItem.id], (it) => {
+            it.x += d.d[0] * delta;
+            it.y += d.d[1] * delta;
+          }, { label: "Abstand zur Wand setzen" });
+        };
+        return (
+          <div className="glass-strong pop-in absolute z-10 flex items-center gap-1 rounded-lg p-1 text-xs" style={{ left: sx - 60, top: sy - 18 }}>
+            <input
+              autoFocus
+              className="field w-16 py-0.5 text-right tabular-nums"
+              value={editDim.value}
+              onChange={(e) => setEditDim({ ...editDim, value: e.target.value })}
+              onFocus={(e) => e.target.select()}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") apply();
+                if (e.key === "Escape") setEditDim(null);
+                e.stopPropagation();
+              }}
+              aria-label="Abstand zur Wand in cm"
+            />
+            <span className="text-stone-500">cm</span>
+            <button className="btn-primary px-2 py-0.5 text-xs" onClick={apply}>
+              OK
+            </button>
+          </div>
+        );
+      })()}
     </div>
   );
 }
@@ -640,8 +782,8 @@ function ScaleBar({ pxPerCm }: { pxPerCm: number }) {
   const cands = [10, 20, 50, 100, 200, 500];
   const cm = cands.find((c) => c * pxPerCm >= target * 0.5) ?? 500;
   return (
-    <span className="flex items-center gap-1">
-      <span className="inline-block h-1.5 border-x border-b border-stone-500" style={{ width: cm * pxPerCm }} />
+    <span className="flex items-center gap-1 whitespace-nowrap">
+      <span className="inline-block h-1.5 border-x border-b border-stone-500 transition-[width] duration-150" style={{ width: cm * pxPerCm }} />
       {cm >= 100 ? `${cm / 100} m` : `${cm} cm`}
     </span>
   );

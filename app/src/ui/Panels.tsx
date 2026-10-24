@@ -80,7 +80,7 @@ export function ConceptsPanel() {
       <p className="text-xs leading-relaxed text-stone-600">
         Die vier Möblierungskonzepte sind vollständig übernommen – alle Positionen mit exakten Planpositionen, Maßen, Farben, Preisen und Shop-Links. Ein Konzept laden ersetzt das aktuelle Projekt (rückgängig mit Strg+Z).
       </p>
-      <button className="w-full rounded-xl border-2 border-dashed border-accent/40 bg-white p-3 text-left hover:border-accent" onClick={() => st.set("newDialogOpen", true)}>
+      <button className="w-full rounded-xl border-2 border-dashed border-accent/40 bg-card p-3 text-left hover:border-accent" onClick={() => st.set("newDialogOpen", true)}>
         <div className="text-sm font-semibold text-accent-ink">Leere Wohnung von Grund auf einrichten</div>
         <div className="mt-0.5 text-xs text-stone-600">Bestand wählen (Küche, Sanitär), Farbstimmung und Boden festlegen, dann frei möblieren und gestalten.</div>
       </button>
@@ -88,7 +88,7 @@ export function ConceptsPanel() {
         const b = budgetSummary(c.project).total;
         const active = st.project.conceptId === c.id;
         return (
-          <div key={c.id} className={`overflow-hidden rounded-xl border bg-white shadow-sm ${active ? "border-accent ring-2 ring-accent/20" : "border-stone-200"}`}>
+          <div key={c.id} className={`overflow-hidden rounded-xl border bg-card shadow-sm ${active ? "border-accent ring-2 ring-accent/20" : "border-stone-200"}`}>
             <div className="flex h-8">
               {c.palette.map((p) => (
                 <div key={p} className="flex-1" style={{ background: p }} />

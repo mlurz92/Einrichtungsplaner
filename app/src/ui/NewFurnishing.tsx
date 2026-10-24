@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { X } from "lucide-react";
+import { FilePlus } from "lucide-react";
+import { Dialog } from "./kit";
 import { useEditor } from "../store/project";
 import { FLOOR_PRESETS, WALL_MOODS } from "../data/paints";
 
@@ -11,7 +12,6 @@ export function NewFurnishingDialog() {
   const [washer, setWasher] = useState(true);
   const [mood, setMood] = useState(0);
   const [floor, setFloor] = useState("oak");
-  if (!open) return null;
   const close = () => useEditor.getState().set("newDialogOpen", false);
   const create = () => {
     const m = WALL_MOODS[mood];
@@ -30,19 +30,30 @@ export function NewFurnishingDialog() {
   };
   const livingFloors = FLOOR_PRESETS.filter((x) => x.id !== "iron");
   return (
-    <div className="fixed inset-0 z-[100] grid place-items-center bg-black/30 p-4" onClick={close}>
-      <div className="w-full max-w-xl rounded-xl bg-white p-5 shadow-2xl" onClick={(e) => e.stopPropagation()}>
-        <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-base font-semibold">Neue Einrichtung – leere Wohnung</h2>
-          <button className="btn-ghost" onClick={close}>
-            <X size={16} />
+    <Dialog
+      open={open}
+      onClose={close}
+      title="Neue Einrichtung"
+      subtitle="Leere Wohnung mit Bestand, Farbstimmung und Boden"
+      icon={<FilePlus size={18} />}
+      width="max-w-xl"
+      footer={
+        <>
+          <button className="btn" onClick={close}>
+            Abbrechen
           </button>
-        </div>
+          <button className="btn-primary" onClick={create}>
+            Wohnung anlegen
+          </button>
+        </>
+      }
+    >
+      <div>
         <label className="block text-xs text-stone-600">
           Projektname
-          <input className="field mt-1" value={name} onChange={(e) => setName(e.target.value)} />
+          <input className="field mt-1" value={name} onChange={(e) => setName(e.target.value)} onKeyDown={(e) => e.key === "Enter" && create()} />
         </label>
-        <div className="mt-4 text-xs font-semibold uppercase tracking-wide text-stone-500">Bestand übernehmen</div>
+        <div className="panel-title mt-4">Bestand übernehmen</div>
         <div className="mt-1 flex flex-wrap gap-x-5 gap-y-1 text-sm">
           <label className="flex items-center gap-1.5">
             <input type="checkbox" className="" checked={sanitary} onChange={(e) => setSanitary(e.target.checked)} /> Sanitärobjekte
@@ -52,7 +63,7 @@ export function NewFurnishingDialog() {
           </label>
         </div>
         <p className="mt-1 text-[11px] text-stone-500">Die Einbauküche Alno 2060 (Walnuss dunkel, Naturstein) mit Sideboard ist fest eingebaut. Böden im Bestand: Eichendielen 1,90 m; HWR, Bad und Dusche/WC Feinsteinzeug 60 × 60 cm „Iron“.</p>
-        <div className="mt-4 text-xs font-semibold uppercase tracking-wide text-stone-500">Farbstimmung Wände/Decken</div>
+        <div className="panel-title mt-4">Farbstimmung Wände/Decken</div>
         <div className="mt-1 flex flex-wrap gap-1">
           {WALL_MOODS.map((m, i) => (
             <button key={m.label} className="chip" data-on={mood === i} onClick={() => setMood(i)}>
@@ -61,7 +72,7 @@ export function NewFurnishingDialog() {
             </button>
           ))}
         </div>
-        <div className="mt-4 text-xs font-semibold uppercase tracking-wide text-stone-500">Boden Wohnräume</div>
+        <div className="panel-title mt-4">Boden Wohnräume</div>
         <select className="field mt-1" value={floor} onChange={(e) => setFloor(e.target.value)}>
           {livingFloors.map((f) => (
             <option key={f.id} value={f.id}>
@@ -72,15 +83,7 @@ export function NewFurnishingDialog() {
         <p className="mt-3 text-[11px] text-stone-500">
           Danach: Produkte aus dem Katalog in Plan oder 3D ziehen; Wände, Decken, Sockelleisten, Türen und Fensterrahmen unter „Gestaltung“ – je Raum, je Wand oder für die ganze Wohnung.
         </p>
-        <div className="mt-4 flex justify-end gap-2">
-          <button className="btn" onClick={close}>
-            Abbrechen
-          </button>
-          <button className="btn-primary" onClick={create}>
-            Wohnung anlegen
-          </button>
-        </div>
       </div>
-    </div>
+    </Dialog>
   );
 }

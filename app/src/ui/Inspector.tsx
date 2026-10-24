@@ -197,7 +197,7 @@ function ItemInspector({ it }: { it: PlacedItem }) {
         <div className="space-y-2">
           {slots.map(([slot, s]) => (
             <div key={slot} className="flex items-center gap-2">
-              <input type="color" value={s.color} onChange={(e) => st.setSlot(it.id, slot, { color: e.target.value })} className="h-8 w-9 cursor-pointer rounded border border-stone-200 bg-white p-0.5" />
+              <input type="color" value={s.color} onChange={(e) => st.setSlot(it.id, slot, { color: e.target.value })} className="h-8 w-9 cursor-pointer rounded border border-stone-200 bg-card p-0.5" />
               <div className="min-w-0 flex-1">
                 <div className="text-[11px] text-stone-500">{SLOT_LABELS[slot] ?? slot}</div>
                 <select className="field py-0.5 text-xs" value={s.material} onChange={(e) => st.setSlot(it.id, slot, { material: e.target.value as MaterialKey })}>
@@ -249,7 +249,7 @@ function ItemInspector({ it }: { it: PlacedItem }) {
         <Section title="Stückliste & Preis">
           <div className="space-y-1.5">
             {(it.parts ?? []).map((p, i) => (
-              <div key={i} className="rounded-md bg-white p-2 text-xs shadow-sm ring-1 ring-stone-200">
+              <div key={i} className="rounded-md bg-card p-2 text-xs shadow-sm ring-1 ring-stone-200">
                 <div className="flex justify-between gap-2">
                   <span className="font-medium">
                     {p.pos ? `${p.pos} · ` : ""}
@@ -347,7 +347,7 @@ export function SurfaceEditor({ value, onChange, allowLower = true }: { value: W
       </div>
       {value.base.productName && <div className="text-xs text-stone-600">{value.base.productName}</div>}
       {(value.base.kind === "paint" || value.base.kind === "limewash") && (
-        <div className="max-h-40 overflow-auto rounded-md border border-stone-200 bg-white p-1.5">
+        <div className="max-h-40 overflow-auto rounded-md border border-stone-200 bg-card p-1.5">
           <div className="grid grid-cols-8 gap-1">
             {PAINTS.map((p) => (
               <button key={p.brand + p.name} title={`${p.brand} – ${p.name}${p.note ? ` (${p.note})` : ""}`} onClick={() => setBase({ color: p.hex, productName: `${p.brand} ${p.name}` })} className={`aspect-square rounded border ${value.base.color.toLowerCase() === p.hex ? "border-stone-900 ring-2 ring-stone-900/30" : "border-stone-300"}`} style={{ background: p.hex }} />
@@ -356,7 +356,7 @@ export function SurfaceEditor({ value, onChange, allowLower = true }: { value: W
         </div>
       )}
       {allowLower && (
-        <div className="rounded-md border border-stone-200 bg-white p-2">
+        <div className="rounded-md border border-stone-200 bg-card p-2">
           <label className="flex items-center gap-2 text-xs font-medium text-stone-700">
             <input type="checkbox" className="" checked={!!lower && lower.height > 0} onChange={(e) => onChange({ ...value, lower: e.target.checked ? { height: 1.1, surface: { kind: "wainscot", color: "#f3f0e8" }, rail: true } : undefined })} />
             Sockelzone / Vertäfelung / Zweifarbig

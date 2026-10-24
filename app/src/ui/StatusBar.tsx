@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AlertTriangle, Check, CircleDot, X } from "lucide-react";
-import { getCatalogItem, lastAutosave, useEditor } from "../store/project";
+import { getCatalogItem, lastAutosave, pauseToast, useEditor } from "../store/project";
+import { Dialog } from "./kit";
 import { closeWindowNow } from "../platform";
 import { saveProject } from "./fileops";
 import { fileName } from "./recent";
@@ -58,11 +59,11 @@ export function StatusBar() {
   const hint = useContextHint();
   const undoLabel = useEditor((s) => s.pastLabels[s.pastLabels.length - 1]);
   return (
-    <div className="flex h-6 shrink-0 items-center gap-3 border-t border-stone-200 bg-[#f3f0ea] px-3 text-[11px] text-stone-600">
+    <footer className="flex h-7 shrink-0 items-center gap-3 px-2 text-[11px] text-stone-600">
       <span className="min-w-0 flex-1 truncate">{hint}</span>
       {undoLabel && <span className="hidden truncate text-stone-500 xl:inline">Letzter Schritt: {undoLabel}</span>}
       <SaveState />
-    </div>
+    </footer>
   );
 }
 
@@ -72,14 +73,17 @@ export function ToastView() {
   const err = toast.kind === "error";
   return (
     <div
+      key={toast.id}
       role={err ? "alert" : "status"}
-      className={`fixed bottom-14 left-1/2 z-[120] flex max-w-[80vw] -translate-x-1/2 items-center gap-3 rounded-full px-4 py-2 text-sm text-white shadow-lg ${err ? "bg-red-800/95" : "bg-stone-900/90"}`}
+      onPointerEnter={() => pauseToast(true)}
+      onPointerLeave={() => pauseToast(false)}
+      className={`toast slide-up fixed bottom-12 left-1/2 z-[120] flex max-w-[min(80vw,720px)] -translate-x-1/2 items-center gap-3 overflow-hidden rounded-xl py-2.5 pr-2 pl-3.5 text-sm ${err ? "toast-error" : ""}`}
     >
-      {err && <AlertTriangle size={15} className="shrink-0" />}
-      <span>{toast.msg}</span>
+      {err ? <AlertTriangle size={16} className="shrink-0" /> : <Check size={15} className="shrink-0 opacity-80" />}
+      <span className="min-w-0">{toast.msg}</span>
       {toast.action && (
         <button
-          className="shrink-0 rounded-full bg-white/15 px-2.5 py-0.5 text-xs font-semibold hover:bg-card/25"
+          className="shrink-0 rounded-lg bg-white/15 px-2.5 py-1 text-xs font-semibold transition hover:bg-white/25"
           onClick={() => {
             useEditor.getState().set("toast", null);
             toast.action!.run();
@@ -88,9 +92,10 @@ export function ToastView() {
           {toast.action.label}
         </button>
       )}
-      <button className="shrink-0 opacity-60 hover:opacity-100" title="Schließen" onClick={() => useEditor.getState().set("toast", null)}>
+      <button className="grid h-6 w-6 shrink-0 place-items-center rounded-md opacity-60 transition hover:bg-white/15 hover:opacity-100" title="Schließen" onClick={() => useEditor.getState().set("toast", null)}>
         <X size={13} />
       </button>
+      <span className="toast-progress absolute inset-x-0 bottom-0 h-0.5 origin-left" style={{ animationDuration: `${toast.duration}ms` }} />
     </div>
   );
 }
@@ -103,13 +108,15 @@ export function CloseDialog() {
   if (!open) return null;
   const cancel = () => useEditor.getState().set("closeAsk", false);
   return (
-    <div className="fixed inset-0 z-[130] grid place-items-center bg-black/35 p-4" onClick={cancel}>
-      <div className="w-full max-w-md rounded-xl bg-white p-5 shadow-2xl" onClick={(e) => e.stopPropagation()}>
-        <h2 className="text-base font-semibold">Änderungen speichern?</h2>
-        <p className="mt-2 text-sm text-stone-600">
-          {filePath ? `„${fileName(filePath)}“ hat ungespeicherte Änderungen.` : "Das Projekt wurde noch nicht als Datei gespeichert."} Der letzte Stand bleibt zusätzlich als automatische Sicherung erhalten und wird beim nächsten Start wiederhergestellt.
-        </p>
-        <div className="mt-4 flex justify-end gap-2">
+    <Dialog
+      open
+      onClose={busy ? undefined : cancel}
+      z="z-[130]"
+      title="Änderungen speichern?"
+      icon={<AlertTriangle size={18} />}
+      width="max-w-md"
+      footer={
+        <>
           <button className="btn" onClick={cancel} disabled={busy}>
             Abbrechen
           </button>
@@ -118,7 +125,7 @@ export function CloseDialog() {
           </button>
           <button
             className="btn-primary"
-            autoFocus
+            data-autofocus
             disabled={busy}
             onClick={async () => {
               setBusy(true);
@@ -129,8 +136,12 @@ export function CloseDialog() {
           >
             Speichern und beenden
           </button>
-        </div>
-      </div>
-    </div>
+        </>
+      }
+    >
+      <p className="text-sm text-stone-600">
+        {filePath ? `„${fileName(filePath)}“ hat ungespeicherte Änderungen.` : "Das Projekt wurde noch nicht als Datei gespeichert."} Der letzte Stand bleibt zusätzlich als automatische Sicherung erhalten und wird beim nächsten Start wiederhergestellt.
+      </p>
+    </Dialog>
   );
 }

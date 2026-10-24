@@ -3,7 +3,12 @@ import { apartment, concepts, roomNames } from "../data";
 import { polygonCentroid } from "../model/geometry";
 import { useEditor, type LeftTab, type WallMode } from "../store/project";
 import { pointer } from "./pointer";
-import { exportPlanSvg, exportScreenshot, exportShoppingList, importGlb, openProject, openRecent, printBudget, saveProject } from "./fileops";
+import { createElement } from "react";
+import { ArrowLeftRight, ClipboardPaste, Copy, CopyPlus, Crosshair, Eye, EyeOff, Lock, LockOpen, Maximize, RotateCw, Ruler, Scissors, SquareDashed, Trash2 } from "lucide-react";
+import type { CtxEntry } from "./kit";
+import { normAngle } from "../model/geometry";
+import { useUi } from "./prefs";
+import { exportPlanPng, exportPlanSvg, exportScreenshot, exportShoppingList, importGlb, openProject, openRecent, printBudget, saveProject } from "./fileops";
 import { fileName, recentFiles } from "./recent";
 
 export interface Command {
@@ -67,7 +72,12 @@ export function staticCommands(): Command[] {
     { id: "save", group: "Datei", label: "Speichern", kbd: "Strg+S", run: () => void saveProject(false) },
     { id: "saveas", group: "Datei", label: "Speichern unter …", kbd: "Strg+Umschalt+S", run: () => void saveProject(true) },
     { id: "png", group: "Export", label: "3D-Ansicht als PNG", keywords: "bild screenshot", run: () => void exportScreenshot() },
-    { id: "svg", group: "Export", label: "Grundriss als SVG", keywords: "plan zeichnung", run: () => void exportPlanSvg() },
+    { id: "svg", group: "Export", label: "Grundriss als SVG", keywords: "plan zeichnung vektor", run: () => void exportPlanSvg() },
+    { id: "planpng", group: "Export", label: "Grundriss als PNG", keywords: "plan bild drucken", run: () => void exportPlanPng() },
+    { id: "settings", group: "Programm", label: "Einstellungen …", kbd: "Strg+,", keywords: "design dunkel hell transparenz größe optionen", run: () => st().set("settingsOpen", true) },
+    { id: "theme", group: "Programm", label: "Design wechseln (hell / dunkel)", keywords: "dunkelmodus darkmode nachtmodus", run: () => useUi.getState().setPref("theme", document.documentElement.dataset.theme === "dark" ? "light" : "dark") },
+    { id: "left", group: "Ansicht", label: "Linke Leiste ein-/ausblenden", kbd: "Strg+B", keywords: "seitenleiste katalog", run: () => useUi.getState().setPref("leftOpen", !useUi.getState().leftOpen) },
+    { id: "right", group: "Ansicht", label: "Rechte Leiste ein-/ausblenden", kbd: "Strg+Umschalt+B", keywords: "eigenschaften inspektor", run: () => useUi.getState().setPref("rightOpen", !useUi.getState().rightOpen) },
     { id: "csv", group: "Export", label: "Einkaufsliste (CSV/Excel)", keywords: "budget liste", run: () => void exportShoppingList() },
     { id: "print", group: "Export", label: "Einkaufsliste drucken / PDF", keywords: "budget", run: () => printBudget() },
     { id: "glb", group: "Datei", label: "Eigenes 3D-Modell (GLB) importieren", run: () => void importGlb() },
@@ -151,4 +161,46 @@ export function norm(s: string) {
 export function matches(hay: string, q: string) {
   const h = norm(hay);
   return norm(q).split(/\s+/).filter(Boolean).every((w) => h.includes(w));
+}
+
+const ic = (C: typeof Copy) => createElement(C, { size: 14 });
+
+/** Kontextmenü für Objekte (Plan und 3D); `id` wird vorher ausgewählt, falls nicht in der Auswahl. */
+export function itemContextEntries(id: string): CtxEntry[] {
+  const s = st();
+  if (!s.selection.includes(id)) s.select([id]);
+  const sel = st().project.items.filter((i) => st().selection.includes(i.id));
+  const one = sel.length === 1 ? sel[0] : undefined;
+  const builtIn = sel.every((i) => i.builtIn);
+  const locked = sel.every((i) => i.locked);
+  const hidden = sel.every((i) => i.hidden);
+  const movable = sel.filter((i) => !i.locked).map((i) => i.id);
+  const out: CtxEntry[] = [{ heading: one ? (one.label ?? "Objekt") : `${sel.length} Objekte` }];
+  if (one && !one.existing) out.push({ label: "Tauschen …", icon: ic(ArrowLeftRight), kbd: "T", run: toggleSwap });
+  out.push(
+    { label: "Um 90° drehen", icon: ic(RotateCw), kbd: "R", disabled: !movable.length, run: () => st().updateItems(movable, (it) => void (it.rot = normAngle(it.rot + 90)), { label: "Drehen 90°" }) },
+    { label: "Kamera hierauf", icon: ic(Crosshair), kbd: "F", run: focusSelection },
+    { sep: true },
+    { label: "Kopieren", icon: ic(Copy), kbd: "Strg+C", disabled: builtIn, run: () => void st().copyItems(st().selection) },
+    { label: "Ausschneiden", icon: ic(Scissors), kbd: "Strg+X", disabled: builtIn || !movable.length, run: () => st().cutItems(st().selection) },
+    { label: "Duplizieren", icon: ic(CopyPlus), kbd: "Strg+D", disabled: builtIn, run: () => st().duplicateItems(st().selection) },
+    { sep: true },
+    { label: locked ? "Entsperren" : "Sperren", icon: ic(locked ? LockOpen : Lock), kbd: "L", disabled: builtIn, run: toggleLock },
+    { label: hidden ? "Einblenden" : "Ausblenden", icon: ic(hidden ? Eye : EyeOff), kbd: "H", run: toggleHidden },
+    { sep: true },
+    { label: "Löschen", icon: ic(Trash2), kbd: "Entf", danger: true, disabled: builtIn || !movable.length, run: () => st().removeItems(st().selection) },
+  );
+  return out;
+}
+
+/** Kontextmenü auf freier Fläche im Plan. */
+export function planContextEntries(at: [number, number], extra: { measure: () => void; fit: () => void }): CtxEntry[] {
+  return [
+    { label: "Hier einfügen", icon: ic(ClipboardPaste), kbd: "Strg+V", run: () => st().pasteItems(at) },
+    { label: "Alles auswählen", icon: ic(SquareDashed), kbd: "Strg+A", run: () => st().select(st().project.items.filter((i) => !i.locked).map((i) => i.id)) },
+    { sep: true },
+    { label: "Messen", icon: ic(Ruler), kbd: "M", run: extra.measure },
+    { label: "Freiflächen ein/aus", icon: ic(SquareDashed), run: () => st().set("showClearance", !st().showClearance) },
+    { label: "Plan einpassen", icon: ic(Maximize), kbd: "F", run: extra.fit },
+  ];
 }

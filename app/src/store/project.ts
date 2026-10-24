@@ -30,6 +30,8 @@ export interface Toast {
   kind: "info" | "error";
   /** Schaltfläche im Hinweis, z. B. „Rückgängig“. */
   action?: { label: string; run: () => void };
+  /** Anzeigedauer in ms (für die Fortschrittsleiste). */
+  duration: number;
 }
 
 export interface ToastOptions {
@@ -78,6 +80,8 @@ export interface EditorState {
   paletteOpen: boolean;
   /** Abfrage beim Schließen des Fensters mit ungespeicherten Änderungen. */
   closeAsk: boolean;
+  /** Einstellungsdialog. */
+  settingsOpen: boolean;
 
   // Aktionen
   setProject(p: Project, opts?: { keepHistory?: boolean; filePath?: string | null; label?: string }): void;
@@ -340,6 +344,25 @@ const firstStart = !urlConcept && !autosaved && !urlParams.has("view");
 let lastCommit: { key: string; t: number } | null = null;
 let toastSeq = 0;
 let toastTimer: ReturnType<typeof setTimeout> | undefined;
+let toastLeft = 0;
+let toastStart = 0;
+function armToast(t: Toast, ms = t.duration) {
+  clearTimeout(toastTimer);
+  toastStart = Date.now();
+  toastLeft = ms;
+  toastTimer = setTimeout(() => {
+    if (useEditor.getState().toast?.id === t.id) useEditor.setState({ toast: null });
+  }, ms);
+}
+/** Hinweis anhalten, solange die Maus darauf steht (Fluent-Verhalten). */
+export function pauseToast(paused: boolean) {
+  const t = useEditor.getState().toast;
+  if (!t) return;
+  if (paused) {
+    clearTimeout(toastTimer);
+    toastLeft = Math.max(800, toastLeft - (Date.now() - toastStart));
+  } else armToast(t, toastLeft);
+}
 let clipboard: PlacedItem[] = [];
 let pasteCount = 0;
 
@@ -377,6 +400,7 @@ export const useEditor = create<EditorState>((set, get) => ({
   newDialogOpen: false,
   startOpen: firstStart,
   paletteOpen: false,
+  settingsOpen: false,
   closeAsk: false,
 
   setProject(p, opts) {
@@ -694,12 +718,10 @@ export const useEditor = create<EditorState>((set, get) => ({
     });
   },
   showToast(msg, opts) {
-    const t: Toast = { id: ++toastSeq, msg, kind: opts?.kind ?? "info", action: opts?.action };
+    const kind = opts?.kind ?? "info";
+    const t: Toast = { id: ++toastSeq, msg, kind, action: opts?.action, duration: opts?.duration ?? (opts?.action || kind === "error" ? 7000 : 3200) };
     set({ toast: t });
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
-      if (get().toast?.id === t.id) set({ toast: null });
-    }, opts?.duration ?? (t.action || t.kind === "error" ? 7000 : 3200));
+    armToast(t);
   },
   setFrameStand(id, stand) {
     const items = get().project.items;

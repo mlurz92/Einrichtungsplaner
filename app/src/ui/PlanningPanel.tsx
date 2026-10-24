@@ -64,7 +64,7 @@ function CheckSection() {
           return (
             <button
               key={f.id}
-              className="flex w-full items-start gap-2 rounded-md bg-white p-2 text-left text-xs shadow-sm ring-1 ring-stone-200 hover:ring-stone-400"
+              className="flex w-full items-start gap-2 rounded-md bg-card p-2 text-left text-xs shadow-sm ring-1 ring-stone-200 hover:ring-stone-400"
               onClick={() => {
                 st.select(f.itemIds.filter((id) => st.project.items.some((i) => i.id === id)));
                 st.requestFocus(f.at[0], f.at[1]);
@@ -117,7 +117,7 @@ function VariantsSection() {
           const total = budgetSummary({ ...st.project, items: v.items, budget: v.budget }).total;
           const on = target?.kind === "variant" && target.id === v.id;
           return (
-            <div key={v.id} className={`rounded-md bg-white p-2 text-xs shadow-sm ring-1 ${on ? "ring-accent" : "ring-stone-200"}`}>
+            <div key={v.id} className={`rounded-md bg-card p-2 text-xs shadow-sm ring-1 ${on ? "ring-accent" : "ring-stone-200"}`}>
               <div className="flex items-center gap-1">
                 {editing === v.id ? (
                   <input className="field py-0.5 text-xs" autoFocus defaultValue={v.name} onBlur={(e) => (st.renameVariant(v.id, e.target.value.trim() || v.name), setEditing(null))} onKeyDown={(e) => e.key === "Enter" && (e.target as HTMLInputElement).blur()} />

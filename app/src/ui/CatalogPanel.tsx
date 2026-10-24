@@ -119,7 +119,7 @@ function Detail({ c, initial, onClose }: { c: CatalogItem; initial: number; onCl
     onClose();
   };
   return (
-    <div className="absolute inset-0 z-20 flex flex-col bg-[#faf8f5]">
+    <div className="absolute inset-0 z-20 flex flex-col bg-surface fade-in">
       <div className="flex items-center justify-between border-b border-stone-200 px-3 py-2">
         <span className="panel-title">Produkt</span>
         <button className="btn-ghost" onClick={onClose}>

@@ -117,7 +117,7 @@ export function SwapPanel({ it, onClose }: { it: PlacedItem; onClose: () => void
   };
 
   return (
-    <div className="flex h-full flex-col bg-[#faf8f5]" onKeyDown={onKey}>
+    <div className="flex h-full flex-col bg-surface" onKeyDown={onKey}>
       <div className="flex items-center gap-2 border-b border-stone-200 px-3 py-2">
         <ArrowLeftRight size={15} className="text-stone-500" />
         <div className="min-w-0 flex-1">
@@ -188,7 +188,7 @@ export function SwapPanel({ it, onClose }: { it: PlacedItem; onClose: () => void
             <div
               key={x.id}
               data-row={i}
-              className={`group flex cursor-pointer gap-2 rounded-lg border p-1.5 transition ${i === cursor ? "border-accent bg-white shadow-sm" : "border-transparent hover:border-stone-200 hover:bg-card hover:shadow-sm"}`}
+              className={`group flex cursor-pointer gap-2 rounded-lg border p-1.5 transition ${i === cursor ? "border-accent bg-card shadow-sm" : "border-transparent hover:border-stone-200 hover:bg-card hover:shadow-sm"}`}
               onMouseEnter={() => (setCursor(i), preview(row))}
               onClick={() => apply(row)}
               title={isCurrent ? "Aktuelles Produkt – Klick übernimmt die gewählte Ausführung" : "Klicken zum Tauschen"}

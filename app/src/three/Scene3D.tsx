@@ -1,8 +1,8 @@
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
-import { CameraControls, PointerLockControls } from "@react-three/drei";
-import { EffectComposer, N8AO, SMAA, Bloom, ToneMapping } from "@react-three/postprocessing";
+import { CameraControls, Html, PointerLockControls } from "@react-three/drei";
+import { EffectComposer, N8AO, SMAA, Bloom, ToneMapping, Outline, Selection } from "@react-three/postprocessing";
 import { ToneMappingMode } from "postprocessing";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
@@ -22,6 +22,12 @@ import { DEFAULT_SITE, sunDirection, sunPosition, sunTimes } from "./solar";
 import { useView3D } from "./viewStore";
 import { inFurniture } from "./views";
 import { View3DPanel } from "../ui/View3DPanel";
+import { useResolvedTheme } from "../ui/prefs";
+import { useContextMenu, type CtxEntry } from "../ui/kit";
+import { itemContextEntries } from "../ui/commands";
+import { exportScreenshot } from "../ui/fileops";
+import { Box, Camera, Footprints, Moon, Square } from "lucide-react";
+import { createElement } from "react";
 
 const CEIL = apartment.ceilingHeight;
 const CENTER = new THREE.Vector3((apartment.bounds[0] + apartment.bounds[2]) / 2, 0, (apartment.bounds[1] + apartment.bounds[3]) / 2);
@@ -44,8 +50,56 @@ function useSun() {
   }, [date, time, north, lat, lon, anim]);
 }
 
+/** Senkrechter Verlauf als Szenenhintergrund (hell bzw. dunkel). */
+function gradientTexture(top: string, bottom: string): THREE.CanvasTexture {
+  const c = document.createElement("canvas");
+  c.width = 4;
+  c.height = 256;
+  const g = c.getContext("2d")!;
+  const lg = g.createLinearGradient(0, 0, 0, 256);
+  lg.addColorStop(0, top);
+  lg.addColorStop(1, bottom);
+  g.fillStyle = lg;
+  g.fillRect(0, 0, 4, 256);
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+
+const BACKDROPS = {
+  light: ["#f3f1ec", "#d9d4ca"],
+  dark: ["#2c2f34", "#18191c"],
+  night: ["#1e2128", "#121317"],
+} as const;
+
+/** Weiche Bodenplatte unter der Wohnung, damit das Modell nicht schwebt. */
+function GroundPlate() {
+  const theme = useResolvedTheme();
+  const tex = useMemo(() => {
+    const c = document.createElement("canvas");
+    c.width = c.height = 256;
+    const g = c.getContext("2d")!;
+    const rg = g.createRadialGradient(128, 128, 20, 128, 128, 128);
+    rg.addColorStop(0, "rgba(0,0,0,1)");
+    rg.addColorStop(0.55, "rgba(0,0,0,0.55)");
+    rg.addColorStop(1, "rgba(0,0,0,0)");
+    g.fillStyle = rg;
+    g.fillRect(0, 0, 256, 256);
+    return new THREE.CanvasTexture(c);
+  }, []);
+  const w = (apartment.bounds[2] - apartment.bounds[0]) * 1.9;
+  const d = (apartment.bounds[3] - apartment.bounds[1]) * 1.6;
+  return (
+    <mesh position={[CENTER.x, -0.04, CENTER.z]} rotation={[-Math.PI / 2, 0, 0]} renderOrder={-1} raycast={() => {}}>
+      <planeGeometry args={[w, d]} />
+      <meshBasicMaterial color={theme === "dark" ? "#000000" : "#5a4a3a"} alphaMap={tex} transparent opacity={theme === "dark" ? 0.5 : 0.22} depthWrite={false} toneMapped={false} />
+    </mesh>
+  );
+}
+
 function Environment() {
   const { gl, scene } = useThree();
+  const theme = useResolvedTheme();
   const camera3d = useEditor((s) => s.camera3d);
   const night = useEditor((s) => s.night);
   const { day } = useSun();
@@ -70,20 +124,23 @@ function Environment() {
         scene.background = t;
       });
     } else {
-      scene.background = new THREE.Color(night ? "#1b1d22" : "#e9e7e2");
+      const [a, b] = BACKDROPS[night ? "night" : theme];
+      tex = gradientTexture(a, b);
+      scene.background = tex;
     }
     return () => {
       cancelled = true;
       tex?.dispose();
     };
-  }, [camera3d, night, scene]);
+  }, [camera3d, night, scene, theme]);
   useEffect(() => {
     // Himmel/Umgebung folgen der Dämmerung
     const d = night ? 0 : day;
     scene.environmentIntensity = night ? 0.08 : 0.12 + 0.43 * d;
-    scene.backgroundIntensity = 0.15 + 0.75 * d;
+    // Verlauf ist bereits abgestimmt; nur der HDR-Himmel im Rundgang folgt der Dämmerung
+    scene.backgroundIntensity = camera3d === "walk" ? 0.15 + 0.75 * d : 1;
     setNightGlow(night ? 2.2 : 0);
-  }, [night, scene, day]);
+  }, [night, scene, day, camera3d]);
   return null;
 }
 
@@ -381,6 +438,7 @@ function Items({ controls }: { controls: React.RefObject<CameraControls | null> 
   const setHover = useEditor((s) => s.setHover);
   const onDown = useDrag(controls);
   const sel = useMemo(() => new Set(selection), [selection]);
+  const outline = useEditor((s) => s.quality !== "niedrig");
   const wallMode = useEffectiveWallMode();
   const cut = wallMode === "full" || wallMode === "auto" ? null : wallMode === "cut" ? 1.3 : 0.14;
   const onDouble = (e: ThreeEvent<MouseEvent>) => {
@@ -390,11 +448,27 @@ function Items({ controls }: { controls: React.RefObject<CameraControls | null> 
     e.stopPropagation();
     useEditor.getState().requestFocus(it.x, it.y);
   };
+  const onContext = (e: ThreeEvent<MouseEvent>) => {
+    const id = e.object.userData.itemId as string | undefined;
+    if (!id || !rightClickStill(e.nativeEvent)) return;
+    e.stopPropagation();
+    e.nativeEvent.preventDefault();
+    (e.nativeEvent as MouseEvent & { we13Handled?: boolean }).we13Handled = true;
+    useContextMenu.getState().open(e.nativeEvent.clientX, e.nativeEvent.clientY, itemContextEntries(id));
+  };
+  const one = selection.length === 1 ? items.find((i) => i.id === selection[0]) : undefined;
   return (
-    <group onDoubleClick={onDouble}>
+    <group onDoubleClick={onDouble} onContextMenu={onContext}>
       {items.map((it) => (
-        <ItemMesh key={it.id} item={it} selected={sel.has(it.id)} hovered={hoverId === it.id} onDown={onDown} onOver={setHover} cut={cut} />
+        <ItemMesh key={it.id} item={it} selected={sel.has(it.id)} hovered={hoverId === it.id} outline={outline} onDown={onDown} onOver={setHover} cut={cut} />
       ))}
+      {one && !one.hidden && (
+        <Html position={[one.x, one.elev + one.h + 0.3, one.y]} center zIndexRange={[20, 0]} style={{ pointerEvents: "none" }}>
+          <div className="glass-strong whitespace-nowrap rounded-full px-2.5 py-1 text-[11px] font-semibold tabular-nums text-stone-700">
+            {Math.round(one.w * 100)} × {Math.round(one.d * 100)} × {Math.round(one.h * 100)} cm
+          </div>
+        </Html>
+      )}
     </group>
   );
 }
@@ -755,6 +829,79 @@ function SceneApi({ controls }: { controls: React.RefObject<CameraControls | nul
   return null;
 }
 
+/** Rechtsklick ohne Ziehen (rechts ziehen verschiebt die Ansicht). */
+let rightDown: { x: number; y: number } | null = null;
+if (typeof window !== "undefined")
+  window.addEventListener(
+    "pointerdown",
+    (e) => {
+      if (e.button === 2) rightDown = { x: e.clientX, y: e.clientY };
+    },
+    true,
+  );
+function rightClickStill(e: MouseEvent) {
+  return !!rightDown && Math.hypot(e.clientX - rightDown.x, e.clientY - rightDown.y) < 5;
+}
+
+const ic = (C: typeof Box) => createElement(C, { size: 14 });
+
+/** Kontextmenü auf freier Fläche der 3D-Ansicht. */
+function sceneContextEntries(): CtxEntry[] {
+  const st = useEditor.getState();
+  return [
+    { label: "Übersicht (Modellansicht)", icon: ic(Box), run: () => st.set("camera3d", "orbit") },
+    { label: "Draufsicht", icon: ic(Square), run: () => st.set("camera3d", "top") },
+    { label: "Rundgang starten", icon: ic(Footprints), run: () => st.set("camera3d", "walk") },
+    { sep: true },
+    { label: st.night ? "Tageslicht" : "Abendlicht", icon: ic(Moon), run: () => st.set("night", !st.night) },
+    { label: "Ansicht als Bild speichern", icon: ic(Camera), run: () => void exportScreenshot() },
+  ];
+}
+
+/** Kamera-Rose: Blick aus den vier Himmelsrichtungen, Draufsicht und Übersicht. */
+function ViewRose() {
+  const camera3d = useEditor((s) => s.camera3d);
+  const north = useEditor((s) => s.project.settings.northDeg ?? 0);
+  if (camera3d === "walk") return null;
+  const go = (deg: number | null) => {
+    const st = useEditor.getState();
+    if (deg === null) return st.set("camera3d", "top");
+    if (st.camera3d !== "orbit") st.set("camera3d", "orbit");
+    // Kamera steht in Himmelsrichtung `deg` (0 = Norden) und blickt zur Mitte
+    const a = ((deg + north) * Math.PI) / 180;
+    const dist = 17;
+    const pos: [number, number, number] = [CENTER.x + Math.sin(a) * dist, 11, CENTER.z - Math.cos(a) * dist];
+    setTimeout(() => useView3D.getState().set("goto", { pos, target: [CENTER.x, 0.4, CENTER.z], t: performance.now() }), 30);
+  };
+  const dirs: [string, number, string][] = [
+    ["N", 0, "Blick von Norden"],
+    ["O", 90, "Blick von Osten"],
+    ["S", 180, "Blick von Süden"],
+    ["W", 270, "Blick von Westen"],
+  ];
+  return (
+    <div className="glass absolute right-3 bottom-3 grid h-[88px] w-[88px] place-items-center rounded-full" role="toolbar" aria-label="Blickrichtung">
+      {dirs.map(([l, deg, t]) => {
+        const a = ((deg + north) * Math.PI) / 180;
+        return (
+          <button
+            key={l}
+            className="absolute grid h-6 w-6 place-items-center rounded-full text-[10px] font-bold text-stone-600 transition hover:bg-accent hover:text-white"
+            style={{ left: 44 + Math.sin(a) * 31 - 12, top: 44 - Math.cos(a) * 31 - 12 }}
+            title={t}
+            onClick={() => go(deg)}
+          >
+            {l}
+          </button>
+        );
+      })}
+      <button className="grid h-8 w-8 place-items-center rounded-full bg-card text-stone-700 shadow-sm transition hover:bg-accent hover:text-white" title="Draufsicht" onClick={() => go(null)}>
+        <Square size={13} />
+      </button>
+    </div>
+  );
+}
+
 function Effects() {
   const quality = useEditor((s) => s.quality);
   const night = useEditor((s) => s.night);
@@ -765,9 +912,10 @@ function Effects() {
   }, [gl, quality]);
   if (quality === "niedrig") return null;
   return (
-    <EffectComposer multisampling={0} enableNormalPass={false}>
+    <EffectComposer multisampling={0} enableNormalPass={false} autoClear={false}>
       <N8AO aoRadius={0.45} distanceFalloff={0.6} intensity={quality === "hoch" ? 2.2 : 1.6} quality={quality === "hoch" ? "high" : "medium"} halfRes={quality !== "hoch"} />
       <Bloom intensity={night ? 0.55 : 0.08} luminanceThreshold={night ? 0.85 : 0.98} mipmapBlur />
+      <Outline visibleEdgeColor={0x2f7cf6} hiddenEdgeColor={0x2f7cf6} edgeStrength={6} pulseSpeed={0} blur xRay={false} width={1200} />
       <ToneMapping mode={ToneMappingMode.NEUTRAL} />
       <SMAA />
     </EffectComposer>
@@ -780,7 +928,14 @@ export function Scene3D() {
   const sunPlaying = useView3D((s) => s.sunPlaying);
   const controls = useRef<CameraControls | null>(null);
   return (
-    <>
+    <div
+      className="contents"
+      onContextMenu={(e) => {
+        e.preventDefault();
+        if ((e.nativeEvent as MouseEvent & { we13Handled?: boolean }).we13Handled || !rightClickStill(e.nativeEvent) || camera3d === "walk") return;
+        useContextMenu.getState().open(e.clientX, e.clientY, sceneContextEntries());
+      }}
+    >
       <Canvas
         shadows={{ type: THREE.PCFSoftShadowMap }}
         dpr={quality === "niedrig" ? 1 : [1, 2]}
@@ -801,7 +956,9 @@ export function Scene3D() {
         }}
       >
         <Suspense fallback={null}>
+          <Selection>
           <Environment />
+          <GroundPlate />
           <Sun />
           <LampLights />
           <ApartmentModel />
@@ -834,9 +991,11 @@ export function Scene3D() {
           )}
           <CameraRig controls={controls} />
           <Effects />
+          </Selection>
         </Suspense>
       </Canvas>
+      <ViewRose />
       <View3DPanel />
-    </>
+    </div>
   );
 }

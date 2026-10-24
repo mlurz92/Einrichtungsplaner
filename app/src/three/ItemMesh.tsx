@@ -7,6 +7,7 @@ import type { PlacedItem } from "../model/types";
 import { getCatalogItem } from "../store/project";
 import { buildFurniture } from "./furniture";
 import { apartment } from "../data";
+import { Select } from "@react-three/postprocessing";
 
 interface Props {
   item: PlacedItem;
@@ -16,6 +17,8 @@ interface Props {
   onOver?: (id: string | null) => void;
   /** Schnitthöhe der Wände (null = raumhoch) */
   cut?: number | null;
+  /** Auswahl als Kontur (Nachbearbeitung aktiv); sonst Auswahlrahmen. */
+  outline?: boolean;
 }
 
 // Auswahlrahmen nie treffen (Linien hätten sonst eine Treffer-Toleranz von 1 m)
@@ -23,7 +26,7 @@ const noRaycast = () => {};
 const selMat = new THREE.LineBasicMaterial({ color: "#2563eb", depthTest: false, transparent: true, opacity: 0.95 });
 const hovMat = new THREE.LineBasicMaterial({ color: "#60a5fa", depthTest: false, transparent: true, opacity: 0.6 });
 
-function ItemMeshImpl({ item, selected, hovered, onDown, onOver, cut = null }: Props) {
+function ItemMeshImpl({ item, selected, hovered, onDown, onOver, cut = null, outline = false }: Props) {
   const cat = getCatalogItem(item.catalogId);
   const archetype = cat?.archetype ?? "box";
   const ceilingGap = item.mount === "ceiling" && archetype.startsWith("pendant") ? Math.max(0, apartment.ceilingHeight - item.elev - item.h) : 0;
@@ -114,8 +117,10 @@ function ItemMeshImpl({ item, selected, hovered, onDown, onOver, cut = null }: P
       onPointerOver={onOver ? (e) => (e.stopPropagation(), onOver(item.id)) : undefined}
       onPointerOut={onOver ? () => onOver(null) : undefined}
     >
-      <primitive object={obj} />
-      {(selected || hovered) && <lineSegments geometry={box} material={selected ? selMat : hovMat} renderOrder={999} raycast={noRaycast} />}
+      <Select enabled={outline && selected}>
+        <primitive object={obj} />
+      </Select>
+      {((selected && !outline) || (hovered && !selected)) && <lineSegments geometry={box} material={selected ? selMat : hovMat} renderOrder={999} raycast={noRaycast} />}
     </group>
   );
 }
