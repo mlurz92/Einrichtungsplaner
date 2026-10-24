@@ -24,7 +24,7 @@ function useContextHint(): string {
     if (it?.locked) return `${it.label ?? "Objekt"} ist gesperrt · L: entsperren`;
     return "Ziehen: verschieben (Alt ohne Fang) · Pfeile: 1 cm (Umschalt 10 cm) · R/Q/E: drehen · Strg+C/V: kopieren · Entf: löschen · L: sperren";
   }
-  if (selection.length > 1) return `${selection.length} Objekte · gemeinsam ziehen, ausrichten (rechts) · Strg+D: duplizieren · Entf: löschen`;
+  if (selection.length > 1) return `${selection.length} Objekte · gemeinsam ziehen, ausrichten (rechts) · T: gleiche tauschen · Strg+D: duplizieren · Entf: löschen`;
   if (face) return "Wand gewählt: rechts Farbe, Tapete oder Paneele festlegen";
   return "Strg+K: Befehl oder Produkt suchen · Katalog in Plan/3D ziehen · Umschalt+Ziehen: Auswahlrahmen · F1: Hilfe";
 }

@@ -1,7 +1,7 @@
 // Befehle für die Befehlssuche (Strg+K) – eine Liste, damit Menü, Kürzel und Suche dieselben Aktionen nutzen.
 import { apartment, concepts, roomNames } from "../data";
 import { polygonCentroid } from "../model/geometry";
-import { useEditor, type LeftTab, type WallMode } from "../store/project";
+import { swapTargets, useEditor, type LeftTab, type WallMode } from "../store/project";
 import { pointer } from "./pointer";
 import { createElement } from "react";
 import { ArrowLeftRight, ClipboardPaste, Copy, CopyPlus, Crosshair, Eye, EyeOff, Lock, LockOpen, Maximize, RotateCw, Ruler, Scissors, SquareDashed, Trash2 } from "lucide-react";
@@ -51,13 +51,14 @@ export function selectionCenter(): [number, number] | null {
   return [sel.reduce((a, i) => a + i.x, 0) / sel.length, sel.reduce((a, i) => a + i.y, 0) / sel.length];
 }
 
-/** Tauschliste für das ausgewählte Objekt öffnen/schließen. */
+/** Tauschliste für die Auswahl öffnen/schließen; bei Mehrfachauswahl werden alle gleichen markierten Objekte gemeinsam getauscht. */
 export function toggleSwap() {
   const s = st();
-  const it = s.project.items.find((i) => i.id === s.selection[0]);
-  if (s.swapFor || !it) return s.set("swapFor", null);
-  if (it.existing) return s.showToast("Bestand kann nicht getauscht werden");
-  s.set("swapFor", it.id);
+  if (s.swapFor || !s.selection.length) return s.set("swapFor", null);
+  const t = swapTargets(s.project.items, s.selection);
+  if (!t) return s.showToast(s.selection.length === 1 ? "Bestand, gesperrte und eingebaute Objekte können nicht getauscht werden" : "Keine tauschbaren Objekte markiert");
+  s.set("swapFor", t.anchor);
+  if (t.skipped) s.showToast(`Getauscht werden nur die ${t.ids.length} gleichen Objekte – ${t.skipped} andere${t.skipped === 1 ? "s" : ""} markierte${t.skipped === 1 ? "s Objekt bleibt" : " Objekte bleiben"} unverändert`);
 }
 
 export function pasteHere() {
@@ -89,7 +90,7 @@ export function staticCommands(): Command[] {
     { id: "dup", group: "Bearbeiten", label: "Auswahl duplizieren", kbd: "Strg+D", enabled: hasSel, run: () => st().duplicateItems(st().selection) },
     { id: "del", group: "Bearbeiten", label: "Auswahl löschen", kbd: "Entf", enabled: hasSel, run: () => st().removeItems(st().selection) },
     { id: "all", group: "Bearbeiten", label: "Alles auswählen", kbd: "Strg+A", run: () => st().select(st().project.items.filter((i) => !i.locked).map((i) => i.id)) },
-    { id: "swap", group: "Bearbeiten", label: "Objekt tauschen (Alternativen mit Vorschau) …", kbd: "T", keywords: "ersetzen austauschen alternative", enabled: () => st().selection.length === 1, run: toggleSwap },
+    { id: "swap", group: "Bearbeiten", label: "Objekt tauschen (Alternativen mit Vorschau) …", kbd: "T", keywords: "ersetzen austauschen alternative", enabled: () => st().selection.length > 0, run: toggleSwap },
     { id: "lock", group: "Bearbeiten", label: "Auswahl sperren / entsperren", kbd: "L", enabled: hasSel, run: toggleLock },
     { id: "hide", group: "Bearbeiten", label: "Auswahl ein-/ausblenden", kbd: "H", enabled: hasSel, run: toggleHidden },
     { id: "focus", group: "Ansicht", label: "Kamera auf Auswahl", kbd: "F", enabled: hasSel, run: focusSelection },
@@ -176,7 +177,7 @@ export function itemContextEntries(id: string): CtxEntry[] {
   const hidden = sel.every((i) => i.hidden);
   const movable = sel.filter((i) => !i.locked).map((i) => i.id);
   const out: CtxEntry[] = [{ heading: one ? (one.label ?? "Objekt") : `${sel.length} Objekte` }];
-  if (one && !one.existing) out.push({ label: "Tauschen …", icon: ic(ArrowLeftRight), kbd: "T", run: toggleSwap });
+  if (one ? !one.existing : swapTargets(sel, sel.map((i) => i.id))) out.push({ label: one ? "Tauschen …" : "Gleiche gemeinsam tauschen …", icon: ic(ArrowLeftRight), kbd: "T", run: toggleSwap });
   out.push(
     { label: "Um 90° drehen", icon: ic(RotateCw), kbd: "R", disabled: !movable.length, run: () => st().updateItems(movable, (it) => void (it.rot = normAngle(it.rot + 90)), { label: "Drehen 90°" }) },
     { label: "Kamera hierauf", icon: ic(Crosshair), kbd: "F", run: focusSelection },

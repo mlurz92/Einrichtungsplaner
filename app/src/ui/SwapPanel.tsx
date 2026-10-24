@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeftRight, Search, X } from "lucide-react";
 import { CATEGORY_LABELS } from "../data";
-import { allCatalog, getCatalogItem, itemPrice, useEditor } from "../store/project";
+import { allCatalog, getCatalogItem, itemPrice, swapTargets, useEditor } from "../store/project";
 import type { CatalogItem, Category, PlacedItem } from "../model/types";
 import { closestVariant, deltaE, primarySlot } from "../model/color";
 import { fmtEuro } from "../model/geometry";
@@ -47,6 +47,7 @@ function dimDelta(a: number, b: number) {
 /**
  * Tauschen: Alternativen für ein Objekt mit Vorschau im Plan/3D (Maus darüber oder Pfeiltasten),
  * Farbe/Material wird auf die nächstliegende Hersteller-Ausführung übertragen.
+ * Bei Mehrfachauswahl werden alle markierten gleichen Objekte gemeinsam getauscht (ein Rückgängig-Schritt).
  */
 export function SwapPanel({ it, onClose }: { it: PlacedItem; onClose: () => void }) {
   const st = useEditor();
@@ -66,6 +67,11 @@ export function SwapPanel({ it, onClose }: { it: PlacedItem; onClose: () => void
   const listRef = useRef<HTMLDivElement>(null);
 
   const twins = useMemo(() => st.project.items.filter((x) => x.catalogId === it.catalogId && !x.locked && !x.existing).map((x) => x.id), [st.project.items, it.catalogId]);
+  // markierte gleiche Objekte (Mehrfachauswahl), sonst nur dieses
+  const selection = useEditor((s) => s.selection);
+  const marked = useMemo(() => swapTargets(st.project.items, selection, it.id), [st.project.items, selection, it.id]);
+  const selIds = marked && marked.ids.includes(it.id) ? marked.ids : [it.id];
+  const targets = all ? twins : selIds;
   const anchorColor = primarySlot(anchor.slots)?.color;
 
   const alts = useMemo(() => {
@@ -95,10 +101,10 @@ export function SwapPanel({ it, onClose }: { it: PlacedItem; onClose: () => void
   const vendors = useMemo(() => [...new Set(allCatalog().filter((x) => x.category === anchor.cat && x.vendor !== "Bestand").map((x) => x.vendor))].sort(), [anchor.cat]);
 
   const variantOf = (x: CatalogItem, vi: number) => picked[x.id] ?? vi;
-  const preview = (row?: (typeof alts)[number]) => st.set("swapPreview", row ? { id: it.id, catalogId: row.x.id, variant: variantOf(row.x, row.vi) } : null);
+  const preview = (row?: (typeof alts)[number]) => st.set("swapPreview", row ? { ids: targets, catalogId: row.x.id, variant: variantOf(row.x, row.vi) } : null);
   const apply = (row: (typeof alts)[number]) => {
     st.set("swapPreview", null);
-    st.replaceItems(all ? twins : [it.id], row.x.id, variantOf(row.x, row.vi));
+    st.replaceItems(targets, row.x.id, variantOf(row.x, row.vi));
   };
 
   useEffect(() => () => useEditor.getState().set("swapPreview", null), []);
@@ -123,6 +129,7 @@ export function SwapPanel({ it, onClose }: { it: PlacedItem; onClose: () => void
         <div className="min-w-0 flex-1">
           <div className="panel-title">Tauschen</div>
           <div className="truncate text-xs text-stone-600" title="Vergleichsbasis für Maße und Preise (Stand beim Öffnen)">
+            {targets.length > 1 && <span className="font-semibold text-stone-800">{targets.length}× </span>}
             {anchor.name} · {Math.round(anchor.w)} × {Math.round(anchor.d)} × {Math.round(anchor.h)} cm · {fmtEuro(anchor.price)}
           </div>
         </div>
@@ -130,6 +137,12 @@ export function SwapPanel({ it, onClose }: { it: PlacedItem; onClose: () => void
           <X size={16} />
         </button>
       </div>
+      {selIds.length > 1 && !all && (
+        <div className="border-b border-stone-200 bg-card px-3 py-1.5 text-[11px] text-stone-600">
+          {selIds.length} markierte gleiche Objekte werden gemeinsam getauscht; jedes behält Position, Drehung und Bezug (Tischkante, Wand oder Mitte).
+          {marked && marked.skipped > 0 && ` ${marked.skipped} andere markierte ${marked.skipped === 1 ? "Objekt bleibt" : "Objekte bleiben"} unverändert.`}
+        </div>
+      )}
       <div className="space-y-2 border-b border-stone-200 p-3">
         <div className="relative">
           <Search size={14} className="absolute left-2 top-2 text-stone-400" />
@@ -218,7 +231,7 @@ export function SwapPanel({ it, onClose }: { it: PlacedItem; onClose: () => void
                         title={vv.name}
                         onClick={() => {
                           setPicked((p) => ({ ...p, [x.id]: k }));
-                          st.set("swapPreview", { id: it.id, catalogId: x.id, variant: k });
+                          st.set("swapPreview", { ids: targets, catalogId: x.id, variant: k });
                         }}
                       />
                     ))}
@@ -238,10 +251,10 @@ export function SwapPanel({ it, onClose }: { it: PlacedItem; onClose: () => void
         {!alts.length && <div className="p-3 text-xs text-stone-500">Keine passenden Alternativen – Maßtoleranz erweitern oder verwandte Kategorien einbeziehen.</div>}
       </div>
       <div className="flex items-center justify-between gap-2 border-t border-stone-200 px-3 py-2 text-[11px] text-stone-500">
-        {twins.length > 1 ? (
+        {twins.length > selIds.length ? (
           <label className="flex items-center gap-1.5 text-stone-700">
             <input type="checkbox" className="" checked={all} onChange={(e) => setAll(e.target.checked)} />
-            alle {twins.length} gleichen Objekte tauschen
+            alle {twins.length} gleichen Objekte im Plan tauschen
           </label>
         ) : (
           <span>{alts.length} Vorschläge</span>
