@@ -1212,36 +1212,38 @@
 ]
 },
 {
-"id": "945d6769b1",
-"catalogId": "boc-alicante-3700128t0850a07",
+"id": "ac02d20b72",
+"catalogId": "let-connubia-by-calligaris-master-106174",
 "pos": "E1",
-"label": "BoConcept Esstisch Alicante (Keramik aschgrau, Steinoptik)",
+"label": "connubia by calligaris Esstisch Master (Keramik-Glas Arenaria)",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 0.0,
-"w": 1.83,
-"d": 0.99,
-"h": 0.745,
-"variant": "Keramik aschgrau, Steinoptik, Gestell matter aschgrauer Strukturlack",
+"w": 2.0,
+"d": 1.0,
+"h": 0.76,
+"variant": "Keramik-Glas Arenaria, Gestell Metall lava matt",
 "slots": {
 "top": {
-"color": "#8f8f8c",
+"color": "#a59c8f",
 "material": "stone"
 },
 "main": {
-"color": "#8f8f8c",
+"color": "#a59c8f",
 "material": "stone"
 },
 "legs": {
-"color": "#9a978f",
+"color": "#4a4643",
 "material": "matte"
 }
 },
 "params": {
-"top": 0.025,
-"radius": 0.15,
-"base": "panel",
+"top": 0.011,
+"radius": 0.005,
+"legStyle": "cross",
+"leg": 0.045,
+"inset": 0.2,
 "noApron": true
 },
 "mount": "floor",
@@ -1249,13 +1251,13 @@
 "parts": [
 {
 "pos": "E1",
-"name": "BoConcept Esstisch Alicante (Keramik aschgrau, Steinoptik)",
-"variant": "Keramik aschgrau, Steinoptik, Gestell matter aschgrauer Strukturlack",
+"name": "connubia by calligaris Esstisch Master (Keramik-Glas Arenaria)",
+"variant": "Keramik-Glas Arenaria, Gestell Metall lava matt",
 "vendor": "Designhandel",
 "qty": 1,
-"unit": 4299.0,
-"url": "https://www.boconcept.com/de-de/p/alicante/370t085-2:264-9:0128-13:0167/",
-"dims": "B 183 × T 99 × H 74.5",
+"unit": 1984.75,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/calligaris/Master-von-connubia-by-calligaris-Esstisch-ca-200-x-100-cm::106174.html",
+"dims": "B 200 × T 100 × H 76",
 "delivery": null
 }
 ]
@@ -1265,8 +1267,8 @@
 "catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E2",
 "label": "Polsterstuhl Tess",
-"x": 5.4629,
-"y": 8.9474,
+"x": 5.4649,
+"y": 8.8972,
 "rot": 278,
 "elev": 0.0,
 "w": 0.49,
@@ -1305,8 +1307,8 @@
 "catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E2",
 "label": "Polsterstuhl Tess",
-"x": 5.3794,
-"y": 9.5415,
+"x": 5.3745,
+"y": 9.5408,
 "rot": 278,
 "elev": 0.0,
 "w": 0.49,
@@ -1345,8 +1347,8 @@
 "catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E2",
 "label": "Polsterstuhl Tess",
-"x": 5.2959,
-"y": 10.1357,
+"x": 5.284,
+"y": 10.1845,
 "rot": 278,
 "elev": 0.0,
 "w": 0.49,
@@ -1385,8 +1387,8 @@
 "catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E2",
 "label": "Polsterstuhl Tess",
-"x": 6.8394,
-"y": 9.1408,
+"x": 6.8513,
+"y": 9.092,
 "rot": 98,
 "elev": 0.0,
 "w": 0.49,
@@ -1425,8 +1427,8 @@
 "catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E2",
 "label": "Polsterstuhl Tess",
-"x": 6.7559,
-"y": 9.735,
+"x": 6.7609,
+"y": 9.7357,
 "rot": 98,
 "elev": 0.0,
 "w": 0.49,
@@ -1465,8 +1467,8 @@
 "catalogId": "wes-polsterstuhl-tess-166841",
 "pos": "E2",
 "label": "Polsterstuhl Tess",
-"x": 6.6724,
-"y": 10.3291,
+"x": 6.6704,
+"y": 10.3793,
 "rot": 98,
 "elev": 0.0,
 "w": 0.49,
@@ -1548,7 +1550,7 @@
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
-"elev": 1.4,
+"elev": 1.41,
 "w": 1.79,
 "d": 0.055,
 "h": 0.15,
@@ -1589,21 +1591,21 @@
 ]
 },
 {
-"id": "a39b6c5402",
-"catalogId": "ike-00640673",
+"id": "f7e81b366c",
+"catalogId": "wes-hand-woven-low-pile-wool-sicilian-stripe-en-25lyd29670",
 "pos": "E9",
-"label": "STOENSE Teppich Kurzflor",
+"label": "Handgewebter Kurzflor-Wollteppich Stripe",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 8,
 "elev": 0.0,
-"w": 2.4,
+"w": 2.5,
 "d": 3.5,
-"h": 0.012,
-"variant": "Elfenbeinweiß",
+"h": 0.015,
+"variant": "Standard",
 "slots": {
 "main": {
-"color": "#ede6d6",
+"color": "#bdb5a8",
 "material": "wool"
 }
 },
@@ -1613,13 +1615,13 @@
 "parts": [
 {
 "pos": "E9",
-"name": "STOENSE Teppich Kurzflor",
-"variant": "Elfenbeinweiß",
-"vendor": "IKEA",
+"name": "Handgewebter Kurzflor-Wollteppich Stripe",
+"variant": "Standard",
+"vendor": "Westwing",
 "qty": 1,
-"unit": 169.0,
-"url": "https://www.ikea.com/de/de/p/stoense-teppich-kurzflor-elfenbeinweiss-00640673/",
-"dims": "B 240 × T 350 × H 1.2",
+"unit": 2799.0,
+"url": "https://www.westwing.de/hand-woven-low-pile-wool-sicilian-stripe-en-25lyd29670.html",
+"dims": "B 250 × T 350 × H 1.5",
 "delivery": null
 }
 ]

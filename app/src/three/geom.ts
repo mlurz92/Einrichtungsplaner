@@ -122,6 +122,17 @@ export class Builder {
     return this;
   }
 
+  /** Schräge Strebe (Rundrohr bzw. Vierkant) zwischen zwei Punkten. */
+  strut(a: [number, number, number], e: [number, number, number], s: number, mat: THREE.Material, square = false, taper = 1) {
+    const A = new THREE.Vector3(...a), E = new THREE.Vector3(...e);
+    const dir = E.clone().sub(A);
+    const len = dir.length();
+    const g = square ? new THREE.BoxGeometry(s, len, s) : new THREE.CylinderGeometry((s / 2) * taper, s / 2, len, 16, 1);
+    g.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir.normalize()));
+    const m = A.clone().add(E).multiplyScalar(0.5);
+    return this.add(worldUV(g), mat, m.x, m.y, m.z);
+  }
+
   legsSquare(positions: [number, number][], h: number, s: number, mat: THREE.Material, y = 0) {
     for (const [x, z] of positions) this.box(s, h, s, mat, x, y, z);
     return this;

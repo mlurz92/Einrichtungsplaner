@@ -1006,48 +1006,52 @@
 ]
 },
 {
-"id": "9496925f4a",
-"catalogId": "hoe-juka-50309767",
+"id": "87da67005a",
+"catalogId": "let-mobitec-terra-59508",
 "pos": "E1",
-"label": "Esstisch Juka (Steinplatte Schwarz)",
+"label": "Mobitec Esstisch Terra (Keramik calce nero)",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 0.0,
 "w": 2.0,
 "d": 1.0,
-"h": 0.757,
-"variant": "Steinplatte Schwarz, Schrägsäule Metall bronzefarben",
+"h": 0.76,
+"variant": "Keramik calce nero, Gestell Metall black",
 "slots": {
 "top": {
-"color": "#2b2b2a",
+"color": "#2c2c2b",
 "material": "stone"
 },
 "main": {
-"color": "#2b2b2a",
+"color": "#2c2c2b",
 "material": "stone"
 },
 "legs": {
-"color": "#8c6a43",
-"material": "lacquer"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {
-"top": 0.02,
-"footD": 0.6
+"top": 0.024,
+"radius": 0.005,
+"leg": 0.055,
+"inset": 0.07,
+"splay": 0.05,
+"noApron": true
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E1",
-"name": "Esstisch Juka (Steinplatte Schwarz)",
-"variant": "Steinplatte Schwarz, Schrägsäule Metall bronzefarben",
-"vendor": "Höffner",
+"name": "Mobitec Esstisch Terra (Keramik calce nero)",
+"variant": "Keramik calce nero, Gestell Metall black",
+"vendor": "Designhandel",
 "qty": 1,
-"unit": 1519.0,
-"url": "https://www.hoeffner.de/artikel/50309767",
-"dims": "B 200 × T 100 × H 75.7",
+"unit": 3627.0,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/Mobitec/Terra-dining-von-Mobitec-Esstisch-in-Keramik-nero-Metall-black-ausziehbar::59508.html",
+"dims": "B 200 × T 100 × H 76",
 "delivery": null
 }
 ]

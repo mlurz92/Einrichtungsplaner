@@ -1,7 +1,8 @@
 # Einrichtungsplaner WE 13
 
 Windows-Desktop-Anwendung zum maßstabsgetreuen Möblieren und Gestalten der Wohnung **WE 13** in 2D und 3D –
-mit Katalog hochwertiger Produkte von **Westwing, IKEA, JYSK, Tylko, Höffner, BoConcept** und Designleuchten von **lampe.de**
+mit Katalog hochwertiger Produkte von **Westwing, IKEA, JYSK, Tylko, Höffner, BoConcept**, Markentischen von **Mobitec, Musterring,
+bert plantagie und connubia by calligaris** und Designleuchten von **lampe.de**
 (Artemide, Tecnolumen, Serien Lighting, Bopp, Grossmann u. a.), **Samsung The Frame** und den vier vollständig
 übernommenen Möblierungskonzepten.
 
@@ -34,6 +35,13 @@ Klarlack, seidenmatter Möbellack, Pulverbeschichtung als Lack statt Metall, Alb
 **mehrere markierte gleiche Objekte gemeinsam tauschen** (T); jedes behält Position, Drehung und Bezug (Tischkante,
 Wand oder Mitte).
 
+**Version 2.0.5** stellt den Essplatz aller vier Konzepte auf **rechteckige Keramiktische mit 200 × 100 cm** von
+Markenherstellern um (Mobitec Terra, bert plantagie Aiven, Musterring Picara, connubia by calligaris Master; Metallgestell,
+kein Holz), jeweils mit passenden Stühlen, handgewebten Wollteppichen von mindestens 240 cm Breite (70 cm Überstand an den
+Stuhlseiten) und einer linearen Pendelleuchte von 90–99 % der Tischlänge. Neu im Katalog sind die vier Tische und die
+Mobitec-Aura-Polsterstühle (Händler Möbel Letz); die Gestelle (konische Schrägbeine, X-Kufen mit Querstange, gekreuzte
+Schrägbeine, Vierkantbeine) sind in 2D/3D nach Produktfoto nachgebaut.
+
 ## Funktionen
 
 | Bereich | Umfang |
@@ -43,8 +51,8 @@ Wand oder Mitte).
 | Grundriss | exakt aus der Vektor-PDF rekonstruiert (Wandpolygone, Raumpolygone, 16 Öffnungen mit Rohbaubreiten, 8°-Flügel), Raumhöhe 2,56 m, Flächen identisch mit den Raumstempeln |
 | 2D-Plan | Bodenbeläge in echter Farbe mit maßstäblichem Dielen-, Fischgrät-, Fliesen- oder Terrazzobild in Verlegerichtung, weiche Möbelschatten, Raumstempel mit Fläche und lichten Maßen, Werkzeugleiste aus Glas, Zoomleiste (+/−, Prozent = einpassen), Nordpfeil, Abstandsmaß anklicken = exakten Wandabstand eingeben, maßstäblich (cm), Drag & Drop aus dem Katalog, Wandfang (Rückseite automatisch zur Wand drehen, bündig, Eckfang, grüne Hilfslinien), Ablage auf Möbeln (Leuchten, Deko, TV), Mitbewegen aufgestellter Objekte, Ausrichten/Verteilen, Drehen mit 15°/8°-Raster, Größenänderung, Abstandsmaße zu den Wänden, Messwerkzeug, Mehrfachauswahl, Kollisionsanzeige, Positionsnummern |
 | 3D | Auswahlkontur und Maßangabe (B × T × H) am gewählten Objekt, Verlaufshintergrund passend zum Design, Bodenplatte unter der Wohnung, Blickrichtungsrose (N/O/S/W, Draufsicht), Holzmaserung in Verlegerichtung der Dielen, PBR-Materialien (CC0-Texturen), Sonnenstand nach Datum, Uhrzeit, Standort und Nordrichtung (NOAA, MEZ/MESZ) mit Tagesverlauf-Animation, Sonne fällt nur durch Fenster (Decke und volle Wandhöhe werfen immer Schatten), Abendlicht aus den Lichtpunkten der Leuchtenmodelle (Lumen, Lichtfarbe 2700–4000 K), Raumansichten auf Augenhöhe, gespeicherte Ansichten, Brennweite, Foto-Export Full HD/4K, Rundgang mit Möbelkollision und Sitzhöhe, Spiegelungen und indirektes Licht aus einer Umgebungssonde der Wohnung (mehrere Lichtsprünge, Himmel und Außenboden durch die Fenster), Belichtungsautomatik, Neutral-Tone-Mapping, Rendern nur bei Änderungen, Ambient Occlusion, Wandmodus **Auto** wie bei Die Sims (Wände, die Teile der Wohnung verdecken, werden kameraabhängig auf 15 cm gekappt; Wandobjekte bleiben sichtbar und werden von hinten durchscheinend), außerdem voll/Schnitt 1,30 m/flach, Taste W wechselt, Rundgang (WASD, Start mit längster Sichtachse), Türen öffnen, Ziehen und Ablegen von Objekten in 3D mit gleichem Fang, Fokus per Doppelklick/F |
-| Katalog | 5.420 Produkte mit 12.425 Hersteller-Ausführungen, jede mit eigenem Preis, Shop-Link und Produktfoto (Stand 24.10.2026): IKEA mit dem vollständigen Ausführungs-Wähler der Produktseite (z. B. SÖDERHAMN 3er-Sofa 19 Bezüge, BESTÅ Korpus/Front-Kombinationen inkl. Rahmenfronten), getrennte Achsen wie **Bezug × Gestell** (POÄNG, LANDSKRONA, SALTSJÖBADEN …); Westwing je Produktfamilie mit allen Farb-/Stoffausführungen, Farbe aus dem **Original-Stoffmuster** gemessen; Konzeptprodukte zusätzlich mit allen Ausführungen des Shopartikels; JYSK-Premiumklasse, Tylko Original/Tone/Smooth, Stein-/Marmortische von Höffner und BoConcept, 870 Designleuchten von lampe.de, Samsung The Frame 43–85″, OBI-Wandpaneele. Maße plausibilisiert (Raumhöhe 2,56 m als Obergrenze), Stoffe wie Bouclé, Chenille, Melange, Cord, Samt unterscheidbar; Filter nach Händler, Kategorie, **Farbe**, **Material**, Preis, **Breite** („passt in die Lücke“), „Premium“ – einklappbar mit Zähler und „Filter zurücksetzen“; **Rasteransicht** mit großen Vorschaubildern oder Liste; **Merkliste** (Stern) und **Zuletzt platziert**; Ausführungs-Punkte auf jeder Karte |
-| Konzepte | alle Positionen der vier Konzepte (Travertin·Kupfer·Salbei, Espresso·Petrol·Chrom, Stone·Petrol·Salbei, Ivory·Petrol·Messing) lagegenau, Budgets centgenau wie in den PDFs; Essplatz seit 2.0.3 mit dunklem Stein-/Keramiktisch für 6 Personen aus dem Katalog (siehe Tabelle unten), die Tische der PDFs und von 2.0.1 bleiben im Katalog |
+| Katalog | 5.426 Produkte mit 12.431 Hersteller-Ausführungen, jede mit eigenem Preis, Shop-Link und Produktfoto (Stand 24.10.2026): IKEA mit dem vollständigen Ausführungs-Wähler der Produktseite (z. B. SÖDERHAMN 3er-Sofa 19 Bezüge, BESTÅ Korpus/Front-Kombinationen inkl. Rahmenfronten), getrennte Achsen wie **Bezug × Gestell** (POÄNG, LANDSKRONA, SALTSJÖBADEN …); Westwing je Produktfamilie mit allen Farb-/Stoffausführungen, Farbe aus dem **Original-Stoffmuster** gemessen; Konzeptprodukte zusätzlich mit allen Ausführungen des Shopartikels; JYSK-Premiumklasse, Tylko Original/Tone/Smooth, Stein-/Marmortische von Höffner und BoConcept, rechteckige Keramiktische 200 × 100 cm von Mobitec, Musterring, bert plantagie und connubia, 870 Designleuchten von lampe.de, Samsung The Frame 43–85″, OBI-Wandpaneele. Maße plausibilisiert (Raumhöhe 2,56 m als Obergrenze), Stoffe wie Bouclé, Chenille, Melange, Cord, Samt unterscheidbar; Filter nach Händler, Kategorie, **Farbe**, **Material**, Preis, **Breite** („passt in die Lücke“), „Premium“ – einklappbar mit Zähler und „Filter zurücksetzen“; **Rasteransicht** mit großen Vorschaubildern oder Liste; **Merkliste** (Stern) und **Zuletzt platziert**; Ausführungs-Punkte auf jeder Karte |
+| Konzepte | alle Positionen der vier Konzepte (Travertin·Kupfer·Salbei, Espresso·Petrol·Chrom, Stone·Petrol·Salbei, Ivory·Petrol·Messing) lagegenau, Budgets centgenau wie in den PDFs; Essplatz seit 2.0.5 mit rechteckigem Keramiktisch 200 × 100 cm für 6 Personen aus dem Katalog (siehe Tabelle unten), die Tische der PDFs und der Versionen 2.0.1–2.0.4 bleiben im Katalog |
 | Gestaltung | Wandfarbe (Alpina, Schöner Wohnen, Farrow & Ball u. a.), Kalkfarbe, Tapeten, Holzlamellen, Holzpaneele, Kassetten-Vertäfelung, Fliesen, Naturstein, Mikrozement, Sockelzone; Bodenbeläge per Vorlage (Bestand: Eichendielen 1,90 m, Bäder/HWR Feinsteinzeug 60×60 „Iron“; Fischgrät, Chevron, Räuchereiche, Nussbaum, Travertin, Marmor, Terrazzo, Mikrozement, Teppich), Decke (Farbe, Holzlamellen, Holzpaneel, Sichtbeton, Stuckprofil), Sockelleisten (Höhe, Farbe, Material), Innentüren (Farbe, glatt/Kassette/Nut, Beschläge), Fensterrahmen, Farbstimmung für die ganze Wohnung – je Raum, je Wand oder mit einem Klick für Wohnräume/Nassräume/alle |
 | Arbeitsablauf | Startseite (Konzept, leere Wohnung, Datei, zuletzt verwendet), Befehlssuche **Strg+K** (Befehle, Räume, Objekte, Katalogprodukte), benannte Undo-/Redo-Schritte (Pfeiltasten-/Drehschritte zusammengefasst), Hinweis mit „Rückgängig“ nach Löschen/Konzept laden, Kopieren/Ausschneiden/Einfügen an der Mausposition (Strg+C/X/V), Sperren **L** / Ausblenden **H**, Ansicht **1/2/3**, Statusleiste mit Kontexthinweisen und Speicherstand, Fenstertitel mit Datei und ●-Markierung, Abfrage beim Schließen mit ungespeicherten Änderungen, verständliche Fehlermeldungen beim Speichern/Öffnen/Export, Dateipfad und Ansichtseinstellungen bleiben über Neustarts erhalten; Fenstergröße und -position werden gespeichert; `.we13`-Dateien öffnen per Doppelklick im Explorer (auch in die laufende App) oder per Ziehen ins Fenster; Befehlssuche merkt sich zuletzt benutzte Befehle; Hinweis auf neue Versionen (GitHub-Releases, abschaltbar) |
 | Bedienung | Möbel nur bei direktem Treffer greifbar, Verschieben erst ab 4 px Mausweg, Teppiche erst nach Auswahl verschiebbar; Plan: Ziehen auf freier Fläche verschiebt die Ansicht, Umschalt+Ziehen = Auswahlrahmen; 3D: links drehen, rechts/Mitte verschieben, Zoom zum Mauszeiger |
@@ -60,14 +68,14 @@ Wand oder Mitte).
 | Budget | nach Raum/Händler/Kaufstatus, Kaufstatus je Position (geplant → bestellt → geliefert → aufgebaut) mit Summe „offen“, Rahmen, Einkaufsliste CSV (Excel) mit Status, Druck/PDF mit Abhakspalte |
 | Export | Projektdatei `.we13` (Format unverändert, Dateien aus 1.x öffnen weiter), 3D-Ansicht PNG, Grundriss PNG (dreifache Auflösung) und SVG – immer im hellen Design –, eigene GLB-Modelle importieren |
 
-### Essplatz der Konzepte (ab 2.0.3)
+### Essplatz der Konzepte (ab 2.0.5)
 
-| Konzept | Esstisch (Stein/Keramik, kein Holz) | Stühle (6 + Nischenplatz) | Teppich | Pendelleuchte (Anteil Tischlänge) |
+| Konzept | Esstisch (rechteckig, 200 × 100 cm, Keramik, Metallgestell) | Stühle (6 + Nischenplatz) | Teppich | Pendelleuchte (Anteil Tischlänge) |
 |---|---|---|---|---|
-| 1 Travertin · Kupfer · Salbei | Höffner Juka, Steinplatte Schwarz, bronzefarbene Schrägsäule, 200 × 100 cm | Westwing Adrien, Bouclé Olivgrün / Metall Schwarz | IKEA STOCKHOLM 2025, 240 × 300, Grün/Weiß/Schwarz | Paul Neuhaus PURE E-Popup, Bronze, 180 cm (90 %) |
-| 2 Espresso · Petrol · Chrom | Höffner Giovanni, Keramik Grau, Edelstahl gebürstet, 180 × 90 cm | Westwing Jordan, Leder Braun / Chrom | IKEA STOCKHOLM 2025, 240 × 300, Grau/Weiß/Schwarz | Holländer Suopare, Silber, 150 cm (83 %) |
-| 3 Stone · Petrol · Salbei | Höffner Talia, Steinplatte Grau, Metall Schwarz, 170 × 90 cm (ausziehbar 215) | Westwing Tess, Webstoff Off White / Schwarz matt | IKEA STOENSE, 240 × 350, Beige | Paul Neuhaus Rika, Schwarz / Rauchglas, 135 cm (79 %) |
-| 4 Ivory · Petrol · Messing | BoConcept Alicante, Keramik Aschgrau, 183 × 99 cm (ausziehbar 263) | Westwing Tess, Samt Hellbeige / Gold matt | IKEA STOENSE, 240 × 350, Elfenbeinweiß | Paul Neuhaus Adriana, Messing, 179 cm (98 %) |
+| 1 Travertin · Kupfer · Salbei | Mobitec Terra, Keramik calce nero, konische Schrägbeine Metall black, Schweizer Kante (ausziehbar 300) | Westwing Adrien, Bouclé Olivgrün / Metall Schwarz | IKEA STOCKHOLM 2025, Wolle handgewebt, 240 × 300, Grün/Weiß/Schwarz | Paul Neuhaus PURE E-Popup, Bronze, 180 cm (90 %) |
+| 2 Espresso · Petrol · Chrom | bert plantagie Aiven, Keramik dark marble, X-Kufengestell anthrazit mit Querstange | Westwing Jordan, Leder Braun / Chrom | IKEA STOCKHOLM 2025, Wolle handgewebt, 240 × 300, Grau/Weiß/Schwarz | Paul Neuhaus PURE E-Popup, Silber, 180 cm (90 %) |
+| 3 Stone · Petrol · Salbei | Musterring Picara, Keramik Pietra di Savoia anthracite, Vierkantbeine schwarz (ausziehbar) | Mobitec Aura, Flachgewebe Berry silver / Metall black | IKEA STOCKHOLM 2025, Wolle handgewebt, 240 × 350, Schwarz/Weiß/Hellgrün | Paul Neuhaus PURE E-Infinity, Grau / Rauchglas, 198 cm (99 %) |
+| 4 Ivory · Petrol · Messing | connubia by calligaris Master, Keramik-Glas Arenaria, gekreuzte Schrägbeine lava matt (ausziehbar 280) | Westwing Tess, Samt Hellbeige / Gold matt | Layered Stripe, Wolle handgewebt, 250 × 350, Greige | Paul Neuhaus Adriana, Messing, 179 cm (90 %) |
 
 Länger als 2,0 m darf der Tisch nicht sein: Zwischen Sofarücken und Sideboard bleiben 3,58 m.
 Tische stehen mittig zwischen Sofarücken und Sideboard (≥ 80 cm Bewegungsfläche vor dem Sideboard, 1,1–1,6 m hinter
@@ -76,7 +84,7 @@ den Stühlen bis Wand bzw. Laufweg), die Pendelleuchte hängt in der Tischachse 
 ### Längliche Stein- und Marmortische (ab 2.0.2)
 
 Maße L × B × H in cm laut Datenblatt, Preis = regulärer Shoppreis (Höffner-Aktionspreise in der Produktbeschreibung,
-BoConcept in der Standardkonfiguration). Darstellung in 2D/3D mit Plattenstärke, Eckradius und Gestellart nach Produktfoto.
+BoConcept in der Standardkonfiguration, Möbel Letz für die abgebildete Ausführung in 200 × 100 cm). Darstellung in 2D/3D mit Plattenstärke, Eckradius und Gestellart nach Produktfoto.
 
 | Platte | Händler | Tisch | Maße | Preis |
 |---|---|---|---|---|
@@ -104,6 +112,10 @@ BoConcept in der Standardkonfiguration). Darstellung in 2D/3D mit Plattenstärke
 | | Höffner | Musterring Navarra, Dekton Trilium | 160 × 100 × 77 | 3.399 € |
 | | BoConcept | Alicante, aschgraue Keramik, ausziehbar bis 263 | 183 × 99 × 74,5 | 4.299 € |
 | | BoConcept | Fiorentina, aschgraue Keramik, ausziehbar bis 263 | 183 × 99 × 74,5 | 4.199 € |
+| | Möbel Letz | Mobitec Terra, Keramik calce nero, ausziehbar bis 300 | 200 × 100 × 76 | 3.627 € |
+| | Möbel Letz | Musterring Picara, Keramik Pietra di Savoia anthracite, ausziehbar | 200 × 100 × 76 | 3.706,85 € |
+| | Möbel Letz | bert plantagie Aiven, Keramik dark marble | 200 × 99,6 × 77 | 2.731,90 € |
+| | Möbel Letz | connubia Master, Keramik-Glas Arenaria, ausziehbar bis 280 | 200 × 100 × 76 | 1.984,75 € |
 | **Marmoroptik als Dekor** | Westwing | Carl (Dekorpapier) | 180 × 90 × 76 | 809 € |
 | | IKEA | MARIEDAMM, schwarz marmoriert | 180 × 100 × 75 | 349 € |
 | | JYSK | KRONDAL (Melamin), Marmor schwarz oder Travertin | 180 × 90 × 77 | 169 € |

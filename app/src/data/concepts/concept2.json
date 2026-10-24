@@ -959,47 +959,52 @@
 ]
 },
 {
-"id": "23420d640f",
-"catalogId": "hoe-giovanni-40305478",
+"id": "c0552ec68b",
+"catalogId": "let-bert-plantagie-aiven-55051",
 "pos": "E1",
-"label": "Esstisch Giovanni (Keramik Grau)",
+"label": "bert plantagie Esstisch Aiven (Keramik dark marble)",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 0.0,
-"w": 1.8,
-"d": 0.9,
-"h": 0.757,
-"variant": "Keramik Grau, Design-Gestell Edelstahl gebürstet",
+"w": 2.0,
+"d": 0.996,
+"h": 0.77,
+"variant": "Keramik dark marble, Gestell Metall BP100 anthrazit, Querstange 120,5 cm",
 "slots": {
 "top": {
-"color": "#4f4f4d",
-"material": "stone"
+"color": "#2a2a2c",
+"material": "marble"
 },
 "main": {
-"color": "#4f4f4d",
-"material": "stone"
+"color": "#2a2a2c",
+"material": "marble"
 },
 "legs": {
-"color": "#c6cbd0",
-"material": "steel"
+"color": "#353637",
+"material": "blackMetal"
 }
 },
 "params": {
-"top": 0.02
+"top": 0.02,
+"radius": 0.005,
+"legStyle": "xframe",
+"leg": 0.035,
+"inset": 0.36,
+"noApron": true
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E1",
-"name": "Esstisch Giovanni (Keramik Grau)",
-"variant": "Keramik Grau, Design-Gestell Edelstahl gebürstet",
-"vendor": "Höffner",
+"name": "bert plantagie Esstisch Aiven (Keramik dark marble)",
+"variant": "Keramik dark marble, Gestell Metall BP100 anthrazit, Querstange 120,5 cm",
+"vendor": "Designhandel",
 "qty": 1,
-"unit": 399.0,
-"url": "https://www.hoeffner.de/artikel/40305478",
-"dims": "B 180 × T 90 × H 75.7",
+"unit": 2731.9,
+"url": "https://online-moebel-kaufen.de/shop/Esszimmer/Esstische/bert-plantagie/Aiven-von-bert-plantagie-Esstisch-mit-Keramik-Platte::55051.html",
+"dims": "B 200 × T 99.6 × H 77",
 "delivery": null
 }
 ]
@@ -1009,8 +1014,8 @@
 "catalogId": "wes-leder-stuhl-jordan-172068",
 "pos": "E2",
 "label": "Lederstuhl Jordan",
-"x": 5.562,
-"y": 8.9613,
+"x": 5.5214,
+"y": 8.9051,
 "rot": 278,
 "elev": 0.0,
 "w": 0.5,
@@ -1049,8 +1054,8 @@
 "catalogId": "wes-leder-stuhl-jordan-172068",
 "pos": "E2",
 "label": "Lederstuhl Jordan",
-"x": 5.4785,
-"y": 9.5554,
+"x": 5.4309,
+"y": 9.5488,
 "rot": 278,
 "elev": 0.0,
 "w": 0.5,
@@ -1089,8 +1094,8 @@
 "catalogId": "wes-leder-stuhl-jordan-172068",
 "pos": "E2",
 "label": "Lederstuhl Jordan",
-"x": 5.395,
-"y": 10.1496,
+"x": 5.3405,
+"y": 10.1924,
 "rot": 278,
 "elev": 0.0,
 "w": 0.5,
@@ -1129,8 +1134,8 @@
 "catalogId": "wes-leder-stuhl-jordan-172068",
 "pos": "E2",
 "label": "Lederstuhl Jordan",
-"x": 6.7404,
-"y": 9.1269,
+"x": 6.7949,
+"y": 9.0841,
 "rot": 98,
 "elev": 0.0,
 "w": 0.5,
@@ -1169,8 +1174,8 @@
 "catalogId": "wes-leder-stuhl-jordan-172068",
 "pos": "E2",
 "label": "Lederstuhl Jordan",
-"x": 6.6569,
-"y": 9.7211,
+"x": 6.7044,
+"y": 9.7277,
 "rot": 98,
 "elev": 0.0,
 "w": 0.5,
@@ -1209,8 +1214,8 @@
 "catalogId": "wes-leder-stuhl-jordan-172068",
 "pos": "E2",
 "label": "Lederstuhl Jordan",
-"x": 6.5734,
-"y": 10.3152,
+"x": 6.6139,
+"y": 10.3714,
 "rot": 98,
 "elev": 0.0,
 "w": 0.5,
@@ -1285,18 +1290,18 @@
 ]
 },
 {
-"id": "26eb9eed1f",
-"catalogId": "lam-hollaender-suopare-pendelleuchte-300-k-16111-s",
+"id": "d7e80b285b",
+"catalogId": "lam-paul-neuhaus-pure-e-popup-pendelleuchte-2558-15",
 "pos": "E3",
-"label": "Holländer SUOPARE Pendelleuchte",
+"label": "Paul Neuhaus PURE E-Popup Pendelleuchte LED",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
-"elev": 1.41,
-"w": 1.5,
-"d": 0.11,
-"h": 0.15,
-"variant": "Silber",
+"elev": 1.42,
+"w": 1.8,
+"d": 0.295,
+"h": 0.295,
+"variant": "Silber / Weiß",
 "slots": {
 "main": {
 "color": "#c6cbd0",
@@ -1312,22 +1317,22 @@
 }
 },
 "params": {
-"heads": 4,
-"shape": "dome",
-"maxHang": 1.5
+"heads": 18,
+"shape": "globe",
+"maxHang": 2.4
 },
 "mount": "ceiling",
 "room": "13.01",
 "parts": [
 {
 "pos": "E3",
-"name": "Holländer SUOPARE Pendelleuchte",
-"variant": "Silber",
+"name": "Paul Neuhaus PURE E-Popup Pendelleuchte LED",
+"variant": "Silber / Weiß",
 "vendor": "lampe.de",
 "qty": 1,
-"unit": 1359.99,
-"url": "https://www.lampe.de/hollaender-suopare-pendelleuchte-300-k-16111-s.html",
-"dims": "B 150 × T 11 × H 15",
+"unit": 1799.0,
+"url": "https://www.lampe.de/paul-neuhaus-pure-e-popup-pendelleuchte-2558-15.html",
+"dims": "B 180 × T 29.5 × H 29.5",
 "delivery": null
 }
 ]
