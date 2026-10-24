@@ -1006,393 +1006,413 @@
 ]
 },
 {
-"id": "b6b1986f7e",
-"catalogId": "wes-runder-marmor-esstisch-abby-westwing-collection",
+"id": "92c3697b43",
+"catalogId": "wes-ausziehbarer-esstisch-benvenuto-200-250-x-110-cm-154433",
 "pos": "E1",
-"label": "Runder Marmor-Esstisch Abby (Westwing Collection)",
-"x": 5.909,
-"y": 9.374,
-"rot": 0,
+"label": "Ausziehbarer Esstisch Benvenuto, 200 - 250 x 110 cm",
+"x": 6.0677,
+"y": 9.6383,
+"rot": 98,
 "elev": 0.0,
-"w": 1.2,
-"d": 1.2,
+"w": 2.0,
+"d": 1.1,
 "h": 0.75,
-"variant": "Hellbeige marmoriert / Fuß Mangoholz massiv, dunkel, Ø 61",
+"variant": "Walnussholz",
 "slots": {
 "top": {
-"color": "#e7ddd0",
-"material": "marble"
+"color": "#6b4a33",
+"material": "walnut"
+},
+"main": {
+"color": "#6b4a33",
+"material": "walnut"
 },
 "legs": {
-"color": "#3e2c22",
-"material": "mango"
+"color": "#6b4a33",
+"material": "walnut"
 }
 },
-"params": {
-"round": true,
-"footD": 0.61,
-"base": "column"
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E1",
-"name": "Runder Marmor-Esstisch Abby (Westwing Collection)",
-"variant": "Hellbeige marmoriert / Fuß Mangoholz massiv, dunkel, Ø 61",
+"name": "Ausziehbarer Esstisch Benvenuto, 200 - 250 x 110 cm",
+"variant": "Walnussholz",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 1299.0,
-"url": "https://www.westwing.de/runder-marmor-esstisch-abby-o-120-cm-158094.html",
-"dims": "Ø 120 × H 75",
-"delivery": "7–8 Wo."
+"unit": 1699.0,
+"url": "https://www.westwing.de/ausziehbarer-esstisch-benvenuto-200-250-x-110-cm-154433.html",
+"dims": "B 200 × T 110 × H 75",
+"delivery": null
 }
 ]
 },
 {
-"id": "0a5e4df182",
-"catalogId": "wes-armlehnstuhl-nik-mit-boucl-polsterung",
+"id": "d459244ff2",
+"catalogId": "wes-holzstuhl-katya-mit-polsterung-159120",
 "pos": "E2",
-"label": "Armlehnstuhl Nik mit Bouclé-Polsterung",
-"x": 6.524,
-"y": 8.91,
-"rot": 52.97,
+"label": "Holzstuhl Katya mit Polsterung",
+"x": 5.4798,
+"y": 8.8992,
+"rot": 278,
 "elev": 0.0,
-"w": 0.58,
-"d": 0.54,
-"h": 0.8,
-"variant": "Bouclé Salbeigrün / Eiche geölt",
+"w": 0.49,
+"d": 0.51,
+"h": 0.82,
+"variant": "Bouclé Olivgrün, dunkles Eichenholz",
 "slots": {
 "main": {
-"color": "#a7b59e",
+"color": "#6e7450",
 "material": "boucle"
 },
 "legs": {
-"color": "#a37a52",
-"material": "oak"
+"color": "#38291f",
+"material": "oakDark"
 }
 },
-"params": {
-"seatHeight": 0.48,
-"armHeight": 0.7
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Armlehnstuhl Nik mit Bouclé-Polsterung",
-"variant": "Bouclé Salbeigrün / Eiche geölt",
+"name": "Holzstuhl Katya mit Polsterung",
+"variant": "Bouclé Olivgrün, dunkles Eichenholz",
 "vendor": "Westwing",
-"qty": 1.0,
-"unit": 269.0,
-"url": "https://www.westwing.de/armlehnstuhl-nik-mit-boucle-polsterung-164180.html",
-"dims": "B 58 × T 54 × H 80",
-"delivery": "2–4 WT"
+"qty": 1,
+"unit": 279.0,
+"url": "https://www.westwing.de/fsc-katya-chair-dark-wood-copenhagen-green-en-25wes25686.html",
+"dims": "B 49 × T 51 × H 82",
+"delivery": null
 }
 ]
 },
 {
-"id": "f24d1f415f",
-"catalogId": "wes-armlehnstuhl-nik-mit-boucl-polsterung",
+"id": "b68f2b8eec",
+"catalogId": "wes-holzstuhl-katya-mit-polsterung-159120",
 "pos": "E2",
-"label": "Armlehnstuhl Nik mit Bouclé-Polsterung",
-"x": 5.445,
-"y": 8.759,
-"rot": 322.97,
+"label": "Holzstuhl Katya mit Polsterung",
+"x": 5.3893,
+"y": 9.5429,
+"rot": 278,
 "elev": 0.0,
-"w": 0.58,
-"d": 0.54,
-"h": 0.8,
-"variant": "Bouclé Salbeigrün / Eiche geölt",
+"w": 0.49,
+"d": 0.51,
+"h": 0.82,
+"variant": "Bouclé Olivgrün, dunkles Eichenholz",
 "slots": {
 "main": {
-"color": "#a7b59e",
+"color": "#6e7450",
 "material": "boucle"
 },
 "legs": {
-"color": "#a37a52",
-"material": "oak"
+"color": "#38291f",
+"material": "oakDark"
 }
 },
-"params": {
-"seatHeight": 0.48,
-"armHeight": 0.7
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Armlehnstuhl Nik mit Bouclé-Polsterung",
-"variant": "Bouclé Salbeigrün / Eiche geölt",
+"name": "Holzstuhl Katya mit Polsterung",
+"variant": "Bouclé Olivgrün, dunkles Eichenholz",
 "vendor": "Westwing",
-"qty": 1.0,
-"unit": 269.0,
-"url": "https://www.westwing.de/armlehnstuhl-nik-mit-boucle-polsterung-164180.html",
-"dims": "B 58 × T 54 × H 80",
-"delivery": "2–4 WT"
+"qty": 1,
+"unit": 279.0,
+"url": "https://www.westwing.de/fsc-katya-chair-dark-wood-copenhagen-green-en-25wes25686.html",
+"dims": "B 49 × T 51 × H 82",
+"delivery": null
 }
 ]
 },
 {
-"id": "9d0be06d2f",
-"catalogId": "wes-armlehnstuhl-nik-mit-boucl-polsterung",
+"id": "0979d27930",
+"catalogId": "wes-holzstuhl-katya-mit-polsterung-159120",
 "pos": "E2",
-"label": "Armlehnstuhl Nik mit Bouclé-Polsterung",
-"x": 5.294,
-"y": 9.837,
-"rot": 233.03,
+"label": "Holzstuhl Katya mit Polsterung",
+"x": 5.2989,
+"y": 10.1866,
+"rot": 278,
 "elev": 0.0,
-"w": 0.58,
-"d": 0.54,
-"h": 0.8,
-"variant": "Bouclé Salbeigrün / Eiche geölt",
+"w": 0.49,
+"d": 0.51,
+"h": 0.82,
+"variant": "Bouclé Olivgrün, dunkles Eichenholz",
 "slots": {
 "main": {
-"color": "#a7b59e",
+"color": "#6e7450",
 "material": "boucle"
 },
 "legs": {
-"color": "#a37a52",
-"material": "oak"
+"color": "#38291f",
+"material": "oakDark"
 }
 },
-"params": {
-"seatHeight": 0.48,
-"armHeight": 0.7
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Armlehnstuhl Nik mit Bouclé-Polsterung",
-"variant": "Bouclé Salbeigrün / Eiche geölt",
+"name": "Holzstuhl Katya mit Polsterung",
+"variant": "Bouclé Olivgrün, dunkles Eichenholz",
 "vendor": "Westwing",
-"qty": 1.0,
-"unit": 269.0,
-"url": "https://www.westwing.de/armlehnstuhl-nik-mit-boucle-polsterung-164180.html",
-"dims": "B 58 × T 54 × H 80",
-"delivery": "2–4 WT"
+"qty": 1,
+"unit": 279.0,
+"url": "https://www.westwing.de/fsc-katya-chair-dark-wood-copenhagen-green-en-25wes25686.html",
+"dims": "B 49 × T 51 × H 82",
+"delivery": null
 }
 ]
 },
 {
-"id": "7703d5209e",
-"catalogId": "wes-armlehnstuhl-nik-mit-boucl-polsterung",
+"id": "7ff92b0665",
+"catalogId": "wes-holzstuhl-katya-mit-polsterung-159120",
 "pos": "E2",
-"label": "Armlehnstuhl Nik mit Bouclé-Polsterung",
-"x": 6.372,
-"y": 9.989,
-"rot": 143.03,
+"label": "Holzstuhl Katya mit Polsterung",
+"x": 6.8365,
+"y": 9.0899,
+"rot": 98,
 "elev": 0.0,
-"w": 0.58,
-"d": 0.54,
-"h": 0.8,
-"variant": "Bouclé Salbeigrün / Eiche geölt",
+"w": 0.49,
+"d": 0.51,
+"h": 0.82,
+"variant": "Bouclé Olivgrün, dunkles Eichenholz",
 "slots": {
 "main": {
-"color": "#a7b59e",
+"color": "#6e7450",
 "material": "boucle"
 },
 "legs": {
-"color": "#a37a52",
-"material": "oak"
+"color": "#38291f",
+"material": "oakDark"
 }
 },
-"params": {
-"seatHeight": 0.48,
-"armHeight": 0.7
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Armlehnstuhl Nik mit Bouclé-Polsterung",
-"variant": "Bouclé Salbeigrün / Eiche geölt",
+"name": "Holzstuhl Katya mit Polsterung",
+"variant": "Bouclé Olivgrün, dunkles Eichenholz",
 "vendor": "Westwing",
-"qty": 1.0,
-"unit": 269.0,
-"url": "https://www.westwing.de/armlehnstuhl-nik-mit-boucle-polsterung-164180.html",
-"dims": "B 58 × T 54 × H 80",
-"delivery": "2–4 WT"
+"qty": 1,
+"unit": 279.0,
+"url": "https://www.westwing.de/fsc-katya-chair-dark-wood-copenhagen-green-en-25wes25686.html",
+"dims": "B 49 × T 51 × H 82",
+"delivery": null
 }
 ]
 },
 {
-"id": "712a8de84d",
-"catalogId": "wes-armlehnstuhl-nik-mit-boucl-polsterung-nischenstu",
+"id": "ce4946a3cb",
+"catalogId": "wes-holzstuhl-katya-mit-polsterung-159120",
+"pos": "E2",
+"label": "Holzstuhl Katya mit Polsterung",
+"x": 6.746,
+"y": 9.7336,
+"rot": 98,
+"elev": 0.0,
+"w": 0.49,
+"d": 0.51,
+"h": 0.82,
+"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"slots": {
+"main": {
+"color": "#6e7450",
+"material": "boucle"
+},
+"legs": {
+"color": "#38291f",
+"material": "oakDark"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E2",
+"name": "Holzstuhl Katya mit Polsterung",
+"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 279.0,
+"url": "https://www.westwing.de/fsc-katya-chair-dark-wood-copenhagen-green-en-25wes25686.html",
+"dims": "B 49 × T 51 × H 82",
+"delivery": null
+}
+]
+},
+{
+"id": "e7ef0797fd",
+"catalogId": "wes-holzstuhl-katya-mit-polsterung-159120",
+"pos": "E2",
+"label": "Holzstuhl Katya mit Polsterung",
+"x": 6.6555,
+"y": 10.3773,
+"rot": 98,
+"elev": 0.0,
+"w": 0.49,
+"d": 0.51,
+"h": 0.82,
+"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"slots": {
+"main": {
+"color": "#6e7450",
+"material": "boucle"
+},
+"legs": {
+"color": "#38291f",
+"material": "oakDark"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "E2",
+"name": "Holzstuhl Katya mit Polsterung",
+"variant": "Bouclé Olivgrün, dunkles Eichenholz",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 279.0,
+"url": "https://www.westwing.de/fsc-katya-chair-dark-wood-copenhagen-green-en-25wes25686.html",
+"dims": "B 49 × T 51 × H 82",
+"delivery": null
+}
+]
+},
+{
+"id": "aa74720a2b",
+"catalogId": "wes-holzstuhl-katya-mit-polsterung-159120",
 "pos": "E12",
-"label": "Armlehnstuhl Nik mit Bouclé-Polsterung (Nischenstuhl)",
+"label": "Holzstuhl Katya mit Polsterung (Nischenplatz)",
 "x": 7.513,
 "y": 7.34,
 "rot": 8,
 "elev": 0.0,
-"w": 0.58,
-"d": 0.54,
-"h": 0.8,
-"variant": "Bouclé Salbeigrün / Eiche geölt",
+"w": 0.49,
+"d": 0.51,
+"h": 0.82,
+"variant": "Bouclé Olivgrün, dunkles Eichenholz",
 "slots": {
 "main": {
-"color": "#a7b59e",
+"color": "#6e7450",
 "material": "boucle"
 },
 "legs": {
-"color": "#a37a52",
-"material": "oak"
+"color": "#38291f",
+"material": "oakDark"
 }
 },
-"params": {
-"seatHeight": 0.48,
-"armHeight": 0.7
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E12",
-"name": "Armlehnstuhl Nik mit Bouclé-Polsterung (Nischenstuhl)",
-"variant": "Bouclé Salbeigrün / Eiche geölt",
+"name": "Holzstuhl Katya mit Polsterung",
+"variant": "Bouclé Olivgrün, dunkles Eichenholz",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 269.0,
-"url": "https://www.westwing.de/armlehnstuhl-nik-mit-boucle-polsterung-164180.html",
-"dims": "B 58 × T 54 × H 80",
-"delivery": "2–4 WT"
+"unit": 279.0,
+"url": "https://www.westwing.de/fsc-katya-chair-dark-wood-copenhagen-green-en-25wes25686.html",
+"dims": "B 49 × T 51 × H 82",
+"delivery": null
 }
 ]
 },
 {
-"id": "cfe51a15c7",
-"catalogId": "wes-dimmbare-pendelleuchte-kushi-mundgeblasen-kdln",
+"id": "080532eeec",
+"catalogId": "lam-by-rydens-splendor-haengeleuchte-4200960-5503",
 "pos": "E3",
-"label": "Dimmbare Pendelleuchte Kushi, mundgeblasen (kdln)",
-"x": 5.93,
-"y": 9.225,
-"rot": 0,
+"label": "By Rydens Splendor Hängeleuchte Bernsteinfarben,",
+"x": 6.0677,
+"y": 9.6383,
+"rot": 98,
 "elev": 1.4,
-"w": 0.16,
-"d": 0.16,
-"h": 0.26,
-"variant": "Kupferfarben / Opalglas",
+"w": 1.24,
+"d": 0.24,
+"h": 0.24,
+"variant": "Gold",
 "slots": {
 "main": {
 "color": "#b8703e",
 "material": "copper"
 },
+"frame": {
+"color": "#b8703e",
+"material": "copper"
+},
 "shade": {
-"color": "#f6f4ee",
-"material": "opal"
+"color": "#c98a3e",
+"material": "glass"
 }
 },
 "params": {
-"shape": "kushi",
-"anchorX": 5.909,
-"anchorY": 9.374
+"heads": 25,
+"shape": "globe"
 },
 "mount": "ceiling",
 "room": "13.01",
 "parts": [
 {
 "pos": "E3",
-"name": "Dimmbare Pendelleuchte Kushi, mundgeblasen (kdln)",
-"variant": "Kupferfarben / Opalglas",
-"vendor": "Westwing",
-"qty": 1.0,
-"unit": 319.0,
-"url": "https://www.westwing.de/dimmbare-pendelleuchte-kushi-mundgeblasen-152975.html?simple=DEQ23KDL77021-196321",
-"dims": "Ø 16 × H 26, Kabel 180",
-"delivery": "5–6 Wo."
+"name": "By Rydens Splendor Hängeleuchte Bernsteinfarben,",
+"variant": "Gold",
+"vendor": "lampe.de",
+"qty": 1,
+"unit": 715.0,
+"url": "https://www.lampe.de/by-rydens-splendor-haengeleuchte-4200960-5503.html",
+"dims": "B 124 × T 24 × H 24",
+"delivery": null
 }
 ]
 },
 {
-"id": "6f834e26cf",
-"catalogId": "wes-dimmbare-pendelleuchte-kushi-mundgeblasen-kdln",
-"pos": "E3",
-"label": "Dimmbare Pendelleuchte Kushi, mundgeblasen (kdln)",
-"x": 5.77,
-"y": 9.43,
-"rot": 0,
-"elev": 1.47,
-"w": 0.16,
-"d": 0.16,
-"h": 0.26,
-"variant": "Kupferfarben / Opalglas",
+"id": "5d96a4a479",
+"catalogId": "ike-80593762",
+"pos": "E9",
+"label": "STOCKHOLM 2025 Teppich flach gewebt",
+"x": 6.0677,
+"y": 9.6383,
+"rot": 8,
+"elev": 0.0,
+"w": 2.4,
+"d": 3.0,
+"h": 0.012,
+"variant": "Grün / weiß / schwarz handgewebt",
 "slots": {
 "main": {
-"color": "#b8703e",
-"material": "copper"
+"color": "#5d7a5a",
+"material": "wool"
 },
-"shade": {
-"color": "#f6f4ee",
-"material": "opal"
+"secondary": {
+"color": "#f3f1ec",
+"material": "wool"
 }
 },
-"params": {
-"shape": "kushi",
-"anchorX": 5.909,
-"anchorY": 9.374
-},
-"mount": "ceiling",
+"params": {},
+"mount": "floor",
 "room": "13.01",
 "parts": [
 {
-"pos": "E3",
-"name": "Dimmbare Pendelleuchte Kushi, mundgeblasen (kdln)",
-"variant": "Kupferfarben / Opalglas",
-"vendor": "Westwing",
-"qty": 1.0,
-"unit": 319.0,
-"url": "https://www.westwing.de/dimmbare-pendelleuchte-kushi-mundgeblasen-152975.html?simple=DEQ23KDL77021-196321",
-"dims": "Ø 16 × H 26, Kabel 180",
-"delivery": "5–6 Wo."
-}
-]
-},
-{
-"id": "6231a292ae",
-"catalogId": "wes-dimmbare-pendelleuchte-kushi-mundgeblasen-kdln",
-"pos": "E3",
-"label": "Dimmbare Pendelleuchte Kushi, mundgeblasen (kdln)",
-"x": 6.027,
-"y": 9.466,
-"rot": 0,
-"elev": 1.36,
-"w": 0.16,
-"d": 0.16,
-"h": 0.26,
-"variant": "Kupferfarben / Opalglas",
-"slots": {
-"main": {
-"color": "#b8703e",
-"material": "copper"
-},
-"shade": {
-"color": "#f6f4ee",
-"material": "opal"
-}
-},
-"params": {
-"shape": "kushi",
-"anchorX": 5.909,
-"anchorY": 9.374
-},
-"mount": "ceiling",
-"room": "13.01",
-"parts": [
-{
-"pos": "E3",
-"name": "Dimmbare Pendelleuchte Kushi, mundgeblasen (kdln)",
-"variant": "Kupferfarben / Opalglas",
-"vendor": "Westwing",
-"qty": 1.0,
-"unit": 319.0,
-"url": "https://www.westwing.de/dimmbare-pendelleuchte-kushi-mundgeblasen-152975.html?simple=DEQ23KDL77021-196321",
-"dims": "Ø 16 × H 26, Kabel 180",
-"delivery": "5–6 Wo."
+"pos": "E9",
+"name": "STOCKHOLM 2025 Teppich flach gewebt",
+"variant": "Grün / weiß / schwarz handgewebt",
+"vendor": "IKEA",
+"qty": 1,
+"unit": 599.0,
+"url": "https://www.ikea.com/de/de/p/stockholm-2025-teppich-flach-gewebt-gruen-weiss-schwarz-handgewebt-80593762/",
+"dims": "B 240 × T 300 × H 1.2",
+"delivery": null
 }
 ]
 },
@@ -1695,44 +1715,6 @@
 "unit": 64.99,
 "url": "https://www.westwing.de/uebertopf-olea-in-salbeigruen-aus-steingut-147844.html",
 "dims": "Ø 24 × H 26",
-"delivery": "2–4 WT"
-}
-]
-},
-{
-"id": "17be49c9e2",
-"catalogId": "wes-runder-wollteppich-eleni-handgetuftet",
-"pos": "E9",
-"label": "Runder Wollteppich Eleni, handgetuftet",
-"x": 5.909,
-"y": 9.374,
-"rot": 0,
-"elev": 0.0,
-"w": 2.5,
-"d": 2.5,
-"h": 0.012,
-"variant": "Taupe, Größe XL",
-"slots": {
-"main": {
-"color": "#cbbfae",
-"material": "wool"
-}
-},
-"params": {
-"pattern": "rings"
-},
-"mount": "floor",
-"room": "13.01",
-"parts": [
-{
-"pos": "E9",
-"name": "Runder Wollteppich Eleni, handgetuftet",
-"variant": "Taupe, Größe XL",
-"vendor": "Westwing",
-"qty": 1,
-"unit": 719.0,
-"url": "https://www.westwing.de/runder-wollteppich-eleni-handgetuftet-158947.html?simple=DEQ23WES34367-204249",
-"dims": "Ø 250",
 "delivery": "2–4 WT"
 }
 ]

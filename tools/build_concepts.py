@@ -142,6 +142,8 @@ def part(n, pos, qty=None):
 
 
 CATALOG = {}
+# Hauptkatalog (build_catalog.py): Produkte, die nicht aus den Konzept-PDFs stammen (z. B. Essplatz seit v2.0.1)
+MAIN_CATALOG = {e["id"]: e for e in json.loads((DATA / "catalog.json").read_text())}
 
 
 def cat_id(name, vendor):
@@ -183,6 +185,7 @@ class Builder:
         self.used = set()
         self.walls = {}
         self.rooms = {}
+        self.replaced = []
 
     def add(self, pos, category, arch, place, dims, slots, mount="floor", params=None, parts=None, label=None,
             elev=0.0, price_from=None, opening=None, catalog_pos=None):
@@ -212,6 +215,43 @@ class Builder:
                 "slots": slots, "params": params or {}, "mount": mount, "room": room_of(x, y),
                 "parts": ip, **({"opening": opening} if opening else {}),
             })
+
+    def add_cat(self, pos, cid, variant, place, slots=None, dims=None, params=None, label=None):
+        """Produkt aus dem Hauptkatalog platzieren (je Exemplar eine Stückliste mit Menge 1)."""
+        n = self.n
+        src = MAIN_CATALOG[cid]
+        v = next(v for v in src["variants"] if v["name"] == variant)
+        w, d, h = dims or (src["w"] / 100, src["d"] / 100, src["h"] / 100)
+        slots = slots or v["slots"]
+        params = {**src.get("params", {}), **(params or {})}
+        e = CATALOG.get(cid)
+        if e is None:
+            e = CATALOG[cid] = json.loads(json.dumps(src))
+            e["concepts"] = []
+        if n not in e["concepts"]:
+            e["concepts"].append(n)
+        pp = {"pos": pos, "name": src["name"], "variant": variant, "vendor": src["vendor"], "qty": 1,
+              "unit": round(v.get("price", src["price"]), 2), "url": v.get("url", src.get("url")),
+              "dims": f"B {w * 100:g} × T {d * 100:g} × H {h * 100:g}", "delivery": src.get("delivery")}
+        for i, pl in enumerate(place):
+            x, y, rot = pl[0], pl[1], pl[2]
+            el = pl[3] if len(pl) > 3 else 0.0
+            self.items.append({
+                "id": hashlib.md5(f"{n}-{pos}-{cid}-{i}".encode()).hexdigest()[:10],
+                "catalogId": cid, "pos": pos, "label": label or src["name"],
+                "x": round(x, 4), "y": round(y, 4), "rot": round(rot % 360, 2), "elev": round(el, 3),
+                "w": round(w, 3), "d": round(d, 3), "h": round(h, 3), "variant": variant,
+                "slots": slots, "params": params, "mount": src.get("mount", "floor"), "room": room_of(x, y),
+                "parts": [dict(pp)],
+            })
+
+    def retire(self, pos, category, arch, dims, slots, params=None, mount="floor"):
+        """PDF-Position, die im Konzept ersetzt wurde: bleibt Katalogprodukt (gespeicherte Projekte), ohne Konzeptzuordnung."""
+        cid, _ = register(self.n, pos, category, arch, *dims, mount, slots, params)
+        if self.n in CATALOG[cid]["concepts"]:
+            CATALOG[cid]["concepts"].remove(self.n)
+        self.used.add(pos)
+        self.replaced.append(pos)
 
     def line(self, pos, room=None, category="Zubehör"):
         p = prod(self.n, pos)
@@ -471,33 +511,88 @@ def build(n):
         B.add("W26", "decor", "vase", [(5.40, 4.61, 0, lb_h)], (0.25, 0.25, 0.32), {"main": slot("#ece3d2", "ceramic")}, params={"branches": True})
 
     # ================= ESSEN =================
+    # Seit v2.0.1: rechteckiger Esstisch für 6 Personen, Längsachse im Plan von oben nach unten (parallel zur Ostfensterwand),
+    # je 3 Stühle an den Längsseiten, Teppich mit ≥ 60 cm Überstand an den Stuhlseiten, lineare Pendelleuchte > 50 % der Tischlänge.
+    # Die runden Tische, Stühle, Pendelleuchten und Teppiche der Konzept-PDFs bleiben Katalogprodukte.
     if k in (1, 4):
-        B.add("E1", "diningTable", "tablePedestal", [(5.909, 9.374, 0)], (1.20, 1.20, 0.75),
-              {"top": slot("#e7ddd0", "marble"), "legs": slot("#3e2c22", "mango")}, params={"round": True, "footD": 0.61, "base": "column"})
+        B.retire("E1", "diningTable", "tablePedestal", (1.20, 1.20, 0.75), {"top": slot("#e7ddd0", "marble"), "legs": slot("#3e2c22", "mango")},
+                 params={"round": True, "footD": 0.61, "base": "column"})
     else:
         tc = slot("#3f5d4e", "marbleGreen") if k == 2 else slot("#e9e0d2", "marble")
-        B.add("E1", "diningTable", "tablePedestal", [(5.909, 9.374, 0)], (1.20, 1.20, 0.76),
-              {"top": tc, "legs": slot("#b9b4aa", "steel")}, params={"round": True, "footD": 0.55, "base": "cone"})
-    chairs = [(6.524, 8.91), (5.445, 8.759), (5.294, 9.837), (6.372, 9.989)]
-    chair_pl = [(cx, cy, face_toward(cx, cy, 5.909, 9.374)) for cx, cy in chairs]
+        B.retire("E1", "diningTable", "tablePedestal", (1.20, 1.20, 0.76), {"top": tc, "legs": slot("#b9b4aa", "steel")},
+                 params={"round": True, "footD": 0.55, "base": "cone"})
     if k == 2:
-        cs = {"main": slot("#6b4429", "leather"), "legs": slot("#c6cbd0", "chrome")}
-        B.add("E2", "chair", "cantilever", chair_pl, (0.50, 0.53, 0.81), cs, params={"seatHeight": 0.46})
-        B.add("E12", "chair", "cantilever", [(7.513, 7.34, S)], (0.50, 0.53, 0.81), cs, params={"seatHeight": 0.46})
+        old_cs = {"main": slot("#6b4429", "leather"), "legs": slot("#c6cbd0", "chrome")}
+        B.retire("E2", "chair", "cantilever", (0.50, 0.53, 0.81), old_cs, params={"seatHeight": 0.46})
+        B.retire("E12", "chair", "cantilever", (0.50, 0.53, 0.81), old_cs, params={"seatHeight": 0.46})
     else:
-        cs = {1: {"main": slot("#a7b59e", "boucle"), "legs": slot("#a37a52", "oak")},
-              3: {"main": slot("#a3b39a", "boucle"), "legs": slot("#a37a52", "oak")},
-              4: {"main": slot("#efebe1", "fabric"), "legs": slot("#c9a477", "oak")}}[k]
-        B.add("E2", "chair", "diningArmchair", chair_pl, (0.58, 0.54, 0.80), cs, params={"seatHeight": 0.48, "armHeight": 0.70})
-        B.add("E12", "chair", "diningArmchair", [(7.513, 7.34, S)], (0.58, 0.54, 0.80), cs, params={"seatHeight": 0.48, "armHeight": 0.70})
-    # Pendelleuchte(n)
+        old_cs = {1: {"main": slot("#a7b59e", "boucle"), "legs": slot("#a37a52", "oak")},
+                  3: {"main": slot("#a3b39a", "boucle"), "legs": slot("#a37a52", "oak")},
+                  4: {"main": slot("#efebe1", "fabric"), "legs": slot("#c9a477", "oak")}}[k]
+        B.retire("E2", "chair", "diningArmchair", (0.58, 0.54, 0.80), old_cs, params={"seatHeight": 0.48, "armHeight": 0.70})
+        B.retire("E12", "chair", "diningArmchair", (0.58, 0.54, 0.80), old_cs, params={"seatHeight": 0.48, "armHeight": 0.70})
     if k == 1:
-        B.add("E3", "pendant", "pendantGlobe", [(5.93, 9.225, 0, 1.40), (5.77, 9.43, 0, 1.47), (6.027, 9.466, 0, 1.36)], (0.16, 0.16, 0.26),
-              {"main": slot("#b8703e", "copper"), "shade": opal}, mount="ceiling", params={"shape": "kushi", "anchorX": 5.909, "anchorY": 9.374})
+        B.retire("E3", "pendant", "pendantGlobe", (0.16, 0.16, 0.26), {"main": slot("#b8703e", "copper"), "shade": opal}, mount="ceiling",
+                 params={"shape": "kushi", "anchorX": 5.909, "anchorY": 9.374})
     elif k in (2, 3):
-        B.add("E3", "pendant", "pendantMirrorBall", [(5.909, 9.374, 0, 1.43)], (0.40, 0.40, 0.40), {"main": slot("#d9dde0", "chrome")}, mount="ceiling")
+        B.retire("E3", "pendant", "pendantMirrorBall", (0.40, 0.40, 0.40), {"main": slot("#d9dde0", "chrome")}, mount="ceiling")
     else:
-        B.add("E3", "pendant", "pendantDome", [(5.909, 9.374, 0, 1.43)], (0.47, 0.47, 0.235), {"main": slot("#c9a55c", "brass")}, mount="ceiling", params={"shape": "semi"})
+        B.retire("E3", "pendant", "pendantDome", (0.47, 0.47, 0.235), {"main": slot("#c9a55c", "brass")}, mount="ceiling", params={"shape": "semi"})
+    rc = {1: slot("#cbbfae", "wool"), 2: slot("#b8653f", "wool"), 3: slot("#e8e0d2", "wool"), 4: slot("#f0ebe1", "wool")}[k]
+    B.retire("E9", "rug", "rugRound", (2.50, 2.50, 0.012), {"main": rc},
+             params={"pattern": "rings" if k in (1, 4) else ("relief" if k == 2 else "plain"), **({"color2": "#efe5d6"} if k == 2 else {})})
+
+    # Essplatz im Flügel-Koordinatensystem (u nach Osten, v nach Süden): zwischen Sofarücken (v 6,95) und Sideboardfront (v 10,53;
+    # ≥ 80 cm Bewegungsfläche vor dem Sideboard),
+    # Westseite = Laufweg zu Küche und Schlafzimmer (mehr Abstand), Ostseite = Fensterwand (u 9,04).
+    def wing(u, v):
+        a = math.radians(S)
+        return (u * math.cos(a) - v * math.sin(a), u * math.sin(a) + v * math.cos(a))
+    TU, TV = 7.35, 8.70
+    tx, ty = wing(TU, TV)
+    dining = {
+        1: dict(table=("wes-ausziehbarer-esstisch-benvenuto-200-250-x-110-cm-154433", "Walnussholz", None),
+                chair=("wes-holzstuhl-katya-mit-polsterung-159120", "Bouclé Olivgrün, dunkles Eichenholz"),
+                lamp=("lam-by-rydens-splendor-haengeleuchte-4200960-5503", "Gold", {"main": slot("#b8703e", "copper"), "frame": slot("#b8703e", "copper"), "shade": slot("#c98a3e", "glass")}),
+                rug=("ike-80593762", "Grün / weiß / schwarz handgewebt")),
+        2: dict(table=("wes-esstisch-lager-aus-glas-und-metall-200-x-90-cm-169092", "Silberfarben, Transparent", None),
+                chair=("wes-leder-stuhl-jordan-172068", "Leder Braun, Silberfarben glänzend"),
+                lamp=("lam-bopp-convex-haengeleuchte-42190309", "Aluminium", None),
+                rug=("ike-80593762", "Grau / weiß / schwarz handgewebt")),
+        3: dict(table=("wes-esstisch-carl-in-marmor-optik-180-x-90-cm-157048", "Beige in Marmor-Optik", None),
+                chair=("wes-polsterstuhl-ash-aus-eschenholz-5-171508", "Webstoff Türkisgrün, Eschenholz lackiert"),
+                lamp=("lam-schoener-wohnen-kollektion-lini-led-esstisch-pendelleuchte-5-flammig-1", "Weiß / Transparent", None),
+                rug=("ike-00640673", "Beige")),
+        4: dict(table=("wes-esstisch-okayama-aus-eichenholz-200-x-100-cm-141300", "Eichenholz", None),
+                chair=("wes-polsterstuhl-ash-aus-eschenholz-5-171508", "Webstoff Off White, Eschenholz lackiert"),
+                lamp=("lam-hollaender-costellazione-haengeleuchte-300-k-15195", "Gold", None),
+                rug=("ike-00640673", "Elfenbeinweiß")),
+    }[k]
+    t_id, t_var, t_slots = dining["table"]
+    tbl = MAIN_CATALOG[t_id]
+    TL, TD = tbl["w"] / 100, tbl["d"] / 100
+    # Tisch: Länge (w) entlang v → Rotation W (98°)
+    B.add_cat("E1", t_id, t_var, [(tx, ty, W)], slots=t_slots)
+    # 6 Stühle, je 3 an den Längsseiten (Westseite Front nach Osten, Ostseite Front nach Westen), Sitz 12 cm unter der Tischkante
+    c_id, c_var = dining["chair"]
+    ch = MAIN_CATALOG[c_id]
+    off = TD / 2 + ch["d"] / 200 - 0.12
+    pitch = 0.65 if TL >= 1.95 else 0.60
+    seats = [wing(TU - off, TV + s) + (E,) for s in (-pitch, 0, pitch)] + [wing(TU + off, TV + s) + (W,) for s in (-pitch, 0, pitch)]
+    B.add_cat("E2", c_id, c_var, seats)
+    # Nischenplatz am Ostfenster: gleiches Stuhlmodell
+    B.add_cat("E12", c_id, c_var, [(7.513, 7.34, S)], label=f"{ch['name']} (Nischenplatz)")
+    # Lineare Pendelleuchte mittig über dem Tisch, parallel zur Längsachse, Unterkante 65 cm über der Tischplatte
+    l_id, l_var, l_slots = dining["lamp"]
+    lamp = MAIN_CATALOG[l_id]
+    assert lamp["w"] > 0.5 * tbl["w"], f"Konzept {k}: Pendelleuchte {lamp['w']} cm ≤ 50 % der Tischlänge {tbl['w']} cm"
+    B.add_cat("E3", l_id, l_var, [(tx, ty, W, round(tbl["h"] / 100 + 0.65, 2))], slots=l_slots)
+    # Teppich: lange Seite entlang v, Überstand an den Stuhlseiten ≥ 60 cm (Stühle bleiben zurückgeschoben auf dem Teppich)
+    r_id, r_var = dining["rug"]
+    rug = MAIN_CATALOG[r_id]
+    rw, rd = sorted((rug["w"], rug["d"]))
+    assert (rw - tbl["d"]) / 2 >= 60 and rd > tbl["w"], f"Konzept {k}: Teppich {rw}×{rd} zu klein für Tisch {tbl['w']}×{tbl['d']}"
+    B.add_cat("E9", r_id, r_var, [(tx, ty, S)], dims=(rw / 100, rd / 100, rug["h"] / 100))
     # Sideboard
     if k == 1:
         B.add("E4", "sideboard", "sideboard", [(5.688, 11.668, N)], (1.65, 0.43, 0.75), {"main": dark_oak, "legs": dark_oak},
@@ -533,13 +628,9 @@ def build(n):
                 4: ("#e8dccb", "#c9a55c", "#c8b389", "everlast", (0.90, 1.18))}[k]
         B.add("E7", "art", "art", [(ax0, ay0, N, 0.95)], (artE[4][0], 0.04, artE[4][1]),
               {"main": slot(artE[0], "canvas"), "secondary": slot(artE[1], "canvas"), "frame": slot(artE[2], "matte")}, mount="wall", params={"motif": artE[3]})
-    # Teppich rund
-    rc = {1: slot("#cbbfae", "wool"), 2: slot("#b8653f", "wool"), 3: slot("#e8e0d2", "wool"), 4: slot("#f0ebe1", "wool")}[k]
-    B.add("E9", "rug", "rugRound", [(5.909, 9.374, 0)], (2.50, 2.50, 0.012), {"main": rc},
-          params={"pattern": "rings" if k in (1, 4) else ("relief" if k == 2 else "plain"), **({"color2": "#efe5d6"} if k == 2 else {})})
     if k == 4:
-        B.add("E10", "decor", "bowl", [(5.909, 9.374, S, 0.75)], (0.41, 0.31, 0.24), {"main": slot("#f1ede4", "ceramic")}, params={"footed": True})
-        B.add("E11", "decor", "candles", [(5.70, 9.42, 0, 0.75), (5.74, 9.32, 0, 0.75), (5.72, 9.37, 0, 0.82)], (0.10, 0.10, 0.07), {"main": slot("#c9a55c", "brass")}, params={"stack": True})
+        B.add("E10", "decor", "bowl", [(tx, ty, S, 0.75)], (0.41, 0.31, 0.24), {"main": slot("#f1ede4", "ceramic")}, params={"footed": True})
+        B.add("E11", "decor", "candles", [(x + tx - 5.909, y + ty - 9.374, 0, z) for x, y, z in ((5.70, 9.42, 0.75), (5.74, 9.32, 0.75), (5.72, 9.37, 0.82))], (0.10, 0.10, 0.07), {"main": slot("#c9a55c", "brass")}, params={"stack": True})
         B.add("E13", "decor", "vase", [(5.08, 11.56, 0, sb_h)], (0.32, 0.32, 0.40), {"main": slot("#e6dccb", "ceramic")}, params={"pampas": True})
         B.add("E15", "decor", "books", [(6.25, 11.74, S + 180, sb_h)], (0.23, 0.30, 0.04), {"main": slot("#e9e4d8", "paper"), "secondary": slot("#d1c3a7", "ceramic")}, params={"count": 1, "lying": True, "object": True})
 
@@ -811,6 +902,17 @@ def main():
         summary.append((n, len(B.items), len(B.budget), total, ref))
     cat = sorted(CATALOG.values(), key=lambda e: (e["category"], e["name"]))
     (DATA / "conceptCatalog.json").write_text(json.dumps(cat, ensure_ascii=False, indent=0))
+    # Hauptkatalog: Konzeptzuordnung der Konzeptprodukte nachführen (ohne Neuaufbau aus den Händlerdaten)
+    main_cat = json.loads((DATA / "catalog.json").read_text())
+    changed = 0
+    for e in main_cat:
+        c = CATALOG.get(e["id"])
+        if c is not None and e.get("concepts") != c["concepts"]:
+            e["concepts"] = c["concepts"]
+            changed += 1
+    if changed:
+        (DATA / "catalog.json").write_text(json.dumps(main_cat, ensure_ascii=False, separators=(",", ":")))
+    print("Hauptkatalog: Konzeptzuordnung aktualisiert:", changed)
     for s in summary:
         print("Konzept %d: %d Objekte, %d Budgetzeilen, Summe %.2f € (PDF %.2f €)" % s)
     print("Katalog (Konzepte):", len(cat))
