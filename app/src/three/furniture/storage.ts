@@ -4,7 +4,7 @@ import { getMaterial } from "../materials";
 /** Fronten (Türen/Schubladen) mit Fugen, optional geriffelt. */
 function fronts(c: Ctx, x0: number, x1: number, y0: number, y1: number, z: number, cols: number, rows: number, style: string, handle: string) {
   const { b } = c;
-  const M = c.m("main");
+  const M = c.slots.front ? c.m("front") : c.m("main");
   const H = c.m("detail", BLACK);
   const gap = 0.003;
   const cw = (x1 - x0) / cols;
@@ -59,7 +59,11 @@ export function sideboard(c: Ctx) {
   const drawers = Math.round(num(p, "drawers", 0));
   const open = Math.round(num(p, "open", 0));
   const style = str(p, "front", "flat");
-  b.rbox(w, h - legH, d - 0.02, 0.008, M, 0, legH, -0.01, 2);
+  // eigene Deckplatte (z. B. DELIFE Kazu: Korpus Metallic Gold, Platte Keramik Noir Désir)
+  const t = c.slots.top;
+  const plate = t && (t.color !== c.slots.main?.color || t.material !== c.slots.main?.material) ? 0.012 : 0;
+  b.rbox(w, h - legH - plate, d - 0.02, 0.008, M, 0, legH, -0.01, 2);
+  if (plate) b.rbox(w + 0.004, plate, d, 0.003, c.m("top"), 0, h - plate, 0, 2);
   const z = d / 2 - 0.01;
   // Spalten: Türen, Schubladenturm (rechts), offene Fächer (openPos center = mittig, sonst rechts außen)
   const kinds: ("door" | "drawer" | "open")[] = Array(drawers > 0 && !open ? doors - 1 : doors).fill("door");

@@ -55,8 +55,9 @@ describe("Grundriss WE 13", () => {
 
 describe("Möblierungskonzepte", () => {
   // PDF-Summen mit dem seit v2.0.1 rechteckigen Essplatz aus dem Katalog (Tisch, 7 Stühle, Pendelleuchte, Teppich)
-  // statt rundem Tisch, 5 Stühlen, Pendelleuchte(n) und rundem Teppich der PDF-Planung; seit v2.1.1 DELIFE Pejo-Flex Beige Vintage.
-  const pdfTotals: Record<string, number> = { concept1: 30414.49, concept2: 29140.66, concept3: 30076.47, concept4: 36578.84 };
+  // statt rundem Tisch, 5 Stühlen, Pendelleuchte(n) und rundem Teppich der PDF-Planung; seit v2.1.1 DELIFE Pejo-Flex Beige Vintage;
+  // seit v2.2.0 Stilabgleich mit dem Essplatz (Keramik-Couchtische, Kazu/Cuor, Messingleuchten, DELIFE-Deko).
+  const pdfTotals: Record<string, number> = { concept1: 30772.76, concept2: 28059.94, concept3: 27903.58, concept4: 36033.24 };
   for (const c of concepts) {
     it(`${c.subtitle}: Budget = PDF mit Katalog-Essplatz`, () => {
       const p = c.project;

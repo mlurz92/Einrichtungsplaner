@@ -27,16 +27,97 @@ WALL_WHITE = "#f3f0e8"   # warmweiß matt (NCS S 0502-Y)
 CEIL_WHITE = "#f7f5f0"
 OAK_FLOOR = "#cfae84"
 
-TITLES = {
-    1: ("Konzept 1 · Travertin · Kupfer · Salbei", "Luxus-Design-Möblierung mit Westwing, IKEA und JYSK, Wandgestaltung mit OBI-Material"),
-    2: ("Konzept 2 · Espresso · Petrol · Chrom", "Design-Airbnb / Boutique-Hotel-Look mit Westwing und Designleuchten"),
-    3: ("Konzept 3 · Stone · Petrol · Salbei", "Gedeckte Basis + Statement-Pieces: Westwing, Tylko, Designleuchten"),
-    4: ("Konzept 4 · Ivory · Petrol · Messing", "Designer-Look aus Westwing, Tylko, IKEA, JYSK + Messing-Designleuchten"),
-}
-
-
 def slot(color, material):
     return {"color": color, "material": material}
+
+
+TITLES = {
+    1: ("Konzept 1 · Noir · Sand · Messing", "Abgestimmt auf den Essplatz (DELIFE Edge Noir Désir + Pejo-Flex Beige Vintage): Keramik Noir Désir, Bouclé in Sand, Messingleuchten"),
+    2: ("Konzept 2 · Noir · Espresso · Gold", "Abgestimmt auf den Essplatz: Boutique-Hotel-Look in Espresso und Off White, Emperador-Keramik, Gold-Designleuchten"),
+    3: ("Konzept 3 · Noir · Stone · Greige", "Abgestimmt auf den Essplatz: Greige-Wände, Travertino-Keramik, schwarze Akzente und Messing"),
+    4: ("Konzept 4 · Noir · Ivory · Gold", "Abgestimmt auf den Essplatz: Ivory-Basis, Calacatta- und Noir-Désir-Keramik, Kazu-Sideboard in Metallic Gold"),
+}
+
+# ------------------------------------------------------------------ Stilabgleich mit dem Essplatz (seit 2.2.0)
+# Markus' Essplatz: DELIFE Edge 200 × 100, Keramik Laminam® Noir Désir (schwarz, Gold-/Weißaderung), V-Fuß schwarz,
+# 6 × Pejo-Flex Mikrofaser Beige Vintage, Kreuzgestell schwarz, beiger Teppich. Alle Konzepte bekommen dieselbe Linie:
+# Schwarz + Beige/Greige + warmes Gold/Messing + Stein/Keramik. PDF-Positionen werden entweder in eine andere Shop-Ausführung
+# gewechselt (V) oder durch ein Katalogprodukt ersetzt (P, die PDF-Position bleibt Katalogprodukt ohne Konzeptzuordnung).
+def V(var, **kw):
+    """Andere Ausführung desselben Produkts (Shop-Variante), optional mit Bauteilfarben (slots)."""
+    return dict(var=var, **kw)
+
+
+def P(cid, var=None, **kw):
+    """Ersatz durch ein Katalogprodukt. anchor: back (Rückseite bleibt an der Wand) / front / center; idx: Teilmenge der
+    Exemplare; place: neue Position(en); elev: Höhe; dims, params, slots, qty, label wie Builder.add_cat."""
+    return dict(cid=cid, var=var, **kw)
+
+
+CUSH, CUSH_S = (0.50, 0.16, 0.50), (0.50, 0.16, 0.30)
+DANA, SHANNON = "wes-einfarbige-samt-kissenhuelle-dana-in-burgund-136666", "wes-boucle-kissenhuelle-shannon-171674"
+ELVANG = P("wes-plaid-luxury-aus-babyalpaka-wolle-elvang", "Off White, 100 % Alpaka", dims=(0.30, 0.62, 0.30), place=[(3.32, 6.69, 188, 0.5)])
+KAZU = "del-kazu-fuss-schwebend-metall-38946"
+CUOR_LB, CUOR_SB = "del-cuor-fuss-schwebend-metall-40351", "del-cuor-fuss-schwebend-metall-40399"
+ESTELO, EDGE_SIDE = "del-edge-estelo-45513", "del-edge-42623"
+CAPRI_T, CLARICE = "lam-hollaender-capri-tischleuchte-280-k-1202", "lam-hollaender-clarice-tischleuchte-424-1208"
+LP_PANTH = ("des-louis-poulsen-panthella-portable-160-v3", "MESSING glänzend, Akku; über Lampenwelt")
+GUBI_P = ("des-gubi-multi-lite-portable", "MESSING, Akku (≈\xa06,5 h); über Nordic Nest")
+BESTLITE = P("des-gubi-bestlite-bl1-tischleuchte", "Kohlschwarz / MESSING; über Nordic Nest")
+FLOS_W = P("des-flos-ic-c-w1-wand-deckenleuchte", "MESSING gebürstet / Opal matt; über Lampenwelt")
+FLOS_T = V("MESSING gebürstet / Opalglas; über AmbienteDirect")
+LAVIENA = P("wes-bogen-wandspiegel-laviena", "Metallrahmen MESSINGFARBEN", place=[(7.38, 2.34, 0, 1.045)])
+NOIR = "Laminam® Noir Désir Braun"
+DREAM_OW = "Cord OFF WHITE, Liegefläche 180\xa0×\xa0200"
+STYLE = {
+    1: {"W2": P("del-edge-parabi-42827", f"{NOIR}, Gestell Schwarz", anchor="front"),
+        "W4": V("Bouclé Hellbraun"),
+        "W6": P("lam-hollaender-capri-stehleuchte-280-k-1101", "Gold / Schwarz"),
+        "W9": [P(DANA, "Taupe", idx=[0, 3], dims=CUSH), P(SHANNON, "Bouclé Schwarz", idx=[1, 2], dims=CUSH_S)],
+        "W11": ELVANG, "W17": P(CLARICE, "Schwarz / Gold"),
+        "W18": P("obi-lamella-black", "Standard", dims=(2.40, 0.021, CEIL), qty=4),
+        "W21": V("Anthrazit", slots={"main": slot("#2b2b2c", "matte"), "secondary": slot("#e8ece8", "ribbedGlass")}),
+        "E4": P(KAZU, "Standard", anchor="back"), "E5": V("Goldfarben"), "E6": P(CAPRI_T, "Gold / Schwarz"),
+        "E8": P("del-rondia-46690", "Gold/Braun"),
+        "F7": P(ESTELO, f"{NOIR}, Gestell Titanfarbig", anchor="back"), "F9": P(*LP_PANTH), "F11": P("del-torvia-46744", "Mokka/Bronze"),
+        "S5": P(CAPRI_T, "Gold / Schwarz"), "S19": P(DANA, "Taupe", dims=CUSH), "A6": BESTLITE, "A10": P(DANA, "Taupe", dims=CUSH)},
+    2: {"W2": P("del-edge-parabi-42748", f"{NOIR}, Gestell Schwarz", anchor="front"),
+        "W4": V("Bouclé Off White"), "W5": P(EDGE_SIDE, "Emperador Dunkelbraun, Gestell Titanfarbig"),
+        "W6": P("wes-bun-floor-lamp-brown-en-25wes95914", "Brauner Marmor, goldfarben"),
+        "W8": P("wes-handgetufteter-wollteppich-pose-169117", "Brauntöne, Beige", dims=(3.00, 2.00, 0.015)),
+        "W9": P(DANA, "Hellbeige", dims=CUSH), "W23": P(DANA, "Taupe", dims=CUSH), "W17": P(*LP_PANTH),
+        "E4": P(KAZU, "Standard", anchor="back"), "E5": FLOS_W, "E6": FLOS_T,
+        "F7": P(ESTELO, "Emperador Dunkelbraun, Gestell Schwarz", anchor="back"), "F8": LAVIENA, "F9": P(*GUBI_P),
+        "S1/S3": V(DREAM_OW, slots={"secondary": slot("#d8c7ae", "linen"), "accent": slot("#5b3a2c", "wool")}),
+        "S5": P(CLARICE, "Schwarz / Gold"), "A1": V("Strukturierter samtiger Webstoff Braun"), "A6": BESTLITE,
+        "A10": P(DANA, "Hellbeige", dims=CUSH)},
+    3: {"W2": P("del-edge-conis-42656", f"{NOIR}, Gestell Schwarz", anchor="front"),
+        "W3": P(CUOR_LB, "Laminam® Travertino Bianco Creme-Weiß", anchor="back"),
+        "W4": P("del-pulo-39515", "Beige Vintage"), "W5": P(EDGE_SIDE, f"{NOIR}, Gestell Silber gebürstet"),
+        "W6": P("wes-stehlampe-neron-122121", "Schwarz, Messing"),
+        "W9": P(SHANNON, "Bouclé Schwarz", dims=CUSH_S), "W23": P(DANA, "Taupe", dims=CUSH), "W11": ELVANG, "W17": P(*GUBI_P),
+        "W18": P("obi-lamella-black", "Standard", dims=(2.40, 0.021, CEIL), qty=4),
+        "W19": P("wes-handgemaltes-leinwandbild-rust-agave", "Brauntöne / Weiß / Schwarz"),
+        "W21": P("tyl-tylko-regal-mit-tueren-masskonfiguration-origina", "COTTON BEIGE (Ton-in-Ton zur Wand), Türen unten, offene Fächer oben"),
+        "E4": P(CUOR_SB, "Laminam® Travertino Bianco Creme-Weiß", anchor="back"), "E5": FLOS_W, "E6": FLOS_T,
+        "E7": P("wes-leinwanddruck-elements-everlast-handveredelt-mal", "Beige, Gold, Grau; Rahmen Tanne"),
+        "F7": P(ESTELO, "Laminam® Travertino Bianco Creme-Weiß, Gestell Schwarz", anchor="back"), "F8": LAVIENA, "F9": P(*LP_PANTH),
+        "S1/S3": V(DREAM_OW, slots={"secondary": slot("#e4ded3", "linen"), "accent": slot("#3a3632", "wool")}),
+        "S5": P(*LP_PANTH), "S19": P(DANA, "Taupe", dims=CUSH), "A1": V("Bouclé meliert BEIGE (Sand)"), "A6": BESTLITE,
+        "A10": P(DANA, "Taupe", dims=CUSH)},
+    4: {"W2": P("del-edge-sarity-42660", f"{NOIR}, Gestell Schwarz", anchor="front"),
+        "W3": P(CUOR_LB, "Minas Melange Weiß/Beige", anchor="back"), "W4": V("Samtiger Webstoff Braun"),
+        "W5": P("del-caramia-39991", "Gold"), "W9": P(SHANNON, "Bouclé Schwarz", dims=CUSH_S),
+        "W18": P("obi-lamella-walnut", "Standard", dims=(2.40, 0.021, CEIL), qty=4),
+        "W19": P("wes-gerahmtes-leinwandbild-vibranium-handgemalt-male", "Brauntöne, Eichenrahmen"),
+        "E4": P(KAZU, "Standard", anchor="back"),
+        "F7": P(ESTELO, "Calacatta Luxe Weiß/Gold, Gestell Titanfarbig", anchor="back"),
+        "S19": P(SHANNON, "Bouclé Schwarz", dims=CUSH_S),
+        "S23": P("wes-gerahmtes-leinwandbild-scenario-handgemalt-maler", "Beige- und Grautöne, Eichenrahmen", elev=1.10)},
+}
+# Sideboard Essen: 16 cm nach Osten (entlang der Südwand), damit das 2,20 m lange Kazu die Schlafzimmertür (D-SCH) freilässt;
+# Bild(er) und Profilrahmen darüber wandern mit
+SB_SHIFT = (math.cos(math.radians(S)) * 0.16, math.sin(math.radians(S)) * 0.16)
 
 
 def room_of(x, y):
@@ -151,12 +232,12 @@ def cat_id(name, vendor):
     return f"{vendor.lower()[:3]}-{base}"
 
 
-def register(n, pos, category, arch, w, d, h, mount, slots, params=None, elev=None, extra_tags=()):
+def register(n, pos, category, arch, w, d, h, mount, slots, params=None, elev=None, extra_tags=(), var_name=None):
     """Katalogeintrag (zusammengeführt über die Konzepte) anlegen bzw. Variante ergänzen."""
     p = prod(n, pos)
     vendor = vendor_of(p)
     cid = cat_id(p["name"], vendor)
-    var_name = p["variant"] or "Standard"
+    var_name = var_name or p["variant"] or "Standard"
     e = CATALOG.get(cid)
     if e is None:
         e = CATALOG[cid] = {
@@ -192,10 +273,23 @@ class Builder:
         """place: Liste (x, y, rot[, elev]); dims: (w, d, h) in m."""
         n = self.n
         cpos = catalog_pos or pos.split("/")[0].split("–")[0]
+        if pos in ("E4", "E7", "E10–E11"):
+            place = [(pl[0] + SB_SHIFT[0], pl[1] + SB_SHIFT[1], *pl[2:]) for pl in place]
+        sw = STYLE.get(n, {}).get(pos)
+        if sw and (isinstance(sw, list) or "cid" in sw):
+            return self._swap(pos, cpos, category, arch, place, dims, slots, mount, params, parts, elev, sw if isinstance(sw, list) else [sw])
         w, d, h = dims
-        cid, var = register(n, cpos, category, arch, w, d, h, mount, slots, params, elev if mount != "floor" else None)
+        var_name = None
+        if sw:  # andere Shop-Ausführung desselben Produkts
+            src = MAIN_CATALOG[cat_id(prod(n, cpos)["name"], vendor_of(prod(n, cpos)))]
+            v = next(v for v in src["variants"] if v["name"] == sw["var"])
+            slots = {**slots, **v["slots"], **sw.get("slots", {})}
+            var_name = sw["var"]
+        cid, var = register(n, cpos, category, arch, w, d, h, mount, slots, params, elev if mount != "floor" else None, var_name=var_name)
         if parts is None:
             parts = [part(n, cpos)]
+        if var_name:
+            parts = [dict(parts[0], variant=var_name, unit=round(v.get("price") or parts[0]["unit"], 2))] + parts[1:]
         for pp in parts:
             self.used.add(pp["pos"])
         k = len(place)
@@ -216,11 +310,39 @@ class Builder:
                 "parts": ip, **({"opening": opening} if opening else {}),
             })
 
-    def add_cat(self, pos, cid, variant, place, slots=None, dims=None, params=None, label=None):
-        """Produkt aus dem Hauptkatalog platzieren (je Exemplar eine Stückliste mit Menge 1)."""
+    def _swap(self, pos, cpos, category, arch, place, dims, slots, mount, params, parts, elev, specs):
+        """PDF-Position durch Katalogprodukt(e) ersetzen (STYLE): Rückseite/Front bleibt, Höhe vom Original."""
+        self.retire(cpos, category, arch, dims, slots, params, mount)
+        for pp in parts or []:
+            self.used.add(pp["pos"])
+        for sp in specs:
+            src = MAIN_CATALOG[sp["cid"]]
+            w1, d1, h1 = sp.get("dims") or (src["w"] / 100, src["d"] / 100, src["h"] / 100)
+            pls = sp.get("place") or [place[i] for i in sp.get("idx", range(len(place)))]
+            new = []
+            for pl in pls:
+                x, y, r = pl[0], pl[1], pl[2]
+                el = sp.get("elev", pl[3] if len(pl) > 3 else elev)
+                off = {"back": (d1 - dims[1]) / 2, "front": (dims[1] - d1) / 2}.get(sp.get("anchor"), 0.0)
+                x, y = x - math.sin(math.radians(r)) * off, y + math.cos(math.radians(r)) * off
+                new.append((x, y, r, el))
+            self.add_cat(pos, sp["cid"], sp["var"], new, slots=sp.get("slots"), dims=(w1, d1, h1), params=sp.get("params"),
+                         label=sp.get("label"), qty=sp.get("qty", 1))
+
+    def item(self, pos):
+        return next(it for it in reversed(self.items) if it.get("pos") == pos)
+
+    def h_of(self, pos, default):
+        """Höhe des (ggf. ersetzten) Trägermöbels für Leuchten/Deko darauf."""
+        it = next((it for it in reversed(self.items) if it.get("pos") == pos), None)
+        return it["h"] if it else default
+
+    def add_cat(self, pos, cid, variant, place, slots=None, dims=None, params=None, label=None, qty=1):
+        """Produkt aus dem Hauptkatalog platzieren (je Exemplar eine Stückliste mit Menge qty)."""
         n = self.n
         src = MAIN_CATALOG[cid]
-        v = next(v for v in src["variants"] if v["name"] == variant)
+        v = next(v for v in src["variants"] if v["name"] == variant) if variant else src["variants"][0]
+        variant = v["name"]
         w, d, h = dims or (src["w"] / 100, src["d"] / 100, src["h"] / 100)
         slots = slots or v["slots"]
         params = {**src.get("params", {}), **(params or {})}
@@ -230,7 +352,9 @@ class Builder:
             e["concepts"] = []
         if n not in e["concepts"]:
             e["concepts"].append(n)
-        pp = {"pos": pos, "name": src["name"], "variant": variant, "vendor": src["vendor"], "qty": 1,
+        if not any(x["name"] == variant for x in e["variants"]):
+            e["variants"].append(json.loads(json.dumps(v)))
+        pp = {"pos": pos, "name": src["name"], "variant": variant, "vendor": src["vendor"], "qty": qty,
               "unit": round(v.get("price", src["price"]), 2), "url": v.get("url", src.get("url")),
               "dims": f"B {w * 100:g} × T {d * 100:g} × H {h * 100:g}", "delivery": src.get("delivery")}
         for i, pl in enumerate(place):
@@ -335,17 +459,17 @@ def build(n):
     if k == 1:
         sofa_c = slot("#b9aa97", "boucle"); legs = slot("#1d1d1d", "blackMetal")
         stone = slot("#e3d6c1", "travertine"); dark_oak = slot("#5e4130", "oakDark")
-        accent_metal = slot("#b8703e", "copper")
+        accent_metal = slot("#c3a160", "brass")
         armchair_c = slot("#a7b59e", "velvet")
     elif k == 2:
         sofa_c = slot("#5d4231", "boucle"); legs = slot("#1d1d1d", "blackMetal")
         stone = slot("#3f5d4e", "marbleGreen"); dark_oak = slot("#4d3626", "oakDark")
-        accent_metal = slot("#c6cbd0", "chrome")
+        accent_metal = slot("#c9a55c", "brass")
         armchair_c = slot("#2f7074", "boucle")
     elif k == 3:
         sofa_c = slot("#cfc6b8", "boucle"); legs = slot("#1d1d1d", "blackMetal")
         stone = slot("#ece5d9", "travertine"); dark_oak = slot("#caa77e", "oak")
-        accent_metal = slot("#c6cbd0", "chrome")
+        accent_metal = slot("#a88a5a", "brass")
         armchair_c = slot("#2f7074", "boucle")
     else:
         sofa_c = slot("#ddd6c8", "cord"); legs = slot("#1d1d1d", "blackMetal")
@@ -389,7 +513,7 @@ def build(n):
     else:
         B.add("W3", "lowboard", "lowboard", [(4.66, 4.51, S)], (1.80, 0.45, 0.55), {"main": slot("#c9a477", "oak"), "legs": slot("#c9a477", "oak")},
               params={"doors": 2, "drawers": 1, "legHeight": 0.15, "front": "flat"})
-    lb_h = 0.50 if k == 2 else 0.55
+    lb_h = B.h_of("W3", 0.50 if k == 2 else 0.55)
     # TV (nicht im Budget, Bestand des Nutzers) – Bildmitte über dem Lowboard
     B.existing("TV 65″ (vorhanden)", "media", "tv", 4.69, 4.30, S, (1.45, 0.04, 0.83), {"main": slot("#111111", "gloss")}, mount="wall", elev=1.02)
     # Sessel
@@ -503,11 +627,17 @@ def build(n):
     B.line("W22", category="Wand & Oberfläche" if k != 1 else "Pflege")
     if k == 2:
         B.line("W24", category="Wand & Oberfläche")
+    ct = B.h_of("W2", 0.35)
     if k == 4:
-        B.add("W25", "decor", "tray", [(4.36, 5.80, S + 10, 0.35)], (0.30, 0.30, 0.04), {"main": slot("#e3d6c1", "marble")})
-        B.add("W28", "decor", "candles", [(4.33, 5.77, 0, 0.39), (4.41, 5.84, 0, 0.39)], (0.08, 0.08, 0.17), {"main": slot("#c9a55c", "brass")})
-        B.add("W27", "decor", "bowl", [(4.66, 5.84, S, 0.35 + 0.07)], (0.35, 0.30, 0.10), {"main": slot("#d9cdb8", "marble")})
-        B.add("W29", "decor", "books", [(4.66, 5.84, S + 3, 0.35)], (0.34, 0.26, 0.07), {"main": slot("#ece6da", "paper"), "secondary": slot("#d6cbb7", "paper")}, params={"count": 2, "lying": True})
+        B.add("W25", "decor", "tray", [(4.36, 5.80, S + 10, ct)], (0.30, 0.30, 0.04), {"main": slot("#e3d6c1", "marble")})
+        B.add("W28", "decor", "candles", [(4.33, 5.77, 0, ct + 0.04), (4.41, 5.84, 0, ct + 0.04)], (0.08, 0.08, 0.17), {"main": slot("#c9a55c", "brass")})
+        B.add("W27", "decor", "bowl", [(4.66, 5.84, S, ct + 0.07)], (0.35, 0.30, 0.10), {"main": slot("#d9cdb8", "marble")})
+        B.add("W29", "decor", "books", [(4.66, 5.84, S + 3, ct)], (0.34, 0.26, 0.07), {"main": slot("#ece6da", "paper"), "secondary": slot("#d6cbb7", "paper")}, params={"count": 2, "lying": True})
+    else:
+        # DELIFE-Deko auf dem Keramik-Couchtisch (Aluminium handgemacht)
+        c2 = B.item("W2")
+        B.add_cat("D2", "del-torvia-46744", "Anthrazit/Graphit" if k == 3 else "Mokka/Bronze", [(*along(c2["x"], c2["y"], S, 0.28), 0, ct)])
+    if k == 4:
         B.add("W26", "decor", "vase", [(5.40, 4.61, 0, lb_h)], (0.25, 0.25, 0.32), {"main": slot("#ece3d2", "ceramic")}, params={"branches": True})
 
     # ================= ESSEN =================
@@ -557,16 +687,16 @@ def build(n):
     dining = {
         1: dict(table=("del-edge-25387", "Laminam® Noir Désir Braun, V-Mittelfuß Flachstahl schwarz pulverbeschichtet", None),
                 chair=PEJO,
-                lamp=("lam-paul-neuhaus-bowl-pendelleuchte-2288-23", "Braun / Rauchfarben", None),
-                rug=("ike-80593762", "Grün / weiß / schwarz handgewebt")),
+                lamp=("lam-hollaender-alice-fiorire-haengeleuchte-300-k-15149-sg", "Gold / Schwarz", None),
+                rug=("wes-hand-woven-low-pile-wool-sicilian-stripe-en-25lyd29670", "Standard")),
         2: dict(table=("del-edge-25387", "Laminam® Noir Désir Braun, V-Mittelfuß Flachstahl schwarz pulverbeschichtet", None),
                 chair=PEJO,
-                lamp=("lam-hollaender-castello-haengeleuchte-300-k-15190-s", "Silber", None),
-                rug=("ike-80593762", "Grau / weiß / schwarz handgewebt")),
+                lamp=("lam-hollaender-castello-haengeleuchte-300-k-15190-s", "Gold", None),
+                rug=("ike-00640673", "Beige")),
         3: dict(table=("del-edge-25387", "Laminam® Noir Désir Braun, V-Mittelfuß Flachstahl schwarz pulverbeschichtet", None),
                 chair=PEJO,
                 lamp=("lam-schoener-wohnen-kollektion-dubai-led-balkenpendelleuchte-13-flammig-ra", "Schwarz / Rauchfarben", None),
-                rug=("ike-50593810", "Schwarz / weiß / hellgrün handgewebt")),
+                rug=("ike-00640673", "Elfenbeinweiß")),
         4: dict(table=("del-edge-25387", "Laminam® Noir Désir Braun, V-Mittelfuß Flachstahl schwarz pulverbeschichtet", None),
                 chair=PEJO,
                 lamp=("lam-hollaender-faraone-haengeleuchte-300-k-15191", "Gold", None),
@@ -612,7 +742,7 @@ def build(n):
         sbc = {2: (dark_oak, slot("#c6cbd0", "chrome")), 3: (slot("#c9a477", "oak"), slot("#b9b4aa", "steel")), 4: (slot("#c9a477", "oak"), slot("#c9a55c", "brass"))}[k]
         B.add("E4", "sideboard", "sideboard", [(5.69, 11.66, N)], (1.60, 0.45, 0.75), {"main": sbc[0], "legs": sbc[0], "detail": sbc[1]},
               params={"doors": 4, "legHeight": 0.17, "front": "ribbed"})
-    sb_h = 0.75
+    sb_h = B.h_of("E4", 0.75)
     # Wandleuchte Ostpfeiler
     if k == 1:
         B.add("E5", "wallLamp", "wallSconce", [(7.66, 9.838, W, 1.70)], (0.28, 0.13, 0.21), {"main": accent_metal}, mount="wall", params={"shape": "mabell"})
@@ -639,6 +769,9 @@ def build(n):
                 4: ("#e8dccb", "#c9a55c", "#c8b389", "everlast", (0.90, 1.18))}[k]
         B.add("E7", "art", "art", [(ax0, ay0, N, 0.95)], (artE[4][0], 0.04, artE[4][1]),
               {"main": slot(artE[0], "canvas"), "secondary": slot(artE[1], "canvas"), "frame": slot(artE[2], "matte")}, mount="wall", params={"motif": artE[3]})
+    # DELIFE-Schale Ramina (Aluminium Aurum) mittig auf dem Sideboard
+    sb = B.item("E4")
+    B.add_cat("D1", "del-ramina-46714", "Gold/Messing", [(*along(sb["x"], sb["y"], S, -0.05), 0, sb_h)])
     if k == 4:
         B.add("E10", "decor", "bowl", [(tx, ty, S, 0.75)], (0.41, 0.31, 0.24), {"main": slot("#f1ede4", "ceramic")}, params={"footed": True})
         B.add("E11", "decor", "candles", [(x + tx - 5.909, y + ty - 9.374, 0, z) for x, y, z in ((5.70, 9.42, 0.75), (5.74, 9.32, 0.75), (5.72, 9.37, 0.82))], (0.10, 0.10, 0.07), {"main": slot("#c9a55c", "brass")}, params={"stack": True})
@@ -668,13 +801,14 @@ def build(n):
         B.add("F8", "mirror", "mirrorRound", [(7.38, 2.34, S0, 1.165)], (0.63, 0.03, 0.67), {"frame": slot("#c6cbd0", "chrome")}, mount="wall", params={"rays": True})
     else:
         B.add("F8", "mirror", "mirrorArch", [(7.38, 2.34, S0, 1.045)], (0.60, 0.03, 1.01), {"frame": slot("#c9a55c", "brass")}, mount="wall")
+    con_h = B.h_of("F7", 0.80)
     # Tischleuchte Konsole
     if k == 1:
-        B.add("F9", "tableLamp", "lampTableMushroom", [(7.006, 2.526, 0, 0.80)], (0.30, 0.30, 0.35), {"main": accent_metal, "shade": opal})
+        B.add("F9", "tableLamp", "lampTableMushroom", [(7.006, 2.526, 0, con_h)], (0.30, 0.30, 0.35), {"main": accent_metal, "shade": opal})
     elif k in (2, 3):
-        B.add("F9", "tableLamp", "lampTableMushroom", [(7.006, 2.526, 0, 0.80)], (0.16, 0.16, 0.295), {"main": accent_metal, "shade": accent_metal}, params={"shape": "flowerpot"})
+        B.add("F9", "tableLamp", "lampTableMushroom", [(7.006, 2.526, 0, con_h)], (0.16, 0.16, 0.295), {"main": accent_metal, "shade": accent_metal}, params={"shape": "flowerpot"})
     else:
-        B.add("F9", "tableLamp", "lampTableMushroom", [(7.006, 2.526, 0, 0.80)], (0.16, 0.16, 0.24), {"main": accent_metal, "shade": accent_metal}, params={"shape": "panthella"})
+        B.add("F9", "tableLamp", "lampTableMushroom", [(7.006, 2.526, 0, con_h)], (0.16, 0.16, 0.24), {"main": accent_metal, "shade": accent_metal}, params={"shape": "panthella"})
     # Deckenleuchten Diele
     dl = [(10.504, 1.168, 0, CEIL - 0.23), (10.504, 2.979, 0, CEIL - 0.23), (7.138, 2.96, 0, CEIL - 0.23)]
     if k == 1:
@@ -682,9 +816,9 @@ def build(n):
     else:
         B.add("F10", "ceilingLamp", "ceilingDome", [(a, b, c, CEIL - 0.24) for a, b, c, _ in dl], (0.20, 0.20, 0.24), {"main": opal, "frame": slot("#c6cbd0", "chrome")}, mount="ceiling", params={"shape": "vanja"})
     if k == 1:
-        B.add("F11", "decor", "plantPot", [(7.766, 2.526, 0, 0.80)], (0.24, 0.24, 0.26), {"main": slot("#a7b59e", "ceramic")}, params={"plant": True})
+        B.add("F11", "decor", "plantPot", [(7.766, 2.526, 0, con_h)], (0.24, 0.24, 0.26), {"main": slot("#a7b59e", "ceramic")}, params={"plant": True})
     if k == 4:
-        B.add("F18", "decor", "vase", [(7.75, 2.52, 0, 0.80)], (0.25, 0.25, 0.32), {"main": slot("#ece3d2", "ceramic")}, params={"branches": True, "tray": True})
+        B.add("F18", "decor", "vase", [(7.75, 2.52, 0, con_h)], (0.25, 0.25, 0.32), {"main": slot("#ece3d2", "ceramic")}, params={"branches": True, "tray": True})
     # Vorhang Balkontür (Diele)
     pl, wdt = curtain_place(["W-B1"], track=3.45)
     cc = cur_c[0]
@@ -875,7 +1009,7 @@ def finishes(n):
         rooms[rid] = {"floor": fl, "ceiling": CEIL_WHITE, "wall": wall}
     walls = {}
     if n == 1:
-        walls[f"13.03:{wall_edge('13.03', 7.12, 14.31)}"] = {"base": {"kind": "paint", "color": "#c3cfb5", "productName": "Alpina Feine Farben No. 38 „Essenz der Natur“", "sheen": "edelmatt"}}
+        walls[f"13.03:{wall_edge('13.03', 7.12, 14.31)}"] = {"base": {"kind": "paint", "color": "#c2b8ab", "productName": "Farrow & Ball Elephant's Breath No. 229", "sheen": "edelmatt"}}
     elif n == 2:
         lime = {"kind": "limewash", "color": "#e7dccb", "color2": "#d8c9b2", "productName": "KREIDEZEIT Limewash Sand (Sumpfkalk)"}
         rooms["13.01"]["wall"] = {"base": lime}
@@ -891,7 +1025,7 @@ def finishes(n):
         for rid in ("13.01", "13.02", "13.03", "13.04", "13.07"):
             rooms[rid]["wall"] = {"base": dict(white)}
             rooms[rid]["ceiling"] = "#f1ece3"
-        walls[f"13.03:{wall_edge('13.03', 7.12, 14.31)}"] = {"base": {"kind": "paint", "color": "#1f5a60", "productName": "Schöner Wohnen Designfarbe „Charmantes Petrolblau“", "sheen": "matt"}}
+        walls[f"13.03:{wall_edge('13.03', 7.12, 14.31)}"] = {"base": {"kind": "paint", "color": "#4a3e36", "productName": "Farrow & Ball Tanner's Brown No. 255", "sheen": "matt"}}
     return rooms, walls
 
 

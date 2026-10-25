@@ -147,6 +147,7 @@ export const SLOT_LABELS: Record<string, string> = {
   frame: "Rahmen",
   shade: "Schirm/Glas",
   detail: "Details/Griffe",
+  front: "Fronten",
 };
 
 export const PARAM_LABELS: Record<string, { label: string; min?: number; max?: number; step?: number }> = {

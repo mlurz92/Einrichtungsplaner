@@ -1,7 +1,7 @@
 {
 "version": 1,
-"name": "Konzept 4 · Ivory · Petrol · Messing",
-"subtitle": "Designer-Look aus Westwing, Tylko, IKEA, JYSK + Messing-Designleuchten",
+"name": "Konzept 4 · Noir · Ivory · Gold",
+"subtitle": "Abgestimmt auf den Essplatz: Ivory-Basis, Calacatta- und Noir-Désir-Keramik, Kazu-Sideboard in Metallic Gold",
 "conceptId": "concept4",
 "createdAt": "2026-10-23T00:00:00Z",
 "updatedAt": "2026-10-23T00:00:00Z",
@@ -53,85 +53,90 @@
 ]
 },
 {
-"id": "6603b7bea8",
-"catalogId": "wes-couchtisch-marisa-aus-travertin",
+"id": "1ae015faa6",
+"catalogId": "del-edge-sarity-42660",
 "pos": "W2",
-"label": "Couchtisch Marisa aus Travertin",
-"x": 4.479,
-"y": 5.793,
+"label": "Couchtisch Edge Boot 120x70 cm Keramik Sarity",
+"x": 4.4929,
+"y": 5.694,
 "rot": 8,
 "elev": 0.0,
-"w": 1.0,
-"d": 0.5,
-"h": 0.35,
-"variant": "Travertin beige, monolithischer Sockel",
+"w": 1.2,
+"d": 0.7,
+"h": 0.41,
+"variant": "Laminam® Noir Désir Braun, Gestell Schwarz",
 "slots": {
+"top": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
 "main": {
-"color": "#e8ddcb",
-"material": "travertine"
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
-"params": {
-"plinth": true
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "W2",
-"name": "Couchtisch Marisa aus Travertin",
-"variant": "Travertin beige, monolithischer Sockel",
-"vendor": "Westwing",
+"name": "Couchtisch Edge Boot 120x70 cm Keramik Sarity",
+"variant": "Laminam® Noir Désir Braun, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 899.0,
-"url": "https://www.westwing.de/couchtisch-marisa-aus-travertin-161285.html?simple=DEQ24WES81554-207597",
-"dims": "100 × 50 × 35",
-"delivery": "4–9 WT"
+"unit": 479.9,
+"url": "https://www.delife.de/couchtisch-edge-120x70cm-keramik/a-42661",
+"dims": "B 120 × T 70 × H 41",
+"delivery": null
 }
 ]
 },
 {
-"id": "77eb002a43",
-"catalogId": "wes-tv-lowboard-cadi-aus-eichenholz",
+"id": "03e77cb4f4",
+"catalogId": "del-cuor-fuss-schwebend-metall-40351",
 "pos": "W3",
-"label": "TV-Lowboard Cadi aus Eichenholz",
+"label": "Lowboard Cuor 180 cm Keramik Weiß-Beige 1 Klappe 2 Schubfächer Fuß Schwebeoptik Schwarz",
 "x": 4.66,
 "y": 4.51,
 "rot": 8,
 "elev": 0.0,
 "w": 1.8,
 "d": 0.45,
-"h": 0.55,
-"variant": "Eiche massiv geölt (hell)",
+"h": 0.5,
+"variant": "Minas Melange Weiß/Beige",
 "slots": {
+"top": {
+"color": "#e3dccf",
+"material": "stone"
+},
 "main": {
-"color": "#c9a477",
-"material": "oak"
+"color": "#e3dccf",
+"material": "stone"
 },
 "legs": {
-"color": "#c9a477",
-"material": "oak"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
-"params": {
-"doors": 2,
-"drawers": 1,
-"legHeight": 0.15,
-"front": "flat"
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "W3",
-"name": "TV-Lowboard Cadi aus Eichenholz",
-"variant": "Eiche massiv geölt (hell)",
-"vendor": "Westwing",
+"name": "Lowboard Cuor 180 cm Keramik Weiß-Beige 1 Klappe 2 Schubfächer Fuß Schwebeoptik Schwarz",
+"variant": "Minas Melange Weiß/Beige",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 1249.0,
-"url": "https://www.westwing.de/tv-lowboard-cadi-aus-eichenholz-162641.html?simple=DEQ24WES43617-209621",
-"dims": "180 × 45 × 55",
-"delivery": "9–10 Wo."
+"unit": 1149.9,
+"url": "https://www.delife.de/lowboard-cuor-180cm-keramik/a-40363",
+"dims": "B 180 × T 45 × H 50",
+"delivery": null
 }
 ]
 },
@@ -171,11 +176,11 @@
 "w": 0.97,
 "d": 0.9,
 "h": 0.72,
-"variant": "Bouclé meliert PETROL",
+"variant": "Samtiger Webstoff Braun",
 "slots": {
 "main": {
-"color": "#2f7074",
-"material": "boucle"
+"color": "#7a5a43",
+"material": "velvet"
 },
 "legs": {
 "color": "#1d1d1d",
@@ -191,7 +196,7 @@
 {
 "pos": "W4",
 "name": "Bouclé-Sessel Sofia",
-"variant": "Bouclé meliert PETROL",
+"variant": "Samtiger Webstoff Braun",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 979.0,
@@ -202,40 +207,46 @@
 ]
 },
 {
-"id": "880e62fc3c",
-"catalogId": "wes-runder-beistelltisch-marisa-aus-travertin",
+"id": "09c448765e",
+"catalogId": "del-caramia-39991",
 "pos": "W5",
-"label": "Runder Beistelltisch Marisa aus Travertin",
+"label": "Couchtisch Caramia 65x55 cm Metallic",
 "x": 5.93,
 "y": 5.13,
 "rot": 0,
 "elev": 0.0,
-"w": 0.35,
-"d": 0.35,
-"h": 0.5,
-"variant": "Travertin beige",
+"w": 0.56,
+"d": 0.43,
+"h": 0.38,
+"variant": "Gold",
 "slots": {
+"top": {
+"color": "#c9a55c",
+"material": "brass"
+},
 "main": {
-"color": "#e8ddcb",
-"material": "travertine"
+"color": "#c9a55c",
+"material": "brass"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
-"params": {
-"style": "column"
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "W5",
-"name": "Runder Beistelltisch Marisa aus Travertin",
-"variant": "Travertin beige",
-"vendor": "Westwing",
+"name": "Couchtisch Caramia 65x55 cm Metallic",
+"variant": "Gold",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 429.0,
-"url": "https://www.westwing.de/runder-beistelltisch-marisa-aus-travertin-147375.html?simple=DEQ22WES99357-187657",
-"dims": "Ø 35 × H 50",
-"delivery": "3–4 Wo."
+"unit": 249.9,
+"url": "https://www.delife.de/couchtisch-caramia-55x45cm-glasfaserkunststoff/a-39991",
+"dims": "B 56 × T 43 × H 38",
+"delivery": null
 }
 ]
 },
@@ -360,22 +371,22 @@
 ]
 },
 {
-"id": "2a38fa5489",
-"catalogId": "ike-sanela-kissenbezug",
+"id": "1bfb3b8b9d",
+"catalogId": "wes-boucle-kissenhuelle-shannon-171674",
 "pos": "W9",
-"label": "SANELA Kissenbezug",
+"label": "Bouclé-Kissenhülle Shannon",
 "x": 3.663,
 "y": 7.218,
 "rot": 182,
 "elev": 0.45,
 "w": 0.5,
 "d": 0.16,
-"h": 0.5,
-"variant": "dunkelgrautürkis (Petrol), Baumwollsamt",
+"h": 0.3,
+"variant": "Bouclé Schwarz",
 "slots": {
 "main": {
-"color": "#2f7074",
-"material": "velvet"
+"color": "#1d1d1d",
+"material": "boucle"
 }
 },
 "params": {},
@@ -384,34 +395,34 @@
 "parts": [
 {
 "pos": "W9",
-"name": "SANELA Kissenbezug",
-"variant": "dunkelgrautürkis (Petrol), Baumwollsamt",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 6.99,
-"url": "https://www.ikea.com/de/de/p/sanela-kissenbezug-dunkelgrautuerkis-80590928/",
-"dims": "50 × 50",
-"delivery": "prüfen"
+"name": "Bouclé-Kissenhülle Shannon",
+"variant": "Bouclé Schwarz",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 32.99,
+"url": "https://www.westwing.de/boucle-kissenhuelle-shannon-171677.html",
+"dims": "B 50 × T 16 × H 30",
+"delivery": null
 }
 ]
 },
 {
-"id": "ceb643443b",
-"catalogId": "ike-sanela-kissenbezug",
+"id": "86f3fa5443",
+"catalogId": "wes-boucle-kissenhuelle-shannon-171674",
 "pos": "W9",
-"label": "SANELA Kissenbezug",
+"label": "Bouclé-Kissenhülle Shannon",
 "x": 5.267,
 "y": 7.444,
 "rot": 195,
 "elev": 0.45,
 "w": 0.5,
 "d": 0.16,
-"h": 0.5,
-"variant": "dunkelgrautürkis (Petrol), Baumwollsamt",
+"h": 0.3,
+"variant": "Bouclé Schwarz",
 "slots": {
 "main": {
-"color": "#2f7074",
-"material": "velvet"
+"color": "#1d1d1d",
+"material": "boucle"
 }
 },
 "params": {},
@@ -420,14 +431,14 @@
 "parts": [
 {
 "pos": "W9",
-"name": "SANELA Kissenbezug",
-"variant": "dunkelgrautürkis (Petrol), Baumwollsamt",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 6.99,
-"url": "https://www.ikea.com/de/de/p/sanela-kissenbezug-dunkelgrautuerkis-80590928/",
-"dims": "50 × 50",
-"delivery": "prüfen"
+"name": "Bouclé-Kissenhülle Shannon",
+"variant": "Bouclé Schwarz",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 32.99,
+"url": "https://www.westwing.de/boucle-kissenhuelle-shannon-171677.html",
+"dims": "B 50 × T 16 × H 30",
+"delivery": null
 }
 ]
 },
@@ -741,7 +752,7 @@
 "x": 3.99,
 "y": 4.41,
 "rot": 0,
-"elev": 0.55,
+"elev": 0.5,
 "w": 0.15,
 "d": 0.15,
 "h": 0.3,
@@ -776,10 +787,10 @@
 ]
 },
 {
-"id": "f3b9b5c24a",
-"catalogId": "obi-akustikpaneel-eiche-geoelt-denpanels",
+"id": "2d4aa7bb9b",
+"catalogId": "obi-lamella-walnut",
 "pos": "W18",
-"label": "Akustikpaneel Eiche geölt (Denpanels)",
+"label": "Akustikpaneel Walnuss geölt (Lamellen, Filz schwarz)",
 "x": 4.695,
 "y": 4.258,
 "rot": 8,
@@ -787,11 +798,11 @@
 "w": 2.4,
 "d": 0.021,
 "h": 2.56,
-"variant": "Echtholzfurnier Eiche geölt auf Akustikfilz schwarz",
+"variant": "Standard",
 "slots": {
 "main": {
-"color": "#c9a273",
-"material": "oak"
+"color": "#6b4a33",
+"material": "walnut"
 },
 "secondary": {
 "color": "#141414",
@@ -807,60 +818,60 @@
 "parts": [
 {
 "pos": "W18",
-"name": "Akustikpaneel Eiche geölt (Denpanels)",
-"variant": "Echtholzfurnier Eiche geölt auf Akustikfilz schwarz",
+"name": "Akustikpaneel Walnuss geölt (Lamellen, Filz schwarz)",
+"variant": "Standard",
 "vendor": "OBI",
 "qty": 4,
 "unit": 109.99,
-"url": "https://www.obi.de/p/9992504/akustikpaneel-eiche-geoelt-mdf-schwarz-filz-schwarz-60-cm-x-270-cm-fsc-",
-"dims": "60 × 270 × 1,9",
-"delivery": "Abholung Markt"
+"url": null,
+"dims": "B 240 × T 2.1 × H 256",
+"delivery": null
 }
 ]
 },
 {
-"id": "3f4ba22a4a",
-"catalogId": "wes-handgemaltes-leinwandbild-blueplay-malerifabrikk",
+"id": "f61ddaf39d",
+"catalogId": "wes-gerahmtes-leinwandbild-vibranium-handgemalt-male",
 "pos": "W19",
-"label": "Handgemaltes Leinwandbild Blueplay (Malerifabrikken)",
+"label": "Gerahmtes Leinwandbild Vibranium, handgemalt (Malerifabrikken)",
 "x": 3.296,
 "y": 5.627,
 "rot": 278,
 "elev": 0.95,
-"w": 0.92,
+"w": 0.9,
 "d": 0.04,
 "h": 1.2,
-"variant": "Off White / Dunkelblau, Rahmen Eiche",
+"variant": "Brauntöne, Eichenrahmen",
 "slots": {
 "main": {
-"color": "#f2efe8",
+"color": "#8a6248",
 "material": "canvas"
 },
 "secondary": {
-"color": "#22365a",
+"color": "#3b2a20",
 "material": "canvas"
 },
 "frame": {
-"color": "#c9a273",
+"color": "#b38c60",
 "material": "oak"
 }
 },
 "params": {
-"motif": "blueplay"
+"motif": "vibranium"
 },
 "mount": "wall",
 "room": "13.01",
 "parts": [
 {
 "pos": "W19",
-"name": "Handgemaltes Leinwandbild Blueplay (Malerifabrikken)",
-"variant": "Off White / Dunkelblau, Rahmen Eiche",
+"name": "Gerahmtes Leinwandbild Vibranium, handgemalt (Malerifabrikken)",
+"variant": "Brauntöne, Eichenrahmen",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 449.0,
-"url": "https://www.westwing.de/handgemaltes-leinwandbild-blueplay-mit-holzrahmen-144827.html",
-"dims": "B 92 × H 120",
-"delivery": "2–8 WT"
+"url": "https://www.westwing.de/gerahmtes-gemalde-vibranium-auf-leinwand-de-25mle61932.html",
+"dims": "B 90 × T 4 × H 120",
+"delivery": "13–14 Wo."
 }
 ]
 },
@@ -994,7 +1005,7 @@
 "x": 4.36,
 "y": 5.8,
 "rot": 18,
-"elev": 0.35,
+"elev": 0.41,
 "w": 0.3,
 "d": 0.3,
 "h": 0.04,
@@ -1030,7 +1041,7 @@
 "x": 4.33,
 "y": 5.77,
 "rot": 0,
-"elev": 0.39,
+"elev": 0.45,
 "w": 0.08,
 "d": 0.08,
 "h": 0.17,
@@ -1066,7 +1077,7 @@
 "x": 4.41,
 "y": 5.84,
 "rot": 0,
-"elev": 0.39,
+"elev": 0.45,
 "w": 0.08,
 "d": 0.08,
 "h": 0.17,
@@ -1102,7 +1113,7 @@
 "x": 4.66,
 "y": 5.84,
 "rot": 8,
-"elev": 0.42,
+"elev": 0.48,
 "w": 0.35,
 "d": 0.3,
 "h": 0.1,
@@ -1138,7 +1149,7 @@
 "x": 4.66,
 "y": 5.84,
 "rot": 11,
-"elev": 0.35,
+"elev": 0.41,
 "w": 0.34,
 "d": 0.26,
 "h": 0.07,
@@ -1181,7 +1192,7 @@
 "x": 5.4,
 "y": 4.61,
 "rot": 0,
-"elev": 0.55,
+"elev": 0.5,
 "w": 0.25,
 "d": 0.25,
 "h": 0.32,
@@ -1669,50 +1680,48 @@
 ]
 },
 {
-"id": "8082153b51",
-"catalogId": "wes-sideboard-calary-mit-geriffelter-front",
+"id": "0e268c8e1c",
+"catalogId": "del-kazu-fuss-schwebend-metall-38946",
 "pos": "E4",
-"label": "Sideboard Calary mit geriffelter Front",
-"x": 5.69,
-"y": 11.66,
+"label": "Sideboard Kazu 220 cm Metallic Gold 4 Türen schwebend Schwarz Keramik Laminam®Noir Desir Braun",
+"x": 5.8484,
+"y": 11.6823,
 "rot": 188,
 "elev": 0.0,
-"w": 1.6,
+"w": 2.2,
 "d": 0.45,
-"h": 0.75,
-"variant": "helles Eichenholz, Griffe goldfarben",
+"h": 0.69,
+"variant": "Standard",
 "slots": {
+"top": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
 "main": {
-"color": "#c9a477",
-"material": "oak"
+"color": "#9b8459",
+"material": "brass"
 },
 "legs": {
-"color": "#c9a477",
-"material": "oak"
-},
-"detail": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
 "params": {
-"doors": 4,
-"legHeight": 0.17,
-"front": "ribbed"
+"doors": 4
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E4",
-"name": "Sideboard Calary mit geriffelter Front",
-"variant": "helles Eichenholz, Griffe goldfarben",
-"vendor": "Westwing",
+"name": "Sideboard Kazu 220 cm Metallic Gold 4 Türen schwebend Schwarz Keramik Laminam®Noir Desir Braun",
+"variant": "Standard",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 1099.0,
-"url": "https://www.westwing.de/sideboard-calary-mit-schiebtueren-133864.html?simple=DEQ21WES80428-168620",
-"dims": "160 × 45 × 75",
-"delivery": "4–9 WT"
+"unit": 1389.9,
+"url": "https://www.delife.de/sideboard-kazu-220cm-mitteldichte-faserplatte/a-38946",
+"dims": "B 220 × T 45 × H 69",
+"delivery": null
 }
 ]
 },
@@ -1764,7 +1773,7 @@
 "x": 5.22,
 "y": 11.6,
 "rot": 0,
-"elev": 0.75,
+"elev": 0.69,
 "w": 0.2,
 "d": 0.2,
 "h": 0.442,
@@ -1804,8 +1813,8 @@
 "catalogId": "wes-leinwanddruck-elements-everlast-handveredelt-mal",
 "pos": "E7",
 "label": "Leinwanddruck Elements Everlast, handveredelt (Malerifabrikken)",
-"x": 5.657,
-"y": 11.885,
+"x": 5.8154,
+"y": 11.9073,
 "rot": 188,
 "elev": 0.95,
 "w": 0.9,
@@ -1842,6 +1851,50 @@
 "url": "https://www.westwing.de/mm-everlast-90x120-en-26mle49342.html",
 "dims": "B 90 × H 118",
 "delivery": "2–7 WT"
+}
+]
+},
+{
+"id": "1b849e6fd6",
+"catalogId": "del-ramina-46714",
+"pos": "D1",
+"label": "Schale Ramina B29 x T21 x H19 cm Aluminium Aurum Satin Gegossen",
+"x": 5.7989,
+"y": 11.6753,
+"rot": 0,
+"elev": 0.69,
+"w": 0.29,
+"d": 0.21,
+"h": 0.19,
+"variant": "Gold/Messing",
+"slots": {
+"top": {
+"color": "#c7a45d",
+"material": "brass"
+},
+"main": {
+"color": "#c7a45d",
+"material": "brass"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "D1",
+"name": "Schale Ramina B29 x T21 x H19 cm Aluminium Aurum Satin Gegossen",
+"variant": "Gold/Messing",
+"vendor": "DELIFE",
+"qty": 1,
+"unit": 79.9,
+"url": "https://www.delife.de/schale-ramina-aluminium-aurum-satin-b29-x-t21-x-h19cm/a-46714",
+"dims": "B 29 × T 21 × H 19",
+"delivery": null
 }
 ]
 },
@@ -2005,7 +2058,7 @@
 "x": 5.08,
 "y": 11.56,
 "rot": 0,
-"elev": 0.75,
+"elev": 0.69,
 "w": 0.32,
 "d": 0.32,
 "h": 0.4,
@@ -2043,7 +2096,7 @@
 "x": 6.25,
 "y": 11.74,
 "rot": 188,
-"elev": 0.75,
+"elev": 0.69,
 "w": 0.23,
 "d": 0.3,
 "h": 0.04,
@@ -2192,44 +2245,46 @@
 ]
 },
 {
-"id": "846667ce1d",
-"catalogId": "wes-konsole-chandler-aus-eichenholz-mit-travertinpla",
+"id": "07e854f9b4",
+"catalogId": "del-edge-estelo-45513",
 "pos": "F7",
-"label": "Konsole Chandler aus Eichenholz mit Travertinplatte",
+"label": "Konsolentisch Edge Boot 140x40 cm Keramik Estelo",
 "x": 7.378,
 "y": 2.525,
 "rot": 0,
 "elev": 0.0,
-"w": 1.1,
+"w": 1.4,
 "d": 0.4,
-"h": 0.8,
-"variant": "Travertin beige / massive Eiche dunkel",
+"h": 0.79,
+"variant": "Calacatta Luxe Weiß/Gold, Gestell Titanfarbig",
 "slots": {
 "top": {
-"color": "#e3d6c1",
-"material": "travertine"
+"color": "#ebe6de",
+"material": "marble"
 },
 "main": {
-"color": "#4b3326",
-"material": "oakDark"
+"color": "#ebe6de",
+"material": "marble"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
 }
 },
-"params": {
-"style": "chandler"
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "F7",
-"name": "Konsole Chandler aus Eichenholz mit Travertinplatte",
-"variant": "Travertin beige / massive Eiche dunkel",
-"vendor": "Westwing",
+"name": "Konsolentisch Edge Boot 140x40 cm Keramik Estelo",
+"variant": "Calacatta Luxe Weiß/Gold, Gestell Titanfarbig",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 799.0,
-"url": "https://www.westwing.de/konsole-chandler-aus-eichenholz-mit-travertinplatte-159336.html?simple=DEQ23WES00248-204771",
-"dims": "110 × 40 × 80",
-"delivery": "4–9 WT"
+"unit": 589.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45597",
+"dims": "B 140 × T 40 × H 79",
+"delivery": null
 }
 ]
 },
@@ -2277,7 +2332,7 @@
 "x": 7.006,
 "y": 2.526,
 "rot": 0,
-"elev": 0.8,
+"elev": 0.79,
 "w": 0.16,
 "d": 0.16,
 "h": 0.24,
@@ -2445,7 +2500,7 @@
 "x": 7.75,
 "y": 2.52,
 "rot": 0,
-"elev": 0.8,
+"elev": 0.79,
 "w": 0.25,
 "d": 0.25,
 "h": 0.32,
@@ -3156,22 +3211,22 @@
 "opening": "W-S1"
 },
 {
-"id": "be04d63c1c",
-"catalogId": "ike-sanela-kissenbezug-fjaedrar-innenkissen",
+"id": "e903b11d99",
+"catalogId": "wes-boucle-kissenhuelle-shannon-171674",
 "pos": "S19",
-"label": "SANELA Kissenbezug + FJÄDRAR Innenkissen",
+"label": "Bouclé-Kissenhülle Shannon",
 "x": 6.396,
 "y": 14.288,
 "rot": 82,
 "elev": 0.62,
 "w": 0.5,
 "d": 0.16,
-"h": 0.5,
-"variant": "dunkelgrautürkis (Petrol) / elfenbeinweiß",
+"h": 0.3,
+"variant": "Bouclé Schwarz",
 "slots": {
 "main": {
-"color": "#2f7074",
-"material": "velvet"
+"color": "#1d1d1d",
+"material": "boucle"
 }
 },
 "params": {},
@@ -3180,34 +3235,34 @@
 "parts": [
 {
 "pos": "S19",
-"name": "SANELA Kissenbezug + FJÄDRAR Innenkissen",
-"variant": "dunkelgrautürkis (Petrol) / elfenbeinweiß",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 13.99,
-"url": "https://www.ikea.com/de/de/p/sanela-kissenbezug-dunkelgrautuerkis-80590928/",
-"dims": "50 × 50",
-"delivery": "prüfen"
+"name": "Bouclé-Kissenhülle Shannon",
+"variant": "Bouclé Schwarz",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 32.99,
+"url": "https://www.westwing.de/boucle-kissenhuelle-shannon-171677.html",
+"dims": "B 50 × T 16 × H 30",
+"delivery": null
 }
 ]
 },
 {
-"id": "a1c1d9f9e8",
-"catalogId": "ike-sanela-kissenbezug-fjaedrar-innenkissen",
+"id": "e77af60771",
+"catalogId": "wes-boucle-kissenhuelle-shannon-171674",
 "pos": "S19",
-"label": "SANELA Kissenbezug + FJÄDRAR Innenkissen",
+"label": "Bouclé-Kissenhülle Shannon",
 "x": 6.309,
 "y": 14.912,
 "rot": 108,
 "elev": 0.62,
 "w": 0.5,
 "d": 0.16,
-"h": 0.5,
-"variant": "dunkelgrautürkis (Petrol) / elfenbeinweiß",
+"h": 0.3,
+"variant": "Bouclé Schwarz",
 "slots": {
 "main": {
-"color": "#2f7074",
-"material": "velvet"
+"color": "#1d1d1d",
+"material": "boucle"
 }
 },
 "params": {},
@@ -3216,61 +3271,60 @@
 "parts": [
 {
 "pos": "S19",
-"name": "SANELA Kissenbezug + FJÄDRAR Innenkissen",
-"variant": "dunkelgrautürkis (Petrol) / elfenbeinweiß",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 13.99,
-"url": "https://www.ikea.com/de/de/p/sanela-kissenbezug-dunkelgrautuerkis-80590928/",
-"dims": "50 × 50",
-"delivery": "prüfen"
+"name": "Bouclé-Kissenhülle Shannon",
+"variant": "Bouclé Schwarz",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 32.99,
+"url": "https://www.westwing.de/boucle-kissenhuelle-shannon-171677.html",
+"dims": "B 50 × T 16 × H 30",
+"delivery": null
 }
 ]
 },
 {
-"id": "c33fadae7b",
-"catalogId": "wes-handgemaltes-leinwandbild-blue-stroke",
+"id": "2a56f0495f",
+"catalogId": "wes-gerahmtes-leinwandbild-scenario-handgemalt-maler",
 "pos": "S23",
-"label": "Handgemaltes Leinwandbild Blue Stroke",
+"label": "Gerahmtes Leinwandbild Scenario, handgemalt (Malerifabrikken)",
 "x": 7.06,
 "y": 14.3,
 "rot": 98,
-"elev": 1.3,
-"w": 1.5,
+"elev": 1.1,
+"w": 0.92,
 "d": 0.04,
-"h": 1.0,
-"variant": "Weiß, Blautöne, Hellbeige; Keilrahmen",
+"h": 1.2,
+"variant": "Beige- und Grautöne, Eichenrahmen",
 "slots": {
 "main": {
-"color": "#f2f0ea",
+"color": "#d8cdbc",
 "material": "canvas"
 },
 "secondary": {
-"color": "#2c4f7a",
+"color": "#8f8576",
 "material": "canvas"
 },
 "frame": {
-"color": "#f2f0ea",
-"material": "canvas"
+"color": "#b38c60",
+"material": "oak"
 }
 },
 "params": {
-"motif": "bluestroke",
-"noFrame": true
+"motif": "scenario"
 },
 "mount": "wall",
 "room": "13.03",
 "parts": [
 {
 "pos": "S23",
-"name": "Handgemaltes Leinwandbild Blue Stroke",
-"variant": "Weiß, Blautöne, Hellbeige; Keilrahmen",
+"name": "Gerahmtes Leinwandbild Scenario, handgemalt (Malerifabrikken)",
+"variant": "Beige- und Grautöne, Eichenrahmen",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 459.0,
-"url": "https://www.westwing.de/handgemaltes-leinwandbild-blue-stroke-168238.html",
-"dims": "B 150 × H 100",
-"delivery": "3–4 Wo."
+"unit": 359.0,
+"url": "https://www.westwing.de/handgemaltes-leinwandbild-scenario-mit-holzrahmen-144828.html",
+"dims": "B 92 × T 4 × H 120",
+"delivery": "2–7 WT"
 }
 ]
 },
@@ -4542,8 +4596,8 @@
 "13.03:2": {
 "base": {
 "kind": "paint",
-"color": "#1f5a60",
-"productName": "Schöner Wohnen Designfarbe „Charmantes Petrolblau“",
+"color": "#4a3e36",
+"productName": "Farrow & Ball Tanner's Brown No. 255",
 "sheen": "matt"
 }
 }
