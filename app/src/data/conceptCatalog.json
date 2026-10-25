@@ -1431,2133 +1431,76 @@
 "concepts": []
 },
 {
-"id": "del-greg-flex-gestell-konisch-20334",
-"vendor": "DELIFE",
-"brand": "DELIFE",
-"series": "Greg-Flex",
-"name": "Esszimmerstuhl Greg-Flex 4-Fuß konisch",
-"category": "chair",
-"w": 56.0,
-"d": 58.0,
-"h": 85.0,
-"price": 89.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-beige/a-35228",
-"image": "https://www.delife.de/media/72/51/fa/1782529567/35228-20250527023059-esszimmerstuhl-greg-flex-cord-beige-4-fuss-konisch-schwarz-taschenfederkern_118235d.jpeg?imwidth=800",
-"archetype": "chairFlex",
-"params": {
-"shell": "arm",
-"stitch": "channel",
-"base": "cone",
-"seatHeight": 0.47,
-"armHeight": 0.67
-},
-"variants": [
-{
-"name": "Cord Beige, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#e5e0d8",
-"material": "cord"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 89.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-beige/a-35228",
-"image": "https://www.delife.de/media/72/51/fa/1782529567/35228-20250527023059-esszimmerstuhl-greg-flex-cord-beige-4-fuss-konisch-schwarz-taschenfederkern_118235d.jpeg?imwidth=800",
-"opts": [
-"Cord",
-"Beige",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Strukturstoff Soft Grau, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#a4a19e",
-"material": "melange"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 99.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-grau/a-41867",
-"image": "https://www.delife.de/media/80/8e/6d/1782560757/41867-20250912153822-esszimmerstuhl-greg-flex-strukturstoff-soft-grau-4-fuss-konisch-schwarz-taschenfederkern1e66f7.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Grau",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Bouclé Soft Schlamm, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#98948b",
-"material": "boucle"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 99.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-schlamm/a-41907",
-"image": "https://www.delife.de/media/21/40/34/1782521175/41907-20250912152502-esszimmerstuhl-greg-flex-boucle-soft-schlamm-4-fuss-konisch-schwarz-taschenfederkern79fa47.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Schlamm",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Cord Beige, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#e5e0d9",
-"material": "cord"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-beige/a-35229",
-"image": "https://www.delife.de/media/c9/b1/a4/1782543894/35229-20250527023030-esszimmerstuhl-greg-flex-cord-beige-4-fuss-konisch-edelstahl-taschenfederkern_1a2d9a8.jpeg?imwidth=800",
-"opts": [
-"Cord",
-"Beige",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Strukturstoff Soft Grau, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#a4a29f",
-"material": "melange"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-grau/a-41884",
-"image": "https://www.delife.de/media/a0/12/60/1782553856/41884-20250912153158-esszimmerstuhl-greg-flex-strukturstoff-soft-grau-4-fuss-konisch-edelstahl-taschenfederkern1317b4.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Grau",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Bouclé Soft Schlamm, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#99958a",
-"material": "boucle"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-schlamm/a-41885",
-"image": "https://www.delife.de/media/ef/23/f8/1782558952/41885-20250912153130-esszimmerstuhl-greg-flex-boucle-soft-schlamm-4-fuss-konisch-edelstahl-taschenfederkern28f185.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Schlamm",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Bouclé Soft Beige, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#eeece7",
-"material": "boucle"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-beige/a-41886",
-"image": "https://www.delife.de/media/47/23/bb/1782543895/41886-20250912153105-esszimmerstuhl-greg-flex-boucle-soft-beige-4-fuss-konisch-edelstahl-taschenfederkern8425f0.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Beige",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Bouclé Soft Beige, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#edece8",
-"material": "boucle"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-beige/a-41914",
-"image": "https://www.delife.de/media/6f/4e/f0/1782524165/41914-20250912152225-esszimmerstuhl-greg-flex-boucle-soft-beige-4-fuss-konisch-schwarz-taschenfederkern720895.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Beige",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Webstoff Soft Beige, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#c4bdb1",
-"material": "fabric"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-beige/a-41915",
-"image": "https://www.delife.de/media/79/1a/eb/1782520558/41915-20250912152201-esszimmerstuhl-greg-flex-webstoff-soft-beige-4-fuss-konisch-schwarz-taschenfederkern3022dc.jpg?imwidth=800",
-"opts": [
-"Webstoff Soft",
-"Beige",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Plüsch Creme-Weiß, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#e1ddd7",
-"material": "velvet"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-creme-weiss/a-41916",
-"image": "https://www.delife.de/media/e1/0c/d2/1782516378/41916-20260115170913-esszimmerstuhl-greg-flex-pluesch-creme-weiss-4-fuss-konisch-schwarz-taschenfederkernc48c3d.jpg?imwidth=800",
-"opts": [
-"Plüsch",
-"Creme-Weiß",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Plüsch Creme-Weiß, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#e1ddd7",
-"material": "velvet"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 139.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-creme-weiss/a-41882",
-"image": "https://www.delife.de/media/52/b5/91/1782527781/41882-20260115171221-esszimmerstuhl-greg-flex-pluesch-creme-weiss-4-fuss-konisch-edelstahl-taschenfederkern8deedc.jpg?imwidth=800",
-"opts": [
-"Plüsch",
-"Creme-Weiß",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Webstoff Soft Beige, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#c5beb2",
-"material": "fabric"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 139.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-beige/a-41912",
-"image": "https://www.delife.de/media/1f/e8/71/1782531962/41912-20250912152317-esszimmerstuhl-greg-flex-webstoff-soft-beige-4-fuss-konisch-edelstahl-taschenfederkern95ee37.jpg?imwidth=800",
-"opts": [
-"Webstoff Soft",
-"Beige",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Teddystoff Beige, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#e6e3dd",
-"material": "teddy"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 139.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-beige/a-41950",
-"image": "https://www.delife.de/media/ee/g0/a4/1782514264/41950-20260115170334-esszimmerstuhl-greg-flex-teddystoff-beige-4-fuss-konisch-edelstahl-taschenfederkern48e32a.jpg?imwidth=800",
-"opts": [
-"Teddystoff",
-"Beige",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Boucle Schlamm, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#bcb2a7",
-"material": "boucle"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 139.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-schlamm/a-44798",
-"image": "https://www.delife.de/media/7e/f6/9e/1790636747/44798-20260918165729-esszimmerstuhl-greg-flex-boucle-schlamm-4-fuss-konisch-schwarz-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Boucle",
-"Schlamm",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Boucle Schlamm, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#bdb3a7",
-"material": "boucle"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 139.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-schlamm/a-44799",
-"image": "https://www.delife.de/media/1f/d9/54/1790636748/44799-20260918165704-esszimmerstuhl-greg-flex-boucle-schlamm-4-fuss-konisch-edelstahl-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Boucle",
-"Schlamm",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Mikrofaser Taupe, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#827267",
-"material": "microfiber"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-taupe/a-20390",
-"image": "https://www.delife.de/media/83/a8/80/1782566764/20390-20250528133134-esszimmerstuhl-greg-flex-mikrofaser-taupe-vintage-4-fuss-konisch-schwarz-taschenfederkern_1e45270.jpeg?imwidth=800",
-"opts": [
-"Mikrofaser",
-"Taupe",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Mikrofaser Anthrazit Vintage, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#4c4843",
-"material": "microfiber"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-anthrazit-vintage/a-20391",
-"image": "https://www.delife.de/media/49/2f/6b/1782555952/20391-20250528133104-esszimmerstuhl-greg-flex-mikrofaser-anthrazit-vintage-4-fuss-konisch-schwarz-taschenfederkern_1fa7699.jpeg?imwidth=800",
-"opts": [
-"Mikrofaser",
-"Anthrazit Vintage",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Mikrofaser Beige, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#b8aa97",
-"material": "microfiber"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-beige/a-20394",
-"image": "https://www.delife.de/media/bd/30/c4/1782558355/20394-20250528133005-esszimmerstuhl-greg-flex-mikrofaser-beige-vintage-4-fuss-konisch-schwarz-taschenfederkern_12d3494.jpeg?imwidth=800",
-"opts": [
-"Mikrofaser",
-"Beige",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Teddystoff Beige, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#e5e3dc",
-"material": "teddy"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-beige/a-40618",
-"image": "https://www.delife.de/media/ce/5d/dc/1782567069/40618-20260115172251-esszimmerstuhl-greg-flex-teddy-beige-4-fuss-konisch-schwarz-taschenfederkern33be16.jpg?imwidth=800",
-"opts": [
-"Teddystoff",
-"Beige",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Strukturstoff Soft Taupe, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#90867f",
-"material": "melange"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-taupe/a-45017",
-"image": "https://www.delife.de/media/26/a9/62/1790636781/45017-20260918165258-esszimmerstuhl-greg-flex-strukturstoff-soft-taupe-4-fuss-konisch-schwarz-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Taupe",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Mikrofaser Taupe, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#827367",
-"material": "microfiber"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 199.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-taupe/a-20334",
-"image": "https://www.delife.de/media/8f/4a/1a/1782555950/20334-20250528134354-esszimmerstuhl-greg-flex-mikrofaser-taupe-vintage-4-fuss-konisch-edelstahl-taschenfederkern_182c2f3.jpeg?imwidth=800",
-"opts": [
-"Mikrofaser",
-"Taupe",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Mikrofaser Anthrazit Vintage, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#4d4742",
-"material": "microfiber"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 199.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-anthrazit-vintage/a-20335",
-"image": "https://www.delife.de/media/d1/72/9a/1782551748/20335-20250528134325-esszimmerstuhl-greg-flex-mikrofaser-anthrazit-vintage-4-fuss-konisch-edelstahl-taschenfederkern_13b775f.jpeg?imwidth=800",
-"opts": [
-"Mikrofaser",
-"Anthrazit Vintage",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Mikrofaser Beige, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#b9ab98",
-"material": "microfiber"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 199.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-beige/a-20338",
-"image": "https://www.delife.de/media/be/53/16/1782558658/20338-20250528134127-esszimmerstuhl-greg-flex-mikrofaser-beige-vintage-4-fuss-konisch-edelstahl-taschenfederkern_144516a.jpeg?imwidth=800",
-"opts": [
-"Mikrofaser",
-"Beige",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Strukturstoff Soft Taupe, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#928882",
-"material": "melange"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 199.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-taupe/a-45018",
-"image": "https://www.delife.de/media/a2/b5/e7/1790636803/45018-20260918165229-esszimmerstuhl-greg-flex-strukturstoff-soft-taupe-4-fuss-konisch-edelstahl-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Taupe",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Echt Leder Schlamm, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#9b9288",
-"material": "leather"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 219.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-schlamm/a-36365",
-"image": "https://www.delife.de/media/27/3c/13/1782518772/36365-20250527014024-esszimmerstuhl-greg-flex-echt-leder-schlamm-4-fuss-konisch-edelstahl-taschenfederkern_16223cf.jpeg?imwidth=800",
-"opts": [
-"Echt Leder",
-"Schlamm",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Echt Leder Schwarz, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#3e3e3f",
-"material": "leather"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 299.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-schwarz/a-23296",
-"image": "https://www.delife.de/media/75/c2/cd/1782555950/23296-20250528050736-esszimmerstuhl-greg-flex-echt-leder-schwarz-4-fuss-konisch-edelstahl-taschenfederkern_1f4794d.jpeg?imwidth=800",
-"opts": [
-"Echt Leder",
-"Schwarz",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Echt Leder Schwarz, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#3e3e3e",
-"material": "leather"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 299.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-schwarz/a-23297",
-"image": "https://www.delife.de/media/5c/03/35/1782560757/23297-20250528050712-esszimmerstuhl-greg-flex-echt-leder-schwarz-4-fuss-konisch-schwarz-taschenfederkern_1e10578.jpeg?imwidth=800",
-"opts": [
-"Echt Leder",
-"Schwarz",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Echt Leder Schlamm, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#9a9289",
-"material": "leather"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 299.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-schlamm/a-36364",
-"image": "https://www.delife.de/media/48/a4/5f/1782561658/36364-20250527014109-esszimmerstuhl-greg-flex-echt-leder-schlamm-4-fuss-konisch-schwarz-taschenfederkern_178e16e.jpeg?imwidth=800",
-"opts": [
-"Echt Leder",
-"Schlamm",
-"Metall",
-"Schwarz"
-]
-}
-],
-"tags": [
-"DELIFE",
-"Greg-Flex",
-"Polsterstuhl"
-],
-"premium": false,
-"description": "Maße lt. DELIFE: B 56 × T 58 × H 85 cm · Sitzbreite ca.: 45 cm · Sitztiefe ca.: 44 cm · Sitzhöhe ca.: 47 cm · Rückenhöhe ca.: 40 cm · Material: Schale: Cord (100% Polyester); Gestell: pulverbeschichtetes Metall · Gestell: Gestell konisch · 28 Ausführungen lt. Shop (Stand 24.10.2026)",
-"axes": [
-{
-"name": "Sitzmaterial",
-"values": [
-"Cord",
-"Strukturstoff Soft",
-"Bouclé Soft",
-"Webstoff Soft",
-"Plüsch",
-"Teddystoff",
-"Boucle",
-"Mikrofaser",
-"Echt Leder"
-]
-},
-{
-"name": "Sitzfarbe",
-"values": [
-"Beige",
-"Grau",
-"Schlamm",
-"Creme-Weiß",
-"Taupe",
-"Anthrazit Vintage",
-"Schwarz"
-]
-},
-{
-"name": "Gestellmaterial",
-"values": [
-"Metall",
-"Edelstahl gebürstet"
-]
-},
-{
-"name": "Gestellfarbe",
-"values": [
-"Schwarz",
-"Silber gebürstet"
-]
-}
-],
-"mount": "floor",
-"resizable": false,
-"concepts": [
-4
-]
-},
-{
-"id": "del-nube-flex-gestell-konisch-36424",
-"vendor": "DELIFE",
-"brand": "DELIFE",
-"series": "Nube-Flex",
-"name": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
-"category": "chair",
-"w": 54.0,
-"d": 65.0,
-"h": 83.0,
-"price": 89.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-silbergrau/a-36424",
-"image": "https://www.delife.de/media/22/de/22/1782544188/36424-20250527013440-esszimmerstuhl-nube-flex-cord-silbergrau-4-fuss-konisch-edelstahl-taschenfederkern_1a9a336.jpeg?imwidth=800",
-"archetype": "chairFlex",
-"params": {
-"shell": "shell",
-"stitch": "none",
-"base": "cone",
-"seatHeight": 0.48
-},
-"variants": [
-{
-"name": "Cord Silbergrau, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#d2cfce",
-"material": "cord"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 89.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-silbergrau/a-36424",
-"image": "https://www.delife.de/media/22/de/22/1782544188/36424-20250527013440-esszimmerstuhl-nube-flex-cord-silbergrau-4-fuss-konisch-edelstahl-taschenfederkern_1a9a336.jpeg?imwidth=800",
-"opts": [
-"Cord",
-"Silbergrau",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Cord Silbergrau, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#d2cfce",
-"material": "cord"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 89.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-silbergrau/a-36431",
-"image": "https://www.delife.de/media/c1/c7/b3/1782534666/36431-20250527012750-esszimmerstuhl-nube-flex-cord-silbergrau-4-fuss-konisch-schwarz-taschenfederkern_150f026.jpeg?imwidth=800",
-"opts": [
-"Cord",
-"Silbergrau",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Bouclé Soft Beige, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#edece8",
-"material": "boucle"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 119.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-beige/a-41527",
-"image": "https://www.delife.de/media/25/bc/8c/1782539764/41527-20250925141424-esszimmerstuhl-nube-flex-boucle-soft-beige-4-fuss-konisch-schwarz-taschenfederkernf5394b.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Beige",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Strukturstoff Soft Grau, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#aca9a6",
-"material": "melange"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 119.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-grau/a-41528",
-"image": "https://www.delife.de/media/cd/f0/f5/1782543880/41528-20250925141330-esszimmerstuhl-nube-flex-strukturstoff-soft-grau-4-fuss-konisch-schwarz-taschenfederkernd31de8.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Grau",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Bouclé Soft Schlamm, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#98928a",
-"material": "boucle"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 119.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-schlamm/a-41530",
-"image": "https://www.delife.de/media/a1/20/13/1782536479/41530-20251125080536-esszimmerstuhl-nube-flex-boucle-soft-schlamm-4-fuss-konisch-schwarz-taschenfederkernbf233f.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Schlamm",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Bouclé Soft Beige, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#edece8",
-"material": "boucle"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 139.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-beige/a-41505",
-"image": "https://www.delife.de/media/70/4f/0a/1782557764/41505-20250925142532-esszimmerstuhl-nube-flex-boucle-soft-beige-4-fuss-konisch-edelstahl-taschenfederkerne29ff8.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Beige",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Bouclé Soft Schlamm, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#98928a",
-"material": "boucle"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 139.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-schlamm/a-41511",
-"image": "https://www.delife.de/media/8c/28/07/1782547559/41511-20251125080627-esszimmerstuhl-nube-flex-boucle-soft-schlamm-4-fuss-konisch-edelstahl-taschenfederkern5f5d09.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Schlamm",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Strukturstoff Soft Grau, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#acaaa7",
-"material": "melange"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 139.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-grau/a-41514",
-"image": "https://www.delife.de/media/64/51/42/1782526264/41514-20250925142044-esszimmerstuhl-nube-flex-strukturstoff-soft-grau-4-fuss-konisch-edelstahl-taschenfederkern42756d.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Grau",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Webstoff Soft Beige, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#c5bfb3",
-"material": "fabric"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 199.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-beige/a-41513",
-"image": "https://www.delife.de/media/5e/d7/ef/1782544675/41513-20250925142143-esszimmerstuhl-nube-flex-webstoff-soft-beige-4-fuss-konisch-schwarz-taschenfederkern9b3e6d.jpg?imwidth=800",
-"opts": [
-"Webstoff Soft",
-"Beige",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Strukturstoff Soft Taupe, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#8c817a",
-"material": "melange"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 199.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-taupe/a-45407",
-"image": "https://www.delife.de/media/99/71/f8/1790635280/45407-20260918164724-esszimmerstuhl-nube-flex-strukturstoff-soft-taupe-4-fuss-konisch-schwarz-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Taupe",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Boucle Weiß, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#f3f1ec",
-"material": "boucle"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 219.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-weiss/a-36430",
-"image": "https://www.delife.de/media/8a/42/b1/1782559259/36430-20250527012851-esszimmerstuhl-nube-flex-boucle-weiss-4-fuss-konisch-schwarz-taschenfederkern_1eb0ebe.jpeg?imwidth=800",
-"opts": [
-"Boucle",
-"Weiß",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Webstoff Soft Beige, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#c6c0b5",
-"material": "fabric"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 219.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-beige/a-41512",
-"image": "https://www.delife.de/media/f2/e8/2a/1782527173/41512-20250925142240-esszimmerstuhl-nube-flex-webstoff-soft-beige-4-fuss-konisch-edelstahl-taschenfederkern4fc322.jpg?imwidth=800",
-"opts": [
-"Webstoff Soft",
-"Beige",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Boucle Schlamm, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#bfb4a8",
-"material": "boucle"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 219.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-schlamm/a-44555",
-"image": "https://www.delife.de/media/a2/5f/c0/1790637049/44555-20260918173746-esszimmerstuhl-nube-flex-boucle-schlamm-4-fuss-konisch-schwarz-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Boucle",
-"Schlamm",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Boucle Schlamm, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#c0b5aa",
-"material": "boucle"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 219.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-schlamm/a-44556",
-"image": "https://www.delife.de/media/e7/8e/58/1790637050/44556-20260918173708-esszimmerstuhl-nube-flex-boucle-schlamm-4-fuss-konisch-edelstahl-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Boucle",
-"Schlamm",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Strukturstoff Soft Taupe, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#8a7f78",
-"material": "melange"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 219.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-taupe/a-45408",
-"image": "https://www.delife.de/media/08/b9/68/1790635283/45408-20260918164648-esszimmerstuhl-nube-flex-strukturstoff-soft-taupe-4-fuss-konisch-edelstahl-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Taupe",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Boucle Weiß, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#f3f1ec",
-"material": "boucle"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 229.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-weiss/a-36628",
-"image": "https://www.delife.de/media/f8/15/ab/1782545526/36628-20250526224649-esszimmerstuhl-nube-flex-boucle-weiss-4-fuss-konisch-edelstahl-taschenfederkern_1baa00e.jpeg?imwidth=800",
-"opts": [
-"Boucle",
-"Weiß",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-}
-],
-"tags": [
-"DELIFE",
-"Nube-Flex",
-"Polsterstuhl"
-],
-"premium": false,
-"description": "Maße lt. DELIFE: B 54 × T 65 × H 83 cm · Sitzbreite ca.: 50 cm · Sitztiefe ca.: 44 cm · Sitzhöhe ca.: 48 cm · Rückenhöhe ca.: 40 cm · Material: Schale: Cord (100% Polyester); Gestell: Edelstahl gebürstet · Gestell: Gestell konisch · 16 Ausführungen lt. Shop (Stand 24.10.2026)",
-"axes": [
-{
-"name": "Sitzmaterial",
-"values": [
-"Cord",
-"Bouclé Soft",
-"Strukturstoff Soft",
-"Webstoff Soft",
-"Boucle"
-]
-},
-{
-"name": "Sitzfarbe",
-"values": [
-"Silbergrau",
-"Beige",
-"Grau",
-"Schlamm",
-"Taupe",
-"Weiß"
-]
-},
-{
-"name": "Gestellmaterial",
-"values": [
-"Edelstahl gebürstet",
-"Metall"
-]
-},
-{
-"name": "Gestellfarbe",
-"values": [
-"Silber gebürstet",
-"Schwarz"
-]
-}
-],
-"mount": "floor",
-"resizable": false,
-"concepts": [
-3
-]
-},
-{
-"id": "del-zelia-flex-gestell-konisch-33745",
-"vendor": "DELIFE",
-"brand": "DELIFE",
-"series": "Zelia-Flex",
-"name": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
-"category": "chair",
-"w": 60.0,
-"d": 63.0,
-"h": 93.0,
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-beige/a-41582",
-"image": "https://www.delife.de/media/4d/1a/de/1782559862/41582-20251128153054-esszimmerstuhl-zelia-flex-mit-armlehnen-webstoff-soft-beige-4-fuss-konisch-schwarz-taschenfederkern35ccc0.jpg?imwidth=800",
-"archetype": "chairFlex",
-"params": {
-"shell": "arm",
-"stitch": "channel",
-"base": "cone",
-"seatHeight": 0.53,
-"armHeight": 0.64
-},
-"variants": [
-{
-"name": "Webstoff Soft Beige, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#c8c2b9",
-"material": "fabric"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-beige/a-41582",
-"image": "https://www.delife.de/media/4d/1a/de/1782559862/41582-20251128153054-esszimmerstuhl-zelia-flex-mit-armlehnen-webstoff-soft-beige-4-fuss-konisch-schwarz-taschenfederkern35ccc0.jpg?imwidth=800",
-"opts": [
-"Webstoff Soft",
-"Beige",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Plüsch Creme-Weiß, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#e7e4dc",
-"material": "velvet"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-creme-weiss/a-41589",
-"image": "https://www.delife.de/media/f8/dc/f7/1782519651/41589-20250923160152-esszimmerstuhl-zelia-flex-mit-armlehnen-pluesch-creme-weiss-4-fuss-konisch-edelstahl-taschenfederkernedfa43.jpg?imwidth=800",
-"opts": [
-"Plüsch",
-"Creme-Weiß",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Bouclé Soft Beige, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#edece8",
-"material": "boucle"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-beige/a-41593",
-"image": "https://www.delife.de/media/73/87/dd/1782561361/41593-20251128152950-esszimmerstuhl-zelia-flex-mit-armlehnen-boucle-soft-beige-4-fuss-konisch-schwarz-taschenfederkern25b1e4.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Beige",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Plüsch Creme-Weiß, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#e7e4dc",
-"material": "velvet"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-creme-weiss/a-41605",
-"image": "https://www.delife.de/media/d5/ae/5b/1782560164/41605-20250923160009-esszimmerstuhl-zelia-flex-mit-armlehnen-pluesch-creme-weiss-4-fuss-konisch-schwarz-taschenfederkernae454b.jpg?imwidth=800",
-"opts": [
-"Plüsch",
-"Creme-Weiß",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Bouclé Soft Schlamm, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#97928c",
-"material": "boucle"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-schlamm/a-41606",
-"image": "https://www.delife.de/media/58/8a/7d/1782545548/41606-20251128152834-esszimmerstuhl-zelia-flex-mit-armlehnen-boucle-soft-schlamm-4-fuss-konisch-schwarz-taschenfederkern429f6d.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Schlamm",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Teddystoff Beige, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#eeece5",
-"material": "teddy"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-beige/a-41637",
-"image": "https://www.delife.de/media/bf/c9/85/1782572010/41637-20250923155651-esszimmerstuhl-zelia-flex-mit-armlehnen-teddystoff-beige-4-fuss-konisch-schwarz-taschenfederkern8a7b37.jpg?imwidth=800",
-"opts": [
-"Teddystoff",
-"Beige",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Bouclé Soft Beige, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#edece8",
-"material": "boucle"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 139.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-beige/a-41574",
-"image": "https://www.delife.de/media/4d/2b/7d/1782555362/41574-20251128153156-esszimmerstuhl-zelia-flex-mit-armlehnen-boucle-soft-beige-4-fuss-konisch-edelstahl-taschenfederkern1f35f5.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Beige",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Bouclé Soft Schlamm, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#97928c",
-"material": "boucle"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 139.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-schlamm/a-41576",
-"image": "https://www.delife.de/media/4b/a3/85/1782557166/41576-20251128153136-esszimmerstuhl-zelia-flex-mit-armlehnen-boucle-soft-schlamm-4-fuss-konisch-edelstahl-taschenfederkern667cb1.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Schlamm",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Teddystoff Beige, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#efece5",
-"material": "teddy"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 139.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-beige/a-41620",
-"image": "https://www.delife.de/media/ed/d9/fd/1782537061/41620-20250923155855-esszimmerstuhl-zelia-flex-mit-armlehnen-teddystoff-beige-4-fuss-konisch-edelstahl-taschenfederkern8712f7.jpg?imwidth=800",
-"opts": [
-"Teddystoff",
-"Beige",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Webstoff Soft Beige, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#c9c2ba",
-"material": "fabric"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 139.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-beige/a-41648",
-"image": "https://www.delife.de/media/2c/93/a5/1782554464/41648-20251128152436-esszimmerstuhl-zelia-flex-mit-armlehnen-webstoff-soft-beige-4-fuss-konisch-edelstahl-taschenfederkern9b816e.jpg?imwidth=800",
-"opts": [
-"Webstoff Soft",
-"Beige",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Mikrofaser Taupe, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#a49482",
-"material": "microfiber"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 229.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-taupe/a-33797",
-"image": "https://www.delife.de/media/a7/9a/8a/1782569157/33797-20250528002557-esszimmerstuhl-zelia-flex-mit-armlehnen-mikrofaser-taupe-vintage-4-fuss-konisch-schwarz-taschenfederkern_1722e03.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.52
-},
-"opts": [
-"Mikrofaser",
-"Taupe",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Strukturstoff Soft Grau, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#a7a5a2",
-"material": "melange"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 229.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-grau/a-41568",
-"image": "https://www.delife.de/media/1f/18/fe/1782569407/41568-20251128153218-esszimmerstuhl-zelia-flex-mit-armlehnen-strukturstoff-soft-grau-4-fuss-konisch-schwarz-taschenfederkern663c84.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Grau",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Mikrofaser Taupe, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#a49482",
-"material": "microfiber"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 239.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-taupe/a-33798",
-"image": "https://www.delife.de/media/60/9d/8c/1782558655/33798-20250528002528-esszimmerstuhl-zelia-flex-mit-armlehnen-mikrofaser-taupe-vintage-4-fuss-konisch-edelstahl-taschenfederkern_1e33cbd.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.52
-},
-"opts": [
-"Mikrofaser",
-"Taupe",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Strukturstoff Soft Grau, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#a7a5a2",
-"material": "melange"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 239.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-grau/a-41563",
-"image": "https://www.delife.de/media/26/3d/05/1782555365/41563-20251128153257-esszimmerstuhl-zelia-flex-mit-armlehnen-strukturstoff-soft-grau-4-fuss-konisch-edelstahl-taschenfederkern334442.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Grau",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Echt Leder Schwarz, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#1d1d1d",
-"material": "leather"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 299.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-schwarz/a-33745",
-"image": "https://www.delife.de/media/cf/a3/6a/1782542762/33745-20250528004106-esszimmerstuhl-zelia-flex-mit-armlehnen-echt-leder-schwarz-4-fuss-konisch-schwarz-taschenfederkern_1d2762b.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.52
-},
-"opts": [
-"Echt Leder",
-"Schwarz",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Echt Leder Schwarz, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#1d1d1d",
-"material": "leather"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 299.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-schwarz/a-33746",
-"image": "https://www.delife.de/media/bd/d2/9a/1782528050/33746-20250528004036-esszimmerstuhl-zelia-flex-mit-armlehnen-echt-leder-schwarz-4-fuss-konisch-edelstahl-taschenfederkern_1e0d0c7.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.52
-},
-"opts": [
-"Echt Leder",
-"Schwarz",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-}
-],
-"tags": [
-"DELIFE",
-"Zelia-Flex",
-"Polsterstuhl"
-],
-"premium": false,
-"description": "Maße lt. DELIFE: B 60 × T 63 × H 93 cm · Sitzbreite ca.: 41 cm · Sitztiefe ca.: 47 cm · Sitzhöhe ca.: 53 cm · Rückenhöhe ca.: 46 cm · Material: Schale: Webstoff Soft (100 % Polyester); Gestell: Metall pulverbeschichtet · Gestell: Gestell konisch · 16 Ausführungen lt. Shop (Stand 24.10.2026)",
-"axes": [
-{
-"name": "Sitzmaterial",
-"values": [
-"Webstoff Soft",
-"Plüsch",
-"Bouclé Soft",
-"Teddystoff",
-"Mikrofaser",
-"Strukturstoff Soft",
-"Echt Leder"
-]
-},
-{
-"name": "Sitzfarbe",
-"values": [
-"Beige",
-"Creme-Weiß",
-"Schlamm",
-"Taupe",
-"Grau",
-"Schwarz"
-]
-},
-{
-"name": "Gestellmaterial",
-"values": [
-"Metall",
-"Edelstahl gebürstet"
-]
-},
-{
-"name": "Gestellfarbe",
-"values": [
-"Schwarz",
-"Silber gebürstet"
-]
-}
-],
-"mount": "floor",
-"resizable": false,
-"concepts": [
-1
-]
-},
-{
-"id": "del-pejo-flex-freischwinger-flach-20764",
+"id": "del-pejo-flex-kreuzgestell-kantig-20644",
 "vendor": "DELIFE",
 "brand": "DELIFE",
 "series": "Pejo-Flex",
-"name": "Freischwinger Pejo-Flex flach",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
 "category": "chair",
 "w": 58.0,
 "d": 63.0,
 "h": 85.0,
-"price": 99.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-42277",
-"image": "https://www.delife.de/media/71/58/ef/1782525366/42277-20250923155226-freischwinger-pejo-flex-boucle-soft-schlamm-freischwinger-flach-schwarz-taschenfederkern775cf9.jpg?imwidth=800",
+"price": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"image": "https://www.delife.de/media/d1/e6/f2/1782519065/20673-20250528123715-esszimmerstuhl-pejo-flex-mikrofaser-beige-vintage-kreuzgestell-kantig-schwarz-taschenfederkern_1c42bf0.jpeg?imwidth=800",
 "archetype": "chairFlex",
 "params": {
 "shell": "arm",
 "stitch": "seam",
-"base": "cantilever",
-"seatHeight": 0.48,
-"armHeight": 0.65
-},
-"variants": [
-{
-"name": "Bouclé Soft Schlamm, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#97938c",
-"material": "boucle"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 99.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-42277",
-"image": "https://www.delife.de/media/71/58/ef/1782525366/42277-20250923155226-freischwinger-pejo-flex-boucle-soft-schlamm-freischwinger-flach-schwarz-taschenfederkern775cf9.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Schlamm",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Bouclé Soft Schlamm, Gestell Titanfarbig",
-"slots": {
-"main": {
-"color": "#97938c",
-"material": "boucle"
-},
-"legs": {
-"color": "#8a8378",
-"material": "steel"
-}
-},
-"price": 99.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-42286",
-"image": "https://www.delife.de/media/67/af/8b/1782566763/42286-20250923155202-freischwinger-pejo-flex-boucle-soft-schlamm-freischwinger-flach-effektfinish-titan-taschenfederkern355e30.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Schlamm",
-"Metall",
-"Titanfarbig"
-]
-},
-{
-"name": "Bouclé Soft Schlamm, Gestell Weiß",
-"slots": {
-"main": {
-"color": "#97938b",
-"material": "boucle"
-},
-"legs": {
-"color": "#efeee9",
-"material": "lacquer"
-}
-},
-"price": 99.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-42290",
-"image": "https://www.delife.de/media/00/15/86/1782516058/42290-20250923155110-freischwinger-pejo-flex-boucle-soft-schlamm-freischwinger-flach-weiss-taschenfederkernba72e8.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Schlamm",
-"Metall",
-"Weiß"
-]
-},
-{
-"name": "Mikrofaser/Bouclé Schlamm, Gestell Edelstahl graphit",
-"slots": {
-"main": {
-"color": "#c1b5a8",
-"material": "boucle"
-},
-"legs": {
-"color": "#46484b",
-"material": "steel"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-38669",
-"image": "https://www.delife.de/media/a1/df/0c/1782523278/38669-20250526102028-freischwinger-pejo-flex-materialmix-schlamm-freischwinger-flach-graphit-taschenfederkern_1faffa9.jpeg?imwidth=800",
-"params": {
+"base": "crossSquare",
 "seatHeight": 0.47,
 "armHeight": 0.64
 },
-"opts": [
-"Mikrofaser/Bouclé",
-"Schlamm",
-"Edelstahl graphit",
-"Graphit"
-]
-},
+"variants": [
 {
-"name": "Mikrofaser Beige, Gestell Edelstahl graphit",
+"name": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
 "color": "#c8baa9",
 "material": "microfiber"
 },
 "legs": {
-"color": "#46484b",
-"material": "steel"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige-vintage/a-40205",
-"image": "https://www.delife.de/media/29/16/a9/1782536179/40205-20250530152412-freischwinger-pejo-flex-mikrofaser-beige-vintage-freischwinger-flach-graphit-taschenfederkernd32675.jpg?imwidth=800",
+"price": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"image": "https://www.delife.de/media/d1/e6/f2/1782519065/20673-20250528123715-esszimmerstuhl-pejo-flex-mikrofaser-beige-vintage-kreuzgestell-kantig-schwarz-taschenfederkern_1c42bf0.jpeg?imwidth=800",
 "opts": [
 "Mikrofaser",
 "Beige",
-"Edelstahl graphit",
-"Graphit"
+"Metall",
+"Schwarz"
 ]
 },
 {
-"name": "Mikrofaser Taupe, Gestell Edelstahl graphit",
-"slots": {
-"main": {
-"color": "#8f7d6e",
-"material": "microfiber"
-},
-"legs": {
-"color": "#46484b",
-"material": "steel"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe-vintage/a-40212",
-"image": "https://www.delife.de/media/ba/47/1e/1782561661/40212-20250530152305-freischwinger-pejo-flex-mikrofaser-taupe-vintage-freischwinger-flach-graphit-taschenfederkernfed56e.jpg?imwidth=800",
-"opts": [
-"Mikrofaser",
-"Taupe",
-"Edelstahl graphit",
-"Graphit"
-]
-},
-{
-"name": "Mikrofaser Anthrazit, Gestell Edelstahl graphit",
-"slots": {
-"main": {
-"color": "#4b4744",
-"material": "microfiber"
-},
-"legs": {
-"color": "#46484b",
-"material": "steel"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-anthrazit-vintage/a-40214",
-"image": "https://www.delife.de/media/3a/ca/ba/1782562263/40214-20250530152236-freischwinger-pejo-flex-mikrofaser-anthrazit-vintage-freischwinger-flach-graphit-taschenfederkerne766e2.jpg?imwidth=800",
-"opts": [
-"Mikrofaser",
-"Anthrazit",
-"Edelstahl graphit",
-"Graphit"
-]
-},
-{
-"name": "Boucle Weiß, Gestell Edelstahl graphit",
-"slots": {
-"main": {
-"color": "#eeece7",
-"material": "boucle"
-},
-"legs": {
-"color": "#46484b",
-"material": "steel"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-weiss/a-40651",
-"image": "https://www.delife.de/media/60/b4/5b/1782571996/40651-20250530144342-freischwinger-pejo-flex-boucle-weiss-freischwinger-flach-graphit-taschenfederkernf21884.jpg?imwidth=800",
-"opts": [
-"Boucle",
-"Weiß",
-"Edelstahl graphit",
-"Graphit"
-]
-},
-{
-"name": "Cord Beige, Gestell Edelstahl graphit",
-"slots": {
-"main": {
-"color": "#e5e0da",
-"material": "cord"
-},
-"legs": {
-"color": "#46484b",
-"material": "steel"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-40652",
-"image": "https://www.delife.de/media/1f/53/g0/1782543956/40652-20250530144326-freischwinger-pejo-flex-cord-beige-freischwinger-flach-graphit-taschenfederkern31aa29.jpg?imwidth=800",
-"opts": [
-"Cord",
-"Beige",
-"Edelstahl graphit",
-"Graphit"
-]
-},
-{
-"name": "Cord Silbergrau, Gestell Edelstahl graphit",
-"slots": {
-"main": {
-"color": "#bbb8b5",
-"material": "cord"
-},
-"legs": {
-"color": "#46484b",
-"material": "steel"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-silbergrau/a-40658",
-"image": "https://www.delife.de/media/6d/58/5c/1782572033/40658-20250530144155-freischwinger-pejo-flex-cord-silbergrau-freischwinger-flach-graphit-taschenfederkern797351.jpg?imwidth=800",
-"opts": [
-"Cord",
-"Silbergrau",
-"Edelstahl graphit",
-"Graphit"
-]
-},
-{
-"name": "Mikrofaser Grau, Gestell Edelstahl graphit",
+"name": "Mikrofaser Grau Antik, Gestell Edelstahl gebürstet",
 "slots": {
 "main": {
 "color": "#746e67",
 "material": "microfiber"
 },
 "legs": {
-"color": "#46484b",
-"material": "steel"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-grau-antik/a-40660",
-"image": "https://www.delife.de/media/50/7e/0c/1782571854/40660-20250530144138-freischwinger-pejo-flex-mikrofaser-grau-antik-freischwinger-flach-graphit-taschenfederkern59c1f8.jpg?imwidth=800",
-"opts": [
-"Mikrofaser",
-"Grau",
-"Edelstahl graphit",
-"Graphit"
-]
-},
-{
-"name": "Webstoff Soft Beige, Gestell Edelstahl graphit",
-"slots": {
-"main": {
-"color": "#c3bcb2",
-"material": "fabric"
-},
-"legs": {
-"color": "#46484b",
-"material": "steel"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-42265",
-"image": "https://www.delife.de/media/af/cb/8c/1782525071/42265-20250923155420-freischwinger-pejo-flex-webstoff-soft-beige-freischwinger-flach-graphit-taschenfederkern94e030.jpg?imwidth=800",
-"opts": [
-"Webstoff Soft",
-"Beige",
-"Edelstahl graphit",
-"Graphit"
-]
-},
-{
-"name": "Bouclé Soft Schlamm, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#97938c",
-"material": "boucle"
-},
-"legs": {
 "color": "#b8bbbe",
 "material": "steel"
 }
 },
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-42267",
-"image": "https://www.delife.de/media/a7/ea/14/1782540374/42267-20250923155357-freischwinger-pejo-flex-boucle-soft-schlamm-freischwinger-flach-edelstahl-taschenfederkern8bffdc.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Schlamm",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Bouclé Soft Schlamm, Gestell Edelstahl graphit",
-"slots": {
-"main": {
-"color": "#97938c",
-"material": "boucle"
-},
-"legs": {
-"color": "#46484b",
-"material": "steel"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-42271",
-"image": "https://www.delife.de/media/26/cf/9c/1782534071/42271-20250923155257-freischwinger-pejo-flex-boucle-soft-schlamm-freischwinger-flach-graphit-taschenfederkernc8075a.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Schlamm",
-"Edelstahl graphit",
-"Graphit"
-]
-},
-{
-"name": "Bouclé Soft Beige, Gestell Edelstahl graphit",
-"slots": {
-"main": {
-"color": "#edece8",
-"material": "boucle"
-},
-"legs": {
-"color": "#46484b",
-"material": "steel"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-42289",
-"image": "https://www.delife.de/media/ed/f6/59/1782523563/42289-20250923155137-freischwinger-pejo-flex-boucle-soft-beige-freischwinger-flach-graphit-taschenfederkern99cd97.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Beige",
-"Edelstahl graphit",
-"Graphit"
-]
-},
-{
-"name": "Plüsch Creme-Weiß, Gestell Edelstahl graphit",
-"slots": {
-"main": {
-"color": "#e6e3db",
-"material": "velvet"
-},
-"legs": {
-"color": "#46484b",
-"material": "steel"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-creme-weiss/a-42310",
-"image": "https://www.delife.de/media/36/68/97/1782544507/42310-20250923154750-freischwinger-pejo-flex-pluesch-creme-weiss-freischwinger-flach-graphit-taschenfederkernf06191.jpg?imwidth=800",
-"opts": [
-"Plüsch",
-"Creme-Weiß",
-"Edelstahl graphit",
-"Graphit"
-]
-},
-{
-"name": "Teddystoff Beige, Gestell Edelstahl graphit",
-"slots": {
-"main": {
-"color": "#eeece5",
-"material": "teddy"
-},
-"legs": {
-"color": "#46484b",
-"material": "steel"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-42332",
-"image": "https://www.delife.de/media/b9/da/da/1782525058/42332-20250923153939-freischwinger-pejo-flex-teddystoff-beige-freischwinger-flach-graphit-taschenfederkern9a49a2.jpg?imwidth=800",
-"opts": [
-"Teddystoff",
-"Beige",
-"Edelstahl graphit",
-"Graphit"
-]
-},
-{
-"name": "Strukturstoff Soft Grau, Gestell Edelstahl graphit",
-"slots": {
-"main": {
-"color": "#989491",
-"material": "melange"
-},
-"legs": {
-"color": "#46484b",
-"material": "steel"
-}
-},
-"price": 109.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-grau/a-43076",
-"image": "https://www.delife.de/media/90/45/ff/1782568552/43076-20251125085907-freischwinger-pejo-flex-strukturstoff-soft-grau-freischwinger-flach-graphit-taschenfederkern15aa31.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Grau",
-"Edelstahl graphit",
-"Graphit"
-]
-},
-{
-"name": "Mikrofaser Grau, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#746e67",
-"material": "microfiber"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 119.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-grau/a-20812",
-"image": "https://www.delife.de/media/ff/d3/9f/1782558065/20812-20250528115448-freischwinger-pejo-flex-mikrofaser-grau-antik-freischwinger-flach-schwarz-taschenfederkern_1295487.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
+"price": 139.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-grau/a-20644",
+"image": "https://www.delife.de/media/3c/b7/68/1782569471/20644-20250528124641-esszimmerstuhl-pejo-flex-mikrofaser-grau-antik-kreuzgestell-kantig-edelstahl-taschenfederkern_1331d81.jpeg?imwidth=800",
 "opts": [
 "Mikrofaser",
 "Grau",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Plüsch Creme-Weiß, Gestell Titanfarbig",
-"slots": {
-"main": {
-"color": "#e6e3db",
-"material": "velvet"
-},
-"legs": {
-"color": "#8a8378",
-"material": "steel"
-}
-},
-"price": 119.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-creme-weiss/a-42315",
-"image": "https://www.delife.de/media/69/dd/66/1782534659/42315-20250923154534-freischwinger-pejo-flex-pluesch-creme-weiss-freischwinger-flach-effektfinish-titan-taschenfederkerne048f1.jpg?imwidth=800",
-"opts": [
-"Plüsch",
-"Creme-Weiß",
-"Metall",
-"Titanfarbig"
-]
-},
-{
-"name": "Plüsch Creme-Weiß, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#e6e3db",
-"material": "velvet"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 119.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-creme-weiss/a-42317",
-"image": "https://www.delife.de/media/d0/59/81/1782540364/42317-20250923154504-freischwinger-pejo-flex-pluesch-creme-weiss-freischwinger-flach-schwarz-taschenfederkern05fdef.jpg?imwidth=800",
-"opts": [
-"Plüsch",
-"Creme-Weiß",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Plüsch Creme-Weiß, Gestell Weiß",
-"slots": {
-"main": {
-"color": "#e6e3dc",
-"material": "velvet"
-},
-"legs": {
-"color": "#efeee9",
-"material": "lacquer"
-}
-},
-"price": 119.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-creme-weiss/a-42343",
-"image": "https://www.delife.de/media/9d/2b/57/1782545549/42343-20250923153517-freischwinger-pejo-flex-pluesch-creme-weiss-freischwinger-flach-weiss-taschenfederkern0a8c03.jpg?imwidth=800",
-"opts": [
-"Plüsch",
-"Creme-Weiß",
-"Metall",
-"Weiß"
-]
-},
-{
-"name": "Samt Grau, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#a6a6a4",
-"material": "velvet"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-grau/a-20768",
-"image": "https://www.delife.de/media/ed/a4/24/1782556556/20768-20250528121106-freischwinger-pejo-flex-samt-grau-freischwinger-flach-edelstahl-taschenfederkern_18d8d09.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
-"opts": [
-"Samt",
-"Grau",
 "Edelstahl gebürstet",
 "Silber gebürstet"
-]
-},
-{
-"name": "Mikrofaser Taupe, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#8f7d6e",
-"material": "microfiber"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe/a-20814",
-"image": "https://www.delife.de/media/86/84/g0/1782537358/20814-20250528115251-freischwinger-pejo-flex-mikrofaser-taupe-vintage-freischwinger-flach-schwarz-taschenfederkern_139ad34.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
-"opts": [
-"Mikrofaser",
-"Taupe",
-"Metall",
-"Schwarz"
 ]
 },
 {
 "name": "Mikrofaser Anthrazit Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#3a3b3c",
+"color": "#4b4744",
 "material": "microfiber"
 },
 "legs": {
@@ -3565,13 +1508,9 @@
 "material": "blackMetal"
 }
 },
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-anthrazit-vintage/a-20815",
-"image": "https://www.delife.de/media/83/a6/4f/1782537357/20815-20250528115227-freischwinger-pejo-flex-mikrofaser-anthrazit-vintage-freischwinger-flach-schwarz-taschenfederkern_1a2f0e1.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
+"price": 139.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-anthrazit-vintage/a-20671",
+"image": "https://www.delife.de/media/9c/03/6d/1782537655/20671-20250528123814-esszimmerstuhl-pejo-flex-mikrofaser-anthrazit-vintage-kreuzgestell-kantig-schwarz-taschenfederkern_1a78a92.jpeg?imwidth=800",
 "opts": [
 "Mikrofaser",
 "Anthrazit Vintage",
@@ -3591,13 +1530,9 @@
 "material": "blackMetal"
 }
 },
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-grau/a-20816",
-"image": "https://www.delife.de/media/de/cc/ed/1782555064/20816-20250528115204-freischwinger-pejo-flex-samt-grau-freischwinger-flach-schwarz-taschenfederkern_1a976ee.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
+"price": 139.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-grau/a-20672",
+"image": "https://www.delife.de/media/b1/38/36/1782571434/20672-20250528123748-esszimmerstuhl-pejo-flex-samt-grau-kreuzgestell-kantig-schwarz-taschenfederkern_1ec57c0.jpeg?imwidth=800",
 "opts": [
 "Samt",
 "Grau",
@@ -3606,29 +1541,47 @@
 ]
 },
 {
-"name": "Mikrofaser Beige, Gestell Schwarz",
+"name": "Cord Silbergrau, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#c8baa9",
-"material": "microfiber"
+"color": "#bbb8b5",
+"material": "cord"
 },
 "legs": {
 "color": "#1b1b1b",
 "material": "blackMetal"
 }
 },
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20817",
-"image": "https://www.delife.de/media/82/5f/43/1782532562/20817-20250528115135-freischwinger-pejo-flex-mikrofaser-beige-vintage-freischwinger-flach-schwarz-taschenfederkern_1cc1eb2.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
+"price": 139.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-silbergrau/a-35004",
+"image": "https://www.delife.de/media/53/ef/15/1782569472/35004-20250527063700-esszimmerstuhl-pejo-flex-cord-silbergrau-kreuzgestell-kantig-schwarz-taschenfederkern_1e6421d.jpeg?imwidth=800",
 "opts": [
-"Mikrofaser",
-"Beige",
+"Cord",
+"Silbergrau",
 "Metall",
 "Schwarz"
+]
+},
+{
+"name": "Samt Grau, Gestell Edelstahl gebürstet",
+"slots": {
+"main": {
+"color": "#a6a6a4",
+"material": "velvet"
+},
+"legs": {
+"color": "#b8bbbe",
+"material": "steel"
+}
+},
+"price": 149.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-grau/a-20648",
+"image": "https://www.delife.de/media/89/e3/1a/1782569444/20648-20250528124451-esszimmerstuhl-pejo-flex-samt-grau-kreuzgestell-kantig-edelstahl-taschenfederkern_1354930.jpeg?imwidth=800",
+"opts": [
+"Samt",
+"Grau",
+"Edelstahl gebürstet",
+"Silber gebürstet"
 ]
 },
 {
@@ -3643,790 +1596,12 @@
 "material": "steel"
 }
 },
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-silbergrau/a-34999",
-"image": "https://www.delife.de/media/93/ec/3e/1782557466/34999-20250527063840-freischwinger-pejo-flex-cord-silbergrau-freischwinger-flach-edelstahl-taschenfederkern_1344d70.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
+"price": 149.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-silbergrau/a-35005",
+"image": "https://www.delife.de/media/f8/2d/95/1782569444/35005-20250527063629-esszimmerstuhl-pejo-flex-cord-silbergrau-kreuzgestell-kantig-edelstahl-taschenfederkern_1ae6ad2.jpeg?imwidth=800",
 "opts": [
 "Cord",
 "Silbergrau",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Boucle Weiß, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#eeece7",
-"material": "boucle"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-weiss/a-35075",
-"image": "https://www.delife.de/media/55/6b/81/1782558355/35075-20250527031832-freischwinger-pejo-flex-boucle-weiss-freischwinger-flach-schwarz-taschenfederkern_1e7a01d.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
-"opts": [
-"Boucle",
-"Weiß",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Mikrofaser/Bouclé Schlamm, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#c0b4a8",
-"material": "boucle"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-38670",
-"image": "https://www.delife.de/media/97/80/87/1782516365/38670-20250526102003-freischwinger-pejo-flex-materialmix-schlamm-freischwinger-flach-schwarz-taschenfederkern_102ef85.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
-"opts": [
-"Mikrofaser/Bouclé",
-"Schlamm",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Chenille Pastellblau, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#b4babc",
-"material": "chenille"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-pastellblau/a-39462",
-"image": "https://www.delife.de/media/3d/d1/98/1782544704/39462-20250526074356-freischwinger-pejo-flex-chenille-pastellblau-freischwinger-flach-edelstahl-taschenfederkern_1dd7641.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
-"opts": [
-"Chenille",
-"Pastellblau",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Strukturstoff Soft Grau, Gestell Weiß",
-"slots": {
-"main": {
-"color": "#989592",
-"material": "melange"
-},
-"legs": {
-"color": "#efeee9",
-"material": "lacquer"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-grau/a-42257",
-"image": "https://www.delife.de/media/40/cd/96/1782519953/42257-20251125090705-freischwinger-pejo-flex-strukturstoff-soft-grau-freischwinger-flach-weiss-taschenfederkernb6ad72.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Grau",
-"Metall",
-"Weiß"
-]
-},
-{
-"name": "Bouclé Soft Beige, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#edece8",
-"material": "boucle"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-42260",
-"image": "https://www.delife.de/media/eb/4d/4d/1782543917/42260-20250923155448-freischwinger-pejo-flex-boucle-soft-beige-freischwinger-flach-edelstahl-taschenfederkern6c348c.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Beige",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Bouclé Soft Beige, Gestell Weiß",
-"slots": {
-"main": {
-"color": "#edece8",
-"material": "boucle"
-},
-"legs": {
-"color": "#efeee9",
-"material": "lacquer"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-42269",
-"image": "https://www.delife.de/media/9f/d2/53/1782532550/42269-20250923155328-freischwinger-pejo-flex-boucle-soft-beige-freischwinger-flach-weiss-taschenfederkern4bbc9e.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Beige",
-"Metall",
-"Weiß"
-]
-},
-{
-"name": "Webstoff Soft Beige, Gestell Titanfarbig",
-"slots": {
-"main": {
-"color": "#c2bcb2",
-"material": "fabric"
-},
-"legs": {
-"color": "#8a8378",
-"material": "steel"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-42297",
-"image": "https://www.delife.de/media/e4/cd/4f/1782533476/42297-20250923154917-freischwinger-pejo-flex-webstoff-soft-beige-freischwinger-flach-effektfinish-titan-taschenfederkerndbac1c.jpg?imwidth=800",
-"opts": [
-"Webstoff Soft",
-"Beige",
-"Metall",
-"Titanfarbig"
-]
-},
-{
-"name": "Bouclé Soft Beige, Gestell Titanfarbig",
-"slots": {
-"main": {
-"color": "#edece8",
-"material": "boucle"
-},
-"legs": {
-"color": "#8a8378",
-"material": "steel"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-42302",
-"image": "https://www.delife.de/media/06/12/21/1782521166/42302-20250923154814-freischwinger-pejo-flex-boucle-soft-beige-freischwinger-flach-effektfinish-titan-taschenfederkerne81f62.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Beige",
-"Metall",
-"Titanfarbig"
-]
-},
-{
-"name": "Teddystoff Beige, Gestell Titanfarbig",
-"slots": {
-"main": {
-"color": "#eeece5",
-"material": "teddy"
-},
-"legs": {
-"color": "#8a8378",
-"material": "steel"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-42330",
-"image": "https://www.delife.de/media/16/b6/07/1782513664/42330-20251125091358-freischwinger-pejo-flex-teddystoff-beige-freischwinger-flach-effektfinish-titan-taschenfederkern974f6a.jpg?imwidth=800",
-"opts": [
-"Teddystoff",
-"Beige",
-"Metall",
-"Titanfarbig"
-]
-},
-{
-"name": "Teddystoff Beige, Gestell Weiß",
-"slots": {
-"main": {
-"color": "#efece6",
-"material": "teddy"
-},
-"legs": {
-"color": "#efeee9",
-"material": "lacquer"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-42338",
-"image": "https://www.delife.de/media/c3/aa/d2/1782527762/42338-20250923153734-freischwinger-pejo-flex-teddystoff-beige-freischwinger-flach-weiss-taschenfederkern871c54.jpg?imwidth=800",
-"opts": [
-"Teddystoff",
-"Beige",
-"Metall",
-"Weiß"
-]
-},
-{
-"name": "Strukturstoff Soft Grau, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#989491",
-"material": "melange"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-grau/a-43069",
-"image": "https://www.delife.de/media/28/5b/50/1782544197/43069-20251125085930-freischwinger-pejo-flex-strukturstoff-soft-grau-freischwinger-flach-edelstahl-taschenfederkern6d9efa.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Grau",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Strukturstoff Soft Grau, Gestell Titanfarbig",
-"slots": {
-"main": {
-"color": "#979491",
-"material": "melange"
-},
-"legs": {
-"color": "#8a8378",
-"material": "steel"
-}
-},
-"price": 129.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-grau/a-43123",
-"image": "https://www.delife.de/media/70/37/74/1782546967/43123-20251125085817-freischwinger-pejo-flex-strukturstoff-soft-grau-freischwinger-flach-effektfinish-titan-taschenfederkernba9e8c.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Grau",
-"Metall",
-"Titanfarbig"
-]
-},
-{
-"name": "Mikrofaser Anthrazit Vintage, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#4b4844",
-"material": "microfiber"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 139.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-anthrazit-vintage/a-20767",
-"image": "https://www.delife.de/media/8b/0a/12/1782532266/20767-20250528121207-freischwinger-pejo-flex-mikrofaser-anthrazit-vintage-freischwinger-flach-edelstahl-taschenfederkern_16e844c.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
-"opts": [
-"Mikrofaser",
-"Anthrazit Vintage",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Boucle Schlamm, Gestell Weiß",
-"slots": {
-"main": {
-"color": "#bcb1a5",
-"material": "boucle"
-},
-"legs": {
-"color": "#efeee9",
-"material": "lacquer"
-}
-},
-"price": 169.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-44591",
-"image": "https://www.delife.de/media/d5/b3/bc/1790636179/44591-20260918171941-freischwinger-pejo-flex-boucle-schlamm-freischwinger-flach-weiss-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Boucle",
-"Schlamm",
-"Metall",
-"Weiß"
-]
-},
-{
-"name": "Boucle Schlamm, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#bbb0a4",
-"material": "boucle"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 169.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-44593",
-"image": "https://www.delife.de/media/13/12/74/1790635918/44593-20260918171853-freischwinger-pejo-flex-boucle-schlamm-freischwinger-flach-schwarz-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Boucle",
-"Schlamm",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Mikrofaser Grau, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#756f68",
-"material": "microfiber"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 179.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-grau/a-20764",
-"image": "https://www.delife.de/media/db/94/39/1782557161/20764-20250528121725-freischwinger-pejo-flex-mikrofaser-grau-antik-freischwinger-flach-edelstahl-taschenfederkern_107f620.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
-"opts": [
-"Mikrofaser",
-"Grau",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Cord Silbergrau, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#bbb7b5",
-"material": "cord"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 179.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-silbergrau/a-34997",
-"image": "https://www.delife.de/media/4c/f3/82/1782569419/34997-20250527063913-freischwinger-pejo-flex-cord-silbergrau-freischwinger-flach-schwarz-taschenfederkern_1120997.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
-"opts": [
-"Cord",
-"Silbergrau",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Cord Beige, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#e4e0da",
-"material": "cord"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 179.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-35023",
-"image": "https://www.delife.de/media/74/76/4b/1782569469/35023-20250527063218-freischwinger-pejo-flex-cord-beige-freischwinger-flach-schwarz-taschenfederkern_11274c8.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
-"opts": [
-"Cord",
-"Beige",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Mikrofaser/Bouclé Schlamm, Gestell Weiß",
-"slots": {
-"main": {
-"color": "#c2b6a9",
-"material": "boucle"
-},
-"legs": {
-"color": "#efeee9",
-"material": "lacquer"
-}
-},
-"price": 179.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-38672",
-"image": "https://www.delife.de/media/b4/bc/cb/1782563154/38672-20250526101813-freischwinger-pejo-flex-materialmix-schlamm-freischwinger-flach-weiss-taschenfederkern_18bd7e9.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
-"opts": [
-"Mikrofaser/Bouclé",
-"Schlamm",
-"Metall",
-"Weiß"
-]
-},
-{
-"name": "Chenille Olive, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#797a57",
-"material": "chenille"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 179.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-gruen/a-39275",
-"image": "https://www.delife.de/media/10/6f/bd/1782519370/39275-20250526095138-freischwinger-pejo-flex-chenille-olive-freischwinger-flach-schwarz-taschenfederkern_12c752e.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
-"opts": [
-"Chenille",
-"Olive",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Chenille Pastellblau, Gestell Weiß",
-"slots": {
-"main": {
-"color": "#b4bbbd",
-"material": "chenille"
-},
-"legs": {
-"color": "#efeee9",
-"material": "lacquer"
-}
-},
-"price": 179.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-pastellblau/a-39300",
-"image": "https://www.delife.de/media/61/78/e1/1782516663/39300-20250526093419-freischwinger-pejo-flex-chenille-pastellblau-freischwinger-flach-weiss-taschenfederkern_1212737.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
-"opts": [
-"Chenille",
-"Pastellblau",
-"Metall",
-"Weiß"
-]
-},
-{
-"name": "Webstoff Soft Beige, Gestell Weiß",
-"slots": {
-"main": {
-"color": "#c3bdb3",
-"material": "fabric"
-},
-"legs": {
-"color": "#efeee9",
-"material": "lacquer"
-}
-},
-"price": 179.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-42256",
-"image": "https://www.delife.de/media/95/fa/58/1782547859/42256-20250923155512-freischwinger-pejo-flex-webstoff-soft-beige-freischwinger-flach-weiss-taschenfederkern2a991a.jpg?imwidth=800",
-"opts": [
-"Webstoff Soft",
-"Beige",
-"Metall",
-"Weiß"
-]
-},
-{
-"name": "Webstoff Soft Beige, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#c2bcb2",
-"material": "fabric"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 179.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-42291",
-"image": "https://www.delife.de/media/68/00/d2/1782537067/42291-20250923155042-freischwinger-pejo-flex-webstoff-soft-beige-freischwinger-flach-schwarz-taschenfederkernee4ebf.jpg?imwidth=800",
-"opts": [
-"Webstoff Soft",
-"Beige",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Bouclé Soft Beige, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#edece8",
-"material": "boucle"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 179.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-42293",
-"image": "https://www.delife.de/media/cc/f7/e5/1782571551/42293-20250923155012-freischwinger-pejo-flex-boucle-soft-beige-freischwinger-flach-schwarz-taschenfederkern3aa584.jpg?imwidth=800",
-"opts": [
-"Bouclé Soft",
-"Beige",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Plüsch Creme-Weiß, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#e6e3db",
-"material": "velvet"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 179.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-creme-weiss/a-42299",
-"image": "https://www.delife.de/media/86/39/59/1782519656/42299-20250923154842-freischwinger-pejo-flex-pluesch-creme-weiss-freischwinger-flach-edelstahl-taschenfederkerneb7d38.jpg?imwidth=800",
-"opts": [
-"Plüsch",
-"Creme-Weiß",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Teddystoff Beige, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#eeece5",
-"material": "teddy"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 179.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-42312",
-"image": "https://www.delife.de/media/b1/7b/b9/1782571430/42312-20250923154657-freischwinger-pejo-flex-teddystoff-beige-freischwinger-flach-schwarz-taschenfederkerna99524.jpg?imwidth=800",
-"opts": [
-"Teddystoff",
-"Beige",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Strukturstoff Soft Grau, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#979491",
-"material": "melange"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 179.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-grau/a-43079",
-"image": "https://www.delife.de/media/5f/72/0c/1782554459/43079-20251125085844-freischwinger-pejo-flex-strukturstoff-soft-grau-freischwinger-flach-schwarz-taschenfederkerna09996.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Grau",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Boucle Schlamm, Gestell Titanfarbig",
-"slots": {
-"main": {
-"color": "#bbb0a4",
-"material": "boucle"
-},
-"legs": {
-"color": "#8a8378",
-"material": "steel"
-}
-},
-"price": 179.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-44592",
-"image": "https://www.delife.de/media/08/7b/00/1790635875/44592-20260918171919-freischwinger-pejo-flex-boucle-schlamm-freischwinger-flach-effektfinish-titan-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Boucle",
-"Schlamm",
-"Metall",
-"Titanfarbig"
-]
-},
-{
-"name": "Boucle Schlamm, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#bcb0a4",
-"material": "boucle"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 179.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-44595",
-"image": "https://www.delife.de/media/ba/b9/f0/1790636186/44595-20260918171803-freischwinger-pejo-flex-boucle-schlamm-freischwinger-flach-edelstahl-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Boucle",
-"Schlamm",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Strukturstoff Soft Taupe, Gestell Weiß",
-"slots": {
-"main": {
-"color": "#90857f",
-"material": "melange"
-},
-"legs": {
-"color": "#efeee9",
-"material": "lacquer"
-}
-},
-"price": 179.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe/a-44614",
-"image": "https://www.delife.de/media/a7/f7/dd/1790635886/44614-20260918171354-freischwinger-pejo-flex-strukturstoff-soft-taupe-freischwinger-flach-weiss-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Taupe",
-"Metall",
-"Weiß"
-]
-},
-{
-"name": "Strukturstoff Soft Taupe, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#8f847e",
-"material": "melange"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 179.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe/a-44616",
-"image": "https://www.delife.de/media/14/c7/a8/1790635897/44616-20260918171306-freischwinger-pejo-flex-strukturstoff-soft-taupe-freischwinger-flach-schwarz-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Taupe",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Mikrofaser Taupe, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#907f6f",
-"material": "microfiber"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe/a-20766",
-"image": "https://www.delife.de/media/9a/af/b9/1782558954/20766-20250528121233-freischwinger-pejo-flex-mikrofaser-taupe-vintage-freischwinger-flach-edelstahl-taschenfederkern_1406fc3.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
-"opts": [
-"Mikrofaser",
-"Taupe",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Mikrofaser Beige, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#c8bbaa",
-"material": "microfiber"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20769",
-"image": "https://www.delife.de/media/ff/5f/91/1782551165/20769-20250528121042-freischwinger-pejo-flex-mikrofaser-beige-vintage-freischwinger-flach-edelstahl-taschenfederkern_1878227.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
-"opts": [
-"Mikrofaser",
-"Beige",
 "Edelstahl gebürstet",
 "Silber gebürstet"
 ]
@@ -4443,13 +1618,9 @@
 "material": "steel"
 }
 },
-"price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-35025",
-"image": "https://www.delife.de/media/4f/91/0a/1782555367/35025-20250527063150-freischwinger-pejo-flex-cord-beige-freischwinger-flach-edelstahl-taschenfederkern_10c379c.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
+"price": 149.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-35031",
+"image": "https://www.delife.de/media/58/9d/af/1782520872/35031-20250527062946-esszimmerstuhl-pejo-flex-cord-beige-kreuzgestell-kantig-edelstahl-taschenfederkern_10b07ef.jpeg?imwidth=800",
 "opts": [
 "Cord",
 "Beige",
@@ -4469,13 +1640,9 @@
 "material": "steel"
 }
 },
-"price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-weiss/a-35077",
-"image": "https://www.delife.de/media/de/fa/cc/1782554161/35077-20250527031801-freischwinger-pejo-flex-boucle-weiss-freischwinger-flach-edelstahl-taschenfederkern_13dbc2c.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
+"price": 149.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-weiss/a-35083",
+"image": "https://www.delife.de/media/a8/bf/cb/1782569757/35083-20250527031540-esszimmerstuhl-pejo-flex-boucle-weiss-kreuzgestell-kantig-edelstahl-taschenfederkern_121b332.jpeg?imwidth=800",
 "opts": [
 "Boucle",
 "Weiß",
@@ -4484,237 +1651,155 @@
 ]
 },
 {
-"name": "Mikrofaser/Bouclé Schlamm, Gestell Edelstahl gebürstet",
+"name": "Mikrofaser Grau Antik, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#c1b5a9",
-"material": "boucle"
+"color": "#746e67",
+"material": "microfiber"
 },
 "legs": {
-"color": "#b8bbbe",
-"material": "steel"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
-"price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-38668",
-"image": "https://www.delife.de/media/05/5e/33/1782558957/38668-20250526102058-freischwinger-pejo-flex-materialmix-schlamm-freischwinger-flach-edelstahl-taschenfederkern_1115056.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
+"price": 179.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-grau/a-20668",
+"image": "https://www.delife.de/media/67/45/96/1782569422/20668-20250528123936-esszimmerstuhl-pejo-flex-mikrofaser-grau-antik-kreuzgestell-kantig-schwarz-taschenfederkern_18be72c.jpeg?imwidth=800",
 "opts": [
-"Mikrofaser/Bouclé",
-"Schlamm",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Mikrofaser/Bouclé Schlamm, Gestell Titanfarbig",
-"slots": {
-"main": {
-"color": "#c1b5a8",
-"material": "boucle"
-},
-"legs": {
-"color": "#8a8378",
-"material": "steel"
-}
-},
-"price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-38671",
-"image": "https://www.delife.de/media/c5/c8/35/1782569411/38671-20250526101838-freischwinger-pejo-flex-materialmix-schlamm-freischwinger-flach-effektfinish-titan-taschenfederkern_12155f1.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
-"opts": [
-"Mikrofaser/Bouclé",
-"Schlamm",
+"Mikrofaser",
+"Grau",
 "Metall",
-"Titanfarbig"
+"Schwarz"
 ]
 },
 {
-"name": "Mikrofaser Taupe, Gestell Titanfarbig",
+"name": "Mikrofaser Taupe Vintage, Gestell Schwarz",
 "slots": {
 "main": {
 "color": "#8f7d6e",
 "material": "microfiber"
 },
 "legs": {
-"color": "#8a8378",
-"material": "steel"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
 "price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe/a-39224",
-"image": "https://www.delife.de/media/45/39/31/1782563763/39224-20250526100512-freischwinger-pejo-flex-mikrofaser-anthrazit-vintage-freischwinger-flach-effektfinish-titan-taschenfederkern_11c1baa.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe/a-20670",
+"image": "https://www.delife.de/media/a3/f1/c0/1782558355/20670-20250528123841-esszimmerstuhl-pejo-flex-mikrofaser-taupe-vintage-kreuzgestell-kantig-schwarz-taschenfederkern_1c65d79.jpeg?imwidth=800",
 "opts": [
 "Mikrofaser",
 "Taupe",
 "Metall",
-"Titanfarbig"
+"Schwarz"
 ]
 },
 {
-"name": "Mikrofaser Anthrazit Vintage, Gestell Titanfarbig",
+"name": "Cord Beige, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#4a4745",
-"material": "microfiber"
+"color": "#e5e0da",
+"material": "cord"
 },
 "legs": {
-"color": "#8a8378",
-"material": "steel"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
 "price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-anthrazit-vintage/a-39226",
-"image": "https://www.delife.de/media/ae/45/df/1782567363/39226-20250526100410-freischwinger-pejo-flex-mikrofaser-anthrazit-vintage-freischwinger-flach-effektfinish-titan-taschenfederkern_118db9a.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-35030",
+"image": "https://www.delife.de/media/e9/26/f8/1782569474/35030-20250527063020-esszimmerstuhl-pejo-flex-cord-beige-kreuzgestell-kantig-schwarz-taschenfederkern_1eb75aa.jpeg?imwidth=800",
 "opts": [
-"Mikrofaser",
-"Anthrazit Vintage",
+"Cord",
+"Beige",
 "Metall",
-"Titanfarbig"
+"Schwarz"
 ]
 },
 {
-"name": "Webstoff Soft Beige, Gestell Edelstahl gebürstet",
+"name": "Boucle Weiß, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#c3bcb2",
-"material": "fabric"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-42294",
-"image": "https://www.delife.de/media/b1/ed/bd/1782554454/42294-20250923154941-freischwinger-pejo-flex-webstoff-soft-beige-freischwinger-flach-edelstahl-taschenfederkernbd8264.jpg?imwidth=800",
-"opts": [
-"Webstoff Soft",
-"Beige",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Teddystoff Beige, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#eeece5",
-"material": "teddy"
-},
-"legs": {
-"color": "#b8bbbe",
-"material": "steel"
-}
-},
-"price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-42325",
-"image": "https://www.delife.de/media/24/cd/49/1782523860/42325-20250923154153-freischwinger-pejo-flex-teddystoff-beige-freischwinger-flach-edelstahl-taschenfederkern50d32a.jpg?imwidth=800",
-"opts": [
-"Teddystoff",
-"Beige",
-"Edelstahl gebürstet",
-"Silber gebürstet"
-]
-},
-{
-"name": "Boucle Schlamm, Gestell Edelstahl graphit",
-"slots": {
-"main": {
-"color": "#bbb0a4",
+"color": "#eeece7",
 "material": "boucle"
 },
 "legs": {
-"color": "#46484b",
-"material": "steel"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
 "price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-44594",
-"image": "https://www.delife.de/media/a3/b6/cf/1790634965/44594-20260918171827-freischwinger-pejo-flex-boucle-schlamm-freischwinger-flach-graphit-taschenfederkern.jpg?imwidth=800",
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-weiss/a-35082",
+"image": "https://www.delife.de/media/b4/bc/7b/1782569761/35082-20250527031620-esszimmerstuhl-pejo-flex-boucle-weiss-kreuzgestell-kantig-schwarz-taschenfederkern_1952f24.jpeg?imwidth=800",
 "opts": [
 "Boucle",
-"Schlamm",
-"Edelstahl graphit",
-"Graphit"
-]
-},
-{
-"name": "Strukturstoff Soft Taupe, Gestell Titanfarbig",
-"slots": {
-"main": {
-"color": "#8f847d",
-"material": "melange"
-},
-"legs": {
-"color": "#8a8378",
-"material": "steel"
-}
-},
-"price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe/a-44615",
-"image": "https://www.delife.de/media/d9/90/35/1790635904/44615-20260918171330-freischwinger-pejo-flex-strukturstoff-soft-taupe-freischwinger-flach-effektfinish-titan-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Taupe",
+"Weiß",
 "Metall",
-"Titanfarbig"
+"Schwarz"
 ]
 },
 {
-"name": "Strukturstoff Soft Taupe, Gestell Edelstahl graphit",
+"name": "Mikrofaser Taupe Vintage, Gestell Edelstahl gebürstet",
 "slots": {
 "main": {
-"color": "#8f847e",
-"material": "melange"
-},
-"legs": {
-"color": "#46484b",
-"material": "steel"
-}
-},
-"price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe/a-44617",
-"image": "https://www.delife.de/media/b9/80/5e/1790634961/44617-20260918171242-freischwinger-pejo-flex-strukturstoff-soft-taupe-freischwinger-flach-graphit-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Strukturstoff Soft",
-"Taupe",
-"Edelstahl graphit",
-"Graphit"
-]
-},
-{
-"name": "Strukturstoff Soft Taupe, Gestell Edelstahl gebürstet",
-"slots": {
-"main": {
-"color": "#90857e",
-"material": "melange"
+"color": "#8f7f6e",
+"material": "microfiber"
 },
 "legs": {
 "color": "#b8bbbe",
 "material": "steel"
 }
 },
-"price": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe/a-44618",
-"image": "https://www.delife.de/media/c4/8a/a7/1790635901/44618-20260918171216-freischwinger-pejo-flex-strukturstoff-soft-taupe-freischwinger-flach-edelstahl-taschenfederkern.jpg?imwidth=800",
+"price": 199.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-taupe/a-20646",
+"image": "https://www.delife.de/media/08/f6/a7/1782551113/20646-20250528124545-esszimmerstuhl-pejo-flex-mikrofaser-taupe-vintage-kreuzgestell-kantig-edelstahl-taschenfederkern_16e01f3.jpeg?imwidth=800",
 "opts": [
-"Strukturstoff Soft",
+"Mikrofaser",
 "Taupe",
+"Edelstahl gebürstet",
+"Silber gebürstet"
+]
+},
+{
+"name": "Mikrofaser Anthrazit Vintage, Gestell Edelstahl gebürstet",
+"slots": {
+"main": {
+"color": "#4b4744",
+"material": "microfiber"
+},
+"legs": {
+"color": "#b8bbbe",
+"material": "steel"
+}
+},
+"price": 199.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-anthrazit-vintage/a-20647",
+"image": "https://www.delife.de/media/cc/f7/7b/1782551116/20647-20250528124520-esszimmerstuhl-pejo-flex-mikrofaser-anthrazit-vintage-kreuzgestell-kantig-edelstahl-taschenfederkern_103e804.jpeg?imwidth=800",
+"opts": [
+"Mikrofaser",
+"Anthrazit Vintage",
+"Edelstahl gebürstet",
+"Silber gebürstet"
+]
+},
+{
+"name": "Mikrofaser Beige Vintage, Gestell Edelstahl gebürstet",
+"slots": {
+"main": {
+"color": "#c8baa9",
+"material": "microfiber"
+},
+"legs": {
+"color": "#b8bbbe",
+"material": "steel"
+}
+},
+"price": 199.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20649",
+"image": "https://www.delife.de/media/eb/f8/54/1782552061/20649-20250528124422-esszimmerstuhl-pejo-flex-mikrofaser-beige-vintage-kreuzgestell-kantig-edelstahl-taschenfederkern_1f3ab37.jpeg?imwidth=800",
+"opts": [
+"Mikrofaser",
+"Beige",
 "Edelstahl gebürstet",
 "Silber gebürstet"
 ]
@@ -4723,7 +1808,7 @@
 "name": "Echt Leder Schwarz, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#3f3f41",
+"color": "#3e3f40",
 "material": "leather"
 },
 "legs": {
@@ -4731,95 +1816,21 @@
 "material": "blackMetal"
 }
 },
-"price": 269.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schwarz/a-23883",
-"image": "https://www.delife.de/media/98/fd/e8/1782554152/23883-20250528041744-freischwinger-pejo-flex-echt-leder-schwarz-freischwinger-flach-schwarz-taschenfederkern_1498682.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
+"price": 219.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schwarz/a-23857",
+"image": "https://www.delife.de/media/ca/02/28/1782534662/23857-20250528042749-esszimmerstuhl-pejo-flex-echt-leder-schwarz-kreuzgestell-kantig-schwarz-taschenfederkern_1eae1ac.jpeg?imwidth=800",
 "opts": [
 "Echt Leder",
 "Schwarz",
 "Metall",
 "Schwarz"
-]
-},
-{
-"name": "Echt Leder Schlamm, Gestell Schwarz",
-"slots": {
-"main": {
-"color": "#a39b93",
-"material": "leather"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 269.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-36230",
-"image": "https://www.delife.de/media/9a/94/44/1782558659/36230-20250527020649-freischwinger-pejo-flex-echt-leder-schlamm-freischwinger-flach-schwarz-taschenfederkern_1b6374e.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
-"opts": [
-"Echt Leder",
-"Schlamm",
-"Metall",
-"Schwarz"
-]
-},
-{
-"name": "Echt Leder Schlamm, Gestell Edelstahl graphit",
-"slots": {
-"main": {
-"color": "#a39b92",
-"material": "leather"
-},
-"legs": {
-"color": "#46484b",
-"material": "steel"
-}
-},
-"price": 269.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-47507",
-"image": "https://www.delife.de/media/26/de/6b/1787053417/47507-20260805084351-freischwinger-pejo-flex-echt-leder-schlamm-freischwinger-flach-graphit-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Echt Leder",
-"Schlamm",
-"Edelstahl graphit",
-"Graphit"
-]
-},
-{
-"name": "Echt Leder Schwarz, Gestell Edelstahl graphit",
-"slots": {
-"main": {
-"color": "#3e3f3f",
-"material": "leather"
-},
-"legs": {
-"color": "#46484b",
-"material": "steel"
-}
-},
-"price": 269.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schwarz/a-47511",
-"image": "https://www.delife.de/media/ce/ce/9e/1787053425/47511-20260805084228-freischwinger-pejo-flex-echt-leder-schwarz-freischwinger-flach-graphit-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Echt Leder",
-"Schwarz",
-"Edelstahl graphit",
-"Graphit"
 ]
 },
 {
 "name": "Echt Leder Schwarz, Gestell Edelstahl gebürstet",
 "slots": {
 "main": {
-"color": "#3f3f41",
+"color": "#3e3f40",
 "material": "leather"
 },
 "legs": {
@@ -4827,18 +1838,36 @@
 "material": "steel"
 }
 },
-"price": 279.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schwarz/a-23881",
-"image": "https://www.delife.de/media/87/65/be/1782556554/23881-20250528041811-freischwinger-pejo-flex-echt-leder-schwarz-freischwinger-flach-edelstahl-taschenfederkern_170a735.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
+"price": 239.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schwarz/a-23856",
+"image": "https://www.delife.de/media/1c/be/f9/1782544512/23856-20250528042913-esszimmerstuhl-pejo-flex-echt-leder-schwarz-kreuzgestell-kantig-edelstahl-taschenfederkern_13c50f1.jpeg?imwidth=800",
 "opts": [
 "Echt Leder",
 "Schwarz",
 "Edelstahl gebürstet",
 "Silber gebürstet"
+]
+},
+{
+"name": "Echt Leder Schlamm, Gestell Schwarz",
+"slots": {
+"main": {
+"color": "#a49c93",
+"material": "leather"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 279.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-36236",
+"image": "https://www.delife.de/media/a3/da/ce/1782558356/36236-20250527020455-esszimmerstuhl-pejo-flex-echt-leder-schlamm-kreuzgestell-kantig-schwarz-taschenfederkern_144d1d6.jpeg?imwidth=800",
+"opts": [
+"Echt Leder",
+"Schlamm",
+"Metall",
+"Schwarz"
 ]
 },
 {
@@ -4853,113 +1882,52 @@
 "material": "steel"
 }
 },
-"price": 279.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-36232",
-"image": "https://www.delife.de/media/e1/db/fc/1782558954/36232-20250527020620-freischwinger-pejo-flex-echt-leder-schlamm-freischwinger-flach-edelstahl-taschenfederkern_16a1569.jpeg?imwidth=800",
-"params": {
-"seatHeight": 0.47,
-"armHeight": 0.64
-},
+"price": 299.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-36237",
+"image": "https://www.delife.de/media/61/9a/2d/1782552061/36237-20250527020428-esszimmerstuhl-pejo-flex-echt-leder-schlamm-kreuzgestell-kantig-edelstahl-taschenfederkern_1a4152e.jpeg?imwidth=800",
 "opts": [
 "Echt Leder",
 "Schlamm",
 "Edelstahl gebürstet",
 "Silber gebürstet"
 ]
-},
-{
-"name": "Echt Leder Schlamm, Gestell Titanfarbig",
-"slots": {
-"main": {
-"color": "#a29b92",
-"material": "leather"
-},
-"legs": {
-"color": "#8a8378",
-"material": "steel"
-}
-},
-"price": 279.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schlamm/a-47508",
-"image": "https://www.delife.de/media/5a/89/97/1787053431/47508-20260805084331-freischwinger-pejo-flex-echt-leder-schlamm-freischwinger-flach-effektfinish-titan-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Echt Leder",
-"Schlamm",
-"Metall",
-"Titanfarbig"
-]
-},
-{
-"name": "Echt Leder Schwarz, Gestell Titanfarbig",
-"slots": {
-"main": {
-"color": "#3f3f40",
-"material": "leather"
-},
-"legs": {
-"color": "#8a8378",
-"material": "steel"
-}
-},
-"price": 279.9,
-"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-schwarz/a-47512",
-"image": "https://www.delife.de/media/3b/81/ed/1787053442/47512-20260805084207-freischwinger-pejo-flex-echt-leder-schwarz-freischwinger-flach-effektfinish-titan-taschenfederkern.jpg?imwidth=800",
-"opts": [
-"Echt Leder",
-"Schwarz",
-"Metall",
-"Titanfarbig"
-]
 }
 ],
 "tags": [
 "DELIFE",
 "Pejo-Flex",
-"Freischwinger",
 "Polsterstuhl"
 ],
 "premium": false,
-"description": "Maße lt. DELIFE: B 58 × T 63 × H 85 cm · Sitzbreite ca.: 41 cm · Sitztiefe ca.: 45 cm · Sitzhöhe ca.: 48 cm · Rückenhöhe ca.: 43 cm · Material: Schale: Bouclé Soft (100 % Polyester); Gestell: Metall pulverbeschichtet · Gestell: Freischwinger flach · 81 Ausführungen lt. Shop (Stand 24.10.2026)",
+"description": "Maße lt. DELIFE: B 58 × T 63 × H 85 cm · Sitzbreite ca.: 41 cm · Sitztiefe ca.: 45 cm · Sitzhöhe ca.: 47 cm · Rückenhöhe ca.: 43 cm · Material: Schale: Mikrofaser (100% Polyester); Gestell: pulverbeschichtetes Metall · Gestell: Kreuzgestell kantig · 20 Ausführungen lt. Shop (Stand 24.10.2026)",
 "axes": [
 {
 "name": "Sitzmaterial",
 "values": [
-"Bouclé Soft",
-"Mikrofaser/Bouclé",
 "Mikrofaser",
-"Boucle",
-"Cord",
-"Webstoff Soft",
-"Plüsch",
-"Teddystoff",
-"Strukturstoff Soft",
 "Samt",
-"Chenille",
+"Cord",
+"Boucle",
 "Echt Leder"
 ]
 },
 {
 "name": "Sitzfarbe",
 "values": [
-"Schlamm",
 "Beige",
-"Taupe",
-"Anthrazit",
-"Weiß",
-"Silbergrau",
 "Grau",
-"Creme-Weiß",
 "Anthrazit Vintage",
-"Pastellblau",
-"Olive",
-"Schwarz"
+"Silbergrau",
+"Weiß",
+"Taupe",
+"Schwarz",
+"Schlamm"
 ]
 },
 {
 "name": "Gestellmaterial",
 "values": [
 "Metall",
-"Edelstahl graphit",
 "Edelstahl gebürstet"
 ]
 },
@@ -4967,9 +1935,6 @@
 "name": "Gestellfarbe",
 "values": [
 "Schwarz",
-"Titanfarbig",
-"Weiß",
-"Graphit",
 "Silber gebürstet"
 ]
 }
@@ -4977,7 +1942,10 @@
 "mount": "floor",
 "resizable": false,
 "concepts": [
-2
+1,
+2,
+3,
+4
 ]
 },
 {

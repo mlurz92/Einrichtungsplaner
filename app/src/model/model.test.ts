@@ -55,8 +55,8 @@ describe("Grundriss WE 13", () => {
 
 describe("Möblierungskonzepte", () => {
   // PDF-Summen mit dem seit v2.0.1 rechteckigen Essplatz aus dem Katalog (Tisch, 7 Stühle, Pendelleuchte, Teppich)
-  // statt rundem Tisch, 5 Stühlen, Pendelleuchte(n) und rundem Teppich der PDF-Planung; seit v2.0.7 DELIFE-Flex-Stühle in Taupe.
-  const pdfTotals: Record<string, number> = { concept1: 31394.49, concept2: 29420.66, concept3: 30846.47, concept4: 37278.84 };
+  // statt rundem Tisch, 5 Stühlen, Pendelleuchte(n) und rundem Teppich der PDF-Planung; seit v2.1.1 DELIFE Pejo-Flex Beige Vintage.
+  const pdfTotals: Record<string, number> = { concept1: 30414.49, concept2: 29140.66, concept3: 30076.47, concept4: 36578.84 };
   for (const c of concepts) {
     it(`${c.subtitle}: Budget = PDF mit Katalog-Essplatz`, () => {
       const p = c.project;
@@ -104,6 +104,15 @@ describe("Essplatz der Konzepte", () => {
       expect(Math.abs(Math.cos(table.rot * DEG))).toBeLessThan(0.2);
       const chairs = items.filter((i) => i.pos === "E2");
       expect(chairs).toHaveLength(6);
+      // seit 2.1.1: DELIFE Pejo-Flex, Mikrofaser Beige Vintage, Kreuzgestell kantig schwarz – auch am Nischenplatz
+      for (const s of [...chairs, ...items.filter((i) => i.pos === "E12")]) {
+        expect(s.catalogId).toBe("del-pejo-flex-kreuzgestell-kantig-20644");
+        expect(s.variant).toBe("Mikrofaser Beige Vintage, Gestell Schwarz");
+        expect(s.slots.legs?.material).toBe("blackMetal");
+        expect(s.params?.base).toBe("crossSquare");
+      }
+      // Tischplatte: Laminam® Noir Désir als Foto der ganzen Platte
+      expect(table.slots.top?.material).toBe("marbleNoir");
       const local = (i: { x: number; y: number }) => {
         const a = -table.rot * DEG, dx = i.x - table.x, dy = i.y - table.y;
         return [dx * Math.cos(a) - dy * Math.sin(a), dx * Math.sin(a) + dy * Math.cos(a)];

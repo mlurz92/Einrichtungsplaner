@@ -26,6 +26,10 @@ const VIEWS = [
   { id: "essen", pos: [5.0, 1.55, 6.9], target: [6.6, 0.75, 10.2], fov: 58, time: 16 },
   { id: "gegenlicht", pos: [4.2, 1.2, 6.6], target: [8.0, 1.0, 9.2], fov: 62, time: 15 },
   { id: "schlafen", pos: [4.4, 1.62, 12.9], target: [6.0, 0.7, 15.4], fov: 66, time: 12 },
+  // Nahaufnahmen Essplatz: Tischplatte (Dekor) und Stühle
+  { id: "tisch", pos: [4.5, 1.75, 9.75], target: [6.1, 0.74, 9.6], fov: 50, time: 14 },
+  { id: "stuehle", pos: [6.1, 1.25, 7.7], target: [6.0, 0.55, 9.6], fov: 55, time: 14 },
+  { id: "stuhl", pos: [7.2, 1.05, 8.45], target: [7.5, 0.5, 7.34], fov: 50, time: 14 },
 ];
 
 const server = spawn(process.execPath, ["node_modules/vite/bin/vite.js", "preview", "--port", String(PORT), "--strictPort", "--outDir", process.env.DIST ?? "dist"], { stdio: "ignore" });

@@ -1261,21 +1261,21 @@
 ]
 },
 {
-"id": "afcadfc45c",
-"catalogId": "del-greg-flex-gestell-konisch-20334",
+"id": "ca07d3098d",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Greg-Flex 4-Fuß konisch",
-"x": 5.4946,
-"y": 8.9013,
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"x": 5.4699,
+"y": 8.8979,
 "rot": 278,
 "elev": 0.0,
-"w": 0.56,
-"d": 0.58,
+"w": 0.58,
+"d": 0.63,
 "h": 0.85,
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#827267",
+"color": "#c8baa9",
 "material": "microfiber"
 },
 "legs": {
@@ -1285,43 +1285,43 @@
 },
 "params": {
 "shell": "arm",
-"stitch": "channel",
-"base": "cone",
+"stitch": "seam",
+"base": "crossSquare",
 "seatHeight": 0.47,
-"armHeight": 0.67
+"armHeight": 0.64
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Greg-Flex 4-Fuß konisch",
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-taupe/a-20390",
-"dims": "B 56 × T 58 × H 85",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "8356660b78",
-"catalogId": "del-greg-flex-gestell-konisch-20334",
+"id": "96ceaad98a",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Greg-Flex 4-Fuß konisch",
-"x": 5.4042,
-"y": 9.545,
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"x": 5.3794,
+"y": 9.5415,
 "rot": 278,
 "elev": 0.0,
-"w": 0.56,
-"d": 0.58,
+"w": 0.58,
+"d": 0.63,
 "h": 0.85,
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#827267",
+"color": "#c8baa9",
 "material": "microfiber"
 },
 "legs": {
@@ -1331,43 +1331,43 @@
 },
 "params": {
 "shell": "arm",
-"stitch": "channel",
-"base": "cone",
+"stitch": "seam",
+"base": "crossSquare",
 "seatHeight": 0.47,
-"armHeight": 0.67
+"armHeight": 0.64
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Greg-Flex 4-Fuß konisch",
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-taupe/a-20390",
-"dims": "B 56 × T 58 × H 85",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "8b0ed182e1",
-"catalogId": "del-greg-flex-gestell-konisch-20334",
+"id": "25357a166c",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Greg-Flex 4-Fuß konisch",
-"x": 5.3137,
-"y": 10.1887,
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"x": 5.289,
+"y": 10.1852,
 "rot": 278,
 "elev": 0.0,
-"w": 0.56,
-"d": 0.58,
+"w": 0.58,
+"d": 0.63,
 "h": 0.85,
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#827267",
+"color": "#c8baa9",
 "material": "microfiber"
 },
 "legs": {
@@ -1377,43 +1377,43 @@
 },
 "params": {
 "shell": "arm",
-"stitch": "channel",
-"base": "cone",
+"stitch": "seam",
+"base": "crossSquare",
 "seatHeight": 0.47,
-"armHeight": 0.67
+"armHeight": 0.64
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Greg-Flex 4-Fuß konisch",
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-taupe/a-20390",
-"dims": "B 56 × T 58 × H 85",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "4b6b76513e",
-"catalogId": "del-greg-flex-gestell-konisch-20334",
+"id": "5165bf3ceb",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Greg-Flex 4-Fuß konisch",
-"x": 6.8216,
-"y": 9.0878,
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"x": 6.8464,
+"y": 9.0913,
 "rot": 98,
 "elev": 0.0,
-"w": 0.56,
-"d": 0.58,
+"w": 0.58,
+"d": 0.63,
 "h": 0.85,
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#827267",
+"color": "#c8baa9",
 "material": "microfiber"
 },
 "legs": {
@@ -1423,43 +1423,43 @@
 },
 "params": {
 "shell": "arm",
-"stitch": "channel",
-"base": "cone",
+"stitch": "seam",
+"base": "crossSquare",
 "seatHeight": 0.47,
-"armHeight": 0.67
+"armHeight": 0.64
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Greg-Flex 4-Fuß konisch",
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-taupe/a-20390",
-"dims": "B 56 × T 58 × H 85",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "76dced80ca",
-"catalogId": "del-greg-flex-gestell-konisch-20334",
+"id": "ce9847fdc6",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Greg-Flex 4-Fuß konisch",
-"x": 6.7311,
-"y": 9.7315,
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"x": 6.7559,
+"y": 9.735,
 "rot": 98,
 "elev": 0.0,
-"w": 0.56,
-"d": 0.58,
+"w": 0.58,
+"d": 0.63,
 "h": 0.85,
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#827267",
+"color": "#c8baa9",
 "material": "microfiber"
 },
 "legs": {
@@ -1469,43 +1469,43 @@
 },
 "params": {
 "shell": "arm",
-"stitch": "channel",
-"base": "cone",
+"stitch": "seam",
+"base": "crossSquare",
 "seatHeight": 0.47,
-"armHeight": 0.67
+"armHeight": 0.64
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Greg-Flex 4-Fuß konisch",
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-taupe/a-20390",
-"dims": "B 56 × T 58 × H 85",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "139e50ab3f",
-"catalogId": "del-greg-flex-gestell-konisch-20334",
+"id": "ffbb16a8e6",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Greg-Flex 4-Fuß konisch",
-"x": 6.6407,
-"y": 10.3752,
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"x": 6.6654,
+"y": 10.3787,
 "rot": 98,
 "elev": 0.0,
-"w": 0.56,
-"d": 0.58,
+"w": 0.58,
+"d": 0.63,
 "h": 0.85,
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#827267",
+"color": "#c8baa9",
 "material": "microfiber"
 },
 "legs": {
@@ -1515,43 +1515,43 @@
 },
 "params": {
 "shell": "arm",
-"stitch": "channel",
-"base": "cone",
+"stitch": "seam",
+"base": "crossSquare",
 "seatHeight": 0.47,
-"armHeight": 0.67
+"armHeight": 0.64
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Greg-Flex 4-Fuß konisch",
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-taupe/a-20390",
-"dims": "B 56 × T 58 × H 85",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "25e42301d4",
-"catalogId": "del-greg-flex-gestell-konisch-20334",
+"id": "7f70561920",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E12",
-"label": "Esszimmerstuhl Greg-Flex 4-Fuß konisch (Nischenplatz)",
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig (Nischenplatz)",
 "x": 7.513,
 "y": 7.34,
 "rot": 8,
 "elev": 0.0,
-"w": 0.56,
-"d": 0.58,
+"w": 0.58,
+"d": 0.63,
 "h": 0.85,
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#827267",
+"color": "#c8baa9",
 "material": "microfiber"
 },
 "legs": {
@@ -1561,23 +1561,23 @@
 },
 "params": {
 "shell": "arm",
-"stitch": "channel",
-"base": "cone",
+"stitch": "seam",
+"base": "crossSquare",
 "seatHeight": 0.47,
-"armHeight": 0.67
+"armHeight": 0.64
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E12",
-"name": "Esszimmerstuhl Greg-Flex 4-Fuß konisch",
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 189.9,
-"url": "https://www.delife.de/esszimmerstuhl-greg-flex-taupe/a-20390",
-"dims": "B 56 × T 58 × H 85",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]

@@ -1000,22 +1000,22 @@
 ]
 },
 {
-"id": "241b05364b",
-"catalogId": "del-nube-flex-gestell-konisch-36424",
+"id": "92ce138b43",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
-"x": 5.46,
-"y": 8.8965,
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"x": 5.4699,
+"y": 8.8979,
 "rot": 278,
 "elev": 0.0,
-"w": 0.54,
-"d": 0.65,
-"h": 0.83,
-"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"w": 0.58,
+"d": 0.63,
+"h": 0.85,
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#8c817a",
-"material": "melange"
+"color": "#c8baa9",
+"material": "microfiber"
 },
 "legs": {
 "color": "#1b1b1b",
@@ -1023,44 +1023,45 @@
 }
 },
 "params": {
-"shell": "shell",
-"stitch": "none",
-"base": "cone",
-"seatHeight": 0.48
+"shell": "arm",
+"stitch": "seam",
+"base": "crossSquare",
+"seatHeight": 0.47,
+"armHeight": 0.64
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
-"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 199.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-taupe/a-45407",
-"dims": "B 54 × T 65 × H 83",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "5b12f4f6d9",
-"catalogId": "del-nube-flex-gestell-konisch-36424",
+"id": "fbe264cc86",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
-"x": 5.3695,
-"y": 9.5401,
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"x": 5.3794,
+"y": 9.5415,
 "rot": 278,
 "elev": 0.0,
-"w": 0.54,
-"d": 0.65,
-"h": 0.83,
-"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"w": 0.58,
+"d": 0.63,
+"h": 0.85,
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#8c817a",
-"material": "melange"
+"color": "#c8baa9",
+"material": "microfiber"
 },
 "legs": {
 "color": "#1b1b1b",
@@ -1068,44 +1069,45 @@
 }
 },
 "params": {
-"shell": "shell",
-"stitch": "none",
-"base": "cone",
-"seatHeight": 0.48
+"shell": "arm",
+"stitch": "seam",
+"base": "crossSquare",
+"seatHeight": 0.47,
+"armHeight": 0.64
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
-"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 199.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-taupe/a-45407",
-"dims": "B 54 × T 65 × H 83",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "b7e337f45e",
-"catalogId": "del-nube-flex-gestell-konisch-36424",
+"id": "a3f2b23c89",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
-"x": 5.2791,
-"y": 10.1838,
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"x": 5.289,
+"y": 10.1852,
 "rot": 278,
 "elev": 0.0,
-"w": 0.54,
-"d": 0.65,
-"h": 0.83,
-"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"w": 0.58,
+"d": 0.63,
+"h": 0.85,
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#8c817a",
-"material": "melange"
+"color": "#c8baa9",
+"material": "microfiber"
 },
 "legs": {
 "color": "#1b1b1b",
@@ -1113,44 +1115,45 @@
 }
 },
 "params": {
-"shell": "shell",
-"stitch": "none",
-"base": "cone",
-"seatHeight": 0.48
+"shell": "arm",
+"stitch": "seam",
+"base": "crossSquare",
+"seatHeight": 0.47,
+"armHeight": 0.64
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
-"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 199.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-taupe/a-45407",
-"dims": "B 54 × T 65 × H 83",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "a1ef989558",
-"catalogId": "del-nube-flex-gestell-konisch-36424",
+"id": "1c6f294040",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
-"x": 6.8563,
-"y": 9.0927,
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"x": 6.8464,
+"y": 9.0913,
 "rot": 98,
 "elev": 0.0,
-"w": 0.54,
-"d": 0.65,
-"h": 0.83,
-"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"w": 0.58,
+"d": 0.63,
+"h": 0.85,
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#8c817a",
-"material": "melange"
+"color": "#c8baa9",
+"material": "microfiber"
 },
 "legs": {
 "color": "#1b1b1b",
@@ -1158,44 +1161,45 @@
 }
 },
 "params": {
-"shell": "shell",
-"stitch": "none",
-"base": "cone",
-"seatHeight": 0.48
+"shell": "arm",
+"stitch": "seam",
+"base": "crossSquare",
+"seatHeight": 0.47,
+"armHeight": 0.64
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
-"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 199.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-taupe/a-45407",
-"dims": "B 54 × T 65 × H 83",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "32eb86784c",
-"catalogId": "del-nube-flex-gestell-konisch-36424",
+"id": "a21892d5f3",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
-"x": 6.7658,
-"y": 9.7364,
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"x": 6.7559,
+"y": 9.735,
 "rot": 98,
 "elev": 0.0,
-"w": 0.54,
-"d": 0.65,
-"h": 0.83,
-"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"w": 0.58,
+"d": 0.63,
+"h": 0.85,
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#8c817a",
-"material": "melange"
+"color": "#c8baa9",
+"material": "microfiber"
 },
 "legs": {
 "color": "#1b1b1b",
@@ -1203,44 +1207,45 @@
 }
 },
 "params": {
-"shell": "shell",
-"stitch": "none",
-"base": "cone",
-"seatHeight": 0.48
+"shell": "arm",
+"stitch": "seam",
+"base": "crossSquare",
+"seatHeight": 0.47,
+"armHeight": 0.64
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
-"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 199.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-taupe/a-45407",
-"dims": "B 54 × T 65 × H 83",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "8ad89a8eea",
-"catalogId": "del-nube-flex-gestell-konisch-36424",
+"id": "d3369579d7",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
-"x": 6.6753,
-"y": 10.38,
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"x": 6.6654,
+"y": 10.3787,
 "rot": 98,
 "elev": 0.0,
-"w": 0.54,
-"d": 0.65,
-"h": 0.83,
-"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"w": 0.58,
+"d": 0.63,
+"h": 0.85,
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#8c817a",
-"material": "melange"
+"color": "#c8baa9",
+"material": "microfiber"
 },
 "legs": {
 "color": "#1b1b1b",
@@ -1248,44 +1253,45 @@
 }
 },
 "params": {
-"shell": "shell",
-"stitch": "none",
-"base": "cone",
-"seatHeight": 0.48
+"shell": "arm",
+"stitch": "seam",
+"base": "crossSquare",
+"seatHeight": 0.47,
+"armHeight": 0.64
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
-"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 199.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-taupe/a-45407",
-"dims": "B 54 × T 65 × H 83",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "68a17c2fba",
-"catalogId": "del-nube-flex-gestell-konisch-36424",
+"id": "7d7a6cc0c4",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E12",
-"label": "Esszimmerstuhl Nube-Flex 4-Fuß konisch (Nischenplatz)",
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig (Nischenplatz)",
 "x": 7.513,
 "y": 7.34,
 "rot": 8,
 "elev": 0.0,
-"w": 0.54,
-"d": 0.65,
-"h": 0.83,
-"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"w": 0.58,
+"d": 0.63,
+"h": 0.85,
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#8c817a",
-"material": "melange"
+"color": "#c8baa9",
+"material": "microfiber"
 },
 "legs": {
 "color": "#1b1b1b",
@@ -1293,23 +1299,24 @@
 }
 },
 "params": {
-"shell": "shell",
-"stitch": "none",
-"base": "cone",
-"seatHeight": 0.48
+"shell": "arm",
+"stitch": "seam",
+"base": "crossSquare",
+"seatHeight": 0.47,
+"armHeight": 0.64
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E12",
-"name": "Esszimmerstuhl Nube-Flex 4-Fuß konisch",
-"variant": "Strukturstoff Soft Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 199.9,
-"url": "https://www.delife.de/esszimmerstuhl-nube-flex-taupe/a-45407",
-"dims": "B 54 × T 65 × H 83",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]

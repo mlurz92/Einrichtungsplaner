@@ -71,10 +71,12 @@ export function neutralAlbedo(key: TexKey, contrast = 1, mean = NEUTRAL_MEAN): P
       let sum = 0;
       const n = a.length / 4;
       for (let i = 0; i < a.length; i += 4) sum += 0.2126 * a[i] + 0.7152 * a[i + 1] + 0.0722 * a[i + 2];
-      const mean = sum / n || 1;
+      // Eigener Mittelwert der Vorlage → Zielmittelwert „mean“ (bis 2.1.0 überdeckte die lokale Variable den Parameter:
+      // dunkle Vorlagen wie Nussbaum oder Samt blieben dunkel und zogen die Produktfarbe auf ein Bruchteil herunter)
+      const avg = sum / n || 1;
       for (let i = 0; i < a.length; i += 4) {
         const l = 0.2126 * a[i] + 0.7152 * a[i + 1] + 0.0722 * a[i + 2];
-        let v = 1 + (l / mean - 1) * contrast;
+        let v = 1 + (l / avg - 1) * contrast;
         v = Math.max(0, v) * mean;
         a[i] = a[i + 1] = a[i + 2] = Math.min(255, v);
         a[i + 3] = 255;

@@ -22,6 +22,7 @@ import {
   MousePointerClick,
 } from "lucide-react";
 import { alignOffsets, distributeOffsets, type AlignMode } from "../model/align";
+import { variantIndex } from "../model/color";
 import { useEditor, getCatalogItem, itemPrice, swapTargets } from "../store/project";
 import { CATEGORY_LABELS, apartment, roomNames, wallFaceById } from "../data";
 import type { MaterialKey, PlacedItem, Slot, Surface, SurfaceKind, WallFinish } from "../model/types";
@@ -184,7 +185,7 @@ function ItemInspector({ it }: { it: PlacedItem }) {
         <Section title={`Ausführungen des Herstellers (${c.variants.length})`}>
           <VariantPicker
             c={c}
-            value={Math.max(0, c.variants.findIndex((v) => v.name === it.variant))}
+            value={Math.max(0, variantIndex(c, it.variant))}
             current={it.variant}
             onChange={(i) => (st.set("swapPreview", null), st.applyVariant(it.id, i))}
             onHover={(i) => st.set("swapPreview", i === null ? null : { ids: [it.id], catalogId: it.catalogId, variant: i })}

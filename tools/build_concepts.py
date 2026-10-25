@@ -552,21 +552,23 @@ def build(n):
     tx, ty = wing(TU, TV)
     # Seit 2.0.5: rechteckige Keramiktische 200 × 100 cm von Markenherstellern (kein Holz, Metallgestell), passende Polsterstühle,
     # Wollteppiche ≥ 240 cm breit (≥ 70 cm Überstand an den Stuhlseiten), lineare Pendelleuchte 50–60 % der Tischlänge
+    # Seit 2.1.1: in allen Konzepten DELIFE Pejo-Flex, Mikrofaser Beige Vintage, Kreuzgestell kantig schwarz, Taschenfederkern
+    PEJO = ("del-pejo-flex-kreuzgestell-kantig-20644", "Mikrofaser Beige Vintage, Gestell Schwarz")
     dining = {
         1: dict(table=("del-edge-25387", "Laminam® Noir Désir Braun, V-Mittelfuß Flachstahl schwarz pulverbeschichtet", None),
-                chair=("del-zelia-flex-gestell-konisch-33745", "Mikrofaser Taupe, Gestell Schwarz"),
+                chair=PEJO,
                 lamp=("lam-paul-neuhaus-bowl-pendelleuchte-2288-23", "Braun / Rauchfarben", None),
                 rug=("ike-80593762", "Grün / weiß / schwarz handgewebt")),
         2: dict(table=("del-edge-25387", "Laminam® Noir Désir Braun, V-Mittelfuß Flachstahl schwarz pulverbeschichtet", None),
-                chair=("del-pejo-flex-freischwinger-flach-20764", "Mikrofaser Taupe, Gestell Schwarz"),
+                chair=PEJO,
                 lamp=("lam-hollaender-castello-haengeleuchte-300-k-15190-s", "Silber", None),
                 rug=("ike-80593762", "Grau / weiß / schwarz handgewebt")),
         3: dict(table=("del-edge-25387", "Laminam® Noir Désir Braun, V-Mittelfuß Flachstahl schwarz pulverbeschichtet", None),
-                chair=("del-nube-flex-gestell-konisch-36424", "Strukturstoff Soft Taupe, Gestell Schwarz"),
+                chair=PEJO,
                 lamp=("lam-schoener-wohnen-kollektion-dubai-led-balkenpendelleuchte-13-flammig-ra", "Schwarz / Rauchfarben", None),
                 rug=("ike-50593810", "Schwarz / weiß / hellgrün handgewebt")),
         4: dict(table=("del-edge-25387", "Laminam® Noir Désir Braun, V-Mittelfuß Flachstahl schwarz pulverbeschichtet", None),
-                chair=("del-greg-flex-gestell-konisch-20334", "Mikrofaser Taupe, Gestell Schwarz"),
+                chair=PEJO,
                 lamp=("lam-hollaender-faraone-haengeleuchte-300-k-15191", "Gold", None),
                 rug=("wes-hand-woven-low-pile-wool-sicilian-stripe-en-25lyd29670", "Standard")),
     }[k]
@@ -578,12 +580,13 @@ def build(n):
     # 6 Stühle, je 3 an den Längsseiten (Westseite Front nach Osten, Ostseite Front nach Westen), Sitz 12 cm unter der Tischkante
     c_id, c_var = dining["chair"]
     ch = MAIN_CATALOG[c_id]
-    # Seit 2.0.7: DELIFE-Flex-Polsterstühle in Taupe mit schwarzem Gestell (passend zum V-Mittelfuß des Edge);
+    # Seit 2.1.1: DELIFE Pejo-Flex in Beige Vintage mit schwarzem Kreuzgestell (passend zum V-Mittelfuß des Edge);
     # Armlehnen müssen unter die Tischplatte passen (Unterkante ohne Zarge), sonst Stuhl nur bis an die Kante
     arm = (ch.get("params") or {}).get("armHeight")
     under = tbl["h"] / 100 - (tbl.get("params") or {}).get("top", 0.03)
     assert arm is None or arm <= under - 0.03, f"Konzept {k}: Armlehne {arm} m stößt an die Tischplatte (Unterkante {under:.2f} m)"
-    assert "Taupe" in c_var, f"Konzept {k}: Stuhl {c_var} nicht Taupe"
+    assert c_id == PEJO[0] and "Beige Vintage" in c_var, f"Konzept {k}: Stuhl {c_id} {c_var} nicht Pejo-Flex Beige Vintage"
+    assert c_var in [v["name"] for v in ch["variants"]], f"Konzept {k}: Ausführung {c_var} fehlt im Katalog"
     off = TD / 2 + ch["d"] / 200 - 0.12
     pitch = 0.65 if TL >= 1.95 else 0.60
     seats = [wing(TU - off, TV + s) + (E,) for s in (-pitch, 0, pitch)] + [wing(TU + off, TV + s) + (W,) for s in (-pitch, 0, pitch)]
