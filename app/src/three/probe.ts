@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { wallClipPlanes } from "./surfaces";
 import { cutUniforms } from "./cutaway";
-import { Effect, EffectAttribute } from "postprocessing";
+import { Effect } from "postprocessing";
 
 // Umgebungssonde: Statt einer Studio-Umgebung (helle Leuchtflächen, die sich in jeder glatten
 // Oberfläche spiegeln) wird die Wohnung selbst aus Sicht eines Raumpunkts in eine Würfelkarte
@@ -215,17 +215,19 @@ export class EnvironmentProbe {
   }
 }
 
-/** Weißabgleich in der Nachbearbeitung (vor dem Tone Mapping), Verstärkung aus der Sonde. */
+/**
+ * Weißabgleich in der Nachbearbeitung (vor dem Tone Mapping), Verstärkung je Kanal aus Scene3D. Wirkt auf das
+ * ganze Bild; der Hintergrundverlauf ist dort bereits mit dem Kehrwert vorgefärbt.
+ */
 export class WhiteBalanceEffect extends Effect {
   constructor() {
     super(
       "WhiteBalance",
-      // Hintergrund (Tiefe 1) bleibt unverändert: der Verlauf ist bereits neutral abgestimmt
       /* glsl */ `uniform vec3 gain;
-      void mainImage(const in vec4 inputColor, const in vec2 uv, const in float depth, out vec4 outputColor) {
-        outputColor = vec4(depth < 0.99999 ? inputColor.rgb * gain : inputColor.rgb, inputColor.a);
+      void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor) {
+        outputColor = vec4(inputColor.rgb * gain, inputColor.a);
       }`,
-      { attributes: EffectAttribute.DEPTH, uniforms: new Map([["gain", new THREE.Uniform(new THREE.Color(1, 1, 1))]]) },
+      { uniforms: new Map([["gain", new THREE.Uniform(new THREE.Color(1, 1, 1))]]) },
     );
   }
   set gain(c: THREE.Color) {

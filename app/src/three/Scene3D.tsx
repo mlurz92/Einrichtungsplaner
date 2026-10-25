@@ -51,20 +51,40 @@ function useSun() {
   }, [date, time, north, lat, lon, anim]);
 }
 
-/** Senkrechter Verlauf als Szenenhintergrund (hell bzw. dunkel). */
-function gradientTexture(top: string, bottom: string): THREE.CanvasTexture {
-  const c = document.createElement("canvas");
-  c.width = 4;
-  c.height = 256;
-  const g = c.getContext("2d")!;
-  const lg = g.createLinearGradient(0, 0, 0, 256);
-  lg.addColorStop(0, top);
-  lg.addColorStop(1, bottom);
-  g.fillStyle = lg;
-  g.fillRect(0, 0, 4, 256);
-  const t = new THREE.CanvasTexture(c);
-  t.colorSpace = THREE.SRGBColorSpace;
-  return t;
+/**
+ * Senkrechter Verlauf als Szenenhintergrund (hell bzw. dunkel), linear in Gleitkomma. Der Weißabgleich wirkt
+ * auf das ganze Bild; der Verlauf wird mit dem Kehrwert vorgefärbt (tintBackdrop) und bleibt so neutral –
+ * auch hinter den Fensterscheiben, wo er abends sonst violett und bei Kunstlicht tiefblau erschien.
+ */
+function gradientTexture(top: string, bottom: string): THREE.DataTexture {
+  const H = 64;
+  const base = new Float32Array(H * 4);
+  const t = new THREE.Color(top), u = new THREE.Color(bottom), c = new THREE.Color();
+  for (let j = 0; j < H; j++) {
+    // Zeile 0 = unten
+    c.copy(u).lerp(t, j / (H - 1));
+    base.set([c.r, c.g, c.b, 1], j * 4);
+  }
+  const tex = new THREE.DataTexture(base.slice(), 1, H, THREE.RGBAFormat, THREE.FloatType);
+  tex.colorSpace = THREE.LinearSRGBColorSpace;
+  tex.magFilter = tex.minFilter = THREE.LinearFilter;
+  tex.userData.base = base;
+  tex.needsUpdate = true;
+  return tex;
+}
+
+/** Hintergrundverlauf gegen den Weißabgleich vorfärben (Ergebnis bleibt neutral). */
+function tintBackdrop(tex: THREE.Texture | THREE.Color | null, gain: THREE.Color) {
+  const t = tex as THREE.DataTexture | null;
+  const base = t?.userData?.base as Float32Array | undefined;
+  if (!t || !base) return;
+  const d = t.image.data as Float32Array;
+  for (let i = 0; i < base.length; i += 4) {
+    d[i] = base[i] / gain.r;
+    d[i + 1] = base[i + 1] / gain.g;
+    d[i + 2] = base[i + 2] / gain.b;
+  }
+  t.needsUpdate = true;
 }
 
 const BACKDROPS = {
@@ -225,7 +245,11 @@ function Environment() {
     const lampShare = night ? 1 : lampsDay ? 1 / (1 + 6 * d) : 0;
     const illum = daylightColor(sunPos.elevation).multiplyScalar(1 - lampShare).add(planckColor(kelvin).multiplyScalar(lampShare));
     const adaptL = night ? ADAPT_LUMINANCE.night : THREE.MathUtils.lerp(ADAPT_LUMINANCE.night, ADAPT_LUMINANCE.day, d);
-    whiteBalance.gain = adaptationGain(adaptingWhite(illum, probe.cast, ROOM_ADAPT), adaptationDegree(adaptL), wbGain);
+    // Stufe „niedrig“ ohne Nachbearbeitung: dort sind die Lichtfarben der Leuchten vorab abgeglichen
+    if (quality === "niedrig") wbGain.setRGB(1, 1, 1);
+    else adaptationGain(adaptingWhite(illum, probe.cast, ROOM_ADAPT), adaptationDegree(adaptL), wbGain);
+    whiteBalance.gain = wbGain;
+    tintBackdrop(scene.background as THREE.Texture | null, wbGain);
     // Der Verlaufshintergrund ist bereits fertig abgestimmt: Belichtung für ihn aufheben
     if (!(camera3d === "walk" && !night)) scene.backgroundIntensity = 1 / gl.toneMappingExposure;
   });
@@ -242,6 +266,7 @@ function Environment() {
     } else {
       const [a, b] = BACKDROPS[night ? "night" : theme];
       tex = gradientTexture(a, b);
+      tintBackdrop(tex, wbGain);
       scene.background = tex;
     }
     return () => {
@@ -403,7 +428,12 @@ function LampLights() {
     lampVersion++;
   }, [lights]);
   // Physikalische Lichtfarbe (Leuchtdichte 1); den Weißabgleich übernimmt die Nachbearbeitung
-  const color = useMemo(() => planckColor(kelvin), [kelvin]);
+  const color = useMemo(() => {
+    const c = planckColor(kelvin);
+    if (quality !== "niedrig") return c;
+    const g = adaptationGain(c, adaptationDegree(ADAPT_LUMINANCE.night));
+    return c.multiply(g);
+  }, [kelvin, quality]);
   useEffect(() => setNightGlow(on ? 2.2 : 0, color), [on, color]);
   if (!on) return null;
   // Lichtstrom → Lichtstärke (Lumen / 4π), auf die Belichtung der Szene skaliert

@@ -69,7 +69,7 @@ etwa zur Hälfte nach dem farbigen Raumlicht der Umgebungssonde (dunkle Eichendi
 statt braun, weißes Papier wirkt warmweiß statt orange, und bei voller Adaptation erscheint jede Materialfarbe exakt
 in ihrer Katalogfarbe (Tests in `colorScience.test.ts`). Neu: **Leuchten auch bei Tageslicht** (Kunstlicht am trüben
 Nachmittag oder in der Dämmerung, Mischlicht-Weißabgleich), Lampenschirme leuchten in der eingestellten Lichtfarbe,
-Sonnenschatten mit weicher Kante (Halbschatten der Sonnenscheibe). Neues App-Icon mit Essplatz unter warmem Licht.
+Sonnenschatten mit weicher Kante (Halbschatten der Sonnenscheibe); Fensterscheiben und Hintergrund bleiben bei jedem Licht neutral. Neues App-Icon mit Essplatz unter warmem Licht.
 
 ## Funktionen
 
