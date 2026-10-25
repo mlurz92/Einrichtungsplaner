@@ -32,16 +32,17 @@ def slot(color, material):
 
 
 TITLES = {
-    1: ("Konzept 1 · Noir · Sand · Messing", "Abgestimmt auf den Essplatz (DELIFE Edge Noir Désir + Pejo-Flex Beige Vintage): Keramik Noir Désir, Bouclé in Sand, Messingleuchten"),
-    2: ("Konzept 2 · Noir · Espresso · Gold", "Abgestimmt auf den Essplatz: Boutique-Hotel-Look in Espresso und Off White, Emperador-Keramik, Gold-Designleuchten"),
-    3: ("Konzept 3 · Noir · Stone · Greige", "Abgestimmt auf den Essplatz: Greige-Wände, Travertino-Keramik, schwarze Akzente und Messing"),
-    4: ("Konzept 4 · Noir · Ivory · Gold", "Abgestimmt auf den Essplatz: Ivory-Basis, Calacatta- und Noir-Désir-Keramik, Kazu-Sideboard in Metallic Gold"),
+    1: ("Konzept 1 · Noir · Sand · Nussbaum", "Abgestimmt auf den Essplatz (DELIFE Edge Noir Désir + Pejo-Flex Beige Vintage): Keramik Noir Désir, Bouclé in Sand, dunkle Eiche, schwarze und opale Leuchten; eine Messingschale als einziger Goldakzent"),
+    2: ("Konzept 2 · Noir · Espresso · Emperador", "Abgestimmt auf den Essplatz: Boutique-Hotel-Look in Espresso und Off White, Emperador-Keramik, schwarze Leuchten; Multi-Lite Schwarz/Gold als einziges Goldstück"),
+    3: ("Konzept 3 · Noir · Stone · Greige", "Abgestimmt auf den Essplatz: Greige-Wände, Travertino-Keramik, schwarze und opale Leuchten, ganz ohne Gold"),
+    4: ("Konzept 4 · Noir · Ivory · Travertin", "Abgestimmt auf den Essplatz: Ivory-Basis, Travertin und Statuarietto, schwarzes Rillen-Sideboard; Messingkerzen auf dem Esstisch als einziges Goldstück"),
 }
 
 # ------------------------------------------------------------------ Stilabgleich mit dem Essplatz (seit 2.2.0)
 # Markus' Essplatz: DELIFE Edge 200 × 100, Keramik Laminam® Noir Désir (schwarz, Gold-/Weißaderung), V-Fuß schwarz,
 # 6 × Pejo-Flex Mikrofaser Beige Vintage, Kreuzgestell schwarz, beiger Teppich. Alle Konzepte bekommen dieselbe Linie:
-# Schwarz + Beige/Greige + warmes Gold/Messing + Stein/Keramik. PDF-Positionen werden entweder in eine andere Shop-Ausführung
+# Schwarz + Beige/Greige + Stein/Keramik, minimalistisch; seit 2.3.0 höchstens ein Gold-/Messingstück je Konzept (Kontrast),
+# Leuchten schwarz/opal statt Messing. PDF-Positionen werden entweder in eine andere Shop-Ausführung
 # gewechselt (V) oder durch ein Katalogprodukt ersetzt (P, die PDF-Position bleibt Katalogprodukt ohne Konzeptzuordnung).
 def V(var, **kw):
     """Andere Ausführung desselben Produkts (Shop-Variante), optional mit Bauteilfarben (slots)."""
@@ -57,65 +58,71 @@ def P(cid, var=None, **kw):
 CUSH, CUSH_S = (0.50, 0.16, 0.50), (0.50, 0.16, 0.30)
 DANA, SHANNON = "wes-einfarbige-samt-kissenhuelle-dana-in-burgund-136666", "wes-boucle-kissenhuelle-shannon-171674"
 ELVANG = P("wes-plaid-luxury-aus-babyalpaka-wolle-elvang", "Off White, 100 % Alpaka", dims=(0.30, 0.62, 0.30), place=[(3.32, 6.69, 188, 0.5)])
-KAZU = "del-kazu-fuss-schwebend-metall-38946"
 CUOR_LB, CUOR_SB = "del-cuor-fuss-schwebend-metall-40351", "del-cuor-fuss-schwebend-metall-40399"
 ESTELO, EDGE_SIDE = "del-edge-estelo-45513", "del-edge-42623"
-CAPRI_T, CLARICE = "lam-hollaender-capri-tischleuchte-280-k-1202", "lam-hollaender-clarice-tischleuchte-424-1208"
-LP_PANTH = ("des-louis-poulsen-panthella-portable-160-v3", "MESSING glänzend, Akku; über Lampenwelt")
-GUBI_P = ("des-gubi-multi-lite-portable", "MESSING, Akku (≈\xa06,5 h); über Nordic Nest")
-BESTLITE = P("des-gubi-bestlite-bl1-tischleuchte", "Kohlschwarz / MESSING; über Nordic Nest")
-FLOS_W = P("des-flos-ic-c-w1-wand-deckenleuchte", "MESSING gebürstet / Opal matt; über Lampenwelt")
-FLOS_T = V("MESSING gebürstet / Opalglas; über AmbienteDirect")
-LAVIENA = P("wes-bogen-wandspiegel-laviena", "Metallrahmen MESSINGFARBEN", place=[(7.38, 2.34, 0, 1.045)])
+PANTH_W = "wes-mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168615"
+WALTER, WALTER_XL = "wes-kleine-retro-tischlampe-walter-in-chromfarben-146722", "wes-walter-xl-table-lamp-taupe-en-25wes30461"
+FUNGO, SIA_T = "lam-hollaender-fungo-tischleuchte-424-1202", "lam-schoener-wohnen-kollektion-sia-moderne-led-tischleuchte-rauchfarbener-"
+MATILDA, LILLY = "wes-stehlampe-matilda-in-weiss-141834", "wes-stehlampe-lilly-128060"
+DESK = P(WALTER, "Schwarz, matt")
+ATLANTA = P("wes-wandleuchte-atlanta-aus-opalglas-147013", "Weiß, Schwarz")
+AYU = P("wes-runder-wandspiegel-ayu", "Dunkles Akazienholz", elev=1.20)
 NOIR = "Laminam® Noir Désir Braun"
 DREAM_OW = "Cord OFF WHITE, Liegefläche 180\xa0×\xa0200"
 STYLE = {
     1: {"W2": P("del-edge-parabi-42827", f"{NOIR}, Gestell Schwarz", anchor="front"),
         "W4": V("Bouclé Hellbraun"),
-        "W6": P("lam-hollaender-capri-stehleuchte-280-k-1101", "Gold / Schwarz"),
+        "W6": P(MATILDA, "Schwarz"),
         "W9": [P(DANA, "Taupe", idx=[0, 3], dims=CUSH), P(SHANNON, "Bouclé Schwarz", idx=[1, 2], dims=CUSH_S)],
-        "W11": ELVANG, "W17": P(CLARICE, "Schwarz / Gold"),
+        "W11": ELVANG, "W17": P(FUNGO, "Schwarz"),
         "W18": P("obi-lamella-black", "Standard", dims=(2.40, 0.021, CEIL), qty=4),
         "W21": V("Anthrazit", slots={"main": slot("#2b2b2c", "matte"), "secondary": slot("#e8ece8", "ribbedGlass")}),
-        "E4": P(KAZU, "Standard", anchor="back"), "E5": V("Goldfarben"), "E6": P(CAPRI_T, "Gold / Schwarz"),
-        "E8": P("del-rondia-46690", "Gold/Braun"),
-        "F7": P(ESTELO, f"{NOIR}, Gestell Titanfarbig", anchor="back"), "F9": P(*LP_PANTH), "F11": P("del-torvia-46744", "Mokka/Bronze"),
-        "S5": P(CAPRI_T, "Gold / Schwarz"), "S19": P(DANA, "Taupe", dims=CUSH), "A6": BESTLITE, "A10": P(DANA, "Taupe", dims=CUSH)},
+        "E5": ATLANTA, "E6": P(WALTER_XL, "Schwarz, glänzend"),
+        "E8": P("del-rondia-46690", "Beige/Taupe"),
+        "F7": P(ESTELO, "Patagonia Braun/Beige, Gestell Schwarz", anchor="back"), "F9": P(PANTH_W, "Kunststoff Schwarz"),
+        "F11": P("del-torvia-46744", "Mokka/Bronze"),
+        "S5": P(WALTER, "Schwarz, matt"), "S19": P(DANA, "Taupe", dims=CUSH), "A6": DESK, "A10": P(DANA, "Taupe", dims=CUSH)},
     2: {"W2": P("del-edge-parabi-42748", f"{NOIR}, Gestell Schwarz", anchor="front"),
-        "W4": V("Bouclé Off White"), "W5": P(EDGE_SIDE, "Emperador Dunkelbraun, Gestell Titanfarbig"),
-        "W6": P("wes-bun-floor-lamp-brown-en-25wes95914", "Brauner Marmor, goldfarben"),
+        "W4": V("Bouclé Off White"), "W5": P(EDGE_SIDE, "Patagonia Braun/Beige, Gestell Schwarz"),
+        "W6": P("wes-verstellbare-stehlampe-multi-lite-164080", "Schwarz matt, Goldfarben glänzend"),
         "W8": P("wes-handgetufteter-wollteppich-pose-169117", "Brauntöne, Beige", dims=(3.00, 2.00, 0.015)),
-        "W9": P(DANA, "Hellbeige", dims=CUSH), "W23": P(DANA, "Taupe", dims=CUSH), "W17": P(*LP_PANTH),
-        "E4": P(KAZU, "Standard", anchor="back"), "E5": FLOS_W, "E6": FLOS_T,
-        "F7": P(ESTELO, "Emperador Dunkelbraun, Gestell Schwarz", anchor="back"), "F8": LAVIENA, "F9": P(*GUBI_P),
+        "W9": P(DANA, "Hellbeige", dims=CUSH), "W23": P(DANA, "Taupe", dims=CUSH), "W17": P(PANTH_W, "Kunststoff Schwarz"),
+        "E4": P(CUOR_SB, "Emperador Dunkelbraun", anchor="back"), "E5": ATLANTA, "E6": P(SIA_T, "Schwarz / Rauchfarben"),
+        "F7": P(ESTELO, "Emperador Dunkelbraun, Gestell Schwarz", anchor="back"), "F8": AYU, "F9": P(WALTER, "Schwarz, matt"),
         "S1/S3": V(DREAM_OW, slots={"secondary": slot("#d8c7ae", "linen"), "accent": slot("#5b3a2c", "wool")}),
-        "S5": P(CLARICE, "Schwarz / Gold"), "A1": V("Strukturierter samtiger Webstoff Braun"), "A6": BESTLITE,
+        "S5": P(FUNGO, "Schwarz"), "A1": V("Strukturierter samtiger Webstoff Braun"), "A6": DESK,
         "A10": P(DANA, "Hellbeige", dims=CUSH)},
     3: {"W2": P("del-edge-conis-42656", f"{NOIR}, Gestell Schwarz", anchor="front"),
         "W3": P(CUOR_LB, "Laminam® Travertino Bianco Creme-Weiß", anchor="back"),
-        "W4": P("del-pulo-39515", "Beige Vintage"), "W5": P(EDGE_SIDE, f"{NOIR}, Gestell Silber gebürstet"),
-        "W6": P("wes-stehlampe-neron-122121", "Schwarz, Messing"),
-        "W9": P(SHANNON, "Bouclé Schwarz", dims=CUSH_S), "W23": P(DANA, "Taupe", dims=CUSH), "W11": ELVANG, "W17": P(*GUBI_P),
+        "W4": P("del-pulo-39515", "Beige Vintage"), "W5": P(EDGE_SIDE, "Onyx Pearl Grau/Beige, Gestell Schwarz"),
+        "W6": P(LILLY, "Schwarz, Weiß", slots={"main": slot("#1d1d1d", "matte"), "frame": slot("#1d1d1d", "matte"), "legs": slot("#1d1d1d", "matte"), "shade": slot("#f6f4ee", "opal")}),
+        "W9": P(SHANNON, "Bouclé Schwarz", dims=CUSH_S), "W23": P(DANA, "Taupe", dims=CUSH), "W11": ELVANG,
+        "W17": P(PANTH_W, "Kunststoff Schwarz"),
         "W18": P("obi-lamella-black", "Standard", dims=(2.40, 0.021, CEIL), qty=4),
         "W19": P("wes-handgemaltes-leinwandbild-rust-agave", "Brauntöne / Weiß / Schwarz"),
         "W21": P("tyl-tylko-regal-mit-tueren-masskonfiguration-origina", "COTTON BEIGE (Ton-in-Ton zur Wand), Türen unten, offene Fächer oben"),
-        "E4": P(CUOR_SB, "Laminam® Travertino Bianco Creme-Weiß", anchor="back"), "E5": FLOS_W, "E6": FLOS_T,
-        "E7": P("wes-leinwanddruck-elements-everlast-handveredelt-mal", "Beige, Gold, Grau; Rahmen Tanne"),
-        "F7": P(ESTELO, "Laminam® Travertino Bianco Creme-Weiß, Gestell Schwarz", anchor="back"), "F8": LAVIENA, "F9": P(*LP_PANTH),
+        "E4": P(CUOR_SB, "Laminam® Travertino Bianco Creme-Weiß", anchor="back"), "E5": ATLANTA, "E6": P(SIA_T, "Schwarz / Rauchfarben"),
+        "E7": P("wes-gerahmtes-leinwandbild-scenario-handgemalt-maler", "Beige- und Grautöne, Eichenrahmen"),
+        "F7": P(ESTELO, "Laminam® Travertino Bianco Creme-Weiß, Gestell Schwarz", anchor="back"), "F8": AYU,
+        "F9": P(PANTH_W, "Kunststoff Hellbeige"),
         "S1/S3": V(DREAM_OW, slots={"secondary": slot("#e4ded3", "linen"), "accent": slot("#3a3632", "wool")}),
-        "S5": P(*LP_PANTH), "S19": P(DANA, "Taupe", dims=CUSH), "A1": V("Bouclé meliert BEIGE (Sand)"), "A6": BESTLITE,
-        "A10": P(DANA, "Taupe", dims=CUSH)},
+        "S5": P(PANTH_W, "Kunststoff Hellbeige"), "S19": P(DANA, "Taupe", dims=CUSH), "A1": V("Bouclé meliert BEIGE (Sand)"),
+        "A6": DESK, "A10": P(DANA, "Taupe", dims=CUSH)},
     4: {"W2": P("del-edge-sarity-42660", f"{NOIR}, Gestell Schwarz", anchor="front"),
         "W3": P(CUOR_LB, "Minas Melange Weiß/Beige", anchor="back"), "W4": V("Samtiger Webstoff Braun"),
-        "W5": P("del-caramia-39991", "Gold"), "W9": P(SHANNON, "Bouclé Schwarz", dims=CUSH_S),
+        "W6": P(MATILDA, "Schwarz"), "W9": P(SHANNON, "Bouclé Schwarz", dims=CUSH_S), "W17": P(PANTH_W, "Kunststoff Weiß"),
         "W18": P("obi-lamella-walnut", "Standard", dims=(2.40, 0.021, CEIL), qty=4),
         "W19": P("wes-gerahmtes-leinwandbild-vibranium-handgemalt-male", "Brauntöne, Eichenrahmen"),
-        "E4": P(KAZU, "Standard", anchor="back"),
-        "F7": P(ESTELO, "Calacatta Luxe Weiß/Gold, Gestell Titanfarbig", anchor="back"),
-        "S19": P(SHANNON, "Bouclé Schwarz", dims=CUSH_S),
+        "W28": P("del-torvia-46744", "Anthrazit/Graphit", idx=[0]),
+        "E4": V("Schwarz, matt", slots={"main": slot("#1f1e1d", "matte"), "legs": slot("#1f1e1d", "matte"), "detail": slot("#1d1d1d", "blackMetal")}),
+        "E5": ATLANTA, "E6": P(SIA_T, "Schwarz / Rauchfarben"),
+        "E7": P("wes-handgemaltes-leinwandbild-rust-agave", "Brauntöne / Weiß / Schwarz"),
+        "F7": P(ESTELO, "Laminam® Statuarietto Weiß, Gestell Schwarz", anchor="back"), "F8": AYU, "F9": P(FUNGO, "Schwarz"),
+        "S5": P(WALTER, "Schwarz, matt"), "A6": DESK, "S6": P("wes-kleine-deckenleuchte-lido-aus-opalglas", "Opalglas weiß / Gestell schwarz", elev=CEIL - 0.23),
+        "S19": P(SHANNON, "Bouclé Schwarz", dims=CUSH_S), "A3": V("Bouclé Schwarz, Schwarz"),
         "S23": P("wes-gerahmtes-leinwandbild-scenario-handgemalt-maler", "Beige- und Grautöne, Eichenrahmen", elev=1.10)},
 }
-# Sideboard Essen: 16 cm nach Osten (entlang der Südwand), damit das 2,20 m lange Kazu die Schlafzimmertür (D-SCH) freilässt;
+# Sideboard Essen: 16 cm nach Osten (entlang der Südwand), Abstand zur Schlafzimmertür (D-SCH);
 # Bild(er) und Profilrahmen darüber wandern mit
 SB_SHIFT = (math.cos(math.radians(S)) * 0.16, math.sin(math.radians(S)) * 0.16)
 
@@ -459,22 +466,22 @@ def build(n):
     if k == 1:
         sofa_c = slot("#b9aa97", "boucle"); legs = slot("#1d1d1d", "blackMetal")
         stone = slot("#e3d6c1", "travertine"); dark_oak = slot("#5e4130", "oakDark")
-        accent_metal = slot("#c3a160", "brass")
+        accent_metal = slot("#1d1d1d", "blackMetal")
         armchair_c = slot("#a7b59e", "velvet")
     elif k == 2:
         sofa_c = slot("#5d4231", "boucle"); legs = slot("#1d1d1d", "blackMetal")
         stone = slot("#3f5d4e", "marbleGreen"); dark_oak = slot("#4d3626", "oakDark")
-        accent_metal = slot("#c9a55c", "brass")
+        accent_metal = slot("#1d1d1d", "blackMetal")
         armchair_c = slot("#2f7074", "boucle")
     elif k == 3:
         sofa_c = slot("#cfc6b8", "boucle"); legs = slot("#1d1d1d", "blackMetal")
         stone = slot("#ece5d9", "travertine"); dark_oak = slot("#caa77e", "oak")
-        accent_metal = slot("#a88a5a", "brass")
+        accent_metal = slot("#1d1d1d", "blackMetal")
         armchair_c = slot("#2f7074", "boucle")
     else:
         sofa_c = slot("#ddd6c8", "cord"); legs = slot("#1d1d1d", "blackMetal")
         stone = slot("#e8ddcb", "travertine"); dark_oak = slot("#caa77e", "oak")
-        accent_metal = slot("#c9a55c", "brass")
+        accent_metal = slot("#1d1d1d", "blackMetal")
         armchair_c = slot("#2f7074", "boucle")
     opal = slot("#f6f4ee", "opal")
 
@@ -687,11 +694,11 @@ def build(n):
     dining = {
         1: dict(table=("del-edge-25387", "Laminam® Noir Désir Braun, V-Mittelfuß Flachstahl schwarz pulverbeschichtet", None),
                 chair=PEJO,
-                lamp=("lam-hollaender-alice-fiorire-haengeleuchte-300-k-15149-sg", "Gold / Schwarz", None),
+                lamp=("lam-by-rydens-skyline-haengeleuchte-4201530-4002", "Schwarz", None),
                 rug=("wes-hand-woven-low-pile-wool-sicilian-stripe-en-25lyd29670", "Standard")),
         2: dict(table=("del-edge-25387", "Laminam® Noir Désir Braun, V-Mittelfuß Flachstahl schwarz pulverbeschichtet", None),
                 chair=PEJO,
-                lamp=("lam-hollaender-castello-haengeleuchte-300-k-15190-s", "Gold", None),
+                lamp=("lam-schoener-wohnen-kollektion-sia-led-5-flammige-esstisch-pendelleuchte-h", "Schwarz / Rauchfarben", None),
                 rug=("ike-00640673", "Beige")),
         3: dict(table=("del-edge-25387", "Laminam® Noir Désir Braun, V-Mittelfuß Flachstahl schwarz pulverbeschichtet", None),
                 chair=PEJO,
@@ -699,7 +706,7 @@ def build(n):
                 rug=("ike-00640673", "Elfenbeinweiß")),
         4: dict(table=("del-edge-25387", "Laminam® Noir Désir Braun, V-Mittelfuß Flachstahl schwarz pulverbeschichtet", None),
                 chair=PEJO,
-                lamp=("lam-hollaender-faraone-haengeleuchte-300-k-15191", "Gold", None),
+                lamp=("lam-schoener-wohnen-kollektion-lini-led-11-flammige-pendelleuchte-mit-tran", "Schwarz / Transparent", None),
                 rug=("wes-hand-woven-low-pile-wool-sicilian-stripe-en-25lyd29670", "Standard")),
     }[k]
     t_id, t_var, t_slots = dining["table"]
@@ -769,9 +776,9 @@ def build(n):
                 4: ("#e8dccb", "#c9a55c", "#c8b389", "everlast", (0.90, 1.18))}[k]
         B.add("E7", "art", "art", [(ax0, ay0, N, 0.95)], (artE[4][0], 0.04, artE[4][1]),
               {"main": slot(artE[0], "canvas"), "secondary": slot(artE[1], "canvas"), "frame": slot(artE[2], "matte")}, mount="wall", params={"motif": artE[3]})
-    # DELIFE-Schale Ramina (Aluminium Aurum) mittig auf dem Sideboard
+    # DELIFE-Schale Ramina mittig auf dem Sideboard; Gold nur in K1 (einziger Goldakzent), sonst Bronze/Graphit
     sb = B.item("E4")
-    B.add_cat("D1", "del-ramina-46714", "Gold/Messing", [(*along(sb["x"], sb["y"], S, -0.05), 0, sb_h)])
+    B.add_cat("D1", "del-ramina-46714", {1: "Gold/Messing", 2: "Mokka/Bronze", 3: "Anthrazit/Graphit", 4: "Mokka/Bronze"}[k], [(*along(sb["x"], sb["y"], S, -0.05), 0, sb_h)])
     if k == 4:
         B.add("E10", "decor", "bowl", [(tx, ty, S, 0.75)], (0.41, 0.31, 0.24), {"main": slot("#f1ede4", "ceramic")}, params={"footed": True})
         B.add("E11", "decor", "candles", [(x + tx - 5.909, y + ty - 9.374, 0, z) for x, y, z in ((5.70, 9.42, 0.75), (5.74, 9.32, 0.75), (5.72, 9.37, 0.82))], (0.10, 0.10, 0.07), {"main": slot("#c9a55c", "brass")}, params={"stack": True})
@@ -834,7 +841,7 @@ def build(n):
         B.line("F16")
 
     # ================= SCHLAFEN =================
-    bed = {1: (slot("#b9aa97", "boucle"), slot("#c8d3c1", "linen"), slot("#f3efe6", "wool")),
+    bed = {1: (slot("#b9aa97", "boucle"), slot("#d9cdb8", "linen"), slot("#f3efe6", "wool")),
            2: (slot("#6e7450", "cord"), slot("#c89c6b", "linen"), slot("#5b3a2c", "wool")),
            3: (slot("#3f6680", "cord"), slot("#d3dbca", "linen"), slot("#f3efe6", "wool")),
            4: (slot("#efe8dd", "cord"), slot("#fbfbf8", "linen"), slot("#d8ccb8", "wool"))}[k]

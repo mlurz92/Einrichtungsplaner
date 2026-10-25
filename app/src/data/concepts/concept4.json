@@ -1,7 +1,7 @@
 {
 "version": 1,
-"name": "Konzept 4 · Noir · Ivory · Gold",
-"subtitle": "Abgestimmt auf den Essplatz: Ivory-Basis, Calacatta- und Noir-Désir-Keramik, Kazu-Sideboard in Metallic Gold",
+"name": "Konzept 4 · Noir · Ivory · Travertin",
+"subtitle": "Abgestimmt auf den Essplatz: Ivory-Basis, Travertin und Statuarietto, schwarzes Rillen-Sideboard; Messingkerzen auf dem Esstisch als einziges Goldstück",
 "conceptId": "concept4",
 "createdAt": "2026-10-23T00:00:00Z",
 "updatedAt": "2026-10-23T00:00:00Z",
@@ -207,30 +207,72 @@
 ]
 },
 {
-"id": "09c448765e",
-"catalogId": "del-caramia-39991",
+"id": "880e62fc3c",
+"catalogId": "wes-runder-beistelltisch-marisa-aus-travertin",
 "pos": "W5",
-"label": "Couchtisch Caramia 65x55 cm Metallic",
+"label": "Runder Beistelltisch Marisa aus Travertin",
 "x": 5.93,
 "y": 5.13,
 "rot": 0,
 "elev": 0.0,
-"w": 0.56,
-"d": 0.43,
-"h": 0.38,
-"variant": "Gold",
+"w": 0.35,
+"d": 0.35,
+"h": 0.5,
+"variant": "Travertin beige",
 "slots": {
-"top": {
-"color": "#c9a55c",
-"material": "brass"
-},
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#e8ddcb",
+"material": "travertine"
+}
+},
+"params": {
+"style": "column"
+},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W5",
+"name": "Runder Beistelltisch Marisa aus Travertin",
+"variant": "Travertin beige",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 429.0,
+"url": "https://www.westwing.de/runder-beistelltisch-marisa-aus-travertin-147375.html?simple=DEQ22WES99357-187657",
+"dims": "Ø 35 × H 50",
+"delivery": "3–4 Wo."
+}
+]
+},
+{
+"id": "1fae8f7f0c",
+"catalogId": "wes-stehlampe-matilda-in-weiss-141834",
+"pos": "W6",
+"label": "Stehlampe Matilda",
+"x": 5.79,
+"y": 6.58,
+"rot": 0,
+"elev": 0.0,
+"w": 0.4,
+"d": 0.4,
+"h": 1.64,
+"variant": "Schwarz",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "matte"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "matte"
 },
 "legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
+"color": "#1d1d1d",
+"material": "matte"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
 }
 },
 "params": {},
@@ -238,57 +280,15 @@
 "room": "13.01",
 "parts": [
 {
-"pos": "W5",
-"name": "Couchtisch Caramia 65x55 cm Metallic",
-"variant": "Gold",
-"vendor": "DELIFE",
+"pos": "W6",
+"name": "Stehlampe Matilda",
+"variant": "Schwarz",
+"vendor": "Westwing",
 "qty": 1,
-"unit": 249.9,
-"url": "https://www.delife.de/couchtisch-caramia-55x45cm-glasfaserkunststoff/a-39991",
-"dims": "B 56 × T 43 × H 38",
+"unit": 149.0,
+"url": "https://www.westwing.de/stehlampe-matilda-114256.html",
+"dims": "B 40 × T 40 × H 164",
 "delivery": null
-}
-]
-},
-{
-"id": "2fa1945877",
-"catalogId": "des-flos-ic-lights-f1-stehleuchte-michael-anastassia",
-"pos": "W6",
-"label": "Flos IC Lights F1 Stehleuchte (Michael Anastassiades)",
-"x": 5.79,
-"y": 6.58,
-"rot": 0,
-"elev": 0.0,
-"w": 0.275,
-"d": 0.275,
-"h": 1.35,
-"variant": "MESSING gebürstet / Opalglas; über Nordic Nest",
-"slots": {
-"main": {
-"color": "#c9a55c",
-"material": "brass"
-},
-"shade": {
-"color": "#f6f4ee",
-"material": "opal"
-}
-},
-"params": {
-"globe": 0.2
-},
-"mount": "floor",
-"room": "13.01",
-"parts": [
-{
-"pos": "W6",
-"name": "Flos IC Lights F1 Stehleuchte (Michael Anastassiades)",
-"variant": "MESSING gebürstet / Opalglas; über Nordic Nest",
-"vendor": "Designhandel",
-"qty": 1,
-"unit": 688.5,
-"url": "https://www.nordicnest.de/marken/flos/ic-lights-f1-stehleuchte/",
-"dims": "H 135, Kugel Ø 20, Fuß Ø 27,5",
-"delivery": "2–4 WT"
 }
 ]
 },
@@ -745,44 +745,50 @@
 "opening": "W-O2"
 },
 {
-"id": "1f0a7cfa07",
-"catalogId": "des-gubi-multi-lite-portable",
+"id": "a639313c50",
+"catalogId": "wes-mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168615",
 "pos": "W17",
-"label": "Gubi Multi-Lite Portable",
+"label": "Kleine mobile LED-Tischlampe Panthella 160, Design Verner Panton",
 "x": 3.99,
 "y": 4.41,
 "rot": 0,
 "elev": 0.5,
-"w": 0.15,
-"d": 0.15,
-"h": 0.3,
-"variant": "MESSING, Akku (≈ 6,5 h); über Nordic Nest",
+"w": 0.16,
+"d": 0.16,
+"h": 0.24,
+"variant": "Kunststoff Weiß",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#f3f1ec",
+"material": "plastic"
+},
+"frame": {
+"color": "#f3f1ec",
+"material": "plastic"
+},
+"legs": {
+"color": "#f3f1ec",
+"material": "plastic"
 },
 "shade": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#f6f4ee",
+"material": "opal"
 }
 },
-"params": {
-"shape": "cone"
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "W17",
-"name": "Gubi Multi-Lite Portable",
-"variant": "MESSING, Akku (≈ 6,5 h); über Nordic Nest",
-"vendor": "Designhandel",
+"name": "Kleine mobile LED-Tischlampe Panthella 160, Design Verner Panton",
+"variant": "Kunststoff Weiß",
+"vendor": "Westwing",
 "qty": 1,
-"unit": 228.0,
-"url": "https://www.nordicnest.de/marken/gubi/multilite-portabel-leuchte/?variantId=586069-01",
-"dims": "H 30, Ø 15",
-"delivery": "2–4 WT"
+"unit": 139.0,
+"url": "https://www.westwing.de/mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168618.html",
+"dims": "B 16 × T 16 × H 24",
+"delivery": null
 }
 ]
 },
@@ -1034,22 +1040,30 @@
 ]
 },
 {
-"id": "f0c544117d",
-"catalogId": "wes-kerzenhalter-duca-hoehenverstellbar-audo-copenha",
+"id": "db71d3d503",
+"catalogId": "del-torvia-46744",
 "pos": "W28",
-"label": "Kerzenhalter Duca, höhenverstellbar (Audo Copenhagen)",
+"label": "Vase Torvia B20 x T20 x H19 cm Aluminium Mokka Bronze Handgemacht",
 "x": 4.33,
 "y": 5.77,
 "rot": 0,
 "elev": 0.45,
-"w": 0.08,
-"d": 0.08,
-"h": 0.17,
-"variant": "MESSING poliert / Rattan",
+"w": 0.2,
+"d": 0.2,
+"h": 0.19,
+"variant": "Anthrazit/Graphit",
 "slots": {
+"top": {
+"color": "#3b3c3e",
+"material": "lacquer"
+},
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#3b3c3e",
+"material": "lacquer"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
 "params": {},
@@ -1058,50 +1072,14 @@
 "parts": [
 {
 "pos": "W28",
-"name": "Kerzenhalter Duca, höhenverstellbar (Audo Copenhagen)",
-"variant": "MESSING poliert / Rattan",
-"vendor": "Westwing",
-"qty": 1.0,
-"unit": 34.99,
-"url": "https://www.westwing.de/hoehenverstellbarer-kerzenhalter-duca-164686.html?simple=DEQ24AUD26552-212582",
-"dims": "Ø 8 × H 17",
-"delivery": "4–5 Wo."
-}
-]
-},
-{
-"id": "4756e3971d",
-"catalogId": "wes-kerzenhalter-duca-hoehenverstellbar-audo-copenha",
-"pos": "W28",
-"label": "Kerzenhalter Duca, höhenverstellbar (Audo Copenhagen)",
-"x": 4.41,
-"y": 5.84,
-"rot": 0,
-"elev": 0.45,
-"w": 0.08,
-"d": 0.08,
-"h": 0.17,
-"variant": "MESSING poliert / Rattan",
-"slots": {
-"main": {
-"color": "#c9a55c",
-"material": "brass"
-}
-},
-"params": {},
-"mount": "floor",
-"room": "13.01",
-"parts": [
-{
-"pos": "W28",
-"name": "Kerzenhalter Duca, höhenverstellbar (Audo Copenhagen)",
-"variant": "MESSING poliert / Rattan",
-"vendor": "Westwing",
-"qty": 1.0,
-"unit": 34.99,
-"url": "https://www.westwing.de/hoehenverstellbarer-kerzenhalter-duca-164686.html?simple=DEQ24AUD26552-212582",
-"dims": "Ø 8 × H 17",
-"delivery": "4–5 Wo."
+"name": "Vase Torvia B20 x T20 x H19 cm Aluminium Mokka Bronze Handgemacht",
+"variant": "Anthrazit/Graphit",
+"vendor": "DELIFE",
+"qty": 1,
+"unit": 69.9,
+"url": "https://www.delife.de/vase-torvia-aluminium-haematit-b20-x-t20-x-h19cm/a-46746",
+"dims": "B 20 × T 20 × H 19",
+"delivery": null
 }
 ]
 },
@@ -1594,49 +1572,49 @@
 ]
 },
 {
-"id": "5dc794273d",
-"catalogId": "lam-hollaender-faraone-haengeleuchte-300-k-15191",
+"id": "9318154d2a",
+"catalogId": "lam-schoener-wohnen-kollektion-lini-led-11-flammige-pendelleuchte-mit-tran",
 "pos": "E3",
-"label": "Holländer FARAONE Hängeleuchte LED",
+"label": "SCHÖNER WOHNEN-Kollektion LINI LED 11-flammige Pendelleuchte mit transparenten Glaskugeln",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 1.39,
-"w": 1.15,
-"d": 0.035,
-"h": 0.15,
-"variant": "Gold",
+"w": 1.14,
+"d": 0.3,
+"h": 0.3,
+"variant": "Schwarz / Transparent",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
-"color": "#f6f4ee",
-"material": "opal"
+"color": "#e8eef0",
+"material": "glass"
 },
 "frame": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {
-"heads": 6,
-"shape": "dome",
-"maxHang": 1.5
+"heads": 11,
+"shape": "globe",
+"maxHang": 2.2
 },
 "mount": "ceiling",
 "room": "13.01",
 "parts": [
 {
 "pos": "E3",
-"name": "Holländer FARAONE Hängeleuchte LED",
-"variant": "Gold",
+"name": "SCHÖNER WOHNEN-Kollektion LINI LED 11-flammige Pendelleuchte mit transparenten Glaskugeln",
+"variant": "Schwarz / Transparent",
 "vendor": "lampe.de",
 "qty": 1,
-"unit": 1004.99,
-"url": "https://www.lampe.de/hollaender-faraone-haengeleuchte-300-k-15191.html",
-"dims": "B 115 × T 3.5 × H 15",
+"unit": 599.0,
+"url": "https://www.lampe.de/schoener-wohnen-kollektion-lini-led-11-flammige-pendelleuchte-mit-transparenten-glaskugeln-14996-18.html",
+"dims": "B 114 × T 30 × H 30",
 "delivery": null
 }
 ]
@@ -1680,71 +1658,81 @@
 ]
 },
 {
-"id": "0e268c8e1c",
-"catalogId": "del-kazu-fuss-schwebend-metall-38946",
+"id": "8082153b51",
+"catalogId": "wes-sideboard-calary-mit-geriffelter-front",
 "pos": "E4",
-"label": "Sideboard Kazu 220 cm Metallic Gold 4 Türen schwebend Schwarz Keramik Laminam®Noir Desir Braun",
+"label": "Sideboard Calary mit geriffelter Front",
 "x": 5.8484,
 "y": 11.6823,
 "rot": 188,
 "elev": 0.0,
-"w": 2.2,
+"w": 1.6,
 "d": 0.45,
-"h": 0.69,
-"variant": "Standard",
+"h": 0.75,
+"variant": "Schwarz, matt",
 "slots": {
-"top": {
-"color": "#45403c",
-"material": "marbleNoir"
-},
 "main": {
-"color": "#9b8459",
-"material": "brass"
+"color": "#1f1e1d",
+"material": "matte"
 },
 "legs": {
-"color": "#1b1b1b",
+"color": "#1f1e1d",
+"material": "matte"
+},
+"detail": {
+"color": "#1d1d1d",
 "material": "blackMetal"
 }
 },
 "params": {
-"doors": 4
+"doors": 4,
+"legHeight": 0.17,
+"front": "ribbed"
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E4",
-"name": "Sideboard Kazu 220 cm Metallic Gold 4 Türen schwebend Schwarz Keramik Laminam®Noir Desir Braun",
-"variant": "Standard",
-"vendor": "DELIFE",
+"name": "Sideboard Calary mit geriffelter Front",
+"variant": "Schwarz, matt",
+"vendor": "Westwing",
 "qty": 1,
-"unit": 1389.9,
-"url": "https://www.delife.de/sideboard-kazu-220cm-mitteldichte-faserplatte/a-38946",
-"dims": "B 220 × T 45 × H 69",
-"delivery": null
+"unit": 1099.0,
+"url": "https://www.westwing.de/sideboard-calary-mit-schiebtueren-133864.html?simple=DEQ21WES80428-168620",
+"dims": "160 × 45 × 75",
+"delivery": "4–9 WT"
 }
 ]
 },
 {
-"id": "92339e8004",
-"catalogId": "des-flos-ic-c-w1-wand-deckenleuchte",
+"id": "f30633ec6e",
+"catalogId": "wes-wandleuchte-atlanta-aus-opalglas-147013",
 "pos": "E5",
-"label": "Flos IC C/W1 Wand-/Deckenleuchte",
+"label": "Wandleuchte Atlanta aus Opalglas",
 "x": 7.66,
 "y": 9.838,
 "rot": 98,
 "elev": 1.7,
-"w": 0.2,
-"d": 0.25,
-"h": 0.2,
-"variant": "MESSING gebürstet / Opal matt; über Lampenwelt",
+"w": 0.15,
+"d": 0.23,
+"h": 0.22,
+"variant": "Weiß, Schwarz",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "opal"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "opal"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "opal"
 },
 "shade": {
-"color": "#f6f4ee",
+"color": "#f3f1ec",
 "material": "opal"
 }
 },
@@ -1754,103 +1742,104 @@
 "parts": [
 {
 "pos": "E5",
-"name": "Flos IC C/W1 Wand-/Deckenleuchte",
-"variant": "MESSING gebürstet / Opal matt; über Lampenwelt",
-"vendor": "Designhandel",
+"name": "Wandleuchte Atlanta aus Opalglas",
+"variant": "Weiß, Schwarz",
+"vendor": "Westwing",
 "qty": 1,
-"unit": 423.9,
-"url": "https://www.lampenwelt.de/p/flos-ic-c-w1-wandleuchte-messing-geburstet-3510301.html",
-"dims": "Kugel Ø 20, Ausladung 25",
-"delivery": "13–18 WT"
+"unit": 74.99,
+"url": "https://www.westwing.de/wandleuchte-liv-113351.html",
+"dims": "B 15 × T 23 × H 22",
+"delivery": null
 }
 ]
 },
 {
-"id": "873e2f96c8",
-"catalogId": "des-flos-ic-t1-high-tischleuchte",
+"id": "7a09977408",
+"catalogId": "lam-schoener-wohnen-kollektion-sia-moderne-led-tischleuchte-rauchfarbener-",
 "pos": "E6",
-"label": "Flos IC T1 High Tischleuchte",
+"label": "SCHÖNER WOHNEN-Kollektion SIA moderne LED Tischleuchte rauchfarbener Glasschirm",
 "x": 5.22,
 "y": 11.6,
 "rot": 0,
-"elev": 0.69,
+"elev": 0.75,
 "w": 0.2,
 "d": 0.2,
-"h": 0.442,
-"variant": "MESSING gebürstet / Opalglas; über AmbienteDirect",
+"h": 0.33,
+"variant": "Schwarz / Rauchfarben",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
-"color": "#f6f4ee",
-"material": "opal"
+"color": "#6b6660",
+"material": "glass"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
-"params": {
-"globe": 0.2,
-"ic": true
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E6",
-"name": "Flos IC T1 High Tischleuchte",
-"variant": "MESSING gebürstet / Opalglas; über AmbienteDirect",
-"vendor": "Designhandel",
+"name": "SCHÖNER WOHNEN-Kollektion SIA moderne LED Tischleuchte rauchfarbener Glasschirm",
+"variant": "Schwarz / Rauchfarben",
+"vendor": "lampe.de",
 "qty": 1,
-"unit": 463.0,
-"url": "https://www.ambientedirect.com/flos/ic-t1-tischleuchte_pid_493_1139408.html",
-"dims": "H ≈ 44–53, Kugel Ø 20",
-"delivery": "1–5 WT"
+"unit": 99.0,
+"url": "https://www.lampe.de/schoener-wohnen-kollektion-sia-moderne-led-tischleuchte-rauchfarbener-glasschirm-15470-18.html",
+"dims": "B 20 × T 20 × H 33",
+"delivery": null
 }
 ]
 },
 {
-"id": "4261fd7bc5",
-"catalogId": "wes-leinwanddruck-elements-everlast-handveredelt-mal",
+"id": "0a2390ba74",
+"catalogId": "wes-handgemaltes-leinwandbild-rust-agave",
 "pos": "E7",
-"label": "Leinwanddruck Elements Everlast, handveredelt (Malerifabrikken)",
+"label": "Handgemaltes Leinwandbild Rust (Agave)",
 "x": 5.8154,
 "y": 11.9073,
 "rot": 188,
 "elev": 0.95,
 "w": 0.9,
 "d": 0.04,
-"h": 1.18,
-"variant": "Beige, Gold, Grau; Rahmen Tanne",
+"h": 1.2,
+"variant": "Brauntöne / Weiß / Schwarz",
 "slots": {
 "main": {
-"color": "#e8dccb",
+"color": "#7b4a32",
 "material": "canvas"
 },
 "secondary": {
-"color": "#c9a55c",
+"color": "#e9e2d6",
 "material": "canvas"
 },
 "frame": {
-"color": "#c8b389",
+"color": "#1d1d1d",
 "material": "matte"
 }
 },
 "params": {
-"motif": "everlast"
+"motif": "rust"
 },
 "mount": "wall",
 "room": "13.01",
 "parts": [
 {
 "pos": "E7",
-"name": "Leinwanddruck Elements Everlast, handveredelt (Malerifabrikken)",
-"variant": "Beige, Gold, Grau; Rahmen Tanne",
+"name": "Handgemaltes Leinwandbild Rust (Agave)",
+"variant": "Brauntöne / Weiß / Schwarz",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 219.0,
-"url": "https://www.westwing.de/mm-everlast-90x120-en-26mle49342.html",
-"dims": "B 90 × H 118",
-"delivery": "2–7 WT"
+"unit": 319.0,
+"url": "https://www.westwing.de/handgemaltes-leinwandbild-rust-168240.html",
+"dims": "B 90 × T 4 × H 120",
+"delivery": "3–4 Wo."
 }
 ]
 },
@@ -1862,19 +1851,19 @@
 "x": 5.7989,
 "y": 11.6753,
 "rot": 0,
-"elev": 0.69,
+"elev": 0.75,
 "w": 0.29,
 "d": 0.21,
 "h": 0.19,
-"variant": "Gold/Messing",
+"variant": "Mokka/Bronze",
 "slots": {
 "top": {
-"color": "#c7a45d",
-"material": "brass"
+"color": "#694f38",
+"material": "lacquer"
 },
 "main": {
-"color": "#c7a45d",
-"material": "brass"
+"color": "#694f38",
+"material": "lacquer"
 },
 "legs": {
 "color": "#1b1b1b",
@@ -1888,11 +1877,11 @@
 {
 "pos": "D1",
 "name": "Schale Ramina B29 x T21 x H19 cm Aluminium Aurum Satin Gegossen",
-"variant": "Gold/Messing",
+"variant": "Mokka/Bronze",
 "vendor": "DELIFE",
 "qty": 1,
 "unit": 79.9,
-"url": "https://www.delife.de/schale-ramina-aluminium-aurum-satin-b29-x-t21-x-h19cm/a-46714",
+"url": "https://www.delife.de/schale-ramina-aluminium-mokka-bronze-b29-x-t21-x-h19cm/a-46715",
 "dims": "B 29 × T 21 × H 19",
 "delivery": null
 }
@@ -2058,7 +2047,7 @@
 "x": 5.08,
 "y": 11.56,
 "rot": 0,
-"elev": 0.69,
+"elev": 0.75,
 "w": 0.32,
 "d": 0.32,
 "h": 0.4,
@@ -2096,7 +2085,7 @@
 "x": 6.25,
 "y": 11.74,
 "rot": 188,
-"elev": 0.69,
+"elev": 0.75,
 "w": 0.23,
 "d": 0.3,
 "h": 0.04,
@@ -2256,19 +2245,19 @@
 "w": 1.4,
 "d": 0.4,
 "h": 0.79,
-"variant": "Calacatta Luxe Weiß/Gold, Gestell Titanfarbig",
+"variant": "Laminam® Statuarietto Weiß, Gestell Schwarz",
 "slots": {
 "top": {
-"color": "#ebe6de",
+"color": "#efedea",
 "material": "marble"
 },
 "main": {
-"color": "#ebe6de",
+"color": "#efedea",
 "material": "marble"
 },
 "legs": {
-"color": "#8a8378",
-"material": "steel"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
 "params": {},
@@ -2278,33 +2267,33 @@
 {
 "pos": "F7",
 "name": "Konsolentisch Edge Boot 140x40 cm Keramik Estelo",
-"variant": "Calacatta Luxe Weiß/Gold, Gestell Titanfarbig",
+"variant": "Laminam® Statuarietto Weiß, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
 "unit": 589.9,
-"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45597",
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45695",
 "dims": "B 140 × T 40 × H 79",
 "delivery": null
 }
 ]
 },
 {
-"id": "2f6bba9b03",
-"catalogId": "wes-bogen-wandspiegel-laviena",
+"id": "786fb21d13",
+"catalogId": "wes-runder-wandspiegel-ayu",
 "pos": "F8",
-"label": "Bogen-Wandspiegel Laviena",
+"label": "Runder Wandspiegel Ayu",
 "x": 7.38,
 "y": 2.34,
 "rot": 0,
-"elev": 1.045,
+"elev": 1.2,
 "w": 0.6,
 "d": 0.03,
-"h": 1.01,
-"variant": "Metallrahmen MESSINGFARBEN",
+"h": 0.6,
+"variant": "Dunkles Akazienholz",
 "slots": {
 "frame": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#553c26",
+"material": "walnut"
 }
 },
 "params": {},
@@ -2313,56 +2302,58 @@
 "parts": [
 {
 "pos": "F8",
-"name": "Bogen-Wandspiegel Laviena",
-"variant": "Metallrahmen MESSINGFARBEN",
+"name": "Runder Wandspiegel Ayu",
+"variant": "Dunkles Akazienholz",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 199.0,
-"url": "https://www.westwing.de/bogen-wandspiegel-laviena-mit-messingfarbenem-metallrahmen-139347.html",
-"dims": "B 60 × H 101",
-"delivery": "2–7 WT"
+"url": "https://www.westwing.de/ayu-mirror-d60-cm-acacia-wood-walnut-color-en-25wes24896.html",
+"dims": "B 60 × T 3 × H 60",
+"delivery": "lt. Shop"
 }
 ]
 },
 {
-"id": "05bfbfea49",
-"catalogId": "des-louis-poulsen-panthella-portable-160-v3",
+"id": "51b0d84c75",
+"catalogId": "lam-hollaender-fungo-tischleuchte-424-1202",
 "pos": "F9",
-"label": "Louis Poulsen Panthella Portable 160 V3",
+"label": "Holländer FUNGO Tischleuchte",
 "x": 7.006,
 "y": 2.526,
 "rot": 0,
 "elev": 0.79,
-"w": 0.16,
-"d": 0.16,
-"h": 0.24,
-"variant": "MESSING glänzend, Akku; über Lampenwelt",
+"w": 0.32,
+"d": 0.32,
+"h": 0.43,
+"variant": "Schwarz",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
-"params": {
-"shape": "panthella"
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "F9",
-"name": "Louis Poulsen Panthella Portable 160 V3",
-"variant": "MESSING glänzend, Akku; über Lampenwelt",
-"vendor": "Designhandel",
+"name": "Holländer FUNGO Tischleuchte",
+"variant": "Schwarz",
+"vendor": "lampe.de",
 "qty": 1,
-"unit": 243.0,
-"url": "https://www.lampenwelt.de/p/louis-poulsen-panthella-portable-160-v3-messingfarben-10041803.html",
-"dims": "H 24, Ø 16",
-"delivery": "8–12 WT"
+"unit": 149.99,
+"url": "https://www.lampe.de/hollaender-fungo-tischleuchte-424-1202.html",
+"dims": "B 32 × T 32 × H 43",
+"delivery": null
 }
 ]
 },
@@ -2834,172 +2825,182 @@
 ]
 },
 {
-"id": "6fbedbeea7",
-"catalogId": "des-flos-ic-t1-low-tischleuchte",
+"id": "0741559954",
+"catalogId": "wes-kleine-retro-tischlampe-walter-in-chromfarben-146722",
 "pos": "S5",
-"label": "Flos IC T1 Low Tischleuchte",
+"label": "Kleine Retro-Tischlampe Walter, H 34 cm",
 "x": 7.04,
 "y": 13.42,
 "rot": 0,
 "elev": 0.5,
-"w": 0.176,
-"d": 0.176,
-"h": 0.38,
-"variant": "MESSING gebürstet / Opalglas; über AmbienteDirect",
+"w": 0.25,
+"d": 0.25,
+"h": 0.34,
+"variant": "Schwarz, matt",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "lacquer"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "lacquer"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "lacquer"
 },
 "shade": {
 "color": "#f6f4ee",
 "material": "opal"
 }
 },
-"params": {
-"globe": 0.2,
-"ic": true
-},
+"params": {},
 "mount": "floor",
 "room": "13.03",
 "parts": [
 {
 "pos": "S5",
-"name": "Flos IC T1 Low Tischleuchte",
-"variant": "MESSING gebürstet / Opalglas; über AmbienteDirect",
-"vendor": "Designhandel",
-"qty": 1.0,
-"unit": 463.0,
-"url": "https://www.ambientedirect.com/flos/ic-t1-tischleuchte_pid_493_1139408.html",
-"dims": "H 38, Kugel Ø 20, Fuß Ø 17,6",
-"delivery": "ab 18.11. + 1–3 WT"
+"name": "Kleine Retro-Tischlampe Walter, H 34 cm",
+"variant": "Schwarz, matt",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 109.0,
+"url": "https://www.westwing.de/retro-tischleuchte-walter-84466.html",
+"dims": "B 25 × T 25 × H 34",
+"delivery": null
 }
 ]
 },
 {
-"id": "7d6897c0d4",
-"catalogId": "des-flos-ic-t1-low-tischleuchte",
+"id": "38879309eb",
+"catalogId": "wes-kleine-retro-tischlampe-walter-in-chromfarben-146722",
 "pos": "S5",
-"label": "Flos IC T1 Low Tischleuchte",
+"label": "Kleine Retro-Tischlampe Walter, H 34 cm",
 "x": 6.69,
 "y": 15.91,
 "rot": 0,
 "elev": 0.5,
-"w": 0.176,
-"d": 0.176,
-"h": 0.38,
-"variant": "MESSING gebürstet / Opalglas; über AmbienteDirect",
+"w": 0.25,
+"d": 0.25,
+"h": 0.34,
+"variant": "Schwarz, matt",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "lacquer"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "lacquer"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "lacquer"
 },
 "shade": {
 "color": "#f6f4ee",
 "material": "opal"
 }
 },
-"params": {
-"globe": 0.2,
-"ic": true
-},
+"params": {},
 "mount": "floor",
 "room": "13.03",
 "parts": [
 {
 "pos": "S5",
-"name": "Flos IC T1 Low Tischleuchte",
-"variant": "MESSING gebürstet / Opalglas; über AmbienteDirect",
-"vendor": "Designhandel",
-"qty": 1.0,
-"unit": 463.0,
-"url": "https://www.ambientedirect.com/flos/ic-t1-tischleuchte_pid_493_1139408.html",
-"dims": "H 38, Kugel Ø 20, Fuß Ø 17,6",
-"delivery": "ab 18.11. + 1–3 WT"
+"name": "Kleine Retro-Tischlampe Walter, H 34 cm",
+"variant": "Schwarz, matt",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 109.0,
+"url": "https://www.westwing.de/retro-tischleuchte-walter-84466.html",
+"dims": "B 25 × T 25 × H 34",
+"delivery": null
 }
 ]
 },
 {
-"id": "0392fb4597",
-"catalogId": "des-konsthantverk-svep-deckenleuchte",
+"id": "064963770c",
+"catalogId": "wes-kleine-deckenleuchte-lido-aus-opalglas",
 "pos": "S6",
-"label": "Konsthantverk Svep Deckenleuchte",
+"label": "Kleine Deckenleuchte Lido aus Opalglas",
 "x": 5.351,
 "y": 13.348,
 "rot": 0,
-"elev": 2.38,
-"w": 0.45,
-"d": 0.45,
-"h": 0.18,
-"variant": "MESSING roh / Opal-Acryl; über Nordic Nest",
+"elev": 2.33,
+"w": 0.2,
+"d": 0.2,
+"h": 0.23,
+"variant": "Opalglas weiß / Gestell schwarz",
 "slots": {
 "main": {
 "color": "#f6f4ee",
 "material": "opal"
 },
 "frame": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {
-"shape": "svep"
+"shape": "lido"
 },
 "mount": "ceiling",
 "room": "13.03",
 "parts": [
 {
 "pos": "S6",
-"name": "Konsthantverk Svep Deckenleuchte",
-"variant": "MESSING roh / Opal-Acryl; über Nordic Nest",
-"vendor": "Designhandel",
-"qty": 1.0,
-"unit": 299.0,
-"url": "https://www.nordicnest.de/marken/konsthantverk/svep-deckenleuchte/?variantId=561044-01",
-"dims": "Ø 45 × H 18",
-"delivery": "Versand ab 15.11."
+"name": "Kleine Deckenleuchte Lido aus Opalglas",
+"variant": "Opalglas weiß / Gestell schwarz",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 64.99,
+"url": "https://www.westwing.de/deckenleuchte-lido-aus-opalglas-142125.html",
+"dims": "B 20 × T 20 × H 23",
+"delivery": "2–3 Wo."
 }
 ]
 },
 {
-"id": "32e06952de",
-"catalogId": "des-konsthantverk-svep-deckenleuchte",
+"id": "423f104c41",
+"catalogId": "wes-kleine-deckenleuchte-lido-aus-opalglas",
 "pos": "S6",
-"label": "Konsthantverk Svep Deckenleuchte",
+"label": "Kleine Deckenleuchte Lido aus Opalglas",
 "x": 5.044,
 "y": 15.526,
 "rot": 0,
-"elev": 2.38,
-"w": 0.45,
-"d": 0.45,
-"h": 0.18,
-"variant": "MESSING roh / Opal-Acryl; über Nordic Nest",
+"elev": 2.33,
+"w": 0.2,
+"d": 0.2,
+"h": 0.23,
+"variant": "Opalglas weiß / Gestell schwarz",
 "slots": {
 "main": {
 "color": "#f6f4ee",
 "material": "opal"
 },
 "frame": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {
-"shape": "svep"
+"shape": "lido"
 },
 "mount": "ceiling",
 "room": "13.03",
 "parts": [
 {
 "pos": "S6",
-"name": "Konsthantverk Svep Deckenleuchte",
-"variant": "MESSING roh / Opal-Acryl; über Nordic Nest",
-"vendor": "Designhandel",
-"qty": 1.0,
-"unit": 299.0,
-"url": "https://www.nordicnest.de/marken/konsthantverk/svep-deckenleuchte/?variantId=561044-01",
-"dims": "Ø 45 × H 18",
-"delivery": "Versand ab 15.11."
+"name": "Kleine Deckenleuchte Lido aus Opalglas",
+"variant": "Opalglas weiß / Gestell schwarz",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 64.99,
+"url": "https://www.westwing.de/deckenleuchte-lido-aus-opalglas-142125.html",
+"dims": "B 20 × T 20 × H 23",
+"delivery": "2–3 Wo."
 }
 ]
 },
@@ -3426,15 +3427,15 @@
 "w": 0.57,
 "d": 0.57,
 "h": 0.8,
-"variant": "Bouclé Weiß, Beine goldfarben, Rollen",
+"variant": "Bouclé Schwarz, Schwarz",
 "slots": {
 "main": {
-"color": "#f4f2eb",
+"color": "#1d1d1d",
 "material": "boucle"
 },
 "legs": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {
@@ -3446,7 +3447,7 @@
 {
 "pos": "A3",
 "name": "Bouclé-Schreibtischstuhl Lucie",
-"variant": "Bouclé Weiß, Beine goldfarben, Rollen",
+"variant": "Bouclé Schwarz, Schwarz",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 219.0,
@@ -3498,48 +3499,50 @@
 ]
 },
 {
-"id": "36733dd6e4",
-"catalogId": "des-gubi-bestlite-bl1-tischleuchte",
+"id": "42113a0a14",
+"catalogId": "wes-kleine-retro-tischlampe-walter-in-chromfarben-146722",
 "pos": "A6",
-"label": "Gubi Bestlite BL1 Tischleuchte",
+"label": "Kleine Retro-Tischlampe Walter, H 34 cm",
 "x": 14.522,
 "y": 3.27,
 "rot": 0,
 "elev": 0.75,
-"w": 0.16,
-"d": 0.16,
-"h": 0.51,
-"variant": "Kohlschwarz / MESSING; über Nordic Nest",
+"w": 0.25,
+"d": 0.25,
+"h": 0.34,
+"variant": "Schwarz, matt",
 "slots": {
 "main": {
 "color": "#1d1d1d",
-"material": "blackMetal"
+"material": "lacquer"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "lacquer"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "lacquer"
 },
 "shade": {
-"color": "#1d1d1d",
-"material": "blackMetal"
-},
-"detail": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#f6f4ee",
+"material": "opal"
 }
 },
-"params": {
-"shape": "bestlite"
-},
+"params": {},
 "mount": "floor",
 "room": "13.04",
 "parts": [
 {
 "pos": "A6",
-"name": "Gubi Bestlite BL1 Tischleuchte",
-"variant": "Kohlschwarz / MESSING; über Nordic Nest",
-"vendor": "Designhandel",
+"name": "Kleine Retro-Tischlampe Walter, H 34 cm",
+"variant": "Schwarz, matt",
+"vendor": "Westwing",
 "qty": 1,
-"unit": 399.0,
-"url": "https://www.nordicnest.de/marken/gubi/bestlite-bl1-tischleuchte/?variantId=24038-04",
-"dims": "H 51, Schirm Ø 16, Fuß Ø 15",
-"delivery": "2–4 WT"
+"unit": 109.0,
+"url": "https://www.westwing.de/retro-tischleuchte-walter-84466.html",
+"dims": "B 25 × T 25 × H 34",
+"delivery": null
 }
 ]
 },

@@ -3,7 +3,7 @@
 // Rendert per Software-WebGL (SwiftShader) in höchster Qualitätsstufe und misst je Bild
 // mittlere Helligkeit und Anteil ausgebrannter Pixel.
 import { spawn } from "node:child_process";
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { chromium } from "playwright";
 
@@ -31,6 +31,8 @@ const VIEWS = [
   { id: "stuehle", pos: [6.1, 1.25, 7.7], target: [6.0, 0.55, 9.6], fov: 55, time: 14 },
   { id: "stuhl", pos: [7.2, 1.05, 8.45], target: [7.5, 0.5, 7.34], fov: 50, time: 14 },
 ];
+// Fotoansichten der App (Kamera & Ansichten → Raumfotos), als foto-<id>
+for (const v of JSON.parse(readFileSync(new globalThis.URL("../src/data/roomShots.json", import.meta.url), "utf8"))) VIEWS.push({ ...v, id: `foto-${v.id}` });
 
 const server = spawn(process.execPath, ["node_modules/vite/bin/vite.js", "preview", "--port", String(PORT), "--strictPort", "--outDir", process.env.DIST ?? "dist"], { stdio: "ignore" });
 const ready = async () => {

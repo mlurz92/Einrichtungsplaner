@@ -362,6 +362,7 @@
 "description": "Unikat; Westwand in Achse Couchtisch, im Blickfeld des Sessels W4; Unterkante H 0,95, Bildmitte H ≈ 1,55 m",
 "concepts": [
 1,
+3,
 4
 ],
 "elev": 0.0
@@ -623,7 +624,8 @@
 "description": "über dem Sideboard, Unterkante 0,95 m",
 "concepts": [
 2,
-3
+3,
+4
 ],
 "elev": 0.0
 },
@@ -667,11 +669,7 @@
 "premium": true,
 "delivery": "2–7 WT",
 "description": "Goldton holt das Messing der Leuchten an die Wand; UK 0,95 m",
-"concepts": [
-3,
-4
-],
-"elev": 0.0
+"concepts": []
 },
 {
 "id": "bestand-badewanne-180-80-bestand-",
@@ -909,7 +907,7 @@
 "material": "boucle"
 },
 "secondary": {
-"color": "#c8d3c1",
+"color": "#d9cdb8",
 "material": "linen"
 },
 "accent": {
@@ -1271,7 +1269,8 @@
 "delivery": "2–3 Wo.",
 "description": "E27 LED, IP23",
 "concepts": [
-1
+1,
+4
 ],
 "elev": 0.0
 },
@@ -1354,10 +1353,7 @@
 "premium": true,
 "delivery": "Versand ab 15.11.",
 "description": "deckennah an beiden DA; 3 × E27 exkl., warmweiß 2.700 K",
-"concepts": [
-4
-],
-"elev": 0.0
+"concepts": []
 },
 {
 "id": "wes-armlehnstuhl-nik-nischenplatz",
@@ -4095,9 +4091,7 @@
 "premium": true,
 "delivery": "4–5 Wo.",
 "description": "zwei Höhen auf dem Tablett",
-"concepts": [
-4
-]
+"concepts": []
 },
 {
 "id": "wes-kerzenhalter-stoff-nagel-3er-set",
@@ -4474,7 +4468,8 @@
 "concepts": [
 1,
 2,
-3
+3,
+4
 ]
 },
 {
@@ -4841,8 +4836,8 @@
 "name": "Kupferfarben / Opalglas weiß",
 "slots": {
 "main": {
-"color": "#c3a160",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
 "color": "#f6f4ee",
@@ -4879,8 +4874,8 @@
 "name": "MESSING gebürstet / Opalglas; über Nordic Nest",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
 "color": "#f6f4ee",
@@ -4895,84 +4890,7 @@
 "premium": true,
 "delivery": "2–4 WT",
 "description": "Skulptur-Leuchte im Eck zwischen Sofa und Sessel; Kugelmotiv wie E5, E6, S5; E14 exkl.; UVP 765 €",
-"concepts": [
-4
-]
-},
-{
-"id": "wes-stehlampe-neron-122121",
-"vendor": "Westwing",
-"brand": "Westwing Collection",
-"name": "Große Leselampe Neron",
-"category": "floorLamp",
-"w": 40.0,
-"d": 105.0,
-"h": 171.0,
-"price": 219.0,
-"url": "https://www.westwing.de/stehlampe-neron-122121.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ20WES54106-153990_5d090e0f553734371ecdda162a1fe017_dtl_1.jpg",
-"archetype": "lampFloorShade",
-"params": {},
-"variants": [
-{
-"name": "Schwarz, Messing",
-"slots": {
-"main": {
-"color": "#c3a160",
-"material": "brass"
-},
-"frame": {
-"color": "#c3a160",
-"material": "brass"
-},
-"legs": {
-"color": "#c3a160",
-"material": "brass"
-},
-"shade": {
-"color": "#1d1d1d",
-"material": "linen"
-}
-},
-"price": 229.0,
-"url": "https://www.westwing.de/stehlampe-neron-122121.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ20WES54106-153990_5d090e0f553734371ecdda162a1fe017_dtl_1.jpg"
-},
-{
-"name": "Cremeweiß, Silberfarben",
-"slots": {
-"main": {
-"color": "#c6cbd0",
-"material": "chrome"
-},
-"frame": {
-"color": "#c6cbd0",
-"material": "chrome"
-},
-"legs": {
-"color": "#c6cbd0",
-"material": "chrome"
-},
-"shade": {
-"color": "#ede6d8",
-"material": "opal"
-}
-},
-"price": 219.0,
-"url": "https://www.westwing.de/grosse-leselampe-neron-163380.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES73209-211038_f4503a23a1a99103b5907d6123a6a418_dtl_1.jpg"
-}
-],
-"tags": [
-"Westwing Collection"
-],
-"premium": true,
-"description": "Gesamt: H 171 cm, T 105 cm · Lampenschirm: B 27 cm, H 10 cm, T 31 cm · Lampensockel: Ø 30 cm · Kabel: L 210 cm",
-"mount": "floor",
-"resizable": false,
-"concepts": [
-3
-]
+"concepts": []
 },
 {
 "id": "des-gubi-multi-lite-stehleuchte",
@@ -4994,12 +4912,12 @@
 "name": "Chrom / Chrom; über Nordic Nest",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 }
 }
@@ -5013,122 +4931,273 @@
 "concepts": []
 },
 {
-"id": "lam-hollaender-capri-stehleuchte-280-k-1101",
-"vendor": "lampe.de",
-"brand": "Holländer",
-"series": "Holländer CAPRI Stehleuchte",
-"name": "Holländer CAPRI Stehleuchte",
+"id": "wes-stehlampe-lilly-128060",
+"vendor": "Westwing",
+"brand": "Nordlux",
+"name": "Stehlampe Lilly aus Opalglas",
 "category": "floorLamp",
+"w": 30.0,
+"d": 30.0,
+"h": 150.0,
+"price": 129.0,
+"url": "https://www.westwing.de/stehlampe-lilly-128060.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ20NOR09161-161316_07b9de024aca3332f3d8f1d62b90bed5_dtl_1.jpg",
 "archetype": "lampFloorShade",
-"w": 46.0,
-"d": 46.0,
-"h": 155.0,
-"price": 719.99,
-"url": "https://www.lampe.de/hollaender-capri-stehleuchte-280-k-1101.html",
-"image": "https://www.lampe.de/media/product/130809/700x700/hollaender-capri-stehleuchte-280-k-1101-0.jpg",
 "params": {},
 "variants": [
 {
-"name": "Gold / Schwarz",
+"name": "Schwarz, Weiß",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#f3f1ec",
+"material": "opal"
+},
+"frame": {
+"color": "#f3f1ec",
+"material": "opal"
+},
+"legs": {
+"color": "#f3f1ec",
+"material": "opal"
 },
 "shade": {
 "color": "#1d1d1d",
 "material": "linen"
-},
-"frame": {
-"color": "#c9a55c",
-"material": "brass"
 }
 },
-"price": 719.99,
-"url": "https://www.lampe.de/hollaender-capri-stehleuchte-280-k-1101.html"
+"price": 129.0,
+"url": "https://www.westwing.de/stehlampe-lilly-128060.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ20NOR09161-161316_07b9de024aca3332f3d8f1d62b90bed5_dtl_1.jpg"
 }
 ],
-"premium": true,
 "tags": [
-"Holländer",
-"Stehlampe"
+"Nordlux"
 ],
-"description": "Stehlampe, 1-flammig; E27; Material: Metall; Schirm: Kunststoff",
+"premium": false,
+"description": "Lampe: Ø 30 cm, H 150 cm · Lampenschirme: Ø 15 cm · Kabel: L 150 cm",
 "mount": "floor",
 "resizable": false,
 "concepts": [
-1
+3
 ]
 },
 {
-"id": "wes-bun-floor-lamp-brown-en-25wes95914",
+"id": "wes-stehlampe-matilda-in-weiss-141834",
 "vendor": "Westwing",
 "brand": "Westwing Collection",
-"name": "Stehlampe Bun mit Marmorfuß",
+"name": "Stehlampe Matilda",
 "category": "floorLamp",
 "w": 40.0,
 "d": 40.0,
-"h": 153.0,
-"price": 419.0,
-"url": "https://www.westwing.de/bun-floor-lamp-brown-en-25wes95914.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25WES95914-622876_1e9e390b2c7153fe3b68f98d069fc025_dtl_1.jpg",
+"h": 164.0,
+"price": 149.0,
+"url": "https://www.westwing.de/stehlampe-matilda-in-weiss-141834.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ22WES40840-179437_fa1a76fd631546c1ab4d7060bb2288d3_dtl_1.jpg",
 "archetype": "lampFloorShade",
 "params": {},
 "variants": [
 {
-"name": "Brauner Marmor, goldfarben",
+"name": "Weiß",
 "slots": {
 "main": {
-"color": "#7a5a43",
-"material": "marble"
-},
-"frame": {
-"color": "#7a5a43",
-"material": "marble"
-},
-"legs": {
-"color": "#7a5a43",
-"material": "marble"
-},
-"shade": {
-"color": "#c9a55c",
-"material": "brass"
-}
-},
-"price": 419.0,
-"url": "https://www.westwing.de/bun-floor-lamp-brown-en-25wes95914.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25WES95914-622876_1e9e390b2c7153fe3b68f98d069fc025_dtl_1.jpg"
-},
-{
-"name": "Marmor Beige, Weiß",
-"slots": {
-"main": {
-"color": "#d6c7ae",
-"material": "marble"
-},
-"frame": {
-"color": "#d6c7ae",
-"material": "marble"
-},
-"legs": {
-"color": "#d6c7ae",
-"material": "marble"
-},
-"shade": {
 "color": "#f3f1ec",
+"material": "matte"
+},
+"frame": {
+"color": "#f3f1ec",
+"material": "matte"
+},
+"legs": {
+"color": "#f3f1ec",
+"material": "matte"
+},
+"shade": {
+"color": "#f6f4ee",
 "material": "opal"
 }
 },
-"price": 419.0,
-"url": "https://www.westwing.de/bun-floor-lamp-beige-en-25wes89459.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25WES89459-281469_98a971e0868fe561fb3ae361c95bcf9b_dtl_1.jpg"
+"price": 149.0,
+"url": "https://www.westwing.de/stehlampe-matilda-in-weiss-141834.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ22WES40840-179437_fa1a76fd631546c1ab4d7060bb2288d3_dtl_1.jpg"
+},
+{
+"name": "Messingfarben",
+"slots": {
+"main": {
+"color": "#c3a160",
+"material": "brass"
+},
+"frame": {
+"color": "#c3a160",
+"material": "brass"
+},
+"legs": {
+"color": "#c3a160",
+"material": "brass"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 149.0,
+"url": "https://www.westwing.de/stehlampe-matilda-114254.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ19WES06540-143216_66d83fef7cbb7cb659c9e10417d01cd5_dtl_1.jpg"
+},
+{
+"name": "Schwarz",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "matte"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "matte"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "matte"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 149.0,
+"url": "https://www.westwing.de/stehlampe-matilda-114256.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ19WES98034-143218_1942c97161048cd9bbdb2248eec2b06b_dtl_1.jpg"
 }
 ],
 "tags": [
 "Westwing Collection"
 ],
 "premium": true,
-"description": "Gesamt: Ø 40 cm, H 153 cm · Lampengestell: H 95 cm · Lampenschirm: Ø 40 cm, H 24 cm · Lampenfuß: Ø 20 cm, H 28 cm · Kabel: L 220 cm",
+"description": "Lampe: H 164 cm · Lampenschirm: Ø 40 cm, H 21 cm · Lampensockel: Ø 25 cm · Kabel: L 210 cm",
+"mount": "floor",
+"resizable": false,
+"concepts": [
+1,
+4
+]
+},
+{
+"id": "wes-verstellbare-stehlampe-multi-lite-164080",
+"vendor": "Westwing",
+"brand": "GUBI",
+"name": "Verstellbare Stehlampe Multi-Lite",
+"category": "floorLamp",
+"w": 36.0,
+"d": 36.0,
+"h": 148.0,
+"price": 719.0,
+"url": "https://www.westwing.de/verstellbare-stehlampe-multi-lite-164080.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24GUB01257-211138_a81c647209d9bcfbd96f3a3267d04f04_dtl_1.jpg",
+"archetype": "lampFloorShade",
+"params": {},
+"variants": [
+{
+"name": "Goldfarben, glänzend",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"legs": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 719.0,
+"url": "https://www.westwing.de/verstellbare-stehlampe-multi-lite-164080.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24GUB01257-211138_a81c647209d9bcfbd96f3a3267d04f04_dtl_1.jpg"
+},
+{
+"name": "Schwarz matt, Goldfarben glänzend",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"legs": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#1d1d1d",
+"material": "linen"
+}
+},
+"price": 829.0,
+"url": "https://www.westwing.de/verstellbare-stehlampe-multi-lite-164081.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24GUB92188-211862_455f33204a62e0efb58ecc0304e781ce_dtl_1.jpg"
+},
+{
+"name": "Silberfarben, glänzend",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 769.0,
+"url": "https://www.westwing.de/verstellbare-stehlampe-multi-lite-164082.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24GUB32411-211050_873f97d4d05aad36032ee7d9a0201b5e_dtl_1.jpg"
+},
+{
+"name": "Weiß matt, Silberfarben glänzend",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#f3f1ec",
+"material": "opal"
+}
+},
+"price": 739.0,
+"url": "https://www.westwing.de/verstellbare-stehlampe-multi-lite-164083.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24GUB06261-211814_03a38c1d05c4930d6a6563763cf57984_dtl_1.jpg"
+}
+],
+"tags": [
+"GUBI"
+],
+"premium": true,
+"description": "Gesamt: Ø 36 cm, H 148 cm · Lampenschirm: Ø 32 cm, H 16 cm · Kabel: L 200 cm",
 "mount": "floor",
 "resizable": false,
 "concepts": [
@@ -5554,21 +5623,7 @@
 "color": "#c9a55c",
 "material": "brass"
 }
-},
-"price": 199.0,
-"url": "https://www.westwing.de/bogen-wandspiegel-laviena-mit-messingfarbenem-metallrahmen-139347.html"
-},
-{
-"name": "Goldfarben",
-"slots": {
-"frame": {
-"color": "#c9a55c",
-"material": "brass"
 }
-},
-"price": 189.0,
-"url": "https://www.westwing.de/bogen-wandspiegel-laviena-mit-messingfarbenem-metallrahmen-139347.html",
-"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ21WES36161-176202_2f7012d94a1a344c40ba8bb6f1dfb3a4_dtl_1.jpg"
 }
 ],
 "tags": [
@@ -5577,12 +5632,7 @@
 "premium": true,
 "delivery": "2–7 WT",
 "description": "Bogen = zweites Formmotiv (Kugel, Bogen, Kreis); Mitte H 1,55; Befestigung nicht enthalten",
-"concepts": [
-2,
-3,
-4
-],
-"elev": 0.0
+"concepts": []
 },
 {
 "id": "wes-kleiner-runder-wandspiegel-polaris",
@@ -5640,6 +5690,18 @@
 "material": "walnut"
 }
 }
+},
+{
+"name": "Dunkles Akazienholz",
+"slots": {
+"frame": {
+"color": "#553c26",
+"material": "walnut"
+}
+},
+"price": 199.0,
+"url": "https://www.westwing.de/ayu-mirror-d60-cm-acacia-wood-walnut-color-en-25wes24896.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25WES24896-607959_ce728adf02784492120fbd1795246a52_dtl_1.jpg"
 }
 ],
 "tags": [
@@ -5649,7 +5711,10 @@
 "delivery": "lt. Shop",
 "description": "",
 "concepts": [
-1
+1,
+2,
+3,
+4
 ],
 "elev": 0.0
 },
@@ -5891,15 +5956,15 @@
 "mount": "floor",
 "variants": [
 {
-"name": "Bouclé Weiß, Beine goldfarben, Rollen",
+"name": "Bouclé Schwarz, Schwarz",
 "slots": {
 "main": {
-"color": "#f4f2eb",
+"color": "#1d1d1d",
 "material": "boucle"
 },
 "legs": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 }
 }
@@ -6074,6 +6139,58 @@
 ]
 },
 {
+"id": "lam-by-rydens-skyline-haengeleuchte-4201530-4002",
+"vendor": "lampe.de",
+"brand": "By Rydens",
+"series": "By Rydens Skyline Hängeleuchte",
+"name": "By Rydens Skyline Hängeleuchte",
+"category": "pendant",
+"archetype": "pendantLinear",
+"w": 110.0,
+"d": 13.0,
+"h": 15.0,
+"price": 229.0,
+"url": "https://www.lampe.de/by-rydens-skyline-haengeleuchte-4201530-4002.html",
+"image": "https://www.lampe.de/media/product/123330/700x700/by-rydens-skyline-haengeleuchte-4201530-4002-0.jpg",
+"params": {
+"heads": 6,
+"shape": "dome"
+},
+"variants": [
+{
+"name": "Schwarz",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"price": 229.0,
+"url": "https://www.lampe.de/by-rydens-skyline-haengeleuchte-4201530-4002.html"
+}
+],
+"premium": true,
+"tags": [
+"By Rydens",
+"Hängeleuchte"
+],
+"description": "Hängeleuchte, 6-flammig; E27; Material: Metall",
+"mount": "ceiling",
+"elev": 2.0,
+"resizable": false,
+"concepts": [
+1
+]
+},
+{
 "id": "wes-dimmbare-pendelleuchte-kushi-mundgeblasen-kdln",
 "vendor": "Westwing",
 "name": "Dimmbare Pendelleuchte Kushi, mundgeblasen (kdln)",
@@ -6189,183 +6306,6 @@
 "concepts": []
 },
 {
-"id": "lam-hollaender-alice-fiorire-haengeleuchte-300-k-15149-sg",
-"vendor": "lampe.de",
-"brand": "Holländer",
-"series": "Holländer ALICE FIORIRE Hängeleuchte",
-"name": "Holländer ALICE FIORIRE Hängeleuchte",
-"category": "pendant",
-"archetype": "pendantLinear",
-"w": 114.0,
-"d": 50.0,
-"h": 50.0,
-"price": 1504.99,
-"url": "https://www.lampe.de/hollaender-alice-fiorire-haengeleuchte-300-k-15149-sg.html",
-"image": "https://www.lampe.de/media/product/130711/700x700/hollaender-alice-fiorire-haengeleuchte-300-k-15149-sg-0.jpg",
-"params": {
-"heads": 6,
-"shape": "globe"
-},
-"variants": [
-{
-"name": "Gold / Schwarz",
-"slots": {
-"main": {
-"color": "#c9a55c",
-"material": "brass"
-},
-"shade": {
-"color": "#1d1d1d",
-"material": "glass"
-},
-"frame": {
-"color": "#c9a55c",
-"material": "brass"
-}
-},
-"price": 1504.99,
-"url": "https://www.lampe.de/hollaender-alice-fiorire-haengeleuchte-300-k-15149-sg.html"
-}
-],
-"premium": true,
-"tags": [
-"Holländer",
-"Hängeleuchte"
-],
-"description": "Hängeleuchte, 6-flammig; G9; Material: Metall; Schirm: Muranoglas",
-"mount": "ceiling",
-"elev": 2.0,
-"resizable": false,
-"concepts": [
-1
-]
-},
-{
-"id": "lam-hollaender-castello-haengeleuchte-300-k-15190-s",
-"vendor": "lampe.de",
-"brand": "Holländer",
-"series": "Holländer CASTELLO Hängeleuchte LED",
-"name": "Holländer CASTELLO Hängeleuchte LED",
-"category": "pendant",
-"archetype": "pendantLinear",
-"w": 105.0,
-"d": 7.0,
-"h": 15.0,
-"price": 1299.99,
-"url": "https://www.lampe.de/hollaender-castello-haengeleuchte-300-k-15190-s.html",
-"image": "https://www.lampe.de/media/product/130942/700x700/hollaender-castello-haengeleuchte-300-k-15190-s-0.jpg",
-"params": {
-"heads": 6,
-"shape": "dome",
-"maxHang": 1.3
-},
-"variants": [
-{
-"name": "Silber",
-"slots": {
-"main": {
-"color": "#c6cbd0",
-"material": "chrome"
-},
-"shade": {
-"color": "#f6f4ee",
-"material": "opal"
-},
-"frame": {
-"color": "#c6cbd0",
-"material": "chrome"
-}
-},
-"price": 1299.99,
-"url": "https://www.lampe.de/hollaender-castello-haengeleuchte-300-k-15190-s.html"
-},
-{
-"name": "Gold",
-"slots": {
-"main": {
-"color": "#c9a55c",
-"material": "brass"
-},
-"shade": {
-"color": "#f6f4ee",
-"material": "opal"
-},
-"frame": {
-"color": "#c9a55c",
-"material": "brass"
-}
-},
-"price": 1299.99,
-"url": "https://www.lampe.de/hollaender-castello-haengeleuchte-300-k-15190.html"
-}
-],
-"premium": true,
-"tags": [
-"Holländer",
-"Hängeleuchte"
-],
-"description": "Hängeleuchte, 6-flammig; LED; Material: Metall; Abhängung bis 130 cm",
-"mount": "ceiling",
-"elev": 2.0,
-"resizable": false,
-"concepts": [
-2
-]
-},
-{
-"id": "lam-hollaender-faraone-haengeleuchte-300-k-15191",
-"vendor": "lampe.de",
-"brand": "Holländer",
-"series": "Holländer FARAONE Hängeleuchte LED",
-"name": "Holländer FARAONE Hängeleuchte LED",
-"category": "pendant",
-"archetype": "pendantLinear",
-"w": 115.0,
-"d": 3.5,
-"h": 15.0,
-"price": 1004.99,
-"url": "https://www.lampe.de/hollaender-faraone-haengeleuchte-300-k-15191.html",
-"image": "https://www.lampe.de/media/product/75442/700x700/hollaender-faraone-haengeleuchte-300-k-15191-0.jpg",
-"params": {
-"heads": 6,
-"shape": "dome",
-"maxHang": 1.5
-},
-"variants": [
-{
-"name": "Gold",
-"slots": {
-"main": {
-"color": "#c9a55c",
-"material": "brass"
-},
-"shade": {
-"color": "#f6f4ee",
-"material": "opal"
-},
-"frame": {
-"color": "#c9a55c",
-"material": "brass"
-}
-},
-"price": 1004.99,
-"url": "https://www.lampe.de/hollaender-faraone-haengeleuchte-300-k-15191.html"
-}
-],
-"premium": true,
-"tags": [
-"Holländer",
-"Hängeleuchte"
-],
-"description": "Hängeleuchte, 6-flammig; LED; Material: Metall; Abhängung bis 150 cm",
-"mount": "ceiling",
-"elev": 2.0,
-"resizable": false,
-"concepts": [
-4
-]
-},
-{
 "id": "lam-schoener-wohnen-kollektion-dubai-led-balkenpendelleuchte-13-flammig-ra",
 "vendor": "lampe.de",
 "brand": "SCHÖNER WOHNEN-Kollektion",
@@ -6416,6 +6356,112 @@
 "resizable": false,
 "concepts": [
 3
+]
+},
+{
+"id": "lam-schoener-wohnen-kollektion-lini-led-11-flammige-pendelleuchte-mit-tran",
+"vendor": "lampe.de",
+"brand": "SCHÖNER WOHNEN-Kollektion",
+"series": "SCHÖNER WOHNEN-Kollektion LINI LED 11-flammige Pendelleuchte mit transparenten Glaskugeln",
+"name": "SCHÖNER WOHNEN-Kollektion LINI LED 11-flammige Pendelleuchte mit transparenten Glaskugeln",
+"category": "pendant",
+"archetype": "pendantLinear",
+"w": 114.0,
+"d": 30.0,
+"h": 30.0,
+"price": 599.0,
+"url": "https://www.lampe.de/schoener-wohnen-kollektion-lini-led-11-flammige-pendelleuchte-mit-transparenten-glaskugeln-14996-18.html",
+"image": "https://www.lampe.de/media/product/176096/700x700/schoener-wohnen-kollektion-lini-led-11-flammige-pendelleuchte-mit-transparenten-glaskugeln-14996-18-0.jpg",
+"params": {
+"heads": 11,
+"shape": "globe",
+"maxHang": 2.2
+},
+"variants": [
+{
+"name": "Schwarz / Transparent",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+},
+"shade": {
+"color": "#e8eef0",
+"material": "glass"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"price": 599.0,
+"url": "https://www.lampe.de/schoener-wohnen-kollektion-lini-led-11-flammige-pendelleuchte-mit-transparenten-glaskugeln-14996-18.html"
+}
+],
+"premium": true,
+"tags": [
+"SCHÖNER WOHNEN-Kollektion",
+"Pendelleuchte"
+],
+"description": "Pendelleuchte, 11-flammig; LED; Material: Metall; Schirm: Glas; Abhängung bis 220 cm",
+"mount": "ceiling",
+"elev": 2.0,
+"resizable": false,
+"concepts": [
+4
+]
+},
+{
+"id": "lam-schoener-wohnen-kollektion-sia-led-5-flammige-esstisch-pendelleuchte-h",
+"vendor": "lampe.de",
+"brand": "SCHÖNER WOHNEN-Kollektion",
+"series": "Schöner Wohnen-Kollektion SIA LED 5-flammige Esstisch-Pendelleuchte höhenverstellbar 110 cm modern",
+"name": "Schöner Wohnen-Kollektion SIA LED 5-flammige Esstisch-Pendelleuchte höhenverstellbar 110 cm modern",
+"category": "pendant",
+"archetype": "pendantLinear",
+"w": 110.0,
+"d": 36.0,
+"h": 36.0,
+"price": 349.0,
+"url": "https://www.lampe.de/schoener-wohnen-kollektion-sia-led-5-flammige-esstisch-pendelleuchte-hoehenverstellbar-110-cm-modern-15473-18.html",
+"image": "https://www.lampe.de/media/product/176100/700x700/schoener-wohnen-kollektion-sia-led-5-flammige-esstisch-pendelleuchte-hoehenverstellbar-110-cm-modern-15473-18-0.jpg",
+"params": {
+"heads": 5,
+"shape": "globe",
+"maxHang": 1.2
+},
+"variants": [
+{
+"name": "Schwarz / Rauchfarben",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+},
+"shade": {
+"color": "#6b6660",
+"material": "glass"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"price": 349.0,
+"url": "https://www.lampe.de/schoener-wohnen-kollektion-sia-led-5-flammige-esstisch-pendelleuchte-hoehenverstellbar-110-cm-modern-15473-18.html"
+}
+],
+"premium": true,
+"tags": [
+"SCHÖNER WOHNEN-Kollektion",
+"Pendelleuchte"
+],
+"description": "Pendelleuchte, 5-flammig; LED; Material: Metall; Schirm: Glas; Abhängung bis 120 cm",
+"mount": "ceiling",
+"elev": 2.0,
+"resizable": false,
+"concepts": [
+2
 ]
 },
 {
@@ -7670,90 +7716,6 @@
 "concepts": []
 },
 {
-"id": "del-caramia-39991",
-"vendor": "DELIFE",
-"brand": "DELIFE",
-"series": "Caramia",
-"name": "Couchtisch Caramia 65x55 cm Metallic",
-"category": "sideTable",
-"w": 56.0,
-"d": 43.0,
-"h": 38.0,
-"price": 199.9,
-"url": "https://www.delife.de/couchtisch-caramia-65x55cm-glasfaserkunststoff/a-39992",
-"image": "https://www.delife.de/media/48/4b/b3/1782527472/39992-couchtisch-caramia-65x55-cm-metallic-silber_14c74ce.jpg?imwidth=800",
-"archetype": "sideContainer",
-"params": {},
-"variants": [
-{
-"name": "Silber",
-"slots": {
-"top": {
-"color": "#c6cbd0",
-"material": "blackMetal"
-},
-"main": {
-"color": "#c6cbd0",
-"material": "blackMetal"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 199.9,
-"url": "https://www.delife.de/couchtisch-caramia-65x55cm-glasfaserkunststoff/a-39992",
-"image": "https://www.delife.de/media/48/4b/b3/1782527472/39992-couchtisch-caramia-65x55-cm-metallic-silber_14c74ce.jpg?imwidth=800",
-"opts": [
-"Silber"
-]
-},
-{
-"name": "Gold",
-"slots": {
-"top": {
-"color": "#c9a55c",
-"material": "brass"
-},
-"main": {
-"color": "#c9a55c",
-"material": "brass"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 249.9,
-"url": "https://www.delife.de/couchtisch-caramia-55x45cm-glasfaserkunststoff/a-39991",
-"image": "https://www.delife.de/media/35/d8/ba/1782562264/39991-couchtisch-caramia-65x55-cm-metallic-gold_16ab6c0.jpg?imwidth=800",
-"opts": [
-"Gold"
-]
-}
-],
-"tags": [
-"DELIFE",
-"Caramia"
-],
-"premium": false,
-"description": "Maße lt. DELIFE: B 56 × T 43 × H 38 cm · Material: Korpus: Glasfaser · 2 Ausführungen lt. Shop (Stand 24.10.2026)",
-"axes": [
-{
-"name": "Farbe",
-"values": [
-"Silber",
-"Gold"
-]
-}
-],
-"mount": "floor",
-"resizable": false,
-"concepts": [
-4
-]
-},
-{
 "id": "wes-runder-beistelltisch-argent-hkliving",
 "vendor": "Westwing",
 "name": "Runder Beistelltisch Argent (HKliving)",
@@ -7829,7 +7791,8 @@
 "delivery": "3–4 Wo.",
 "description": "an der rechten Sessellehne",
 "concepts": [
-1
+1,
+4
 ]
 },
 {
@@ -7885,19 +7848,19 @@
 }
 },
 {
-"name": "helles Eichenholz, Griffe goldfarben",
+"name": "Schwarz, matt",
 "slots": {
 "main": {
-"color": "#c9a477",
-"material": "oak"
+"color": "#1f1e1d",
+"material": "matte"
 },
 "legs": {
-"color": "#c9a477",
-"material": "oak"
+"color": "#1f1e1d",
+"material": "matte"
 },
 "detail": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 }
 }
@@ -7908,7 +7871,9 @@
 "premium": true,
 "delivery": "4–9 WT",
 "description": "Füße 17 cm; Rillen wie Lowboard Soley",
-"concepts": []
+"concepts": [
+4
+]
 },
 {
 "id": "wes-sideboard-chandler-aus-eichenholz",
@@ -7948,7 +7913,9 @@
 "premium": true,
 "delivery": "3–4 Wo.",
 "description": "Push-to-open, Wandbefestigung",
-"concepts": []
+"concepts": [
+1
+]
 },
 {
 "id": "del-cuor-fuss-schwebend-metall-40399",
@@ -8033,60 +8000,8 @@
 "mount": "floor",
 "resizable": false,
 "concepts": [
-3
-]
-},
-{
-"id": "del-kazu-fuss-schwebend-metall-38946",
-"vendor": "DELIFE",
-"brand": "DELIFE",
-"series": "Kazu",
-"name": "Sideboard Kazu 220 cm Metallic Gold 4 Türen schwebend Schwarz Keramik Laminam®Noir Desir Braun",
-"category": "sideboard",
-"w": 220.0,
-"d": 45.0,
-"h": 69.0,
-"price": 1389.9,
-"url": "https://www.delife.de/sideboard-kazu-220cm-mitteldichte-faserplatte/a-38946",
-"image": "https://www.delife.de/media/d6/f9/5c/1782461771/38946-sideboardkorpus-kazu-220-cm-keramik-laminam-emperador-extra-braun---fuss-schwebeoptik-metall-schwarz-g_2cb336c.jpg?imwidth=800",
-"archetype": "sideboard",
-"params": {
-"doors": 4
-},
-"variants": [
-{
-"name": "Standard",
-"slots": {
-"top": {
-"color": "#45403c",
-"material": "marbleNoir"
-},
-"main": {
-"color": "#9b8459",
-"material": "brass"
-},
-"legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
-}
-},
-"price": 1389.9,
-"url": "https://www.delife.de/sideboard-kazu-220cm-mitteldichte-faserplatte/a-38946",
-"image": "https://www.delife.de/media/d6/f9/5c/1782461771/38946-sideboardkorpus-kazu-220-cm-keramik-laminam-emperador-extra-braun---fuss-schwebeoptik-metall-schwarz-g_2cb336c.jpg?imwidth=800"
-}
-],
-"tags": [
-"DELIFE",
-"Kazu"
-],
-"premium": true,
-"description": "Maße lt. DELIFE: B 220 × T 45 × H 69 cm · Maße Türfach ca.: B52 x T40,5 x H22,7 cm (x2); B52 x T41,5 x H25,8 cm (x2); B53 x T40,5 x H22,7 cm (x2); B53 x T41,5 x H25,8 cm (x2) · Fußhöhe: 15 cm · Material: Korpus: MDF; Platte: Keramik; Fuß: Metall · Gestell: Fuß schwebend Metall · 1 Ausführung lt. Shop (Stand 24.10.2026)",
-"mount": "floor",
-"resizable": false,
-"concepts": [
-1,
 2,
-4
+3
 ]
 },
 {
@@ -8327,12 +8242,12 @@
 "name": "chrome-plated; über AmbienteDirect",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 }
 }
@@ -8365,12 +8280,12 @@
 "name": "chrome-plated, Akku; über AmbienteDirect",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 }
 }
@@ -8401,11 +8316,24 @@
 "mount": "floor",
 "variants": [
 {
+"name": "Chrom glänzend / Opalglaskugel; über AmbienteDirect",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+}
+},
+{
 "name": "MESSING gebürstet / Opalglas; über AmbienteDirect",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
 "color": "#f6f4ee",
@@ -8420,11 +8348,7 @@
 "premium": true,
 "delivery": "3–4 Wo.",
 "description": "auf dem Sideboard; gleiche Familie wie Wandleuchte E5",
-"concepts": [
-2,
-3,
-4
-]
+"concepts": []
 },
 {
 "id": "des-flos-ic-t1-low-tischleuchte",
@@ -8447,8 +8371,8 @@
 "name": "MESSING gebürstet / Opalglas; über AmbienteDirect",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
 "color": "#f6f4ee",
@@ -8463,9 +8387,7 @@
 "premium": true,
 "delivery": "ab 18.11. + 1–3 WT",
 "description": "symmetrisch links/rechts; Opalkugeln leuchten vor Petrol; E14 exkl.",
-"concepts": [
-4
-]
+"concepts": []
 },
 {
 "id": "wes-grosse-tischlampe-ph-3-2-mundgeblasen-louis-poul",
@@ -8543,12 +8465,7 @@
 "premium": true,
 "delivery": "2–4 WT",
 "description": "Bauhaus-Klassiker als Arbeitslicht; UVP 699 €",
-"concepts": [
-1,
-2,
-3,
-4
-]
+"concepts": []
 },
 {
 "id": "des-gubi-multi-lite-portable",
@@ -8570,12 +8487,12 @@
 "name": "MESSING, Akku (≈ 6,5 h); über Nordic Nest",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 }
 }
@@ -8586,46 +8503,42 @@
 "premium": true,
 "delivery": "2–4 WT",
 "description": "auf dem Lowboard; keine Kabel an der Lamellenwand; UVP 399 €",
-"concepts": [
-2,
-3,
-4
-]
+"concepts": []
 },
 {
-"id": "lam-hollaender-capri-tischleuchte-280-k-1202",
+"id": "lam-hollaender-fungo-tischleuchte-424-1202",
 "vendor": "lampe.de",
 "brand": "Holländer",
-"series": "Holländer CAPRI Tischleuchte",
-"name": "Holländer CAPRI Tischleuchte",
+"series": "Holländer FUNGO Tischleuchte",
+"name": "Holländer FUNGO Tischleuchte",
 "category": "tableLamp",
 "archetype": "lampTableShade",
-"w": 27.0,
-"d": 27.0,
-"h": 44.0,
-"price": 324.99,
-"url": "https://www.lampe.de/hollaender-capri-tischleuchte-280-k-1202.html",
-"image": "https://www.lampe.de/media/product/130811/700x700/hollaender-capri-tischleuchte-280-k-1202-0.jpg",
+"w": 32.0,
+"d": 32.0,
+"h": 43.0,
+"price": 149.99,
+"url": "https://www.lampe.de/hollaender-fungo-tischleuchte-424-1202.html",
+"image": "https://www.lampe.de/media/product/131030/700x700/hollaender-fungo-tischleuchte-424-1202-0.jpg",
 "params": {},
 "variants": [
 {
-"name": "Gold / Schwarz",
+"name": "Schwarz",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
-"color": "#1d1d1d",
-"material": "linen"
+"color": "#f6f4ee",
+"material": "opal"
 },
 "frame": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
-"price": 324.99,
-"url": "https://www.lampe.de/hollaender-capri-tischleuchte-280-k-1202.html"
+"price": 149.99,
+"url": "https://www.lampe.de/hollaender-fungo-tischleuchte-424-1202.html"
 }
 ],
 "premium": true,
@@ -8633,60 +8546,13 @@
 "Holländer",
 "Tischleuchte"
 ],
-"description": "Tischleuchte, 1-flammig; E27; Material: Metall; Schirm: Kunststoff",
-"mount": "floor",
-"resizable": false,
-"concepts": [
-1
-]
-},
-{
-"id": "lam-hollaender-clarice-tischleuchte-424-1208",
-"vendor": "lampe.de",
-"brand": "Holländer",
-"series": "Holländer CLARICE Tischleuchte",
-"name": "Holländer CLARICE Tischleuchte",
-"category": "tableLamp",
-"archetype": "lampTableShade",
-"w": 20.0,
-"d": 20.0,
-"h": 49.0,
-"price": 179.99,
-"url": "https://www.lampe.de/hollaender-clarice-tischleuchte-424-1208.html",
-"image": "https://www.lampe.de/media/product/140037/700x700/hollaender-clarice-tischleuchte-424-1208-0.jpg",
-"params": {},
-"variants": [
-{
-"name": "Schwarz / Gold",
-"slots": {
-"main": {
-"color": "#1d1d1d",
-"material": "blackMetal"
-},
-"shade": {
-"color": "#c9a55c",
-"material": "brass"
-},
-"frame": {
-"color": "#1d1d1d",
-"material": "blackMetal"
-}
-},
-"price": 179.99,
-"url": "https://www.lampe.de/hollaender-clarice-tischleuchte-424-1208.html"
-}
-],
-"premium": true,
-"tags": [
-"Holländer",
-"Tischleuchte"
-],
-"description": "Tischleuchte, 1-flammig; E27; Material: Metall; Schirm: Metall",
+"description": "Tischleuchte, 1-flammig; E27; Material: Metall",
 "mount": "floor",
 "resizable": false,
 "concepts": [
 1,
-2
+2,
+4
 ]
 },
 {
@@ -8707,8 +8573,8 @@
 "name": "Milchglas / Fuß kupferfarben",
 "slots": {
 "main": {
-"color": "#c3a160",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
 "color": "#f6f4ee",
@@ -8724,6 +8590,730 @@
 "delivery": "2–4 WT",
 "description": "auf dem Lowboard (Westende), Strom über TV- Dosen",
 "concepts": []
+},
+{
+"id": "wes-kleine-retro-tischlampe-walter-in-chromfarben-146722",
+"vendor": "Westwing",
+"brand": "Westwing Collection",
+"name": "Kleine Retro-Tischlampe Walter, H 34 cm",
+"category": "tableLamp",
+"w": 25.0,
+"d": 25.0,
+"h": 34.0,
+"price": 109.0,
+"url": "https://www.westwing.de/kleine-retro-tischlampe-walter-in-chromfarben-146722.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ22WES06268-186764_ed7a4740a6c90a78f301a3cf4bb3533d_dtl_1.jpg",
+"archetype": "lampTableShade",
+"params": {},
+"variants": [
+{
+"name": "Silberfarben, glänzend",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 119.0,
+"url": "https://www.westwing.de/kleine-retro-tischlampe-walter-in-chromfarben-146722.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ22WES06268-186764_ed7a4740a6c90a78f301a3cf4bb3533d_dtl_1.jpg"
+},
+{
+"name": "Grün, glänzend",
+"slots": {
+"main": {
+"color": "#5d7a5a",
+"material": "gloss"
+},
+"frame": {
+"color": "#5d7a5a",
+"material": "gloss"
+},
+"legs": {
+"color": "#5d7a5a",
+"material": "gloss"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 109.0,
+"url": "https://www.westwing.de/kleine-retro-tischlampe-walter-in-gruen-146720.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ22WES44742-186762_f6aaa7c7e6e3041316b828bd85aaeb27_dtl_1.jpg"
+},
+{
+"name": "Hellblau, glänzend",
+"slots": {
+"main": {
+"color": "#a9c1d6",
+"material": "gloss"
+},
+"frame": {
+"color": "#a9c1d6",
+"material": "gloss"
+},
+"legs": {
+"color": "#a9c1d6",
+"material": "gloss"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 109.0,
+"url": "https://www.westwing.de/walter-standard-table-lamp-blue-en-25wes52933.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25WES52933-508669_7ce4ccaa9383d7cf58810d486880fe60_dtl_1.jpg"
+},
+{
+"name": "Hellgelb, glänzend",
+"slots": {
+"main": {
+"color": "#e0c45a",
+"material": "gloss"
+},
+"frame": {
+"color": "#e0c45a",
+"material": "gloss"
+},
+"legs": {
+"color": "#e0c45a",
+"material": "gloss"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 109.0,
+"url": "https://www.westwing.de/walter-standard-table-lamp-yellow-uk-en-26wes97451.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ26WES97451-285470_e882fc48bb6d427b5d0e0f69dc90e437_dtl_1.jpg"
+},
+{
+"name": "Peach, glänzend",
+"slots": {
+"main": {
+"color": "#e8b89a",
+"material": "matte"
+},
+"shade": {
+"color": "#e8b89a",
+"material": "linen"
+}
+},
+"price": 109.0,
+"url": "https://www.westwing.de/kleine-retro-tischlampe-walter-in-blush-146719.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ22WES50242-186761_5c62c17cec738986611404c080cfb7c9_dtl_1.jpg"
+},
+{
+"name": "Taupe, glänzend",
+"slots": {
+"main": {
+"color": "#a49482",
+"material": "gloss"
+},
+"frame": {
+"color": "#a49482",
+"material": "gloss"
+},
+"legs": {
+"color": "#a49482",
+"material": "gloss"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 109.0,
+"url": "https://www.westwing.de/walter-standard-table-lamp-taupe-en-25wes13455.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25WES13455-274914_0942c37b55ff0dffd25cbdb97496a9f7_dtl_1.jpg"
+},
+{
+"name": "Schwarz, matt",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "lacquer"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "lacquer"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "lacquer"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 109.0,
+"url": "https://www.westwing.de/retro-tischleuchte-walter-84466.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ17BY421529-105313_5ce340dc141ab44ca021d6290462c65c_dtl_1.jpg"
+},
+{
+"name": "Weinrot, glänzend",
+"slots": {
+"main": {
+"color": "#6e232f",
+"material": "gloss"
+},
+"frame": {
+"color": "#6e232f",
+"material": "gloss"
+},
+"legs": {
+"color": "#6e232f",
+"material": "gloss"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 109.0,
+"url": "https://www.westwing.de/kleine-retro-tischlampe-walter-in-rot-146721.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ22WES68768-186763_d91107a07635edbcd0d3bcbd47dc9079_dtl_1.jpg"
+},
+{
+"name": "Weiß, matt",
+"slots": {
+"main": {
+"color": "#f3f1ec",
+"material": "lacquer"
+},
+"frame": {
+"color": "#f3f1ec",
+"material": "lacquer"
+},
+"legs": {
+"color": "#f3f1ec",
+"material": "lacquer"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 109.0,
+"url": "https://www.westwing.de/retro-tischleuchte-walter-84467.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ17BY460066-105314_4e16f7ae09f886ff6c96d1b078208baf_dtl_1.jpg"
+}
+],
+"tags": [
+"Westwing Collection"
+],
+"premium": true,
+"description": "Gesamtmaße: Ø 25 cm, H 34 cm · Lampenschirm: Ø 25 cm, H 13 cm · Lampenfuß: Ø 12 cm · Kabel: L 170 cm",
+"mount": "floor",
+"resizable": false,
+"concepts": [
+1,
+2,
+3,
+4
+]
+},
+{
+"id": "wes-mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168615",
+"vendor": "Westwing",
+"brand": "louis poulsen",
+"name": "Kleine mobile LED-Tischlampe Panthella 160, Design Verner Panton",
+"category": "tableLamp",
+"w": 16.0,
+"d": 16.0,
+"h": 24.0,
+"price": 139.0,
+"url": "https://www.westwing.de/mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168615.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24LOU37664-218004_6297fa16c31efc460ea0b624dc47d0a6_dtl_1.jpg",
+"archetype": "lampTableMushroom",
+"params": {},
+"variants": [
+{
+"name": "Kunststoff Hellbeige",
+"slots": {
+"main": {
+"color": "#e3d8c5",
+"material": "plastic"
+},
+"frame": {
+"color": "#e3d8c5",
+"material": "plastic"
+},
+"legs": {
+"color": "#e3d8c5",
+"material": "plastic"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 139.0,
+"url": "https://www.westwing.de/mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168615.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24LOU37664-218004_6297fa16c31efc460ea0b624dc47d0a6_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Blau",
+"slots": {
+"main": {
+"color": "#3f6680",
+"material": "plastic"
+},
+"frame": {
+"color": "#3f6680",
+"material": "plastic"
+},
+"legs": {
+"color": "#3f6680",
+"material": "plastic"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 149.0,
+"url": "https://www.westwing.de/mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168621.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24LOU59400-218010_4f05d4f0d11db09f866cdb9b0fad2e68_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Bordeaux",
+"slots": {
+"main": {
+"color": "#6a2230",
+"material": "plastic"
+},
+"frame": {
+"color": "#6a2230",
+"material": "plastic"
+},
+"legs": {
+"color": "#6a2230",
+"material": "plastic"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 149.0,
+"url": "https://www.westwing.de/portable-dimmable-led-table-lamp-panthella-160-design-verner-panton-en-25los53663.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25LOS53663-126339_cdbad158e36a002245658a61fc0d3f56_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Braun, Silberfarben",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#7a5a43",
+"material": "plastic"
+}
+},
+"price": 209.0,
+"url": "https://www.westwing.de/panthella-160-portable-leuchte-original-opal-brown-en-25los68681.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25LOS68681-393900_b0844bb3e273d46b0ab77fe694a24e7f_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Coral",
+"slots": {
+"main": {
+"color": "#bdb5a8",
+"material": "plastic"
+},
+"frame": {
+"color": "#bdb5a8",
+"material": "plastic"
+},
+"legs": {
+"color": "#bdb5a8",
+"material": "plastic"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 149.0,
+"url": "https://www.westwing.de/mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168620.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24LOU43013-218009_2f4b2b5506ef92255c747a8068aa84c3_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Goldfarben",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"legs": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 199.0,
+"url": "https://www.westwing.de/mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168611.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24LOU87430-218000_9d11cf0d3388ac31f23fd3a7a74ac3c1_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Grün, Silberfarben",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#5d7a5a",
+"material": "plastic"
+}
+},
+"price": 199.0,
+"url": "https://www.westwing.de/panthella-160-portable-leuchte-original-opal-green-en-25los26915.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25LOS26915-843605_4a46e9738377eeb3eb6e259b4de20563_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Hellbeige, Silberfarben",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#e3d8c5",
+"material": "plastic"
+}
+},
+"price": 199.0,
+"url": "https://www.westwing.de/mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168612.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24LOU81213-218001_ca6ae830bff3b9a7222f55574d967865_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Hellblau",
+"slots": {
+"main": {
+"color": "#a9c1d6",
+"material": "plastic"
+},
+"frame": {
+"color": "#a9c1d6",
+"material": "plastic"
+},
+"legs": {
+"color": "#a9c1d6",
+"material": "plastic"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 149.0,
+"url": "https://www.westwing.de/mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168616.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24LOU69574-218005_8f1284dc461c8e0b7a389426075b1c1d_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Hellblau, Silberfarben",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#a9c1d6",
+"material": "plastic"
+}
+},
+"price": 189.0,
+"url": "https://www.westwing.de/mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168613.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24LOU40334-218002_ddfc8b9f9e8163198fc2dc5bd439aa68_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Hellgrün",
+"slots": {
+"main": {
+"color": "#b9c9a8",
+"material": "plastic"
+},
+"frame": {
+"color": "#b9c9a8",
+"material": "plastic"
+},
+"legs": {
+"color": "#b9c9a8",
+"material": "plastic"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 149.0,
+"url": "https://www.westwing.de/portable-dimmable-led-table-lamp-panthella-160-design-verner-panton-en-25los38623.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25LOS38623-492210_279482d6645f7c595e106aa61a24fc58_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Hellrosa",
+"slots": {
+"main": {
+"color": "#ecccc6",
+"material": "plastic"
+},
+"frame": {
+"color": "#ecccc6",
+"material": "plastic"
+},
+"legs": {
+"color": "#ecccc6",
+"material": "plastic"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 149.0,
+"url": "https://www.westwing.de/mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168617.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24LOU23862-218006_269ef7136240e9a4d0e76ea80d1c4df6_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Orange",
+"slots": {
+"main": {
+"color": "#d07a2f",
+"material": "plastic"
+},
+"frame": {
+"color": "#d07a2f",
+"material": "plastic"
+},
+"legs": {
+"color": "#d07a2f",
+"material": "plastic"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 139.0,
+"url": "https://www.westwing.de/mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168622.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24LOU13626-218011_5c2a7ee1aa2c2045aaa0f318cf00471b_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Orange, Silberfarben",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#d07a2f",
+"material": "plastic"
+}
+},
+"price": 199.0,
+"url": "https://www.westwing.de/portable-dimmable-led-table-lamp-panthella-160-design-verner-panton-en-25los18009.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25LOS18009-603664_26bf41410ba535ae7170ffd97941d306_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Rot, Silberfarben",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#b23a32",
+"material": "plastic"
+}
+},
+"price": 199.0,
+"url": "https://www.westwing.de/portable-dimmable-led-table-lamp-panthella-160-design-verner-panton-en-25los31246.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25LOS31246-535904_e302c3240ef1fc9516d5a5e0b21d022b_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Schwarz",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "plastic"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "plastic"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "plastic"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 149.0,
+"url": "https://www.westwing.de/mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168619.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24LOU08597-218008_b474377cff7acb22502787a80c95f160_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Silberfarben",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 189.0,
+"url": "https://www.westwing.de/mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168614.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24LOU06747-218003_34e67b22a431e1fe5d6814a008d9f472_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Sonnengelb",
+"slots": {
+"main": {
+"color": "#e0c45a",
+"material": "plastic"
+},
+"frame": {
+"color": "#e0c45a",
+"material": "plastic"
+},
+"legs": {
+"color": "#e0c45a",
+"material": "plastic"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 149.0,
+"url": "https://www.westwing.de/mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168623.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24LOU23262-218012_7fbee4322a9dddc75b185c9f3b313c03_dtl_1.jpg"
+},
+{
+"name": "Kunststoff Weiß",
+"slots": {
+"main": {
+"color": "#f3f1ec",
+"material": "plastic"
+},
+"frame": {
+"color": "#f3f1ec",
+"material": "plastic"
+},
+"legs": {
+"color": "#f3f1ec",
+"material": "plastic"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 139.0,
+"url": "https://www.westwing.de/mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168618.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24LOU71175-218007_f58be2344f5f30b1a59dea78907f3903_dtl_1.jpg"
+}
+],
+"tags": [
+"louis poulsen"
+],
+"premium": false,
+"description": "Gesamt: Ø 16 cm, H 24 cm · Lampenfuß: Ø 11 cm",
+"mount": "floor",
+"resizable": false,
+"concepts": [
+1,
+2,
+3,
+4
+]
 },
 {
 "id": "des-louis-poulsen-panthella-160-portable-v3",
@@ -8745,8 +9335,8 @@
 "name": "Chromfuß / Schirm Opal Braun, Akku; über AmbienteDirect",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
 "color": "#8a6a4f",
@@ -8783,12 +9373,12 @@
 "name": "MESSING glänzend, Akku; über Lampenwelt",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 }
 }
@@ -8799,11 +9389,267 @@
 "premium": true,
 "delivery": "8–12 WT",
 "description": "Begrüßungslicht auf der Konsole; ca. 8,5 h Laufzeit",
+"concepts": []
+},
+{
+"id": "lam-schoener-wohnen-kollektion-sia-moderne-led-tischleuchte-rauchfarbener-",
+"vendor": "lampe.de",
+"brand": "SCHÖNER WOHNEN-Kollektion",
+"series": "SCHÖNER WOHNEN-Kollektion SIA moderne LED Tischleuchte rauchfarbener Glasschirm",
+"name": "SCHÖNER WOHNEN-Kollektion SIA moderne LED Tischleuchte rauchfarbener Glasschirm",
+"category": "tableLamp",
+"archetype": "lampTableShade",
+"w": 20.0,
+"d": 20.0,
+"h": 33.0,
+"price": 99.0,
+"url": "https://www.lampe.de/schoener-wohnen-kollektion-sia-moderne-led-tischleuchte-rauchfarbener-glasschirm-15470-18.html",
+"image": "https://www.lampe.de/media/product/176097/700x700/schoener-wohnen-kollektion-sia-moderne-led-tischleuchte-rauchfarbener-glasschirm-15470-18-0.jpg",
+"params": {},
+"variants": [
+{
+"name": "Schwarz / Rauchfarben",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+},
+"shade": {
+"color": "#6b6660",
+"material": "glass"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"price": 99.0,
+"url": "https://www.lampe.de/schoener-wohnen-kollektion-sia-moderne-led-tischleuchte-rauchfarbener-glasschirm-15470-18.html"
+}
+],
+"premium": true,
+"tags": [
+"SCHÖNER WOHNEN-Kollektion",
+"Tischleuchte"
+],
+"description": "Tischleuchte, 1-flammig; LED; Material: Metall; Schirm: Glas",
+"mount": "floor",
+"resizable": false,
 "concepts": [
-1,
 2,
 3,
 4
+]
+},
+{
+"id": "wes-walter-xl-table-lamp-taupe-en-25wes30461",
+"vendor": "Westwing",
+"brand": "Westwing Collection",
+"name": "XL-Retro-Tischlampe Walter, H 55 cm",
+"category": "tableLamp",
+"w": 38.0,
+"d": 38.0,
+"h": 55.0,
+"price": 149.0,
+"url": "https://www.westwing.de/walter-xl-table-lamp-taupe-en-25wes30461.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25WES30461-674635_e816a7eff77b94778ae5e69287e02ccf_dtl_1.jpg",
+"archetype": "lampTableShade",
+"params": {},
+"variants": [
+{
+"name": "Taupe, glänzend",
+"slots": {
+"main": {
+"color": "#a49482",
+"material": "gloss"
+},
+"frame": {
+"color": "#a49482",
+"material": "gloss"
+},
+"legs": {
+"color": "#a49482",
+"material": "gloss"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 179.0,
+"url": "https://www.westwing.de/walter-xl-table-lamp-taupe-en-25wes30461.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25WES30461-674635_e816a7eff77b94778ae5e69287e02ccf_dtl_1.jpg"
+},
+{
+"name": "Grün, glänzend",
+"slots": {
+"main": {
+"color": "#5d7a5a",
+"material": "gloss"
+},
+"frame": {
+"color": "#5d7a5a",
+"material": "gloss"
+},
+"legs": {
+"color": "#5d7a5a",
+"material": "gloss"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 179.0,
+"url": "https://www.westwing.de/walter-xl-table-lamp-green-en-25wes49812.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25WES49812-873542_7b7b19946f59db80bc060928478fd8aa_dtl_1.jpg"
+},
+{
+"name": "Hellgelb, glänzend",
+"slots": {
+"main": {
+"color": "#e0c45a",
+"material": "gloss"
+},
+"frame": {
+"color": "#e0c45a",
+"material": "gloss"
+},
+"legs": {
+"color": "#e0c45a",
+"material": "gloss"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 169.0,
+"url": "https://www.westwing.de/walter-xl-table-lamp-yellow-uk-en-26wes19644.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ26WES19644-183971_d20c64db4bc5659f6f91312c58878792_dtl_1.jpg"
+},
+{
+"name": "Peach, glänzend",
+"slots": {
+"main": {
+"color": "#e8b89a",
+"material": "matte"
+},
+"shade": {
+"color": "#e8b89a",
+"material": "linen"
+}
+},
+"price": 179.0,
+"url": "https://www.westwing.de/walter-xl-table-lamp-pink-en-25wes58445.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25WES58445-600012_e56a9e38a024db3e6220f9633c170fb7_dtl_1.jpg"
+},
+{
+"name": "Schwarz, glänzend",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "gloss"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "gloss"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "gloss"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 149.0,
+"url": "https://www.westwing.de/grosse-retro-tischlampe-walter-159562.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES04041-205250_ae62d64882cbfdb8ffd97657066e17a9_dtl_1.jpg"
+},
+{
+"name": "Silberfarben, glänzend",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 179.0,
+"url": "https://www.westwing.de/grosse-retro-tischlampe-walter-165066.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES98562-213138_cc5ef480e9f1e1338efca209a34d2204_dtl_1.jpg"
+},
+{
+"name": "Weinrot, glänzend",
+"slots": {
+"main": {
+"color": "#6e232f",
+"material": "gloss"
+},
+"frame": {
+"color": "#6e232f",
+"material": "gloss"
+},
+"legs": {
+"color": "#6e232f",
+"material": "gloss"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 169.0,
+"url": "https://www.westwing.de/walter-xl-table-lamp-red-en-26wes27907.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ26WES27907-394961_04d990a380dd811f8c54eed5c28329ef_dtl_1.jpg"
+},
+{
+"name": "Weiß, glänzend",
+"slots": {
+"main": {
+"color": "#f3f1ec",
+"material": "gloss"
+},
+"frame": {
+"color": "#f3f1ec",
+"material": "gloss"
+},
+"legs": {
+"color": "#f3f1ec",
+"material": "gloss"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 149.0,
+"url": "https://www.westwing.de/retro-tischlampe-walter-159563.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES89228-205251_d74c0db7ddbd02487ca9283ab23de187_dtl_1.jpg"
+}
+],
+"tags": [
+"Westwing Collection"
+],
+"premium": true,
+"description": "Gesamt: Ø 38 cm, H 55 cm · Lampengestell: Ø 16 cm, H 34 cm · Lampenschirm: Ø 38 cm, H 19 cm · Kabel: L 170 cm",
+"mount": "floor",
+"resizable": false,
+"concepts": [
+1
 ]
 },
 {
@@ -9559,8 +10405,8 @@
 "name": "MESSING gebürstet / Opal matt; über Lampenwelt",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
 "color": "#f6f4ee",
@@ -9575,12 +10421,7 @@
 "premium": true,
 "delivery": "13–18 WT",
 "description": "Festanschluss an WA H 1,80 (Pfeiler Ostfassade); E14 exkl.",
-"concepts": [
-2,
-3,
-4
-],
-"elev": 0.0
+"concepts": []
 },
 {
 "id": "des-flos-ic-c-w1-wand-deckenleuchte-michael-anastass",
@@ -9600,8 +10441,8 @@
 "name": "Chrom glänzend / Opalglaskugel; über AmbienteDirect",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
 "color": "#f6f4ee",
@@ -9635,7 +10476,64 @@
 "mount": "wall",
 "variants": [
 {
-"name": "Goldfarben",
+"name": "Kupferfarben",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+}
+],
+"tags": [
+"Konzept"
+],
+"premium": true,
+"delivery": "2–5 WT",
+"description": "Festanschluss an WA H 1,80 (Pfeiler Ostfassade); reduziert (vorher 145 €)",
+"concepts": []
+},
+{
+"id": "wes-wandleuchte-atlanta-aus-opalglas-147013",
+"vendor": "Westwing",
+"brand": "Westwing Collection",
+"name": "Wandleuchte Atlanta aus Opalglas",
+"category": "wallLamp",
+"w": 15.0,
+"d": 23.0,
+"h": 22.0,
+"price": 74.99,
+"url": "https://www.westwing.de/wandleuchte-atlanta-aus-opalglas-147013.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ22WES32664-187218_09fd8a1c618d66221a4f7ca95cb270d1_dtl_1.jpg",
+"archetype": "wallSconce",
+"params": {},
+"variants": [
+{
+"name": "Weiß, Chromfarben",
+"slots": {
+"main": {
+"color": "#f3f1ec",
+"material": "opal"
+},
+"frame": {
+"color": "#f3f1ec",
+"material": "opal"
+},
+"legs": {
+"color": "#f3f1ec",
+"material": "opal"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
+}
+},
+"price": 74.99,
+"url": "https://www.westwing.de/wandleuchte-atlanta-aus-opalglas-147013.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ22WES32664-187218_09fd8a1c618d66221a4f7ca95cb270d1_dtl_1.jpg"
+},
+{
+"name": "Weiß, Goldfarben",
 "slots": {
 "main": {
 "color": "#c9a55c",
@@ -9650,22 +10548,53 @@
 "material": "brass"
 },
 "shade": {
-"color": "#f6f4ee",
+"color": "#f3f1ec",
 "material": "opal"
 }
+},
+"price": 74.99,
+"url": "https://www.westwing.de/wandleuchte-liv-113350.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ19WES21357-142178_4e3116fd3093bd0fc902c7734e7f6d26_dtl_1.jpg"
+},
+{
+"name": "Weiß, Schwarz",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "opal"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "opal"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "opal"
+},
+"shade": {
+"color": "#f3f1ec",
+"material": "opal"
 }
+},
+"price": 74.99,
+"url": "https://www.westwing.de/wandleuchte-liv-113351.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ19WES61283-142179_25f666b25a50118cec417a24fa16135c_dtl_1.jpg"
 }
 ],
 "tags": [
-"Konzept"
+"Westwing Collection"
 ],
 "premium": true,
-"delivery": "2–5 WT",
-"description": "Festanschluss an WA H 1,80 (Pfeiler Ostfassade); reduziert (vorher 145 €)",
+"description": "Lampe: B 15 cm, H 22 cm, T 23 cm · Lampenschirm: Ø 15 cm",
+"mount": "wall",
+"elev": 1.75,
+"resizable": false,
 "concepts": [
-1
-],
-"elev": 0.0
+1,
+2,
+3,
+4
+]
 },
 {
 "id": "obi-akustikpaneel-eiche-geoelt-denpanels",

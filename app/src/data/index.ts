@@ -17,10 +17,10 @@ export const baseCatalog = catalogJson as unknown as CatalogItem[];
 export const catalogAliases = aliasJson as Record<string, string>;
 
 export const concepts: { id: string; title: string; subtitle: string; palette: string[]; project: Project }[] = [
-  { id: "concept1", title: "Noir · Sand · Messing", subtitle: "Konzept 1", palette: ["#45403c", "#d6c7ae", "#b9aa97", "#c2b8ab", "#5e4130", "#c3a160"], project: c1 as unknown as Project },
-  { id: "concept2", title: "Noir · Espresso · Gold", subtitle: "Konzept 2", palette: ["#45403c", "#e7dccb", "#5d4231", "#ede8dc", "#5b4535", "#c9a55c"], project: c2 as unknown as Project },
-  { id: "concept3", title: "Noir · Stone · Greige", subtitle: "Konzept 3", palette: ["#45403c", "#cfc6b8", "#e2d5c0", "#d6c7ae", "#2b2b2c", "#a88a5a"], project: c3 as unknown as Project },
-  { id: "concept4", title: "Noir · Ivory · Gold", subtitle: "Konzept 4", palette: ["#45403c", "#f1ece3", "#e8ddcb", "#ebe6de", "#4a3e36", "#c9a55c"], project: c4 as unknown as Project },
+  { id: "concept1", title: "Noir · Sand · Nussbaum", subtitle: "Konzept 1", palette: ["#45403c", "#d6c7ae", "#b9aa97", "#c2b8ab", "#5e4130", "#1d1d1d"], project: c1 as unknown as Project },
+  { id: "concept2", title: "Noir · Espresso · Emperador", subtitle: "Konzept 2", palette: ["#45403c", "#e7dccb", "#5d4231", "#ede8dc", "#5b4535", "#3b2a22"], project: c2 as unknown as Project },
+  { id: "concept3", title: "Noir · Stone · Greige", subtitle: "Konzept 3", palette: ["#45403c", "#cfc6b8", "#e2d5c0", "#d6c7ae", "#2b2b2c", "#ece5d9"], project: c3 as unknown as Project },
+  { id: "concept4", title: "Noir · Ivory · Travertin", subtitle: "Konzept 4", palette: ["#45403c", "#f1ece3", "#e8ddcb", "#ebe6de", "#4a3e36", "#1f1e1d"], project: c4 as unknown as Project },
 ];
 
 export const roomNames: Record<string, string> = Object.fromEntries(apartment.rooms.map((r) => [r.id, r.name]));
