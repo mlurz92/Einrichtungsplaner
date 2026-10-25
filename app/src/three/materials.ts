@@ -9,6 +9,11 @@ interface MatDef {
   tex?: TexKey;
   /** Fertig eingefärbte Textur (public/assets/textures/<name>_color.webp); Slotfarbe dient nur 2D-Plan und Listen */
   colorTex?: string;
+  /**
+   * Foto einer ganzen Platte (Breite × Tiefe in m): colorTex liegt genau einmal, mittig und seitenrichtig auf der Fläche
+   * (Draufsicht: Bildoberkante hinten); größere Flächen setzen das Bild gespiegelt fort, damit keine Stoßkante entsteht.
+   */
+  fit?: [number, number];
   normalTex?: TexKey;
   roughTex?: TexKey;
   scale: number;
@@ -33,8 +38,9 @@ export const MAT_DEFS: Record<MaterialKey, MatDef> = {
   melange: { tex: "weave", normalTex: "weave", scale: 0.18, roughness: 0.95, sheen: 0.3, sheenRoughness: 0.85, normalScale: 1.1, contrast: 1.0 },
   // Chenille (Kilanda, Westwing Chenille): weicher Flor mit leichtem Glanz
   chenille: { tex: "velvet", normalTex: "fabric", scale: 0.3, roughness: 0.85, sheen: 0.8, sheenRoughness: 0.55, normalScale: 0.7, contrast: 0.55 },
-  // Mikrofaser in Velours-/Vintage-Optik (DELIFE Flex): matter, kurzer Flor, leicht wolkige Farbstreuung
-  microfiber: { tex: "fabric", normalTex: "fabric", scale: 0.4, roughness: 0.95, sheen: 0.3, sheenRoughness: 0.8, normalScale: 0.4, contrast: 0.5 },
+  // Mikrofaser in Wildleder-/Vintage-Optik (DELIFE Flex): ohne Webbild, kurzer Flor mit weichem Schimmer,
+  // wolkig hellere „getragene“ Stellen wie auf den Shopfotos
+  microfiber: { tex: "velvet", normalTex: "leather", scale: 0.6, roughness: 0.92, sheen: 0.3, sheenRoughness: 0.8, normalScale: 0.5, contrast: 0.3 },
   // Bouclé meliert: Bouclé mit deutlicherer Farbstreuung
   boucleMel: { tex: "boucle", normalTex: "boucle", scale: 0.1, roughness: 1, sheen: 0.5, sheenRoughness: 0.9, normalScale: 1.7, contrast: 1.6 },
   // Kunstfell: langer, dichter Flor
@@ -60,9 +66,9 @@ export const MAT_DEFS: Record<MaterialKey, MatDef> = {
   granite: { scale: 0.8, roughness: 0.14 },
   marble: { tex: "marble", normalTex: "marble", scale: 1.0, roughness: 0.16, normalScale: 0.2, contrast: 1.1 },
   marbleGreen: { tex: "marblegreen", normalTex: "marblegreen", scale: 0.9, roughness: 0.14, normalScale: 0.2, contrast: 1.6 },
-  // Laminam® Noir Désir (Keramik auf Glas): schwarzbraun, ockerfarbene Adern mit hellem Kern, seidenglänzend.
-  // Textur: tools/gen_noirdesir.py, 2048 px = 2,0 m, Adern schräg zur Tischlänge
-  marbleNoir: { colorTex: "noirdesir", scale: 2.0, roughness: 0.22, clearcoat: 0.25, clearcoatRoughness: 0.12 },
+  // Laminam® Noir Désir (Keramik auf Glas): anthrazitbraun, ockerfarbene Adern mit silbergrauem Kern, seidenglänzend.
+  // Textur: Dekorfoto des Herstellers (tools/gen_noirdesir.py), 2048 × 1024 px = Platte 2,0 × 1,0 m, Adern schräg zur Tischlänge
+  marbleNoir: { colorTex: "noirdesir", fit: [2.0, 1.0], scale: 2.0, roughness: 0.22, clearcoat: 0.25, clearcoatRoughness: 0.12 },
   stone: { tex: "concrete", normalTex: "concrete", scale: 1.2, roughness: 0.75, normalScale: 0.5, contrast: 0.6 },
   ceramic: { scale: 1, roughness: 0.2 },
   glass: { scale: 1, roughness: 0.04, transmission: 0.96, opacity: 0.35 },
@@ -138,7 +144,14 @@ export function getMaterial(style: SlotStyle | undefined, fallback: SlotStyle = 
   }
   if (def.colorTex) {
     const t = colorTexture(def.colorTex).clone();
-    t.repeat.set(1 / def.scale, 1 / def.scale);
+    if (def.fit) {
+      // UV = Meter ab Plattenmitte (u = Länge, v = Tiefe nach vorn) → Bild 0–1, Bildoberkante hinten
+      t.wrapS = t.wrapT = THREE.MirroredRepeatWrapping;
+      t.repeat.set(1 / def.fit[0], -1 / def.fit[1]);
+      t.offset.set(0.5, 0.5);
+    } else {
+      t.repeat.set(1 / def.scale, 1 / def.scale);
+    }
     t.needsUpdate = true;
     p.map = t;
     p.color.set("#ffffff");

@@ -1055,21 +1055,21 @@
 ]
 },
 {
-"id": "2ce0353f78",
-"catalogId": "del-zelia-flex-gestell-konisch-33745",
+"id": "096ec603b5",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
 "x": 5.4699,
 "y": 8.8979,
 "rot": 278,
 "elev": 0.0,
-"w": 0.6,
+"w": 0.58,
 "d": 0.63,
-"h": 0.93,
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"h": 0.85,
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#a49482",
+"color": "#c8baa9",
 "material": "microfiber"
 },
 "legs": {
@@ -1079,9 +1079,9 @@
 },
 "params": {
 "shell": "arm",
-"stitch": "channel",
-"base": "cone",
-"seatHeight": 0.53,
+"stitch": "seam",
+"base": "crossSquare",
+"seatHeight": 0.47,
 "armHeight": 0.64
 },
 "mount": "floor",
@@ -1089,33 +1089,33 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 229.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-taupe/a-33797",
-"dims": "B 60 × T 63 × H 93",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "ac82a2f1c3",
-"catalogId": "del-zelia-flex-gestell-konisch-33745",
+"id": "8f5b560263",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
 "x": 5.3794,
 "y": 9.5415,
 "rot": 278,
 "elev": 0.0,
-"w": 0.6,
+"w": 0.58,
 "d": 0.63,
-"h": 0.93,
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"h": 0.85,
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#a49482",
+"color": "#c8baa9",
 "material": "microfiber"
 },
 "legs": {
@@ -1125,9 +1125,9 @@
 },
 "params": {
 "shell": "arm",
-"stitch": "channel",
-"base": "cone",
-"seatHeight": 0.53,
+"stitch": "seam",
+"base": "crossSquare",
+"seatHeight": 0.47,
 "armHeight": 0.64
 },
 "mount": "floor",
@@ -1135,33 +1135,33 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 229.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-taupe/a-33797",
-"dims": "B 60 × T 63 × H 93",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "3cefd4fd06",
-"catalogId": "del-zelia-flex-gestell-konisch-33745",
+"id": "1746ea1363",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
 "x": 5.289,
 "y": 10.1852,
 "rot": 278,
 "elev": 0.0,
-"w": 0.6,
+"w": 0.58,
 "d": 0.63,
-"h": 0.93,
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"h": 0.85,
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#a49482",
+"color": "#c8baa9",
 "material": "microfiber"
 },
 "legs": {
@@ -1171,9 +1171,9 @@
 },
 "params": {
 "shell": "arm",
-"stitch": "channel",
-"base": "cone",
-"seatHeight": 0.53,
+"stitch": "seam",
+"base": "crossSquare",
+"seatHeight": 0.47,
 "armHeight": 0.64
 },
 "mount": "floor",
@@ -1181,33 +1181,33 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 229.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-taupe/a-33797",
-"dims": "B 60 × T 63 × H 93",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "e4e9db7ddf",
-"catalogId": "del-zelia-flex-gestell-konisch-33745",
+"id": "5b9b19725c",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
 "x": 6.8464,
 "y": 9.0913,
 "rot": 98,
 "elev": 0.0,
-"w": 0.6,
+"w": 0.58,
 "d": 0.63,
-"h": 0.93,
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"h": 0.85,
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#a49482",
+"color": "#c8baa9",
 "material": "microfiber"
 },
 "legs": {
@@ -1217,9 +1217,9 @@
 },
 "params": {
 "shell": "arm",
-"stitch": "channel",
-"base": "cone",
-"seatHeight": 0.53,
+"stitch": "seam",
+"base": "crossSquare",
+"seatHeight": 0.47,
 "armHeight": 0.64
 },
 "mount": "floor",
@@ -1227,33 +1227,33 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 229.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-taupe/a-33797",
-"dims": "B 60 × T 63 × H 93",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "dafd1bdd14",
-"catalogId": "del-zelia-flex-gestell-konisch-33745",
+"id": "f5d705e8bc",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
 "x": 6.7559,
 "y": 9.735,
 "rot": 98,
 "elev": 0.0,
-"w": 0.6,
+"w": 0.58,
 "d": 0.63,
-"h": 0.93,
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"h": 0.85,
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#a49482",
+"color": "#c8baa9",
 "material": "microfiber"
 },
 "legs": {
@@ -1263,9 +1263,9 @@
 },
 "params": {
 "shell": "arm",
-"stitch": "channel",
-"base": "cone",
-"seatHeight": 0.53,
+"stitch": "seam",
+"base": "crossSquare",
+"seatHeight": 0.47,
 "armHeight": 0.64
 },
 "mount": "floor",
@@ -1273,33 +1273,33 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 229.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-taupe/a-33797",
-"dims": "B 60 × T 63 × H 93",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "4a01615b1f",
-"catalogId": "del-zelia-flex-gestell-konisch-33745",
+"id": "c0c0fc103b",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E2",
-"label": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
 "x": 6.6654,
 "y": 10.3787,
 "rot": 98,
 "elev": 0.0,
-"w": 0.6,
+"w": 0.58,
 "d": 0.63,
-"h": 0.93,
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"h": 0.85,
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#a49482",
+"color": "#c8baa9",
 "material": "microfiber"
 },
 "legs": {
@@ -1309,9 +1309,9 @@
 },
 "params": {
 "shell": "arm",
-"stitch": "channel",
-"base": "cone",
-"seatHeight": 0.53,
+"stitch": "seam",
+"base": "crossSquare",
+"seatHeight": 0.47,
 "armHeight": 0.64
 },
 "mount": "floor",
@@ -1319,33 +1319,33 @@
 "parts": [
 {
 "pos": "E2",
-"name": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 229.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-taupe/a-33797",
-"dims": "B 60 × T 63 × H 93",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]
 },
 {
-"id": "35172d3053",
-"catalogId": "del-zelia-flex-gestell-konisch-33745",
+"id": "21d6066fa1",
+"catalogId": "del-pejo-flex-kreuzgestell-kantig-20644",
 "pos": "E12",
-"label": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch (Nischenplatz)",
+"label": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig (Nischenplatz)",
 "x": 7.513,
 "y": 7.34,
 "rot": 8,
 "elev": 0.0,
-"w": 0.6,
+"w": 0.58,
 "d": 0.63,
-"h": 0.93,
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"h": 0.85,
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "slots": {
 "main": {
-"color": "#a49482",
+"color": "#c8baa9",
 "material": "microfiber"
 },
 "legs": {
@@ -1355,9 +1355,9 @@
 },
 "params": {
 "shell": "arm",
-"stitch": "channel",
-"base": "cone",
-"seatHeight": 0.53,
+"stitch": "seam",
+"base": "crossSquare",
+"seatHeight": 0.47,
 "armHeight": 0.64
 },
 "mount": "floor",
@@ -1365,13 +1365,13 @@
 "parts": [
 {
 "pos": "E12",
-"name": "Esszimmerstuhl Zelia-Flex mit Armlehnen 4-Fuß konisch",
-"variant": "Mikrofaser Taupe, Gestell Schwarz",
+"name": "Esszimmerstuhl Pejo-Flex Kreuzgestell kantig",
+"variant": "Mikrofaser Beige Vintage, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 229.9,
-"url": "https://www.delife.de/esszimmerstuhl-zelia-flex-taupe/a-33797",
-"dims": "B 60 × T 63 × H 93",
+"unit": 89.9,
+"url": "https://www.delife.de/esszimmerstuhl-pejo-flex-beige/a-20673",
+"dims": "B 58 × T 63 × H 85",
 "delivery": null
 }
 ]

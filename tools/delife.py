@@ -79,7 +79,7 @@ TABLE_BASE = {
 
 # ------------------------------------------------------------------ Dekore/Materialien (Platte, Korpus)
 DECOR = [  # Schlüssel im Farb-/Materialtext → (Farbe, Material)
-    ("noir d", ("#2b2520", "marbleNoir")), ("nero greco", ("#2b2b2c", "marble")), ("agatablack", ("#232324", "marble")),
+    ("noir d", ("#45403c", "marbleNoir")), ("nero greco", ("#2b2b2c", "marble")), ("agatablack", ("#232324", "marble")),
     ("calacatta", ("#ebe6de", "marble")), ("statuariet", ("#efedea", "marble")), ("emperador", ("#5b4535", "marble")),
     ("travertin", ("#e2d5c0", "travertine")), ("onice grigio", ("#cbc8c1", "marble")), ("onice oro", ("#dbc8a3", "marble")),
     ("patagonia", ("#bba78c", "marble")), ("minas", ("#e3dccf", "stone")), ("sabbia", ("#c6a982", "oak")),
@@ -399,6 +399,20 @@ def _label(sel, axes):
     return ", ".join(out) or "Standard"
 
 
+def _finish_suffix(label, r):
+    """Bezugsoptik aus dem Artikelnamen ergänzen, die der Farbwähler weglässt:
+    Sitzfarbe „Beige“, Artikel „… Mikrofaser Beige Vintage …“ → „Mikrofaser Beige Vintage“."""
+    for k in ("Sitzfarbe", "Farbe"):
+        v = r["sel"].get(k)
+        if not v:
+            continue
+        m = re.search(r"(?<!\w)" + re.escape(v) + r" (Vintage|Antik)(?!\w)", r["name"])
+        if m and m.group(0) not in label:
+            label = re.sub(r"(?<!\w)" + re.escape(v) + r"(?!\w)", m.group(0), label, count=1)
+        break
+    return label
+
+
 def _slug(s):
     s = s.lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss")
     return re.sub(r"[^a-z0-9]+", "-", s).strip("-")[:40]
@@ -539,6 +553,7 @@ def entries(arch_for, finalize, stone_tags):
             common = set.intersection(*(set(r["name"].split()) for r in rows)) if len(rows) > 1 else set()
             for r in rows:
                 label = _label(r["sel"], axes_names) if axes_names else "Standard"
+                label = _finish_suffix(label, r)
                 if not axes_names and len(rows) > 1:
                     # Ausführung aus dem Namensunterschied („Bouclé Schlamm Kreuzgestell kantig“)
                     label = " ".join(t for t in r["name"].split() if t not in common) or "Standard"
@@ -652,13 +667,13 @@ def entries(arch_for, finalize, stone_tags):
             if eid == "del-edge-25387":
                 fe["name"] = "DELIFE Esstisch Edge (Keramik Laminam® Noir Désir)"
                 fe["params"] = {"top": 0.01, "radius": 0.004, "legStyle": "edge", "noApron": True}
-                fe["description"] = ("Platte: Keramik Laminam® Noir Désir (Keramik auf Sicherheitsglas, 10 mm), schwarzbraun mit ockerfarbener und "
-                                     "weißer Aderung · Gestell: V-Mittelfuß Flachstahl schwarz pulverbeschichtet, 150 × 50 × 70 cm, mittig unter der Platte · "
+                fe["description"] = ("Platte: Keramik Laminam® Noir Désir (Keramik auf Sicherheitsglas, 10 mm), anthrazitbraun mit ockerfarbener "
+                                     "Aderung mit silbergrauem Kern · Gestell: V-Mittelfuß Flachstahl schwarz pulverbeschichtet, 150 × 50 × 70 cm, mittig unter der Platte · "
                                      "Größe: 200 × 100 × 74 cm, rechteckig, Platz für 6–8 Personen · Gewicht 129 kg · Preis DELIFE (delife.de), Art.-Nr. 25387 · "
                                      f"weitere Plattendekore als Ausführung ({len(variants)})")
                 fe["tags"] = ["DELIFE", "Edge", "Steintisch", "Marmortisch", "Marmoroptik", "Keramik/Sinterstein", "Rechteckig 200 cm"]
                 fe["premium"] = True
-                fe["variants"][0]["slots"] = {"top": {"color": "#2b2520", "material": "marbleNoir"}, "main": {"color": "#2b2520", "material": "marbleNoir"},
+                fe["variants"][0]["slots"] = {"top": {"color": "#45403c", "material": "marbleNoir"}, "main": {"color": "#45403c", "material": "marbleNoir"},
                                               "legs": {"color": "#1b1b1b", "material": "blackMetal"}}
             out.append(fe)
     return out

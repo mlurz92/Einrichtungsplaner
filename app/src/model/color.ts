@@ -114,6 +114,20 @@ export function variantTraits(v: CatalogVariant): { colors: Set<string>; materia
   return { colors, materials };
 }
 
+const variantKey = (n: string) => n.toLowerCase().replace(/\b(vintage|antik)\b/g, " ").replace(/\s+/g, " ").replace(/ ,/g, ",").trim();
+
+/**
+ * Index der Ausführung eines Objekts (−1 = keine). Seit 2.1.1 tragen DELIFE-Bezüge die Optik aus dem Artikelnamen
+ * („Mikrofaser Beige Vintage“ statt „Mikrofaser Beige“); ältere Projekte finden ihre Ausführung trotzdem.
+ */
+export function variantIndex(c: CatalogItem, name: string | undefined): number {
+  if (!name) return -1;
+  const i = c.variants.findIndex((v) => v.name === name);
+  if (i >= 0) return i;
+  const k = variantKey(name);
+  return c.variants.findIndex((v) => variantKey(v.name) === k);
+}
+
 /** Index der ersten Variante, die Farbfamilie und Materialgruppe erfüllt (−1 = keine). */
 export function matchVariant(c: CatalogItem, color: string, material: string): number {
   if (!color && !material) return 0;

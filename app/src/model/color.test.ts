@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { closestVariant, colorFamily, deltaE, matchVariant } from "./color";
+import { closestVariant, colorFamily, deltaE, matchVariant, variantIndex } from "./color";
 import type { CatalogItem } from "./types";
 
 const sofa: CatalogItem = {
@@ -50,5 +50,16 @@ describe("Ausführung zur bisherigen Farbe", () => {
     expect(matchVariant(sofa, "", "samt")).toBe(2);
     expect(matchVariant(sofa, "blau", "metall")).toBe(2);
     expect(matchVariant(sofa, "gruen", "leder")).toBe(-1);
+  });
+});
+
+describe("Ausführung nach Namen", () => {
+  const c = { variants: [{ name: "Mikrofaser Taupe Vintage, Gestell Schwarz" }, { name: "Mikrofaser Beige Vintage, Gestell Schwarz" }] } as unknown as CatalogItem;
+  it("findet exakte Namen und Namen ohne Bezugsoptik aus älteren Projekten", () => {
+    expect(variantIndex(c, "Mikrofaser Beige Vintage, Gestell Schwarz")).toBe(1);
+    expect(variantIndex(c, "Mikrofaser Beige, Gestell Schwarz")).toBe(1);
+    expect(variantIndex(c, "Mikrofaser Taupe, Gestell Schwarz")).toBe(0);
+    expect(variantIndex(c, "Cord Beige, Gestell Schwarz")).toBe(-1);
+    expect(variantIndex(c, undefined)).toBe(-1);
   });
 });
