@@ -6,7 +6,7 @@ import { fmtEuro } from "../model/geometry";
 import { openExternal } from "../platform";
 import { MATERIAL_LABELS, SLOT_LABELS } from "../data/paints";
 
-const SLOT_ORDER: Slot[] = ["main", "top", "frame", "secondary", "shade", "legs", "accent", "detail"];
+const SLOT_ORDER: Slot[] = ["main", "top", "front", "frame", "secondary", "shade", "legs", "accent", "detail"];
 
 /** Musterkarte: echtes Stoffmuster (falls vorhanden), sonst Farbe + angedeutete Oberfläche; Zweitbauteil als Ecke. */
 export function Swatch({ s, second, img, size = 28, selected, dim, title, onClick, onEnter }: { s?: SlotStyle; second?: SlotStyle; img?: string; size?: number; selected?: boolean; dim?: boolean; title?: string; onClick?: () => void; onEnter?: () => void }) {

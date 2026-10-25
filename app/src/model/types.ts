@@ -109,7 +109,7 @@ export type MaterialKey =
   | "plant";
 
 /** Farb-/Materialslots, die ein Archetyp verwendet. */
-export type Slot = "main" | "secondary" | "accent" | "legs" | "top" | "frame" | "shade" | "detail";
+export type Slot = "main" | "secondary" | "accent" | "legs" | "top" | "frame" | "shade" | "detail" | "front";
 
 export interface SlotStyle {
   color: string;

@@ -48,11 +48,37 @@
 "mount": "floor",
 "variants": [
 {
+"name": "Bouclé Off White",
+"slots": {
+"main": {
+"color": "#ede8dc",
+"material": "boucle"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+},
+{
 "name": "Bouclé meliert PETROL",
 "slots": {
 "main": {
 "color": "#2f7074",
 "material": "boucle"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+}
+},
+{
+"name": "Samtiger Webstoff Braun",
+"slots": {
+"main": {
+"color": "#7a5a43",
+"material": "velvet"
 },
 "legs": {
 "color": "#1d1d1d",
@@ -69,8 +95,143 @@
 "description": "Farbakzent des Konzepts (kühles Petrol zu Espresso und Chrom); Sitzhöhe 44; rechts vom Sofa",
 "concepts": [
 2,
-3,
 4
+]
+},
+{
+"id": "del-pulo-39515",
+"vendor": "DELIFE",
+"brand": "DELIFE",
+"series": "Pulo",
+"name": "Loungesessel Pulo 80x80 cm Mikrofaser",
+"category": "armchair",
+"w": 78.5,
+"d": 78.0,
+"h": 74.5,
+"price": 389.9,
+"url": "https://www.delife.de/sessel-cocktailsessel-pulo-taupe-vintage/a-39516",
+"image": "https://www.delife.de/media/43/4e/ba/1782480658/39516-loungesessel-pulo-80x80-cm-mikrofaser-taupe-vintage_279ea75.jpg?imwidth=800",
+"archetype": "armchairLounge",
+"params": {},
+"variants": [
+{
+"name": "Taupe Vintage",
+"slots": {
+"main": {
+"color": "#a49482",
+"material": "microfiber"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 389.9,
+"url": "https://www.delife.de/sessel-cocktailsessel-pulo-taupe-vintage/a-39516",
+"image": "https://www.delife.de/media/43/4e/ba/1782480658/39516-loungesessel-pulo-80x80-cm-mikrofaser-taupe-vintage_279ea75.jpg?imwidth=800",
+"opts": [
+"Taupe"
+]
+},
+{
+"name": "Anthrazit Vintage",
+"slots": {
+"main": {
+"color": "#3a3b3c",
+"material": "microfiber"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 479.9,
+"url": "https://www.delife.de/sessel-cocktailsessel-pulo-anthrazit-vintage/a-39518",
+"image": "https://www.delife.de/media/26/32/43/1782561659/39518-loungesessel-pulo-80x80-cm-mikrofaser-anthrazit-vintage_3e41b6c.jpg?imwidth=800",
+"opts": [
+"Anthrazit Vintage"
+]
+},
+{
+"name": "Creme-Weiß",
+"slots": {
+"main": {
+"color": "#ece3d0",
+"material": "velvet"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 479.9,
+"url": "https://www.delife.de/sessel-cocktailsessel-pulo-creme-weiss/a-39519",
+"image": "https://www.delife.de/media/46/ec/f2/1782548460/39519-loungesessel-pulo-80x80-cm-pluesch-creme-weiss_2205883.jpg?imwidth=800",
+"opts": [
+"Creme-Weiß"
+]
+},
+{
+"name": "Weiß",
+"slots": {
+"main": {
+"color": "#f3f1ec",
+"material": "boucle"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 489.9,
+"url": "https://www.delife.de/sessel-cocktailsessel-pulo-weiss/a-39515",
+"image": "https://www.delife.de/media/31/e5/33/1782550561/39515-loungesessel-pulo-80x80-cm-boucle-weiss_2f93f92.jpg?imwidth=800",
+"opts": [
+"Weiß"
+]
+},
+{
+"name": "Beige Vintage",
+"slots": {
+"main": {
+"color": "#d6c7ae",
+"material": "microfiber"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 479.9,
+"url": "https://www.delife.de/sessel-cocktailsessel-pulo-beige-vintage/a-39517",
+"image": "https://www.delife.de/media/7b/b7/c2/1782544407/39517-loungesessel-pulo-80x80-cm-mikrofaser-beige-vintage_10d2b1a8.jpg?imwidth=800",
+"opts": [
+"Beige Vintage"
+]
+}
+],
+"tags": [
+"DELIFE",
+"Pulo"
+],
+"premium": false,
+"description": "Maße lt. DELIFE: B 78.5 × T 78 × H 74.5 cm · Sitzbreite ca.: 67,5 cm · Sitztiefe ca.: 55 cm · Sitzhöhe ca.: 42,5 cm · Fußhöhe ca.: 3,5 cm · Material: Bezug: Mikrofaser (100% Polyester); Füße: Kunststoff · 5 Ausführungen lt. Shop (Stand 24.10.2026)",
+"axes": [
+{
+"name": "Farbe",
+"values": [
+"Taupe",
+"Anthrazit Vintage",
+"Creme-Weiß",
+"Weiß",
+"Beige Vintage"
+]
+}
+],
+"mount": "floor",
+"resizable": false,
+"concepts": [
+3
 ]
 },
 {
@@ -90,11 +251,11 @@
 "mount": "floor",
 "variants": [
 {
-"name": "Samtiger Webstoff Salbeigrün",
+"name": "Bouclé Hellbraun",
 "slots": {
 "main": {
-"color": "#a7b59e",
-"material": "velvet"
+"color": "#b08a63",
+"material": "boucle"
 },
 "legs": {
 "color": "#1d1d1d",
@@ -200,7 +361,8 @@
 "delivery": "2–7 WT",
 "description": "Unikat; Westwand in Achse Couchtisch, im Blickfeld des Sessels W4; Unterkante H 0,95, Bildmitte H ≈ 1,55 m",
 "concepts": [
-1
+1,
+4
 ],
 "elev": 0.0
 },
@@ -245,7 +407,8 @@
 "delivery": "13–14 Wo.",
 "description": "Unikat; Westwand in Couchtisch-Achse, Blickziel des Sessels; Bildmitte H 1,55",
 "concepts": [
-2
+2,
+4
 ],
 "elev": 0.0
 },
@@ -289,10 +452,7 @@
 "premium": true,
 "delivery": "2–3 Wo.",
 "description": "über dem Sideboard, Unterkante 0,95 m",
-"concepts": [
-3
-],
-"elev": 0.0
+"concepts": []
 },
 {
 "id": "wes-handgemaltes-bild-green-petite-malerifabrikken",
@@ -334,10 +494,7 @@
 "premium": true,
 "delivery": "2–3 Wo.",
 "description": "Statement-Kunst an der Westwand; Bildmitte H 1,55",
-"concepts": [
-3
-],
-"elev": 0.0
+"concepts": []
 },
 {
 "id": "wes-handgemaltes-leinwandbild-blue-stroke",
@@ -380,10 +537,7 @@
 "premium": true,
 "delivery": "3–4 Wo.",
 "description": "hell auf Petrol, mittig über dem Kopfteil (UK 20 cm über Kopfteil)",
-"concepts": [
-4
-],
-"elev": 0.0
+"concepts": []
 },
 {
 "id": "wes-handgemaltes-leinwandbild-blueplay-malerifabrikk",
@@ -425,10 +579,7 @@
 "premium": true,
 "delivery": "2–8 WT",
 "description": "großes Unikat an der Westwand, Blickziel des Sessels; Bildmitte H 1,55",
-"concepts": [
-4
-],
-"elev": 0.0
+"concepts": []
 },
 {
 "id": "wes-handgemaltes-leinwandbild-rust-agave",
@@ -471,7 +622,8 @@
 "delivery": "3–4 Wo.",
 "description": "über dem Sideboard, Unterkante 0,95 m",
 "concepts": [
-2
+2,
+3
 ],
 "elev": 0.0
 },
@@ -516,6 +668,7 @@
 "delivery": "2–7 WT",
 "description": "Goldton holt das Messing der Leuchten an die Wand; UK 0,95 m",
 "concepts": [
+3,
 4
 ],
 "elev": 0.0
@@ -802,48 +955,6 @@
 "mount": "floor",
 "variants": [
 {
-"name": "CORD OLIVGRÜN, Liegefläche 180 × 200",
-"slots": {
-"main": {
-"color": "#6e7450",
-"material": "cord"
-},
-"secondary": {
-"color": "#c89c6b",
-"material": "linen"
-},
-"accent": {
-"color": "#5b3a2c",
-"material": "wool"
-},
-"legs": {
-"color": "#1d1d1d",
-"material": "blackMetal"
-}
-}
-},
-{
-"name": "CORD BLAU (Statement; Farbton am Stoffmuster prüfen), Liegefläche 180 × 200",
-"slots": {
-"main": {
-"color": "#3f6680",
-"material": "cord"
-},
-"secondary": {
-"color": "#d3dbca",
-"material": "linen"
-},
-"accent": {
-"color": "#f3efe6",
-"material": "wool"
-},
-"legs": {
-"color": "#1d1d1d",
-"material": "blackMetal"
-}
-}
-},
-{
 "name": "Cord OFF WHITE, Liegefläche 180 × 200",
 "slots": {
 "main": {
@@ -851,11 +962,11 @@
 "material": "cord"
 },
 "secondary": {
-"color": "#fbfbf8",
+"color": "#d8c7ae",
 "material": "linen"
 },
 "accent": {
-"color": "#d8ccb8",
+"color": "#5b3a2c",
 "material": "wool"
 },
 "legs": {
@@ -1016,14 +1127,14 @@
 "mount": "floor",
 "variants": [
 {
-"name": "Salbeigrün, Stahl pulverbeschichtet, Riffelglas",
+"name": "Anthrazit",
 "slots": {
 "main": {
-"color": "#a7b59e",
+"color": "#2b2b2c",
 "material": "matte"
 },
 "secondary": {
-"color": "#e8efe8",
+"color": "#e8ece8",
 "material": "ribbedGlass"
 }
 }
@@ -2025,6 +2136,731 @@
 "concepts": []
 },
 {
+"id": "del-edge-conis-42656",
+"vendor": "DELIFE",
+"brand": "DELIFE",
+"series": "Edge",
+"name": "Couchtisch Edge Boot 120x70 cm Keramik Conis",
+"category": "coffeeTable",
+"w": 120.0,
+"d": 70.0,
+"h": 33.0,
+"price": 469.9,
+"url": "https://www.delife.de/couchtisch-edge-120x70cm-keramik/a-42668",
+"image": "https://www.delife.de/media/2f/61/ff/1782570061/42668-couchtisch-edge-boot-120x70-cm-keramik-laminam---emperador-extra-lucidato-dunkelbraun-conis-edelstahl-gebuerstet_1a8228b.jpg?imwidth=800",
+"archetype": "coffeeBlock",
+"params": {},
+"variants": [
+{
+"name": "Emperador Dunkelbraun, Gestell Silberfarben",
+"slots": {
+"top": {
+"color": "#5b4535",
+"material": "marble"
+},
+"main": {
+"color": "#5b4535",
+"material": "marble"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"price": 599.9,
+"url": "https://www.delife.de/couchtisch-edge-120x70cm-keramik/a-42668",
+"image": "https://www.delife.de/media/2f/61/ff/1782570061/42668-couchtisch-edge-boot-120x70-cm-keramik-laminam---emperador-extra-lucidato-dunkelbraun-conis-edelstahl-gebuerstet_1a8228b.jpg?imwidth=800",
+"opts": [
+"Dunkelbraun",
+"Silberfarben"
+]
+},
+{
+"name": "Laminam® Noir Désir Braun, Gestell Silbergrau",
+"slots": {
+"top": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"main": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"legs": {
+"color": "#9a9da1",
+"material": "steel"
+}
+},
+"price": 629.9,
+"url": "https://www.delife.de/couchtisch-edge-120x70cm-keramik/a-42657",
+"image": "https://www.delife.de/media/92/3b/70/1782549373/42657-couchtisch-edge-boot-120x70-cm-keramik-laminam---noir-desir-braun-conis-metallic-silber_6f680c1.jpg?imwidth=800",
+"opts": [
+"Braun",
+"Silbergrau"
+]
+},
+{
+"name": "Emperador Dunkelbraun, Gestell Silbergrau",
+"slots": {
+"top": {
+"color": "#5b4535",
+"material": "marble"
+},
+"main": {
+"color": "#5b4535",
+"material": "marble"
+},
+"legs": {
+"color": "#9a9da1",
+"material": "steel"
+}
+},
+"price": 799.9,
+"url": "https://www.delife.de/couchtisch-edge-120x70cm-keramik/a-42669",
+"image": "https://www.delife.de/media/34/14/c7/1782545175/42669-couchtisch-edge-boot-120x70-cm-keramik-laminam---emperador-extra-lucidato-dunkelbraun-conis-metallic-silber_192c882.jpg?imwidth=800",
+"opts": [
+"Dunkelbraun",
+"Silbergrau"
+]
+},
+{
+"name": "Beton Grau, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#9d9b96",
+"material": "stone"
+},
+"main": {
+"color": "#9d9b96",
+"material": "stone"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 469.9,
+"url": "https://www.delife.de/couchtisch-edge-120x70cm-keramik/a-46018",
+"image": "https://www.delife.de/media/2d/91/80/1784618893/46018-20260716153231-couchtisch-edge-boot-120x70-cm-keramik-beton-grau-conis-metall-schwarz.jpg?imwidth=800",
+"opts": [
+"Betonfarbig",
+"Schwarz"
+]
+},
+{
+"name": "Onyx Pearl Grau/Beige, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#d6d1c6",
+"material": "marble"
+},
+"main": {
+"color": "#d6d1c6",
+"material": "marble"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 499.9,
+"url": "https://www.delife.de/couchtisch-edge-120x70cm-keramik/a-46068",
+"image": "https://www.delife.de/media/3d/7e/60/1787122703/46068-20260804152852-couchtisch-edge-boot-120x70-cm-keramik-onyx-pearl-conis-metall-schwarz.jpg?imwidth=800",
+"opts": [
+"Grau/Beige",
+"Schwarz"
+]
+},
+{
+"name": "Laminam® Noir Désir Braun, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"main": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 549.9,
+"url": "https://www.delife.de/couchtisch-edge-120x70cm-keramik/a-42656",
+"image": "https://www.delife.de/media/69/42/d9/1782549374/42656-couchtisch-edge-boot-120x70-cm-keramik-laminam---noir-desir-braun-conis-metall-schwarz_41ed678.jpg?imwidth=800",
+"opts": [
+"Braun",
+"Schwarz"
+]
+},
+{
+"name": "Minas Melange Weiß/Beige, Gestell Goldfarben",
+"slots": {
+"top": {
+"color": "#e3dccf",
+"material": "stone"
+},
+"main": {
+"color": "#e3dccf",
+"material": "stone"
+},
+"legs": {
+"color": "#c9a55c",
+"material": "brass"
+}
+},
+"price": 549.9,
+"url": "https://www.delife.de/couchtisch-edge-120x70cm-keramik/a-42665",
+"image": "https://www.delife.de/media/3f/2a/be/1782531658/42665-couchtisch-edge-boot-120x70-cm-keramik-minas-melange-conis-metallic-gold_2c3ac58.jpg?imwidth=800",
+"swatch": "https://www.delife.de/media/e2/9b/a4/1776261273/Minas_Melange_Material_thumbnail.jpg?imwidth=96",
+"opts": [
+"Weiß/Beige",
+"Goldfarben"
+]
+}
+],
+"tags": [
+"DELIFE",
+"Edge"
+],
+"premium": false,
+"description": "Maße lt. DELIFE: B 120 × T 70 × H 33 cm · Maße Tischplatte: B120 x T70 x H1 cm · Maße Gestell: B68 x T45 x H32 cm · Tischplattenstärke: 1 cm · Material: Tischplatte: Keramik auf Sicherheitsglas; Gestell: Edelstahl · Gestell: Conis · 7 Ausführungen lt. Shop (Stand 24.10.2026)",
+"axes": [
+{
+"name": "Farbe",
+"values": [
+"Dunkelbraun",
+"Braun",
+"Betonfarbig",
+"Grau/Beige",
+"Weiß/Beige"
+]
+},
+{
+"name": "Gestellfarbe",
+"values": [
+"Silberfarben",
+"Silbergrau",
+"Schwarz",
+"Goldfarben"
+]
+}
+],
+"mount": "floor",
+"resizable": false,
+"concepts": [
+3
+]
+},
+{
+"id": "del-edge-sarity-42660",
+"vendor": "DELIFE",
+"brand": "DELIFE",
+"series": "Edge",
+"name": "Couchtisch Edge Boot 120x70 cm Keramik Sarity",
+"category": "coffeeTable",
+"w": 120.0,
+"d": 70.0,
+"h": 41.0,
+"price": 379.9,
+"url": "https://www.delife.de/couchtisch-edge-120x70cm-keramik/a-42667",
+"image": "https://www.delife.de/media/ee/0f/22/1782537371/42667-couchtisch-edge-boot-120x70-cm-keramik-minas-melange-sarity-metall-effektfinish-titan_26d5ce2.jpg?imwidth=800",
+"archetype": "coffeeBlock",
+"params": {},
+"variants": [
+{
+"name": "Minas Melange Weiß/Beige, Gestell Titanfarbig",
+"slots": {
+"top": {
+"color": "#e3dccf",
+"material": "stone"
+},
+"main": {
+"color": "#e3dccf",
+"material": "stone"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
+}
+},
+"price": 399.9,
+"url": "https://www.delife.de/couchtisch-edge-120x70cm-keramik/a-42667",
+"image": "https://www.delife.de/media/ee/0f/22/1782537371/42667-couchtisch-edge-boot-120x70-cm-keramik-minas-melange-sarity-metall-effektfinish-titan_26d5ce2.jpg?imwidth=800",
+"swatch": "https://www.delife.de/media/e2/9b/a4/1776261273/Minas_Melange_Material_thumbnail.jpg?imwidth=96",
+"opts": [
+"Weiß/Beige",
+"Titanfarbig"
+]
+},
+{
+"name": "Laminam® Noir Désir Braun, Gestell Titanfarbig",
+"slots": {
+"top": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"main": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
+}
+},
+"price": 479.9,
+"url": "https://www.delife.de/couchtisch-edge-120x70cm-keramik/a-42660",
+"image": "https://www.delife.de/media/33/9e/68/1782545669/42660-couchtisch-edge-boot-120x70-cm-keramik-laminam---noir-desir-braun-sarity-metall-effektfinish-titan_6fb984d.jpg?imwidth=800",
+"opts": [
+"Braun",
+"Titanfarbig"
+]
+},
+{
+"name": "Emperador Dunkelbraun, Gestell Silberfarben",
+"slots": {
+"top": {
+"color": "#5b4535",
+"material": "marble"
+},
+"main": {
+"color": "#5b4535",
+"material": "marble"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"price": 379.9,
+"url": "https://www.delife.de/couchtisch-edge-120x70cm-keramik/a-42672",
+"image": "https://www.delife.de/media/97/c8/91/1782522982/42672-couchtisch-edge-boot-120x70-cm-keramik-laminam---emperador-extra-lucidato-dunkelbraun-sarity-edelstahl-gebuerstet_178b49a.jpg?imwidth=800",
+"opts": [
+"Dunkelbraun",
+"Silberfarben"
+]
+},
+{
+"name": "Laminam® Noir Désir Braun, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"main": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 479.9,
+"url": "https://www.delife.de/couchtisch-edge-120x70cm-keramik/a-42661",
+"image": "https://www.delife.de/media/74/00/5f/1782571462/42661-couchtisch-edge-boot-120x70-cm-keramik-laminam---noir-desir-braun-sarity-metall-schwarz_5eae686.jpg?imwidth=800",
+"opts": [
+"Braun",
+"Schwarz"
+]
+},
+{
+"name": "Emperador Dunkelbraun, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#5b4535",
+"material": "marble"
+},
+"main": {
+"color": "#5b4535",
+"material": "marble"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 479.9,
+"url": "https://www.delife.de/couchtisch-edge-120x70cm-keramik/a-42673",
+"image": "https://www.delife.de/media/44/54/6d/1782570359/42673-couchtisch-edge-boot-120x70-cm-keramik-laminam---emperador-extra-lucidato-dunkelbraun-sarity-metall-schwarz_176bf8b.jpg?imwidth=800",
+"opts": [
+"Dunkelbraun",
+"Schwarz"
+]
+},
+{
+"name": "Onyx Champagne Beige, Gestell Silberfarben",
+"slots": {
+"top": {
+"color": "#d8c6a5",
+"material": "marble"
+},
+"main": {
+"color": "#d8c6a5",
+"material": "marble"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"price": 489.9,
+"url": "https://www.delife.de/couchtisch-edge-120x70cm-keramik/a-46099",
+"image": "https://www.delife.de/media/f5/f0/5a/1783340757/46099-20260703121717-couchtisch-edge-boot-120x70-cm-keramik-onyx-champagne-sarity-edelstahl-gebuerstet.jpg?imwidth=800",
+"opts": [
+"Beige",
+"Silberfarben"
+]
+}
+],
+"tags": [
+"DELIFE",
+"Edge"
+],
+"premium": false,
+"description": "Maße lt. DELIFE: B 120 × T 70 × H 41 cm · Maße Tischplatte: B120 x T70 x H1 cm · Maße Gestell: B73 x T40 x H40 cm · Tischplattenstärke: 1 cm · Material: Tischplatte: Keramik auf Sicherheitsglas; Gestell: Metall · Gestell: Sarity · 6 Ausführungen lt. Shop (Stand 24.10.2026)",
+"axes": [
+{
+"name": "Farbe",
+"values": [
+"Weiß/Beige",
+"Braun",
+"Dunkelbraun",
+"Beige"
+]
+},
+{
+"name": "Gestellfarbe",
+"values": [
+"Titanfarbig",
+"Silberfarben",
+"Schwarz"
+]
+}
+],
+"mount": "floor",
+"resizable": false,
+"concepts": [
+4
+]
+},
+{
+"id": "del-edge-parabi-42827",
+"vendor": "DELIFE",
+"brand": "DELIFE",
+"series": "Edge",
+"name": "Couchtisch Edge Organisch 140x76 cm Keramik Parabi",
+"category": "coffeeTable",
+"w": 140.0,
+"d": 76.0,
+"h": 33.0,
+"price": 479.9,
+"url": "https://www.delife.de/couchtisch-edge-140x76cm-keramik/a-42827",
+"image": "https://www.delife.de/media/17/c0/ef/1782528964/42827-20250731103047-couchtisch-edge-organisch-140x76-cm-keramik-laminam---noir-desir-braun-parabi-metall-schwarz67a051.jpg?imwidth=800",
+"archetype": "coffeeBlock",
+"params": {},
+"variants": [
+{
+"name": "Laminam® Noir Désir Braun, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"main": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 479.9,
+"url": "https://www.delife.de/couchtisch-edge-140x76cm-keramik/a-42827",
+"image": "https://www.delife.de/media/17/c0/ef/1782528964/42827-20250731103047-couchtisch-edge-organisch-140x76-cm-keramik-laminam---noir-desir-braun-parabi-metall-schwarz67a051.jpg?imwidth=800",
+"opts": [
+"Braun",
+"Schwarz"
+]
+},
+{
+"name": "Emperador Dunkelbraun, Gestell Silberfarben",
+"slots": {
+"top": {
+"color": "#5b4535",
+"material": "marble"
+},
+"main": {
+"color": "#5b4535",
+"material": "marble"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"price": 549.9,
+"url": "https://www.delife.de/couchtisch-edge-140x76cm-keramik/a-42843",
+"image": "https://www.delife.de/media/c0/1d/5c/1782522356/42843-couchtisch-edge-organisch-140x76-cm-keramik-laminam---emperador-extra-lucidato-dunkelbraun-parabi-edelstahl-gebuerstet_294c983.jpg?imwidth=800",
+"opts": [
+"Dunkelbraun",
+"Silberfarben"
+]
+},
+{
+"name": "Emperador Dunkelbraun, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#5b4535",
+"material": "marble"
+},
+"main": {
+"color": "#5b4535",
+"material": "marble"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 589.9,
+"url": "https://www.delife.de/couchtisch-edge-140x76cm-keramik/a-42844",
+"image": "https://www.delife.de/media/5b/6c/26/1782527472/42844-couchtisch-edge-organisch-140x76-cm-keramik-laminam---emperador-extra-lucidato-dunkelbraun-parabi-metall-schwarz_3a0ddb9.jpg?imwidth=800",
+"opts": [
+"Dunkelbraun",
+"Schwarz"
+]
+},
+{
+"name": "Laminam® Noir Désir Braun, Gestell Silbergrau",
+"slots": {
+"top": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"main": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"legs": {
+"color": "#9a9da1",
+"material": "steel"
+}
+},
+"price": 629.9,
+"url": "https://www.delife.de/couchtisch-edge-140x76cm-keramik/a-42828",
+"image": "https://www.delife.de/media/86/10/57/1782545441/42828-20250909094639-couchtisch-edge-organisch-140x76-cm-keramik-laminam---noir-desir-braun-parabi-metallic-silber_47dc938.jpg?imwidth=800",
+"opts": [
+"Braun",
+"Silbergrau"
+]
+},
+{
+"name": "Minas Melange Weiß/Beige, Gestell Titanfarbig",
+"slots": {
+"top": {
+"color": "#e3dccf",
+"material": "stone"
+},
+"main": {
+"color": "#e3dccf",
+"material": "stone"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
+}
+},
+"price": 499.9,
+"url": "https://www.delife.de/couchtisch-edge-140x76cm-keramik/a-42835",
+"image": "https://www.delife.de/media/49/8d/f5/1782570665/42835-couchtisch-edge-organisch-140x76-cm-keramik-minas-melange-parabi-metall-effektfinish-titan_4549cd8.jpg?imwidth=800",
+"swatch": "https://www.delife.de/media/e2/9b/a4/1776261273/Minas_Melange_Material_thumbnail.jpg?imwidth=96",
+"opts": [
+"Weiß/Beige",
+"Titanfarbig"
+]
+}
+],
+"tags": [
+"DELIFE",
+"Edge"
+],
+"premium": true,
+"description": "Maße lt. DELIFE: B 140 × T 76 × H 33 cm · Maße Tischplatte: B140 x T76 x H1 cm · Maße Gestell: B60 x T46 x H32 cm · Tischplattenstärke: 1 cm · Material: Tischplatte: Laminam® Keramik auf Sicherheitsglas; Gestell: Metall · Gestell: Parabi · 5 Ausführungen lt. Shop (Stand 24.10.2026)",
+"axes": [
+{
+"name": "Farbe",
+"values": [
+"Braun",
+"Dunkelbraun",
+"Weiß/Beige"
+]
+},
+{
+"name": "Gestellfarbe",
+"values": [
+"Schwarz",
+"Silberfarben",
+"Silbergrau",
+"Titanfarbig"
+]
+}
+],
+"mount": "floor",
+"resizable": false,
+"concepts": [
+1
+]
+},
+{
+"id": "del-edge-parabi-42748",
+"vendor": "DELIFE",
+"brand": "DELIFE",
+"series": "Edge",
+"name": "Couchtisch Edge Oval 140x80 cm Keramik Parabi",
+"category": "coffeeTable",
+"w": 140.0,
+"d": 80.0,
+"h": 33.0,
+"price": 499.9,
+"url": "https://www.delife.de/couchtisch-edge-140x80cm-keramik/a-42758",
+"image": "https://www.delife.de/media/c0/ff/a2/1782562265/42758-couchtisch-edge-oval-140x80-cm-keramik-minas-melange-parabi-metall-effektfinish-titan_5887f49.jpg?imwidth=800",
+"archetype": "coffeeBlock",
+"params": {},
+"variants": [
+{
+"name": "Minas Melange Weiß/Beige, Gestell Titanfarbig",
+"slots": {
+"top": {
+"color": "#e3dccf",
+"material": "stone"
+},
+"main": {
+"color": "#e3dccf",
+"material": "stone"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
+}
+},
+"price": 499.9,
+"url": "https://www.delife.de/couchtisch-edge-140x80cm-keramik/a-42758",
+"image": "https://www.delife.de/media/c0/ff/a2/1782562265/42758-couchtisch-edge-oval-140x80-cm-keramik-minas-melange-parabi-metall-effektfinish-titan_5887f49.jpg?imwidth=800",
+"swatch": "https://www.delife.de/media/e2/9b/a4/1776261273/Minas_Melange_Material_thumbnail.jpg?imwidth=96",
+"opts": [
+"Weiß/Beige",
+"Titanfarbig"
+]
+},
+{
+"name": "Laminam® Noir Désir Braun, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"main": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 649.9,
+"url": "https://www.delife.de/couchtisch-edge-140x80cm-keramik/a-42749",
+"image": "https://www.delife.de/media/91/ac/16/1782545438/42749-couchtisch-edge-oval-140x80-cm-keramik-laminam---noir-desir-braun-parabi-metall-schwarz_385df26.jpg?imwidth=800",
+"opts": [
+"Braun",
+"Schwarz"
+]
+},
+{
+"name": "Emperador Dunkelbraun, Gestell Silberfarben",
+"slots": {
+"top": {
+"color": "#5b4535",
+"material": "marble"
+},
+"main": {
+"color": "#5b4535",
+"material": "marble"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"price": 699.9,
+"url": "https://www.delife.de/couchtisch-edge-140x80cm-keramik/a-42766",
+"image": "https://www.delife.de/media/16/b4/88/1782530462/42766-couchtisch-edge-oval-140x80-cm-keramik-laminam---emperador-extra-lucidato-dunkelbraun-parabi-edelstahl-gebuerstet_132fb15.jpg?imwidth=800",
+"opts": [
+"Dunkelbraun",
+"Silberfarben"
+]
+},
+{
+"name": "Laminam® Noir Désir Braun, Gestell Silberfarben",
+"slots": {
+"top": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"main": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+}
+},
+"price": 789.9,
+"url": "https://www.delife.de/couchtisch-edge-140x80cm-keramik/a-42748",
+"image": "https://www.delife.de/media/92/75/f0/1782538277/42748-couchtisch-edge-oval-140x80-cm-keramik-laminam---noir-desir-braun-parabi-edelstahl-gebuerstet_3256143.jpg?imwidth=800",
+"opts": [
+"Braun",
+"Silberfarben"
+]
+}
+],
+"tags": [
+"DELIFE",
+"Edge"
+],
+"premium": false,
+"description": "Maße lt. DELIFE: B 140 × T 80 × H 33 cm · Maße Tischplatte: B140 x T80 x H1 cm · Maße Gestell: B60 x T46 x H32 cm · Tischplattenstärke: 1 cm · Material: Tischplatte: Keramik auf Sicherheitsglas; Gestell: Metall · Gestell: Parabi · 4 Ausführungen lt. Shop (Stand 24.10.2026)",
+"axes": [
+{
+"name": "Farbe",
+"values": [
+"Weiß/Beige",
+"Braun",
+"Dunkelbraun"
+]
+},
+{
+"name": "Gestellfarbe",
+"values": [
+"Titanfarbig",
+"Schwarz",
+"Silberfarben"
+]
+}
+],
+"mount": "floor",
+"resizable": false,
+"concepts": [
+2
+]
+},
+{
 "id": "wes-couchtisch-marisa-aus-travertin",
 "vendor": "Westwing",
 "name": "Couchtisch Marisa aus Travertin",
@@ -2056,9 +2892,7 @@
 "premium": true,
 "delivery": "4–9 WT",
 "description": "Steinblock statt Beine – das Gestaltungsmotiv „Monolith“; Set mit W5; imprägnieren, Untersetzer",
-"concepts": [
-4
-]
+"concepts": []
 },
 {
 "id": "wes-holz-couchtisch-burl-ferm-living",
@@ -2097,9 +2931,7 @@
 "premium": true,
 "delivery": "4–9 WT",
 "description": "Statement-Stück; lt. Shop nur noch 3 verfügbar – früh bestellen",
-"concepts": [
-2
-]
+"concepts": []
 },
 {
 "id": "wes-travertin-couchtisch-distinct-mit-zwei-tischplat",
@@ -2133,9 +2965,7 @@
 "premium": true,
 "delivery": "3–4 Wo.",
 "description": "zwei Ebenen, massiver Stein – ruhig, aber skulptural; Untersetzer, imprägnieren",
-"concepts": [
-3
-]
+"concepts": []
 },
 {
 "id": "wes-travertin-couchtische-distinct-grande-duo-2er-se",
@@ -2179,9 +3009,7 @@
 "premium": true,
 "delivery": "4–9 WT",
 "description": "zwei Höhen, versetzt mittig vor dem Sofa; 70 kg gesamt; Untersetzer verwenden",
-"concepts": [
-1
-]
+"concepts": []
 },
 {
 "id": "wes-konsole-chandler-aus-eichenholz-mit-travertinpla",
@@ -2232,10 +3060,7 @@
 "premium": true,
 "delivery": "4–9 WT",
 "description": "Serie wie Lowboard und Sideboard; max. 90 kg",
-"concepts": [
-1,
-4
-]
+"concepts": []
 },
 {
 "id": "wes-konsole-noam-mit-marmor-platte",
@@ -2286,9 +3111,453 @@
 "premium": true,
 "delivery": "4–9 WT",
 "description": "Serie wie Esstisch; reduziert (vorher 749 €); Wandbeschlag liegt bei",
+"concepts": []
+},
+{
+"id": "del-edge-estelo-45513",
+"vendor": "DELIFE",
+"brand": "DELIFE",
+"series": "Edge",
+"name": "Konsolentisch Edge Boot 140x40 cm Keramik Estelo",
+"category": "console",
+"w": 140.0,
+"d": 40.0,
+"h": 79.0,
+"price": 399.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45539",
+"image": "https://www.delife.de/media/49/f8/42/1782545508/45539-20260622073617-konsolentisch-edge-boot-140x40-cm-keramik-patagonia-poliert-estelo-metall-schwarz751169.jpg?imwidth=800",
+"archetype": "console",
+"params": {},
+"variants": [
+{
+"name": "Patagonia Braun/Beige, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#bba78c",
+"material": "marble"
+},
+"main": {
+"color": "#bba78c",
+"material": "marble"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 399.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45539",
+"image": "https://www.delife.de/media/49/f8/42/1782545508/45539-20260622073617-konsolentisch-edge-boot-140x40-cm-keramik-patagonia-poliert-estelo-metall-schwarz751169.jpg?imwidth=800",
+"swatch": "https://www.delife.de/media/93/c3/e5/1779105312/Keramik_Patagonia-Poliert_thumbnail.jpg?imwidth=96",
+"opts": [
+"Braun/Beige",
+"Schwarz"
+]
+},
+{
+"name": "Patagonia Braun/Beige, Gestell Titanfarbig",
+"slots": {
+"top": {
+"color": "#bba78c",
+"material": "marble"
+},
+"main": {
+"color": "#bba78c",
+"material": "marble"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
+}
+},
+"price": 399.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45540",
+"image": "https://www.delife.de/media/80/86/4c/1782543181/45540-20260511085027-konsolentisch-edge-boot-140x40-cm-keramik-patagonia-poliert-estelo-metall-effektfinish-titan5481f7.jpg?imwidth=800",
+"swatch": "https://www.delife.de/media/93/c3/e5/1779105312/Keramik_Patagonia-Poliert_thumbnail.jpg?imwidth=96",
+"opts": [
+"Braun/Beige",
+"Titanfarbig"
+]
+},
+{
+"name": "Emperador Dunkelbraun, Gestell Titanfarbig",
+"slots": {
+"top": {
+"color": "#5b4535",
+"material": "marble"
+},
+"main": {
+"color": "#5b4535",
+"material": "marble"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
+}
+},
+"price": 399.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45624",
+"image": "https://www.delife.de/media/52/25/e7/1782542770/45624-20260622074716-konsolentisch-edge-boot-140x40-cm-keramik-emperador-extra-lucidato-dunkelbraun-estelo-metall-effektfinish-titan7437f0.jpg?imwidth=800",
+"opts": [
+"Dunkelbraun",
+"Titanfarbig"
+]
+},
+{
+"name": "Laminam® Travertino Bianco Creme-Weiß, Gestell Titanfarbig",
+"slots": {
+"top": {
+"color": "#e2d5c0",
+"material": "travertine"
+},
+"main": {
+"color": "#e2d5c0",
+"material": "travertine"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
+}
+},
+"price": 449.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45652",
+"image": "https://www.delife.de/media/42/ac/6c/1782543359/45652-20260520160945-konsolentisch-edge-boot-140x40-cm-keramik-laminam---travertino-bianco-creme-weiss-estelo-metall-effektfinish-titanece955.jpg?imwidth=800",
+"opts": [
+"Creme-Weiß",
+"Titanfarbig"
+]
+},
+{
+"name": "Beton Grau, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#9d9b96",
+"material": "stone"
+},
+"main": {
+"color": "#9d9b96",
+"material": "stone"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 499.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45513",
+"image": "https://www.delife.de/media/44/27/ca/1782540963/45513-20260622074221-konsolentisch-edge-boot-140x40-cm-keramik-beton-grau-estelo-metall-schwarz6742ad.jpg?imwidth=800",
+"opts": [
+"Betonfarbig",
+"Schwarz"
+]
+},
+{
+"name": "Minas Melange Weiß/Beige, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#e3dccf",
+"material": "stone"
+},
+"main": {
+"color": "#e3dccf",
+"material": "stone"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 499.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45581",
+"image": "https://www.delife.de/media/8f/05/cd/1790769954/45581-20260930094823-konsolentisch-edge-boot-140x40-cm-keramik-minas-melange-weiss-beige-estelo-metall-schwarz.jpg?imwidth=800",
+"swatch": "https://www.delife.de/media/e2/9b/a4/1776261273/Minas_Melange_Material_thumbnail.jpg?imwidth=96",
+"opts": [
+"Weiß/Beige",
+"Schwarz"
+]
+},
+{
+"name": "Minas Melange Weiß/Beige, Gestell Titanfarbig",
+"slots": {
+"top": {
+"color": "#e3dccf",
+"material": "stone"
+},
+"main": {
+"color": "#e3dccf",
+"material": "stone"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
+}
+},
+"price": 549.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45582",
+"image": "https://www.delife.de/media/d5/02/2a/1782542165/45582-20260518111249-konsolentisch-edge-boot-140x40-cm-keramik-minas-melange-weiss-beige-estelo-metall-effektfinish-titan2eecc8.jpg?imwidth=800",
+"swatch": "https://www.delife.de/media/e2/9b/a4/1776261273/Minas_Melange_Material_thumbnail.jpg?imwidth=96",
+"opts": [
+"Weiß/Beige",
+"Titanfarbig"
+]
+},
+{
+"name": "Emperador Dunkelbraun, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#5b4535",
+"material": "marble"
+},
+"main": {
+"color": "#5b4535",
+"material": "marble"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 549.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45623",
+"image": "https://www.delife.de/media/af/11/a2/1782544572/45623-20260622074727-konsolentisch-edge-boot-140x40-cm-keramik-emperador-extra-lucidato-dunkelbraun-estelo-metall-schwarz699ae1.jpg?imwidth=800",
+"opts": [
+"Dunkelbraun",
+"Schwarz"
+]
+},
+{
+"name": "Onyx Pearl Grau/Beige, Gestell Titanfarbig",
+"slots": {
+"top": {
+"color": "#d6d1c6",
+"material": "marble"
+},
+"main": {
+"color": "#d6d1c6",
+"material": "marble"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
+}
+},
+"price": 589.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45555",
+"image": "https://www.delife.de/media/64/c3/52/1782544942/45555-20260522154417-konsolentisch-edge-boot-140x40-cm-keramik-onyx-pearl-estelo-metall-effektfinish-titan12e61c.jpg?imwidth=800",
+"opts": [
+"Grau/Beige",
+"Titanfarbig"
+]
+},
+{
+"name": "Calacatta Luxe Weiß/Gold, Gestell Titanfarbig",
+"slots": {
+"top": {
+"color": "#ebe6de",
+"material": "marble"
+},
+"main": {
+"color": "#ebe6de",
+"material": "marble"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
+}
+},
+"price": 589.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45597",
+"image": "https://www.delife.de/media/92/f9/2c/1782543175/45597-20260612103734-konsolentisch-edge-boot-140x40-cm-keramik-calacatta-luxe-weiss-gold-grau-estelo-metall-effektfinish-titanfe3e48.jpg?imwidth=800",
+"swatch": "https://www.delife.de/media/46/88/d9/1747310101/weiss_gold_icon.webp?imwidth=96",
+"opts": [
+"Weiß/Gold",
+"Titanfarbig"
+]
+},
+{
+"name": "Laminam® Travertino Bianco Creme-Weiß, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#e2d5c0",
+"material": "travertine"
+},
+"main": {
+"color": "#e2d5c0",
+"material": "travertine"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 589.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45651",
+"image": "https://www.delife.de/media/12/b3/3a/1782543361/45651-20260527153009-konsolentisch-edge-boot-140x40-cm-keramik-laminam---travertino-bianco-creme-weiss-estelo-metall-schwarz4a07ad.jpg?imwidth=800",
+"opts": [
+"Creme-Weiß",
+"Schwarz"
+]
+},
+{
+"name": "Laminam® Noir Désir Braun, Gestell Titanfarbig",
+"slots": {
+"top": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"main": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
+}
+},
+"price": 589.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45667",
+"image": "https://www.delife.de/media/7b/0c/b0/1782531980/45667-20260511083742-konsolentisch-edge-boot-140x40-cm-keramik-laminam---noir-desir-braun-estelo-metall-effektfinish-titanb39111.jpg?imwidth=800",
+"opts": [
+"Braun",
+"Titanfarbig"
+]
+},
+{
+"name": "Laminam® Sabbia Eichefarbig, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#c6a982",
+"material": "oak"
+},
+"main": {
+"color": "#c6a982",
+"material": "oak"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 589.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45681",
+"image": "https://www.delife.de/media/2e/d3/db/1782553262/45681-20260601105606-konsolentisch-edge-boot-140x40-cm-keramik-laminam---sabbia-eichefarbig-estelo-metall-schwarz435cca.jpg?imwidth=800",
+"opts": [
+"Eichefarbig",
+"Schwarz"
+]
+},
+{
+"name": "Laminam® Nero Greco Anthrazit, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#2b2b2c",
+"material": "marble"
+},
+"main": {
+"color": "#2b2b2c",
+"material": "marble"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 589.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45709",
+"image": "https://www.delife.de/media/8e/e7/12/1782545500/45709-20260612153216-konsolentisch-edge-boot-140x40-cm-keramik-laminam---nero-greco-anthrazit-estelo-metall-schwarz95b626.jpg?imwidth=800",
+"opts": [
+"Anthrazit",
+"Schwarz"
+]
+},
+{
+"name": "Onyx Champagne Beige, Gestell Titanfarbig",
+"slots": {
+"top": {
+"color": "#d8c6a5",
+"material": "marble"
+},
+"main": {
+"color": "#d8c6a5",
+"material": "marble"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
+}
+},
+"price": 589.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45723",
+"image": "https://www.delife.de/media/c3/03/1b/1782572021/45723-20260511082746-konsolentisch-edge-boot-140x40-cm-keramik-onyx-champagne-estelo-metall-effektfinish-titan080b59.jpg?imwidth=800",
+"opts": [
+"Beige",
+"Titanfarbig"
+]
+},
+{
+"name": "Laminam® Statuarietto Weiß, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#efedea",
+"material": "marble"
+},
+"main": {
+"color": "#efedea",
+"material": "marble"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 589.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45695",
+"image": "https://www.delife.de/media/50/ba/f4/1784618894/45695-20260720153843-konsolentisch-edge-boot-140x40-cm-keramik-laminam---statuarietto-weiss-estelo-metall-schwarz.jpg?imwidth=800",
+"opts": [
+"Weiß",
+"Schwarz"
+]
+}
+],
+"tags": [
+"DELIFE",
+"Edge"
+],
+"premium": false,
+"description": "Maße lt. DELIFE: B 140 × T 40 × H 79 cm · Maße Tischplatte: B140 x T40 x H1 cm · Maße Gestell: B93 x T18 x H77 cm · Tischplattenstärke: 1 cm · Material: Tischplatte: Keramik auf Sicherheitsglas; Gestell: Metall · Gestell: Estelo · 16 Ausführungen lt. Shop (Stand 24.10.2026)",
+"axes": [
+{
+"name": "Farbe",
+"values": [
+"Braun/Beige",
+"Dunkelbraun",
+"Creme-Weiß",
+"Betonfarbig",
+"Weiß/Beige",
+"Grau/Beige",
+"Weiß/Gold",
+"Braun",
+"Eichefarbig",
+"Anthrazit",
+"Beige",
+"Weiß"
+]
+},
+{
+"name": "Gestellfarbe",
+"values": [
+"Schwarz",
+"Titanfarbig"
+]
+}
+],
+"mount": "floor",
+"resizable": false,
 "concepts": [
+1,
 2,
-3
+3,
+4
 ]
 },
 {
@@ -2904,6 +4173,311 @@
 ]
 },
 {
+"id": "del-ramina-46714",
+"vendor": "DELIFE",
+"brand": "DELIFE",
+"series": "Ramina",
+"name": "Schale Ramina B29 x T21 x H19 cm Aluminium Aurum Satin Gegossen",
+"category": "decor",
+"w": 29.0,
+"d": 21.0,
+"h": 19.0,
+"price": 79.9,
+"url": "https://www.delife.de/schale-ramina-aluminium-aurum-satin-b29-x-t21-x-h19cm/a-46714",
+"image": "https://www.delife.de/media/78/83/a5/1791326755/46714-20261002081747-schale-ramina-b29-x-t21-x-h19-cm-aluminium-aurum-satin-gegossen.jpg?imwidth=800",
+"archetype": "bowl",
+"params": {},
+"variants": [
+{
+"name": "Gold/Messing",
+"slots": {
+"top": {
+"color": "#c7a45d",
+"material": "brass"
+},
+"main": {
+"color": "#c7a45d",
+"material": "brass"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 79.9,
+"url": "https://www.delife.de/schale-ramina-aluminium-aurum-satin-b29-x-t21-x-h19cm/a-46714",
+"image": "https://www.delife.de/media/78/83/a5/1791326755/46714-20261002081747-schale-ramina-b29-x-t21-x-h19-cm-aluminium-aurum-satin-gegossen.jpg?imwidth=800",
+"opts": [
+"Gold/Messing"
+]
+},
+{
+"name": "Mokka/Bronze",
+"slots": {
+"top": {
+"color": "#694f38",
+"material": "lacquer"
+},
+"main": {
+"color": "#694f38",
+"material": "lacquer"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 79.9,
+"url": "https://www.delife.de/schale-ramina-aluminium-mokka-bronze-b29-x-t21-x-h19cm/a-46715",
+"image": "https://www.delife.de/media/d0/98/cd/1791326486/46715-20261002081739-schale-ramina-b29-x-t21-x-h19-cm-aluminium-mokka-bronze-gegossen.jpg?imwidth=800",
+"opts": [
+"Mokka/Bronze"
+]
+},
+{
+"name": "Anthrazit/Graphit",
+"slots": {
+"top": {
+"color": "#3b3c3e",
+"material": "lacquer"
+},
+"main": {
+"color": "#3b3c3e",
+"material": "lacquer"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 79.9,
+"url": "https://www.delife.de/schale-ramina-aluminium-haematit-b29-x-t21-x-h19cm/a-46716",
+"image": "https://www.delife.de/media/a4/0a/58/1791326505/46716-20261002081730-schale-ramina-b29-x-t21-x-h19-cm-aluminium-haematit-gegossen.jpg?imwidth=800",
+"opts": [
+"Anthrazit/Graphit"
+]
+}
+],
+"tags": [
+"DELIFE",
+"Ramina"
+],
+"premium": false,
+"description": "Maße lt. DELIFE: B 29 × T 21 × H 19 cm · 3 Ausführungen lt. Shop (Stand 24.10.2026)",
+"axes": [
+{
+"name": "Farbe",
+"values": [
+"Gold/Messing",
+"Mokka/Bronze",
+"Anthrazit/Graphit"
+]
+}
+],
+"mount": "floor",
+"resizable": false,
+"concepts": [
+1,
+2,
+3,
+4
+]
+},
+{
+"id": "del-rondia-46690",
+"vendor": "DELIFE",
+"brand": "DELIFE",
+"series": "Rondia",
+"name": "Vase Rondia B21 x T21 x H35 cm Glas Aurum Mundgeblasen",
+"category": "decor",
+"w": 21.0,
+"d": 21.0,
+"h": 35.0,
+"price": 69.9,
+"url": "https://www.delife.de/vase-rondia-glas-aurum-b21-x-t21-x-h35cm/a-46690",
+"image": "https://www.delife.de/media/15/e5/d0/1791326764/46690-20261002082149-vase-rondia-b21-x-t21-x-h35-cm-glas-aurum-mundgeblasen.jpg?imwidth=800",
+"archetype": "vase",
+"params": {},
+"variants": [
+{
+"name": "Gold/Braun",
+"slots": {
+"top": {
+"color": "#b18e54",
+"material": "brass"
+},
+"main": {
+"color": "#b18e54",
+"material": "brass"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 69.9,
+"url": "https://www.delife.de/vase-rondia-glas-aurum-b21-x-t21-x-h35cm/a-46690",
+"image": "https://www.delife.de/media/15/e5/d0/1791326764/46690-20261002082149-vase-rondia-b21-x-t21-x-h35-cm-glas-aurum-mundgeblasen.jpg?imwidth=800",
+"opts": [
+"Gold/Braun"
+]
+},
+{
+"name": "Beige/Taupe",
+"slots": {
+"top": {
+"color": "#c7b8a1",
+"material": "lacquer"
+},
+"main": {
+"color": "#c7b8a1",
+"material": "lacquer"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 69.9,
+"url": "https://www.delife.de/vase-rondia-glas-opal-b21-x-t21-x-h35cm/a-46691",
+"image": "https://www.delife.de/media/91/9d/8e/1791326508/46691-20261002082140-vase-rondia-b21-x-t21-x-h35-cm-glas-opal-mundgeblasen.jpg?imwidth=800",
+"opts": [
+"Beige/Taupe"
+]
+}
+],
+"tags": [
+"DELIFE",
+"Rondia"
+],
+"premium": false,
+"description": "Maße lt. DELIFE: B 21 × T 21 × H 35 cm · 2 Ausführungen lt. Shop (Stand 24.10.2026)",
+"axes": [
+{
+"name": "Farbe",
+"values": [
+"Gold/Braun",
+"Beige/Taupe"
+]
+}
+],
+"mount": "floor",
+"resizable": false,
+"concepts": [
+1
+]
+},
+{
+"id": "del-torvia-46744",
+"vendor": "DELIFE",
+"brand": "DELIFE",
+"series": "Torvia",
+"name": "Vase Torvia B20 x T20 x H19 cm Aluminium Mokka Bronze Handgemacht",
+"category": "decor",
+"w": 20.0,
+"d": 20.0,
+"h": 19.0,
+"price": 69.9,
+"url": "https://www.delife.de/vase-torvia-aluminium-mokka-bronze-b20-x-t20-x-h19cm/a-46744",
+"image": "https://www.delife.de/media/15/eb/30/1791326771/46744-20261002081240-vase-torvia-b20-x-t20-x-h19-cm-aluminium-mokka-bronze-handgemacht.jpg?imwidth=800",
+"archetype": "vase",
+"params": {},
+"variants": [
+{
+"name": "Mokka/Bronze",
+"slots": {
+"top": {
+"color": "#694f38",
+"material": "lacquer"
+},
+"main": {
+"color": "#694f38",
+"material": "lacquer"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 69.9,
+"url": "https://www.delife.de/vase-torvia-aluminium-mokka-bronze-b20-x-t20-x-h19cm/a-46744",
+"image": "https://www.delife.de/media/15/eb/30/1791326771/46744-20261002081240-vase-torvia-b20-x-t20-x-h19-cm-aluminium-mokka-bronze-handgemacht.jpg?imwidth=800",
+"opts": [
+"Mokka/Bronze"
+]
+},
+{
+"name": "Gold/Messing",
+"slots": {
+"top": {
+"color": "#c7a45d",
+"material": "brass"
+},
+"main": {
+"color": "#c7a45d",
+"material": "brass"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 69.9,
+"url": "https://www.delife.de/vase-torvia-aluminium-aurum-satin-b20-x-t20-x-h19cm/a-46745",
+"image": "https://www.delife.de/media/62/b3/f2/1791326753/46745-20261002081230-vase-torvia-b20-x-t20-x-h19-cm-aluminium-aurum-satin-handgemacht.jpg?imwidth=800",
+"opts": [
+"Gold/Messing"
+]
+},
+{
+"name": "Anthrazit/Graphit",
+"slots": {
+"top": {
+"color": "#3b3c3e",
+"material": "lacquer"
+},
+"main": {
+"color": "#3b3c3e",
+"material": "lacquer"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 69.9,
+"url": "https://www.delife.de/vase-torvia-aluminium-haematit-b20-x-t20-x-h19cm/a-46746",
+"image": "https://www.delife.de/media/1b/2a/a9/1791326490/46746-20261002081220-vase-torvia-b20-x-t20-x-h19-cm-aluminium-haematit-handgemacht.jpg?imwidth=800",
+"opts": [
+"Anthrazit/Graphit"
+]
+}
+],
+"tags": [
+"DELIFE",
+"Torvia"
+],
+"premium": false,
+"description": "Maße lt. DELIFE: B 20 × T 20 × H 19 cm · 3 Ausführungen lt. Shop (Stand 24.10.2026)",
+"axes": [
+{
+"name": "Farbe",
+"values": [
+"Mokka/Bronze",
+"Gold/Messing",
+"Anthrazit/Graphit"
+]
+}
+],
+"mount": "floor",
+"resizable": false,
+"concepts": [
+1,
+2,
+3
+]
+},
+{
 "id": "wes-uebertopf-hourglass-ferm-living",
 "vendor": "Westwing",
 "name": "Übertopf Hourglass (Ferm Living)",
@@ -2971,9 +4545,7 @@
 "premium": true,
 "delivery": "2–4 WT",
 "description": "",
-"concepts": [
-1
-]
+"concepts": []
 },
 {
 "id": "ike-mittzon-schreibtisch-sitz-steh-elektrisch",
@@ -3269,8 +4841,8 @@
 "name": "Kupferfarben / Opalglas weiß",
 "slots": {
 "main": {
-"color": "#b8703e",
-"material": "copper"
+"color": "#c3a160",
+"material": "brass"
 },
 "shade": {
 "color": "#f6f4ee",
@@ -3285,9 +4857,7 @@
 "premium": true,
 "delivery": "6–7 Wo.",
 "description": "Leselicht zwischen Sofa und Sessel; 2 × E27, Dimmer am Kabel; Zuleitung flach unter dem Sofa zur Dose Westwand (y 2,10)",
-"concepts": [
-1
-]
+"concepts": []
 },
 {
 "id": "des-flos-ic-lights-f1-stehleuchte-michael-anastassia",
@@ -3330,6 +4900,81 @@
 ]
 },
 {
+"id": "wes-stehlampe-neron-122121",
+"vendor": "Westwing",
+"brand": "Westwing Collection",
+"name": "Große Leselampe Neron",
+"category": "floorLamp",
+"w": 40.0,
+"d": 105.0,
+"h": 171.0,
+"price": 219.0,
+"url": "https://www.westwing.de/stehlampe-neron-122121.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ20WES54106-153990_5d090e0f553734371ecdda162a1fe017_dtl_1.jpg",
+"archetype": "lampFloorShade",
+"params": {},
+"variants": [
+{
+"name": "Schwarz, Messing",
+"slots": {
+"main": {
+"color": "#c3a160",
+"material": "brass"
+},
+"frame": {
+"color": "#c3a160",
+"material": "brass"
+},
+"legs": {
+"color": "#c3a160",
+"material": "brass"
+},
+"shade": {
+"color": "#1d1d1d",
+"material": "linen"
+}
+},
+"price": 229.0,
+"url": "https://www.westwing.de/stehlampe-neron-122121.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ20WES54106-153990_5d090e0f553734371ecdda162a1fe017_dtl_1.jpg"
+},
+{
+"name": "Cremeweiß, Silberfarben",
+"slots": {
+"main": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"frame": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"legs": {
+"color": "#c6cbd0",
+"material": "chrome"
+},
+"shade": {
+"color": "#ede6d8",
+"material": "opal"
+}
+},
+"price": 219.0,
+"url": "https://www.westwing.de/grosse-leselampe-neron-163380.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES73209-211038_f4503a23a1a99103b5907d6123a6a418_dtl_1.jpg"
+}
+],
+"tags": [
+"Westwing Collection"
+],
+"premium": true,
+"description": "Gesamt: H 171 cm, T 105 cm · Lampenschirm: B 27 cm, H 10 cm, T 31 cm · Lampensockel: Ø 30 cm · Kabel: L 210 cm",
+"mount": "floor",
+"resizable": false,
+"concepts": [
+3
+]
+},
+{
 "id": "des-gubi-multi-lite-stehleuchte",
 "vendor": "Designhandel",
 "name": "Gubi Multi-Lite Stehleuchte",
@@ -3349,12 +4994,12 @@
 "name": "Chrom / Chrom; über Nordic Nest",
 "slots": {
 "main": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
 },
 "shade": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
 }
 }
 }
@@ -3365,9 +5010,129 @@
 "premium": true,
 "delivery": "2–4 WT",
 "description": "Leselicht zwischen Sofa und Sessel; E27 exkl.; UVP 1.199 €",
+"concepts": []
+},
+{
+"id": "lam-hollaender-capri-stehleuchte-280-k-1101",
+"vendor": "lampe.de",
+"brand": "Holländer",
+"series": "Holländer CAPRI Stehleuchte",
+"name": "Holländer CAPRI Stehleuchte",
+"category": "floorLamp",
+"archetype": "lampFloorShade",
+"w": 46.0,
+"d": 46.0,
+"h": 155.0,
+"price": 719.99,
+"url": "https://www.lampe.de/hollaender-capri-stehleuchte-280-k-1101.html",
+"image": "https://www.lampe.de/media/product/130809/700x700/hollaender-capri-stehleuchte-280-k-1101-0.jpg",
+"params": {},
+"variants": [
+{
+"name": "Gold / Schwarz",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#1d1d1d",
+"material": "linen"
+},
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
+}
+},
+"price": 719.99,
+"url": "https://www.lampe.de/hollaender-capri-stehleuchte-280-k-1101.html"
+}
+],
+"premium": true,
+"tags": [
+"Holländer",
+"Stehlampe"
+],
+"description": "Stehlampe, 1-flammig; E27; Material: Metall; Schirm: Kunststoff",
+"mount": "floor",
+"resizable": false,
 "concepts": [
-2,
-3
+1
+]
+},
+{
+"id": "wes-bun-floor-lamp-brown-en-25wes95914",
+"vendor": "Westwing",
+"brand": "Westwing Collection",
+"name": "Stehlampe Bun mit Marmorfuß",
+"category": "floorLamp",
+"w": 40.0,
+"d": 40.0,
+"h": 153.0,
+"price": 419.0,
+"url": "https://www.westwing.de/bun-floor-lamp-brown-en-25wes95914.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25WES95914-622876_1e9e390b2c7153fe3b68f98d069fc025_dtl_1.jpg",
+"archetype": "lampFloorShade",
+"params": {},
+"variants": [
+{
+"name": "Brauner Marmor, goldfarben",
+"slots": {
+"main": {
+"color": "#7a5a43",
+"material": "marble"
+},
+"frame": {
+"color": "#7a5a43",
+"material": "marble"
+},
+"legs": {
+"color": "#7a5a43",
+"material": "marble"
+},
+"shade": {
+"color": "#c9a55c",
+"material": "brass"
+}
+},
+"price": 419.0,
+"url": "https://www.westwing.de/bun-floor-lamp-brown-en-25wes95914.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25WES95914-622876_1e9e390b2c7153fe3b68f98d069fc025_dtl_1.jpg"
+},
+{
+"name": "Marmor Beige, Weiß",
+"slots": {
+"main": {
+"color": "#d6c7ae",
+"material": "marble"
+},
+"frame": {
+"color": "#d6c7ae",
+"material": "marble"
+},
+"legs": {
+"color": "#d6c7ae",
+"material": "marble"
+},
+"shade": {
+"color": "#f3f1ec",
+"material": "opal"
+}
+},
+"price": 419.0,
+"url": "https://www.westwing.de/bun-floor-lamp-beige-en-25wes89459.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ25WES89459-281469_98a971e0868fe561fb3ae361c95bcf9b_dtl_1.jpg"
+}
+],
+"tags": [
+"Westwing Collection"
+],
+"premium": true,
+"description": "Gesamt: Ø 40 cm, H 153 cm · Lampengestell: H 95 cm · Lampenschirm: Ø 40 cm, H 24 cm · Lampenfuß: Ø 20 cm, H 28 cm · Kabel: L 220 cm",
+"mount": "floor",
+"resizable": false,
+"concepts": [
+2
 ]
 },
 {
@@ -3457,6 +5222,165 @@
 "description": "2 × Unterschrank 60 cm, Tiefe 35 cm, 1 Tür, Wangen Walnuss-dunkel, Natursteinplatte Verde Eucalypto 1.236 × 375 × 38 mm (Höffner, Kaufvertrag 3037702)."
 },
 {
+"id": "del-cuor-fuss-schwebend-metall-40351",
+"vendor": "DELIFE",
+"brand": "DELIFE",
+"series": "Cuor",
+"name": "Lowboard Cuor 180 cm Keramik Weiß-Beige 1 Klappe 2 Schubfächer Fuß Schwebeoptik Schwarz",
+"category": "lowboard",
+"w": 180.0,
+"d": 45.0,
+"h": 50.0,
+"price": 1149.9,
+"url": "https://www.delife.de/lowboard-cuor-180cm-keramik/a-40363",
+"image": "https://www.delife.de/media/da/25/59/1782535274/40363-lowboard-cuor-180-cm-keramik-minas-melange-weiss-beige-1-klappe-2-schubfaecher-fuss-schwebeoptik-metall-schwarz_151bd02.jpg?imwidth=800",
+"archetype": "lowboard",
+"params": {},
+"variants": [
+{
+"name": "Minas Melange Weiß/Beige",
+"slots": {
+"top": {
+"color": "#e3dccf",
+"material": "stone"
+},
+"main": {
+"color": "#e3dccf",
+"material": "stone"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 1149.9,
+"url": "https://www.delife.de/lowboard-cuor-180cm-keramik/a-40363",
+"image": "https://www.delife.de/media/da/25/59/1782535274/40363-lowboard-cuor-180-cm-keramik-minas-melange-weiss-beige-1-klappe-2-schubfaecher-fuss-schwebeoptik-metall-schwarz_151bd02.jpg?imwidth=800",
+"swatch": "https://www.delife.de/media/e2/9b/a4/1776261273/Minas_Melange_Material_thumbnail.jpg?imwidth=96",
+"opts": [
+"Weiß/Beige"
+]
+},
+{
+"name": "Laminam® Travertino Bianco Creme-Weiß",
+"slots": {
+"top": {
+"color": "#e2d5c0",
+"material": "travertine"
+},
+"main": {
+"color": "#e2d5c0",
+"material": "travertine"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 1199.9,
+"url": "https://www.delife.de/lowboard-cuor-180cm-keramik/a-40355",
+"image": "https://www.delife.de/media/ea/ac/ed/1782543667/40355-lowboard-cuor-180-cm-keramik-laminam---travertino-bianco-creme-weiss-1-klappe-2-schubfaecher-fuss-schwebeoptik-metall-schwarz_8bc01de.jpg?imwidth=800",
+"opts": [
+"Creme-Weiß"
+]
+},
+{
+"name": "Beton Grau",
+"slots": {
+"top": {
+"color": "#9d9b96",
+"material": "stone"
+},
+"main": {
+"color": "#9d9b96",
+"material": "stone"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 1449.9,
+"url": "https://www.delife.de/lowboard-cuor-180cm-keramik/a-46635",
+"image": "https://www.delife.de/media/5a/46/c1/1789044967/46635-20260907112458-lowboard-cuor-180-cm-keramik-beton-grau-1-klappe-2-schubfaecher-fuss-schwebeoptik-metall-schwarz.jpg?imwidth=800",
+"opts": [
+"Betonfarbig"
+]
+},
+{
+"name": "Patagonia Braun/Beige",
+"slots": {
+"top": {
+"color": "#bba78c",
+"material": "marble"
+},
+"main": {
+"color": "#bba78c",
+"material": "marble"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 1499.9,
+"url": "https://www.delife.de/lowboard-cuor-180cm-keramik/a-46607",
+"image": "https://www.delife.de/media/d7/14/0d/1790764254/46607-20260925111303-lowboard-cuor-180-cm-keramik-patagonia-poliert-1-klappe-2-schubfaecher-fuss-schwebeoptik-metall-schwarz.jpg?imwidth=800",
+"swatch": "https://www.delife.de/media/93/c3/e5/1779105312/Keramik_Patagonia-Poliert_thumbnail.jpg?imwidth=96",
+"opts": [
+"Braun/Beige"
+]
+},
+{
+"name": "Emperador Dunkelbraun",
+"slots": {
+"top": {
+"color": "#5b4535",
+"material": "marble"
+},
+"main": {
+"color": "#5b4535",
+"material": "marble"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 1599.9,
+"url": "https://www.delife.de/lowboard-cuor-180cm-keramik/a-40351",
+"image": "https://www.delife.de/media/60/02/89/1782536164/40351-lowboard-cuor-180-cm-keramik-laminam---emperador-extra-lucidato-dunkelbraun-1-klappe-2-schubfaecher-fuss-schwebeoptik-metall-schwarz_2b53f7a.jpg?imwidth=800",
+"opts": [
+"Dunkelbraun"
+]
+}
+],
+"tags": [
+"DELIFE",
+"Cuor"
+],
+"premium": true,
+"description": "Maße lt. DELIFE: B 180 × T 45 × H 50 cm · Maße Fach innen: B116 x T40 x H28,5 cm · Maße Schublade innen: B52 x T32 x H9 cm (2) · Maße Füße: B1 x T40 x H15 cm · Material: Korpus: Keramik, MDF; Füße: Metall · Gestell: Fuß schwebend Metall · 5 Ausführungen lt. Shop (Stand 24.10.2026)",
+"axes": [
+{
+"name": "Farbe",
+"values": [
+"Weiß/Beige",
+"Creme-Weiß",
+"Betonfarbig",
+"Braun/Beige",
+"Dunkelbraun"
+]
+}
+],
+"mount": "floor",
+"resizable": false,
+"concepts": [
+3,
+4
+]
+},
+{
 "id": "wes-tv-lowboard-cadi-aus-eichenholz",
 "vendor": "Westwing",
 "name": "TV-Lowboard Cadi aus Eichenholz",
@@ -3495,10 +5419,7 @@
 "premium": true,
 "delivery": "9–10 Wo.",
 "description": "2 Kabeldurchlässe, Soft-Close, Beine 15 cm; früh bestellen",
-"concepts": [
-3,
-4
-]
+"concepts": []
 },
 {
 "id": "wes-tv-lowboard-chandler-aus-eichenholz",
@@ -3633,7 +5554,21 @@
 "color": "#c9a55c",
 "material": "brass"
 }
+},
+"price": 199.0,
+"url": "https://www.westwing.de/bogen-wandspiegel-laviena-mit-messingfarbenem-metallrahmen-139347.html"
+},
+{
+"name": "Goldfarben",
+"slots": {
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
 }
+},
+"price": 189.0,
+"url": "https://www.westwing.de/bogen-wandspiegel-laviena-mit-messingfarbenem-metallrahmen-139347.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ21WES36161-176202_2f7012d94a1a344c40ba8bb6f1dfb3a4_dtl_1.jpg"
 }
 ],
 "tags": [
@@ -3643,6 +5578,8 @@
 "delivery": "2–7 WT",
 "description": "Bogen = zweites Formmotiv (Kugel, Bogen, Kreis); Mitte H 1,55; Befestigung nicht enthalten",
 "concepts": [
+2,
+3,
 4
 ],
 "elev": 0.0
@@ -3679,11 +5616,7 @@
 "premium": true,
 "delivery": "2–7 WT",
 "description": "Rahmendetail vor Bestellung am Produktfoto prüfen; Befestigung nicht enthalten",
-"concepts": [
-2,
-3
-],
-"elev": 0.0
+"concepts": []
 },
 {
 "id": "wes-runder-wandspiegel-ayu",
@@ -4256,6 +6189,58 @@
 "concepts": []
 },
 {
+"id": "lam-hollaender-alice-fiorire-haengeleuchte-300-k-15149-sg",
+"vendor": "lampe.de",
+"brand": "Holländer",
+"series": "Holländer ALICE FIORIRE Hängeleuchte",
+"name": "Holländer ALICE FIORIRE Hängeleuchte",
+"category": "pendant",
+"archetype": "pendantLinear",
+"w": 114.0,
+"d": 50.0,
+"h": 50.0,
+"price": 1504.99,
+"url": "https://www.lampe.de/hollaender-alice-fiorire-haengeleuchte-300-k-15149-sg.html",
+"image": "https://www.lampe.de/media/product/130711/700x700/hollaender-alice-fiorire-haengeleuchte-300-k-15149-sg-0.jpg",
+"params": {
+"heads": 6,
+"shape": "globe"
+},
+"variants": [
+{
+"name": "Gold / Schwarz",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#1d1d1d",
+"material": "glass"
+},
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
+}
+},
+"price": 1504.99,
+"url": "https://www.lampe.de/hollaender-alice-fiorire-haengeleuchte-300-k-15149-sg.html"
+}
+],
+"premium": true,
+"tags": [
+"Holländer",
+"Hängeleuchte"
+],
+"description": "Hängeleuchte, 6-flammig; G9; Material: Metall; Schirm: Muranoglas",
+"mount": "ceiling",
+"elev": 2.0,
+"resizable": false,
+"concepts": [
+1
+]
+},
+{
 "id": "lam-hollaender-castello-haengeleuchte-300-k-15190-s",
 "vendor": "lampe.de",
 "brand": "Holländer",
@@ -4378,59 +6363,6 @@
 "resizable": false,
 "concepts": [
 4
-]
-},
-{
-"id": "lam-paul-neuhaus-bowl-pendelleuchte-2288-23",
-"vendor": "lampe.de",
-"brand": "Paul Neuhaus Leuchten",
-"series": "Paul Neuhaus BOWL Pendelleuchte LED",
-"name": "Paul Neuhaus BOWL Pendelleuchte LED",
-"category": "pendant",
-"archetype": "pendantLinear",
-"w": 120.0,
-"d": 45.0,
-"h": 45.0,
-"price": 1499.0,
-"url": "https://www.lampe.de/paul-neuhaus-bowl-pendelleuchte-2288-23.html",
-"image": "https://www.lampe.de/media/product/169739/700x700/paul-neuhaus-bowl-pendelleuchte-2288-23-0.jpg",
-"params": {
-"heads": 12,
-"shape": "globe",
-"maxHang": 1.8
-},
-"variants": [
-{
-"name": "Braun / Rauchfarben",
-"slots": {
-"main": {
-"color": "#6f4d36",
-"material": "matte"
-},
-"shade": {
-"color": "#6b6660",
-"material": "glass"
-},
-"frame": {
-"color": "#6f4d36",
-"material": "matte"
-}
-},
-"price": 1499.0,
-"url": "https://www.lampe.de/paul-neuhaus-bowl-pendelleuchte-2288-23.html"
-}
-],
-"premium": true,
-"tags": [
-"Paul Neuhaus Leuchten",
-"Pendelleuchte"
-],
-"description": "Pendelleuchte, 12-flammig; LED; Material: Metall; Schirm: Glas; Abhängung bis 180 cm",
-"mount": "ceiling",
-"elev": 2.0,
-"resizable": false,
-"concepts": [
-1
 ]
 },
 {
@@ -4744,9 +6676,7 @@
 "premium": true,
 "delivery": "4–9 WT",
 "description": "100 % Wolle (RWS), Flor 1 cm, FBH-geeignet; mit Antirutsch-Unterlage",
-"concepts": [
-2
-]
+"concepts": []
 },
 {
 "id": "wes-handgetufteter-wollteppich-mason-mit-hoch-tief-s",
@@ -4782,6 +6712,49 @@
 "description": "100 % Wolle (RWS), Relief statt Muster; Preis L lt. Größenfilter; mit Antirutsch-Unterlage",
 "concepts": [
 4
+]
+},
+{
+"id": "wes-handgetufteter-wollteppich-pose-169117",
+"vendor": "Westwing",
+"brand": "Ferm Living",
+"name": "Handgetufteter Wollteppich Pose",
+"category": "rug",
+"w": 200.0,
+"d": 300.0,
+"h": 1.5,
+"price": 679.0,
+"url": "https://www.westwing.de/handgetufteter-wollteppich-pose-169117.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24FER55007-218622_8cdbfb4fe75244cef76db14cad5f3eb2_dtl_1.jpg",
+"archetype": "rugRect",
+"params": {},
+"variants": [
+{
+"name": "Brauntöne, Beige",
+"slots": {
+"main": {
+"color": "#7a5a43",
+"material": "wool"
+},
+"secondary": {
+"color": "#d6c7ae",
+"material": "wool"
+}
+},
+"price": 679.0,
+"url": "https://www.westwing.de/handgetufteter-wollteppich-pose-169117.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24FER55007-218622_8cdbfb4fe75244cef76db14cad5f3eb2_dtl_1.jpg"
+}
+],
+"tags": [
+"Ferm Living"
+],
+"premium": true,
+"description": "B 200 cm, L 300 cm · Florhöhe: 2 cm ·  · Unser Tipp: Teppiche werden oft zu klein gekauft, daher empfehlen wir, den Platz für Deinen neuen Teppich genau auszumessen.",
+"mount": "floor",
+"resizable": true,
+"concepts": [
+2
 ]
 },
 {
@@ -4822,6 +6795,7 @@
 "mount": "floor",
 "resizable": true,
 "concepts": [
+1,
 4
 ]
 },
@@ -5010,124 +6984,101 @@
 "concepts": []
 },
 {
-"id": "ike-80593762",
+"id": "ike-00640673",
 "vendor": "IKEA",
-"name": "STOCKHOLM 2025 Teppich flach gewebt",
-"series": "STOCKHOLM 2025",
-"category": "rug",
-"w": 240.0,
-"d": 300.0,
-"h": 1.2,
-"price": 599.0,
-"url": "https://www.ikea.com/de/de/p/stockholm-2025-teppich-flach-gewebt-gruen-weiss-schwarz-handgewebt-80593762/",
-"image": "https://www.ikea.com/de/de/images/products/stockholm-2025-teppich-flach-gewebt-gruen-weiss-schwarz-handgewebt__1290829_pe934754_s5.jpg",
-"archetype": "rugRect",
-"params": {
-"pattern": "birch"
-},
-"variants": [
-{
-"name": "Grün / weiß / schwarz handgewebt",
-"slots": {
-"main": {
-"color": "#5d7a5a",
-"material": "wool"
-},
-"secondary": {
-"color": "#f3f1ec",
-"material": "wool"
-}
-},
-"price": 599.0,
-"url": "https://www.ikea.com/de/de/p/stockholm-2025-teppich-flach-gewebt-gruen-weiss-schwarz-handgewebt-80593762/",
-"image": "https://www.ikea.com/de/de/images/products/stockholm-2025-teppich-flach-gewebt-gruen-weiss-schwarz-handgewebt__1290829_pe934754_s5.jpg",
-"opts": [
-"Grün / weiß / schwarz handgewebt"
-]
-},
-{
-"name": "Grau / weiß / schwarz handgewebt",
-"slots": {
-"main": {
-"color": "#8f8f8b",
-"material": "wool"
-},
-"secondary": {
-"color": "#f3f1ec",
-"material": "wool"
-}
-},
-"price": 599.0,
-"url": "https://www.ikea.com/de/de/p/stockholm-2025-teppich-flach-gewebt-grau-weiss-schwarz-handgewebt-40590973/",
-"image": "https://www.ikea.com/de/de/images/products/stockholm-2025-teppich-flach-gewebt-grau-weiss-schwarz-handgewebt__1290825_pe934753_s5.jpg",
-"opts": [
-"Grau / weiß / schwarz handgewebt"
-]
-}
-],
-"tags": [
-"STOCKHOLM 2025"
-],
-"premium": true,
-"description": "Teppich flach gewebt, 240x300 cm",
-"axes": [
-{
-"name": "Farbe",
-"values": [
-"Grün / weiß / schwarz handgewebt",
-"Grau / weiß / schwarz handgewebt"
-]
-}
-],
-"mount": "floor",
-"resizable": true,
-"concepts": [
-1,
-2
-]
-},
-{
-"id": "ike-50593810",
-"vendor": "IKEA",
-"name": "STOCKHOLM 2025 Teppich flach gewebt",
-"series": "STOCKHOLM 2025",
+"name": "STOENSE Teppich Kurzflor",
+"series": "STOENSE",
 "category": "rug",
 "w": 240.0,
 "d": 350.0,
 "h": 1.2,
-"price": 499.0,
-"url": "https://www.ikea.com/de/de/p/stockholm-2025-teppich-flach-gewebt-schwarz-weiss-hellgruen-handgewebt-50593810/",
-"image": "https://www.ikea.com/de/de/images/products/stockholm-2025-teppich-flach-gewebt-schwarz-weiss-hellgruen-handgewebt__1290827_pe934755_s5.jpg",
+"price": 59.99,
+"url": "https://www.ikea.com/de/de/p/stoense-teppich-kurzflor-elfenbeinweiss-00640673/",
+"image": "https://www.ikea.com/de/de/images/products/stoense-teppich-kurzflor-elfenbeinweiss__0624402_pe691814_s5.jpg",
 "archetype": "rugRect",
-"params": {
-"pattern": "steps"
-},
+"params": {},
 "variants": [
 {
-"name": "Schwarz / weiß / hellgrün handgewebt",
+"name": "Elfenbeinweiß",
 "slots": {
 "main": {
-"color": "#1d1d1d",
-"material": "wool"
-},
-"secondary": {
-"color": "#f3f1ec",
+"color": "#ede6d6",
 "material": "wool"
 }
 },
-"price": 499.0,
-"url": "https://www.ikea.com/de/de/p/stockholm-2025-teppich-flach-gewebt-schwarz-weiss-hellgruen-handgewebt-50593810/",
-"image": "https://www.ikea.com/de/de/images/products/stockholm-2025-teppich-flach-gewebt-schwarz-weiss-hellgruen-handgewebt__1290827_pe934755_s5.jpg"
+"price": 169.0,
+"url": "https://www.ikea.com/de/de/p/stoense-teppich-kurzflor-elfenbeinweiss-00640673/",
+"image": "https://www.ikea.com/de/de/images/products/stoense-teppich-kurzflor-elfenbeinweiss__0624402_pe691814_s5.jpg",
+"opts": [
+"Elfenbeinweiß"
+]
+},
+{
+"name": "Blassgrün",
+"slots": {
+"main": {
+"color": "#5d7a5a",
+"material": "wool"
+}
+},
+"price": 59.99,
+"url": "https://www.ikea.com/de/de/p/stoense-teppich-kurzflor-blassgruen-40629145/",
+"image": "https://www.ikea.com/de/de/images/products/stoense-teppich-kurzflor-blassgruen__1492281_pe1004363_s5.jpg",
+"opts": [
+"Blassgrün"
+]
+},
+{
+"name": "Mittelgrau",
+"slots": {
+"main": {
+"color": "#8b8b88",
+"material": "wool"
+}
+},
+"price": 59.99,
+"url": "https://www.ikea.com/de/de/p/stoense-teppich-kurzflor-mittelgrau-40427005/",
+"image": "https://www.ikea.com/de/de/images/products/stoense-teppich-kurzflor-mittelgrau__0624371_pe691789_s5.jpg",
+"opts": [
+"Mittelgrau"
+]
+},
+{
+"name": "Beige",
+"slots": {
+"main": {
+"color": "#d6c7ae",
+"material": "wool"
+}
+},
+"price": 169.0,
+"url": "https://www.ikea.com/de/de/p/stoense-teppich-kurzflor-beige-40640671/",
+"image": "https://www.ikea.com/de/de/images/products/stoense-teppich-kurzflor-beige__1405718_pe970549_s5.jpg",
+"opts": [
+"Beige"
+]
 }
 ],
 "tags": [
-"STOCKHOLM 2025"
+"STOENSE"
 ],
-"premium": true,
-"description": "Teppich flach gewebt, 240x350 cm",
+"premium": false,
+"description": "Teppich Kurzflor, 240x350 cm",
+"axes": [
+{
+"name": "Farbe",
+"values": [
+"Elfenbeinweiß",
+"Blassgrün",
+"Mittelgrau",
+"Beige"
+]
+}
+],
 "mount": "floor",
 "resizable": true,
 "concepts": [
+2,
 3
 ]
 },
@@ -5323,9 +7274,7 @@
 "premium": true,
 "delivery": "nach Konfig.",
 "description": "Statement-Regal hinter dem Sofa (Bar/Gläser unten, Bücher/Objekte oben); Preis = Konfigurator-Richtwert (Listing: Original Modern mit Türen ab ≈ 960–2.400 €); an der Wand sichern",
-"concepts": [
-3
-]
+"concepts": []
 },
 {
 "id": "tyl-tylko-regal-mit-tueren-masskonfiguration-origina",
@@ -5363,7 +7312,327 @@
 "delivery": "nach Konfig.",
 "description": "ruhiger Einbau-Look hinter dem Sofa (Bar unten, Bücher/Objekte oben); Konfigurator-Richtwert, Sale/Club ≈ −38 %; kippsicher befestigen",
 "concepts": [
+3,
 4
+]
+},
+{
+"id": "del-edge-42623",
+"vendor": "DELIFE",
+"brand": "DELIFE",
+"series": "Edge",
+"name": "Beistelltisch Edge Boot 50x50 cm Keramik Eleny",
+"category": "sideTable",
+"w": 50.0,
+"d": 50.0,
+"h": 42.0,
+"price": 239.9,
+"url": "https://www.delife.de/beistelltisch-edge-50x50cm-keramik/a-42623",
+"image": "https://www.delife.de/media/86/9e/fd/1782519953/42623-couchtisch-edge-boot-50x50-cm-keramik-laminam---noir-desir-braun-eleny-edelstahl-gebuerstet_3082d10.jpg?imwidth=800",
+"archetype": "sideRound",
+"params": {},
+"variants": [
+{
+"name": "Laminam® Noir Désir Braun, Gestell Silber gebürstet",
+"slots": {
+"top": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"main": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"legs": {
+"color": "#b8bbbe",
+"material": "steel"
+}
+},
+"price": 289.9,
+"url": "https://www.delife.de/beistelltisch-edge-50x50cm-keramik/a-42623",
+"image": "https://www.delife.de/media/86/9e/fd/1782519953/42623-couchtisch-edge-boot-50x50-cm-keramik-laminam---noir-desir-braun-eleny-edelstahl-gebuerstet_3082d10.jpg?imwidth=800",
+"opts": [
+"Braun",
+"Silber gebürstet"
+]
+},
+{
+"name": "Onyx Pearl Grau/Beige, Gestell Silber gebürstet",
+"slots": {
+"top": {
+"color": "#d6d1c6",
+"material": "marble"
+},
+"main": {
+"color": "#d6d1c6",
+"material": "marble"
+},
+"legs": {
+"color": "#b8bbbe",
+"material": "steel"
+}
+},
+"price": 289.9,
+"url": "https://www.delife.de/beistelltisch-edge-50x50cm-keramik/a-46080",
+"image": "https://www.delife.de/media/2d/5d/68/1782772559/46080-20260625115948-beistelltisch-edge-boot-50x50-cm-keramik-onyx-pearl-eleny-edelstahl-gebuerstet.jpg?imwidth=800",
+"opts": [
+"Grau/Beige",
+"Silber gebürstet"
+]
+},
+{
+"name": "Beton Grau, Gestell Silber gebürstet",
+"slots": {
+"top": {
+"color": "#9d9b96",
+"material": "stone"
+},
+"main": {
+"color": "#9d9b96",
+"material": "stone"
+},
+"legs": {
+"color": "#b8bbbe",
+"material": "steel"
+}
+},
+"price": 359.9,
+"url": "https://www.delife.de/beistelltisch-edge-50x50cm-keramik/a-46030",
+"image": "https://www.delife.de/media/d8/8f/0e/1782772558/46030-20260625120352-beistelltisch-edge-boot-50x50-cm-keramik-beton-grau-eleny-edelstahl-gebuerstet.jpg?imwidth=800",
+"opts": [
+"Betonfarbig",
+"Silber gebürstet"
+]
+},
+{
+"name": "Onyx Pearl Grau/Beige, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#d6d1c6",
+"material": "marble"
+},
+"main": {
+"color": "#d6d1c6",
+"material": "marble"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 239.9,
+"url": "https://www.delife.de/beistelltisch-edge-50x50cm-keramik/a-46081",
+"image": "https://www.delife.de/media/ed/e5/92/1782772559/46081-20260625115920-beistelltisch-edge-boot-50x50-cm-keramik-onyx-pearl-eleny-metall-schwarz.jpg?imwidth=800",
+"opts": [
+"Grau/Beige",
+"Schwarz"
+]
+},
+{
+"name": "Minas Melange Weiß/Beige, Gestell Titanfarbig",
+"slots": {
+"top": {
+"color": "#e3dccf",
+"material": "stone"
+},
+"main": {
+"color": "#e3dccf",
+"material": "stone"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
+}
+},
+"price": 299.9,
+"url": "https://www.delife.de/beistelltisch-edge-50x50cm-keramik/a-42624",
+"image": "https://www.delife.de/media/aa/a4/1c/1782552961/42624-couchtisch-edge-boot-50x50-cm-keramik-minas-melange-eleny-metall-effektfinish-titan_42132a3.jpg?imwidth=800",
+"swatch": "https://www.delife.de/media/e2/9b/a4/1776261273/Minas_Melange_Material_thumbnail.jpg?imwidth=96",
+"opts": [
+"Weiß/Beige",
+"Titanfarbig"
+]
+},
+{
+"name": "Emperador Dunkelbraun, Gestell Titanfarbig",
+"slots": {
+"top": {
+"color": "#5b4535",
+"material": "marble"
+},
+"main": {
+"color": "#5b4535",
+"material": "marble"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
+}
+},
+"price": 299.9,
+"url": "https://www.delife.de/beistelltisch-edge-50x50cm-keramik/a-42625",
+"image": "https://www.delife.de/media/59/98/f2/1782519970/42625-couchtisch-edge-boot-50x50-cm-keramik-laminam---emperador-extra-lucidato-dunkelbraun-eleny-metall-effektfinish-titan_442aacf.jpg?imwidth=800",
+"opts": [
+"Dunkelbraun",
+"Titanfarbig"
+]
+},
+{
+"name": "Beton Grau, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#9d9b96",
+"material": "stone"
+},
+"main": {
+"color": "#9d9b96",
+"material": "stone"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 299.9,
+"url": "https://www.delife.de/beistelltisch-edge-50x50cm-keramik/a-46031",
+"image": "https://www.delife.de/media/c6/54/3f/1782772558/46031-20260625120322-beistelltisch-edge-boot-50x50-cm-keramik-beton-grau-eleny-metall-schwarz.jpg?imwidth=800",
+"opts": [
+"Betonfarbig",
+"Schwarz"
+]
+},
+{
+"name": "Patagonia Braun/Beige, Gestell Titanfarbig",
+"slots": {
+"top": {
+"color": "#bba78c",
+"material": "marble"
+},
+"main": {
+"color": "#bba78c",
+"material": "marble"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
+}
+},
+"price": 299.9,
+"url": "https://www.delife.de/beistelltisch-edge-50x50cm-keramik/a-46055",
+"image": "https://www.delife.de/media/91/0b/d2/1782739251/46055-20260625120150-beistelltisch-edge-boot-50x50-cm-keramik-patagonia-poliert-eleny-metall-effektfinish-titan.jpg?imwidth=800",
+"swatch": "https://www.delife.de/media/93/c3/e5/1779105312/Keramik_Patagonia-Poliert_thumbnail.jpg?imwidth=96",
+"opts": [
+"Braun/Beige",
+"Titanfarbig"
+]
+},
+{
+"name": "Patagonia Braun/Beige, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#bba78c",
+"material": "marble"
+},
+"main": {
+"color": "#bba78c",
+"material": "marble"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 299.9,
+"url": "https://www.delife.de/beistelltisch-edge-50x50cm-keramik/a-46056",
+"image": "https://www.delife.de/media/56/d4/b3/1782772559/46056-20260625120121-beistelltisch-edge-boot-50x50-cm-keramik-patagonia-poliert-eleny-metall-schwarz.jpg?imwidth=800",
+"swatch": "https://www.delife.de/media/93/c3/e5/1779105312/Keramik_Patagonia-Poliert_thumbnail.jpg?imwidth=96",
+"opts": [
+"Braun/Beige",
+"Schwarz"
+]
+},
+{
+"name": "Onyx Champagne Beige, Gestell Titanfarbig",
+"slots": {
+"top": {
+"color": "#d8c6a5",
+"material": "marble"
+},
+"main": {
+"color": "#d8c6a5",
+"material": "marble"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
+}
+},
+"price": 299.9,
+"url": "https://www.delife.de/beistelltisch-edge-50x50cm-keramik/a-46122",
+"image": "https://www.delife.de/media/2e/79/c7/1782739252/46122-20260625115718-beistelltisch-edge-boot-50x50-cm-keramik-onyx-champagne-eleny-metall-effektfinish-titan.jpg?imwidth=800",
+"opts": [
+"Beige",
+"Titanfarbig"
+]
+},
+{
+"name": "Onyx Champagne Beige, Gestell Schwarz",
+"slots": {
+"top": {
+"color": "#d8c6a5",
+"material": "marble"
+},
+"main": {
+"color": "#d8c6a5",
+"material": "marble"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 299.9,
+"url": "https://www.delife.de/beistelltisch-edge-50x50cm-keramik/a-46123",
+"image": "https://www.delife.de/media/a3/59/99/1782772856/46123-20260625115650-beistelltisch-edge-boot-50x50-cm-keramik-onyx-champagne-eleny-metall-schwarz.jpg?imwidth=800",
+"opts": [
+"Beige",
+"Schwarz"
+]
+}
+],
+"tags": [
+"DELIFE",
+"Edge"
+],
+"premium": true,
+"description": "Maße lt. DELIFE: B 50 × T 50 × H 42 cm · Maße Tischplatte: B50 x T50 x H1 cm · Maße Gestell: B40 x T37 x H41 cm · Tischplattenstärke: 1 cm · Material: Tischplatte: Laminam® Keramik auf Sicherheitsglas; Gestell: Edelstahl · 11 Ausführungen lt. Shop (Stand 24.10.2026)",
+"axes": [
+{
+"name": "Farbe",
+"values": [
+"Braun",
+"Grau/Beige",
+"Betonfarbig",
+"Weiß/Beige",
+"Dunkelbraun",
+"Braun/Beige",
+"Beige"
+]
+},
+{
+"name": "Gestellfarbe",
+"values": [
+"Silber gebürstet",
+"Schwarz",
+"Titanfarbig"
+]
+}
+],
+"mount": "floor",
+"resizable": false,
+"concepts": [
+2,
+3
 ]
 },
 {
@@ -5398,8 +7667,90 @@
 "premium": true,
 "delivery": "2–4 WT",
 "description": "Design-Klassiker als Beistelltisch mit Stauraum; Farbpunkt neben dem Petrol-Sessel",
+"concepts": []
+},
+{
+"id": "del-caramia-39991",
+"vendor": "DELIFE",
+"brand": "DELIFE",
+"series": "Caramia",
+"name": "Couchtisch Caramia 65x55 cm Metallic",
+"category": "sideTable",
+"w": 56.0,
+"d": 43.0,
+"h": 38.0,
+"price": 199.9,
+"url": "https://www.delife.de/couchtisch-caramia-65x55cm-glasfaserkunststoff/a-39992",
+"image": "https://www.delife.de/media/48/4b/b3/1782527472/39992-couchtisch-caramia-65x55-cm-metallic-silber_14c74ce.jpg?imwidth=800",
+"archetype": "sideContainer",
+"params": {},
+"variants": [
+{
+"name": "Silber",
+"slots": {
+"top": {
+"color": "#c6cbd0",
+"material": "blackMetal"
+},
+"main": {
+"color": "#c6cbd0",
+"material": "blackMetal"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 199.9,
+"url": "https://www.delife.de/couchtisch-caramia-65x55cm-glasfaserkunststoff/a-39992",
+"image": "https://www.delife.de/media/48/4b/b3/1782527472/39992-couchtisch-caramia-65x55-cm-metallic-silber_14c74ce.jpg?imwidth=800",
+"opts": [
+"Silber"
+]
+},
+{
+"name": "Gold",
+"slots": {
+"top": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 249.9,
+"url": "https://www.delife.de/couchtisch-caramia-55x45cm-glasfaserkunststoff/a-39991",
+"image": "https://www.delife.de/media/35/d8/ba/1782562264/39991-couchtisch-caramia-65x55-cm-metallic-gold_16ab6c0.jpg?imwidth=800",
+"opts": [
+"Gold"
+]
+}
+],
+"tags": [
+"DELIFE",
+"Caramia"
+],
+"premium": false,
+"description": "Maße lt. DELIFE: B 56 × T 43 × H 38 cm · Material: Korpus: Glasfaser · 2 Ausführungen lt. Shop (Stand 24.10.2026)",
+"axes": [
+{
+"name": "Farbe",
+"values": [
+"Silber",
+"Gold"
+]
+}
+],
+"mount": "floor",
+"resizable": false,
 "concepts": [
-3
+4
 ]
 },
 {
@@ -5434,9 +7785,7 @@
 "premium": true,
 "delivery": "2–4 WT",
 "description": "an der rechten Sessellehne",
-"concepts": [
-2
-]
+"concepts": []
 },
 {
 "id": "wes-runder-beistelltisch-marisa-aus-travertin",
@@ -5480,8 +7829,7 @@
 "delivery": "3–4 Wo.",
 "description": "an der rechten Sessellehne",
 "concepts": [
-1,
-4
+1
 ]
 },
 {
@@ -5560,11 +7908,7 @@
 "premium": true,
 "delivery": "4–9 WT",
 "description": "Füße 17 cm; Rillen wie Lowboard Soley",
-"concepts": [
-2,
-3,
-4
-]
+"concepts": []
 },
 {
 "id": "wes-sideboard-chandler-aus-eichenholz",
@@ -5604,8 +7948,145 @@
 "premium": true,
 "delivery": "3–4 Wo.",
 "description": "Push-to-open, Wandbefestigung",
+"concepts": []
+},
+{
+"id": "del-cuor-fuss-schwebend-metall-40399",
+"vendor": "DELIFE",
+"brand": "DELIFE",
+"series": "Cuor",
+"name": "Sideboard Cuor 180 cm Keramik 2 Türen 3 Schubfächer Fuß Schwebeoptik Schwarz",
+"category": "sideboard",
+"w": 180.0,
+"d": 45.0,
+"h": 75.0,
+"price": 1199.9,
+"url": "https://www.delife.de/sideboard-cuor-180cm-keramik/a-40403",
+"image": "https://www.delife.de/media/d9/0a/81/1782528053/40403-sideboard-cuor-180-cm-keramik-laminam---travertino-bianco-creme-weiss-2-tueren-3-schubfaecher-fuss-schwebeoptik-metall-schwarz_1a5798b.jpg?imwidth=800",
+"archetype": "sideboard",
+"params": {
+"doors": 2
+},
+"variants": [
+{
+"name": "Laminam® Travertino Bianco Creme-Weiß",
+"slots": {
+"top": {
+"color": "#e2d5c0",
+"material": "travertine"
+},
+"main": {
+"color": "#e2d5c0",
+"material": "travertine"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 1199.9,
+"url": "https://www.delife.de/sideboard-cuor-180cm-keramik/a-40403",
+"image": "https://www.delife.de/media/d9/0a/81/1782528053/40403-sideboard-cuor-180-cm-keramik-laminam---travertino-bianco-creme-weiss-2-tueren-3-schubfaecher-fuss-schwebeoptik-metall-schwarz_1a5798b.jpg?imwidth=800",
+"opts": [
+"Creme-Weiß"
+]
+},
+{
+"name": "Emperador Dunkelbraun",
+"slots": {
+"top": {
+"color": "#5b4535",
+"material": "marble"
+},
+"main": {
+"color": "#5b4535",
+"material": "marble"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 1349.9,
+"url": "https://www.delife.de/sideboard-cuor-180cm-keramik/a-40399",
+"image": "https://www.delife.de/media/5d/5a/4a/1782533782/40399-sideboard-cuor-180-cm-keramik-laminam---emperador-extra-lucidato-dunkelbraun-2-tueren-3-schubfaecher-fuss-schwebeoptik-metall-schwarz_26aff95.jpg?imwidth=800",
+"opts": [
+"Dunkelbraun"
+]
+}
+],
+"tags": [
+"DELIFE",
+"Cuor"
+],
+"premium": true,
+"description": "Maße lt. DELIFE: B 180 × T 45 × H 75 cm · Maße Fach innen: B56,5 x T39,5 x H27 cm (2); B56,5 x T39,5 x H25 cm (2) · Maße Schublade innen: B52,5 x T32 x H11 cm (3) · Maße Füße: B1 x T40 x H15 cm · Material: Korpus: Keramik Laminam®, MDF; Füße: Metall · Gestell: Fuß schwebend Metall · 2 Ausführungen lt. Shop (Stand 24.10.2026)",
+"axes": [
+{
+"name": "Farbe",
+"values": [
+"Creme-Weiß",
+"Dunkelbraun"
+]
+}
+],
+"mount": "floor",
+"resizable": false,
 "concepts": [
-1
+3
+]
+},
+{
+"id": "del-kazu-fuss-schwebend-metall-38946",
+"vendor": "DELIFE",
+"brand": "DELIFE",
+"series": "Kazu",
+"name": "Sideboard Kazu 220 cm Metallic Gold 4 Türen schwebend Schwarz Keramik Laminam®Noir Desir Braun",
+"category": "sideboard",
+"w": 220.0,
+"d": 45.0,
+"h": 69.0,
+"price": 1389.9,
+"url": "https://www.delife.de/sideboard-kazu-220cm-mitteldichte-faserplatte/a-38946",
+"image": "https://www.delife.de/media/d6/f9/5c/1782461771/38946-sideboardkorpus-kazu-220-cm-keramik-laminam-emperador-extra-braun---fuss-schwebeoptik-metall-schwarz-g_2cb336c.jpg?imwidth=800",
+"archetype": "sideboard",
+"params": {
+"doors": 4
+},
+"variants": [
+{
+"name": "Standard",
+"slots": {
+"top": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"main": {
+"color": "#b8955a",
+"material": "brass"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"price": 1389.9,
+"url": "https://www.delife.de/sideboard-kazu-220cm-mitteldichte-faserplatte/a-38946",
+"image": "https://www.delife.de/media/d6/f9/5c/1782461771/38946-sideboardkorpus-kazu-220-cm-keramik-laminam-emperador-extra-braun---fuss-schwebeoptik-metall-schwarz-g_2cb336c.jpg?imwidth=800"
+}
+],
+"tags": [
+"DELIFE",
+"Kazu"
+],
+"premium": true,
+"description": "Maße lt. DELIFE: B 220 × T 45 × H 69 cm · Maße Türfach ca.: B52 x T40,5 x H22,7 cm (x2); B52 x T41,5 x H25,8 cm (x2); B53 x T40,5 x H22,7 cm (x2); B53 x T41,5 x H25,8 cm (x2) · Fußhöhe: 15 cm · Material: Korpus: MDF; Platte: Keramik; Fuß: Metall · Gestell: Fuß schwebend Metall · 1 Ausführung lt. Shop (Stand 24.10.2026)",
+"mount": "floor",
+"resizable": false,
+"concepts": [
+1,
+2,
+4
 ]
 },
 {
@@ -5640,24 +8121,11 @@
 }
 },
 {
-"name": "Bouclé meliert ROSTROT",
+"name": "Strukturierter samtiger Webstoff Braun",
 "slots": {
 "main": {
-"color": "#a5563b",
-"material": "boucle"
-},
-"legs": {
-"color": "#1d1d1d",
-"material": "blackMetal"
-}
-}
-},
-{
-"name": "Bouclé meliert GRÜN (Farbton am Muster prüfen)",
-"slots": {
-"main": {
-"color": "#a3b39a",
-"material": "boucle"
+"color": "#876855",
+"material": "velvet"
 },
 "legs": {
 "color": "#1d1d1d",
@@ -5859,12 +8327,12 @@
 "name": "chrome-plated; über AmbienteDirect",
 "slots": {
 "main": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
 },
 "shade": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
 }
 }
 }
@@ -5875,10 +8343,7 @@
 "premium": true,
 "delivery": "1–5 WT",
 "description": "E27 exkl.; UVP 472 €",
-"concepts": [
-2,
-3
-]
+"concepts": []
 },
 {
 "id": "des-tradition-flowerpot-vp9-portable",
@@ -5900,12 +8365,12 @@
 "name": "chrome-plated, Akku; über AmbienteDirect",
 "slots": {
 "main": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
 },
 "shade": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
 }
 }
 }
@@ -5916,10 +8381,7 @@
 "premium": true,
 "delivery": "1–5 WT",
 "description": "auf der Konsole; ca. 10 h Laufzeit, 3-Stufen- Touchdimmer",
-"concepts": [
-2,
-3
-]
+"concepts": []
 },
 {
 "id": "des-flos-ic-t1-high-tischleuchte",
@@ -5938,19 +8400,6 @@
 },
 "mount": "floor",
 "variants": [
-{
-"name": "Chrom glänzend / Opalglaskugel; über AmbienteDirect",
-"slots": {
-"main": {
-"color": "#c6cbd0",
-"material": "chrome"
-},
-"shade": {
-"color": "#f6f4ee",
-"material": "opal"
-}
-}
-},
 {
 "name": "MESSING gebürstet / Opalglas; über AmbienteDirect",
 "slots": {
@@ -6052,9 +8501,7 @@
 "premium": true,
 "delivery": "5 Wo.",
 "description": "Design-Ikone; 1 × E14",
-"concepts": [
-1
-]
+"concepts": []
 },
 {
 "id": "des-gubi-bestlite-bl1-tischleuchte",
@@ -6097,6 +8544,9 @@
 "delivery": "2–4 WT",
 "description": "Bauhaus-Klassiker als Arbeitslicht; UVP 699 €",
 "concepts": [
+1,
+2,
+3,
 4
 ]
 },
@@ -6137,7 +8587,106 @@
 "delivery": "2–4 WT",
 "description": "auf dem Lowboard; keine Kabel an der Lamellenwand; UVP 399 €",
 "concepts": [
+2,
+3,
 4
+]
+},
+{
+"id": "lam-hollaender-capri-tischleuchte-280-k-1202",
+"vendor": "lampe.de",
+"brand": "Holländer",
+"series": "Holländer CAPRI Tischleuchte",
+"name": "Holländer CAPRI Tischleuchte",
+"category": "tableLamp",
+"archetype": "lampTableShade",
+"w": 27.0,
+"d": 27.0,
+"h": 44.0,
+"price": 324.99,
+"url": "https://www.lampe.de/hollaender-capri-tischleuchte-280-k-1202.html",
+"image": "https://www.lampe.de/media/product/130811/700x700/hollaender-capri-tischleuchte-280-k-1202-0.jpg",
+"params": {},
+"variants": [
+{
+"name": "Gold / Schwarz",
+"slots": {
+"main": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#1d1d1d",
+"material": "linen"
+},
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
+}
+},
+"price": 324.99,
+"url": "https://www.lampe.de/hollaender-capri-tischleuchte-280-k-1202.html"
+}
+],
+"premium": true,
+"tags": [
+"Holländer",
+"Tischleuchte"
+],
+"description": "Tischleuchte, 1-flammig; E27; Material: Metall; Schirm: Kunststoff",
+"mount": "floor",
+"resizable": false,
+"concepts": [
+1
+]
+},
+{
+"id": "lam-hollaender-clarice-tischleuchte-424-1208",
+"vendor": "lampe.de",
+"brand": "Holländer",
+"series": "Holländer CLARICE Tischleuchte",
+"name": "Holländer CLARICE Tischleuchte",
+"category": "tableLamp",
+"archetype": "lampTableShade",
+"w": 20.0,
+"d": 20.0,
+"h": 49.0,
+"price": 179.99,
+"url": "https://www.lampe.de/hollaender-clarice-tischleuchte-424-1208.html",
+"image": "https://www.lampe.de/media/product/140037/700x700/hollaender-clarice-tischleuchte-424-1208-0.jpg",
+"params": {},
+"variants": [
+{
+"name": "Schwarz / Gold",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+},
+"shade": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
+}
+},
+"price": 179.99,
+"url": "https://www.lampe.de/hollaender-clarice-tischleuchte-424-1208.html"
+}
+],
+"premium": true,
+"tags": [
+"Holländer",
+"Tischleuchte"
+],
+"description": "Tischleuchte, 1-flammig; E27; Material: Metall; Schirm: Metall",
+"mount": "floor",
+"resizable": false,
+"concepts": [
+1,
+2
 ]
 },
 {
@@ -6158,8 +8707,8 @@
 "name": "Milchglas / Fuß kupferfarben",
 "slots": {
 "main": {
-"color": "#b8703e",
-"material": "copper"
+"color": "#c3a160",
+"material": "brass"
 },
 "shade": {
 "color": "#f6f4ee",
@@ -6174,9 +8723,7 @@
 "premium": true,
 "delivery": "2–4 WT",
 "description": "auf dem Lowboard (Westende), Strom über TV- Dosen",
-"concepts": [
-1
-]
+"concepts": []
 },
 {
 "id": "des-louis-poulsen-panthella-160-portable-v3",
@@ -6198,8 +8745,8 @@
 "name": "Chromfuß / Schirm Opal Braun, Akku; über AmbienteDirect",
 "slots": {
 "main": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
 },
 "shade": {
 "color": "#8a6a4f",
@@ -6214,9 +8761,7 @@
 "premium": true,
 "delivery": "1–5 WT",
 "description": "auf dem Lowboard; USB-C, dimmbar, IP44",
-"concepts": [
-2
-]
+"concepts": []
 },
 {
 "id": "des-louis-poulsen-panthella-portable-160-v3",
@@ -6255,6 +8800,112 @@
 "delivery": "8–12 WT",
 "description": "Begrüßungslicht auf der Konsole; ca. 8,5 h Laufzeit",
 "concepts": [
+1,
+2,
+3,
+4
+]
+},
+{
+"id": "wes-boucle-kissenhuelle-shannon-171674",
+"vendor": "Westwing",
+"brand": "Westwing Collection",
+"name": "Bouclé-Kissenhülle Shannon",
+"category": "textile",
+"w": 30.0,
+"d": 70.0,
+"h": 50.0,
+"price": 32.99,
+"url": "https://www.westwing.de/boucle-kissenhuelle-shannon-171674.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES78857-222008_53e66da94c87a25f6bdd0bed33d2d9ba_dtl_1.jpg",
+"archetype": "cushion",
+"params": {},
+"variants": [
+{
+"name": "Bouclé Bordeaux",
+"slots": {
+"main": {
+"color": "#6a2230",
+"material": "boucle"
+}
+},
+"price": 34.99,
+"url": "https://www.westwing.de/boucle-kissenhuelle-shannon-171674.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES78857-222008_53e66da94c87a25f6bdd0bed33d2d9ba_dtl_1.jpg"
+},
+{
+"name": "Bouclé Off White",
+"slots": {
+"main": {
+"color": "#ede8dc",
+"material": "boucle"
+}
+},
+"price": 34.99,
+"url": "https://www.westwing.de/boucle-kissenhuelle-shannon-ow-30x70-171672.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES56486-222006_14ca9dbd8ce21c2d5c01d1de033b997a_dtl_1.jpg"
+},
+{
+"name": "Bouclé Schwarz",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "boucle"
+}
+},
+"price": 32.99,
+"url": "https://www.westwing.de/boucle-kissenhuelle-shannon-171677.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES04260-222011_e2bcac69b2acf75c1e48b228544a2e80_dtl_1.jpg"
+},
+{
+"name": "Bouclé Terrakotta",
+"slots": {
+"main": {
+"color": "#b8653f",
+"material": "boucle"
+}
+},
+"price": 34.99,
+"url": "https://www.westwing.de/boucle-kissenhuelle-shannon-t-30x70-171678.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES76501-222012_e79484721f16e57b823f7945f76d8255_dtl_1.jpg"
+},
+{
+"name": "Bouclé Dunkelblau",
+"slots": {
+"main": {
+"color": "#253a5e",
+"material": "boucle"
+}
+},
+"price": 34.99,
+"url": "https://www.westwing.de/boucle-kissenhuelle-shannon-db-30x70-171676.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES60070-222010_b53ab10ccb4371f444b3ca3b65f15ad5_dtl_1.jpg",
+"soldOut": true
+},
+{
+"name": "Bouclé Dunkelgrün",
+"slots": {
+"main": {
+"color": "#2f4a3a",
+"material": "boucle"
+}
+},
+"price": 34.99,
+"url": "https://www.westwing.de/boucle-kissenhuelle-shannon-dg-30x70-171675.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ24WES96801-222009_bea8c0bd0b06e4c1848da9b859afc5a0_dtl_1.jpg",
+"soldOut": true
+}
+],
+"tags": [
+"Westwing Collection"
+],
+"premium": true,
+"description": "B 30 cm, L 70 cm",
+"mount": "floor",
+"resizable": false,
+"concepts": [
+1,
+3,
 4
 ]
 },
@@ -6365,10 +9016,7 @@
 "premium": false,
 "delivery": "prüfen",
 "description": "",
-"concepts": [
-1,
-2
-]
+"concepts": []
 },
 {
 "id": "ike-dytag-kissenbezug-fjaedrar-innenkissen",
@@ -6409,10 +9057,7 @@
 "premium": false,
 "delivery": "prüfen",
 "description": "9,99 € + 7,00 €",
-"concepts": [
-1,
-2
-]
+"concepts": []
 },
 {
 "id": "wes-kissenhuelle-giorgio-mit-stickerei",
@@ -6444,9 +9089,7 @@
 "premium": true,
 "delivery": "13–14 Wo.",
 "description": "Samt mit Kordelrahmen – Hotelkissen-Optik",
-"concepts": [
-2
-]
+"concepts": []
 },
 {
 "id": "wes-plaid-luxury-aus-babyalpaka-wolle-elvang",
@@ -6481,6 +9124,8 @@
 "delivery": "2 Wo.",
 "description": "locker über die linke Sofalehne",
 "concepts": [
+1,
+3,
 4
 ]
 },
@@ -6523,10 +9168,7 @@
 "premium": false,
 "delivery": "prüfen",
 "description": "",
-"concepts": [
-3,
-4
-]
+"concepts": []
 },
 {
 "id": "ike-sanela-kissenbezug-fjaedrar-innenkissen",
@@ -6577,9 +9219,192 @@
 "delivery": "prüfen",
 "description": "6,99 € + 7,00 €",
 "concepts": [
+2
+]
+},
+{
+"id": "wes-einfarbige-samt-kissenhuelle-dana-in-burgund-136666",
+"vendor": "Westwing",
+"brand": "Westwing Collection",
+"name": "Samt-Kissenhülle Dana",
+"category": "textile",
+"w": 30.0,
+"d": 50.0,
+"h": 50.0,
+"price": 21.99,
+"url": "https://www.westwing.de/einfarbige-samt-kissenhuelle-dana-in-burgund-136666.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ21WES89329-172054_977f18456941310ef00f80dc487ff287_dtl_1.jpg",
+"archetype": "cushion",
+"params": {},
+"variants": [
+{
+"name": "Pflaume",
+"slots": {
+"main": {
+"color": "#6e3b52",
+"material": "velvet"
+}
+},
+"price": 21.99,
+"url": "https://www.westwing.de/einfarbige-samt-kissenhuelle-dana-in-burgund-136666.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ21WES89329-172054_977f18456941310ef00f80dc487ff287_dtl_1.jpg"
+},
+{
+"name": "Cremeweiß",
+"slots": {
+"main": {
+"color": "#ede6d8",
+"material": "velvet"
+}
+},
+"price": 21.99,
+"url": "https://www.westwing.de/einfarbige-samt-kissenhuelle-dana-in-hellgrau-112544.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ19BY495116-141061_e404a0eb9096f6fddcb4d44dfab92a33_dtl_1.jpg"
+},
+{
+"name": "Dunkelgrün",
+"slots": {
+"main": {
+"color": "#2f4a3a",
+"material": "velvet"
+}
+},
+"price": 21.99,
+"url": "https://www.westwing.de/einfarbige-samt-kissenhuelle-alyson-in-smaragdgruen-77701.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ17AND50838-97344_8098ee645a1c8aa7faf81476708a6a42_dtl_1.jpg"
+},
+{
+"name": "Grau",
+"slots": {
+"main": {
+"color": "#8f8f8b",
+"material": "velvet"
+}
+},
+"price": 21.99,
+"url": "https://www.westwing.de/einfarbige-samt-kissenhuelle-dana-in-dunkelgrau-112542.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ19BY470563-141058_7b433e21795ab15470bd5f70236d5419_dtl_1.jpg"
+},
+{
+"name": "Hellbeige",
+"slots": {
+"main": {
+"color": "#e3d8c5",
+"material": "velvet"
+}
+},
+"price": 21.99,
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154151.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ23WES01179-197915_50f9083f2cfc1abfa336ad7ba08d31b4_dtl_1.jpg"
+},
+{
+"name": "Marineblau",
+"slots": {
+"main": {
+"color": "#1f2d4a",
+"material": "velvet"
+}
+},
+"price": 21.99,
+"url": "https://www.westwing.de/einfarbige-samt-kissenhuelle-alyson-in-marineblau-77699.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ17AND05288-97341_5a49fa2ba5ebcffc017f334b955d0a56_dtl_1.jpg"
+},
+{
+"name": "Mauve",
+"slots": {
+"main": {
+"color": "#9c7a8a",
+"material": "velvet"
+}
+},
+"price": 21.99,
+"url": "https://www.westwing.de/einfarbige-samt-kissenhuelle-dana-in-altrosa-68698.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ17BY437039-85731_733baa5e938605f7991bd278c936bbce_dtl_1.jpg"
+},
+{
+"name": "Ocker",
+"slots": {
+"main": {
+"color": "#c18f3c",
+"material": "velvet"
+}
+},
+"price": 21.99,
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154159.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ23WES66450-197927_5947f5d9296c368080bbcf2a389aa04b_dtl_1_ae715506-7191-4fa1-bc21-4f28dcd7add9.jpg"
+},
+{
+"name": "Olivegrün",
+"slots": {
+"main": {
+"color": "#5d7a5a",
+"material": "velvet"
+}
+},
+"price": 21.99,
+"url": "https://www.westwing.de/einfarbige-samt-kissenhuelle-dana-in-moosgruen-136668.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ21WES74301-172057_07885f5cebeb171aea063ea2b1e1c610_dtl_1.jpg"
+},
+{
+"name": "Rot",
+"slots": {
+"main": {
+"color": "#b23a32",
+"material": "velvet"
+}
+},
+"price": 21.99,
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154157.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ23WES98320-197924_457a93d0960ac81768cfabe7de614204_dtl_1_46cccde2-f60d-4104-8759-e64ed8ef46f6.jpg"
+},
+{
+"name": "Salbeigrün",
+"slots": {
+"main": {
+"color": "#a7b59e",
+"material": "velvet"
+}
+},
+"price": 21.99,
+"url": "https://www.westwing.de/einfarbige-samt-kissenhuelle-dana-in-salbeigruen-68692.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ17BY407005-85722_0d1c38ece47708806f71d114d99a11b4_dtl_1.jpg"
+},
+{
+"name": "Sonnengelb",
+"slots": {
+"main": {
+"color": "#e0c45a",
+"material": "velvet"
+}
+},
+"price": 21.99,
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154155.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ23WES69005-197921_32e28663a0f1c750b3df376b6cf94989_dtl_1_52448b9b-6c78-4c09-8afc-3e78cea11492.jpg"
+},
+{
+"name": "Taupe",
+"slots": {
+"main": {
+"color": "#a49482",
+"material": "velvet"
+}
+},
+"price": 21.99,
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154153.html",
+"image": "https://cdn.shopify.com/s/files/1/0613/3107/9307/files/DEQ23WES79474-197918_ff543e27f99dffe6076595814d7bc30c_dtl_1.jpg"
+}
+],
+"tags": [
+"Westwing Collection"
+],
+"premium": true,
+"description": "B 30 cm, L 50 cm",
+"mount": "floor",
+"resizable": false,
+"concepts": [
+1,
 2,
-3,
-4
+3
 ]
 },
 {
@@ -6612,9 +9437,7 @@
 "premium": true,
 "delivery": "2–4 WT",
 "description": "",
-"concepts": [
-3
-]
+"concepts": []
 },
 {
 "id": "wes-samt-kissenhuelle-dana-fjaedrar-innenkissen",
@@ -6646,9 +9469,7 @@
 "premium": true,
 "delivery": "2–4 WT",
 "description": "27,99 € + 7,00 €",
-"concepts": [
-3
-]
+"concepts": []
 },
 {
 "id": "wes-woll-plaid-tyrol-mit-zickzack-muster",
@@ -6682,10 +9503,7 @@
 "premium": true,
 "delivery": "8–11 WT",
 "description": "",
-"concepts": [
-1,
-3
-]
+"concepts": []
 },
 {
 "id": "wes-wolldecke-double-face-mit-fransen",
@@ -6758,6 +9576,8 @@
 "delivery": "13–18 WT",
 "description": "Festanschluss an WA H 1,80 (Pfeiler Ostfassade); E14 exkl.",
 "concepts": [
+2,
+3,
 4
 ],
 "elev": 0.0
@@ -6780,8 +9600,8 @@
 "name": "Chrom glänzend / Opalglaskugel; über AmbienteDirect",
 "slots": {
 "main": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
 },
 "shade": {
 "color": "#f6f4ee",
@@ -6796,11 +9616,7 @@
 "premium": true,
 "delivery": "3–4 Wo.",
 "description": "Festanschluss an WA H 1,80 (Pfeiler Ostfassade); E14 exkl.",
-"concepts": [
-2,
-3
-],
-"elev": 0.0
+"concepts": []
 },
 {
 "id": "wes-mundgeblasene-wandleuchte-mabell-maytoni",
@@ -6819,11 +9635,23 @@
 "mount": "wall",
 "variants": [
 {
-"name": "Kupferfarben",
+"name": "Goldfarben",
 "slots": {
 "main": {
-"color": "#b8703e",
-"material": "copper"
+"color": "#c9a55c",
+"material": "brass"
+},
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"legs": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
 }
 }
 }
@@ -6876,12 +9704,48 @@
 "premium": false,
 "delivery": "Abholung Markt",
 "description": "Lamellenfeld TV-Wand 2,40 × 2,58 m (raumhoch, 12 cm kürzen); Ton-in-Ton zu den Natureiche-Dielen; Dosen mit Verlängerungsrahmen",
+"concepts": []
+},
+{
+"id": "obi-lamella-black",
+"vendor": "OBI",
+"name": "Akustikpaneel Eiche schwarz (Lamellen)",
+"category": "wallPanel",
+"archetype": "lamella",
+"w": 60.0,
+"d": 2.1,
+"h": 256.0,
+"price": 119.99,
+"mount": "wall",
+"params": {
+"slat": 0.027,
+"gap": 0.0135
+},
+"variants": [
+{
+"name": "Standard",
+"slots": {
+"main": {
+"color": "#2a2522",
+"material": "oakDark"
+},
+"secondary": {
+"color": "#141414",
+"material": "fabric"
+}
+}
+}
+],
+"tags": [
+"Wand"
+],
+"premium": true,
+"resizable": true,
+"elev": 0,
 "concepts": [
 1,
-3,
-4
-],
-"elev": 0.0
+3
+]
 },
 {
 "id": "obi-akustikpaneel-walnuss-geoelt-echtholzfurnier-fil",
@@ -6924,6 +9788,46 @@
 2
 ],
 "elev": 0.0
+},
+{
+"id": "obi-lamella-walnut",
+"vendor": "OBI",
+"name": "Akustikpaneel Walnuss geölt (Lamellen, Filz schwarz)",
+"category": "wallPanel",
+"archetype": "lamella",
+"w": 60.0,
+"d": 2.1,
+"h": 256.0,
+"price": 109.99,
+"mount": "wall",
+"params": {
+"slat": 0.027,
+"gap": 0.0135
+},
+"variants": [
+{
+"name": "Standard",
+"slots": {
+"main": {
+"color": "#6b4a33",
+"material": "walnut"
+},
+"secondary": {
+"color": "#141414",
+"material": "fabric"
+}
+}
+}
+],
+"tags": [
+"Wand"
+],
+"premium": true,
+"resizable": true,
+"elev": 0,
+"concepts": [
+4
+]
 },
 {
 "id": "ike-pax-korpus-kleiderschrank",

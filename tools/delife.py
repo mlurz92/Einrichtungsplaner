@@ -43,7 +43,7 @@ NAME_CAT = [
     (r"^Gemälde\b", "art"),
     (r"^Spiegel\b", "mirror"),
     (r"^Teppich\b", "rug"),
-    (r"^(Pendelleuchte|Lampenschirm)\b", "pendant"),
+    (r"^(Pendelleuchte|Hängeleuchte|Lampenschirm)\b", "pendant"),
     (r"^Deckenleuchte\b", "ceilingLamp"),
 ]
 SKIP = re.compile(r"^(Stoffmuster|Holzmuster|Geschenkgutschein|Fuß|W-Gestell|Sonnenschirm|Lattenrost)\b|Fußvariantenset|Ersatz|Zubehör")
@@ -85,10 +85,20 @@ DECOR = [  # Schlüssel im Farb-/Materialtext → (Farbe, Material)
     ("patagonia", ("#bba78c", "marble")), ("minas", ("#e3dccf", "stone")), ("sabbia", ("#c6a982", "oak")),
     ("beton", ("#9d9b96", "stone")), ("schwarz 3d", ("#202021", "stone")), ("perlmutt 3d", ("#d9d4cb", "stone")),
     ("schiefer", ("#3e4043", "stone")), ("forest fire", ("#6b5444", "stone")), ("echter marmor", ("#e9e2d8", "marble")),
+    ("onyx pearl", ("#d6d1c6", "marble")), ("onyx champagne", ("#d8c6a5", "marble")), ("reliefglas", ("#2a2a2c", "glass")),
     ("marmor schwarz", ("#262627", "marble")), ("marmor weiß", ("#ece8e2", "marble")), ("marmor", ("#e9e2d8", "marble")),
 ]
 DECOR_NAMES = ["Laminam®", "Laminam", "Statuarietto", "Sabbia", "Travertino Bianco", "Minas Melange", "Calacatta Luxe", "Nero Greco", "Noir Desir",
                "Emperador Extra Lucidato", "Onice Grigio", "Onice Oro", "Patagonia Poliert", "Agatablack", "Beton Grau", "Iris FMG", "Perlmutt", "Champagner"]
+# Dekorname der Platte für die Ausführungsbezeichnung („Braun“ → „Laminam® Noir Désir Braun“)
+DECOR_LABEL = [("noir desir", "Laminam® Noir Désir"), ("noir désir", "Laminam® Noir Désir"), ("nero greco", "Laminam® Nero Greco"),
+               ("statuarietto", "Laminam® Statuarietto"), ("travertino bianco", "Laminam® Travertino Bianco"), ("sabbia", "Laminam® Sabbia"),
+               ("calacatta luxe", "Calacatta Luxe"), ("minas melange", "Minas Melange"), ("emperador", "Emperador"), ("onyx pearl", "Onyx Pearl"),
+               ("onyx champagne", "Onyx Champagne"), ("onice oro", "Onice Oro"), ("onice grigio", "Onice Grigio"), ("patagonia", "Patagonia"),
+               ("agatablack", "Agatablack"), ("beton grau", "Beton"), ("reliefglas", "Reliefglas")]
+# Teppiche: Hauptfarbe laut Datenblatt → Garnfarbe
+RUG_COLOR = [("steingrau", "#b9b2a6"), ("creme", "#ebe2cf"), ("beige", "#d3c3a8"), ("schlamm", "#a39582"), ("rot", "#9c3b30"),
+             ("violett", "#6a4d6e"), ("gelb", "#d4ad4c"), ("grün", "#6f7f5a"), ("blau", "#4c6280"), ("grau", "#a7a49e")]
 WOOD = [  # (Holz, Farbton) → (Farbe, Material)
     ("akazie", "platin", ("#cfc6b7", "oak")), ("akazie", "dunkelbraun", ("#4c3426", "walnut")), ("akazie", "hellbraun", ("#a87d53", "oak")),
     ("akazie", "braun", ("#7a5536", "walnut")), ("akazie", "tabak", ("#7a5a3a", "walnut")), ("akazie", "schwarz", ("#2b2622", "oakDark")),
@@ -285,6 +295,23 @@ def slots_of(r, cat, measured):
     tail = re.search(r"gestell\b(.*)$", name, re.I)
     if tail and not sel.get("Gestellfarbe") and frame_style(tail.group(1)):
         legs = frame_style(tail.group(1))
+    mtail = re.search(r"\bMetall\s+([A-Za-zäöüÄÖÜß]+)\s*$", name)  # „… Drehfuß höhenverstellbar Metall Titanfarben“
+    if mtail and not sel.get("Gestellfarbe") and frame_style(mtail.group(1)):
+        legs = frame_style(mtail.group(1))
+    if cat == "rug":
+        hf, zf = (_part(pp, "hauptfarbe") or ("", ""))[1], (_part(pp, "zweitfarbe") or ("", ""))[1]
+        col = _first(RUG_COLOR, hf or name, "#d3c3a8")
+        out = {"main": {"color": col, "material": "wool"}}
+        if zf and zf.lower() != hf.lower():
+            out["secondary"] = {"color": _first(RUG_COLOR, zf, col), "material": "wool"}
+        return out
+    if cat == "art":
+        return {"main": {"color": "#d9cdb8", "material": "canvas"}, "secondary": {"color": "#8a6f55", "material": "canvas"},
+                "frame": {"color": "#1b1b1b", "material": "blackMetal"}}
+    if cat == "mirror":
+        fr = _part(pp, "rahmen")
+        fs = (surface(f"{fr[0]} {fr[1]}") if fr else None) or frame_style(name) or {"color": "#1b1b1b", "material": "blackMetal"}
+        return {"frame": fs, "main": dict(fs)}
     if cat in UPH:
         cover = _part(pp, "schale", "sitzschale", "sitzpolster", "bezug", "polster", "korpus", "") or ("", "")
         mtxt = sel.get("Sitzmaterial") or sel.get("Material") or cover[0] or name
@@ -312,6 +339,16 @@ def slots_of(r, cat, measured):
         ttxt = f"{top_p[1]} {top_p[0]}".strip() + (f" {ttxt}" if not _first(DECOR, top_p[1]) else "")
     top = surface(ttxt, name) or {"color": "#b68955", "material": "oak"}
     out = {"top": top, "main": dict(top), "legs": legs or ({"color": "#1b1b1b", "material": "blackMetal"} if cat not in ("lowboard", "sideboard", "cabinet", "shelf") else dict(top))}
+    korpus = _part(pp, "korpus")
+    if cat in ("lowboard", "sideboard", "cabinet") and korpus and re.search(r"metallic gold", korpus[1], re.I):
+        # Kazu/Yori: Korpus Metallic Gold, Deckplatte bzw. Frontfurnier Keramik Noir Désir
+        out["main"] = {"color": "#b8955a", "material": "brass"}
+        pl, fu = _part(pp, "platte"), _part(pp, "furnier")
+        if pl:
+            out["top"] = surface(f"{pl[1]} {pl[0]}") or out["top"]
+        if fu:
+            out["front"] = surface(f"{fu[1]} {fu[0]}") or dict(out["top"])
+            out["top"] = dict(out["main"])
     if cat in ("lowboard", "sideboard", "cabinet", "shelf", "desk", "console"):
         stone = _part(pp, "steinfurnier")
         if stone:
@@ -411,6 +448,20 @@ def _finish_suffix(label, r):
             label = re.sub(r"(?<!\w)" + re.escape(v) + r"(?!\w)", m.group(0), label, count=1)
         break
     return label
+
+
+def _decor_label(label, r, cat):
+    """Plattendekor aus dem Artikelnamen vor die Farbe setzen: „Braun, Gestell Schwarz“ → „Laminam® Noir Désir Braun, Gestell Schwarz“."""
+    v = r["sel"].get("Farbe")
+    if cat in UPH or not v:
+        return label
+    nl = r["name"].lower()
+    dec = next((d for k, d in DECOR_LABEL if k in nl), None)
+    if not dec or re.search(r"(?<!\w)" + re.escape(dec.lower()) + r"(?!\w)", label.lower()):
+        return label
+    first = dec.replace("Laminam® ", "").split()[0].lower()
+    new = dec + (" Grau" if dec == "Beton" else "") if first in v.lower() else f"{dec} {v}"
+    return re.sub(r"(?<!\w)" + re.escape(v) + r"(?!\w)", new, label, count=1)
 
 
 def _slug(s):
@@ -551,12 +602,28 @@ def entries(arch_for, finalize, stone_tags):
             variants, seen, sigs, colmap = [], set(), {}, {}
             _, rep_params = arch_params(rep, cat, model, frame)
             common = set.intersection(*(set(r["name"].split()) for r in rows)) if len(rows) > 1 else set()
+            labels, extra = {}, {}
             for r in rows:
                 label = _label(r["sel"], axes_names) if axes_names else "Standard"
-                label = _finish_suffix(label, r)
+                label = _decor_label(_finish_suffix(label, r), r, cat)
                 if not axes_names and len(rows) > 1:
                     # Ausführung aus dem Namensunterschied („Bouclé Schlamm Kreuzgestell kantig“)
                     label = " ".join(t for t in r["name"].split() if t not in common) or "Standard"
+                labels[r["sku"]] = label
+            by_label = {}
+            for r in rows:
+                by_label.setdefault(labels[r["sku"]].lower(), []).append(r)
+            for same in by_label.values():
+                # gleiche Bezeichnung, verschiedene Artikel (Gestellfarbe nur im Namen: „… Metall Weiß“ / „… Metall Schwarz“)
+                if len(same) > 1 and len({x["name"] for x in same}) > 1:
+                    shared = set.intersection(*(set(x["name"].split()) for x in same))
+                    for x in same:
+                        diff = " ".join(t for t in x["name"].split() if t not in shared)
+                        if diff:
+                            labels[x["sku"]] += f" {diff}"
+                            extra[x["sku"]] = diff
+            for r in rows:
+                label = labels[r["sku"]]
                 if r["sku"] == "25387":
                     label = "Laminam® Noir Désir Braun, V-Mittelfuß Flachstahl schwarz pulverbeschichtet"
                 if label.lower() in seen:
@@ -608,6 +675,8 @@ def entries(arch_for, finalize, stone_tags):
                         break
                 if axes_names:
                     v["opts"] = [r["sel"].get(k) or "–" for k in axes_names]
+                    if r["sku"] in extra:
+                        v["opts"][-1] = f"{v['opts'][-1]} {extra[r['sku']]}".replace("– ", "")
                 variants.append(v)
                 if len(variants) >= MAX_VARIANTS:
                     break

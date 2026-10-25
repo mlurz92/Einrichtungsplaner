@@ -1,7 +1,7 @@
 {
 "version": 1,
-"name": "Konzept 1 · Travertin · Kupfer · Salbei",
-"subtitle": "Luxus-Design-Möblierung mit Westwing, IKEA und JYSK, Wandgestaltung mit OBI-Material",
+"name": "Konzept 1 · Noir · Sand · Messing",
+"subtitle": "Abgestimmt auf den Essplatz (DELIFE Edge Noir Désir + Pejo-Flex Beige Vintage): Keramik Noir Désir, Bouclé in Sand, Messingleuchten",
 "conceptId": "concept1",
 "createdAt": "2026-10-23T00:00:00Z",
 "updatedAt": "2026-10-23T00:00:00Z",
@@ -53,50 +53,46 @@
 ]
 },
 {
-"id": "64d0c04e68",
-"catalogId": "wes-travertin-couchtische-distinct-grande-duo-2er-se",
+"id": "db814c4832",
+"catalogId": "del-edge-parabi-42827",
 "pos": "W2",
-"label": "Travertin-Couchtische Distinct Grande Duo, 2er-Set (Ferm Living)",
-"x": 4.585,
-"y": 5.636,
+"label": "Couchtisch Edge Organisch 140x76 cm Keramik Parabi",
+"x": 4.5766,
+"y": 5.6954,
 "rot": 8,
 "elev": 0.0,
-"w": 1.35,
-"d": 0.88,
-"h": 0.35,
-"variant": "Travertin beige, massiv, weiche Kanten – Oberfläche matt geschliffen bestätigen",
+"w": 1.4,
+"d": 0.76,
+"h": 0.33,
+"variant": "Laminam® Noir Désir Braun, Gestell Schwarz",
 "slots": {
+"top": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
 "main": {
-"color": "#e3d6c1",
-"material": "travertine"
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
-"params": {
-"a_w": 0.8,
-"a_d": 0.7,
-"a_h": 0.35,
-"b_w": 0.7,
-"b_d": 0.53,
-"b_h": 0.23,
-"a_x": -0.352,
-"a_y": 0.04,
-"b_x": 0.352,
-"b_y": -0.04,
-"b_rot": 90
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "W2",
-"name": "Travertin-Couchtische Distinct Grande Duo, 2er-Set (Ferm Living)",
-"variant": "Travertin beige, massiv, weiche Kanten – Oberfläche matt geschliffen bestätigen",
-"vendor": "Westwing",
+"name": "Couchtisch Edge Organisch 140x76 cm Keramik Parabi",
+"variant": "Laminam® Noir Désir Braun, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 1799.0,
-"url": "https://www.westwing.de/travertin-couchtische-distinct-grande-duo-2er-set-165616.html",
-"dims": "80 × 70 × 35 + 70 × 53 × 23",
-"delivery": "4–9 WT"
+"unit": 479.9,
+"url": "https://www.delife.de/couchtisch-edge-140x76cm-keramik/a-42827",
+"dims": "B 140 × T 76 × H 33",
+"delivery": null
 }
 ]
 },
@@ -180,11 +176,11 @@
 "w": 0.97,
 "d": 0.9,
 "h": 0.72,
-"variant": "Samtiger Webstoff Salbeigrün",
+"variant": "Bouclé Hellbraun",
 "slots": {
 "main": {
-"color": "#a7b59e",
-"material": "velvet"
+"color": "#b08a63",
+"material": "boucle"
 },
 "legs": {
 "color": "#1d1d1d",
@@ -200,7 +196,7 @@
 {
 "pos": "W4",
 "name": "Sessel Sofia (großer Lounge-/Lesesessel)",
-"variant": "Samtiger Webstoff Salbeigrün",
+"variant": "Bouclé Hellbraun",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 999.0,
@@ -249,44 +245,46 @@
 ]
 },
 {
-"id": "b0a5efa656",
-"catalogId": "wes-dimmbare-stehlampe-kushi-mundgeblasen-kdln",
+"id": "88b73afa07",
+"catalogId": "lam-hollaender-capri-stehleuchte-280-k-1101",
 "pos": "W6",
-"label": "Dimmbare Stehlampe Kushi, mundgeblasen (kdln)",
+"label": "Holländer CAPRI Stehleuchte",
 "x": 5.829,
 "y": 6.609,
 "rot": 0,
 "elev": 0.0,
-"w": 0.43,
-"d": 0.43,
-"h": 1.83,
-"variant": "Kupferfarben / Opalglas weiß",
+"w": 0.46,
+"d": 0.46,
+"h": 1.55,
+"variant": "Gold / Schwarz",
 "slots": {
 "main": {
-"color": "#b8703e",
-"material": "copper"
+"color": "#c9a55c",
+"material": "brass"
 },
 "shade": {
-"color": "#f6f4ee",
-"material": "opal"
+"color": "#1d1d1d",
+"material": "linen"
+},
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
 }
 },
-"params": {
-"shape": "mushroom"
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "W6",
-"name": "Dimmbare Stehlampe Kushi, mundgeblasen (kdln)",
-"variant": "Kupferfarben / Opalglas weiß",
-"vendor": "Westwing",
+"name": "Holländer CAPRI Stehleuchte",
+"variant": "Gold / Schwarz",
+"vendor": "lampe.de",
 "qty": 1,
-"unit": 1399.0,
-"url": "https://www.westwing.de/dimmbare-stehlampe-kushi-mundgeblasen-152944.html",
-"dims": "H 183, Schirm Ø 43",
-"delivery": "6–7 Wo."
+"unit": 719.99,
+"url": "https://www.lampe.de/hollaender-capri-stehleuchte-280-k-1101.html",
+"dims": "B 46 × T 46 × H 155",
+"delivery": null
 }
 ]
 },
@@ -371,10 +369,10 @@
 ]
 },
 {
-"id": "8b98d7524a",
-"catalogId": "ike-dytag-kissenbezug",
+"id": "bc8a698ce0",
+"catalogId": "wes-einfarbige-samt-kissenhuelle-dana-in-burgund-136666",
 "pos": "W9",
-"label": "Kissen DYTÅG graugrün",
+"label": "Samt-Kissenhülle Dana",
 "x": 3.663,
 "y": 7.218,
 "rot": 182,
@@ -382,11 +380,11 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "graugrün (100 % Leinen)",
+"variant": "Ocker",
 "slots": {
 "main": {
-"color": "#a7b59e",
-"material": "linen"
+"color": "#c18f3c",
+"material": "velvet"
 }
 },
 "params": {},
@@ -395,127 +393,22 @@
 "parts": [
 {
 "pos": "W9",
-"name": "DYTÅG Kissenbezug",
-"variant": "graugrün (100 % Leinen)",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 9.99,
-"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
-"dims": "50 × 50",
-"delivery": "prüfen"
-},
-{
-"pos": "W10",
-"name": "FJÄDRAR Innenkissen",
-"variant": "elfenbeinweiß, Entenfedern",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 7.0,
-"url": "https://www.ikea.com/de/de/p/fjaedrar-innenkissen-elfenbeinweiss-80262187/",
-"dims": "50 × 50",
-"delivery": "prüfen"
+"name": "Samt-Kissenhülle Dana",
+"variant": "Ocker",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 21.99,
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154159.html",
+"dims": "B 50 × T 16 × H 50",
+"delivery": null
 }
 ]
 },
 {
-"id": "fc850d3e08",
-"catalogId": "ike-dytag-kissenbezug",
+"id": "e630af3623",
+"catalogId": "wes-einfarbige-samt-kissenhuelle-dana-in-burgund-136666",
 "pos": "W9",
-"label": "Kissen DYTÅG graugrün",
-"x": 4.099,
-"y": 7.279,
-"rot": 192,
-"elev": 0.45,
-"w": 0.5,
-"d": 0.16,
-"h": 0.5,
-"variant": "graugrün (100 % Leinen)",
-"slots": {
-"main": {
-"color": "#a7b59e",
-"material": "linen"
-}
-},
-"params": {},
-"mount": "floor",
-"room": "13.01",
-"parts": [
-{
-"pos": "W9",
-"name": "DYTÅG Kissenbezug",
-"variant": "graugrün (100 % Leinen)",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 9.99,
-"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
-"dims": "50 × 50",
-"delivery": "prüfen"
-},
-{
-"pos": "W10",
-"name": "FJÄDRAR Innenkissen",
-"variant": "elfenbeinweiß, Entenfedern",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 7.0,
-"url": "https://www.ikea.com/de/de/p/fjaedrar-innenkissen-elfenbeinweiss-80262187/",
-"dims": "50 × 50",
-"delivery": "prüfen"
-}
-]
-},
-{
-"id": "35daab2aa6",
-"catalogId": "ike-dytag-kissenbezug",
-"pos": "W9",
-"label": "Kissen DYTÅG graugrün",
-"x": 4.911,
-"y": 7.394,
-"rot": 184,
-"elev": 0.45,
-"w": 0.5,
-"d": 0.16,
-"h": 0.5,
-"variant": "graugrün (100 % Leinen)",
-"slots": {
-"main": {
-"color": "#a7b59e",
-"material": "linen"
-}
-},
-"params": {},
-"mount": "floor",
-"room": "13.01",
-"parts": [
-{
-"pos": "W9",
-"name": "DYTÅG Kissenbezug",
-"variant": "graugrün (100 % Leinen)",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 9.99,
-"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
-"dims": "50 × 50",
-"delivery": "prüfen"
-},
-{
-"pos": "W10",
-"name": "FJÄDRAR Innenkissen",
-"variant": "elfenbeinweiß, Entenfedern",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 7.0,
-"url": "https://www.ikea.com/de/de/p/fjaedrar-innenkissen-elfenbeinweiss-80262187/",
-"dims": "50 × 50",
-"delivery": "prüfen"
-}
-]
-},
-{
-"id": "0b126d4b2e",
-"catalogId": "ike-dytag-kissenbezug",
-"pos": "W9",
-"label": "Kissen DYTÅG graugrün",
+"label": "Samt-Kissenhülle Dana",
 "x": 5.267,
 "y": 7.444,
 "rot": 195,
@@ -523,11 +416,11 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "graugrün (100 % Leinen)",
+"variant": "Ocker",
 "slots": {
 "main": {
-"color": "#a7b59e",
-"material": "linen"
+"color": "#c18f3c",
+"material": "velvet"
 }
 },
 "params": {},
@@ -536,63 +429,124 @@
 "parts": [
 {
 "pos": "W9",
-"name": "DYTÅG Kissenbezug",
-"variant": "graugrün (100 % Leinen)",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 9.99,
-"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
-"dims": "50 × 50",
-"delivery": "prüfen"
-},
-{
-"pos": "W10",
-"name": "FJÄDRAR Innenkissen",
-"variant": "elfenbeinweiß, Entenfedern",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 7.0,
-"url": "https://www.ikea.com/de/de/p/fjaedrar-innenkissen-elfenbeinweiss-80262187/",
-"dims": "50 × 50",
-"delivery": "prüfen"
+"name": "Samt-Kissenhülle Dana",
+"variant": "Ocker",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 21.99,
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154159.html",
+"dims": "B 50 × T 16 × H 50",
+"delivery": null
 }
 ]
 },
 {
-"id": "19e717e188",
-"catalogId": "wes-woll-plaid-tyrol-mit-zickzack-muster",
-"pos": "W11",
-"label": "Woll-Plaid Tyrol mit Zickzack-Muster",
-"x": 3.773,
-"y": 6.724,
-"rot": 188,
-"elev": 0.43,
-"w": 0.46,
-"d": 0.66,
-"h": 0.06,
-"variant": "Salbeigrün / Weiß, 100 % Wolle",
+"id": "1b2a97bff0",
+"catalogId": "wes-boucle-kissenhuelle-shannon-171674",
+"pos": "W9",
+"label": "Bouclé-Kissenhülle Shannon",
+"x": 4.099,
+"y": 7.279,
+"rot": 192,
+"elev": 0.45,
+"w": 0.5,
+"d": 0.16,
+"h": 0.3,
+"variant": "Bouclé Schwarz",
 "slots": {
 "main": {
-"color": "#c8d3c1",
+"color": "#1d1d1d",
+"material": "boucle"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W9",
+"name": "Bouclé-Kissenhülle Shannon",
+"variant": "Bouclé Schwarz",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 32.99,
+"url": "https://www.westwing.de/boucle-kissenhuelle-shannon-171677.html",
+"dims": "B 50 × T 16 × H 30",
+"delivery": null
+}
+]
+},
+{
+"id": "7dd52715e8",
+"catalogId": "wes-boucle-kissenhuelle-shannon-171674",
+"pos": "W9",
+"label": "Bouclé-Kissenhülle Shannon",
+"x": 4.911,
+"y": 7.394,
+"rot": 184,
+"elev": 0.45,
+"w": 0.5,
+"d": 0.16,
+"h": 0.3,
+"variant": "Bouclé Schwarz",
+"slots": {
+"main": {
+"color": "#1d1d1d",
+"material": "boucle"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "W9",
+"name": "Bouclé-Kissenhülle Shannon",
+"variant": "Bouclé Schwarz",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 32.99,
+"url": "https://www.westwing.de/boucle-kissenhuelle-shannon-171677.html",
+"dims": "B 50 × T 16 × H 30",
+"delivery": null
+}
+]
+},
+{
+"id": "f6bc18670e",
+"catalogId": "wes-plaid-luxury-aus-babyalpaka-wolle-elvang",
+"pos": "W11",
+"label": "Plaid Luxury aus Babyalpaka-Wolle (Elvang)",
+"x": 3.32,
+"y": 6.69,
+"rot": 188,
+"elev": 0.5,
+"w": 0.3,
+"d": 0.62,
+"h": 0.3,
+"variant": "Off White, 100 % Alpaka",
+"slots": {
+"main": {
+"color": "#f6f2e9",
 "material": "wool"
 }
 },
 "params": {
-"pattern": "zigzag"
+"draped": true
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "W11",
-"name": "Woll-Plaid Tyrol mit Zickzack-Muster",
-"variant": "Salbeigrün / Weiß, 100 % Wolle",
+"name": "Plaid Luxury aus Babyalpaka-Wolle (Elvang)",
+"variant": "Off White, 100 % Alpaka",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 44.99,
-"url": "https://www.westwing.de/wool-blanket-tirol-with-zig-zag-pattern-en-25stt69253.html",
-"dims": "140 × 200",
-"delivery": "8–11 WT"
+"unit": 249.0,
+"url": "https://www.westwing.de/babyalpaka-plaid-luxury-23584.html?simple=DEQ15ELV08146-28569",
+"dims": "B 30 × T 62 × H 30",
+"delivery": "2 Wo."
 }
 ]
 },
@@ -789,26 +743,30 @@
 "opening": "W-O2"
 },
 {
-"id": "4e4a2a58f0",
-"catalogId": "wes-kleine-led-tischlampe-kian",
+"id": "a1efaa5fdb",
+"catalogId": "lam-hollaender-clarice-tischleuchte-424-1208",
 "pos": "W17",
-"label": "Kleine LED-Tischlampe Kian",
+"label": "Holländer CLARICE Tischleuchte",
 "x": 4.042,
 "y": 4.414,
 "rot": 0,
 "elev": 0.55,
-"w": 0.3,
-"d": 0.3,
-"h": 0.35,
-"variant": "Milchglas / Fuß kupferfarben",
+"w": 0.2,
+"d": 0.2,
+"h": 0.49,
+"variant": "Schwarz / Gold",
 "slots": {
 "main": {
-"color": "#b8703e",
-"material": "copper"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
-"color": "#f6f4ee",
-"material": "opal"
+"color": "#c9a55c",
+"material": "brass"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {},
@@ -817,22 +775,22 @@
 "parts": [
 {
 "pos": "W17",
-"name": "Kleine LED-Tischlampe Kian",
-"variant": "Milchglas / Fuß kupferfarben",
-"vendor": "Westwing",
+"name": "Holländer CLARICE Tischleuchte",
+"variant": "Schwarz / Gold",
+"vendor": "lampe.de",
 "qty": 1,
-"unit": 129.0,
-"url": "https://www.westwing.de/new-milky-table-lamp-small-brass-en-25wes67056.html",
-"dims": "Ø 30 × H 35",
-"delivery": "2–4 WT"
+"unit": 179.99,
+"url": "https://www.lampe.de/hollaender-clarice-tischleuchte-424-1208.html",
+"dims": "B 20 × T 20 × H 49",
+"delivery": null
 }
 ]
 },
 {
-"id": "bcaae29828",
-"catalogId": "obi-akustikpaneel-eiche-geoelt-denpanels",
+"id": "14cbb85931",
+"catalogId": "obi-lamella-black",
 "pos": "W18",
-"label": "Akustikpaneel Eiche geölt (Denpanels)",
+"label": "Akustikpaneel Eiche schwarz (Lamellen)",
 "x": 4.695,
 "y": 4.258,
 "rot": 8,
@@ -840,11 +798,11 @@
 "w": 2.4,
 "d": 0.021,
 "h": 2.56,
-"variant": "Echtholzfurnier Eiche geölt auf Akustikfilz schwarz",
+"variant": "Standard",
 "slots": {
 "main": {
-"color": "#c9a273",
-"material": "oak"
+"color": "#2a2522",
+"material": "oakDark"
 },
 "secondary": {
 "color": "#141414",
@@ -860,14 +818,14 @@
 "parts": [
 {
 "pos": "W18",
-"name": "Akustikpaneel Eiche geölt (Denpanels)",
-"variant": "Echtholzfurnier Eiche geölt auf Akustikfilz schwarz",
+"name": "Akustikpaneel Eiche schwarz (Lamellen)",
+"variant": "Standard",
 "vendor": "OBI",
 "qty": 4,
-"unit": 109.99,
-"url": "https://www.obi.de/p/9992504/akustikpaneel-eiche-geoelt-mdf-schwarz-filz-schwarz-60-cm-x-270-cm-fsc-",
-"dims": "60 × 270 × 1,9",
-"delivery": "Abholung Markt"
+"unit": 119.99,
+"url": null,
+"dims": "B 240 × T 2.1 × H 256",
+"delivery": null
 }
 ]
 },
@@ -974,14 +932,14 @@
 "w": 0.85,
 "d": 0.4,
 "h": 1.7,
-"variant": "Salbeigrün, Stahl pulverbeschichtet, Riffelglas",
+"variant": "Anthrazit",
 "slots": {
 "main": {
-"color": "#a7b59e",
+"color": "#2b2b2c",
 "material": "matte"
 },
 "secondary": {
-"color": "#e8efe8",
+"color": "#e8ece8",
 "material": "ribbedGlass"
 }
 },
@@ -995,13 +953,57 @@
 {
 "pos": "W21",
 "name": "Metall-Vitrine The Collector mit geriffeltem Glas (Mustard Made)",
-"variant": "Salbeigrün, Stahl pulverbeschichtet, Riffelglas",
+"variant": "Anthrazit",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 889.0,
 "url": "https://www.westwing.de/metall-vitrine-the-collector-mit-geriffeltem-glas-169561.html",
 "dims": "B 85 × T 40 × H 170",
 "delivery": "4–9 WT"
+}
+]
+},
+{
+"id": "e290a1260e",
+"catalogId": "del-torvia-46744",
+"pos": "D2",
+"label": "Vase Torvia B20 x T20 x H19 cm Aluminium Mokka Bronze Handgemacht",
+"x": 4.8539,
+"y": 5.7344,
+"rot": 0,
+"elev": 0.33,
+"w": 0.2,
+"d": 0.2,
+"h": 0.19,
+"variant": "Mokka/Bronze",
+"slots": {
+"top": {
+"color": "#694f38",
+"material": "lacquer"
+},
+"main": {
+"color": "#694f38",
+"material": "lacquer"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "D2",
+"name": "Vase Torvia B20 x T20 x H19 cm Aluminium Mokka Bronze Handgemacht",
+"variant": "Mokka/Bronze",
+"vendor": "DELIFE",
+"qty": 1,
+"unit": 69.9,
+"url": "https://www.delife.de/vase-torvia-aluminium-mokka-bronze-b20-x-t20-x-h19cm/a-46744",
+"dims": "B 20 × T 20 × H 19",
+"delivery": null
 }
 ]
 },
@@ -1377,136 +1379,133 @@
 ]
 },
 {
-"id": "eb76375bfd",
-"catalogId": "lam-paul-neuhaus-bowl-pendelleuchte-2288-23",
+"id": "8cb7e03081",
+"catalogId": "lam-hollaender-alice-fiorire-haengeleuchte-300-k-15149-sg",
 "pos": "E3",
-"label": "Paul Neuhaus BOWL Pendelleuchte LED",
+"label": "Holländer ALICE FIORIRE Hängeleuchte",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 1.39,
-"w": 1.2,
-"d": 0.45,
-"h": 0.45,
-"variant": "Braun / Rauchfarben",
+"w": 1.14,
+"d": 0.5,
+"h": 0.5,
+"variant": "Gold / Schwarz",
 "slots": {
 "main": {
-"color": "#6f4d36",
-"material": "matte"
+"color": "#c9a55c",
+"material": "brass"
 },
 "shade": {
-"color": "#6b6660",
+"color": "#1d1d1d",
 "material": "glass"
 },
 "frame": {
-"color": "#6f4d36",
-"material": "matte"
+"color": "#c9a55c",
+"material": "brass"
 }
 },
 "params": {
-"heads": 12,
-"shape": "globe",
-"maxHang": 1.8
+"heads": 6,
+"shape": "globe"
 },
 "mount": "ceiling",
 "room": "13.01",
 "parts": [
 {
 "pos": "E3",
-"name": "Paul Neuhaus BOWL Pendelleuchte LED",
-"variant": "Braun / Rauchfarben",
+"name": "Holländer ALICE FIORIRE Hängeleuchte",
+"variant": "Gold / Schwarz",
 "vendor": "lampe.de",
 "qty": 1,
-"unit": 1499.0,
-"url": "https://www.lampe.de/paul-neuhaus-bowl-pendelleuchte-2288-23.html",
-"dims": "B 120 × T 45 × H 45",
+"unit": 1504.99,
+"url": "https://www.lampe.de/hollaender-alice-fiorire-haengeleuchte-300-k-15149-sg.html",
+"dims": "B 114 × T 50 × H 50",
 "delivery": null
 }
 ]
 },
 {
-"id": "5d96a4a479",
-"catalogId": "ike-80593762",
+"id": "5d505118a5",
+"catalogId": "wes-hand-woven-low-pile-wool-sicilian-stripe-en-25lyd29670",
 "pos": "E9",
-"label": "STOCKHOLM 2025 Teppich flach gewebt",
+"label": "Handgewebter Kurzflor-Wollteppich Stripe",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 8,
 "elev": 0.0,
-"w": 2.4,
-"d": 3.0,
-"h": 0.012,
-"variant": "Grün / weiß / schwarz handgewebt",
+"w": 2.5,
+"d": 3.5,
+"h": 0.015,
+"variant": "Standard",
 "slots": {
 "main": {
-"color": "#5d7a5a",
-"material": "wool"
-},
-"secondary": {
-"color": "#f3f1ec",
+"color": "#bdb5a8",
 "material": "wool"
 }
 },
 "params": {
-"pattern": "birch"
+"pattern": "bands"
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E9",
-"name": "STOCKHOLM 2025 Teppich flach gewebt",
-"variant": "Grün / weiß / schwarz handgewebt",
-"vendor": "IKEA",
+"name": "Handgewebter Kurzflor-Wollteppich Stripe",
+"variant": "Standard",
+"vendor": "Westwing",
 "qty": 1,
-"unit": 599.0,
-"url": "https://www.ikea.com/de/de/p/stockholm-2025-teppich-flach-gewebt-gruen-weiss-schwarz-handgewebt-80593762/",
-"dims": "B 240 × T 300 × H 1.2",
+"unit": 2799.0,
+"url": "https://www.westwing.de/hand-woven-low-pile-wool-sicilian-stripe-en-25lyd29670.html",
+"dims": "B 250 × T 350 × H 1.5",
 "delivery": null
 }
 ]
 },
 {
-"id": "7c1ff40522",
-"catalogId": "wes-sideboard-chandler-aus-eichenholz",
+"id": "94def25782",
+"catalogId": "del-kazu-fuss-schwebend-metall-38946",
 "pos": "E4",
-"label": "Sideboard Chandler aus Eichenholz",
-"x": 5.688,
-"y": 11.668,
+"label": "Sideboard Kazu 220 cm Metallic Gold 4 Türen schwebend Schwarz Keramik Laminam®Noir Desir Braun",
+"x": 5.8478,
+"y": 11.6804,
 "rot": 188,
 "elev": 0.0,
-"w": 1.65,
-"d": 0.43,
-"h": 0.75,
-"variant": "Eiche massiv, dunkel lackiert",
+"w": 2.2,
+"d": 0.45,
+"h": 0.69,
+"variant": "Standard",
 "slots": {
+"top": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
 "main": {
-"color": "#5e4130",
-"material": "oakDark"
+"color": "#b8955a",
+"material": "brass"
 },
 "legs": {
-"color": "#5e4130",
-"material": "oakDark"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
 "params": {
-"doors": 3,
-"legHeight": 0.1,
-"front": "flat"
+"doors": 4
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E4",
-"name": "Sideboard Chandler aus Eichenholz",
-"variant": "Eiche massiv, dunkel lackiert",
-"vendor": "Westwing",
+"name": "Sideboard Kazu 220 cm Metallic Gold 4 Türen schwebend Schwarz Keramik Laminam®Noir Desir Braun",
+"variant": "Standard",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 1399.0,
-"url": "https://www.westwing.de/handgefertigtes-sideboard-chandler-aus-massivem-eichenholz-159331.html",
-"dims": "B 165 × T 43 × H 75",
-"delivery": "3–4 Wo."
+"unit": 1389.9,
+"url": "https://www.delife.de/sideboard-kazu-220cm-mitteldichte-faserplatte/a-38946",
+"dims": "B 220 × T 45 × H 69",
+"delivery": null
 }
 ]
 },
@@ -1522,11 +1521,23 @@
 "w": 0.28,
 "d": 0.13,
 "h": 0.21,
-"variant": "Kupferfarben",
+"variant": "Goldfarben",
 "slots": {
 "main": {
-"color": "#b8703e",
-"material": "copper"
+"color": "#c9a55c",
+"material": "brass"
+},
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"legs": {
+"color": "#c9a55c",
+"material": "brass"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
 }
 },
 "params": {
@@ -1538,10 +1549,10 @@
 {
 "pos": "E5",
 "name": "Mundgeblasene Wandleuchte Mabell (Maytoni)",
-"variant": "Kupferfarben",
+"variant": "Goldfarben",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 109.0,
+"unit": 139.0,
 "url": "https://www.westwing.de/mundgeblasene-wandleuchte-mabell-in-kupferfarben-147118.html",
 "dims": "B 28 × H 21 × T 13",
 "delivery": "2–5 WT"
@@ -1549,26 +1560,30 @@
 ]
 },
 {
-"id": "2330105e24",
-"catalogId": "wes-grosse-tischlampe-ph-3-2-mundgeblasen-louis-poul",
+"id": "c4024828c0",
+"catalogId": "lam-hollaender-capri-tischleuchte-280-k-1202",
 "pos": "E6",
-"label": "Große Tischlampe PH 3½-2½, mundgeblasen (Louis Poulsen)",
+"label": "Holländer CAPRI Tischleuchte",
 "x": 5.168,
 "y": 11.595,
 "rot": 0,
-"elev": 0.75,
-"w": 0.33,
-"d": 0.33,
-"h": 0.45,
-"variant": "Opalglas weiß / Gestell Kupfer",
+"elev": 0.69,
+"w": 0.27,
+"d": 0.27,
+"h": 0.44,
+"variant": "Gold / Schwarz",
 "slots": {
 "main": {
-"color": "#b8703e",
-"material": "copper"
+"color": "#c9a55c",
+"material": "brass"
 },
 "shade": {
-"color": "#f6f4ee",
-"material": "opal"
+"color": "#1d1d1d",
+"material": "linen"
+},
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
 }
 },
 "params": {},
@@ -1577,14 +1592,14 @@
 "parts": [
 {
 "pos": "E6",
-"name": "Große Tischlampe PH 3½-2½, mundgeblasen (Louis Poulsen)",
-"variant": "Opalglas weiß / Gestell Kupfer",
-"vendor": "Westwing",
+"name": "Holländer CAPRI Tischleuchte",
+"variant": "Gold / Schwarz",
+"vendor": "lampe.de",
 "qty": 1,
-"unit": 1249.0,
-"url": "https://www.westwing.de/grosse-tischlampe-ph-3-1-2-2-1-2-mundgeblasen-160503.html",
-"dims": "Ø 33 × H 45, Kabel 250",
-"delivery": "5 Wo."
+"unit": 324.99,
+"url": "https://www.lampe.de/hollaender-capri-tischleuchte-280-k-1202.html",
+"dims": "B 27 × T 27 × H 44",
+"delivery": null
 }
 ]
 },
@@ -1593,8 +1608,8 @@
 "catalogId": "wes-gerahmter-digitaldruck-growing-incado",
 "pos": "E7",
 "label": "Gerahmter Digitaldruck Growing (Incado)",
-"x": 5.3302,
-"y": 11.8391,
+"x": 5.4887,
+"y": 11.8613,
 "rot": 188,
 "elev": 1.085,
 "w": 0.53,
@@ -1640,8 +1655,8 @@
 "catalogId": "wes-gerahmter-digitaldruck-growing-incado",
 "pos": "E7",
 "label": "Gerahmter Digitaldruck Growing (Incado)",
-"x": 5.9838,
-"y": 11.9309,
+"x": 6.1422,
+"y": 11.9532,
 "rot": 188,
 "elev": 1.085,
 "w": 0.53,
@@ -1687,8 +1702,8 @@
 "catalogId": "obi-profilleiste-orac-decor-px120-axxent",
 "pos": "E10–E11",
 "label": "Profilrahmen Orac PX120 um das Bildpaar",
-"x": 5.657,
-"y": 11.89,
+"x": 5.8154,
+"y": 11.9123,
 "rot": 188,
 "elev": 0.95,
 "w": 1.4,
@@ -1732,40 +1747,90 @@
 ]
 },
 {
-"id": "ffc5597963",
-"catalogId": "wes-uebertopf-olea",
+"id": "2eb3458239",
+"catalogId": "del-rondia-46690",
 "pos": "E8",
-"label": "Übertopf Olea",
+"label": "Vase Rondia B21 x T21 x H35 cm Glas Aurum Mundgeblasen",
 "x": 6.258,
 "y": 11.748,
 "rot": 0,
-"elev": 0.75,
-"w": 0.24,
-"d": 0.24,
-"h": 0.26,
-"variant": "Salbeigrün matt, Steinzeug",
+"elev": 0.69,
+"w": 0.21,
+"d": 0.21,
+"h": 0.35,
+"variant": "Gold/Braun",
 "slots": {
+"top": {
+"color": "#b18e54",
+"material": "brass"
+},
 "main": {
-"color": "#a7b59e",
-"material": "ceramic"
+"color": "#b18e54",
+"material": "brass"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
-"params": {
-"plant": true
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E8",
-"name": "Übertopf Olea",
-"variant": "Salbeigrün matt, Steinzeug",
-"vendor": "Westwing",
+"name": "Vase Rondia B21 x T21 x H35 cm Glas Aurum Mundgeblasen",
+"variant": "Gold/Braun",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 64.99,
-"url": "https://www.westwing.de/uebertopf-olea-in-salbeigruen-aus-steingut-147844.html",
-"dims": "Ø 24 × H 26",
-"delivery": "2–4 WT"
+"unit": 69.9,
+"url": "https://www.delife.de/vase-rondia-glas-aurum-b21-x-t21-x-h35cm/a-46690",
+"dims": "B 21 × T 21 × H 35",
+"delivery": null
+}
+]
+},
+{
+"id": "1754f70732",
+"catalogId": "del-ramina-46714",
+"pos": "D1",
+"label": "Schale Ramina B29 x T21 x H19 cm Aluminium Aurum Satin Gegossen",
+"x": 5.7983,
+"y": 11.6734,
+"rot": 0,
+"elev": 0.69,
+"w": 0.29,
+"d": 0.21,
+"h": 0.19,
+"variant": "Gold/Messing",
+"slots": {
+"top": {
+"color": "#c7a45d",
+"material": "brass"
+},
+"main": {
+"color": "#c7a45d",
+"material": "brass"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "D1",
+"name": "Schale Ramina B29 x T21 x H19 cm Aluminium Aurum Satin Gegossen",
+"variant": "Gold/Messing",
+"vendor": "DELIFE",
+"qty": 1,
+"unit": 79.9,
+"url": "https://www.delife.de/schale-ramina-aluminium-aurum-satin-b29-x-t21-x-h19cm/a-46714",
+"dims": "B 29 × T 21 × H 19",
+"delivery": null
 }
 ]
 },
@@ -1882,44 +1947,46 @@
 ]
 },
 {
-"id": "945626a4bd",
-"catalogId": "wes-konsole-chandler-aus-eichenholz-mit-travertinpla",
+"id": "1853231f4d",
+"catalogId": "del-edge-estelo-45513",
 "pos": "F7",
-"label": "Konsole Chandler aus Eichenholz mit Travertinplatte",
+"label": "Konsolentisch Edge Boot 140x40 cm Keramik Estelo",
 "x": 7.378,
 "y": 2.525,
 "rot": 0,
 "elev": 0.0,
-"w": 1.1,
+"w": 1.4,
 "d": 0.4,
-"h": 0.8,
-"variant": "Eiche massiv dunkel lackiert / Travertin beige",
+"h": 0.79,
+"variant": "Laminam® Noir Désir Braun, Gestell Titanfarbig",
 "slots": {
 "top": {
-"color": "#e3d6c1",
-"material": "travertine"
+"color": "#45403c",
+"material": "marbleNoir"
 },
 "main": {
-"color": "#4b3326",
-"material": "oakDark"
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
 }
 },
-"params": {
-"style": "chandler"
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "F7",
-"name": "Konsole Chandler aus Eichenholz mit Travertinplatte",
-"variant": "Eiche massiv dunkel lackiert / Travertin beige",
-"vendor": "Westwing",
+"name": "Konsolentisch Edge Boot 140x40 cm Keramik Estelo",
+"variant": "Laminam® Noir Désir Braun, Gestell Titanfarbig",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 799.0,
-"url": "https://www.westwing.de/konsole-chandler-aus-eichenholz-mit-travertinplatte-159336.html",
-"dims": "B 110 × T 40 × H 80",
-"delivery": "4–9 WT"
+"unit": 589.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45667",
+"dims": "B 140 × T 40 × H 79",
+"delivery": null
 }
 ]
 },
@@ -1998,42 +2065,44 @@
 ]
 },
 {
-"id": "a430be1625",
-"catalogId": "wes-kleine-led-tischlampe-kian",
+"id": "ef526dc008",
+"catalogId": "des-louis-poulsen-panthella-portable-160-v3",
 "pos": "F9",
-"label": "Kleine LED-Tischlampe Kian",
+"label": "Louis Poulsen Panthella Portable 160 V3",
 "x": 7.006,
 "y": 2.526,
 "rot": 0,
-"elev": 0.8,
-"w": 0.3,
-"d": 0.3,
-"h": 0.35,
-"variant": "Milchglas / Fuß kupferfarben",
+"elev": 0.79,
+"w": 0.16,
+"d": 0.16,
+"h": 0.24,
+"variant": "MESSING glänzend, Akku; über Lampenwelt",
 "slots": {
 "main": {
-"color": "#b8703e",
-"material": "copper"
+"color": "#c9a55c",
+"material": "brass"
 },
 "shade": {
-"color": "#f6f4ee",
-"material": "opal"
+"color": "#c9a55c",
+"material": "brass"
 }
 },
-"params": {},
+"params": {
+"shape": "panthella"
+},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "F9",
-"name": "Kleine LED-Tischlampe Kian",
-"variant": "Milchglas / Fuß kupferfarben",
-"vendor": "Westwing",
+"name": "Louis Poulsen Panthella Portable 160 V3",
+"variant": "MESSING glänzend, Akku; über Lampenwelt",
+"vendor": "Designhandel",
 "qty": 1,
-"unit": 129.0,
-"url": "https://www.westwing.de/new-milky-table-lamp-small-brass-en-25wes67056.html",
-"dims": "Ø 30 × H 35",
-"delivery": "2–4 WT"
+"unit": 243.0,
+"url": "https://www.lampenwelt.de/p/louis-poulsen-panthella-portable-160-v3-messingfarben-10041803.html",
+"dims": "B 16 × T 16 × H 24",
+"delivery": "8–12 WT"
 }
 ]
 },
@@ -2164,40 +2233,46 @@
 ]
 },
 {
-"id": "2b5c75a0a9",
-"catalogId": "wes-uebertopf-olea",
+"id": "ac790f3c05",
+"catalogId": "del-torvia-46744",
 "pos": "F11",
-"label": "Übertopf Olea",
+"label": "Vase Torvia B20 x T20 x H19 cm Aluminium Mokka Bronze Handgemacht",
 "x": 7.766,
 "y": 2.526,
 "rot": 0,
-"elev": 0.8,
-"w": 0.24,
-"d": 0.24,
-"h": 0.26,
-"variant": "Salbeigrün matt, Steinzeug",
+"elev": 0.79,
+"w": 0.2,
+"d": 0.2,
+"h": 0.19,
+"variant": "Mokka/Bronze",
 "slots": {
+"top": {
+"color": "#694f38",
+"material": "lacquer"
+},
 "main": {
-"color": "#a7b59e",
-"material": "ceramic"
+"color": "#694f38",
+"material": "lacquer"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
-"params": {
-"plant": true
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "F11",
-"name": "Übertopf Olea",
-"variant": "Salbeigrün matt, Steinzeug",
-"vendor": "Westwing",
+"name": "Vase Torvia B20 x T20 x H19 cm Aluminium Mokka Bronze Handgemacht",
+"variant": "Mokka/Bronze",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 64.99,
-"url": "https://www.westwing.de/uebertopf-olea-in-salbeigruen-aus-steingut-147844.html",
-"dims": "Ø 24 × H 26",
-"delivery": "2–4 WT"
+"unit": 69.9,
+"url": "https://www.delife.de/vase-torvia-aluminium-mokka-bronze-b20-x-t20-x-h19cm/a-46744",
+"dims": "B 20 × T 20 × H 19",
+"delivery": null
 }
 ]
 },
@@ -2500,26 +2575,30 @@
 ]
 },
 {
-"id": "b6605861ec",
-"catalogId": "wes-kleine-led-tischlampe-kian",
+"id": "615e6fcf6e",
+"catalogId": "lam-hollaender-capri-tischleuchte-280-k-1202",
 "pos": "S5",
-"label": "Kleine LED-Tischlampe Kian",
+"label": "Holländer CAPRI Tischleuchte",
 "x": 7.0,
 "y": 13.408,
 "rot": 0,
 "elev": 0.52,
-"w": 0.3,
-"d": 0.3,
-"h": 0.35,
-"variant": "Milchglas / Fuß kupferfarben",
+"w": 0.27,
+"d": 0.27,
+"h": 0.44,
+"variant": "Gold / Schwarz",
 "slots": {
 "main": {
-"color": "#b8703e",
-"material": "copper"
+"color": "#c9a55c",
+"material": "brass"
 },
 "shade": {
-"color": "#f6f4ee",
-"material": "opal"
+"color": "#1d1d1d",
+"material": "linen"
+},
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
 }
 },
 "params": {},
@@ -2528,38 +2607,42 @@
 "parts": [
 {
 "pos": "S5",
-"name": "Kleine LED-Tischlampe Kian",
-"variant": "Milchglas / Fuß kupferfarben",
-"vendor": "Westwing",
-"qty": 1.0,
-"unit": 129.0,
-"url": "https://www.westwing.de/new-milky-table-lamp-small-brass-en-25wes67056.html",
-"dims": "Ø 30 × H 35",
-"delivery": "2–4 WT"
+"name": "Holländer CAPRI Tischleuchte",
+"variant": "Gold / Schwarz",
+"vendor": "lampe.de",
+"qty": 1,
+"unit": 324.99,
+"url": "https://www.lampe.de/hollaender-capri-tischleuchte-280-k-1202.html",
+"dims": "B 27 × T 27 × H 44",
+"delivery": null
 }
 ]
 },
 {
-"id": "53833150a6",
-"catalogId": "wes-kleine-led-tischlampe-kian",
+"id": "a7d2b91c91",
+"catalogId": "lam-hollaender-capri-tischleuchte-280-k-1202",
 "pos": "S5",
-"label": "Kleine LED-Tischlampe Kian",
+"label": "Holländer CAPRI Tischleuchte",
 "x": 6.646,
 "y": 15.903,
 "rot": 0,
 "elev": 0.52,
-"w": 0.3,
-"d": 0.3,
-"h": 0.35,
-"variant": "Milchglas / Fuß kupferfarben",
+"w": 0.27,
+"d": 0.27,
+"h": 0.44,
+"variant": "Gold / Schwarz",
 "slots": {
 "main": {
-"color": "#b8703e",
-"material": "copper"
+"color": "#c9a55c",
+"material": "brass"
 },
 "shade": {
-"color": "#f6f4ee",
-"material": "opal"
+"color": "#1d1d1d",
+"material": "linen"
+},
+"frame": {
+"color": "#c9a55c",
+"material": "brass"
 }
 },
 "params": {},
@@ -2568,14 +2651,14 @@
 "parts": [
 {
 "pos": "S5",
-"name": "Kleine LED-Tischlampe Kian",
-"variant": "Milchglas / Fuß kupferfarben",
-"vendor": "Westwing",
-"qty": 1.0,
-"unit": 129.0,
-"url": "https://www.westwing.de/new-milky-table-lamp-small-brass-en-25wes67056.html",
-"dims": "Ø 30 × H 35",
-"delivery": "2–4 WT"
+"name": "Holländer CAPRI Tischleuchte",
+"variant": "Gold / Schwarz",
+"vendor": "lampe.de",
+"qty": 1,
+"unit": 324.99,
+"url": "https://www.lampe.de/hollaender-capri-tischleuchte-280-k-1202.html",
+"dims": "B 27 × T 27 × H 44",
+"delivery": null
 }
 ]
 },
@@ -2871,10 +2954,10 @@
 "opening": "W-S1"
 },
 {
-"id": "dfa119e739",
-"catalogId": "ike-dytag-kissenbezug-fjaedrar-innenkissen",
+"id": "c8f2048ea2",
+"catalogId": "wes-einfarbige-samt-kissenhuelle-dana-in-burgund-136666",
 "pos": "S19",
-"label": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"label": "Samt-Kissenhülle Dana",
 "x": 6.396,
 "y": 14.288,
 "rot": 82,
@@ -2882,11 +2965,11 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "graugrün / elfenbeinweiß",
+"variant": "Ocker",
 "slots": {
 "main": {
-"color": "#a7b59e",
-"material": "linen"
+"color": "#c18f3c",
+"material": "velvet"
 }
 },
 "params": {},
@@ -2895,22 +2978,22 @@
 "parts": [
 {
 "pos": "S19",
-"name": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
-"variant": "graugrün / elfenbeinweiß",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 16.99,
-"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
-"dims": "50 × 50",
-"delivery": "prüfen"
+"name": "Samt-Kissenhülle Dana",
+"variant": "Ocker",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 21.99,
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154159.html",
+"dims": "B 50 × T 16 × H 50",
+"delivery": null
 }
 ]
 },
 {
-"id": "91385e4f68",
-"catalogId": "ike-dytag-kissenbezug-fjaedrar-innenkissen",
+"id": "11516aed72",
+"catalogId": "wes-einfarbige-samt-kissenhuelle-dana-in-burgund-136666",
 "pos": "S19",
-"label": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"label": "Samt-Kissenhülle Dana",
 "x": 6.309,
 "y": 14.912,
 "rot": 108,
@@ -2918,11 +3001,11 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "graugrün / elfenbeinweiß",
+"variant": "Ocker",
 "slots": {
 "main": {
-"color": "#a7b59e",
-"material": "linen"
+"color": "#c18f3c",
+"material": "velvet"
 }
 },
 "params": {},
@@ -2931,14 +3014,14 @@
 "parts": [
 {
 "pos": "S19",
-"name": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
-"variant": "graugrün / elfenbeinweiß",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 16.99,
-"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
-"dims": "50 × 50",
-"delivery": "prüfen"
+"name": "Samt-Kissenhülle Dana",
+"variant": "Ocker",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 21.99,
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154159.html",
+"dims": "B 50 × T 16 × H 50",
+"delivery": null
 }
 ]
 },
@@ -3119,41 +3202,47 @@
 ]
 },
 {
-"id": "a5f18138c6",
-"catalogId": "wes-kleine-led-tischlampe-kian",
+"id": "a180fc4baf",
+"catalogId": "des-gubi-bestlite-bl1-tischleuchte",
 "pos": "A6",
-"label": "Kleine LED-Tischlampe Kian",
+"label": "Gubi Bestlite BL1 Tischleuchte",
 "x": 14.522,
 "y": 3.27,
 "rot": 0,
 "elev": 0.75,
-"w": 0.3,
-"d": 0.3,
-"h": 0.35,
-"variant": "Milchglas / Fuß kupferfarben",
+"w": 0.16,
+"d": 0.16,
+"h": 0.51,
+"variant": "Kohlschwarz / MESSING; über Nordic Nest",
 "slots": {
 "main": {
-"color": "#b8703e",
-"material": "copper"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
-"color": "#f6f4ee",
-"material": "opal"
+"color": "#1d1d1d",
+"material": "blackMetal"
+},
+"detail": {
+"color": "#c9a55c",
+"material": "brass"
 }
 },
-"params": {},
+"params": {
+"shape": "bestlite"
+},
 "mount": "floor",
 "room": "13.04",
 "parts": [
 {
 "pos": "A6",
-"name": "Kleine LED-Tischlampe Kian",
-"variant": "Milchglas / Fuß kupferfarben",
-"vendor": "Westwing",
+"name": "Gubi Bestlite BL1 Tischleuchte",
+"variant": "Kohlschwarz / MESSING; über Nordic Nest",
+"vendor": "Designhandel",
 "qty": 1,
-"unit": 129.0,
-"url": "https://www.westwing.de/new-milky-table-lamp-small-brass-en-25wes67056.html",
-"dims": "Ø 30 × H 35",
+"unit": 399.0,
+"url": "https://www.nordicnest.de/marken/gubi/bestlite-bl1-tischleuchte/?variantId=24038-04",
+"dims": "B 16 × T 16 × H 51",
 "delivery": "2–4 WT"
 }
 ]
@@ -3254,10 +3343,10 @@
 "opening": "W-A1"
 },
 {
-"id": "ef2e2431ec",
-"catalogId": "ike-dytag-kissenbezug-fjaedrar-innenkissen",
+"id": "e4d3b76ef2",
+"catalogId": "wes-einfarbige-samt-kissenhuelle-dana-in-burgund-136666",
 "pos": "A10",
-"label": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"label": "Samt-Kissenhülle Dana",
 "x": 12.742,
 "y": 2.545,
 "rot": 355,
@@ -3265,11 +3354,11 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "graugrün / elfenbeinweiß",
+"variant": "Ocker",
 "slots": {
 "main": {
-"color": "#a7b59e",
-"material": "linen"
+"color": "#c18f3c",
+"material": "velvet"
 }
 },
 "params": {},
@@ -3278,22 +3367,22 @@
 "parts": [
 {
 "pos": "A10",
-"name": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
-"variant": "graugrün / elfenbeinweiß",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 16.99,
-"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
-"dims": "50 × 50",
-"delivery": "prüfen"
+"name": "Samt-Kissenhülle Dana",
+"variant": "Ocker",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 21.99,
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154159.html",
+"dims": "B 50 × T 16 × H 50",
+"delivery": null
 }
 ]
 },
 {
-"id": "720a9639ec",
-"catalogId": "ike-dytag-kissenbezug-fjaedrar-innenkissen",
+"id": "b5bfaf26a5",
+"catalogId": "wes-einfarbige-samt-kissenhuelle-dana-in-burgund-136666",
 "pos": "A10",
-"label": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"label": "Samt-Kissenhülle Dana",
 "x": 13.512,
 "y": 2.545,
 "rot": 6,
@@ -3301,11 +3390,11 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "graugrün / elfenbeinweiß",
+"variant": "Ocker",
 "slots": {
 "main": {
-"color": "#a7b59e",
-"material": "linen"
+"color": "#c18f3c",
+"material": "velvet"
 }
 },
 "params": {},
@@ -3314,14 +3403,14 @@
 "parts": [
 {
 "pos": "A10",
-"name": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
-"variant": "graugrün / elfenbeinweiß",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 16.99,
-"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-graugruen-70554129/",
-"dims": "50 × 50",
-"delivery": "prüfen"
+"name": "Samt-Kissenhülle Dana",
+"variant": "Ocker",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 21.99,
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154159.html",
+"dims": "B 50 × T 16 × H 50",
+"delivery": null
 }
 ]
 },
@@ -4169,8 +4258,8 @@
 "13.03:2": {
 "base": {
 "kind": "paint",
-"color": "#c3cfb5",
-"productName": "Alpina Feine Farben No. 38 „Essenz der Natur“",
+"color": "#c2b8ab",
+"productName": "Farrow & Ball Elephant's Breath No. 229",
 "sheen": "edelmatt"
 }
 }

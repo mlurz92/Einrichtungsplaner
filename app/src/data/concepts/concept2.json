@@ -1,7 +1,7 @@
 {
 "version": 1,
-"name": "Konzept 2 · Espresso · Petrol · Chrom",
-"subtitle": "Design-Airbnb / Boutique-Hotel-Look mit Westwing und Designleuchten",
+"name": "Konzept 2 · Noir · Espresso · Gold",
+"subtitle": "Abgestimmt auf den Essplatz: Boutique-Hotel-Look in Espresso und Off White, Emperador-Keramik, Gold-Designleuchten",
 "conceptId": "concept2",
 "createdAt": "2026-10-23T00:00:00Z",
 "updatedAt": "2026-10-23T00:00:00Z",
@@ -54,45 +54,46 @@
 ]
 },
 {
-"id": "e15e3a679c",
-"catalogId": "wes-holz-couchtisch-burl-ferm-living",
+"id": "f20922ce22",
+"catalogId": "del-edge-parabi-42748",
 "pos": "W2",
-"label": "Holz-Couchtisch Burl (Ferm Living)",
-"x": 4.444,
-"y": 5.687,
+"label": "Couchtisch Edge Oval 140x80 cm Keramik Parabi",
+"x": 4.451,
+"y": 5.6375,
 "rot": 8,
 "elev": 0.0,
-"w": 1.17,
-"d": 0.7,
-"h": 0.3,
-"variant": "Wurzelholzfurnier dunkel gebeizt (FSC)",
+"w": 1.4,
+"d": 0.8,
+"h": 0.33,
+"variant": "Laminam® Noir Désir Braun, Gestell Schwarz",
 "slots": {
 "top": {
-"color": "#7e5638",
-"material": "burl"
+"color": "#45403c",
+"material": "marbleNoir"
+},
+"main": {
+"color": "#45403c",
+"material": "marbleNoir"
 },
 "legs": {
-"color": "#5a3b26",
-"material": "burl"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
-"params": {
-"base": "panel",
-"organic": true
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "W2",
-"name": "Holz-Couchtisch Burl (Ferm Living)",
-"variant": "Wurzelholzfurnier dunkel gebeizt (FSC)",
-"vendor": "Westwing",
+"name": "Couchtisch Edge Oval 140x80 cm Keramik Parabi",
+"variant": "Laminam® Noir Désir Braun, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 1249.0,
-"url": "https://www.westwing.de/burl-coffee-table-dark-stained-burl-en-26fev15211.html",
-"dims": "117 × 70 × 30",
-"delivery": "4–9 WT"
+"unit": 649.9,
+"url": "https://www.delife.de/couchtisch-edge-140x80cm-keramik/a-42749",
+"dims": "B 140 × T 80 × H 33",
+"delivery": null
 }
 ]
 },
@@ -176,10 +177,10 @@
 "w": 0.97,
 "d": 0.9,
 "h": 0.72,
-"variant": "Bouclé meliert PETROL",
+"variant": "Bouclé Off White",
 "slots": {
 "main": {
-"color": "#2f7074",
+"color": "#ede8dc",
 "material": "boucle"
 },
 "legs": {
@@ -196,10 +197,10 @@
 {
 "pos": "W4",
 "name": "Bouclé-Sessel Sofia",
-"variant": "Bouclé meliert PETROL",
+"variant": "Bouclé Off White",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 979.0,
+"unit": 999.0,
 "url": "https://www.westwing.de/boucle-sessel-sofia-173117.html",
 "dims": "B 97 × T 90 × H 72",
 "delivery": "6–7 Wo."
@@ -207,82 +208,94 @@
 ]
 },
 {
-"id": "09c3cf985d",
-"catalogId": "wes-runder-beistelltisch-argent-hkliving",
+"id": "c340854898",
+"catalogId": "del-edge-42623",
 "pos": "W5",
-"label": "Runder Beistelltisch Argent (HKliving)",
+"label": "Beistelltisch Edge Boot 50x50 cm Keramik Eleny",
 "x": 5.97,
 "y": 5.13,
 "rot": 0,
 "elev": 0.0,
-"w": 0.35,
-"d": 0.35,
-"h": 0.45,
-"variant": "chromfarben glänzend (Steingut, galvanisch verchromt)",
+"w": 0.5,
+"d": 0.5,
+"h": 0.42,
+"variant": "Emperador Dunkelbraun, Gestell Titanfarbig",
 "slots": {
+"top": {
+"color": "#5b4535",
+"material": "marble"
+},
 "main": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#5b4535",
+"material": "marble"
+},
+"legs": {
+"color": "#8a8378",
+"material": "steel"
 }
 },
-"params": {
-"style": "drum"
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "W5",
-"name": "Runder Beistelltisch Argent (HKliving)",
-"variant": "chromfarben glänzend (Steingut, galvanisch verchromt)",
-"vendor": "Westwing",
+"name": "Beistelltisch Edge Boot 50x50 cm Keramik Eleny",
+"variant": "Emperador Dunkelbraun, Gestell Titanfarbig",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 199.0,
-"url": "https://www.westwing.de/runder-beistelltisch-argent-in-chromfarben-146824.html",
-"dims": "Ø 35 × H 45",
-"delivery": "2–4 WT"
+"unit": 299.9,
+"url": "https://www.delife.de/beistelltisch-edge-50x50cm-keramik/a-42625",
+"dims": "B 50 × T 50 × H 42",
+"delivery": null
 }
 ]
 },
 {
-"id": "cef5dc7908",
-"catalogId": "des-gubi-multi-lite-stehleuchte",
+"id": "84495adcb8",
+"catalogId": "wes-bun-floor-lamp-brown-en-25wes95914",
 "pos": "W6",
-"label": "Gubi Multi-Lite Stehleuchte",
+"label": "Stehlampe Bun mit Marmorfuß",
 "x": 5.79,
 "y": 6.58,
 "rot": 0,
 "elev": 0.0,
-"w": 0.36,
-"d": 0.36,
-"h": 1.48,
-"variant": "Chrom / Chrom; über Nordic Nest",
+"w": 0.4,
+"d": 0.4,
+"h": 1.53,
+"variant": "Brauner Marmor, goldfarben",
 "slots": {
 "main": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#7a5a43",
+"material": "marble"
+},
+"frame": {
+"color": "#7a5a43",
+"material": "marble"
+},
+"legs": {
+"color": "#7a5a43",
+"material": "marble"
 },
 "shade": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
 }
 },
-"params": {
-"shape": "cone"
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "W6",
-"name": "Gubi Multi-Lite Stehleuchte",
-"variant": "Chrom / Chrom; über Nordic Nest",
-"vendor": "Designhandel",
+"name": "Stehlampe Bun mit Marmorfuß",
+"variant": "Brauner Marmor, goldfarben",
+"vendor": "Westwing",
 "qty": 1,
-"unit": 783.0,
-"url": "https://www.nordicnest.de/marken/gubi/multi-lite-stehleuchte/?variantId=37105-03",
-"dims": "H 148, Ø 36, Kabel 2 m",
-"delivery": "2–4 WT"
+"unit": 419.0,
+"url": "https://www.westwing.de/bun-floor-lamp-brown-en-25wes95914.html",
+"dims": "B 40 × T 40 × H 153",
+"delivery": null
 }
 ]
 },
@@ -327,10 +340,10 @@
 ]
 },
 {
-"id": "d245c5b4d6",
-"catalogId": "wes-handgetufteter-wollteppich-arne-hoch-tief-strukt",
+"id": "c0978fd26a",
+"catalogId": "wes-handgetufteter-wollteppich-pose-169117",
 "pos": "W8",
-"label": "Handgetufteter Wollteppich Arne, Hoch-Tief- Struktur",
+"label": "Handgetufteter Wollteppich Pose",
 "x": 4.868,
 "y": 6.191,
 "rot": 8,
@@ -338,38 +351,39 @@
 "w": 3.0,
 "d": 2.0,
 "h": 0.015,
-"variant": "Beige / Terrakotta, Größe L",
+"variant": "Brauntöne, Beige",
 "slots": {
 "main": {
-"color": "#d6c2a4",
+"color": "#7a5a43",
+"material": "wool"
+},
+"secondary": {
+"color": "#d6c7ae",
 "material": "wool"
 }
 },
-"params": {
-"pattern": "relief",
-"color2": "#a9583a"
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "W8",
-"name": "Handgetufteter Wollteppich Arne, Hoch-Tief- Struktur",
-"variant": "Beige / Terrakotta, Größe L",
+"name": "Handgetufteter Wollteppich Pose",
+"variant": "Brauntöne, Beige",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 499.0,
-"url": "https://www.westwing.de/handgetufteter-wollteppich-arne-in-terrakotta-beige-139460.html?simple=DEQ21WES23588-176426",
-"dims": "200 × 300",
-"delivery": "4–9 WT"
+"unit": 679.0,
+"url": "https://www.westwing.de/handgetufteter-wollteppich-pose-169117.html",
+"dims": "B 300 × T 200 × H 1.5",
+"delivery": null
 }
 ]
 },
 {
-"id": "d03634c257",
-"catalogId": "ike-dytag-kissenbezug",
+"id": "ce0d518df0",
+"catalogId": "wes-einfarbige-samt-kissenhuelle-dana-in-burgund-136666",
 "pos": "W9",
-"label": "DYTÅG Kissenbezug",
+"label": "Samt-Kissenhülle Dana",
 "x": 3.63,
 "y": 7.09,
 "rot": 182,
@@ -377,11 +391,11 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "rotbraun, 100 % Leinen",
+"variant": "Hellbeige",
 "slots": {
 "main": {
-"color": "#a8573a",
-"material": "linen"
+"color": "#e3d8c5",
+"material": "velvet"
 }
 },
 "params": {},
@@ -390,22 +404,22 @@
 "parts": [
 {
 "pos": "W9",
-"name": "DYTÅG Kissenbezug",
-"variant": "rotbraun, 100 % Leinen",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 9.99,
-"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-rotbraun-10517682/",
-"dims": "50 × 50",
-"delivery": "prüfen"
+"name": "Samt-Kissenhülle Dana",
+"variant": "Hellbeige",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 21.99,
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154151.html",
+"dims": "B 50 × T 16 × H 50",
+"delivery": null
 }
 ]
 },
 {
-"id": "24413a1db9",
-"catalogId": "ike-dytag-kissenbezug",
+"id": "fd21962a30",
+"catalogId": "wes-einfarbige-samt-kissenhuelle-dana-in-burgund-136666",
 "pos": "W9",
-"label": "DYTÅG Kissenbezug",
+"label": "Samt-Kissenhülle Dana",
 "x": 5.23,
 "y": 7.32,
 "rot": 195,
@@ -413,11 +427,11 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "rotbraun, 100 % Leinen",
+"variant": "Hellbeige",
 "slots": {
 "main": {
-"color": "#a8573a",
-"material": "linen"
+"color": "#e3d8c5",
+"material": "velvet"
 }
 },
 "params": {},
@@ -426,22 +440,22 @@
 "parts": [
 {
 "pos": "W9",
-"name": "DYTÅG Kissenbezug",
-"variant": "rotbraun, 100 % Leinen",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 9.99,
-"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-rotbraun-10517682/",
-"dims": "50 × 50",
-"delivery": "prüfen"
+"name": "Samt-Kissenhülle Dana",
+"variant": "Hellbeige",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 21.99,
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154151.html",
+"dims": "B 50 × T 16 × H 50",
+"delivery": null
 }
 ]
 },
 {
-"id": "3cb10619f2",
-"catalogId": "wes-kissenhuelle-giorgio-mit-stickerei",
+"id": "ecb85759de",
+"catalogId": "wes-einfarbige-samt-kissenhuelle-dana-in-burgund-136666",
 "pos": "W23",
-"label": "Kissenhülle Giorgio mit Stickerei",
+"label": "Samt-Kissenhülle Dana",
 "x": 4.07,
 "y": 7.15,
 "rot": 192,
@@ -449,10 +463,10 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "Bordeaux / Off White, Baumwollsamt",
+"variant": "Ocker",
 "slots": {
 "main": {
-"color": "#6e232f",
+"color": "#c18f3c",
 "material": "velvet"
 }
 },
@@ -462,22 +476,22 @@
 "parts": [
 {
 "pos": "W23",
-"name": "Kissenhülle Giorgio mit Stickerei",
-"variant": "Bordeaux / Off White, Baumwollsamt",
+"name": "Samt-Kissenhülle Dana",
+"variant": "Ocker",
 "vendor": "Westwing",
-"qty": 1.0,
-"unit": 59.99,
-"url": "https://www.westwing.de/giorgio-50x50cm-deco-cushion-cover-cotton-velvet-with-cord-embroidery-frame-all-around-concealed-zipper-whiteburgundy-en-25wes87300.html",
-"dims": "50 × 50",
-"delivery": "13–14 Wo."
+"qty": 1,
+"unit": 21.99,
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154159.html",
+"dims": "B 50 × T 16 × H 50",
+"delivery": null
 }
 ]
 },
 {
-"id": "0c680b7cbf",
-"catalogId": "wes-kissenhuelle-giorgio-mit-stickerei",
+"id": "8ea4e97211",
+"catalogId": "wes-einfarbige-samt-kissenhuelle-dana-in-burgund-136666",
 "pos": "W23",
-"label": "Kissenhülle Giorgio mit Stickerei",
+"label": "Samt-Kissenhülle Dana",
 "x": 4.82,
 "y": 7.26,
 "rot": 184,
@@ -485,10 +499,10 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "Bordeaux / Off White, Baumwollsamt",
+"variant": "Ocker",
 "slots": {
 "main": {
-"color": "#6e232f",
+"color": "#c18f3c",
 "material": "velvet"
 }
 },
@@ -498,14 +512,14 @@
 "parts": [
 {
 "pos": "W23",
-"name": "Kissenhülle Giorgio mit Stickerei",
-"variant": "Bordeaux / Off White, Baumwollsamt",
+"name": "Samt-Kissenhülle Dana",
+"variant": "Ocker",
 "vendor": "Westwing",
-"qty": 1.0,
-"unit": 59.99,
-"url": "https://www.westwing.de/giorgio-50x50cm-deco-cushion-cover-cotton-velvet-with-cord-embroidery-frame-all-around-concealed-zipper-whiteburgundy-en-25wes87300.html",
-"dims": "50 × 50",
-"delivery": "13–14 Wo."
+"qty": 1,
+"unit": 21.99,
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154159.html",
+"dims": "B 50 × T 16 × H 50",
+"delivery": null
 }
 ]
 },
@@ -740,26 +754,26 @@
 "opening": "W-O2"
 },
 {
-"id": "958395020b",
-"catalogId": "des-louis-poulsen-panthella-160-portable-v3",
+"id": "3da4fff0bb",
+"catalogId": "des-louis-poulsen-panthella-portable-160-v3",
 "pos": "W17",
-"label": "Louis Poulsen Panthella 160 Portable V3",
+"label": "Louis Poulsen Panthella Portable 160 V3",
 "x": 3.94,
 "y": 4.4,
 "rot": 0,
 "elev": 0.5,
 "w": 0.16,
 "d": 0.16,
-"h": 0.238,
-"variant": "Chromfuß / Schirm Opal Braun, Akku; über AmbienteDirect",
+"h": 0.24,
+"variant": "MESSING glänzend, Akku; über Lampenwelt",
 "slots": {
 "main": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
 },
 "shade": {
-"color": "#8a6a4f",
-"material": "gloss"
+"color": "#c9a55c",
+"material": "brass"
 }
 },
 "params": {
@@ -770,14 +784,14 @@
 "parts": [
 {
 "pos": "W17",
-"name": "Louis Poulsen Panthella 160 Portable V3",
-"variant": "Chromfuß / Schirm Opal Braun, Akku; über AmbienteDirect",
+"name": "Louis Poulsen Panthella Portable 160 V3",
+"variant": "MESSING glänzend, Akku; über Lampenwelt",
 "vendor": "Designhandel",
 "qty": 1,
-"unit": 229.0,
-"url": "https://www.ambientedirect.com/en/louis-poulsen/panthella-160-portable-v3-led-table-lamp-with-battery-chromed-base_pid_28659_1391432.html",
-"dims": "H 23,8, Ø 16",
-"delivery": "1–5 WT"
+"unit": 243.0,
+"url": "https://www.lampenwelt.de/p/louis-poulsen-panthella-portable-160-v3-messingfarben-10041803.html",
+"dims": "B 16 × T 16 × H 24",
+"delivery": "8–12 WT"
 }
 ]
 },
@@ -955,6 +969,50 @@
 "url": "https://www.westwing.de/wooden-display-cabinet-zamora-en-26hoe50460.html",
 "dims": "90 × 40 × 180",
 "delivery": "4–9 WT"
+}
+]
+},
+{
+"id": "d21b5d4be3",
+"catalogId": "del-torvia-46744",
+"pos": "D2",
+"label": "Vase Torvia B20 x T20 x H19 cm Aluminium Mokka Bronze Handgemacht",
+"x": 4.7283,
+"y": 5.6765,
+"rot": 0,
+"elev": 0.33,
+"w": 0.2,
+"d": 0.2,
+"h": 0.19,
+"variant": "Mokka/Bronze",
+"slots": {
+"top": {
+"color": "#694f38",
+"material": "lacquer"
+},
+"main": {
+"color": "#694f38",
+"material": "lacquer"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "D2",
+"name": "Vase Torvia B20 x T20 x H19 cm Aluminium Mokka Bronze Handgemacht",
+"variant": "Mokka/Bronze",
+"vendor": "DELIFE",
+"qty": 1,
+"unit": 69.9,
+"url": "https://www.delife.de/vase-torvia-aluminium-mokka-bronze-b20-x-t20-x-h19cm/a-46744",
+"dims": "B 20 × T 20 × H 19",
+"delivery": null
 }
 ]
 },
@@ -1341,19 +1399,19 @@
 "w": 1.05,
 "d": 0.07,
 "h": 0.15,
-"variant": "Silber",
+"variant": "Gold",
 "slots": {
 "main": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
 },
 "shade": {
 "color": "#f6f4ee",
 "material": "opal"
 },
 "frame": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
 }
 },
 "params": {
@@ -1367,123 +1425,115 @@
 {
 "pos": "E3",
 "name": "Holländer CASTELLO Hängeleuchte LED",
-"variant": "Silber",
+"variant": "Gold",
 "vendor": "lampe.de",
 "qty": 1,
 "unit": 1299.99,
-"url": "https://www.lampe.de/hollaender-castello-haengeleuchte-300-k-15190-s.html",
+"url": "https://www.lampe.de/hollaender-castello-haengeleuchte-300-k-15190.html",
 "dims": "B 105 × T 7 × H 15",
 "delivery": null
 }
 ]
 },
 {
-"id": "99f90a0858",
-"catalogId": "ike-80593762",
+"id": "cb587ed9f3",
+"catalogId": "ike-00640673",
 "pos": "E9",
-"label": "STOCKHOLM 2025 Teppich flach gewebt",
+"label": "STOENSE Teppich Kurzflor",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 8,
 "elev": 0.0,
 "w": 2.4,
-"d": 3.0,
+"d": 3.5,
 "h": 0.012,
-"variant": "Grau / weiß / schwarz handgewebt",
+"variant": "Beige",
 "slots": {
 "main": {
-"color": "#8f8f8b",
-"material": "wool"
-},
-"secondary": {
-"color": "#f3f1ec",
+"color": "#d6c7ae",
 "material": "wool"
 }
 },
-"params": {
-"pattern": "birch"
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E9",
-"name": "STOCKHOLM 2025 Teppich flach gewebt",
-"variant": "Grau / weiß / schwarz handgewebt",
+"name": "STOENSE Teppich Kurzflor",
+"variant": "Beige",
 "vendor": "IKEA",
 "qty": 1,
-"unit": 599.0,
-"url": "https://www.ikea.com/de/de/p/stockholm-2025-teppich-flach-gewebt-grau-weiss-schwarz-handgewebt-40590973/",
-"dims": "B 240 × T 300 × H 1.2",
+"unit": 169.0,
+"url": "https://www.ikea.com/de/de/p/stoense-teppich-kurzflor-beige-40640671/",
+"dims": "B 240 × T 350 × H 1.2",
 "delivery": null
 }
 ]
 },
 {
-"id": "8450195fb1",
-"catalogId": "wes-sideboard-calary-mit-geriffelter-front",
+"id": "0b5757fb7c",
+"catalogId": "del-kazu-fuss-schwebend-metall-38946",
 "pos": "E4",
-"label": "Sideboard Calary mit geriffelter Front",
-"x": 5.69,
-"y": 11.66,
+"label": "Sideboard Kazu 220 cm Metallic Gold 4 Türen schwebend Schwarz Keramik Laminam®Noir Desir Braun",
+"x": 5.8484,
+"y": 11.6823,
 "rot": 188,
 "elev": 0.0,
-"w": 1.6,
+"w": 2.2,
 "d": 0.45,
-"h": 0.75,
-"variant": "Eiche dunkel, Rillenfront",
+"h": 0.69,
+"variant": "Standard",
 "slots": {
+"top": {
+"color": "#45403c",
+"material": "marbleNoir"
+},
 "main": {
-"color": "#4d3626",
-"material": "oakDark"
+"color": "#b8955a",
+"material": "brass"
 },
 "legs": {
-"color": "#4d3626",
-"material": "oakDark"
-},
-"detail": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
 "params": {
-"doors": 4,
-"legHeight": 0.17,
-"front": "ribbed"
+"doors": 4
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E4",
-"name": "Sideboard Calary mit geriffelter Front",
-"variant": "Eiche dunkel, Rillenfront",
-"vendor": "Westwing",
+"name": "Sideboard Kazu 220 cm Metallic Gold 4 Türen schwebend Schwarz Keramik Laminam®Noir Desir Braun",
+"variant": "Standard",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 1099.0,
-"url": "https://www.westwing.de/holz-sideboard-calary-mit-geriffelter-front-147950.html",
-"dims": "160 × 45 × 75",
-"delivery": "4–9 WT"
+"unit": 1389.9,
+"url": "https://www.delife.de/sideboard-kazu-220cm-mitteldichte-faserplatte/a-38946",
+"dims": "B 220 × T 45 × H 69",
+"delivery": null
 }
 ]
 },
 {
-"id": "80f2973324",
-"catalogId": "des-flos-ic-c-w1-wand-deckenleuchte-michael-anastass",
+"id": "5d48fd0a0b",
+"catalogId": "des-flos-ic-c-w1-wand-deckenleuchte",
 "pos": "E5",
-"label": "Flos IC C/W1 Wand-/Deckenleuchte (Michael Anastassiades)",
+"label": "Flos IC C/W1 Wand-/Deckenleuchte",
 "x": 7.66,
 "y": 9.838,
 "rot": 98,
 "elev": 1.7,
 "w": 0.2,
-"d": 0.28,
+"d": 0.25,
 "h": 0.2,
-"variant": "Chrom glänzend / Opalglaskugel; über AmbienteDirect",
+"variant": "MESSING gebürstet / Opal matt; über Lampenwelt",
 "slots": {
 "main": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
 },
 "shade": {
 "color": "#f6f4ee",
@@ -1496,14 +1546,14 @@
 "parts": [
 {
 "pos": "E5",
-"name": "Flos IC C/W1 Wand-/Deckenleuchte (Michael Anastassiades)",
-"variant": "Chrom glänzend / Opalglaskugel; über AmbienteDirect",
+"name": "Flos IC C/W1 Wand-/Deckenleuchte",
+"variant": "MESSING gebürstet / Opal matt; über Lampenwelt",
 "vendor": "Designhandel",
 "qty": 1,
-"unit": 417.0,
-"url": "https://www.ambientedirect.com/en/flos/ic-c-w1-wall-ceiling-lamp_pid_28198_1139352.html",
-"dims": "Kugel Ø 20, Ausladung 28",
-"delivery": "3–4 Wo."
+"unit": 423.9,
+"url": "https://www.lampenwelt.de/p/flos-ic-c-w1-wandleuchte-messing-geburstet-3510301.html",
+"dims": "B 20 × T 25 × H 20",
+"delivery": "13–18 WT"
 }
 ]
 },
@@ -1515,15 +1565,15 @@
 "x": 5.22,
 "y": 11.6,
 "rot": 0,
-"elev": 0.75,
+"elev": 0.69,
 "w": 0.32,
 "d": 0.32,
 "h": 0.442,
-"variant": "Chrom glänzend / Opalglaskugel; über AmbienteDirect",
+"variant": "MESSING gebürstet / Opalglas; über AmbienteDirect",
 "slots": {
 "main": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
 },
 "shade": {
 "color": "#f6f4ee",
@@ -1540,7 +1590,7 @@
 {
 "pos": "E6",
 "name": "Flos IC T1 High Tischleuchte",
-"variant": "Chrom glänzend / Opalglaskugel; über AmbienteDirect",
+"variant": "MESSING gebürstet / Opalglas; über AmbienteDirect",
 "vendor": "Designhandel",
 "qty": 1,
 "unit": 463.0,
@@ -1555,8 +1605,8 @@
 "catalogId": "wes-handgemaltes-leinwandbild-rust-agave",
 "pos": "E7",
 "label": "Handgemaltes Leinwandbild Rust (Agave)",
-"x": 5.657,
-"y": 11.885,
+"x": 5.8154,
+"y": 11.9073,
 "rot": 188,
 "elev": 0.95,
 "w": 0.9,
@@ -1593,6 +1643,50 @@
 "url": "https://www.westwing.de/handgemaltes-leinwandbild-rust-168240.html",
 "dims": "B 90 × H 120",
 "delivery": "3–4 Wo."
+}
+]
+},
+{
+"id": "d1871c4bab",
+"catalogId": "del-ramina-46714",
+"pos": "D1",
+"label": "Schale Ramina B29 x T21 x H19 cm Aluminium Aurum Satin Gegossen",
+"x": 5.7989,
+"y": 11.6753,
+"rot": 0,
+"elev": 0.69,
+"w": 0.29,
+"d": 0.21,
+"h": 0.19,
+"variant": "Gold/Messing",
+"slots": {
+"top": {
+"color": "#c7a45d",
+"material": "brass"
+},
+"main": {
+"color": "#c7a45d",
+"material": "brass"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
+}
+},
+"params": {},
+"mount": "floor",
+"room": "13.01",
+"parts": [
+{
+"pos": "D1",
+"name": "Schale Ramina B29 x T21 x H19 cm Aluminium Aurum Satin Gegossen",
+"variant": "Gold/Messing",
+"vendor": "DELIFE",
+"qty": 1,
+"unit": 79.9,
+"url": "https://www.delife.de/schale-ramina-aluminium-aurum-satin-b29-x-t21-x-h19cm/a-46714",
+"dims": "B 29 × T 21 × H 19",
+"delivery": null
 }
 ]
 },
@@ -1709,124 +1803,124 @@
 ]
 },
 {
-"id": "556023e215",
-"catalogId": "wes-konsole-noam-mit-marmor-platte",
+"id": "1bb99427b4",
+"catalogId": "del-edge-estelo-45513",
 "pos": "F7",
-"label": "Konsole Noam mit Marmor-Platte",
+"label": "Konsolentisch Edge Boot 140x40 cm Keramik Estelo",
 "x": 7.38,
 "y": 2.52,
 "rot": 0,
 "elev": 0.0,
-"w": 1.2,
+"w": 1.4,
 "d": 0.4,
-"h": 0.8,
-"variant": "DUNKELGRÜN marmoriert / Beine Metall gebürstet",
+"h": 0.79,
+"variant": "Emperador Dunkelbraun, Gestell Schwarz",
 "slots": {
 "top": {
-"color": "#3f5d4e",
-"material": "marbleGreen"
+"color": "#5b4535",
+"material": "marble"
 },
 "main": {
-"color": "#b9b4aa",
-"material": "steel"
+"color": "#5b4535",
+"material": "marble"
+},
+"legs": {
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
-"params": {
-"style": "noam"
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "F7",
-"name": "Konsole Noam mit Marmor-Platte",
-"variant": "DUNKELGRÜN marmoriert / Beine Metall gebürstet",
-"vendor": "Westwing",
+"name": "Konsolentisch Edge Boot 140x40 cm Keramik Estelo",
+"variant": "Emperador Dunkelbraun, Gestell Schwarz",
+"vendor": "DELIFE",
 "qty": 1,
-"unit": 679.0,
-"url": "https://www.westwing.de/konsole-noam-mit-marmor-tischplatte-163553.html",
-"dims": "120 × 40 × 80",
-"delivery": "4–9 WT"
+"unit": 549.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45623",
+"dims": "B 140 × T 40 × H 79",
+"delivery": null
 }
 ]
 },
 {
-"id": "3b16c9acf6",
-"catalogId": "wes-kleiner-runder-wandspiegel-polaris",
+"id": "a1859936fb",
+"catalogId": "wes-bogen-wandspiegel-laviena",
 "pos": "F8",
-"label": "Kleiner runder Wandspiegel Polaris",
+"label": "Bogen-Wandspiegel Laviena",
 "x": 7.38,
 "y": 2.34,
 "rot": 0,
-"elev": 1.165,
-"w": 0.63,
+"elev": 1.045,
+"w": 0.6,
 "d": 0.03,
-"h": 0.67,
-"variant": "silberfarben, polierte Edelstahl-Elemente",
+"h": 1.01,
+"variant": "Metallrahmen MESSINGFARBEN",
 "slots": {
 "frame": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
 }
 },
-"params": {
-"rays": true
-},
+"params": {},
 "mount": "wall",
 "room": "13.01",
 "parts": [
 {
 "pos": "F8",
-"name": "Kleiner runder Wandspiegel Polaris",
-"variant": "silberfarben, polierte Edelstahl-Elemente",
+"name": "Bogen-Wandspiegel Laviena",
+"variant": "Metallrahmen MESSINGFARBEN",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 199.0,
-"url": "https://www.westwing.de/xx-de-25wes58594.html",
-"dims": "B 63 × H 67, Spiegel Ø 60",
+"url": "https://www.westwing.de/bogen-wandspiegel-laviena-mit-messingfarbenem-metallrahmen-139347.html",
+"dims": "B 60 × T 3 × H 101",
 "delivery": "2–7 WT"
 }
 ]
 },
 {
-"id": "f5badaed6f",
-"catalogId": "des-tradition-flowerpot-vp9-portable",
+"id": "77247e2efa",
+"catalogId": "des-gubi-multi-lite-portable",
 "pos": "F9",
-"label": "&Tradition Flowerpot VP9 Portable",
+"label": "Gubi Multi-Lite Portable",
 "x": 7.006,
 "y": 2.526,
 "rot": 0,
-"elev": 0.8,
-"w": 0.16,
-"d": 0.16,
-"h": 0.295,
-"variant": "chrome-plated, Akku; über AmbienteDirect",
+"elev": 0.79,
+"w": 0.15,
+"d": 0.15,
+"h": 0.3,
+"variant": "MESSING, Akku (≈ 6,5 h); über Nordic Nest",
 "slots": {
 "main": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
 },
 "shade": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
 }
 },
 "params": {
-"shape": "flowerpot"
+"shape": "cone"
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "F9",
-"name": "&Tradition Flowerpot VP9 Portable",
-"variant": "chrome-plated, Akku; über AmbienteDirect",
+"name": "Gubi Multi-Lite Portable",
+"variant": "MESSING, Akku (≈ 6,5 h); über Nordic Nest",
 "vendor": "Designhandel",
 "qty": 1,
-"unit": 283.0,
-"url": "https://www.ambientedirect.com/en/tradition/flowerpot-vp9-led-battery-table-lamp_pid_1370446.html",
-"dims": "H 29,5, Ø 16",
-"delivery": "1–5 WT"
+"unit": 228.0,
+"url": "https://www.nordicnest.de/marken/gubi/multilite-portabel-leuchte/?variantId=586069-01",
+"dims": "B 15 × T 15 × H 30",
+"delivery": "2–4 WT"
 }
 ]
 },
@@ -2075,14 +2169,14 @@
 "w": 1.96,
 "d": 2.22,
 "h": 1.1,
-"variant": "CORD OLIVGRÜN, Liegefläche 180 × 200",
+"variant": "Cord OFF WHITE, Liegefläche 180 × 200",
 "slots": {
 "main": {
-"color": "#6e7450",
+"color": "#efe8dd",
 "material": "cord"
 },
 "secondary": {
-"color": "#c89c6b",
+"color": "#d8c7ae",
 "material": "linen"
 },
 "accent": {
@@ -2108,7 +2202,7 @@
 {
 "pos": "S1",
 "name": "Cord-Polsterbett Dream mit Stauraum",
-"variant": "CORD OLIVGRÜN, Liegefläche 180 × 200",
+"variant": "Cord OFF WHITE, Liegefläche 180 × 200",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 1299.0,
@@ -2259,86 +2353,90 @@
 ]
 },
 {
-"id": "8dcfd043dd",
-"catalogId": "des-tradition-flowerpot-vp3-tischleuchte",
+"id": "19593046b6",
+"catalogId": "lam-hollaender-clarice-tischleuchte-424-1208",
 "pos": "S5",
-"label": "&Tradition Flowerpot VP3 Tischleuchte",
+"label": "Holländer CLARICE Tischleuchte",
 "x": 7.0,
 "y": 13.41,
 "rot": 0,
 "elev": 0.58,
-"w": 0.23,
-"d": 0.23,
-"h": 0.5,
-"variant": "chrome-plated; über AmbienteDirect",
+"w": 0.2,
+"d": 0.2,
+"h": 0.49,
+"variant": "Schwarz / Gold",
 "slots": {
 "main": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
-"params": {
-"shape": "flowerpot"
-},
+"params": {},
 "mount": "floor",
 "room": "13.03",
 "parts": [
 {
 "pos": "S5",
-"name": "&Tradition Flowerpot VP3 Tischleuchte",
-"variant": "chrome-plated; über AmbienteDirect",
-"vendor": "Designhandel",
-"qty": 1.0,
-"unit": 340.0,
-"url": "https://www.ambientedirect.com/en/tradition/flowerpot-vp3-table-lamp_pid_264_1257823.html",
-"dims": "H 50, Ø 23",
-"delivery": "1–5 WT"
+"name": "Holländer CLARICE Tischleuchte",
+"variant": "Schwarz / Gold",
+"vendor": "lampe.de",
+"qty": 1,
+"unit": 179.99,
+"url": "https://www.lampe.de/hollaender-clarice-tischleuchte-424-1208.html",
+"dims": "B 20 × T 20 × H 49",
+"delivery": null
 }
 ]
 },
 {
-"id": "38735ff65f",
-"catalogId": "des-tradition-flowerpot-vp3-tischleuchte",
+"id": "4dfc16f67d",
+"catalogId": "lam-hollaender-clarice-tischleuchte-424-1208",
 "pos": "S5",
-"label": "&Tradition Flowerpot VP3 Tischleuchte",
+"label": "Holländer CLARICE Tischleuchte",
 "x": 6.65,
 "y": 15.9,
 "rot": 0,
 "elev": 0.58,
-"w": 0.23,
-"d": 0.23,
-"h": 0.5,
-"variant": "chrome-plated; über AmbienteDirect",
+"w": 0.2,
+"d": 0.2,
+"h": 0.49,
+"variant": "Schwarz / Gold",
 "slots": {
 "main": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#c9a55c",
+"material": "brass"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
-"params": {
-"shape": "flowerpot"
-},
+"params": {},
 "mount": "floor",
 "room": "13.03",
 "parts": [
 {
 "pos": "S5",
-"name": "&Tradition Flowerpot VP3 Tischleuchte",
-"variant": "chrome-plated; über AmbienteDirect",
-"vendor": "Designhandel",
-"qty": 1.0,
-"unit": 340.0,
-"url": "https://www.ambientedirect.com/en/tradition/flowerpot-vp3-table-lamp_pid_264_1257823.html",
-"dims": "H 50, Ø 23",
-"delivery": "1–5 WT"
+"name": "Holländer CLARICE Tischleuchte",
+"variant": "Schwarz / Gold",
+"vendor": "lampe.de",
+"qty": 1,
+"unit": 179.99,
+"url": "https://www.lampe.de/hollaender-clarice-tischleuchte-424-1208.html",
+"dims": "B 20 × T 20 × H 49",
+"delivery": null
 }
 ]
 },
@@ -2717,11 +2815,11 @@
 "w": 1.8,
 "d": 1.0,
 "h": 0.7,
-"variant": "Bouclé meliert ROSTROT",
+"variant": "Strukturierter samtiger Webstoff Braun",
 "slots": {
 "main": {
-"color": "#a5563b",
-"material": "boucle"
+"color": "#876855",
+"material": "velvet"
 },
 "legs": {
 "color": "#1d1d1d",
@@ -2739,7 +2837,7 @@
 {
 "pos": "A1",
 "name": "Bouclé-Schlafsofa Eliot (2-Sitzer)",
-"variant": "Bouclé meliert ROSTROT",
+"variant": "Strukturierter samtiger Webstoff Braun",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 1049.0,
@@ -2882,44 +2980,48 @@
 ]
 },
 {
-"id": "351e609da5",
-"catalogId": "des-tradition-flowerpot-vp9-portable",
+"id": "4cc1378ce4",
+"catalogId": "des-gubi-bestlite-bl1-tischleuchte",
 "pos": "A6",
-"label": "&Tradition Flowerpot VP9 Portable",
+"label": "Gubi Bestlite BL1 Tischleuchte",
 "x": 14.522,
 "y": 3.27,
 "rot": 0,
 "elev": 0.75,
 "w": 0.16,
 "d": 0.16,
-"h": 0.295,
-"variant": "chrome-plated, Akku; über AmbienteDirect",
+"h": 0.51,
+"variant": "Kohlschwarz / MESSING; über Nordic Nest",
 "slots": {
 "main": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
-"color": "#c6cbd0",
-"material": "chrome"
+"color": "#1d1d1d",
+"material": "blackMetal"
+},
+"detail": {
+"color": "#c9a55c",
+"material": "brass"
 }
 },
 "params": {
-"shape": "flowerpot"
+"shape": "bestlite"
 },
 "mount": "floor",
 "room": "13.04",
 "parts": [
 {
 "pos": "A6",
-"name": "&Tradition Flowerpot VP9 Portable",
-"variant": "chrome-plated, Akku; über AmbienteDirect",
+"name": "Gubi Bestlite BL1 Tischleuchte",
+"variant": "Kohlschwarz / MESSING; über Nordic Nest",
 "vendor": "Designhandel",
 "qty": 1,
-"unit": 283.0,
-"url": "https://www.ambientedirect.com/en/tradition/flowerpot-vp9-led-battery-table-lamp_pid_1370446.html",
-"dims": "H 29,5, Ø 16",
-"delivery": "1–5 WT"
+"unit": 399.0,
+"url": "https://www.nordicnest.de/marken/gubi/bestlite-bl1-tischleuchte/?variantId=24038-04",
+"dims": "B 16 × T 16 × H 51",
+"delivery": "2–4 WT"
 }
 ]
 },
@@ -3019,10 +3121,10 @@
 "opening": "W-A1"
 },
 {
-"id": "a1b410eb16",
-"catalogId": "ike-dytag-kissenbezug-fjaedrar-innenkissen",
+"id": "7a18f0f5f2",
+"catalogId": "wes-einfarbige-samt-kissenhuelle-dana-in-burgund-136666",
 "pos": "A10",
-"label": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"label": "Samt-Kissenhülle Dana",
 "x": 12.742,
 "y": 2.545,
 "rot": 355,
@@ -3030,11 +3132,11 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "rotbraun Leinen / elfenbeinweiß",
+"variant": "Hellbeige",
 "slots": {
 "main": {
-"color": "#a8573a",
-"material": "linen"
+"color": "#e3d8c5",
+"material": "velvet"
 }
 },
 "params": {},
@@ -3043,22 +3145,22 @@
 "parts": [
 {
 "pos": "A10",
-"name": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
-"variant": "rotbraun Leinen / elfenbeinweiß",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 16.99,
-"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-rotbraun-10517682/",
-"dims": "50 × 50",
-"delivery": "prüfen"
+"name": "Samt-Kissenhülle Dana",
+"variant": "Hellbeige",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 21.99,
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154151.html",
+"dims": "B 50 × T 16 × H 50",
+"delivery": null
 }
 ]
 },
 {
-"id": "a7149ce99a",
-"catalogId": "ike-dytag-kissenbezug-fjaedrar-innenkissen",
+"id": "2fd88ae654",
+"catalogId": "wes-einfarbige-samt-kissenhuelle-dana-in-burgund-136666",
 "pos": "A10",
-"label": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
+"label": "Samt-Kissenhülle Dana",
 "x": 13.512,
 "y": 2.545,
 "rot": 6,
@@ -3066,11 +3168,11 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "rotbraun Leinen / elfenbeinweiß",
+"variant": "Hellbeige",
 "slots": {
 "main": {
-"color": "#a8573a",
-"material": "linen"
+"color": "#e3d8c5",
+"material": "velvet"
 }
 },
 "params": {},
@@ -3079,14 +3181,14 @@
 "parts": [
 {
 "pos": "A10",
-"name": "DYTÅG Kissenbezug + FJÄDRAR Innenkissen",
-"variant": "rotbraun Leinen / elfenbeinweiß",
-"vendor": "IKEA",
-"qty": 1.0,
-"unit": 16.99,
-"url": "https://www.ikea.com/de/de/p/dytag-kissenbezug-rotbraun-10517682/",
-"dims": "50 × 50",
-"delivery": "prüfen"
+"name": "Samt-Kissenhülle Dana",
+"variant": "Hellbeige",
+"vendor": "Westwing",
+"qty": 1,
+"unit": 21.99,
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154151.html",
+"dims": "B 50 × T 16 × H 50",
+"delivery": null
 }
 ]
 },
