@@ -13,6 +13,8 @@ import { Effect, EffectAttribute } from "postprocessing";
 const SKY_ZENITH = new THREE.Color("#c4cfdb");
 const SKY_HORIZON = new THREE.Color("#eceef0");
 const GROUND = new THREE.Color("#8a8780");
+/** Mittlere Himmelsfarbe (Farbart des Himmelslichts durch die Fenster). */
+export const SKY_WHITE = SKY_HORIZON.clone().lerp(SKY_ZENITH, 0.5);
 
 /** Himmel als kleines HDR-Panorama: Zenit blau, Horizont hell, Boden gedämpft. */
 export function skyTexture(): THREE.DataTexture {
@@ -72,9 +74,9 @@ const meterMat = new THREE.ShaderMaterial({
       float v = clamp((s / w - ${LOG_MIN.toFixed(1)}) / ${(LOG_MAX - LOG_MIN).toFixed(1)}, 0.0, 1.0);
       // 16 Bit auf zwei Kanäle verteilt
       float u = clamp((log2(max(1e-5, m / w)) - ${LOG_MIN.toFixed(1)}) / ${(LOG_MAX - LOG_MIN).toFixed(1)}, 0.0, 1.0);
-      // Pixel 2: Farbstich (Rot- und Blauanteil relativ zur Leuchtdichte, 0–2) für den Weißabgleich
+      // Pixel 2: Farbstich (Rot- und Blauanteil relativ zur Leuchtdichte, 0–4: warmes Abendlicht liegt bei Rot ≈ 2) für den Weißabgleich
       vec3 cm = mc / max(1e-5, m);
-      vec2 q = clamp(vec2(cm.r, cm.b) / max(1e-5, dot(cm, vec3(0.2126, 0.7152, 0.0722))) * 0.5, 0.0, 1.0);
+      vec2 q = clamp(vec2(cm.r, cm.b) / max(1e-5, dot(cm, vec3(0.2126, 0.7152, 0.0722))) * 0.25, 0.0, 1.0);
       gl_FragColor = gl_FragCoord.x < 1.0
         ? vec4(floor(v * 255.0) / 255.0, fract(v * 255.0), floor(u * 255.0) / 255.0, fract(u * 255.0))
         : vec4(floor(q.x * 255.0) / 255.0, fract(q.x * 255.0), floor(q.y * 255.0) / 255.0, fract(q.y * 255.0));
@@ -94,8 +96,8 @@ export class EnvironmentProbe {
   private sky = skyTexture();
   private meterRT = new THREE.WebGLRenderTarget(2, 1);
   private px = new Uint8Array(8);
-  /** Weißabgleich: Verstärkung je Kanal (Leuchtdichte neutral). */
-  whiteBalance = new THREE.Color(1, 1, 1);
+  /** Mittlere Farbe des Raumlichts (Grauwelt, linear, Leuchtdichte 1) für den Weißabgleich. */
+  cast = new THREE.Color(1, 1, 1);
   /** Mittlere Leuchtdichte (geometrisches Mittel) der letzten Aufnahme. */
   luminance = 0.18;
   geoMean = 0.18;
@@ -196,14 +198,12 @@ export class EnvironmentProbe {
     // Mittelweg aus geometrischem Mittel (unempfindlich gegen helle Leuchten) und arithmetischem
     // Mittel (unempfindlich gegen dunkle Fensterflächen bei Nacht)
     this.luminance = Math.sqrt(this.geoMean * this.mean);
-    // Teilweiser Weißabgleich wie Auge bzw. Kamera: Farbstich des Raumlichts (z. B. warmes
-    // Licht vom dunklen Eichenboden) zu 50 % ausgleichen, auf Leuchtdichte 1 normiert
-    const r = ((this.px[4] + this.px[5] / 255) / 255) * 2, b = ((this.px[6] + this.px[7] / 255) / 255) * 2;
+    // Farbstich des Raumlichts (z. B. warmes Licht vom dunklen Eichenboden); der Weißabgleich
+    // selbst entsteht in Scene3D aus Lichtfarbe und diesem Wert (colorScience.ts)
+    const r = ((this.px[4] + this.px[5] / 255) / 255) * 4, b = ((this.px[6] + this.px[7] / 255) / 255) * 4;
     const g = (1 - 0.2126 * r - 0.0722 * b) / 0.7152;
-    const wb = new THREE.Color(Math.pow(1 / Math.max(r, 0.2), 0.5), Math.pow(1 / Math.max(g, 0.2), 0.5), Math.pow(1 / Math.max(b, 0.2), 0.5));
-    const wl = 0.2126 * wb.r + 0.7152 * wb.g + 0.0722 * wb.b;
-    this.whiteBalance.setRGB(wb.r / wl, wb.g / wl, wb.b / wl);
-    (globalThis as Record<string, unknown>).__we13probe = { n: ++this.captures, pos: this.cam.position.toArray().map((v) => +v.toFixed(2)), geo: this.geoMean, mean: this.mean, wb: this.whiteBalance.toArray().map((v) => +v.toFixed(3)) };
+    this.cast.setRGB(Math.max(r, 0.05), Math.max(g, 0.05), Math.max(b, 0.05));
+    (globalThis as Record<string, unknown>).__we13probe = { n: ++this.captures, pos: this.cam.position.toArray().map((v) => +v.toFixed(2)), geo: this.geoMean, mean: this.mean, cast: this.cast.toArray().map((v) => +v.toFixed(3)) };
   }
 
   dispose() {

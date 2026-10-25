@@ -99,10 +99,15 @@ const cache = new Map<string, THREE.Material>();
 export const emissiveMaterials = new Set<THREE.MeshPhysicalMaterial>();
 let nightGlow = 0;
 
-export function setNightGlow(v: number) {
+const glowColor = new THREE.Color("#fff1d6");
+
+/** Leuchtende Lampengläser: Stärke und Lichtfarbe (linear, wie die Lichtquellen der Leuchten). */
+export function setNightGlow(v: number, color?: THREE.Color) {
   nightGlow = v;
+  if (color) glowColor.copy(color);
   for (const m of emissiveMaterials) {
     m.emissiveIntensity = v;
+    m.emissive.copy(glowColor);
   }
 }
 
@@ -186,7 +191,7 @@ export function getMaterial(style: SlotStyle | undefined, fallback: SlotStyle = 
     p.opacity = 1;
   }
   if (s.material === "opal") {
-    p.emissive = new THREE.Color("#fff1d6");
+    p.emissive = glowColor.clone();
     p.emissiveIntensity = nightGlow;
     p.transmission = 0.15;
     p.thickness = 0.02;

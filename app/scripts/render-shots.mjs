@@ -14,7 +14,9 @@ const URL = `http://localhost:${PORT}/?view=3d&q=hoch&concept=${CONCEPT}`;
 // Optional: SHOTS=kueche,essen (Auswahl), WIDTH=800 (schnellere Probeläufe), NIGHT=0|1 (nur Tag/Abend)
 const ONLY = process.env.SHOTS?.split(",");
 const WIDTH = Number(process.env.WIDTH ?? 1280);
-const NIGHTS = process.env.NIGHT === "0" ? [false] : process.env.NIGHT === "1" ? [true] : [false, true];
+// MODES=tag,abend,kunst: Tageslicht, Abendlicht, Kunstlicht bei Tag (Leuchten an am späten Nachmittag)
+const ALL_MODES = { tag: { night: false }, abend: { night: true }, kunst: { night: false, lamps: true, time: 17.75 } };
+const MODES = (process.env.MODES?.split(",") ?? (process.env.NIGHT === "0" ? ["tag"] : process.env.NIGHT === "1" ? ["abend"] : ["tag", "abend"])).map((id) => ({ id, ...ALL_MODES[id] }));
 
 // Blickwinkel: Position und Ziel in Metern (x, Höhe, y des Grundrisses)
 const VIEWS = [
@@ -56,17 +58,19 @@ try {
     globalThis.__we13view.getState().set("panelOpen", false);
   });
   await page.waitForTimeout(4000);
-  for (const night of NIGHTS) {
+  for (const mode of MODES) {
     for (const v of VIEWS.filter((x) => !ONLY || ONLY.includes(x.id))) {
       await page.evaluate(
-        ({ v, night }) => {
+        ({ v, mode }) => {
           const st = globalThis.__we13store.getState();
-          st.set("night", night);
+          st.set("night", mode.night);
+          globalThis.__we13view.getState().lampsDay !== undefined && globalThis.__we13view.getState().set("lampsDay", !!mode.lamps);
           const s = st.project.settings;
-          if (s.timeOfDay !== (night ? 21 : v.time)) st.setSettings({ timeOfDay: night ? 21 : v.time });
+          const time = mode.night ? 21 : mode.time ?? v.time;
+          if (s.timeOfDay !== time) st.setSettings({ timeOfDay: time });
           globalThis.__we13view.getState().set("goto", { pos: v.pos, target: v.target, fov: v.fov, t: performance.now() });
         },
-        { v, night },
+        { v, mode },
       );
       // Warten, bis Umgebungssonde und Belichtung zur Ansicht passen (Software-Rendering ist langsam)
       let prev = "";
@@ -80,7 +84,7 @@ try {
       }
       const data = await page.evaluate((w) => globalThis.__we13view.getState().api.capture(w), WIDTH);
       if (!data) throw new Error(`Aufnahme ${v.id} fehlgeschlagen`);
-      const name = `${v.id}_${night ? "abend" : "tag"}.png`;
+      const name = `${v.id}_${mode.id}.png`;
       writeFileSync(join(OUT, name), Buffer.from(data.split(",")[1], "base64"));
       // Helligkeitsstatistik im Browser (Luma, Anteil > 250 = ausgebrannt)
       const m = await page.evaluate(async (src) => {

@@ -9,6 +9,8 @@ export interface View3DState {
   animTime: number | null;
   /** Decke und volle Wandhöhe werfen immer Schatten → Sonne fällt nur durch Fenster. */
   realDaylight: boolean;
+  /** Leuchten auch bei Tageslicht eingeschaltet (Kunstlicht am trüben Nachmittag, Dämmerung). */
+  lampsDay: boolean;
   /** Augenhöhe im Rundgang (m). */
   eyeHeight: number;
   /** Vertikaler Bildwinkel je Kameraart (Grad). */
@@ -32,6 +34,7 @@ export const useView3D = create<View3DState>((set) => ({
   sunPlaying: false,
   animTime: null,
   realDaylight: true,
+  lampsDay: false,
   eyeHeight: 1.62,
   fovOrbit: 42,
   fovWalk: 70,
@@ -46,9 +49,6 @@ export const useView3D = create<View3DState>((set) => ({
 /** Brennweite (Kleinbild, mm) ↔ vertikaler Bildwinkel (Grad). */
 export const fovToMm = (fov: number) => 12 / Math.tan((fov * Math.PI) / 360);
 export const mmToFov = (mm: number) => (2 * Math.atan(12 / mm) * 180) / Math.PI;
-
-// Zugriff für automatisierte Tests/Diagnose
-(globalThis as unknown as Record<string, unknown>).__we13view = useView3D;
 
 // Zugriff für automatisierte Tests/Diagnose
 (globalThis as unknown as Record<string, unknown>).__we13view = useView3D;

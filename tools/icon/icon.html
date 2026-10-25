@@ -1,6 +1,7 @@
 <!doctype html>
 <!--
-  App-Icon 2.0 (Fluent-Stil): Haus in Petrol hinter einer Milchglasplatte mit Grundriss.
+  App-Icon 2.1 (Fluent-Stil): Haus in Petrol hinter einer Milchglasplatte mit Grundriss; Essplatz mit dunklem
+  Steintisch und Taupe-Stühlen unter warmem Pendellicht, Sonnenlicht fällt schräg auf die Platte (Licht und Material).
   Rendern: node tools/icon/render_icon.cjs (Chromium, echte Hintergrundunschärfe) → tools/icon/icon_1024.png
 -->
 <html>
@@ -52,19 +53,45 @@
   </svg>
   <div class="glass"></div>
   <svg viewBox="0 0 1024 1024" width="1024" height="1024">
-    <!-- Grundriss auf der Glasplatte -->
+    <defs>
+      <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+        <stop offset="0" stop-color="#ffd38a" stop-opacity="1" />
+        <stop offset="0.45" stop-color="#ffc06a" stop-opacity="0.45" />
+        <stop offset="1" stop-color="#ffb55a" stop-opacity="0" />
+      </radialGradient>
+      <linearGradient id="beam" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#fff4d6" stop-opacity="0.85" />
+        <stop offset="1" stop-color="#ffe6b0" stop-opacity="0" />
+      </linearGradient>
+      <linearGradient id="stone" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#3a2d25" />
+        <stop offset="1" stop-color="#1c1512" />
+      </linearGradient>
+      <clipPath id="plate"><rect x="300" y="372" width="640" height="560" rx="124" /></clipPath>
+    </defs>
+    <!-- Sonnenlicht fällt schräg auf die Platte -->
+    <path clip-path="url(#plate)" d="M 300 372 L 470 372 L 760 940 L 300 940 Z" fill="url(#beam)" opacity="0.55" />
+    <!-- warmes Pendellicht über dem Esstisch -->
+    <circle cx="715" cy="652" r="165" fill="url(#glow)" />
+    <!-- Grundriss -->
     <g fill="none" stroke="#1d5149" stroke-width="28" stroke-linecap="round" stroke-linejoin="round">
       <path d="M 410 470 L 830 470 L 830 838 L 410 838 Z" />
-      <path d="M 620 470 L 620 600" />
-      <path d="M 620 700 L 620 838" />
-      <path d="M 410 650 L 520 650" />
+      <path d="M 600 470 L 600 612" />
+      <path d="M 600 712 L 600 838" />
+      <path d="M 410 650 L 488 650" />
     </g>
     <!-- Tür (Kupfer) -->
-    <path d="M 620 600 A 100 100 0 0 1 720 700" fill="none" stroke="url(#copper)" stroke-width="12" stroke-linecap="round" stroke-dasharray="2 20" />
-    <path d="M 620 700 L 720 700" stroke="url(#copper)" stroke-width="16" stroke-linecap="round" />
-    <!-- Möbel: Tisch (Kupfer) und Sofa -->
-    <circle cx="725" cy="565" r="40" fill="url(#copper)" />
-    <rect x="455" y="720" width="120" height="74" rx="22" fill="#2b7a6b" opacity="0.85" />
+    <path d="M 600 618 A 92 92 0 0 0 512 708" fill="none" stroke="url(#copper)" stroke-width="12" stroke-linecap="round" stroke-dasharray="2 20" />
+    <path d="M 600 712 L 512 712" stroke="#d27c45" stroke-width="16" stroke-linecap="round" />
+    <!-- Essplatz: Stühle in Taupe, dunkler Steintisch mit Ader -->
+    <g fill="#a49482">
+      <rect x="640" y="560" width="30" height="46" rx="12" /><rect x="640" y="630" width="30" height="46" rx="12" /><rect x="640" y="700" width="30" height="46" rx="12" />
+      <rect x="760" y="560" width="30" height="46" rx="12" /><rect x="760" y="630" width="30" height="46" rx="12" /><rect x="760" y="700" width="30" height="46" rx="12" />
+    </g>
+    <rect x="678" y="540" width="74" height="226" rx="14" fill="url(#stone)" />
+    <path d="M 690 560 C 712 610 724 640 742 700" fill="none" stroke="#c99a52" stroke-width="5" stroke-linecap="round" opacity="0.9" />
+    <!-- Sofa -->
+    <rect x="440" y="752" width="118" height="62" rx="22" fill="#2b7a6b" opacity="0.85" />
   </svg>
 </div>
 </body>

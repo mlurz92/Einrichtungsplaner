@@ -215,6 +215,7 @@ function NorthRose({ deg }: { deg: number }) {
 
 function LampSection() {
   const night = useEditor((s) => s.night);
+  const lampsDay = useView3D((s) => s.lampsDay);
   const k = useEditor((s) => s.project.settings.lampKelvin ?? 2900);
   const opts: [number, string][] = [
     [2700, "2700 K"],
@@ -223,12 +224,16 @@ function LampSection() {
     [4000, "4000 K"],
   ];
   return (
-    <Section id="lamp" title="Abendlicht" hint={night ? `an · ${k} K` : "aus"}>
+    <Section id="lamp" title="Kunstlicht" hint={night ? `Abend · ${k} K` : lampsDay ? `Tag · ${k} K` : "aus"}>
       <label className="flex items-center gap-1.5">
         <input type="checkbox" className="" checked={night} onChange={(e) => useEditor.getState().set("night", e.target.checked)} />
-        Leuchten an (Abendstimmung)
+        Abendlicht (dunkel, Leuchten an)
       </label>
-      {night && (
+      <label className={`mt-1 flex items-center gap-1.5 ${night ? "opacity-40" : ""}`}>
+        <input type="checkbox" className="" disabled={night} checked={lampsDay || night} onChange={(e) => useView3D.getState().set("lampsDay", e.target.checked)} />
+        Leuchten auch bei Tageslicht
+      </label>
+      {(night || lampsDay) && (
         <div className="mt-1.5">
           <div className="mb-1 text-stone-500">Lichtfarbe: warmweiß bis neutralweiß</div>
           <div className="flex flex-wrap gap-1">
