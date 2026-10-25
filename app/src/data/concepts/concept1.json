@@ -380,10 +380,10 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "Ocker",
+"variant": "Taupe",
 "slots": {
 "main": {
-"color": "#c18f3c",
+"color": "#a49482",
 "material": "velvet"
 }
 },
@@ -394,11 +394,11 @@
 {
 "pos": "W9",
 "name": "Samt-Kissenhülle Dana",
-"variant": "Ocker",
+"variant": "Taupe",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 21.99,
-"url": "https://www.westwing.de/samt-kissenhuelle-dana-154159.html",
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154153.html",
 "dims": "B 50 × T 16 × H 50",
 "delivery": null
 }
@@ -416,10 +416,10 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "Ocker",
+"variant": "Taupe",
 "slots": {
 "main": {
-"color": "#c18f3c",
+"color": "#a49482",
 "material": "velvet"
 }
 },
@@ -430,11 +430,11 @@
 {
 "pos": "W9",
 "name": "Samt-Kissenhülle Dana",
-"variant": "Ocker",
+"variant": "Taupe",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 21.99,
-"url": "https://www.westwing.de/samt-kissenhuelle-dana-154159.html",
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154153.html",
 "dims": "B 50 × T 16 × H 50",
 "delivery": null
 }
@@ -1482,7 +1482,7 @@
 "material": "marbleNoir"
 },
 "main": {
-"color": "#b8955a",
+"color": "#9b8459",
 "material": "brass"
 },
 "legs": {
@@ -1552,7 +1552,7 @@
 "variant": "Goldfarben",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 139.0,
+"unit": 109.0,
 "url": "https://www.westwing.de/mundgeblasene-wandleuchte-mabell-in-kupferfarben-147118.html",
 "dims": "B 28 × H 21 × T 13",
 "delivery": "2–5 WT"
@@ -2965,10 +2965,10 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "Ocker",
+"variant": "Taupe",
 "slots": {
 "main": {
-"color": "#c18f3c",
+"color": "#a49482",
 "material": "velvet"
 }
 },
@@ -2979,11 +2979,11 @@
 {
 "pos": "S19",
 "name": "Samt-Kissenhülle Dana",
-"variant": "Ocker",
+"variant": "Taupe",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 21.99,
-"url": "https://www.westwing.de/samt-kissenhuelle-dana-154159.html",
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154153.html",
 "dims": "B 50 × T 16 × H 50",
 "delivery": null
 }
@@ -3001,10 +3001,10 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "Ocker",
+"variant": "Taupe",
 "slots": {
 "main": {
-"color": "#c18f3c",
+"color": "#a49482",
 "material": "velvet"
 }
 },
@@ -3015,11 +3015,11 @@
 {
 "pos": "S19",
 "name": "Samt-Kissenhülle Dana",
-"variant": "Ocker",
+"variant": "Taupe",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 21.99,
-"url": "https://www.westwing.de/samt-kissenhuelle-dana-154159.html",
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154153.html",
 "dims": "B 50 × T 16 × H 50",
 "delivery": null
 }
@@ -3354,10 +3354,10 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "Ocker",
+"variant": "Taupe",
 "slots": {
 "main": {
-"color": "#c18f3c",
+"color": "#a49482",
 "material": "velvet"
 }
 },
@@ -3368,11 +3368,11 @@
 {
 "pos": "A10",
 "name": "Samt-Kissenhülle Dana",
-"variant": "Ocker",
+"variant": "Taupe",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 21.99,
-"url": "https://www.westwing.de/samt-kissenhuelle-dana-154159.html",
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154153.html",
 "dims": "B 50 × T 16 × H 50",
 "delivery": null
 }
@@ -3390,10 +3390,10 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "Ocker",
+"variant": "Taupe",
 "slots": {
 "main": {
-"color": "#c18f3c",
+"color": "#a49482",
 "material": "velvet"
 }
 },
@@ -3404,11 +3404,11 @@
 {
 "pos": "A10",
 "name": "Samt-Kissenhülle Dana",
-"variant": "Ocker",
+"variant": "Taupe",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 21.99,
-"url": "https://www.westwing.de/samt-kissenhuelle-dana-154159.html",
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154153.html",
 "dims": "B 50 × T 16 × H 50",
 "delivery": null
 }

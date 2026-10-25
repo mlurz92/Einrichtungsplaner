@@ -200,7 +200,7 @@
 "variant": "Bouclé Off White",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 999.0,
+"unit": 979.0,
 "url": "https://www.westwing.de/boucle-sessel-sofia-173117.html",
 "dims": "B 97 × T 90 × H 72",
 "delivery": "6–7 Wo."
@@ -463,10 +463,10 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "Ocker",
+"variant": "Taupe",
 "slots": {
 "main": {
-"color": "#c18f3c",
+"color": "#a49482",
 "material": "velvet"
 }
 },
@@ -477,11 +477,11 @@
 {
 "pos": "W23",
 "name": "Samt-Kissenhülle Dana",
-"variant": "Ocker",
+"variant": "Taupe",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 21.99,
-"url": "https://www.westwing.de/samt-kissenhuelle-dana-154159.html",
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154153.html",
 "dims": "B 50 × T 16 × H 50",
 "delivery": null
 }
@@ -499,10 +499,10 @@
 "w": 0.5,
 "d": 0.16,
 "h": 0.5,
-"variant": "Ocker",
+"variant": "Taupe",
 "slots": {
 "main": {
-"color": "#c18f3c",
+"color": "#a49482",
 "material": "velvet"
 }
 },
@@ -513,11 +513,11 @@
 {
 "pos": "W23",
 "name": "Samt-Kissenhülle Dana",
-"variant": "Ocker",
+"variant": "Taupe",
 "vendor": "Westwing",
 "qty": 1,
 "unit": 21.99,
-"url": "https://www.westwing.de/samt-kissenhuelle-dana-154159.html",
+"url": "https://www.westwing.de/samt-kissenhuelle-dana-154153.html",
 "dims": "B 50 × T 16 × H 50",
 "delivery": null
 }
@@ -1490,7 +1490,7 @@
 "material": "marbleNoir"
 },
 "main": {
-"color": "#b8955a",
+"color": "#9b8459",
 "material": "brass"
 },
 "legs": {

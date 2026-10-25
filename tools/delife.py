@@ -342,7 +342,7 @@ def slots_of(r, cat, measured):
     korpus = _part(pp, "korpus")
     if cat in ("lowboard", "sideboard", "cabinet") and korpus and re.search(r"metallic gold", korpus[1], re.I):
         # Kazu/Yori: Korpus Metallic Gold, Deckplatte bzw. Frontfurnier Keramik Noir Désir
-        out["main"] = {"color": "#b8955a", "material": "brass"}
+        out["main"] = {"color": "#9b8459", "material": "brass"}  # Metallic-Lack, gedämpfter als Messing
         pl, fu = _part(pp, "platte"), _part(pp, "furnier")
         if pl:
             out["top"] = surface(f"{pl[1]} {pl[0]}") or out["top"]

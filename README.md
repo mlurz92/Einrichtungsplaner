@@ -87,7 +87,7 @@ Vintage, schwarzes Gestell): eine durchgehende Linie aus **Schwarz, Beige/Greige
 Stein/Keramik**. Neu sind Keramik-Couchtische, -Beistelltische und -Konsolen der DELIFE-Serie Edge, Sideboard **Kazu**
 (Metallic Gold mit Noir-Désir-Platte) bzw. Sideboard und Lowboard **Cuor** in Travertino oder Minas Melange, Leuchten in
 Messing/Gold (Holländer CAPRI, CLARICE, ALICE FIORIRE, Flos IC, Louis Poulsen Panthella, Gubi Multi-Lite und Bestlite),
-Kissen in Ocker, Taupe, Hellbeige und schwarzem Bouclé, Lamellenwände in Eiche schwarz bzw. Walnuss, neue Teppiche am
+Kissen in Taupe, Hellbeige und schwarzem Bouclé, Lamellenwände in Eiche schwarz bzw. Walnuss, neue Teppiche am
 Essplatz und DELIFE-Deko aus Aluminium und mundgeblasenem Glas. Petrol-, Salbei- und Kupferakzente sind entfallen;
 die Akzentwand im Schlafzimmer ist in Konzept 1 Farrow & Ball Elephant's Breath, in Konzept 4 Tanner's Brown. Die
 Konzepte heißen jetzt **Noir · Sand · Messing**, **Noir · Espresso · Gold**, **Noir · Stone · Greige** und
@@ -144,8 +144,8 @@ Bis 2.1.1 lagen in Konzept 1–3 IKEA-STOCKHOLM-Teppiche (grün/grau/hellgrün) 
 
 | Konzept | Wohnen | Essen / Diele | Schlafen / Arbeit |
 |---|---|---|---|
-| 1 Noir · Sand · Messing | DELIFE Couchtisch Edge Organisch Noir Désir, Sessel Sofia Bouclé Hellbraun, Stehleuchte CAPRI Gold/Schwarz, Kissen Dana Ocker + Shannon Bouclé Schwarz, Plaid Elvang Babyalpaka, Lamellen Eiche schwarz, Vitrine The Collector Anthrazit | Sideboard Kazu 220 cm Metallic Gold/Noir Désir, Wandleuchte Mabell Gold, CAPRI Tischleuchte, DELIFE Vase Rondia + Schale Ramina; Konsole Edge Estelo Noir Désir, Panthella Messing, Vase Torvia | Wand Elephant's Breath, CAPRI auf den Nachttischen, Kissen Dana Ocker; Bestlite am Schreibtisch |
-| 2 Noir · Espresso · Gold | Couchtisch Edge Oval Noir Désir, Sessel Sofia Bouclé Off White, Beistelltisch Edge Emperador, Stehlampe Bun Marmor/Gold, Teppich Pose, Kissen Dana Hellbeige/Ocker, Panthella Messing | Sideboard Kazu, Flos IC Messing (Wand + Sideboard); Konsole Edge Estelo Emperador, Spiegel Laviena Messing, Multi-Lite Messing | Bett Dream Cord Off White, CLARICE Schwarz/Gold; Schlafsofa Eliot samtig Braun |
+| 1 Noir · Sand · Messing | DELIFE Couchtisch Edge Organisch Noir Désir, Sessel Sofia Bouclé Hellbraun, Stehleuchte CAPRI Gold/Schwarz, Kissen Dana Taupe + Shannon Bouclé Schwarz, Plaid Elvang Babyalpaka, Lamellen Eiche schwarz, Vitrine The Collector Anthrazit | Sideboard Kazu 220 cm Metallic Gold/Noir Désir, Wandleuchte Mabell Gold, CAPRI Tischleuchte, DELIFE Vase Rondia + Schale Ramina; Konsole Edge Estelo Noir Désir, Panthella Messing, Vase Torvia | Wand Elephant's Breath, CAPRI auf den Nachttischen, Kissen Dana Taupe; Bestlite am Schreibtisch |
+| 2 Noir · Espresso · Gold | Couchtisch Edge Oval Noir Désir, Sessel Sofia Bouclé Off White, Beistelltisch Edge Emperador, Stehlampe Bun Marmor/Gold, Teppich Pose, Kissen Dana Hellbeige/Taupe, Panthella Messing | Sideboard Kazu, Flos IC Messing (Wand + Sideboard); Konsole Edge Estelo Emperador, Spiegel Laviena Messing, Multi-Lite Messing | Bett Dream Cord Off White, CLARICE Schwarz/Gold; Schlafsofa Eliot samtig Braun |
 | 3 Noir · Stone · Greige | Couchtisch Edge Conis Noir Désir, Lowboard Cuor Travertino, Loungesessel Pulo Beige Vintage, Beistelltisch Edge Noir Désir, Leselampe Neron Schwarz/Messing, Kissen Shannon Schwarz + Dana Taupe, Lamellen Eiche schwarz, Bild Rust, Tylko Cotton Beige | Sideboard Cuor Travertino, Flos IC Messing, Bild Everlast; Konsole Edge Estelo Travertino, Spiegel Laviena Messing | Bett Dream Cord Off White, Panthella Messing; Schlafsofa Eliot Sand |
 | 4 Noir · Ivory · Gold | Couchtisch Edge Sarity Noir Désir, Lowboard Cuor Minas Melange, Sessel Sofia samtig Braun, Beistelltisch Caramia Gold, Kissen Shannon Schwarz, Lamellen Walnuss, Bild Vibranium | Sideboard Kazu; Konsole Edge Estelo Calacatta Luxe | Wand Tanner's Brown mit Bild Scenario, Kissen Shannon Schwarz |
 
