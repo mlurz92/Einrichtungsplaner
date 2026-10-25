@@ -20,13 +20,14 @@ import { applyPlacementSnap, beginDrag, dragUpdate, isFlatFloorItem } from "../s
 import { DEFAULT_SITE, sunDirection, sunPosition, sunTimes } from "./solar";
 import { useView3D } from "./viewStore";
 import { inFurniture, roomPole } from "./views";
-import { EnvironmentProbe, whiteBalance } from "./probe";
+import { EnvironmentProbe, SKY_WHITE, whiteBalance } from "./probe";
+import { ADAPT_LUMINANCE, adaptationDegree, adaptationGain, adaptingWhite, planckColor } from "./colorScience";
 import { View3DPanel } from "../ui/View3DPanel";
 import { useResolvedTheme } from "../ui/prefs";
 import { useContextMenu, type CtxEntry } from "../ui/kit";
 import { itemContextEntries } from "../ui/commands";
 import { exportScreenshot } from "../ui/fileops";
-import { Box, Camera, Footprints, Moon, Square } from "lucide-react";
+import { Box, Camera, Footprints, Lightbulb, Moon, Square } from "lucide-react";
 import { createElement } from "react";
 
 const CEIL = apartment.ceilingHeight;
@@ -50,20 +51,40 @@ function useSun() {
   }, [date, time, north, lat, lon, anim]);
 }
 
-/** Senkrechter Verlauf als Szenenhintergrund (hell bzw. dunkel). */
-function gradientTexture(top: string, bottom: string): THREE.CanvasTexture {
-  const c = document.createElement("canvas");
-  c.width = 4;
-  c.height = 256;
-  const g = c.getContext("2d")!;
-  const lg = g.createLinearGradient(0, 0, 0, 256);
-  lg.addColorStop(0, top);
-  lg.addColorStop(1, bottom);
-  g.fillStyle = lg;
-  g.fillRect(0, 0, 4, 256);
-  const t = new THREE.CanvasTexture(c);
-  t.colorSpace = THREE.SRGBColorSpace;
-  return t;
+/**
+ * Senkrechter Verlauf als Szenenhintergrund (hell bzw. dunkel), linear in Gleitkomma. Der Weißabgleich wirkt
+ * auf das ganze Bild; der Verlauf wird mit dem Kehrwert vorgefärbt (tintBackdrop) und bleibt so neutral –
+ * auch hinter den Fensterscheiben, wo er abends sonst violett und bei Kunstlicht tiefblau erschien.
+ */
+function gradientTexture(top: string, bottom: string): THREE.DataTexture {
+  const H = 64;
+  const base = new Float32Array(H * 4);
+  const t = new THREE.Color(top), u = new THREE.Color(bottom), c = new THREE.Color();
+  for (let j = 0; j < H; j++) {
+    // Zeile 0 = unten
+    c.copy(u).lerp(t, j / (H - 1));
+    base.set([c.r, c.g, c.b, 1], j * 4);
+  }
+  const tex = new THREE.DataTexture(base.slice(), 1, H, THREE.RGBAFormat, THREE.FloatType);
+  tex.colorSpace = THREE.LinearSRGBColorSpace;
+  tex.magFilter = tex.minFilter = THREE.LinearFilter;
+  tex.userData.base = base;
+  tex.needsUpdate = true;
+  return tex;
+}
+
+/** Hintergrundverlauf gegen den Weißabgleich vorfärben (Ergebnis bleibt neutral). */
+function tintBackdrop(tex: THREE.Texture | THREE.Color | null, gain: THREE.Color) {
+  const t = tex as THREE.DataTexture | null;
+  const base = t?.userData?.base as Float32Array | undefined;
+  if (!t || !base) return;
+  const d = t.image.data as Float32Array;
+  for (let i = 0; i < base.length; i += 4) {
+    d[i] = base[i] / gain.r;
+    d[i + 1] = base[i + 1] / gain.g;
+    d[i + 2] = base[i + 2] / gain.b;
+  }
+  t.needsUpdate = true;
 }
 
 const BACKDROPS = {
@@ -125,7 +146,9 @@ function Environment() {
   const camera3d = useEditor((s) => s.camera3d);
   const night = useEditor((s) => s.night);
   const quality = useEditor((s) => s.quality);
-  const { day } = useSun();
+  const kelvin = useEditor((s) => s.project.settings.lampKelvin ?? 2900);
+  const lampsDay = useView3D((s) => s.lampsDay);
+  const { day, pos: sunPos } = useSun();
   const probe = useMemo(() => new EnvironmentProbe(gl, quality === "niedrig" ? 128 : 256), [gl, quality]);
   useEffect(() => () => probe.dispose(), [probe]);
   const st = useRef({ dirty: true, last: 0, pos: new THREE.Vector3(1e9, 0, 0), timer: 0, passes: 0, refineTimer: 0, lamps: -1, settle: 0, waitSince: 0, cam: new THREE.Matrix4() });
@@ -145,7 +168,7 @@ function Environment() {
       if (s.project !== p.project || s.night !== p.night || s.showCeiling !== p.showCeiling || s.camera3d !== p.camera3d) mark();
     });
     const u2 = useView3D.subscribe((s, p) => {
-      if (s.animTime !== p.animTime || s.realDaylight !== p.realDaylight || s.interior !== p.interior) mark();
+      if (s.animTime !== p.animTime || s.realDaylight !== p.realDaylight || s.interior !== p.interior || s.lampsDay !== p.lampsDay) mark();
     });
     // Texturen und Modelle laden nachträglich
     const t1 = setTimeout(mark, 1500);
@@ -161,7 +184,7 @@ function Environment() {
     st.current.dirty = true;
     st.current.passes = 0;
     invalidate();
-  }, [day, night, probe, invalidate]);
+  }, [day, night, kelvin, probe, invalidate]);
   useFrame(() => {
     const s = st.current;
     if (s.lamps !== lampVersion) {
@@ -216,8 +239,17 @@ function Environment() {
     // Belichtungsautomatik wie bei einer Kamera: mittlere Raumhelligkeit → Mittelgrau.
     // Abends etwas knapper belichtet, damit es nach Abend aussieht und nicht nach Tag.
     gl.toneMappingExposure = THREE.MathUtils.clamp((night ? EXPOSURE_KEY_NIGHT : EXPOSURE_KEY) / probe.luminance, night ? 0.15 : 0.3, night ? 4 : 12);
-    // Weißabgleich nur am Tag; abends bleibt das Leuchtenlicht bewusst warm
-    whiteBalance.gain = night ? NEUTRAL : probe.whiteBalance;
+    // Weißabgleich wie das Auge: Adaptation an die bekannte Lichtfarbe (Tageslicht, Leuchten oder
+    // Mischlicht) und an das farbige Raumlicht der Sonde. Der Adaptationsgrad sinkt mit
+    // der Raumhelligkeit (CIECAM02): Abendlicht bleibt warm, Taupe und Grau kippen nicht ins Braune.
+    const lampShare = night ? 1 : lampsDay ? 1 / (1 + 6 * d) : 0;
+    const illum = daylightColor(sunPos.elevation).multiplyScalar(1 - lampShare).add(planckColor(kelvin).multiplyScalar(lampShare));
+    const adaptL = night ? ADAPT_LUMINANCE.night : THREE.MathUtils.lerp(ADAPT_LUMINANCE.night, ADAPT_LUMINANCE.day, d);
+    // Stufe „niedrig“ ohne Nachbearbeitung: dort sind die Lichtfarben der Leuchten vorab abgeglichen
+    if (quality === "niedrig") wbGain.setRGB(1, 1, 1);
+    else adaptationGain(adaptingWhite(illum, probe.cast, ROOM_ADAPT), adaptationDegree(adaptL), wbGain);
+    whiteBalance.gain = wbGain;
+    tintBackdrop(scene.background as THREE.Texture | null, wbGain);
     // Der Verlaufshintergrund ist bereits fertig abgestimmt: Belichtung für ihn aufheben
     if (!(camera3d === "walk" && !night)) scene.backgroundIntensity = 1 / gl.toneMappingExposure;
   });
@@ -234,6 +266,7 @@ function Environment() {
     } else {
       const [a, b] = BACKDROPS[night ? "night" : theme];
       tex = gradientTexture(a, b);
+      tintBackdrop(tex, wbGain);
       scene.background = tex;
     }
     return () => {
@@ -247,7 +280,6 @@ function Environment() {
     // Verlauf ist bereits abgestimmt; nur der HDR-Himmel im Rundgang folgt der Dämmerung
     const d = night ? 0 : day;
     scene.backgroundIntensity = camera3d === "walk" ? 0.15 + 0.75 * d : 1 / gl.toneMappingExposure;
-    setNightGlow(night ? 2.2 : 0);
   }, [night, scene, day, camera3d, gl]);
   return null;
 }
@@ -257,11 +289,33 @@ const SKY_LEVEL = 0.35;
 /** Zielhelligkeit der Belichtungsautomatik (Mittelgrau, linear) bei Tag und am Abend. */
 const EXPOSURE_KEY = 0.42;
 const EXPOSURE_KEY_NIGHT = 0.18;
-const NEUTRAL = new THREE.Color(1, 1, 1);
+const wbGain = new THREE.Color(1, 1, 1);
+/**
+ * Anteil des gemessenen Raumlichts am adaptierenden Weiß: Das Auge stellt sich auf die hellen Raumflächen
+ * ein, deren Licht vom dunklen Eichenboden und der Nussbaumküche warm getönt ist. Mit nur 30 % wirkten
+ * weiße Wände bei Tag cremefarben (Referenzbilder), mit gut der Hälfte wieder weiß.
+ */
+const ROOM_ADAPT = 0.55;
 
 const SHADOW_MAP = { hoch: 4096, mittel: 2048, niedrig: 1024 } as const;
+/** Weiche Schattenkante (Texel): Sonnenscheibe 0,53° → Halbschatten ≈ 1 cm je Meter Abstand. */
+const SHADOW_RADIUS = { hoch: 3, mittel: 2, niedrig: 1 } as const;
 const SUN_LOW = new THREE.Color("#ffad66");
 const SUN_HIGH = new THREE.Color("#fff3e2");
+
+/** Direktes Sonnenlicht (0–1): blendet am Horizont ein, bei tiefer Sonne schwächer und wärmer. */
+function sunDirect(el: number) {
+  return THREE.MathUtils.clamp((el + 1) / 7, 0, 1) * (0.45 + 0.55 * THREE.MathUtils.clamp(el / 35, 0, 1));
+}
+const sunColor = (el: number) => SUN_LOW.clone().lerp(SUN_HIGH, THREE.MathUtils.clamp(el / 30, 0, 1));
+
+/** Farbe des Tageslichts im Raum (Himmel durch die Fenster plus Sonne), Leuchtdichte 1. */
+function daylightColor(el: number): THREE.Color {
+  const sun = sunColor(el), sky = SKY_WHITE.clone();
+  const w = 0.6 * sunDirect(el);
+  const c = sky.multiplyScalar(1 / (0.2126 * sky.r + 0.7152 * sky.g + 0.0722 * sky.b)).multiplyScalar(1 - w * 0.5);
+  return c.add(sun.multiplyScalar((w * 0.5) / (0.2126 * sun.r + 0.7152 * sun.g + 0.0722 * sun.b)));
+}
 
 function Sun() {
   const night = useEditor((s) => s.night);
@@ -294,8 +348,8 @@ function Sun() {
   const el = sp.elevation;
   const pos = CENTER.clone().add(new THREE.Vector3(...dir).multiplyScalar(30));
   // Direktes Sonnenlicht blendet am Horizont ein und ist bei tiefer Sonne wärmer und schwächer
-  const direct = night ? 0 : THREE.MathUtils.clamp((el + 1) / 7, 0, 1) * (0.45 + 0.55 * THREE.MathUtils.clamp(el / 35, 0, 1));
-  const color = SUN_LOW.clone().lerp(SUN_HIGH, THREE.MathUtils.clamp(el / 30, 0, 1));
+  const direct = night ? 0 : sunDirect(el);
+  const color = sunColor(el);
   const d = night ? 0 : day;
   return (
     <>
@@ -308,6 +362,7 @@ function Sun() {
         color={color}
         castShadow={direct > 0}
         shadow-bias={-0.0004}
+        shadow-radius={SHADOW_RADIUS[quality]}
         shadow-normalBias={0.02}
         shadow-camera-left={-12}
         shadow-camera-right={12}
@@ -320,20 +375,12 @@ function Sun() {
   );
 }
 
-/** Lichtfarbe einer Lampe (Farbtemperatur in Kelvin → RGB, Näherung nach Tanner Helland). */
-export function kelvinColor(k: number): THREE.Color {
-  const t = k / 100;
-  const r = t <= 66 ? 255 : 329.7 * Math.pow(t - 60, -0.1332);
-  const g = t <= 66 ? 99.47 * Math.log(t) - 161.12 : 288.12 * Math.pow(t - 60, -0.0755);
-  const b = t >= 66 ? 255 : t <= 19 ? 0 : 138.52 * Math.log(t - 10) - 305.04;
-  const c = (v: number) => THREE.MathUtils.clamp(v, 0, 255) / 255;
-  return new THREE.Color().setRGB(c(r), c(g), c(b), THREE.SRGBColorSpace);
-}
-
 /** Zähler für geänderte Leuchten-Lichtquellen (Umgebungssonde nimmt danach neu auf). */
 let lampVersion = 0;
 
 const LAMP_LIMIT = { hoch: 24, mittel: 12, niedrig: 6 } as const;
+/** Lumen → Szeneneinheiten (abgestimmt auf Sonne 3,4 ≈ 100 klx; Lichtfarbe hat Leuchtdichte 1). */
+const LUMEN_SCALE = 0.017;
 
 /**
  * Abendlicht: Lichtquellen an den Lichtpunkten der Leuchtenmodelle (Lumen aus dem Modell),
@@ -342,12 +389,14 @@ const LAMP_LIMIT = { hoch: 24, mittel: 12, niedrig: 6 } as const;
 function LampLights() {
   const items = useEditor((s) => s.project.items);
   const night = useEditor((s) => s.night);
+  const lampsDay = useView3D((s) => s.lampsDay);
+  const on = night || lampsDay;
   const quality = useEditor((s) => s.quality);
   const kelvin = useEditor((s) => s.project.settings.lampKelvin ?? 2900);
   const scene = useThree((s) => s.scene);
   const [lights, setLights] = useState<{ key: string; p: [number, number, number]; lumen: number; down: boolean }[]>([]);
   useEffect(() => {
-    if (!night) {
+    if (!on) {
       setLights([]);
       return;
     }
@@ -373,19 +422,25 @@ function LampLights() {
       setLights(out.slice(0, LAMP_LIMIT[quality]));
     });
     return () => cancelAnimationFrame(id);
-  }, [night, items, scene, quality]);
+  }, [on, items, scene, quality]);
   // Erst nach dem Einhängen der Lichtquellen neu aufnehmen
   useEffect(() => {
     lampVersion++;
   }, [lights]);
-  // Teilweiser Weißabgleich wie beim Auge: 2700 K wirkt warm, aber nicht orange
-  const color = useMemo(() => kelvinColor(kelvin).lerp(new THREE.Color("#ffffff"), 0.45), [kelvin]);
-  if (!night) return null;
+  // Physikalische Lichtfarbe (Leuchtdichte 1); den Weißabgleich übernimmt die Nachbearbeitung
+  const color = useMemo(() => {
+    const c = planckColor(kelvin);
+    if (quality !== "niedrig") return c;
+    const g = adaptationGain(c, adaptationDegree(ADAPT_LUMINANCE.night));
+    return c.multiply(g);
+  }, [kelvin, quality]);
+  useEffect(() => setNightGlow(on ? 2.2 : 0, color), [on, color]);
+  if (!on) return null;
   // Lichtstrom → Lichtstärke (Lumen / 4π), auf die Belichtung der Szene skaliert
   return (
     <>
       {lights.map((l) => (
-        <pointLight key={l.key} position={l.p} intensity={(l.lumen / (4 * Math.PI)) * 0.023 * (l.down ? 1.3 : 1)} distance={l.lumen > 1000 ? 7 : 4.5} decay={1.6} color={color} />
+        <pointLight key={l.key} position={l.p} intensity={(l.lumen / (4 * Math.PI)) * LUMEN_SCALE * (l.down ? 1.3 : 1)} distance={l.lumen > 1000 ? 7 : 4.5} decay={1.6} color={color} />
       ))}
     </>
   );
@@ -976,6 +1031,7 @@ function sceneContextEntries(): CtxEntry[] {
     { label: "Rundgang starten", icon: ic(Footprints), run: () => st.set("camera3d", "walk") },
     { sep: true },
     { label: st.night ? "Tageslicht" : "Abendlicht", icon: ic(Moon), run: () => st.set("night", !st.night) },
+    { label: useView3D.getState().lampsDay ? "Leuchten tagsüber aus" : "Leuchten tagsüber an", icon: ic(Lightbulb), run: () => useView3D.getState().set("lampsDay", !useView3D.getState().lampsDay) },
     { label: "Ansicht als Bild speichern", icon: ic(Camera), run: () => void exportScreenshot() },
   ];
 }
