@@ -1,12 +1,13 @@
 import { useMemo, useState } from "react";
-import { Camera, ChevronDown, ChevronUp, Compass, Eye, Pause, Play, Plus, SlidersHorizontal, X } from "lucide-react";
+import { Camera, ChevronDown, ChevronUp, Compass, Eye, Images, Pause, Play, Plus, SlidersHorizontal, X } from "lucide-react";
 import { useEditor } from "../store/project";
 import { apartment } from "../data";
 import type { ProjectSettings, SavedView3D } from "../model/types";
 import { DEFAULT_SITE, fmtClock, parseDate, sunPosition, sunTimes } from "../three/solar";
 import { fovToMm, mmToFov, useView3D } from "../three/viewStore";
 import { roomView } from "../three/views";
-import { dataUrlToBytes, saveBinary } from "../platform";
+import { dataUrlToBytes, isTauri, pickFolder, saveBinary, writeBinaryTo } from "../platform";
+import roomShots from "../data/roomShots.json";
 
 // Ansichtsleiste der 3D-Ansicht: Sonnenstudie, Abendlicht, Kamera, gespeicherte Ansichten, Foto.
 
@@ -39,7 +40,7 @@ function isoDate(y: number, m: number, d: number) {
   return `${y}-${String(m + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
 }
 
-type SectionId = "sun" | "lamp" | "camera" | "photo";
+type SectionId = "sun" | "lamp" | "camera" | "shots" | "photo";
 
 /** Aufklappbarer Abschnitt; es ist immer nur einer offen, damit die Leiste die Ansicht nicht verdeckt. */
 function Section({ id, title, hint, children }: { id: SectionId; title: string; hint?: string; children: React.ReactNode }) {
@@ -78,6 +79,7 @@ export function View3DPanel() {
         <SunSection />
         <LampSection />
         <CameraSection />
+        <ShotsSection />
         <PhotoSection />
       </div>
     </div>
@@ -335,6 +337,94 @@ function CameraSection() {
           </div>
         ))}
       </div>
+    </Section>
+  );
+}
+
+export type RoomShot = { id: string; room: string; name: string; pos: [number, number, number]; target: [number, number, number]; fov: number };
+export const ROOM_SHOTS = roomShots as unknown as RoomShot[];
+
+/** Kamera zur Fotoansicht schwenken (Kamerafahrt der Orbit-Kamera). */
+export function flyToShot(s: RoomShot) {
+  if (useEditor.getState().camera3d !== "orbit") useEditor.getState().set("camera3d", "orbit");
+  useView3D.getState().set("goto", { pos: s.pos, target: s.target, fov: s.fov, t: performance.now() });
+}
+
+/** Warten, bis die Kamerafahrt angekommen ist (höchstens 4 s). */
+async function settle(s: RoomShot) {
+  const t0 = performance.now();
+  while (performance.now() - t0 < 4000) {
+    await new Promise((r) => setTimeout(r, 120));
+    const cur = useView3D.getState().api?.getView();
+    if (cur && Math.hypot(cur.pos[0] - s.pos[0], cur.pos[1] - s.pos[1], cur.pos[2] - s.pos[2]) < 0.01 && Math.abs(cur.fov - s.fov) < 0.2) break;
+  }
+  // Umgebungslicht und Schatten an die neue Ansicht anpassen lassen
+  await new Promise((r) => setTimeout(r, 600));
+}
+
+const fileBase = () => useEditor.getState().project.name.replace(/[^\wäöüÄÖÜß ·-]+/g, "").replace(/\s*·\s*/g, " - ").trim() || "WE13";
+const shotFile = (s: RoomShot) => `${fileBase()} - ${s.name.replace(/\s*·\s*/g, " - ").replace(/[\\/:*?"<>|]+/g, "-")}.png`;
+
+/** Fotoansichten je Raum: anschwenken, einzeln oder alle als Full-HD-Bild speichern. */
+function ShotsSection() {
+  const api = useView3D((s) => s.api);
+  const [busy, setBusy] = useState<string | null>(null);
+  const shoot = async (s: RoomShot) => {
+    if (!api || busy) return;
+    setBusy(s.id);
+    try {
+      flyToShot(s);
+      await settle(s);
+      const url = await api.capture(1920);
+      if (!url) return useEditor.getState().showToast("Foto konnte nicht erstellt werden");
+      const path = await saveBinary(dataUrlToBytes(url), shotFile(s), [{ name: "PNG", extensions: ["png"] }]);
+      if (path) useEditor.getState().showToast(`Foto gespeichert: ${path.split(/[\\/]/).pop()}`);
+    } finally {
+      setBusy(null);
+    }
+  };
+  const shootAll = async () => {
+    if (!api || busy) return;
+    const folder = await pickFolder("Ordner für die Raumfotos wählen");
+    if (folder === null && isTauri) return;
+    setBusy("all");
+    let n = 0;
+    try {
+      for (const s of ROOM_SHOTS) {
+        setBusy(`all:${s.id}`);
+        flyToShot(s);
+        await settle(s);
+        const url = await api.capture(1920);
+        if (!url) continue;
+        await writeBinaryTo(folder, shotFile(s), dataUrlToBytes(url));
+        n++;
+      }
+      useEditor.getState().showToast(`${n} Raumfotos gespeichert${folder ? ` in ${folder.split(/[\\/]/).pop()}` : ""}`);
+    } catch (e) {
+      useEditor.getState().showToast(`Raumfotos: ${e instanceof Error ? e.message : String(e)}`, { kind: "error" });
+    } finally {
+      setBusy(null);
+    }
+  };
+  return (
+    <Section id="shots" title="Raumfotos" hint={`${ROOM_SHOTS.length} Ansichten`}>
+      <div className="mb-1 text-stone-500">Ausgesuchte Blickwinkel je Raum: anklicken zum Hinschwenken, Kamera-Symbol speichert das Bild (Full HD).</div>
+      <div className="space-y-0.5">
+        {ROOM_SHOTS.map((s) => (
+          <div key={s.id} className="flex items-center gap-1">
+            <button className="btn-ghost min-w-0 flex-1 justify-start! truncate px-1 py-0.5 text-left" disabled={!!busy} onClick={() => flyToShot(s)} title={`${s.name} anschwenken`}>
+              <Eye size={13} className="shrink-0" />
+              <span className={`truncate ${busy === `all:${s.id}` ? "font-semibold" : ""}`}>{s.name}</span>
+            </button>
+            <button className="btn-ghost px-1 py-0.5" disabled={!!busy} onClick={() => shoot(s)} title="Anschwenken und als PNG speichern">
+              <Camera size={13} />
+            </button>
+          </div>
+        ))}
+      </div>
+      <button className="btn mt-1.5 w-full px-1.5 py-1 text-xs" disabled={!!busy} onClick={shootAll} title="Alle Raumansichten nacheinander anschwenken und als PNG in einen Ordner speichern">
+        <Images size={13} /> {busy?.startsWith("all") ? "Fotos werden erstellt …" : "Alle Raumfotos speichern"}
+      </button>
     </Section>
   );
 }

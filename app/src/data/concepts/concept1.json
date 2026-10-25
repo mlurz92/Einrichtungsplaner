@@ -1,7 +1,7 @@
 {
 "version": 1,
-"name": "Konzept 1 · Noir · Sand · Messing",
-"subtitle": "Abgestimmt auf den Essplatz (DELIFE Edge Noir Désir + Pejo-Flex Beige Vintage): Keramik Noir Désir, Bouclé in Sand, Messingleuchten",
+"name": "Konzept 1 · Noir · Sand · Nussbaum",
+"subtitle": "Abgestimmt auf den Essplatz (DELIFE Edge Noir Désir + Pejo-Flex Beige Vintage): Keramik Noir Désir, Bouclé in Sand, dunkle Eiche, schwarze und opale Leuchten; eine Messingschale als einziger Goldakzent",
 "conceptId": "concept1",
 "createdAt": "2026-10-23T00:00:00Z",
 "updatedAt": "2026-10-23T00:00:00Z",
@@ -245,30 +245,34 @@
 ]
 },
 {
-"id": "88b73afa07",
-"catalogId": "lam-hollaender-capri-stehleuchte-280-k-1101",
+"id": "f35e6bed27",
+"catalogId": "wes-stehlampe-matilda-in-weiss-141834",
 "pos": "W6",
-"label": "Holländer CAPRI Stehleuchte",
+"label": "Stehlampe Matilda",
 "x": 5.829,
 "y": 6.609,
 "rot": 0,
 "elev": 0.0,
-"w": 0.46,
-"d": 0.46,
-"h": 1.55,
-"variant": "Gold / Schwarz",
+"w": 0.4,
+"d": 0.4,
+"h": 1.64,
+"variant": "Schwarz",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
-},
-"shade": {
 "color": "#1d1d1d",
-"material": "linen"
+"material": "matte"
 },
 "frame": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "matte"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "matte"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
 }
 },
 "params": {},
@@ -277,13 +281,13 @@
 "parts": [
 {
 "pos": "W6",
-"name": "Holländer CAPRI Stehleuchte",
-"variant": "Gold / Schwarz",
-"vendor": "lampe.de",
+"name": "Stehlampe Matilda",
+"variant": "Schwarz",
+"vendor": "Westwing",
 "qty": 1,
-"unit": 719.99,
-"url": "https://www.lampe.de/hollaender-capri-stehleuchte-280-k-1101.html",
-"dims": "B 46 × T 46 × H 155",
+"unit": 149.0,
+"url": "https://www.westwing.de/stehlampe-matilda-114256.html",
+"dims": "B 40 × T 40 × H 164",
 "delivery": null
 }
 ]
@@ -743,26 +747,26 @@
 "opening": "W-O2"
 },
 {
-"id": "a1efaa5fdb",
-"catalogId": "lam-hollaender-clarice-tischleuchte-424-1208",
+"id": "89a80a0133",
+"catalogId": "lam-hollaender-fungo-tischleuchte-424-1202",
 "pos": "W17",
-"label": "Holländer CLARICE Tischleuchte",
+"label": "Holländer FUNGO Tischleuchte",
 "x": 4.042,
 "y": 4.414,
 "rot": 0,
 "elev": 0.55,
-"w": 0.2,
-"d": 0.2,
-"h": 0.49,
-"variant": "Schwarz / Gold",
+"w": 0.32,
+"d": 0.32,
+"h": 0.43,
+"variant": "Schwarz",
 "slots": {
 "main": {
 "color": "#1d1d1d",
 "material": "blackMetal"
 },
 "shade": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#f6f4ee",
+"material": "opal"
 },
 "frame": {
 "color": "#1d1d1d",
@@ -775,13 +779,13 @@
 "parts": [
 {
 "pos": "W17",
-"name": "Holländer CLARICE Tischleuchte",
-"variant": "Schwarz / Gold",
+"name": "Holländer FUNGO Tischleuchte",
+"variant": "Schwarz",
 "vendor": "lampe.de",
 "qty": 1,
-"unit": 179.99,
-"url": "https://www.lampe.de/hollaender-clarice-tischleuchte-424-1208.html",
-"dims": "B 20 × T 20 × H 49",
+"unit": 149.99,
+"url": "https://www.lampe.de/hollaender-fungo-tischleuchte-424-1202.html",
+"dims": "B 32 × T 32 × H 43",
 "delivery": null
 }
 ]
@@ -1379,48 +1383,48 @@
 ]
 },
 {
-"id": "8cb7e03081",
-"catalogId": "lam-hollaender-alice-fiorire-haengeleuchte-300-k-15149-sg",
+"id": "fbfbed69fd",
+"catalogId": "lam-by-rydens-skyline-haengeleuchte-4201530-4002",
 "pos": "E3",
-"label": "Holländer ALICE FIORIRE Hängeleuchte",
+"label": "By Rydens Skyline Hängeleuchte",
 "x": 6.0677,
 "y": 9.6383,
 "rot": 98,
 "elev": 1.39,
-"w": 1.14,
-"d": 0.5,
-"h": 0.5,
-"variant": "Gold / Schwarz",
+"w": 1.1,
+"d": 0.13,
+"h": 0.15,
+"variant": "Schwarz",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 },
 "shade": {
-"color": "#1d1d1d",
-"material": "glass"
+"color": "#f6f4ee",
+"material": "opal"
 },
 "frame": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "blackMetal"
 }
 },
 "params": {
 "heads": 6,
-"shape": "globe"
+"shape": "dome"
 },
 "mount": "ceiling",
 "room": "13.01",
 "parts": [
 {
 "pos": "E3",
-"name": "Holländer ALICE FIORIRE Hängeleuchte",
-"variant": "Gold / Schwarz",
+"name": "By Rydens Skyline Hängeleuchte",
+"variant": "Schwarz",
 "vendor": "lampe.de",
 "qty": 1,
-"unit": 1504.99,
-"url": "https://www.lampe.de/hollaender-alice-fiorire-haengeleuchte-300-k-15149-sg.html",
-"dims": "B 114 × T 50 × H 50",
+"unit": 229.0,
+"url": "https://www.lampe.de/by-rydens-skyline-haengeleuchte-4201530-4002.html",
+"dims": "B 110 × T 13 × H 15",
 "delivery": null
 }
 ]
@@ -1464,126 +1468,126 @@
 ]
 },
 {
-"id": "94def25782",
-"catalogId": "del-kazu-fuss-schwebend-metall-38946",
+"id": "7c1ff40522",
+"catalogId": "wes-sideboard-chandler-aus-eichenholz",
 "pos": "E4",
-"label": "Sideboard Kazu 220 cm Metallic Gold 4 Türen schwebend Schwarz Keramik Laminam®Noir Desir Braun",
-"x": 5.8478,
-"y": 11.6804,
+"label": "Sideboard Chandler aus Eichenholz",
+"x": 5.8464,
+"y": 11.6903,
 "rot": 188,
 "elev": 0.0,
-"w": 2.2,
-"d": 0.45,
-"h": 0.69,
-"variant": "Standard",
+"w": 1.65,
+"d": 0.43,
+"h": 0.75,
+"variant": "Eiche massiv, dunkel lackiert",
 "slots": {
-"top": {
-"color": "#45403c",
-"material": "marbleNoir"
-},
 "main": {
-"color": "#9b8459",
-"material": "brass"
+"color": "#5e4130",
+"material": "oakDark"
 },
 "legs": {
-"color": "#1b1b1b",
-"material": "blackMetal"
+"color": "#5e4130",
+"material": "oakDark"
 }
 },
 "params": {
-"doors": 4
+"doors": 3,
+"legHeight": 0.1,
+"front": "flat"
 },
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "E4",
-"name": "Sideboard Kazu 220 cm Metallic Gold 4 Türen schwebend Schwarz Keramik Laminam®Noir Desir Braun",
-"variant": "Standard",
-"vendor": "DELIFE",
+"name": "Sideboard Chandler aus Eichenholz",
+"variant": "Eiche massiv, dunkel lackiert",
+"vendor": "Westwing",
 "qty": 1,
-"unit": 1389.9,
-"url": "https://www.delife.de/sideboard-kazu-220cm-mitteldichte-faserplatte/a-38946",
-"dims": "B 220 × T 45 × H 69",
-"delivery": null
+"unit": 1399.0,
+"url": "https://www.westwing.de/handgefertigtes-sideboard-chandler-aus-massivem-eichenholz-159331.html",
+"dims": "B 165 × T 43 × H 75",
+"delivery": "3–4 Wo."
 }
 ]
 },
 {
-"id": "2664027e3a",
-"catalogId": "wes-mundgeblasene-wandleuchte-mabell-maytoni",
+"id": "0028225e5c",
+"catalogId": "wes-wandleuchte-atlanta-aus-opalglas-147013",
 "pos": "E5",
-"label": "Mundgeblasene Wandleuchte Mabell (Maytoni)",
+"label": "Wandleuchte Atlanta aus Opalglas",
 "x": 7.66,
 "y": 9.838,
 "rot": 98,
 "elev": 1.7,
-"w": 0.28,
-"d": 0.13,
-"h": 0.21,
-"variant": "Goldfarben",
+"w": 0.15,
+"d": 0.23,
+"h": 0.22,
+"variant": "Weiß, Schwarz",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "opal"
 },
 "frame": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "opal"
 },
 "legs": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "opal"
 },
 "shade": {
-"color": "#f6f4ee",
+"color": "#f3f1ec",
 "material": "opal"
 }
 },
-"params": {
-"shape": "mabell"
-},
+"params": {},
 "mount": "wall",
 "room": "13.01",
 "parts": [
 {
 "pos": "E5",
-"name": "Mundgeblasene Wandleuchte Mabell (Maytoni)",
-"variant": "Goldfarben",
+"name": "Wandleuchte Atlanta aus Opalglas",
+"variant": "Weiß, Schwarz",
 "vendor": "Westwing",
 "qty": 1,
-"unit": 109.0,
-"url": "https://www.westwing.de/mundgeblasene-wandleuchte-mabell-in-kupferfarben-147118.html",
-"dims": "B 28 × H 21 × T 13",
-"delivery": "2–5 WT"
+"unit": 74.99,
+"url": "https://www.westwing.de/wandleuchte-liv-113351.html",
+"dims": "B 15 × T 23 × H 22",
+"delivery": null
 }
 ]
 },
 {
-"id": "c4024828c0",
-"catalogId": "lam-hollaender-capri-tischleuchte-280-k-1202",
+"id": "38abdd5235",
+"catalogId": "wes-walter-xl-table-lamp-taupe-en-25wes30461",
 "pos": "E6",
-"label": "Holländer CAPRI Tischleuchte",
+"label": "XL-Retro-Tischlampe Walter, H 55 cm",
 "x": 5.168,
 "y": 11.595,
 "rot": 0,
-"elev": 0.69,
-"w": 0.27,
-"d": 0.27,
-"h": 0.44,
-"variant": "Gold / Schwarz",
+"elev": 0.75,
+"w": 0.38,
+"d": 0.38,
+"h": 0.55,
+"variant": "Schwarz, glänzend",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
-},
-"shade": {
 "color": "#1d1d1d",
-"material": "linen"
+"material": "gloss"
 },
 "frame": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "gloss"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "gloss"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
 }
 },
 "params": {},
@@ -1592,13 +1596,13 @@
 "parts": [
 {
 "pos": "E6",
-"name": "Holländer CAPRI Tischleuchte",
-"variant": "Gold / Schwarz",
-"vendor": "lampe.de",
+"name": "XL-Retro-Tischlampe Walter, H 55 cm",
+"variant": "Schwarz, glänzend",
+"vendor": "Westwing",
 "qty": 1,
-"unit": 324.99,
-"url": "https://www.lampe.de/hollaender-capri-tischleuchte-280-k-1202.html",
-"dims": "B 27 × T 27 × H 44",
+"unit": 149.0,
+"url": "https://www.westwing.de/grosse-retro-tischlampe-walter-159562.html",
+"dims": "B 38 × T 38 × H 55",
 "delivery": null
 }
 ]
@@ -1754,19 +1758,19 @@
 "x": 6.258,
 "y": 11.748,
 "rot": 0,
-"elev": 0.69,
+"elev": 0.75,
 "w": 0.21,
 "d": 0.21,
 "h": 0.35,
-"variant": "Gold/Braun",
+"variant": "Beige/Taupe",
 "slots": {
 "top": {
-"color": "#b18e54",
-"material": "brass"
+"color": "#c7b8a1",
+"material": "lacquer"
 },
 "main": {
-"color": "#b18e54",
-"material": "brass"
+"color": "#c7b8a1",
+"material": "lacquer"
 },
 "legs": {
 "color": "#1b1b1b",
@@ -1780,11 +1784,11 @@
 {
 "pos": "E8",
 "name": "Vase Rondia B21 x T21 x H35 cm Glas Aurum Mundgeblasen",
-"variant": "Gold/Braun",
+"variant": "Beige/Taupe",
 "vendor": "DELIFE",
 "qty": 1,
 "unit": 69.9,
-"url": "https://www.delife.de/vase-rondia-glas-aurum-b21-x-t21-x-h35cm/a-46690",
+"url": "https://www.delife.de/vase-rondia-glas-opal-b21-x-t21-x-h35cm/a-46691",
 "dims": "B 21 × T 21 × H 35",
 "delivery": null
 }
@@ -1795,10 +1799,10 @@
 "catalogId": "del-ramina-46714",
 "pos": "D1",
 "label": "Schale Ramina B29 x T21 x H19 cm Aluminium Aurum Satin Gegossen",
-"x": 5.7983,
-"y": 11.6734,
+"x": 5.7969,
+"y": 11.6833,
 "rot": 0,
-"elev": 0.69,
+"elev": 0.75,
 "w": 0.29,
 "d": 0.21,
 "h": 0.19,
@@ -1958,19 +1962,19 @@
 "w": 1.4,
 "d": 0.4,
 "h": 0.79,
-"variant": "Laminam® Noir Désir Braun, Gestell Titanfarbig",
+"variant": "Patagonia Braun/Beige, Gestell Schwarz",
 "slots": {
 "top": {
-"color": "#45403c",
-"material": "marbleNoir"
+"color": "#bba78c",
+"material": "marble"
 },
 "main": {
-"color": "#45403c",
-"material": "marbleNoir"
+"color": "#bba78c",
+"material": "marble"
 },
 "legs": {
-"color": "#8a8378",
-"material": "steel"
+"color": "#1b1b1b",
+"material": "blackMetal"
 }
 },
 "params": {},
@@ -1980,11 +1984,11 @@
 {
 "pos": "F7",
 "name": "Konsolentisch Edge Boot 140x40 cm Keramik Estelo",
-"variant": "Laminam® Noir Désir Braun, Gestell Titanfarbig",
+"variant": "Patagonia Braun/Beige, Gestell Schwarz",
 "vendor": "DELIFE",
 "qty": 1,
-"unit": 589.9,
-"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45667",
+"unit": 399.9,
+"url": "https://www.delife.de/konsolentisch-edge-140x40-cm-keramik/a-45539",
 "dims": "B 140 × T 40 × H 79",
 "delivery": null
 }
@@ -2065,10 +2069,10 @@
 ]
 },
 {
-"id": "ef526dc008",
-"catalogId": "des-louis-poulsen-panthella-portable-160-v3",
+"id": "744f509bee",
+"catalogId": "wes-mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168615",
 "pos": "F9",
-"label": "Louis Poulsen Panthella Portable 160 V3",
+"label": "Kleine mobile LED-Tischlampe Panthella 160, Design Verner Panton",
 "x": 7.006,
 "y": 2.526,
 "rot": 0,
@@ -2076,33 +2080,39 @@
 "w": 0.16,
 "d": 0.16,
 "h": 0.24,
-"variant": "MESSING glänzend, Akku; über Lampenwelt",
+"variant": "Kunststoff Schwarz",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "plastic"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "plastic"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "plastic"
 },
 "shade": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#f6f4ee",
+"material": "opal"
 }
 },
-"params": {
-"shape": "panthella"
-},
+"params": {},
 "mount": "floor",
 "room": "13.01",
 "parts": [
 {
 "pos": "F9",
-"name": "Louis Poulsen Panthella Portable 160 V3",
-"variant": "MESSING glänzend, Akku; über Lampenwelt",
-"vendor": "Designhandel",
+"name": "Kleine mobile LED-Tischlampe Panthella 160, Design Verner Panton",
+"variant": "Kunststoff Schwarz",
+"vendor": "Westwing",
 "qty": 1,
-"unit": 243.0,
-"url": "https://www.lampenwelt.de/p/louis-poulsen-panthella-portable-160-v3-messingfarben-10041803.html",
+"unit": 149.0,
+"url": "https://www.westwing.de/mobile-dimmbare-led-tischlampe-panthella-h-24-cm-168619.html",
 "dims": "B 16 × T 16 × H 24",
-"delivery": "8–12 WT"
+"delivery": null
 }
 ]
 },
@@ -2398,7 +2408,7 @@
 "material": "boucle"
 },
 "secondary": {
-"color": "#c8d3c1",
+"color": "#d9cdb8",
 "material": "linen"
 },
 "accent": {
@@ -2575,30 +2585,34 @@
 ]
 },
 {
-"id": "615e6fcf6e",
-"catalogId": "lam-hollaender-capri-tischleuchte-280-k-1202",
+"id": "93d9d6c1ce",
+"catalogId": "wes-kleine-retro-tischlampe-walter-in-chromfarben-146722",
 "pos": "S5",
-"label": "Holländer CAPRI Tischleuchte",
+"label": "Kleine Retro-Tischlampe Walter, H 34 cm",
 "x": 7.0,
 "y": 13.408,
 "rot": 0,
 "elev": 0.52,
-"w": 0.27,
-"d": 0.27,
-"h": 0.44,
-"variant": "Gold / Schwarz",
+"w": 0.25,
+"d": 0.25,
+"h": 0.34,
+"variant": "Schwarz, matt",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
-},
-"shade": {
 "color": "#1d1d1d",
-"material": "linen"
+"material": "lacquer"
 },
 "frame": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "lacquer"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "lacquer"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
 }
 },
 "params": {},
@@ -2607,42 +2621,46 @@
 "parts": [
 {
 "pos": "S5",
-"name": "Holländer CAPRI Tischleuchte",
-"variant": "Gold / Schwarz",
-"vendor": "lampe.de",
+"name": "Kleine Retro-Tischlampe Walter, H 34 cm",
+"variant": "Schwarz, matt",
+"vendor": "Westwing",
 "qty": 1,
-"unit": 324.99,
-"url": "https://www.lampe.de/hollaender-capri-tischleuchte-280-k-1202.html",
-"dims": "B 27 × T 27 × H 44",
+"unit": 109.0,
+"url": "https://www.westwing.de/retro-tischleuchte-walter-84466.html",
+"dims": "B 25 × T 25 × H 34",
 "delivery": null
 }
 ]
 },
 {
-"id": "a7d2b91c91",
-"catalogId": "lam-hollaender-capri-tischleuchte-280-k-1202",
+"id": "dc569948c7",
+"catalogId": "wes-kleine-retro-tischlampe-walter-in-chromfarben-146722",
 "pos": "S5",
-"label": "Holländer CAPRI Tischleuchte",
+"label": "Kleine Retro-Tischlampe Walter, H 34 cm",
 "x": 6.646,
 "y": 15.903,
 "rot": 0,
 "elev": 0.52,
-"w": 0.27,
-"d": 0.27,
-"h": 0.44,
-"variant": "Gold / Schwarz",
+"w": 0.25,
+"d": 0.25,
+"h": 0.34,
+"variant": "Schwarz, matt",
 "slots": {
 "main": {
-"color": "#c9a55c",
-"material": "brass"
-},
-"shade": {
 "color": "#1d1d1d",
-"material": "linen"
+"material": "lacquer"
 },
 "frame": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#1d1d1d",
+"material": "lacquer"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "lacquer"
+},
+"shade": {
+"color": "#f6f4ee",
+"material": "opal"
 }
 },
 "params": {},
@@ -2651,13 +2669,13 @@
 "parts": [
 {
 "pos": "S5",
-"name": "Holländer CAPRI Tischleuchte",
-"variant": "Gold / Schwarz",
-"vendor": "lampe.de",
+"name": "Kleine Retro-Tischlampe Walter, H 34 cm",
+"variant": "Schwarz, matt",
+"vendor": "Westwing",
 "qty": 1,
-"unit": 324.99,
-"url": "https://www.lampe.de/hollaender-capri-tischleuchte-280-k-1202.html",
-"dims": "B 27 × T 27 × H 44",
+"unit": 109.0,
+"url": "https://www.westwing.de/retro-tischleuchte-walter-84466.html",
+"dims": "B 25 × T 25 × H 34",
 "delivery": null
 }
 ]
@@ -3202,48 +3220,50 @@
 ]
 },
 {
-"id": "a180fc4baf",
-"catalogId": "des-gubi-bestlite-bl1-tischleuchte",
+"id": "a2c7062063",
+"catalogId": "wes-kleine-retro-tischlampe-walter-in-chromfarben-146722",
 "pos": "A6",
-"label": "Gubi Bestlite BL1 Tischleuchte",
+"label": "Kleine Retro-Tischlampe Walter, H 34 cm",
 "x": 14.522,
 "y": 3.27,
 "rot": 0,
 "elev": 0.75,
-"w": 0.16,
-"d": 0.16,
-"h": 0.51,
-"variant": "Kohlschwarz / MESSING; über Nordic Nest",
+"w": 0.25,
+"d": 0.25,
+"h": 0.34,
+"variant": "Schwarz, matt",
 "slots": {
 "main": {
 "color": "#1d1d1d",
-"material": "blackMetal"
+"material": "lacquer"
+},
+"frame": {
+"color": "#1d1d1d",
+"material": "lacquer"
+},
+"legs": {
+"color": "#1d1d1d",
+"material": "lacquer"
 },
 "shade": {
-"color": "#1d1d1d",
-"material": "blackMetal"
-},
-"detail": {
-"color": "#c9a55c",
-"material": "brass"
+"color": "#f6f4ee",
+"material": "opal"
 }
 },
-"params": {
-"shape": "bestlite"
-},
+"params": {},
 "mount": "floor",
 "room": "13.04",
 "parts": [
 {
 "pos": "A6",
-"name": "Gubi Bestlite BL1 Tischleuchte",
-"variant": "Kohlschwarz / MESSING; über Nordic Nest",
-"vendor": "Designhandel",
+"name": "Kleine Retro-Tischlampe Walter, H 34 cm",
+"variant": "Schwarz, matt",
+"vendor": "Westwing",
 "qty": 1,
-"unit": 399.0,
-"url": "https://www.nordicnest.de/marken/gubi/bestlite-bl1-tischleuchte/?variantId=24038-04",
-"dims": "B 16 × T 16 × H 51",
-"delivery": "2–4 WT"
+"unit": 109.0,
+"url": "https://www.westwing.de/retro-tischleuchte-walter-84466.html",
+"dims": "B 25 × T 25 × H 34",
+"delivery": null
 }
 ]
 },

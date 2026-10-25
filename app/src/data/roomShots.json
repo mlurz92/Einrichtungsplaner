@@ -1,0 +1,12 @@
+[
+  {"id": "wohnen", "room": "13.01", "name": "Wohnen · Lamellenwand", "pos": [5.3, 1.75, 8.5], "target": [4.6, 0.9, 4.4], "fov": 60, "time": 14},
+  {"id": "wohnen-sofa", "room": "13.01", "name": "Wohnen · Sofaecke", "pos": [4.75, 1.85, 4.8], "target": [4.3, 0.4, 7.2], "fov": 72, "time": 15},
+  {"id": "essen", "room": "13.01", "name": "Essplatz · Sideboard", "pos": [5.0, 1.55, 6.9], "target": [6.6, 0.75, 10.2], "fov": 58, "time": 16},
+  {"id": "essen-fenster", "room": "13.01", "name": "Essplatz · Fenster", "pos": [4.3, 1.45, 10.9], "target": [7.4, 0.8, 8.3], "fov": 60, "time": 15},
+  {"id": "tisch", "room": "13.01", "name": "Essplatz · Tischplatte", "pos": [4.75, 2.0, 9.75], "target": [6.15, 0.74, 9.6], "fov": 52, "time": 14},
+  {"id": "kueche", "room": "13.02", "name": "Küche", "pos": [5.4, 1.62, 10.2], "target": [1.2, 0.95, 11.6], "fov": 62, "time": 11},
+  {"id": "diele", "room": "13.01", "name": "Diele · Konsole", "pos": [10.8, 1.6, 3.3], "target": [7.3, 1.0, 2.4], "fov": 58, "time": 11},
+  {"id": "schlafen", "room": "13.03", "name": "Schlafen · Bett", "pos": [4.15, 1.7, 12.3], "target": [6.6, 0.55, 14.6], "fov": 68, "time": 12},
+  {"id": "arbeit", "room": "13.04", "name": "Arbeit / Gast", "pos": [11.75, 1.6, 4.85], "target": [13.9, 0.75, 3.0], "fov": 66, "time": 11},
+  {"id": "bad", "room": "13.05", "name": "Bad", "pos": [11.6, 1.6, 1.95], "target": [13.9, 0.8, 0.9], "fov": 70, "time": 11}
+]

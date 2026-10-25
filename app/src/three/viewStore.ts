@@ -19,7 +19,7 @@ export interface View3DState {
   /** Kamera steht unterhalb der Decke (Innenansicht) → kein automatischer Wandschnitt, Decke sichtbar. */
   interior: boolean;
   panelOpen: boolean;
-  panelSection: "sun" | "lamp" | "camera" | "photo" | null;
+  panelSection: "sun" | "lamp" | "camera" | "shots" | "photo" | null;
   /** Kamerafahrt zu einer Ansicht (Position, Ziel, Bildwinkel). */
   goto: { pos: [number, number, number]; target: [number, number, number]; fov?: number; t: number } | null;
   /** Von der Szene bereitgestellt: aktuelle Kamera und Fotoaufnahme. */

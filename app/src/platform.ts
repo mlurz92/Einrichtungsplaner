@@ -35,6 +35,26 @@ export async function saveBinary(data: Uint8Array, defaultName: string, filters:
   return defaultName;
 }
 
+/** Ordner wählen (Tauri) – im Browser null (Dateien werden einzeln heruntergeladen). */
+export async function pickFolder(title: string): Promise<string | null> {
+  if (!isTauri) return null;
+  const { open } = await import("@tauri-apps/plugin-dialog");
+  const r = await open({ directory: true, multiple: false, title });
+  return typeof r === "string" ? r : null;
+}
+
+/** Binärdatei in einen Ordner schreiben (Tauri) bzw. herunterladen (Browser). */
+export async function writeBinaryTo(folder: string | null, name: string, data: Uint8Array): Promise<string> {
+  if (isTauri && folder) {
+    const { writeFile } = await import("@tauri-apps/plugin-fs");
+    const path = `${folder.replace(/[\\/]+$/, "")}${folder.includes("\\") ? "\\" : "/"}${name}`;
+    await writeFile(path, data);
+    return path;
+  }
+  downloadBlob(new Blob([data as BlobPart]), name);
+  return name;
+}
+
 export async function openText(filters: { name: string; extensions: string[] }[]): Promise<{ name: string; content: string } | null> {
   if (isTauri) {
     const { open } = await import("@tauri-apps/plugin-dialog");
