@@ -5,6 +5,7 @@ import { useEditor } from "../store/project";
 import { appVersion, openExternal } from "../platform";
 import { Dialog, Seg } from "./kit";
 import { useUi, type ThemePref } from "./prefs";
+import { useLayout } from "./layout";
 import { fetchLatestRelease, newerVersion } from "./update";
 
 function Row({ label, hint, children }: { label: string; hint?: string; children: React.ReactNode }) {
@@ -93,7 +94,14 @@ export function SettingsDialog() {
         </Row>
       </div>
       <div className="mt-4 flex justify-between">
-        <button className="btn-ghost text-xs" onClick={() => ui.reset()} title="Design, Leisten und Größe zurücksetzen (Merkliste bleibt)">
+        <button
+          className="btn-ghost text-xs"
+          onClick={() => {
+            ui.reset();
+            useLayout.getState().reset();
+          }}
+          title="Design, Leisten, Größe und Fensteraufteilung zurücksetzen (Merkliste bleibt)"
+        >
           <RotateCcw size={13} /> Zurücksetzen
         </button>
         <button className="btn-primary" onClick={close}>
