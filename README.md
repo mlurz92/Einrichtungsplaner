@@ -10,6 +10,16 @@ bert plantagie und connubia by calligaris** und Designleuchten von **lampe.de**
 
 📖 **[Programmbeschreibung](docs/Programmbeschreibung.md)** – jede Fläche, jeder Schalter, jede Taste und jede Regel im Detail.
 
+## Neu in Version 2.5.1
+
+- **Vorgefertigte Ansichten auf einen Blick:** Der Knopf **Ansichten** in der Kopfleiste zeigt zehn Vorschaukacheln. Ein Klick stellt Aufteilung und Inhalt aller Fenster ein:
+  - 2D-Plan, 2D | 3D, 3D-Modell (Tasten 1/2/3)
+  - 2D | Rundgang, 2D | 2D, 3D | Rundgang, 2D über 3D
+  - **Planen** (großer Plan, rechts 3D und Rundgang), **Präsentieren** (großes 3D oben), **Vier Ansichten**
+  - Darunter die reinen Aufteilungen und „Fenster gleich groß“.
+- **Fenstergröße per Ziehen, gut sichtbar:** Zwischen den Fenstern liegt eine Fuge mit **Griff**, die sich beim Überfahren einfärbt. Beim Ziehen zeigt sie die Anteile („62 % | 38 %“), während Plan und 3D die Maus nicht abfangen.
+- **Raumfotos in jedem 3D-Fenster:** Die zehn Blickwinkel stehen direkt in der Kopfzeile des Fensters (Kamera-Symbol), ohne Umweg über die Ansichtsleiste.
+
 ## Neu in Version 2.5.0
 
 **Ansichten wie im CAD-Programm.** Die Mitte besteht aus bis zu **vier frei belegbaren Fenstern**. Jedes zeigt wahlweise den
@@ -18,7 +28,7 @@ nebeneinander).
 
 | | |
 |---|---|
-| Aufteilungen | Ein Fenster · zwei nebeneinander · zwei übereinander · drei (groß links bzw. groß oben) · vier Fenster – in der Kopfleiste als Symbole, im Menü **Ansicht → Aufteilung** und über **Strg+K** |
+| Aufteilungen | Ein Fenster · zwei nebeneinander · zwei übereinander · drei (groß links bzw. groß oben) · vier Fenster – über den Knopf **Ansichten** in der Kopfleiste, im Menü **Ansicht** und über **Strg+K** |
 | Teiler | frei ziehbar (12–88 %), Doppelklick = halbe-halbe, Pfeiltasten in 2-%-Schritten, bei vier Fenstern verschiebt der Kreuzungspunkt beide Teiler |
 | Kopfzeile je Fenster | Ansichtsart (2D-Plan / 3D), im Plan Messen · Pos.-Nr. · Freiflächen · Maße, in 3D Kamera **Modell · Oben · Rundgang**, Wanddarstellung, Tag/Abend, Darstellung, Ansichtsleiste und Maximieren; passt sich der Fensterbreite an |
 | Eigenständige 3D-Fenster | eigene Kamera, Brennweite, Wanddarstellung und Ansichtsleiste je Fenster; Licht, Decke, Türen und Qualität gelten für alle |
@@ -148,6 +158,8 @@ Nicht maschinell abrufbar waren Kave Home, XXXLutz/mömax, Porta und Kare Design
 
 ## Versionsgeschichte
 
+**2.5.1** – vorgefertigte Ansichten als Kacheln, sichtbare Teilergriffe mit Prozentanzeige, Raumfotos in der Fensterkopfzeile.
+
 **2.5.0** – frei aufteilbare Ansichtsfenster, Menüleiste, Icon „Noir“, Programmbeschreibung (siehe oben).
 
 **2.3.0** – nimmt das Gold zurück: Die Konzepte sind **minimalistisch-luxuriös** in Schwarz, Beige/Greige und
@@ -275,7 +287,7 @@ npm run dev          # Browser: http://localhost:1420
 npm run tauri:dev    # Desktop-Fenster (Rust + WebView2)
 npm run tauri:build  # Installer (Windows)
 npx vitest run       # Tests (Fensteraufteilung, Geometrie, Budgets, Katalog, Planungs-Check, Varianten, Einbauküche, Versionsvergleich, Farbwiedergabe)
-npm run ui-check     # nach „npx vite build“: Kopfleiste 1.200–1.920 px × Ansichten × Designs, alle sechs Aufteilungen (Fensterzahl, Kopfzeilen ohne Überlauf), 2D | 2D, Maximieren, Menüleiste, Dialoge (Playwright)
+npm run ui-check     # nach „npx vite build“: Kopfleiste 1.200–1.920 px × Ansichten × Designs, alle sechs Aufteilungen (Fensterzahl, Kopfzeilen ohne Überlauf), Teiler per Maus ziehen, alle vorgefertigten Ansichten, 2D | 2D, Maximieren, Menüleiste, Dialoge (Playwright)
 node scripts/render-shots.mjs <Ordner>   # nach „npx vite build“: 3D-Referenzbilder aus 6 Blickwinkeln mit Helligkeit und Belichtung; MODES=tag,abend,kunst (Kunstlicht bei Tag)
 ```
 

@@ -8,7 +8,7 @@ import { ArrowLeftRight, ClipboardPaste, Copy, CopyPlus, Crosshair, Eye, EyeOff,
 import type { CtxEntry } from "./kit";
 import { normAngle } from "../model/geometry";
 import { useUi } from "./prefs";
-import { ensure3d, LAYOUTS, useLayout, type LayoutId } from "./layout";
+import { ensure3d, LAYOUTS, useLayout, VIEW_PRESETS, type LayoutId } from "./layout";
 import { exportPlanPng, exportPlanSvg, exportScreenshot, exportShoppingList, importGlb, openProject, openRecent, printBudget, saveProject } from "./fileops";
 import { fileName, recentFiles } from "./recent";
 
@@ -115,6 +115,7 @@ export function staticCommands(): Command[] {
     { id: "help", group: "Hilfe", label: "Bedienung & Tastenkürzel", kbd: "F1", run: () => st().set("helpOpen", true) },
   ];
   for (const m of Object.keys(WALL_LABELS) as WallMode[]) cmds.push({ id: `wall-${m}`, group: "Ansicht", label: `Wände: ${WALL_LABELS[m]}`, kbd: m === "auto" ? "W" : undefined, run: () => lay().setPane(ensure3d(), { walls: m }) });
+  for (const v of VIEW_PRESETS) if (!v.kbd) cmds.push({ id: `view-${v.id}`, group: "Ansicht", label: `Ansicht: ${v.label} (${v.hint})`, keywords: "vorgefertigt ansichten fenster layout", run: () => lay().applyView(v.id) });
   for (const id of Object.keys(LAYOUTS) as LayoutId[]) cmds.push({ id: `layout-${id}`, group: "Ansicht", label: `Aufteilung: ${LAYOUTS[id].label}`, keywords: "fenster layout viewport geteilt", run: () => lay().setLayout(id) });
   for (const t of Object.keys(TAB_LABELS) as LeftTab[]) cmds.push({ id: `tab-${t}`, group: "Seitenleiste", label: `Seitenleiste: ${TAB_LABELS[t]}`, run: () => st().set("leftTab", t) });
   for (const c of concepts) cmds.push({ id: `concept-${c.id}`, group: "Konzepte", label: `${c.subtitle} laden: ${c.title}`, run: () => st().loadConcept(c.id) });

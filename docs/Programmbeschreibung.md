@@ -1,6 +1,6 @@
 # Einrichtungsplaner WE 13 – Programmbeschreibung
 
-Version 2.5.0 · Stand 26.10.2026
+Version 2.5.1 · Stand 26.10.2026
 
 Diese Beschreibung erklärt jede Fläche, jeden Schalter, jede Taste und jede Regel des Einrichtungsplaners. Sie ist
 zum Nachschlagen gedacht. Den schnellsten Überblick gibt Abschnitt 1. Alle Tastenkürzel stehen zusätzlich in der
@@ -130,7 +130,7 @@ Von links nach rechts:
 | **App-Icon + Projektname** | Ein Klick auf den Namen benennt das Projekt um (Enter übernimmt, Esc bricht ab). „· ungespeichert“ erscheint bei offenen Änderungen. |
 | **Menüleiste** | Datei, Bearbeiten, Ansicht, Konzepte, Hilfe, wie in Desktop-Programmen. Ist ein Menü offen, öffnet das Überfahren eines anderen Menüs dieses direkt. **←/→** wechselt zum Nachbarmenü, **↑/↓** wählt, **Enter** führt aus, **Esc** schließt. |
 | **Rückgängig / Wiederholen** | Der Tooltip nennt den Schritt, z. B. „Rückgängig: Sofa verschieben (Strg+Z)“. |
-| **Aufteilung** | Ab 1.600 px Fensterbreite sechs Symbole nebeneinander, darunter ein Klappmenü mit denselben sechs Aufteilungen (Abschnitt 5). |
+| **Ansichten** | Beschrifteter Knopf mit dem Symbol der aktuellen Aufteilung. Öffnet die **vorgefertigten Ansichten** als Vorschaukacheln, darunter die reinen Aufteilungen und „Fenster gleich groß“ (Abschnitt 5.1). |
 | **Magnet** | Fang an Raster und Wänden an/aus. **Alt** beim Ziehen setzt ihn vorübergehend aus. |
 | **Suchen …** (Strg K) | Öffnet die Befehlssuche. |
 | **Budget** | Summe und Fortschrittsbalken gegen den Budgetrahmen. Ein Klick öffnet den Reiter Budget. |
@@ -171,11 +171,9 @@ bleibt über die Menüs, die Befehlssuche und die Hilfe (F1) erreichbar.
 
 | Eintrag | Kürzel | Wirkung |
 |---|---|---|
-| Schnellwahl: Nur 2D-Plan | 1 | Ein Fenster mit Plan. Ein vorhandenes Planfenster wird wiederverwendet, seine Einstellungen bleiben. |
-| Schnellwahl: 2D-Plan und 3D nebeneinander | 2 | Zwei Fenster, links Plan, rechts 3D. |
-| Schnellwahl: Nur 3D-Ansicht | 3 | Ein Fenster mit 3D, mit Kamera und Wandmodus des vorhandenen 3D-Fensters. |
+| Vorgefertigte Ansichten (zehn Einträge, Häkchen an der aktuellen) | 1 / 2 / 3 für 2D-Plan, 2D \| 3D, 3D-Modell | Wie die Kacheln im Knopf **Ansichten** (Abschnitt 5.1). |
 | Aufteilung ▸ | – | Sechs Aufteilungen mit Häkchen an der aktuellen. |
-| Aktives Fenster maximieren / Aufteilung wiederherstellen | Strg+Leertaste | Abschnitt 5.4. |
+| Aktives Fenster maximieren / Aufteilung wiederherstellen | Strg+Leertaste | Abschnitt 5.5. |
 | Aufteilung zurücksetzen | – | Zwei Fenster nebeneinander, Plan links, 3D rechts, Teiler mittig. |
 | Linke Leiste (Katalog und Werkzeuge) / Rechte Leiste (Eigenschaften) | Strg+B / Strg+Umschalt+B | Häkchen = sichtbar. |
 | Vollbild | F11 | – |
@@ -225,7 +223,33 @@ Neu in 2.5.0: Die Mitte des Programms besteht aus bis zu vier frei belegbaren Fe
 Jedes Fenster zeigt entweder einen **2D-Plan** oder eine **3D-Ansicht**. Möglich sind damit auch 2D | 2D (z. B. zwei
 Zoomstufen), 3D | 3D (z. B. Draufsicht und Rundgang) und jede Mischung.
 
-### 5.1 Aufteilungen
+### 5.1 Vorgefertigte Ansichten
+
+Der Knopf **Ansichten** in der Kopfleiste (rechts neben Rückgängig/Wiederholen) öffnet eine Übersicht mit
+Vorschaukacheln. Jede Kachel zeigt schematisch die Fenster und ihren Inhalt (2D, 3D, Oben, Gehen). Ein Klick stellt
+Aufteilung, Ansichtsart und Kamera aller Fenster in einem Schritt ein. Die aktuelle Ansicht ist hervorgehoben.
+
+| Kachel | Taste | Fenster |
+|---|---|---|
+| **2D-Plan** | 1 | nur der Grundriss |
+| **2D \| 3D** | 2 | Plan links, 3D-Modell rechts |
+| **3D-Modell** | 3 | nur die 3D-Ansicht |
+| **2D \| Rundgang** | – | Plan links, Rundgang auf Augenhöhe rechts |
+| **2D \| 2D** | – | zwei Pläne, z. B. Übersicht und Detail |
+| **3D \| Rundgang** | – | Modell und Rundgang nebeneinander |
+| **2D über 3D** | – | Plan oben, 3D-Modell unten |
+| **Planen** | – | großer Plan links (60 %), rechts 3D-Modell und Rundgang |
+| **Präsentieren** | – | großes 3D-Modell oben (62 %), unten Plan und Rundgang |
+| **Vier Ansichten** | – | Plan, 3D-Modell, Draufsicht und Rundgang |
+
+Darunter:
+- **Nur Aufteilung ändern (Fensterinhalt bleibt)**: die sechs Aufteilungen aus Abschnitt 5.2.
+- Ein kurzer Hinweis, wie man die Fenstergröße ändert.
+- **Fenster gleich groß** setzt alle Teiler auf die Mitte.
+
+Dieselben Ansichten stehen im Menü **Ansicht** und in der Befehlssuche („Ansicht: …“).
+
+### 5.2 Aufteilungen
 
 | Symbol | Name | Fenster | Teiler |
 |---|---|---|---|
@@ -249,7 +273,7 @@ Werkseinstellungen der vier Fenster:
 | 3 | 3D | Rundgang | raumhoch | aus |
 | 4 | 2D-Plan | – | – | – |
 
-### 5.2 Kopfzeile eines Fensters
+### 5.3 Kopfzeile eines Fensters
 
 Jedes Fenster hat eine schmale Kopfzeile:
 
@@ -267,22 +291,26 @@ Die Kopfzeile passt sich der Fensterbreite an. Unter etwa 560 px fallen Beschrif
 verschwindet das Darstellungsmenü. Die Ansichtsleiste wird unter 380 px Fensterbreite ausgeblendet und die
 Blickrichtungsrose unter 420 px. Die Funktionen bleiben über das Menü **Ansicht** erreichbar.
 
-### 5.3 Teiler
+### 5.4 Teiler
+
+Zwischen benachbarten Fenstern liegt eine schmale, dunklere Fuge. In ihrer Mitte sitzt ein **Griff** (kurzer Balken),
+bei „Vier Fenster“ je zwei Griffe pro Teiler und ein runder Kreuzungspunkt. Beim Überfahren färben sich Griff und Fuge in
+der Akzentfarbe, und der Mauszeiger zeigt ↔ bzw. ↕. Man kann die Fuge an jeder Stelle greifen, nicht nur am Griff.
 
 | Aktion | Wirkung |
 |---|---|
-| Teiler ziehen | Fenstergrößen stufenlos ändern, 12–88 % je Achse. Der Mauszeiger zeigt ↔ bzw. ↕. |
+| Fuge bzw. Griff ziehen | Fenstergrößen stufenlos ändern, 12–88 % je Achse. Während des Ziehens zeigt eine Plakette die Anteile, z. B. „62 % \| 38 %“. Plan und 3D reagieren währenddessen nicht auf die Maus. |
 | Doppelklick auf den Teiler | Wieder halbe-halbe. |
 | Teiler mit Tab fokussieren, dann ←/→ bzw. ↑/↓ | Schritte von 2 %, mit Umschalt 10 %. |
 | Kreuzungspunkt (nur „Vier Fenster“) ziehen | Beide Teiler zugleich verschieben. Doppelklick = vier gleiche Fenster. |
 
-### 5.4 Maximieren
+### 5.5 Maximieren
 
 **Strg+Leertaste**, das Maximieren-Symbol oder ein Doppelklick auf die Kopfzeile vergrößert das **aktive Fenster** auf
 die ganze Mitte. Die anderen Fenster bleiben im Hintergrund erhalten, ihre 3D-Ansichten rechnen aber nicht weiter.
 Derselbe Befehl stellt die Aufteilung wieder her. Ein Wechsel der Aufteilung hebt das Maximieren auf.
 
-### 5.5 Aktives Fenster
+### 5.6 Aktives Fenster
 
 Ein Klick in ein Fenster (oder Fokus per Tab) macht es aktiv. Es ist an der Akzentlinie unter der Kopfzeile zu
 erkennen. Das aktive Fenster ist das Ziel für Tasten, die sich auf eine Ansicht beziehen:
@@ -294,7 +322,7 @@ erkennen. Das aktive Fenster ist das Ziel für Tasten, die sich auf eine Ansicht
 | W A S D, Pfeile im Rundgang | Nur das aktive Rundgang-Fenster bewegt sich. |
 | Foto (PNG), Grundriss-Export | Aktives bzw. erstes sichtbares Fenster der passenden Art. Ohne passendes Fenster erscheint ein Hinweis („Keine 3D-Ansicht sichtbar …“ bzw. „Kein 2D-Plan sichtbar …“). |
 
-### 5.6 Gespeicherte Aufteilung
+### 5.7 Gespeicherte Aufteilung
 
 Aufteilung, Teilerpositionen, die Einstellung jedes Fensters (Ansichtsart, Kamera, Wandmodus, Ansichtsleiste),
 Maximieren und aktives Fenster werden auf dem Gerät gespeichert (`we13.layout.v1`). Sie sind unabhängig vom Projekt:
@@ -303,7 +331,7 @@ Eine geöffnete Datei ändert die Aufteilung nicht.
 **Einstellungen → Zurücksetzen** und **Ansicht → Aufteilung zurücksetzen** stellen die Werkseinstellung her. Ansicht
 und Wandmodus aus Versionen vor 2.5 werden beim ersten Start übernommen.
 
-### 5.7 Mehrere 3D-Fenster
+### 5.8 Mehrere 3D-Fenster
 
 - Jedes 3D-Fenster hat **eigene Kamera, eigene Brennweite und eigenen Wandmodus**. Ansichtsleiste und Raumfotos wirken
   auf ihr Fenster.
@@ -403,6 +431,7 @@ Werkzeuge, aber die Schalter gelten für alle Pläne gemeinsam.
 |---|---|---|
 | **Kamera** (Segmentschalter) | **Modell** · **Oben** · **Rundgang** | Modell: frei drehen um die Wohnung. Oben: Draufsicht. Rundgang: auf Augenhöhe gehen (Abschnitt 7.4). |
 | **Wände** (Menü, Taste W) | **Auto** – verdeckende Wände gekappt · **Voll** – raumhoch · **Schnitt** – in 1,30 m Höhe · **Flach** – nur Sockel (Grundriss in 3D) | Gilt nur für dieses Fenster. Im Rundgang sind die Wände immer raumhoch (Menü abgeblendet). |
+| **Raumfotos** (Kamera-Symbol) | Wohnen · Lamellenwand, Wohnen · Sofaecke, Essplatz · Sideboard, Essplatz · Fenster, Essplatz · Tischplatte, Küche, Diele · Konsole, Schlafen · Bett, Arbeit / Gast, Bad · „Als Bild speichern … (Ansichtsleiste)“ | Schwenkt die Kamera dieses Fensters zum gewählten Blickwinkel. Speichern als PNG über die Ansichtsleiste (Abschnitt 8.3). |
 | **Licht** (Sonne/Mond) | – | Tageslicht ↔ Abendlicht mit Leuchten (alle 3D-Fenster). |
 | **Darstellung** (Regler-Symbol) | Sonnenstand (Uhrzeit 7:00–19:30 in Viertelstunden), Türen geöffnet, Decke anzeigen, Darstellungsqualität Hoch (Umgebungsverdeckung, Glanz) / Mittel / Schnell (schwächere Grafik) | Alle 3D-Fenster. |
 
@@ -981,9 +1010,10 @@ Türflügel um 8° gedreht. Die Raumhöhe beträgt 2,56 m, und die Flächen sind
 | Problem | Lösung |
 |---|---|
 | 3D ruckelt | Weniger 3D-Fenster zeigen (z. B. Taste 2), Qualität „Schnell“, Transparenzeffekte aus. |
+| Fenster zu groß/klein | Griff zwischen den Fenstern ziehen oder **Ansichten → Fenster gleich groß**. |
 | Fenster zu klein für Werkzeuge | Teiler ziehen oder Strg+Leertaste (maximieren). Jede Funktion steht auch im Menü Ansicht und in Strg+K. |
 | Maus „hängt“ im Rundgang | Esc gibt die Maus frei. |
 | W wirkt im falschen Fenster | Zuerst in das gewünschte 3D-Fenster klicken: Es wird aktiv. |
-| Aufteilung durcheinander | Ansicht → Aufteilung zurücksetzen. |
+| Aufteilung durcheinander | **Ansichten** → eine vorgefertigte Ansicht wählen, oder Ansicht → Aufteilung zurücksetzen. |
 | Altes Icon nach Update | Der Installer frischt den Icon-Cache auf. Sonst Verknüpfung neu anlegen oder `ie4uinit.exe -show` ausführen. |
 | Projekt aus älterer Version | Öffnet unverändert. Die Einbauküche wird ergänzt, veraltete Katalog-IDs werden über Aliase aufgelöst. |

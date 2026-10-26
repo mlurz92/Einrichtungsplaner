@@ -115,8 +115,40 @@ try {
     const vis = await page.evaluate(() => [...document.querySelectorAll("[data-pane]")].filter((p) => getComputedStyle(p).visibility !== "hidden").length);
     if (vis !== 1) fail(`${theme}: Maximieren zeigt ${vis} Fenster`);
     await page.evaluate(() => globalThis.__we13layout.getState().reset());
+    // Teiler: sichtbarer Griff, Ziehen mit der Maus ändert die Fensterbreite
+    await page.setViewportSize({ width: 1600, height: 900 });
+    await page.waitForTimeout(300);
+    const sep = page.locator('main [role="separator"]').first();
+    if (!(await sep.locator(".split-grip").first().isVisible())) fail(`${theme}: Teiler ohne sichtbaren Griff`);
+    const sb = await sep.boundingBox();
+    await page.mouse.move(sb.x + sb.width / 2, sb.y + sb.height / 3);
+    await page.mouse.down();
+    for (let i = 1; i <= 5; i++) await page.mouse.move(sb.x + sb.width / 2 + 30 * i, sb.y + sb.height / 3);
+    await page.mouse.up();
+    const sx = await page.evaluate(() => globalThis.__we13layout.getState().split.x);
+    if (!(sx > 0.55)) fail(`${theme}: Teiler lässt sich nicht ziehen (Anteil ${sx})`);
+    // Vorgefertigte Ansichten: Knopf „Ansichten“ in der Kopfleiste, jede Kachel stellt Aufteilung und Belegung ein
+    await page.getByRole("button", { name: /^Ansichten/ }).click();
+    const tiles = page.locator('[role="menu"] [role="menuitemradio"][title]');
+    const nt = await tiles.count();
+    if (nt < 10) fail(`${theme}: Ansichten-Menü zeigt ${nt} vorgefertigte Ansichten`);
+    await page.keyboard.press("Escape");
+    const EXPECT = { plan: "plan", "plan-3d": "plan,3d", "3d": "3d", "plan-walk": "plan,3d", "plan-plan": "plan,plan", "3d-walk": "3d,3d", "plan-over-3d": "plan,3d", studio: "plan,3d,3d", present: "3d,plan,3d", quad: "plan,3d,3d,3d" };
+    const views = [];
+    for (const [id, kinds] of Object.entries(EXPECT)) {
+      await page.evaluate((v) => globalThis.__we13layout.getState().applyView(v), id);
+      await page.waitForTimeout(150);
+      const got = await page.evaluate(() => [...document.querySelectorAll("[data-pane]")].map((p) => p.dataset.kind).join(","));
+      if (got !== kinds) views.push(`${id} (${got})`);
+    }
+    if (views.length) fail(`${theme}: Ansichten ${views.join(", ")} fehlerhaft`);
+    // Software-Rendering in CI: neu geladene 3D-Fenster erst zur Ruhe kommen lassen
+    await page.evaluate(() => globalThis.__we13layout.getState().applyView("plan"));
+    await page.waitForTimeout(2000);
+    await page.evaluate(() => globalThis.__we13layout.getState().reset());
+    await page.waitForTimeout(1500);
     // Menüleiste: Menüs öffnen, Überfahren wechselt das Menü
-    await page.getByRole("menuitem", { name: "Datei", exact: true }).click();
+    await page.getByRole("menuitem", { name: "Datei", exact: true }).click({ timeout: 90000 });
     await page.getByRole("menuitem", { name: "Ansicht", exact: true }).hover();
     if (!(await page.locator('[role="menu"][aria-label="Ansicht"]').isVisible({ timeout: 2000 }).catch(() => false))) fail(`${theme}: Menüleiste wechselt beim Überfahren nicht`);
     await page.keyboard.press("Escape");
@@ -133,5 +165,5 @@ if (failed) {
   console.error(`${failed} Fehler`);
   process.exit(1);
 }
-console.log(`✓ Kopfleiste passt bei ${WIDTHS.join(", ")} px in ${MODES.length} Ansichten und ${THEMES.length} Designs; Aufteilungen, Maximieren und Menüleiste funktionieren; Dialoge öffnen`);
+console.log(`✓ Kopfleiste passt bei ${WIDTHS.join(", ")} px in ${MODES.length} Ansichten und ${THEMES.length} Designs; Aufteilungen, Teiler, vorgefertigte Ansichten, Maximieren und Menüleiste funktionieren; Dialoge öffnen`);
 process.exit(0);
