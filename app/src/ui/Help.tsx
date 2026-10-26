@@ -47,9 +47,10 @@ const GROUPS: [string, [string, string][]][] = [
     "Fenster & Aufteilung",
     [
       ["1 / 2 / 3", "Schnellwahl: nur 2D-Plan / 2D-Plan und 3D nebeneinander / nur 3D"],
-      ["Aufteilung (Kopfleiste)", "Ein Fenster, zwei nebeneinander oder übereinander, drei (groß links bzw. oben) oder vier Fenster"],
+      ["Ansichten (Kopfleiste)", "Vorgefertigte Ansichten als Kacheln: 2D | 3D, 2D | Rundgang, 2D | 2D, 3D | Rundgang, Planen, Präsentieren, Vier Ansichten … – darunter die reinen Aufteilungen und „Fenster gleich groß“"],
       ["Kopfzeile eines Fensters", "Ansichtsart wählen (2D-Plan oder 3D) – so sind auch 2D | 2D und 3D | 3D möglich, jedes 3D-Fenster mit eigener Kamera und Wanddarstellung"],
-      ["Teiler ziehen", "Fenstergrößen frei verstellen; Doppelklick = halbe-halbe; bei vier Fenstern verschiebt der Kreuzungspunkt beide Teiler"],
+      ["Griff zwischen den Fenstern ziehen", "Fenstergrößen frei verstellen (Anzeige in %); Doppelklick = halbe-halbe; bei vier Fenstern verschiebt der Kreuzungspunkt beide Teiler"],
+      ["Raumfotos (Kopfzeile 3D)", "Kamera-Symbol im 3D-Fenster: zehn vorgefertigte Blickwinkel je Raum anschwenken"],
       ["Strg+Leertaste", "Aktives Fenster maximieren bzw. Aufteilung wiederherstellen (auch Doppelklick auf die Kopfzeile)"],
       ["Aktives Fenster", "Zuletzt angeklicktes Fenster (Akzentlinie unter der Kopfzeile): Ziel für W, M, + / −, F und den Rundgang"],
     ],

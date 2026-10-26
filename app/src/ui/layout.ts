@@ -188,7 +188,70 @@ function presetState(s: LayoutPrefs, v: Preset): LayoutPrefs {
   return { ...s, panes, layout: "single", solo, maximized: null, active: solo };
 }
 
+/** Vorgefertigte Ansichten: Aufteilung samt Belegung der Fenster (Art und Kamera) in einem Klick. */
+export type ViewSlot = { kind: PaneKind; camera?: Camera3D };
+export interface ViewPreset {
+  id: string;
+  label: string;
+  hint: string;
+  layout: LayoutId;
+  split?: { x: number; y: number };
+  slots: ViewSlot[];
+  kbd?: string;
+}
+const P: ViewSlot = { kind: "plan" };
+const M: ViewSlot = { kind: "3d", camera: "orbit" };
+const T: ViewSlot = { kind: "3d", camera: "top" };
+const R: ViewSlot = { kind: "3d", camera: "walk" };
+export const VIEW_PRESETS: ViewPreset[] = [
+  { id: "plan", label: "2D-Plan", hint: "Nur der Grundriss", layout: "single", slots: [P], kbd: "1" },
+  { id: "plan-3d", label: "2D | 3D", hint: "Plan links, 3D-Modell rechts", layout: "cols", split: { x: 0.5, y: 0.5 }, slots: [P, M], kbd: "2" },
+  { id: "3d", label: "3D-Modell", hint: "Nur die 3D-Ansicht", layout: "single", slots: [M], kbd: "3" },
+  { id: "plan-walk", label: "2D | Rundgang", hint: "Plan links, Rundgang auf Augenhöhe rechts", layout: "cols", split: { x: 0.5, y: 0.5 }, slots: [P, R] },
+  { id: "plan-plan", label: "2D | 2D", hint: "Zwei Pläne, z. B. Übersicht und Detail", layout: "cols", split: { x: 0.5, y: 0.5 }, slots: [P, P] },
+  { id: "3d-walk", label: "3D | Rundgang", hint: "Modell und Rundgang nebeneinander", layout: "cols", split: { x: 0.5, y: 0.5 }, slots: [M, R] },
+  { id: "plan-over-3d", label: "2D über 3D", hint: "Plan oben, 3D-Modell unten", layout: "rows", split: { x: 0.5, y: 0.5 }, slots: [P, M] },
+  { id: "studio", label: "Planen", hint: "Großer Plan, rechts 3D-Modell und Rundgang", layout: "left3", split: { x: 0.6, y: 0.5 }, slots: [P, M, R] },
+  { id: "present", label: "Präsentieren", hint: "Großes 3D-Modell, unten Plan und Rundgang", layout: "top3", split: { x: 0.5, y: 0.62 }, slots: [M, P, R] },
+  { id: "quad", label: "Vier Ansichten", hint: "Plan, 3D-Modell, Draufsicht und Rundgang", layout: "quad", split: { x: 0.5, y: 0.5 }, slots: [P, M, T, R] },
+];
+
+/** Welche vorgefertigte Ansicht entspricht dem aktuellen Stand (für das Häkchen)? */
+export function matchingView(s: LayoutPrefs): string | null {
+  const vis = visiblePanes(s);
+  for (const v of VIEW_PRESETS) {
+    if (v.layout !== s.layout || v.slots.length !== vis.length) continue;
+    if (v.slots.every((slot, k) => s.panes[vis[k]].kind === slot.kind && (slot.kind === "plan" || s.panes[vis[k]].camera === slot.camera))) return v.id;
+  }
+  return null;
+}
+
+function viewState(s: LayoutPrefs, v: ViewPreset): LayoutPrefs {
+  const panes = s.panes.map((p) => ({ ...p }));
+  if (v.layout === "single") {
+    // vorhandenes Fenster passender Art weiterverwenden (behält Kamera, Zoom und Ladezustand)
+    const want = v.slots[0];
+    let solo = [s.active, ...visiblePanes(s), 0, 1, 2, 3].find((i) => panes[i].kind === want.kind && (want.kind === "plan" || panes[i].camera !== "walk"));
+    if (solo === undefined) {
+      solo = want.kind === "plan" ? 0 : 1;
+      panes[solo].kind = want.kind;
+    }
+    if (want.camera) panes[solo].camera = want.camera;
+    return { ...s, panes, layout: "single", solo, maximized: null, active: solo };
+  }
+  v.slots.forEach((slot, i) => {
+    panes[i].kind = slot.kind;
+    if (slot.camera) {
+      panes[i].camera = slot.camera;
+      if (slot.camera === "walk") panes[i].panel = false;
+    }
+  });
+  return { ...s, panes, layout: v.layout, split: v.split ?? s.split, maximized: null, active: 0 };
+}
+
 interface LayoutStore extends LayoutPrefs {
+  applyView(id: string): void;
+  evenSplit(): void;
   setLayout(l: LayoutId): void;
   preset(v: Preset): void;
   setSplit(axis: "x" | "y", v: number): void;
@@ -213,6 +276,13 @@ export const useLayout = create<LayoutStore>((set, get) => ({
   },
   preset(v) {
     set(presetState(get(), v));
+  },
+  evenSplit() {
+    set({ split: { x: 0.5, y: 0.5 } });
+  },
+  applyView(id) {
+    const v = VIEW_PRESETS.find((x) => x.id === id);
+    if (v) set(viewState(get(), v));
   },
   setSplit(axis, v) {
     set({ split: { ...get().split, [axis]: clampSplit(v) } });

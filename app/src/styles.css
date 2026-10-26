@@ -562,3 +562,47 @@ html[data-theme="light"] .split-line {
   background: var(--ui-accent);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--ui-accent) 25%, transparent);
 }
+
+/* Griff in der Mitte jedes Teilers: immer sichtbar, beim Überfahren/Ziehen in Akzentfarbe */
+.split-grip {
+  background: color-mix(in srgb, var(--ui-ink, #3c3228) 28%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--ui-card) 70%, transparent);
+  transition: background-color 0.15s, transform 0.15s;
+}
+.split-handle .split-line {
+  background: transparent;
+}
+.split-handle:hover .split-grip,
+.split-handle:focus-visible .split-grip,
+.split-handle[data-drag="true"] .split-grip {
+  background: var(--ui-accent);
+}
+.split-handle[data-axis="x"]:hover .split-grip,
+.split-handle[data-axis="x"][data-drag="true"] .split-grip {
+  transform: translate(-50%, -50%) scaleY(1.5);
+}
+.split-handle[data-axis="y"]:hover .split-grip,
+.split-handle[data-axis="y"][data-drag="true"] .split-grip {
+  transform: translate(-50%, -50%) scaleX(1.5);
+}
+.split-cross {
+  background: color-mix(in srgb, var(--ui-ink, #3c3228) 28%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ui-card) 70%, transparent);
+}
+/* beim Ziehen keine Textauswahl und keine Mausereignisse in Plan/3D */
+html.split-dragging .pane {
+  pointer-events: none;
+  user-select: none;
+}
+.view-tile:hover,
+.view-tile:focus-visible {
+  background: color-mix(in srgb, var(--ui-ink, #3c3228) 7%, transparent);
+}
+.view-tile[data-on="true"] {
+  @apply bg-accent-soft text-accent-ink;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ui-accent) 45%, transparent);
+}
+/* Lücke zwischen den Fenstern etwas dunkler als die Fenster, damit die Teiler als Fuge erkennbar sind */
+.viewports[data-multi="true"] {
+  background-color: color-mix(in srgb, var(--ui-ink) 9%, transparent);
+}

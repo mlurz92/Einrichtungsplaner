@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { dividers, LAYOUT_DEFAULTS, LAYOUTS, paneRects, sanitizeLayout, visiblePanes, type LayoutId } from "./layout";
+import { dividers, LAYOUT_DEFAULTS, LAYOUTS, matchingView, paneRects, sanitizeLayout, useLayout, VIEW_PRESETS, visiblePanes, type LayoutId } from "./layout";
 
 const ids = Object.keys(LAYOUTS) as LayoutId[];
 
@@ -76,5 +76,26 @@ describe("Schnellwahl und Fensterwechsel", () => {
     l().toggleMaximize(2);
     expect(l().maximized).toBeNull();
     l().reset();
+  });
+
+  it("vorgefertigte Ansichten stellen Aufteilung und Belegung ein und werden wiedererkannt", () => {
+    const ids = new Set<string>();
+    for (const v of VIEW_PRESETS) {
+      expect(ids.has(v.id)).toBe(false);
+      ids.add(v.id);
+      expect(v.slots.length).toBe(LAYOUTS[v.layout].count);
+      useLayout.getState().applyView(v.id);
+      const s = useLayout.getState();
+      expect(s.layout).toBe(v.layout);
+      expect(s.maximized).toBeNull();
+      expect(matchingView(s)).toBe(v.id);
+      const vis = visiblePanes(s);
+      v.slots.forEach((slot, k) => expect(s.panes[vis[k]].kind).toBe(slot.kind));
+    }
+    // Teilerstellung bleibt beim Wechsel ohne eigene Vorgabe, „gleich groß“ setzt sie zurück
+    useLayout.getState().setSplit("x", 0.7);
+    useLayout.getState().evenSplit();
+    expect(useLayout.getState().split).toEqual({ x: 0.5, y: 0.5 });
+    useLayout.getState().reset();
   });
 });

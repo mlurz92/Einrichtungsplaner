@@ -43,7 +43,7 @@ import { useUi } from "./prefs";
 import { pasteHere, toggleHidden, toggleLock, toggleSwap } from "./commands";
 import { openExternal, toggleFullscreen } from "../platform";
 import { useView3D } from "../three/viewStore";
-import { useLayout } from "./layout";
+import { matchingView, useLayout, VIEW_PRESETS } from "./layout";
 import { LayoutMenuItems, LayoutPicker } from "./Viewports";
 
 export const DOCS_URL = "https://github.com/mlurz92/Einrichtungsplaner/blob/main/docs/Programmbeschreibung.md";
@@ -259,20 +259,15 @@ function ViewMenu() {
   const doors = useEditor((s) => (s.project.settings.doorsOpen ?? 0) > 0.5);
   const lampsDay = useView3D((s) => s.lampsDay);
   const single = lay.layout === "single";
-  const soloKind = lay.panes[lay.solo].kind;
-  const isSplit = lay.layout === "cols" && lay.panes[0].kind === "plan" && lay.panes[1].kind === "3d";
+  const current = matchingView(lay);
   return (
     <Menu label="Ansicht" chevron={false} className={MENU_BTN}>
-      <MenuLabel>Schnellwahl</MenuLabel>
-      <MenuItem checked={single && soloKind === "plan"} kbd="1" onClick={() => lay.preset("plan")}>
-        Nur 2D-Plan
-      </MenuItem>
-      <MenuItem checked={isSplit} kbd="2" onClick={() => lay.preset("split")}>
-        2D-Plan und 3D nebeneinander
-      </MenuItem>
-      <MenuItem checked={single && soloKind === "3d"} kbd="3" onClick={() => lay.preset("3d")}>
-        Nur 3D-Ansicht
-      </MenuItem>
+      <MenuLabel>Vorgefertigte Ansichten</MenuLabel>
+      {VIEW_PRESETS.map((v) => (
+        <MenuItem key={v.id} checked={current === v.id} kbd={v.kbd} title={v.hint} onClick={() => lay.applyView(v.id)}>
+          {v.label} – {v.hint}
+        </MenuItem>
+      ))}
       <MenuLabel>Aufteilung</MenuLabel>
       <LayoutMenuItems />
       <MenuSep />
