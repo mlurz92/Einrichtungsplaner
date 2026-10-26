@@ -5,7 +5,7 @@ Aufruf: python3 tools/icon/installer_images.py <icon_1024.png> <icons-dir>
 import sys
 from PIL import Image, ImageDraw, ImageFont
 
-GOLD = (214, 178, 110)
+GOLD = (205, 169, 108)
 
 
 def font(size, bold=False):
@@ -23,7 +23,7 @@ def grad(w, h):
     d = ImageDraw.Draw(im)
     for y in range(h):
         t = y / max(h - 1, 1)
-        d.line([(0, y), (w, y)], fill=tuple(int(a + (b - a) * t) for a, b in zip((40, 66, 56), (10, 22, 18))))
+        d.line([(0, y), (w, y)], fill=tuple(int(a + (b - a) * t) for a, b in zip((52, 48, 44), (14, 13, 12))))
     return im
 
 

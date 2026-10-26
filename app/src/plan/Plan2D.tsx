@@ -1,4 +1,6 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { isKeyTarget } from "../ui/layout";
 import { apartment, roomNames, wallFaces } from "../data";
 import { useEditor, getCatalogItem, newItemFromCatalog, withSwapPreview } from "../store/project";
 import type { PlacedItem, Vec2 } from "../model/types";
@@ -81,7 +83,8 @@ const ItemSym = memo(function ItemSym({ it, selected, hovered, conflict, showLab
   );
 });
 
-export function Plan2D() {
+/** 2D-Plan im Fenster `pane`; die Planwerkzeuge erscheinen in dessen Kopfzeile (`tools`). */
+export function Plan2D({ pane, tools }: { pane: number; tools: HTMLElement | null }) {
   const snapGuides = useEditor((s) => s.snapGuides);
   const project = useEditor((s) => s.project);
   const selection = useEditor((s) => s.selection);
@@ -141,9 +144,9 @@ export function Plan2D() {
   // Fokus-Anfrage
   const focus = useEditor((s) => s.focusRequest);
   useEffect(() => {
-    if (!focus) return;
+    if (!focus || !isKeyTarget(pane, "plan")) return;
     setVb(([, , vw, vh]) => [P(focus.x) - vw / 2, P(focus.y) - vh / 2, vw, vh]);
-  }, [focus]);
+  }, [focus, pane]);
 
   const toPlan = useCallback(
     (cx: number, cy: number): Vec2 => {
@@ -371,6 +374,8 @@ export function Plan2D() {
       if ((e.target as HTMLElement)?.tagName === "INPUT" || (e.target as HTMLElement)?.tagName === "TEXTAREA") return;
       const st = useEditor.getState();
       if (st.paletteOpen || st.startOpen || st.closeAsk || e.ctrlKey || e.metaKey || e.altKey) return;
+      // Mehrere Pläne: Tasten wirken im aktiven bzw. ersten sichtbaren Plan
+      if (!isKeyTarget(pane, "plan")) return;
       if (e.key === "m" || e.key === "M") setMeasure((m) => ({ on: !m.on }));
       if (e.key === "Escape") setMeasure({ on: false });
       if (e.key === "f" && !e.ctrlKey && !st.selection.length) fit();
@@ -379,7 +384,7 @@ export function Plan2D() {
     };
     window.addEventListener("keydown", k);
     return () => window.removeEventListener("keydown", k);
-  }, [fit, zoomBy]);
+  }, [fit, zoomBy, pane]);
 
   // ---------------------------------------------------------------- Abstandsmaße der Auswahl
   const selItem = selection.length === 1 ? items.find((i) => i.id === selection[0]) : undefined;
@@ -683,21 +688,25 @@ export function Plan2D() {
           </g>
         )}
       </svg>
-      {/* Werkzeugleiste */}
-      <div className="toolbar absolute left-3 top-3 whitespace-nowrap" role="toolbar" aria-label="Planwerkzeuge">
-        <button className="tool" data-on={measure.on} onClick={() => setMeasure((m) => ({ on: !m.on }))} title="Messen: zwei Punkte anklicken (M)">
-          <Ruler size={14} /> <span className="hidden @[620px]:inline">Messen</span>
-        </button>
-        <button className="tool" data-on={showLabels} onClick={() => setShowLabels((v) => !v)} title="Positionsnummern der Einkaufsliste einblenden">
-          <Hash size={14} /> <span className="hidden @[620px]:inline">Pos.-Nr.</span>
-        </button>
-        <button className="tool" data-on={showClearance} onClick={() => useEditor.getState().set("showClearance", !showClearance)} title="Bewegungsflächen, Türschwenkbereiche und Balkonzugänge einblenden (grün = ausreichend, gelb = eng, rot = zu wenig)">
-          <SquareDashed size={14} /> <span className="hidden @[620px]:inline">Freiflächen</span>
-        </button>
-        <button className="tool" data-on={showDims} onClick={() => useEditor.setState((s) => ({ project: { ...s.project, settings: { ...s.project.settings, showDimensions: !showDims } } }))} title="Raummaße in den Raumstempeln">
-          <Ratio size={14} /> <span className="hidden @[620px]:inline">Maße</span>
-        </button>
-      </div>
+      {/* Planwerkzeuge in der Kopfzeile des Fensters */}
+      {tools &&
+        createPortal(
+          <div className="flex items-center gap-0.5 whitespace-nowrap" role="toolbar" aria-label="Planwerkzeuge">
+            <button className="tool" data-on={measure.on} onClick={() => setMeasure((m) => ({ on: !m.on }))} title="Messen: zwei Punkte anklicken (M)">
+              <Ruler size={14} /> <span className="hidden @[540px]:inline">Messen</span>
+            </button>
+            <button className="tool" data-on={showLabels} onClick={() => setShowLabels((v) => !v)} title="Positionsnummern der Einkaufsliste einblenden">
+              <Hash size={14} /> <span className="hidden @[540px]:inline">Pos.-Nr.</span>
+            </button>
+            <button className="tool" data-on={showClearance} onClick={() => useEditor.getState().set("showClearance", !showClearance)} title="Bewegungsflächen, Türschwenkbereiche und Balkonzugänge einblenden (grün = ausreichend, gelb = eng, rot = zu wenig)">
+              <SquareDashed size={14} /> <span className="hidden @[540px]:inline">Freiflächen</span>
+            </button>
+            <button className="tool" data-on={showDims} onClick={() => useEditor.setState((s) => ({ project: { ...s.project, settings: { ...s.project.settings, showDimensions: !showDims } } }))} title="Raummaße in den Raumstempeln">
+              <Ratio size={14} /> <span className="hidden @[540px]:inline">Maße</span>
+            </button>
+          </div>,
+          tools,
+        )}
       {/* Nordpfeil */}
       <div className="glass absolute right-3 top-3 grid h-11 w-11 place-items-center rounded-full" title={`Norden (${north}° – unter Darstellung 3D einstellbar)`}>
         <svg width={30} height={30} viewBox="-15 -15 30 30" style={{ transform: `rotate(${north}deg)` }} aria-hidden>

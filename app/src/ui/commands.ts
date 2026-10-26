@@ -8,6 +8,7 @@ import { ArrowLeftRight, ClipboardPaste, Copy, CopyPlus, Crosshair, Eye, EyeOff,
 import type { CtxEntry } from "./kit";
 import { normAngle } from "../model/geometry";
 import { useUi } from "./prefs";
+import { ensure3d, LAYOUTS, useLayout, type LayoutId } from "./layout";
 import { exportPlanPng, exportPlanSvg, exportScreenshot, exportShoppingList, importGlb, openProject, openRecent, printBudget, saveProject } from "./fileops";
 import { fileName, recentFiles } from "./recent";
 
@@ -23,6 +24,7 @@ export interface Command {
 }
 
 const st = () => useEditor.getState();
+const lay = () => useLayout.getState();
 const hasSel = () => st().selection.length > 0;
 /** Darstellungseinstellung ohne Undo-Schritt (wie die Schalter in der Kopfleiste). */
 const viewSetting = (patch: Partial<ReturnType<typeof st>["project"]["settings"]>) =>
@@ -94,12 +96,15 @@ export function staticCommands(): Command[] {
     { id: "lock", group: "Bearbeiten", label: "Auswahl sperren / entsperren", kbd: "L", enabled: hasSel, run: toggleLock },
     { id: "hide", group: "Bearbeiten", label: "Auswahl ein-/ausblenden", kbd: "H", enabled: hasSel, run: toggleHidden },
     { id: "focus", group: "Ansicht", label: "Kamera auf Auswahl", kbd: "F", enabled: hasSel, run: focusSelection },
-    { id: "v2d", group: "Ansicht", label: "Ansicht: nur 2D-Plan", kbd: "1", run: () => st().set("viewMode", "plan") },
-    { id: "vsplit", group: "Ansicht", label: "Ansicht: 2D und 3D nebeneinander", kbd: "2", run: () => st().set("viewMode", "split") },
-    { id: "v3d", group: "Ansicht", label: "Ansicht: nur 3D", kbd: "3", run: () => st().set("viewMode", "3d") },
-    { id: "orbit", group: "Ansicht", label: "3D: Modellansicht", run: () => st().set("camera3d", "orbit") },
-    { id: "top", group: "Ansicht", label: "3D: Draufsicht", run: () => st().set("camera3d", "top") },
-    { id: "walk", group: "Ansicht", label: "3D: Rundgang (WASD)", keywords: "begehen laufen", run: () => st().set("camera3d", "walk") },
+    { id: "v2d", group: "Ansicht", label: "Ansicht: nur 2D-Plan", kbd: "1", run: () => lay().preset("plan") },
+    { id: "vsplit", group: "Ansicht", label: "Ansicht: 2D-Plan und 3D nebeneinander", kbd: "2", run: () => lay().preset("split") },
+    { id: "v3d", group: "Ansicht", label: "Ansicht: nur 3D", kbd: "3", run: () => lay().preset("3d") },
+    { id: "max", group: "Ansicht", label: "Aktives Fenster maximieren / Aufteilung wiederherstellen", kbd: "Strg+Leertaste", keywords: "vollbild fenster vergrößern", enabled: () => lay().layout !== "single", run: () => lay().toggleMaximize() },
+    { id: "layout-reset", group: "Ansicht", label: "Aufteilung zurücksetzen (2D-Plan | 3D)", keywords: "fenster layout standard", run: () => lay().reset() },
+    { id: "pane-kind", group: "Ansicht", label: "Aktives Fenster: zwischen 2D-Plan und 3D wechseln", keywords: "fenster ansicht art", run: () => lay().setPane(lay().active, { kind: lay().panes[lay().active].kind === "plan" ? "3d" : "plan" }) },
+    { id: "orbit", group: "Ansicht", label: "3D: Modellansicht", run: () => lay().setPane(ensure3d(), { camera: "orbit" }) },
+    { id: "top", group: "Ansicht", label: "3D: Draufsicht", run: () => lay().setPane(ensure3d(), { camera: "top" }) },
+    { id: "walk", group: "Ansicht", label: "3D: Rundgang (WASD)", keywords: "begehen laufen", run: () => lay().setPane(ensure3d(), { camera: "walk" }) },
     { id: "night", group: "Ansicht", label: "Abendlicht ein/aus", keywords: "nacht licht leuchten", run: () => st().set("night", !st().night) },
     { id: "ceiling", group: "Ansicht", label: "Decke anzeigen ein/aus", run: () => st().set("showCeiling", !st().showCeiling) },
     { id: "doors", group: "Ansicht", label: "Türen öffnen/schließen", run: () => viewSetting({ doorsOpen: (st().project.settings.doorsOpen ?? 0) > 0.5 ? 0 : 0.9 }) },
@@ -109,7 +114,8 @@ export function staticCommands(): Command[] {
     { id: "variant-save", group: "Planung", label: "Aktuellen Stand als Variante sichern", keywords: "variante snapshot vergleichen", run: () => st().saveVariant(`Variante ${(st().project.variants?.length ?? 0) + 1}`) },
     { id: "help", group: "Hilfe", label: "Bedienung & Tastenkürzel", kbd: "F1", run: () => st().set("helpOpen", true) },
   ];
-  for (const m of Object.keys(WALL_LABELS) as WallMode[]) cmds.push({ id: `wall-${m}`, group: "Ansicht", label: `Wände: ${WALL_LABELS[m]}`, kbd: m === "auto" ? "W" : undefined, run: () => st().set("wallMode", m) });
+  for (const m of Object.keys(WALL_LABELS) as WallMode[]) cmds.push({ id: `wall-${m}`, group: "Ansicht", label: `Wände: ${WALL_LABELS[m]}`, kbd: m === "auto" ? "W" : undefined, run: () => lay().setPane(ensure3d(), { walls: m }) });
+  for (const id of Object.keys(LAYOUTS) as LayoutId[]) cmds.push({ id: `layout-${id}`, group: "Ansicht", label: `Aufteilung: ${LAYOUTS[id].label}`, keywords: "fenster layout viewport geteilt", run: () => lay().setLayout(id) });
   for (const t of Object.keys(TAB_LABELS) as LeftTab[]) cmds.push({ id: `tab-${t}`, group: "Seitenleiste", label: `Seitenleiste: ${TAB_LABELS[t]}`, run: () => st().set("leftTab", t) });
   for (const c of concepts) cmds.push({ id: `concept-${c.id}`, group: "Konzepte", label: `${c.subtitle} laden: ${c.title}`, run: () => st().loadConcept(c.id) });
   for (const r of apartment.rooms) {

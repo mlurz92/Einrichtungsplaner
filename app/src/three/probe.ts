@@ -234,5 +234,3 @@ export class WhiteBalanceEffect extends Effect {
     (this.uniforms.get("gain")!.value as THREE.Color).copy(c);
   }
 }
-
-export const whiteBalance = new WhiteBalanceEffect();

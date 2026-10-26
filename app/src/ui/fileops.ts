@@ -1,3 +1,4 @@
+import { targetPane } from "./layout";
 import { useEditor, budgetSummary } from "../store/project";
 import type { CatalogItem, Project } from "../model/types";
 import { dataUrlToBytes, openBinary, openText, readTextPath, saveBinary, saveText } from "../platform";
@@ -71,10 +72,11 @@ export async function openRecent(path: string) {
   }
 }
 
-export async function exportScreenshot() {
-  const canvas = document.querySelector<HTMLCanvasElement>("#viewport3d canvas");
+/** Bild der 3D-Ansicht `pane` (Standard: aktives bzw. erstes sichtbares 3D-Fenster). */
+export async function exportScreenshot(pane: number | null = targetPane("3d")) {
+  const canvas = pane == null ? null : document.querySelector<HTMLCanvasElement>(`[data-pane="${pane}"] canvas`);
   if (!canvas) {
-    useEditor.getState().showToast("3D-Ansicht ist nicht geöffnet");
+    useEditor.getState().showToast("Keine 3D-Ansicht sichtbar – ein Fenster auf 3D stellen");
     return;
   }
   const url = canvas.toDataURL("image/png");
@@ -86,9 +88,10 @@ export async function exportScreenshot() {
  * fest eingesetzt (druckt sich unabhängig vom aktuellen Design), Bedienelemente entfernt.
  */
 function planForExport(): { svg: SVGSVGElement; w: number; h: number } | null {
-  const src = document.querySelector<SVGSVGElement>("#viewport2d svg[data-plan]") ?? document.querySelector<SVGSVGElement>("#viewport2d svg");
+  const pane = targetPane("plan");
+  const src = pane == null ? null : document.querySelector<SVGSVGElement>(`[data-pane="${pane}"] svg[data-plan]`);
   if (!src) {
-    useEditor.getState().showToast("2D-Plan ist nicht geöffnet – Ansicht 2D oder Geteilt wählen");
+    useEditor.getState().showToast("Kein 2D-Plan sichtbar – ein Fenster auf 2D-Plan stellen");
     return null;
   }
   const root = document.documentElement;

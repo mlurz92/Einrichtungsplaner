@@ -35,6 +35,9 @@ try {
   for (const theme of THEMES) {
     const ctx = await browser.newContext({ viewport: { width: 1600, height: 900 } });
     await ctx.addInitScript((t) => localStorage.setItem("we13.ui.v1", JSON.stringify({ theme: t })), theme);
+    // FONT="DejaVu Sans": Schrift des CI-Runners erzwingen (breiter als Inter/Segoe), um Überlauf lokal zu sehen
+    if (process.env.FONT)
+      await ctx.addInitScript((f) => addEventListener("DOMContentLoaded", () => document.head.append(Object.assign(document.createElement("style"), { textContent: `*{font-family:"${f}"!important}` }))), process.env.FONT);
     const page = await ctx.newPage();
     const errors = [];
     page.on("pageerror", (e) => errors.push(e.message));
@@ -49,7 +52,7 @@ try {
       st.set("quality", "niedrig");
     });
     for (const mode of MODES) {
-      await page.evaluate((m) => globalThis.__we13store.getState().set("viewMode", m), mode);
+      await page.evaluate((m) => globalThis.__we13layout.getState().preset(m), mode);
       for (const w of WIDTHS) {
         await page.setViewportSize({ width: w, height: 900 });
         await page.waitForTimeout(120);
@@ -66,7 +69,7 @@ try {
     }
     // Dialoge: Einstellungen (Strg+,), Hilfe (F1), Befehlssuche (Strg+K)
     await page.setViewportSize({ width: 1366, height: 800 });
-    await page.evaluate(() => globalThis.__we13store.getState().set("viewMode", "plan"));
+    await page.evaluate(() => globalThis.__we13layout.getState().preset("plan"));
     for (const [keys, sel, name] of [
       ["Control+Comma", '[role="dialog"] h2:has-text("Einstellungen")', "Einstellungen"],
       ["F1", '[role="dialog"] h2:has-text("Tastenkürzel")', "Hilfe"],
@@ -78,6 +81,45 @@ try {
       await page.keyboard.press("Escape");
       await page.waitForTimeout(150);
     }
+    // Aufteilungen: Fensterzahl, Kopfzeilen ohne abgeschnittene Bedienelemente, Maximieren, 2D|2D und 3D|3D
+    const COUNT = { single: 1, cols: 2, rows: 2, left3: 3, top3: 3, quad: 4 };
+    for (const w of [1200, 1600]) {
+      await page.setViewportSize({ width: w, height: 900 });
+      for (const [id, n] of Object.entries(COUNT)) {
+        await page.evaluate((l) => {
+          const lay = globalThis.__we13layout.getState();
+          lay.reset();
+          globalThis.__we13layout.getState().setLayout(l);
+        }, id);
+        await page.waitForTimeout(250);
+        const r = await page.evaluate(() => ({
+          n: document.querySelectorAll("[data-pane]").length,
+          clipped: [...document.querySelectorAll(".pane-bar")].filter((b) => {
+            const box = b.getBoundingClientRect();
+            return [...b.querySelectorAll("button")].some((x) => x.offsetParent && x.getBoundingClientRect().right > box.right + 0.5);
+          }).length,
+        }));
+        if (r.n !== n) fail(`${theme}/${w}: Aufteilung ${id} zeigt ${r.n} statt ${n} Fenster`);
+        if (r.clipped) fail(`${theme}/${w}: Aufteilung ${id}: ${r.clipped} Kopfzeile(n) abgeschnitten`);
+      }
+    }
+    await page.evaluate(() => {
+      const lay = globalThis.__we13layout.getState();
+      lay.reset();
+      lay.setPane(1, { kind: "plan" });
+    });
+    await page.waitForTimeout(400);
+    if ((await page.locator("[data-pane] svg[data-plan]").count()) !== 2) fail(`${theme}: 2D | 2D zeigt nicht zwei Pläne`);
+    await page.evaluate(() => globalThis.__we13layout.getState().toggleMaximize(1));
+    await page.waitForTimeout(200);
+    const vis = await page.evaluate(() => [...document.querySelectorAll("[data-pane]")].filter((p) => getComputedStyle(p).visibility !== "hidden").length);
+    if (vis !== 1) fail(`${theme}: Maximieren zeigt ${vis} Fenster`);
+    await page.evaluate(() => globalThis.__we13layout.getState().reset());
+    // Menüleiste: Menüs öffnen, Überfahren wechselt das Menü
+    await page.getByRole("menuitem", { name: "Datei", exact: true }).click();
+    await page.getByRole("menuitem", { name: "Ansicht", exact: true }).hover();
+    if (!(await page.locator('[role="menu"][aria-label="Ansicht"]').isVisible({ timeout: 2000 }).catch(() => false))) fail(`${theme}: Menüleiste wechselt beim Überfahren nicht`);
+    await page.keyboard.press("Escape");
     if (errors.length) fail(`${theme}: Laufzeitfehler: ${errors.slice(0, 3).join(" | ")}`);
     await ctx.close();
   }
@@ -91,5 +133,5 @@ if (failed) {
   console.error(`${failed} Fehler`);
   process.exit(1);
 }
-console.log(`✓ Kopfleiste passt bei ${WIDTHS.join(", ")} px in ${MODES.length} Ansichten und ${THEMES.length} Designs; Dialoge öffnen`);
+console.log(`✓ Kopfleiste passt bei ${WIDTHS.join(", ")} px in ${MODES.length} Ansichten und ${THEMES.length} Designs; Aufteilungen, Maximieren und Menüleiste funktionieren; Dialoge öffnen`);
 process.exit(0);

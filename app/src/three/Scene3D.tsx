@@ -1,4 +1,4 @@
-import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { createContext, Suspense, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
 import { CameraControls, Html, PointerLockControls } from "@react-three/drei";
@@ -18,9 +18,10 @@ import type { SnapGuide } from "../model/snap";
 import { DND_TYPE, type CatalogDrop } from "../ui/dnd";
 import { applyPlacementSnap, beginDrag, dragUpdate, isFlatFloorItem } from "../store/placement";
 import { DEFAULT_SITE, sunDirection, sunPosition, sunTimes } from "./solar";
-import { useView3D } from "./viewStore";
+import { paneFov, setPaneFov, useView3D, type Scene3DApi } from "./viewStore";
+import { isKeyTarget, useLayout, type Camera3D } from "../ui/layout";
 import { inFurniture, roomPole } from "./views";
-import { EnvironmentProbe, SKY_WHITE, whiteBalance } from "./probe";
+import { EnvironmentProbe, SKY_WHITE, WhiteBalanceEffect } from "./probe";
 import { ADAPT_LUMINANCE, adaptationDegree, adaptationGain, adaptingWhite, planckColor } from "./colorScience";
 import { View3DPanel } from "../ui/View3DPanel";
 import { useResolvedTheme } from "../ui/prefs";
@@ -33,6 +34,29 @@ import { createElement } from "react";
 const CEIL = apartment.ceilingHeight;
 const CENTER = new THREE.Vector3((apartment.bounds[0] + apartment.bounds[2]) / 2, 0, (apartment.bounds[1] + apartment.bounds[3]) / 2);
 const LAMP_CATS = new Set(["floorLamp", "tableLamp", "pendant", "ceilingLamp", "wallLamp"]);
+
+/**
+ * Jede 3D-Ansicht ist ein eigenes Fenster mit eigener Kamera, Wanddarstellung und Nachbearbeitung
+ * (Weißabgleich). Geteilt werden Projekt, Licht und Materialien.
+ */
+interface SceneCtxValue {
+  pane: number;
+  wb: WhiteBalanceEffect;
+  wbGain: THREE.Color;
+}
+const SceneCtx = createContext<SceneCtxValue | null>(null);
+const useScene = () => useContext(SceneCtx)!;
+const usePane = () => useScene().pane;
+const paneCamera = (pane: number): Camera3D => useLayout.getState().panes[pane]?.camera ?? "orbit";
+const setPaneCamera = (pane: number, c: Camera3D) => useLayout.getState().setPane(pane, { camera: c });
+function useCamera3D(): Camera3D {
+  const pane = usePane();
+  return useLayout((s) => s.panes[pane]?.camera ?? "orbit");
+}
+function useInterior(): boolean {
+  const pane = usePane();
+  return useView3D((s) => s.interior[pane] ?? false);
+}
 
 /** Aktueller Sonnenstand aus Projekteinstellungen (bzw. laufender Tagesverlauf-Animation). */
 function useSun() {
@@ -143,7 +167,8 @@ const PROBE_HOME = (() => {
 function Environment() {
   const { gl, scene, camera, invalidate } = useThree();
   const theme = useResolvedTheme();
-  const camera3d = useEditor((s) => s.camera3d);
+  const camera3d = useCamera3D();
+  const { pane, wb, wbGain } = useScene();
   const night = useEditor((s) => s.night);
   const quality = useEditor((s) => s.quality);
   const kelvin = useEditor((s) => s.project.settings.lampKelvin ?? 2900);
@@ -165,10 +190,10 @@ function Environment() {
     const u1 = useEditor.subscribe((s, p) => {
       // Beim Ziehen von Möbeln erst nach kurzer Ruhe neu aufnehmen
       if (s.project !== p.project) settle(250);
-      if (s.project !== p.project || s.night !== p.night || s.showCeiling !== p.showCeiling || s.camera3d !== p.camera3d) mark();
+      if (s.project !== p.project || s.night !== p.night || s.showCeiling !== p.showCeiling) mark();
     });
     const u2 = useView3D.subscribe((s, p) => {
-      if (s.animTime !== p.animTime || s.realDaylight !== p.realDaylight || s.interior !== p.interior || s.lampsDay !== p.lampsDay) mark();
+      if (s.animTime !== p.animTime || s.realDaylight !== p.realDaylight || s.interior[pane] !== p.interior[pane] || s.lampsDay !== p.lampsDay) mark();
     });
     // Texturen und Modelle laden nachträglich
     const t1 = setTimeout(mark, 1500);
@@ -179,12 +204,12 @@ function Environment() {
       clearTimeout(t1);
       clearTimeout(t2);
     };
-  }, [invalidate]);
+  }, [invalidate, pane]);
   useEffect(() => {
     st.current.dirty = true;
     st.current.passes = 0;
     invalidate();
-  }, [day, night, kelvin, probe, invalidate]);
+  }, [day, night, kelvin, probe, invalidate, camera3d]);
   useFrame(() => {
     const s = st.current;
     if (s.lamps !== lampVersion) {
@@ -192,7 +217,7 @@ function Environment() {
       s.dirty = true;
       s.passes = 0;
     }
-    const spot = probeSpot(camera, useView3D.getState().interior || camera3d === "walk", s.pos.x > 1e8 ? PROBE_HOME : s.pos);
+    const spot = probeSpot(camera, !!useView3D.getState().interior[pane] || camera3d === "walk", s.pos.x > 1e8 ? PROBE_HOME : s.pos);
     if (!spot) return;
     const moved = spot.distanceTo(s.pos) > 0.8;
     if (!s.dirty && !moved) return;
@@ -248,7 +273,7 @@ function Environment() {
     // Stufe „niedrig“ ohne Nachbearbeitung: dort sind die Lichtfarben der Leuchten vorab abgeglichen
     if (quality === "niedrig") wbGain.setRGB(1, 1, 1);
     else adaptationGain(adaptingWhite(illum, probe.cast, ROOM_ADAPT), adaptationDegree(adaptL), wbGain);
-    whiteBalance.gain = wbGain;
+    wb.gain = wbGain;
     tintBackdrop(scene.background as THREE.Texture | null, wbGain);
     // Der Verlaufshintergrund ist bereits fertig abgestimmt: Belichtung für ihn aufheben
     if (!(camera3d === "walk" && !night)) scene.backgroundIntensity = 1 / gl.toneMappingExposure;
@@ -273,7 +298,7 @@ function Environment() {
       cancelled = true;
       tex?.dispose();
     };
-  }, [camera3d, night, scene, theme]);
+  }, [camera3d, night, scene, theme, wbGain]);
   useEffect(() => {
     // Die Sonde liefert physikalisch skalierte Umgebung → keine zusätzliche Verstärkung
     scene.environmentIntensity = 1;
@@ -289,7 +314,6 @@ const SKY_LEVEL = 0.35;
 /** Zielhelligkeit der Belichtungsautomatik (Mittelgrau, linear) bei Tag und am Abend. */
 const EXPOSURE_KEY = 0.42;
 const EXPOSURE_KEY_NIGHT = 0.18;
-const wbGain = new THREE.Color(1, 1, 1);
 /**
  * Anteil des gemessenen Raumlichts am adaptierenden Weiß: Das Auge stellt sich auf die hellen Raumflächen
  * ein, deren Licht vom dunklen Eichenboden und der Nussbaumküche warm getönt ist. Mit nur 30 % wirkten
@@ -452,7 +476,7 @@ const unclippedDepth = new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADep
  * Unsichtbare Geschossdecke, die nur Schatten wirft: Auch bei ausgeblendeter Decke fällt
  * Sonnenlicht dann ausschließlich durch Fenster und Balkontüren in die Wohnung.
  */
-const shadowRoof = (() => {
+function makeShadowRoof() {
   const g = new THREE.Group();
   const mat = new THREE.MeshBasicMaterial({ colorWrite: false, depthWrite: false });
   const polys = [...apartment.rooms.filter((r) => !r.outdoor).map((r) => r.polygon), ...apartment.walls, apartment.shaft];
@@ -468,15 +492,17 @@ const shadowRoof = (() => {
     g.add(m);
   }
   return g;
-})();
+}
 
 function ApartmentModel() {
   const rooms = useEditor((s) => s.project.rooms);
   const walls = useEditor((s) => s.project.walls);
   const doors = useEditor((s) => s.project.settings.doorsOpen);
   const ausbau = useEditor((s) => `${s.project.settings.doorColor}|${s.project.settings.doorStyle}|${s.project.settings.handleFinish}|${s.project.settings.windowFrameColor}`);
-  const interior = useView3D((s) => s.interior);
-  const showCeiling = useEditor((s) => s.showCeiling || s.camera3d === "walk") || interior;
+  const interior = useInterior();
+  const camera3d = useCamera3D();
+  const showCeiling = useEditor((s) => s.showCeiling) || camera3d === "walk" || interior;
+  const shadowRoof = useMemo(makeShadowRoof, []);
   const realDaylight = useView3D((s) => s.realDaylight);
   const selectedFace = useEditor((s) => s.selectedFace);
   const built = useMemo(() => {
@@ -509,9 +535,10 @@ function ApartmentModel() {
     g.setIndex([0, 1, 2, 0, 2, 3]);
     return g;
   }, [selectedFace]);
+  const pane = usePane();
   const onDown = useCallback((e: ThreeEvent<PointerEvent>) => {
     const st = useEditor.getState();
-    if (st.placing || st.camera3d === "walk") return;
+    if (st.placing || paneCamera(pane) === "walk") return;
     const obj = e.object;
     if (e.button !== 0) return;
     if (obj.userData.faceId) {
@@ -523,7 +550,7 @@ function ApartmentModel() {
       st.selectFace(null);
       st.selectRoom(obj.userData.roomId);
     }
-  }, []);
+  }, [pane]);
   return (
     <group onPointerDown={onDown}>
       <primitive object={built.group} />
@@ -540,6 +567,7 @@ function ApartmentModel() {
 /** Ziehen von Objekten im 3D (Boden-/Wand-/Deckenebene). */
 function useDrag(controls: React.RefObject<CameraControls | null>) {
   const { camera, gl } = useThree();
+  const pane = usePane();
   return useCallback(
     (e: ThreeEvent<PointerEvent>, item: PlacedItem) => {
       // Nur die linke Taste wählt/verschiebt; rechte und mittlere Taste bewegen immer die Ansicht
@@ -550,7 +578,7 @@ function useDrag(controls: React.RefObject<CameraControls | null>) {
       const additive = e.nativeEvent.shiftKey || e.nativeEvent.ctrlKey || e.nativeEvent.metaKey;
       const wasSelected = st.selection.includes(item.id);
       if (!wasSelected || additive) st.select([item.id], additive);
-      if (st.camera3d === "walk" || item.locked) return;
+      if (paneCamera(pane) === "walk" || item.locked) return;
       // Großflächige, flache Objekte (Teppiche) erst nach der Auswahl verschieben – sonst würde
       // jedes Drehen der Ansicht über dem Teppich ihn mitziehen
       if (!wasSelected && isFlatFloorItem(item)) return;
@@ -602,7 +630,7 @@ function useDrag(controls: React.RefObject<CameraControls | null>) {
       window.addEventListener("pointermove", move);
       window.addEventListener("pointerup", up);
     },
-    [camera, gl, controls],
+    [camera, gl, controls, pane],
   );
 }
 
@@ -753,14 +781,16 @@ function SnapGuides3D({ extra }: { extra?: SnapGuide[] }) {
 
 /** Wanddarstellung unter Berücksichtigung von Rundgang und Innenansicht (dort immer raumhoch). */
 function useEffectiveWallMode() {
-  const wallMode = useEditor((s) => s.wallMode);
-  const camera3d = useEditor((s) => s.camera3d);
-  const interior = useView3D((s) => s.interior);
+  const pane = usePane();
+  const wallMode = useLayout((s) => s.panes[pane]?.walls ?? "auto");
+  const camera3d = useCamera3D();
+  const interior = useInterior();
   return camera3d === "walk" || interior ? "full" : wallMode;
 }
 
 function WalkMovement() {
   const { camera } = useThree();
+  const pane = usePane();
   const keys = useRef<Record<string, boolean>>({});
   useEffect(() => {
     const d = (e: KeyboardEvent) => (keys.current[e.code] = true);
@@ -775,6 +805,8 @@ function WalkMovement() {
   useFrame((_, dt) => {
     const eye = useView3D.getState().eyeHeight;
     camera.position.y += (eye - camera.position.y) * Math.min(1, dt * 8);
+    // Mehrere Fenster: nur das aktive Fenster geht mit den Tasten
+    if (!isKeyTarget(pane, "3d")) return;
     const k = keys.current;
     const speed = (k.ShiftLeft ? 2.6 : 1.4) * Math.min(dt, 0.05);
     const f = new THREE.Vector3();
@@ -803,18 +835,19 @@ function WalkMovement() {
 }
 
 function CameraRig({ controls }: { controls: React.RefObject<CameraControls | null> }) {
-  const camera3d = useEditor((s) => s.camera3d);
+  const camera3d = useCamera3D();
+  const pane = usePane();
   const focus = useEditor((s) => s.focusRequest);
   const selectedRoom = useEditor((s) => s.selectedRoom);
-  const fovOrbit = useView3D((s) => s.fovOrbit);
-  const fovWalk = useView3D((s) => s.fovWalk);
-  const goto = useView3D((s) => s.goto);
+  const fovOrbit = useView3D((s) => paneFov(s.fov, pane, false));
+  const fovWalk = useView3D((s) => paneFov(s.fov, pane, true));
+  const goto = useView3D((s) => (s.goto?.pane === pane ? s.goto : null));
   const { camera, invalidate } = useThree();
   /** Bildwinkel stammt aus einer angesprungenen Ansicht (bei Übersicht zurücksetzen). */
   const fovFromView = useRef(false);
   const gotoPending = () => {
     const g = useView3D.getState().goto;
-    return !!g && performance.now() - g.t < 800;
+    return !!g && g.pane === pane && performance.now() - g.t < 800;
   };
   useEffect(() => {
     const c = camera as THREE.PerspectiveCamera;
@@ -861,7 +894,7 @@ function CameraRig({ controls }: { controls: React.RefObject<CameraControls | nu
     if (camera3d === "walk" || !c || gotoPending()) return;
     if (fovFromView.current) {
       fovFromView.current = false;
-      useView3D.getState().set("fovOrbit", 42);
+      setPaneFov(pane, false, 42);
     }
     if (camera3d === "top") {
       c.setLookAt(CENTER.x, 26, CENTER.z + 0.01, CENTER.x, 0, CENTER.z, true);
@@ -874,7 +907,7 @@ function CameraRig({ controls }: { controls: React.RefObject<CameraControls | nu
     if (!goto) return;
     const [px, py, pz] = goto.pos;
     const [tx, ty, tz] = goto.target;
-    if (useEditor.getState().camera3d === "walk") {
+    if (paneCamera(pane) === "walk") {
       camera.position.set(px, useView3D.getState().eyeHeight, pz);
       camera.lookAt(tx, ty, tz);
       return;
@@ -883,42 +916,46 @@ function CameraRig({ controls }: { controls: React.RefObject<CameraControls | nu
     if (!c) return;
     if (goto.fov) {
       fovFromView.current = true;
-      useView3D.getState().set("fovOrbit", goto.fov);
+      setPaneFov(pane, false, goto.fov);
     }
     c.setLookAt(px, py, pz, tx, ty, tz, true);
-  }, [goto, controls, camera]);
+  }, [goto, controls, camera, pane]);
   useEffect(() => {
     const w = (globalThis as unknown as { __we13?: Record<string, unknown> }).__we13;
-    if (w) w.controls = controls.current;
+    if (w && w.pane === pane) w.controls = controls.current;
   });
   useEffect(() => {
-    if (!focus || !controls.current || camera3d === "walk") return;
+    // Mehrere 3D-Fenster: nur das aktive bzw. erste schwenkt auf die Auswahl
+    if (!focus || !controls.current || camera3d === "walk" || !isKeyTarget(pane, "3d")) return;
     controls.current.setLookAt(focus.x + 3.2, 3.6, focus.y + 3.6, focus.x, 0.6, focus.y, true);
-  }, [focus, controls, camera3d]);
+  }, [focus, controls, camera3d, pane]);
   return null;
 }
 
 /** Erkennt Innenansichten (Kamera unter der Decke innerhalb der Wohnung). */
 function InteriorWatch() {
-  const camera3d = useEditor((s) => s.camera3d);
+  const camera3d = useCamera3D();
+  const pane = usePane();
   useFrame(({ camera }) => {
     const p = camera.position;
     const inside = camera3d !== "walk" && p.y < CEIL - 0.02 && apartment.rooms.some((r) => !r.outdoor && pointInPolygon(p.x, p.z, r.polygon));
-    if (inside !== useView3D.getState().interior) useView3D.getState().set("interior", inside);
+    const v = useView3D.getState();
+    if (inside !== !!v.interior[pane]) v.set("interior", { ...v.interior, [pane]: inside });
   });
   return null;
 }
 
 function ClipControl() {
   const wallMode = useEffectiveWallMode();
-  useEffect(() => {
+  // Schnittebene und automatischer Wandschnitt sind für alle Fenster gemeinsam: vor jedem Bild dieses
+  // Fensters (vor Sonde, Objekten und Nachbearbeitung) auf seine Wanddarstellung und Kamera stellen
+  useFrame(({ camera }) => {
     wallClipPlanes[0].constant = wallMode === "full" || wallMode === "auto" ? 100 : wallMode === "cut" ? 1.3 : 0.14;
     cutUniforms.uCutOn.value = wallMode === "auto" ? 1 : 0;
-  }, [wallMode]);
-  // Automatischer Wandschnitt folgt der Kamera
-  useFrame(({ camera }) => {
     cutUniforms.uCutCam.value.copy(camera.position);
-  });
+  }, -10);
+  const invalidate = useThree((s) => s.invalidate);
+  useEffect(() => invalidate(), [wallMode, invalidate]);
   return null;
 }
 
@@ -966,13 +1003,15 @@ const nextFrame = () => new Promise<void>((r) => requestAnimationFrame(() => r()
 /** Kamera auslesen und Fotos in hoher Auflösung aufnehmen (für die Ansichtsleiste). */
 function SceneApi({ controls }: { controls: React.RefObject<CameraControls | null> }) {
   const get = useThree((s) => s.get);
+  const pane = usePane();
   useEffect(() => {
-    useView3D.getState().set("api", {
+    const api: Scene3DApi = {
+      canvas: () => get().gl.domElement,
       getView() {
         const { camera } = get();
         const cam = camera as THREE.PerspectiveCamera;
         const c = controls.current;
-        if (useEditor.getState().camera3d === "walk" || !c) {
+        if (paneCamera(pane) === "walk" || !c) {
           const d = cam.getWorldDirection(new THREE.Vector3());
           return { pos: cam.position.toArray(), target: cam.position.clone().addScaledVector(d, 3).toArray(), fov: cam.fov };
         }
@@ -1000,9 +1039,14 @@ function SceneApi({ controls }: { controls: React.RefObject<CameraControls | nul
           invalidate();
         }
       },
-    });
-    return () => useView3D.getState().set("api", null);
-  }, [get, controls]);
+    };
+    const v = useView3D.getState();
+    v.set("apis", { ...v.apis, [pane]: api });
+    return () => {
+      const { [pane]: _gone, ...rest } = useView3D.getState().apis;
+      if (_gone === api) useView3D.getState().set("apis", rest);
+    };
+  }, [get, controls, pane]);
   return null;
 }
 
@@ -1023,33 +1067,32 @@ function rightClickStill(e: MouseEvent) {
 const ic = (C: typeof Box) => createElement(C, { size: 14 });
 
 /** Kontextmenü auf freier Fläche der 3D-Ansicht. */
-function sceneContextEntries(): CtxEntry[] {
+function sceneContextEntries(pane: number): CtxEntry[] {
   const st = useEditor.getState();
   return [
-    { label: "Übersicht (Modellansicht)", icon: ic(Box), run: () => st.set("camera3d", "orbit") },
-    { label: "Draufsicht", icon: ic(Square), run: () => st.set("camera3d", "top") },
-    { label: "Rundgang starten", icon: ic(Footprints), run: () => st.set("camera3d", "walk") },
+    { label: "Übersicht (Modellansicht)", icon: ic(Box), run: () => setPaneCamera(pane, "orbit") },
+    { label: "Draufsicht", icon: ic(Square), run: () => setPaneCamera(pane, "top") },
+    { label: "Rundgang starten", icon: ic(Footprints), run: () => setPaneCamera(pane, "walk") },
     { sep: true },
     { label: st.night ? "Tageslicht" : "Abendlicht", icon: ic(Moon), run: () => st.set("night", !st.night) },
     { label: useView3D.getState().lampsDay ? "Leuchten tagsüber aus" : "Leuchten tagsüber an", icon: ic(Lightbulb), run: () => useView3D.getState().set("lampsDay", !useView3D.getState().lampsDay) },
-    { label: "Ansicht als Bild speichern", icon: ic(Camera), run: () => void exportScreenshot() },
+    { label: "Ansicht als Bild speichern", icon: ic(Camera), run: () => void exportScreenshot(pane) },
   ];
 }
 
 /** Kamera-Rose: Blick aus den vier Himmelsrichtungen, Draufsicht und Übersicht. */
-function ViewRose() {
-  const camera3d = useEditor((s) => s.camera3d);
+function ViewRose({ pane }: { pane: number }) {
+  const camera3d = useLayout((s) => s.panes[pane]?.camera ?? "orbit");
   const north = useEditor((s) => s.project.settings.northDeg ?? 0);
   if (camera3d === "walk") return null;
   const go = (deg: number | null) => {
-    const st = useEditor.getState();
-    if (deg === null) return st.set("camera3d", "top");
-    if (st.camera3d !== "orbit") st.set("camera3d", "orbit");
+    if (deg === null) return setPaneCamera(pane, "top");
+    if (paneCamera(pane) !== "orbit") setPaneCamera(pane, "orbit");
     // Kamera steht in Himmelsrichtung `deg` (0 = Norden) und blickt zur Mitte
     const a = ((deg + north) * Math.PI) / 180;
     const dist = 17;
     const pos: [number, number, number] = [CENTER.x + Math.sin(a) * dist, 11, CENTER.z - Math.cos(a) * dist];
-    setTimeout(() => useView3D.getState().set("goto", { pos, target: [CENTER.x, 0.4, CENTER.z], t: performance.now() }), 30);
+    setTimeout(() => useView3D.getState().set("goto", { pane, pos, target: [CENTER.x, 0.4, CENTER.z], t: performance.now() }), 30);
   };
   const dirs: [string, number, string][] = [
     ["N", 0, "Blick von Norden"],
@@ -1058,7 +1101,7 @@ function ViewRose() {
     ["W", 270, "Blick von Westen"],
   ];
   return (
-    <div className="glass absolute right-3 bottom-3 grid h-[88px] w-[88px] place-items-center rounded-full" role="toolbar" aria-label="Blickrichtung">
+    <div className="glass absolute right-3 bottom-3 grid h-[88px] w-[88px] place-items-center rounded-full @max-[420px]:hidden" role="toolbar" aria-label="Blickrichtung">
       {dirs.map(([l, deg, t]) => {
         const a = ((deg + north) * Math.PI) / 180;
         return (
@@ -1081,6 +1124,7 @@ function ViewRose() {
 }
 
 function Effects() {
+  const { wb } = useScene();
   const quality = useEditor((s) => s.quality);
   const night = useEditor((s) => s.night);
   const gl = useThree((s) => s.gl);
@@ -1092,7 +1136,7 @@ function Effects() {
   return (
     <EffectComposer multisampling={0} enableNormalPass={false} autoClear={false}>
       <N8AO aoRadius={0.45} distanceFalloff={0.6} intensity={quality === "hoch" ? 2.2 : 1.6} quality={quality === "hoch" ? "high" : "medium"} halfRes={quality !== "hoch"} />
-      <primitive object={whiteBalance} />
+      <primitive object={wb} />
       <Bloom intensity={night ? 0.55 : 0.08} luminanceThreshold={night ? 0.85 : 0.98} mipmapBlur />
       <Outline visibleEdgeColor={0x2f7cf6} hiddenEdgeColor={0x2f7cf6} edgeStrength={6} pulseSpeed={0} blur xRay={false} width={1200} />
       <ToneMapping mode={ToneMappingMode.NEUTRAL} />
@@ -1101,29 +1145,36 @@ function Effects() {
   );
 }
 
-export function Scene3D() {
-  const camera3d = useEditor((s) => s.camera3d);
+/** 3D-Fenster `pane`; `hidden` (verdeckt durch ein maximiertes Fenster) hält das Rendern an. */
+export function Scene3D({ pane, hidden = false }: { pane: number; hidden?: boolean }) {
+  const camera3d = useLayout((s) => s.panes[pane]?.camera ?? "orbit");
+  const panel = useLayout((s) => s.panes[pane]?.panel ?? false);
+  // Dauerhaft rendern nur im aktiven Rundgang-Fenster und beim Tagesverlauf, sonst nur bei Änderungen
+  const live = useLayout((s) => s.active === pane) && camera3d === "walk";
   const quality = useEditor((s) => s.quality);
   const sunPlaying = useView3D((s) => s.sunPlaying);
   const controls = useRef<CameraControls | null>(null);
+  const ctx = useMemo<SceneCtxValue>(() => ({ pane, wb: new WhiteBalanceEffect(), wbGain: new THREE.Color(1, 1, 1) }), [pane]);
   return (
     <div
       className="contents"
       onContextMenu={(e) => {
         e.preventDefault();
         if ((e.nativeEvent as MouseEvent & { we13Handled?: boolean }).we13Handled || !rightClickStill(e.nativeEvent) || camera3d === "walk") return;
-        useContextMenu.getState().open(e.clientX, e.clientY, sceneContextEntries());
+        useContextMenu.getState().open(e.clientX, e.clientY, sceneContextEntries(pane));
       }}
     >
       <Canvas
         shadows={{ type: THREE.PCFShadowMap }}
         dpr={quality === "niedrig" ? 1 : [1, 2]}
-        frameloop={camera3d === "walk" || sunPlaying ? "always" : "demand"}
+        frameloop={hidden ? "never" : live || sunPlaying ? "always" : "demand"}
         gl={{ antialias: false, preserveDrawingBuffer: true, powerPreference: "high-performance", localClippingEnabled: true } as never}
         camera={{ fov: camera3d === "walk" ? 70 : 42, near: 0.05, far: 200, position: [CENTER.x + 9, 13, CENTER.z + 13] }}
         onCreated={({ gl, scene, camera }) => {
           gl.localClippingEnabled = true;
-          (window as unknown as Record<string, unknown>).__we13 = { gl, scene, camera };
+          // Diagnose und Bildskripte greifen auf die erste 3D-Ansicht zu
+          const w = window as unknown as Record<string, { pane?: number } | undefined>;
+          if (!w.__we13 || (w.__we13.pane ?? 99) >= pane) w.__we13 = { gl, scene, camera, pane } as never;
           gl.toneMapping = THREE.NoToneMapping;
         }}
         onPointerMissed={() => {
@@ -1134,6 +1185,7 @@ export function Scene3D() {
           }
         }}
       >
+        <SceneCtx.Provider value={ctx}>
         <Suspense fallback={null}>
           <Selection>
           <Environment />
@@ -1151,7 +1203,7 @@ export function Scene3D() {
           <SceneApi controls={controls} />
           {camera3d === "walk" ? (
             <>
-              <PointerLockControls makeDefault />
+              <PointerLockControls makeDefault selector={`[data-pane="${pane}"] canvas`} />
               <WalkMovement />
             </>
           ) : (
@@ -1172,9 +1224,10 @@ export function Scene3D() {
           <Effects />
           </Selection>
         </Suspense>
+        </SceneCtx.Provider>
       </Canvas>
-      <ViewRose />
-      <View3DPanel />
+      <ViewRose pane={pane} />
+      {panel && <View3DPanel pane={pane} />}
     </div>
   );
 }

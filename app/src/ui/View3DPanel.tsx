@@ -4,7 +4,9 @@ import { useEditor } from "../store/project";
 import { apartment } from "../data";
 import type { ProjectSettings, SavedView3D } from "../model/types";
 import { DEFAULT_SITE, fmtClock, parseDate, sunPosition, sunTimes } from "../three/solar";
-import { fovToMm, mmToFov, useView3D } from "../three/viewStore";
+import { fovToMm, gotoView, mmToFov, paneFov, setPaneFov, useView3D } from "../three/viewStore";
+import { useLayout } from "./layout";
+import { createContext, useContext } from "react";
 import { roomView } from "../three/views";
 import { dataUrlToBytes, isTauri, pickFolder, saveBinary, writeBinaryTo } from "../platform";
 import roomShots from "../data/roomShots.json";
@@ -57,22 +59,19 @@ function Section({ id, title, hint, children }: { id: SectionId; title: string; 
   );
 }
 
-export function View3DPanel() {
-  const open = useView3D((s) => s.panelOpen);
-  const setV = useView3D((s) => s.set);
-  if (!open)
-    return (
-      <button className="btn absolute right-3 top-3 z-10 bg-card/90 text-xs backdrop-blur" onClick={() => setV("panelOpen", true)} title="Ansichtsleiste: Sonne, Kamera, Foto">
-        <SlidersHorizontal size={14} /> Ansicht
-      </button>
-    );
+/** 3D-Fenster, zu dem die Ansichtsleiste gehört. */
+const PanelPane = createContext(1);
+
+/** Ansichtsleiste eines 3D-Fensters; ein- und ausblenden über die Kopfzeile des Fensters. */
+export function View3DPanel({ pane }: { pane: number }) {
   return (
-    <div className="absolute right-3 top-3 z-10 flex max-h-[calc(100%-1.5rem)] w-60 flex-col overflow-hidden rounded-lg border border-stone-200 bg-card/92 text-xs text-stone-700 shadow-lg backdrop-blur">
+    <PanelPane.Provider value={pane}>
+    <div className="view3d-panel absolute right-3 top-3 z-10 flex max-h-[calc(100%-1.5rem)] w-60 flex-col overflow-hidden rounded-lg border border-stone-200 bg-card/92 text-xs text-stone-700 shadow-lg backdrop-blur @max-[380px]:hidden">
       <div className="flex items-center gap-1.5 border-b border-stone-100 px-3 py-1.5">
         <SlidersHorizontal size={13} className="text-stone-500" />
         <span className="font-semibold">Ansicht</span>
-        <button className="btn-ghost ml-auto px-1 py-0.5" onClick={() => setV("panelOpen", false)} title="Leiste einklappen">
-          <ChevronUp size={14} />
+        <button className="btn-ghost ml-auto px-1 py-0.5" onClick={() => useLayout.getState().setPane(pane, { panel: false })} title="Ansichtsleiste ausblenden (wieder einblenden über die Kopfzeile des Fensters)">
+          <X size={14} />
         </button>
       </div>
       <div className="min-h-0 overflow-y-auto">
@@ -83,6 +82,7 @@ export function View3DPanel() {
         <PhotoSection />
       </div>
     </div>
+    </PanelPane.Provider>
   );
 }
 
@@ -252,29 +252,31 @@ function LampSection() {
 }
 
 function CameraSection() {
-  const camera3d = useEditor((s) => s.camera3d);
+  const pane = useContext(PanelPane);
+  const camera3d = useLayout((s) => s.panes[pane].camera);
   const views = useEditor((s) => s.project.settings.views3d) ?? NO_VIEWS;
   const v = useView3D();
   const walk = camera3d === "walk";
-  const fov = walk ? v.fovWalk : v.fovOrbit;
+  const fov = paneFov(v.fov, pane, walk);
+  const toOrbit = () => camera3d === "top" && useLayout.getState().setPane(pane, { camera: "orbit" });
   const goRoom = (id: string) => {
     const rv = roomView(id, useEditor.getState().project.items, v.eyeHeight);
     if (!rv) return;
-    if (camera3d === "top") useEditor.getState().set("camera3d", "orbit");
+    toOrbit();
     // Kleine Räume brauchen mehr Weitwinkel (≈ 18 mm statt 22 mm)
     const area = apartment.rooms.find((r) => r.id === id)?.area ?? 20;
-    v.set("goto", { ...rv, fov: walk ? undefined : Math.max(v.fovOrbit, area < 16 ? 67 : 57), t: performance.now() });
+    gotoView(pane, { ...rv, fov: walk ? undefined : Math.max(paneFov(v.fov, pane, false), area < 16 ? 67 : 57) });
   };
   const saveView = () => {
-    const cur = v.api?.getView();
+    const cur = v.apis[pane]?.getView();
     if (!cur) return;
     const n = views.length + 1;
     const view: SavedView3D = { id: Math.random().toString(36).slice(2, 9), name: `Ansicht ${n}`, pos: cur.pos, target: cur.target, fov: cur.fov };
     patch({ views3d: [...views, view] }, true);
   };
   const goView = (sv: SavedView3D) => {
-    if (camera3d === "top") useEditor.getState().set("camera3d", "orbit");
-    v.set("goto", { pos: sv.pos, target: sv.target, fov: sv.fov, t: performance.now() });
+    toOrbit();
+    gotoView(pane, { pos: sv.pos, target: sv.target, fov: sv.fov });
   };
   return (
     <Section id="camera" title="Kamera & Ansichten" hint={views.length ? `${views.length} gespeichert` : undefined}>
@@ -294,7 +296,7 @@ function CameraSection() {
           max={50}
           step={1}
           value={Math.round(fovToMm(fov))}
-          onChange={(e) => v.set(walk ? "fovWalk" : "fovOrbit", mmToFov(Number(e.target.value)))}
+          onChange={(e) => setPaneFov(pane, walk, mmToFov(Number(e.target.value)))}
           className="flex-1 accent-stone-700"
           title="Kleinbild-Brennweite: klein = Weitwinkel"
         />
@@ -345,17 +347,17 @@ export type RoomShot = { id: string; room: string; name: string; pos: [number, n
 export const ROOM_SHOTS = roomShots as unknown as RoomShot[];
 
 /** Kamera zur Fotoansicht schwenken (Kamerafahrt der Orbit-Kamera). */
-export function flyToShot(s: RoomShot) {
-  if (useEditor.getState().camera3d !== "orbit") useEditor.getState().set("camera3d", "orbit");
-  useView3D.getState().set("goto", { pos: s.pos, target: s.target, fov: s.fov, t: performance.now() });
+export function flyToShot(s: RoomShot, pane: number) {
+  if (useLayout.getState().panes[pane].camera !== "orbit") useLayout.getState().setPane(pane, { camera: "orbit" });
+  gotoView(pane, { pos: s.pos, target: s.target, fov: s.fov });
 }
 
 /** Warten, bis die Kamerafahrt angekommen ist (höchstens 4 s). */
-async function settle(s: RoomShot) {
+async function settle(s: RoomShot, pane: number) {
   const t0 = performance.now();
   while (performance.now() - t0 < 4000) {
     await new Promise((r) => setTimeout(r, 120));
-    const cur = useView3D.getState().api?.getView();
+    const cur = useView3D.getState().apis[pane]?.getView();
     if (cur && Math.hypot(cur.pos[0] - s.pos[0], cur.pos[1] - s.pos[1], cur.pos[2] - s.pos[2]) < 0.01 && Math.abs(cur.fov - s.fov) < 0.2) break;
   }
   // Umgebungslicht und Schatten an die neue Ansicht anpassen lassen
@@ -367,14 +369,15 @@ const shotFile = (s: RoomShot) => `${fileBase()} - ${s.name.replace(/\s*·\s*/g,
 
 /** Fotoansichten je Raum: anschwenken, einzeln oder alle als Full-HD-Bild speichern. */
 function ShotsSection() {
-  const api = useView3D((s) => s.api);
+  const pane = useContext(PanelPane);
+  const api = useView3D((s) => s.apis[pane]);
   const [busy, setBusy] = useState<string | null>(null);
   const shoot = async (s: RoomShot) => {
     if (!api || busy) return;
     setBusy(s.id);
     try {
-      flyToShot(s);
-      await settle(s);
+      flyToShot(s, pane);
+      await settle(s, pane);
       const url = await api.capture(1920);
       if (!url) return useEditor.getState().showToast("Foto konnte nicht erstellt werden");
       const path = await saveBinary(dataUrlToBytes(url), shotFile(s), [{ name: "PNG", extensions: ["png"] }]);
@@ -392,8 +395,8 @@ function ShotsSection() {
     try {
       for (const s of ROOM_SHOTS) {
         setBusy(`all:${s.id}`);
-        flyToShot(s);
-        await settle(s);
+        flyToShot(s, pane);
+        await settle(s, pane);
         const url = await api.capture(1920);
         if (!url) continue;
         await writeBinaryTo(folder, shotFile(s), dataUrlToBytes(url));
@@ -412,7 +415,7 @@ function ShotsSection() {
       <div className="space-y-0.5">
         {ROOM_SHOTS.map((s) => (
           <div key={s.id} className="flex items-center gap-1">
-            <button className="btn-ghost min-w-0 flex-1 justify-start! truncate px-1 py-0.5 text-left" disabled={!!busy} onClick={() => flyToShot(s)} title={`${s.name} anschwenken`}>
+            <button className="btn-ghost min-w-0 flex-1 justify-start! truncate px-1 py-0.5 text-left" disabled={!!busy} onClick={() => flyToShot(s, pane)} title={`${s.name} anschwenken`}>
               <Eye size={13} className="shrink-0" />
               <span className={`truncate ${busy === `all:${s.id}` ? "font-semibold" : ""}`}>{s.name}</span>
             </button>
@@ -430,7 +433,8 @@ function ShotsSection() {
 }
 
 function PhotoSection() {
-  const api = useView3D((s) => s.api);
+  const pane = useContext(PanelPane);
+  const api = useView3D((s) => s.apis[pane]);
   const [busy, setBusy] = useState(false);
   const shoot = async (width: number) => {
     if (!api || busy) return;

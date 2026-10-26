@@ -57,11 +57,14 @@ try {
   const page = await ctx.newPage();
   page.on("pageerror", (e) => console.error("Seitenfehler:", e.message));
   await page.goto(URL, { waitUntil: "domcontentloaded" });
-  await page.waitForFunction(() => globalThis.__we13store && globalThis.__we13view?.getState().api, null, { timeout: 60000 });
+  await page.waitForFunction(() => globalThis.__we13store && Object.keys(globalThis.__we13view?.getState().apis ?? {}).length, null, { timeout: 60000 });
   await page.evaluate(() => {
     const st = globalThis.__we13store.getState();
     st.set("startOpen", false);
-    globalThis.__we13view.getState().set("panelOpen", false);
+    // Nur das 3D-Fenster, ohne Ansichtsleiste
+    const lay = globalThis.__we13layout.getState();
+    lay.preset("3d");
+    lay.panes.forEach((_, i) => globalThis.__we13layout.getState().setPane(i, { panel: false }));
   });
   await page.waitForTimeout(4000);
   for (const mode of MODES) {
@@ -74,7 +77,7 @@ try {
           const s = st.project.settings;
           const time = mode.night ? 21 : mode.time ?? v.time;
           if (s.timeOfDay !== time) st.setSettings({ timeOfDay: time });
-          globalThis.__we13view.getState().set("goto", { pos: v.pos, target: v.target, fov: v.fov, t: performance.now() });
+          globalThis.__we13view.getState().set("goto", { pane: globalThis.__we13layout.getState().solo, pos: v.pos, target: v.target, fov: v.fov, t: performance.now() });
         },
         { v, mode },
       );
@@ -88,7 +91,7 @@ try {
         if (cur === prev && at) break;
         prev = cur;
       }
-      const data = await page.evaluate((w) => globalThis.__we13view.getState().api.capture(w), WIDTH);
+      const data = await page.evaluate((w) => globalThis.__we13view.getState().apis[globalThis.__we13layout.getState().solo].capture(w), WIDTH);
       if (!data) throw new Error(`Aufnahme ${v.id} fehlgeschlagen`);
       const name = `${v.id}_${mode.id}.png`;
       writeFileSync(join(OUT, name), Buffer.from(data.split(",")[1], "base64"));
