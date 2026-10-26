@@ -1,7 +1,7 @@
 // Gemeinsame Bausteine des Design-Systems „Glas“: Segmentschalter, Menüs, Dialoge, Kontextmenü und Tooltips.
 import { createContext, useCallback, useContext, useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { ChevronDown, ChevronRight, X } from "lucide-react";
+import { Check, ChevronDown, ChevronRight, X } from "lucide-react";
 import { create } from "zustand";
 
 // ---------------------------------------------------------------- Segmentschalter
@@ -55,6 +55,24 @@ const MenuCtx = createContext<{ close: () => void } | null>(null);
 /** Schließt das umgebende Menü (z. B. nach einer Auswahl in einem eingebetteten Formular). */
 export const useMenuClose = () => useContext(MenuCtx)?.close;
 
+/**
+ * Menüleiste wie in Windows-Programmen: Ist ein Menü offen, öffnet das Überfahren eines anderen
+ * Menütitels dieses Menü; ← und → wechseln zum Nachbarmenü.
+ */
+const MenuBarCtx = createContext<{ open: string | null; setOpen: (id: string | null) => void; el: React.RefObject<HTMLDivElement | null> } | null>(null);
+
+export function MenuBar({ children, label, className = "" }: { children: React.ReactNode; label: string; className?: string }) {
+  const [open, setOpen] = useState<string | null>(null);
+  const el = useRef<HTMLDivElement>(null);
+  return (
+    <MenuBarCtx.Provider value={{ open, setOpen, el }}>
+      <div ref={el} role="menubar" aria-label={label} className={`flex items-center ${className}`}>
+        {children}
+      </div>
+    </MenuBarCtx.Provider>
+  );
+}
+
 /** Fokus mit Pfeiltasten durch die Einträge eines Menüs bewegen. */
 function menuKeys(e: React.KeyboardEvent<HTMLElement>, close: () => void) {
   const items = [...e.currentTarget.querySelectorAll<HTMLElement>('[role="menuitem"]:not([disabled]),[role="menuitemcheckbox"]:not([disabled])')];
@@ -98,23 +116,65 @@ export function Menu({
   className?: string;
   children: React.ReactNode;
 }) {
-  const [open, setOpen] = useState(false);
+  const bar = useContext(MenuBarCtx);
+  const [ownOpen, setOwnOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const btn = useRef<HTMLButtonElement>(null);
   const pop = useRef<HTMLDivElement>(null);
   const id = useId();
+  const open = bar ? bar.open === id : ownOpen;
+  const barRef = useRef(bar);
+  barRef.current = bar;
+  const setOpen = useCallback(
+    (v: boolean | ((o: boolean) => boolean)) => {
+      const b = barRef.current;
+      if (!b) return setOwnOpen(v);
+      const next = typeof v === "function" ? v(b.open === id) : v;
+      if (next) b.setOpen(id);
+      else if (b.open === id) b.setOpen(null);
+    },
+    [id],
+  );
   const close = useCallback(() => {
     setOpen(false);
     btn.current?.focus();
-  }, []);
+  }, [setOpen]);
+  /** In der Menüleiste zum Nachbarmenü wechseln. */
+  const step = (d: number) => {
+    const btns = [...(bar?.el.current?.querySelectorAll<HTMLButtonElement>("[data-menubar-btn]") ?? [])];
+    const i = btns.indexOf(btn.current!);
+    const n = btns[(i + d + btns.length) % btns.length];
+    if (!n || !bar) return;
+    bar.setOpen(n.dataset.menuId ?? null);
+    n.focus();
+  };
   useEffect(() => {
     if (!open) return;
-    const f = (e: PointerEvent) => !ref.current?.contains(e.target as Node) && setOpen(false);
+    const f = (e: PointerEvent) => !ref.current?.contains(e.target as Node) && !pop.current?.contains(e.target as Node) && setOpen(false);
     window.addEventListener("pointerdown", f, true);
     // ersten Eintrag fokussieren, damit die Tastatur sofort wirkt
     requestAnimationFrame(() => pop.current?.querySelector<HTMLElement>('[role^="menuitem"]:not([disabled]), input, select')?.focus({ preventScroll: true }));
     return () => window.removeEventListener("pointerdown", f, true);
-  }, [open]);
+  }, [open, setOpen]);
+  // Menü schwebt über allem (auch über Fenstern mit abgeschnittenem Inhalt) und bleibt im Fenster
+  const [pos, setPos] = useState<{ top: number; left: number; maxH: number } | null>(null);
+  useLayoutEffect(() => {
+    if (!open || !btn.current) return setPos(null);
+    const place = () => {
+      const r = btn.current!.getBoundingClientRect();
+      const w = pop.current?.offsetWidth ?? 224;
+      let left = align === "right" ? r.right - w : r.left;
+      left = Math.max(8, Math.min(left, window.innerWidth - w - 8));
+      setPos({ top: r.bottom + 6, left, maxH: window.innerHeight - r.bottom - 20 });
+    };
+    place();
+    const raf = requestAnimationFrame(place);
+    window.addEventListener("resize", place);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", place);
+    };
+  }, [open, align]);
   return (
     <div ref={ref} className="relative">
       <button
@@ -125,11 +185,21 @@ export function Menu({
         aria-expanded={open}
         aria-controls={open ? id : undefined}
         data-open={open}
+        data-menubar-btn={bar ? "" : undefined}
+        data-menu-id={id}
+        role={bar ? "menuitem" : undefined}
         onClick={() => setOpen((o) => !o)}
+        onPointerEnter={() => {
+          if (bar?.open && bar.open !== id) bar.setOpen(id);
+        }}
         onKeyDown={(e) => {
           if (e.key === "ArrowDown" && !open) {
             e.preventDefault();
             setOpen(true);
+          } else if (bar && (e.key === "ArrowRight" || e.key === "ArrowLeft")) {
+            e.preventDefault();
+            const btns = [...(bar.el.current?.querySelectorAll<HTMLButtonElement>("[data-menubar-btn]") ?? [])];
+            btns[(btns.indexOf(btn.current!) + (e.key === "ArrowRight" ? 1 : -1) + btns.length) % btns.length]?.focus();
           }
         }}
       >
@@ -137,31 +207,42 @@ export function Menu({
         {label}
         {chevron && <ChevronDown size={13} className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`} />}
       </button>
-      {open && (
+      {open &&
+        createPortal(
         <MenuCtx.Provider value={{ close }}>
           <div
             ref={pop}
             id={id}
             role="menu"
             aria-label={typeof label === "string" ? label : title}
-            className={`menu pop-in absolute top-full z-50 mt-1.5 max-h-[calc(100vh-80px)] overflow-auto ${align === "right" ? "right-0 origin-top-right" : "left-0 origin-top-left"}`}
-            onKeyDown={(e) => menuKeys(e, close)}
+            className={`menu pop-in fixed z-[150] overflow-auto ${align === "right" ? "origin-top-right" : "origin-top-left"}`}
+            style={{ top: pos?.top ?? -9999, left: pos?.left ?? -9999, maxHeight: pos?.maxH }}
+            onKeyDown={(e) => {
+              if (bar && (e.key === "ArrowRight" || e.key === "ArrowLeft") && !(e.target instanceof HTMLInputElement)) {
+                e.preventDefault();
+                return step(e.key === "ArrowRight" ? 1 : -1);
+              }
+              menuKeys(e, close);
+            }}
             onClick={(e) => {
-              if (!keepOpen && (e.target as HTMLElement).closest('[role="menuitem"]')) setOpen(false);
+              if (!keepOpen && (e.target as HTMLElement).closest('[role^="menuitem"]')) setOpen(false);
             }}
           >
             {children}
           </div>
-        </MenuCtx.Provider>
-      )}
+        </MenuCtx.Provider>,
+          document.body,
+        )}
     </div>
   );
 }
 
-export function MenuItem({ onClick, children, kbd, icon, danger, disabled, title }: { onClick: () => void; children: React.ReactNode; kbd?: string; icon?: React.ReactNode; danger?: boolean; disabled?: boolean; title?: string }) {
+/** Menüeintrag; mit `checked` als Ein/Aus- bzw. Auswahleintrag (Häkchen statt Symbol). */
+export function MenuItem({ onClick, children, kbd, icon, danger, disabled, title, checked }: { onClick: () => void; children: React.ReactNode; kbd?: string; icon?: React.ReactNode; danger?: boolean; disabled?: boolean; title?: string; checked?: boolean }) {
+  const check = checked !== undefined;
   return (
-    <button role="menuitem" tabIndex={-1} className="menu-item" data-danger={danger} disabled={disabled} title={title} onClick={onClick}>
-      {icon && <span className="flex w-4 shrink-0 justify-center text-stone-500">{icon}</span>}
+    <button role={check ? "menuitemcheckbox" : "menuitem"} aria-checked={check ? checked : undefined} tabIndex={-1} className="menu-item" data-danger={danger} disabled={disabled} title={title} onClick={onClick}>
+      {(icon || check) && <span className={`flex w-4 shrink-0 justify-center ${checked ? "text-accent-ink" : "text-stone-500"}`}>{checked ? <Check size={15} strokeWidth={2.4} /> : check ? (icon ?? null) : icon}</span>}
       <span className="min-w-0 flex-1 truncate">{children}</span>
       {kbd && <span className="ml-4 shrink-0 text-[11px] text-stone-400">{kbd}</span>}
     </button>

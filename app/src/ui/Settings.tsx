@@ -103,3 +103,37 @@ export function SettingsDialog() {
     </Dialog>
   );
 }
+
+/** „Über den Einrichtungsplaner“: Version, Programmbeschreibung, Versionshinweise. */
+export function AboutDialog() {
+  const open = useEditor((s) => s.aboutOpen);
+  const [version, setVersion] = useState("");
+  useEffect(() => {
+    if (open) void appVersion().then(setVersion);
+  }, [open]);
+  const close = () => useEditor.getState().set("aboutOpen", false);
+  return (
+    <Dialog open={open} onClose={close} width="max-w-md">
+      <div className="flex flex-col items-center pt-2 text-center">
+        <img src={`${import.meta.env.BASE_URL}favicon.png`} alt="" className="h-24 w-24 drop-shadow-lg" draggable={false} />
+        <div className="mt-3 font-display text-xl font-semibold tracking-tight">Einrichtungsplaner WE 13</div>
+        <div className="mt-0.5 text-sm text-stone-500">Version {version || "…"}</div>
+        <p className="mt-3 max-w-sm text-[13px] leading-relaxed text-stone-600">
+          Maßstabsgetreues Möblieren und Gestalten der Wohnung WE 13 in 2D und 3D – mit Herstellerkatalog, den vier Möblierungskonzepten, Planungs-Check, Budget und fotorealistischer 3D-Ansicht.
+        </p>
+        <div className="mt-4 flex gap-1.5">
+          <button className="btn text-xs" onClick={() => void openExternal("https://github.com/mlurz92/Einrichtungsplaner/blob/main/docs/Programmbeschreibung.md")}>
+            Programmbeschreibung
+          </button>
+          <button className="btn text-xs" onClick={() => void openExternal("https://github.com/mlurz92/einrichtungsplaner/releases")}>
+            Versionshinweise
+          </button>
+          <button className="btn-primary text-xs" onClick={close}>
+            Schließen
+          </button>
+        </div>
+        <div className="mt-4 text-[11px] text-stone-400">© 2026 · Texturen CC0 (ambientCG, Poly Haven)</div>
+      </div>
+    </Dialog>
+  );
+}

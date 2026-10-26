@@ -20,9 +20,7 @@ import type { SnapGuide } from "../model/snap";
 import { applyPlacementSnap, setFrameMode } from "./placement";
 import { makeVariant, withVariant } from "../model/variant";
 
-export type ViewMode = "plan" | "3d" | "split";
-export type Camera3D = "orbit" | "walk" | "top";
-export type WallMode = "auto" | "full" | "cut" | "low";
+export type { Camera3D, WallMode } from "../ui/layout";
 export type LeftTab = "katalog" | "gestaltung" | "objekte" | "konzepte" | "planung" | "budget";
 
 export interface Toast {
@@ -48,9 +46,6 @@ export interface EditorState {
   selectedFace: string | null;
   selectedRoom: string | null;
   hoverId: string | null;
-  viewMode: ViewMode;
-  camera3d: Camera3D;
-  wallMode: WallMode;
   showCeiling: boolean;
   night: boolean;
   quality: "hoch" | "mittel" | "niedrig";
@@ -83,6 +78,8 @@ export interface EditorState {
   closeAsk: boolean;
   /** Einstellungsdialog. */
   settingsOpen: boolean;
+  /** Dialog „Über den Einrichtungsplaner“. */
+  aboutOpen: boolean;
 
   // Aktionen
   setProject(p: Project, opts?: { keepHistory?: boolean; filePath?: string | null; label?: string }): void;
@@ -349,9 +346,7 @@ const initial = urlConcept ? structuredClone(urlConcept.project) : autosaved ?? 
 rebuildCatalogIndex(initial);
 
 interface Prefs {
-  viewMode?: ViewMode;
   leftTab?: LeftTab;
-  wallMode?: WallMode;
   quality?: EditorState["quality"];
   showCeiling?: boolean;
 }
@@ -393,9 +388,6 @@ export const useEditor = create<EditorState>((set, get) => ({
   selectedFace: null,
   selectedRoom: null,
   hoverId: null,
-  viewMode: (urlParams.get("view") as ViewMode) || prefs.viewMode || "split",
-  camera3d: (urlParams.get("cam") as Camera3D) || "orbit",
-  wallMode: (urlParams.get("walls") as WallMode) || prefs.wallMode || "auto",
   showCeiling: prefs.showCeiling ?? false,
   night: urlParams.get("night") === "1",
   quality: (urlParams.get("q") as EditorState["quality"]) || prefs.quality || "hoch",
@@ -418,6 +410,7 @@ export const useEditor = create<EditorState>((set, get) => ({
   startOpen: firstStart,
   paletteOpen: false,
   settingsOpen: false,
+  aboutOpen: false,
   closeAsk: false,
 
   setProject(p, opts) {
@@ -813,8 +806,8 @@ useEditor.subscribe((s, prev) => {
 
 // Ansichtseinstellungen merken
 useEditor.subscribe((s, prev) => {
-  if (s.viewMode === prev.viewMode && s.leftTab === prev.leftTab && s.wallMode === prev.wallMode && s.quality === prev.quality && s.showCeiling === prev.showCeiling) return;
-  writeJson(PREFS_KEY, { viewMode: s.viewMode, leftTab: s.leftTab, wallMode: s.wallMode, quality: s.quality, showCeiling: s.showCeiling } satisfies Prefs);
+  if (s.leftTab === prev.leftTab && s.quality === prev.quality && s.showCeiling === prev.showCeiling) return;
+  writeJson(PREFS_KEY, { leftTab: s.leftTab, quality: s.quality, showCeiling: s.showCeiling } satisfies Prefs);
 });
 
 export function budgetSummary(p: Project) {

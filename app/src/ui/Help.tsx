@@ -12,7 +12,6 @@ const GROUPS: [string, [string, string][]][] = [
       ["Strg+N / Strg+O", "Neue Einrichtung / Öffnen (Datei → Zuletzt verwendet)"],
       ["Strg+S / Strg+Umschalt+S", "Speichern / Speichern unter"],
       ["Strg+Z / Strg+Y", "Rückgängig / Wiederholen – Schritte sind benannt (Tooltip, Statusleiste)"],
-      ["1 / 2 / 3", "Nur Plan / Plan und 3D / nur 3D"],
       ["F1 oder ?", "Diese Hilfe"],
       ["Strg+,", "Einstellungen: Design (hell, dunkel, wie Windows), Transparenz, Oberflächengröße"],
       ["Strg+B / Strg+Umschalt+B", "Linke / rechte Leiste ein- oder ausblenden; Leistenrand ziehen ändert die Breite"],
@@ -45,6 +44,17 @@ const GROUPS: [string, [string, string][]][] = [
     ],
   ],
   [
+    "Fenster & Aufteilung",
+    [
+      ["1 / 2 / 3", "Schnellwahl: nur 2D-Plan / 2D-Plan und 3D nebeneinander / nur 3D"],
+      ["Aufteilung (Kopfleiste)", "Ein Fenster, zwei nebeneinander oder übereinander, drei (groß links bzw. oben) oder vier Fenster"],
+      ["Kopfzeile eines Fensters", "Ansichtsart wählen (2D-Plan oder 3D) – so sind auch 2D | 2D und 3D | 3D möglich, jedes 3D-Fenster mit eigener Kamera und Wanddarstellung"],
+      ["Teiler ziehen", "Fenstergrößen frei verstellen; Doppelklick = halbe-halbe; bei vier Fenstern verschiebt der Kreuzungspunkt beide Teiler"],
+      ["Strg+Leertaste", "Aktives Fenster maximieren bzw. Aufteilung wiederherstellen (auch Doppelklick auf die Kopfzeile)"],
+      ["Aktives Fenster", "Zuletzt angeklicktes Fenster (Akzentlinie unter der Kopfzeile): Ziel für W, M, + / −, F und den Rundgang"],
+    ],
+  ],
+  [
     "Ansicht",
     [
       ["F", "Plan einpassen; in 3D Kamera auf die Auswahl"],
@@ -52,10 +62,10 @@ const GROUPS: [string, [string, string][]][] = [
       ["M", "Messen im Plan"],
       ["+ / −", "Plan vergrößern / verkleinern (Zoomleiste unten rechts, Prozentwert = einpassen)"],
       ["Abstandsmaß anklicken", "Exakten Wandabstand in cm eingeben – das Objekt rückt passend"],
-      ["W", "Wanddarstellung wechseln: Auto (verdeckende Wände 15 cm, wie Die Sims) → Schnitt → Flach → Voll"],
+      ["W", "Wanddarstellung des aktiven 3D-Fensters wechseln: Auto (verdeckende Wände 15 cm, wie Die Sims) → Schnitt → Flach → Voll"],
       ["Plan: Ziehen auf freier Fläche, mittlere/rechte Taste", "Ansicht verschieben; Mausrad zoomt zum Mauszeiger"],
       ["3D: links ziehen / rechts oder Mitte ziehen", "Ansicht drehen / verschieben; Möbel nur bei direktem Treffer mit links"],
-      ["Rundgang", "W A S D gehen, Maus umsehen, Umschalt schneller, Esc beendet"],
+      ["Rundgang", "In das Fenster klicken, dann W A S D gehen, Maus umsehen, Umschalt schneller, Esc gibt die Maus frei"],
     ],
   ],
 ];

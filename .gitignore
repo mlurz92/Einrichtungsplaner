@@ -3,3 +3,4 @@ __pycache__/
 *.tsbuildinfo
 dist-win/
 tools/out/audit.json
+app/.shots/

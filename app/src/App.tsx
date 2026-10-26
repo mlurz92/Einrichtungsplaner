@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Boxes, ClipboardCheck, LayoutList, Palette, Sofa, Wallet } from "lucide-react";
 import { restoredFromAutosave, swapTargets, useEditor } from "./store/project";
 import { TopBar } from "./ui/TopBar";
@@ -9,7 +9,6 @@ import { SwapPanel } from "./ui/SwapPanel";
 import { Inspector } from "./ui/Inspector";
 import { BudgetPanel, ConceptsPanel, DesignPanel, ObjectsPanel } from "./ui/Panels";
 import { PlanningPanel } from "./ui/PlanningPanel";
-import { Plan2D } from "./plan/Plan2D";
 import { normAngle } from "./model/geometry";
 import { openProject, saveProject } from "./ui/fileops";
 import { StartScreen } from "./ui/StartScreen";
@@ -19,12 +18,12 @@ import { focusSelection, pasteHere, toggleHidden, toggleLock, toggleSwap } from 
 import { fileName } from "./ui/recent";
 import { interceptWindowClose, isTauri, onOpenFileRequest, readTextPath, setWindowTitle, takeStartupFile, toggleFullscreen } from "./platform";
 import { ContextMenuLayer, TooltipLayer } from "./ui/kit";
-import { SettingsDialog } from "./ui/Settings";
+import { AboutDialog, SettingsDialog } from "./ui/Settings";
+import { Viewports, WALL_LABELS } from "./ui/Viewports";
+import { shownPanes, targetPane, useLayout } from "./ui/layout";
 import { SIDEBAR_LIMITS, useUi } from "./ui/prefs";
 import { loadProjectText } from "./ui/fileops";
 import { UpdateBanner } from "./ui/update";
-
-const Scene3D = lazy(() => import("./three/Scene3D").then((m) => ({ default: m.Scene3D })));
 
 const TABS = [
   { id: "katalog", label: "Katalog", icon: Sofa },
@@ -34,8 +33,6 @@ const TABS = [
   { id: "planung", label: "Planung", icon: ClipboardCheck },
   { id: "budget", label: "Budget", icon: Wallet },
 ] as const;
-
-const WALL_TOAST = { auto: "Automatisch (verdeckende Wände gekappt)", cut: "Schnitt 1,30 m", low: "Flach", full: "Raumhoch" } as const;
 
 function useShortcuts() {
   useEffect(() => {
@@ -63,7 +60,7 @@ function useShortcuts() {
       const t = e.target as HTMLElement;
       if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "SELECT" || t.isContentEditable)) return;
       // Offene Dialoge: nur Esc wirkt global
-      if (st.paletteOpen || st.startOpen || st.closeAsk || st.newDialogOpen || st.settingsOpen || st.helpOpen) {
+      if (st.paletteOpen || st.startOpen || st.closeAsk || st.newDialogOpen || st.settingsOpen || st.helpOpen || st.aboutOpen) {
         if (e.key === "Escape" || (e.key === "F1" && st.helpOpen)) {
           e.preventDefault();
           st.set("paletteOpen", false);
@@ -72,7 +69,16 @@ function useShortcuts() {
           st.set("newDialogOpen", false);
           st.set("settingsOpen", false);
           st.set("helpOpen", false);
+          st.set("aboutOpen", false);
         }
+        return;
+      }
+      const lay = useLayout.getState();
+      const t3 = targetPane("3d");
+      const walking = t3 != null && lay.panes[t3].camera === "walk";
+      if (ctrl && e.code === "Space") {
+        e.preventDefault();
+        lay.toggleMaximize();
         return;
       }
       if (ctrl && key === "b") {
@@ -124,17 +130,18 @@ function useShortcuts() {
         if (st.swapFor) return st.set("swapFor", null);
         st.select([]);
         st.selectFace(null);
-      } else if (st.camera3d === "walk" && st.viewMode !== "plan" && ["w", "a", "s", "d"].includes(key)) {
+      } else if (walking && ["w", "a", "s", "d"].includes(key)) {
         return; // Rundgang
       } else if (e.key === "1" || e.key === "2" || e.key === "3") {
-        st.set("viewMode", e.key === "1" ? "plan" : e.key === "2" ? "split" : "3d");
+        lay.preset(e.key === "1" ? "plan" : e.key === "2" ? "split" : "3d");
       } else if (key === "f" && st.selection.length) {
         focusSelection();
-      } else if (key === "w" && st.viewMode !== "plan") {
+      } else if (key === "w" && t3 != null) {
         const order = ["auto", "cut", "low", "full"] as const;
-        const next = order[(order.indexOf(st.wallMode) + 1) % order.length];
-        st.set("wallMode", next);
-        st.showToast(`Wände: ${WALL_TOAST[next]}`);
+        const next = order[(order.indexOf(lay.panes[t3].walls) + 1) % order.length];
+        lay.setPane(t3, { walls: next });
+        const several = shownPanes().filter((i) => lay.panes[i].kind === "3d").length > 1;
+        st.showToast(`Wände${several ? ` (Fenster ${t3 + 1})` : ""}: ${WALL_LABELS[next].long}`);
       } else if (key === "t" && st.selection.length) {
         toggleSwap();
       } else if (key === "l" && st.selection.length) {
@@ -145,7 +152,7 @@ function useShortcuts() {
         st.updateItems(movableSelection(), (it) => void (it.rot = normAngle(it.rot + (e.shiftKey ? -15 : 15))), { label: "Drehen", coalesce: "rotate" });
       } else if (st.selection.length && (key === "q" || key === "e")) {
         st.updateItems(movableSelection(), (it) => void (it.rot = normAngle(it.rot + (key === "q" ? -1 : 1))), { label: "Feindrehen", coalesce: "rotate" });
-      } else if (st.selection.length && e.key.startsWith("Arrow") && st.camera3d !== "walk") {
+      } else if (st.selection.length && e.key.startsWith("Arrow") && !walking) {
         e.preventDefault();
         const s = e.shiftKey ? 0.1 : 0.01;
         const dx = e.key === "ArrowLeft" ? -s : e.key === "ArrowRight" ? s : 0;
@@ -332,7 +339,6 @@ export function App() {
   useFileOpening();
   const tab = useEditor((s) => s.leftTab);
   const setTab = (t: typeof tab) => useEditor.getState().set("leftTab", t);
-  const viewMode = useEditor((s) => s.viewMode);
   const leftOpen = useUi((s) => s.leftOpen);
   const rightOpen = useUi((s) => s.rightOpen);
   const leftWidth = useUi((s) => s.leftWidth);
@@ -346,6 +352,7 @@ export function App() {
       <CommandPalette />
       <CloseDialog />
       <SettingsDialog />
+      <AboutDialog />
       <div className="flex min-h-0 flex-1 gap-1.5">
         {/* Linke Leiste */}
         {leftOpen && (
@@ -379,21 +386,7 @@ export function App() {
           </>
         )}
         {/* Ansichten */}
-        <main className="glass flex min-w-0 flex-1 overflow-hidden rounded-xl p-0" aria-label="Plan und 3D-Ansicht">
-          {viewMode !== "3d" && (
-            <section id="viewport2d" aria-label="2D-Plan" className={`relative min-w-0 ${viewMode === "split" ? "w-1/2 border-r border-line" : "flex-1"}`}>
-              <Plan2D />
-            </section>
-          )}
-          {viewMode !== "plan" && (
-            <section id="viewport3d" aria-label="3D-Ansicht" className="relative min-w-0 flex-1" style={{ background: "var(--scene-bg)" }}>
-              <Suspense fallback={<div className="grid h-full place-items-center text-sm text-stone-500">3D-Ansicht wird geladen …</div>}>
-                <Scene3D />
-              </Suspense>
-              <WalkHint />
-            </section>
-          )}
-        </main>
+        <Viewports />
         {/* Rechte Leiste */}
         {rightOpen && (
           <>
@@ -409,16 +402,6 @@ export function App() {
       <ToastView />
       <ContextMenuLayer />
       <TooltipLayer />
-    </div>
-  );
-}
-
-function WalkHint() {
-  const cam = useEditor((s) => s.camera3d);
-  if (cam !== "walk") return null;
-  return (
-    <div className="glass-strong pointer-events-none absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full px-3.5 py-1.5 text-xs text-stone-700">
-      Rundgang: in die Ansicht klicken · Maus = umsehen · W A S D = gehen · Umschalt = schneller · Esc = Maus freigeben
     </div>
   );
 }

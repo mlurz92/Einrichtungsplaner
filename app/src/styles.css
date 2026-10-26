@@ -515,3 +515,50 @@ html[data-theme="dark"] .toast {
 .toast:hover .toast-progress {
   animation-play-state: paused;
 }
+
+/* ---------------------------------------------------------------- Ansichtsfenster (2.5) */
+
+/* Kopfzeile eines Fensters: Ansichtsart, Werkzeuge, Maximieren – wie die Viewport-Leisten in CAD-Programmen */
+.pane-bar {
+  background: color-mix(in srgb, var(--ui-card) 55%, transparent);
+  border-bottom: 1px solid var(--ui-line);
+}
+html[data-transparency="off"] .pane-bar {
+  background: var(--ui-surface);
+}
+.pane[data-active="true"] .pane-bar {
+  box-shadow: inset 0 -2px 0 var(--ui-accent);
+}
+.pane[data-active="true"] .pane-kind {
+  @apply text-accent-ink;
+}
+.pane-bar .tool[data-on="true"] {
+  @apply bg-accent-soft text-accent-ink hover:bg-accent-soft hover:text-accent-ink;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ui-accent) 35%, transparent);
+}
+.pane-seg > button {
+  @apply py-0.5;
+}
+
+/* Teiler zwischen den Fenstern: Haarlinie, beim Überfahren und Ziehen in Akzentfarbe */
+.split-line {
+  background: var(--ui-line);
+  transition: background-color 0.15s;
+}
+html[data-theme="light"] .split-line {
+  background: rgb(60 50 40 / 0.16);
+}
+.split-handle:hover .split-line,
+.split-handle:focus-visible .split-line,
+.split-handle[data-drag="true"] .split-line {
+  background: var(--ui-accent);
+}
+.split-handle:hover .split-line,
+.split-handle[data-drag="true"] .split-line {
+  box-shadow: 0 0 0 1px var(--ui-accent);
+}
+.split-cross:hover,
+.split-cross[data-drag="true"] {
+  background: var(--ui-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ui-accent) 25%, transparent);
+}

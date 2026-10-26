@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AlertTriangle, Check, CircleDot, X } from "lucide-react";
 import { getCatalogItem, lastAutosave, pauseToast, useEditor } from "../store/project";
 import { Dialog } from "./kit";
+import { targetPane, useLayout } from "./layout";
 import { closeWindowNow } from "../platform";
 import { saveProject } from "./fileops";
 import { fileName } from "./recent";
@@ -10,15 +11,17 @@ import { fileName } from "./recent";
 function useContextHint(): string {
   const placing = useEditor((s) => s.placing);
   const selection = useEditor((s) => s.selection);
-  const cam = useEditor((s) => s.camera3d);
-  const view = useEditor((s) => s.viewMode);
+  const walking = useLayout((s) => {
+    const t = targetPane("3d", s);
+    return t != null && s.panes[t].camera === "walk";
+  });
   const face = useEditor((s) => s.selectedFace);
   const items = useEditor((s) => s.project.items);
   if (placing) {
     const c = getCatalogItem(placing.catalogId);
     return `${c?.name ?? "Objekt"} platzieren: in Plan oder 3D klicken · Umschalt+Klick: mehrere · Esc: abbrechen`;
   }
-  if (cam === "walk" && view !== "plan") return "Rundgang: in die Ansicht klicken · Maus = umsehen · W A S D = gehen · Umschalt = schneller · Esc = Maus freigeben";
+  if (walking) return "Rundgang: in die Ansicht klicken · Maus = umsehen · W A S D = gehen · Umschalt = schneller · Esc = Maus freigeben";
   if (selection.length === 1) {
     const it = items.find((i) => i.id === selection[0]);
     if (it?.locked) return `${it.label ?? "Objekt"} ist gesperrt · L: entsperren`;
