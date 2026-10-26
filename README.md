@@ -1,120 +1,49 @@
 # Einrichtungsplaner WE 13
 
+<img src="tools/icon/icon_1024.png" alt="App-Icon" width="96" align="right">
+
 Windows-Desktop-Anwendung zum maßstabsgetreuen Möblieren und Gestalten der Wohnung **WE 13** in 2D und 3D –
 mit Katalog hochwertiger Produkte von **Westwing, IKEA, JYSK, Tylko, Höffner, BoConcept, DELIFE**, Markentischen von **Mobitec, Musterring,
 bert plantagie und connubia by calligaris** und Designleuchten von **lampe.de**
 (Artemide, Tecnolumen, Serien Lighting, Bopp, Grossmann u. a.), **Samsung The Frame** und den vier vollständig
-übernommenen Möblierungskonzepten.
+übernommenen Möblierungskonzepten. Die gekaufte **Einbauküche Alno 2060** (Höffner) ist in jedem Projekt fest eingebaut.
 
-**Version 2.0** bringt eine neue Oberfläche im Fluent-Stil mit halbtransparenten Glasflächen (unter Windows 11 mit Mica),
-hellem und dunklem Design, frei verstellbaren Seitenleisten, Kontextmenüs und Glas-Tooltips, einen überarbeiteten
-2D-Plan mit echten Bodenbelägen und eine aufgewertete 3D-Ansicht. Die gekaufte **Einbauküche Alno 2060** (Höffner)
-ist in jedem Projekt fest eingebaut.
+📖 **[Programmbeschreibung](docs/Programmbeschreibung.md)** – jede Fläche, jeder Schalter, jede Taste und jede Regel im Detail.
 
-**Version 2.0.1** ersetzt in allen vier Konzepten den runden Esstisch durch einen rechteckigen Tisch für sechs Personen
-aus dem Katalog (Längsachse im Plan von oben nach unten), mit sechs passenden Stühlen, einem Teppich mit mindestens
-60 cm Überstand an den Stuhlseiten und einer linearen Pendelleuchte, die länger als die halbe Tischlänge ist. Der
-Installer frischt außerdem die Desktop-Verknüpfung und den Icon-Cache von Windows auf, damit das neue App-Icon sofort
-erscheint.
+## Neu in Version 2.5.0
 
-**Version 2.0.2** ergänzt den Katalog um längliche Stein- und Marmortische von **Höffner** (16) und **BoConcept** (5)
-und kennzeichnet alle 27 länglichen Stein-/Marmor-Esstische nach Plattenmaterial: echter Marmor, Keramik/Sinterstein
-oder Marmoroptik als Dekor. Suche „Marmortisch“ oder „Steintisch“ bzw. Händlerfilter „Höffner“ (siehe Tabelle unten).
+**Ansichten wie im CAD-Programm.** Die Mitte besteht aus bis zu **vier frei belegbaren Fenstern**. Jedes zeigt wahlweise den
+2D-Plan oder eine 3D-Ansicht – also auch **2D | 2D** (zwei Zoomstufen) oder **3D | 3D** (Modell und Rundgang
+nebeneinander).
 
-**Version 2.0.3** stellt den Essplatz aller vier Konzepte auf dunkle Stein- und Keramiktische für sechs Personen um
-(kein Holz an Platte oder Gestell), mit Stühlen auf Metallgestell und einer Pendelleuchte von 75–100 % der Tischlänge.
-Dafür sind 25 weitere lange Esstisch-Pendelleuchten (130–200 cm) von lampe.de im Katalog.
+| | |
+|---|---|
+| Aufteilungen | Ein Fenster · zwei nebeneinander · zwei übereinander · drei (groß links bzw. groß oben) · vier Fenster – in der Kopfleiste als Symbole, im Menü **Ansicht → Aufteilung** und über **Strg+K** |
+| Teiler | frei ziehbar (12–88 %), Doppelklick = halbe-halbe, Pfeiltasten in 2-%-Schritten, bei vier Fenstern verschiebt der Kreuzungspunkt beide Teiler |
+| Kopfzeile je Fenster | Ansichtsart (2D-Plan / 3D), im Plan Messen · Pos.-Nr. · Freiflächen · Maße, in 3D Kamera **Modell · Oben · Rundgang**, Wanddarstellung, Tag/Abend, Darstellung, Ansichtsleiste und Maximieren; passt sich der Fensterbreite an |
+| Eigenständige 3D-Fenster | eigene Kamera, Brennweite, Wanddarstellung und Ansichtsleiste je Fenster; Licht, Decke, Türen und Qualität gelten für alle |
+| Maximieren | **Strg+Leertaste** oder Doppelklick auf die Kopfzeile – das aktive Fenster füllt die Mitte, nochmal = Aufteilung zurück |
+| Aktives Fenster | Akzentlinie unter der Kopfzeile; Ziel für W, M, + / −, F, WASD, Foto- und Grundriss-Export |
+| Gespeichert | Aufteilung, Teiler und Belegung bleiben über Neustarts erhalten; **1 / 2 / 3** bleiben die Schnellwahl |
 
-**Version 2.0.4** macht die 3D-Ansicht fotorealistisch: Glänzende Oberflächen spiegeln nicht mehr eine helle
-Studio-Umgebung, sondern die Wohnung selbst. Eine **Umgebungssonde** rendert dazu den Raum am Standort der Kamera mit
-dem aktuellen Licht (Sonne, Himmel und Außenboden durch die Fenster, Leuchten am Abend) über mehrere Lichtsprünge;
-daraus stammen Spiegelungen und indirektes Licht. Eine **Belichtungsautomatik** misst die Raumhelligkeit wie eine
-Kamera, sodass Tag- und Abendansichten aus jedem Blickwinkel richtig belichtet sind. Materialwerte sind physikalisch
-korrigiert (Rauheitstexturen auf ihren Mittelwert normiert, polierter Stein und glasierte Fliesen ohne doppelten
-Klarlack, seidenmatter Möbellack, Pulverbeschichtung als Lack statt Metall, Albedo ≤ 0,85). Außerdem lassen sich
-**mehrere markierte gleiche Objekte gemeinsam tauschen** (T); jedes behält Position, Drehung und Bezug (Tischkante,
-Wand oder Mitte).
+**Aufgeräumte Bedienung.** Eine **Menüleiste** wie in Desktop-Programmen (Datei · Bearbeiten · Ansicht · Konzepte ·
+Hilfe) mit Häkchen, Untermenüs, Tastenkürzeln und Wechsel per Überfahren bzw. ←/→ ersetzt das Hauptmenü und die
+verstreuten Ansichtsschalter. Die Kopfleiste ist ruhiger (Projekt, Menüs, Rückgängig, Aufteilung, Fang, Suche, Budget,
+Speichern, Leisten), Menüs öffnen über allen Fenstern, und es gibt einen **Über-Dialog** mit Links zur
+Programmbeschreibung und den Versionshinweisen. Der Rundgang nimmt die Maus erst nach einem Klick in sein Fenster
+(vorher konnte jeder Klick im Programm die Maus sperren), und nur noch 3D-Fenster, die sich ändern, rechnen.
 
-**Version 2.0.5** stellt den Essplatz aller vier Konzepte auf **rechteckige Keramiktische mit 200 × 100 cm** von
-Markenherstellern um (Mobitec Terra, bert plantagie Aiven, Musterring Picara, connubia by calligaris Master; Metallgestell,
-kein Holz), jeweils mit passenden Stühlen, handgewebten Wollteppichen von mindestens 240 cm Breite (70 cm Überstand an den
-Stuhlseiten) und einer Pendelleuchte von 50–60 % der Tischlänge (105–120 cm). Neu im Katalog sind die vier Tische und die
-Mobitec-Aura-Polsterstühle (Händler Möbel Letz); die Gestelle (konische Schrägbeine, X-Kufen mit Querstange, gekreuzte
-Schrägbeine, Vierkantbeine) sind in 2D/3D nach Produktfoto nachgebaut.
-
-**Version 2.0.6** setzt in alle vier Konzepte den **DELIFE Esstisch Edge** (200 × 100 × 74 cm, Keramik Laminam®
-Noir Désir Braun auf Sicherheitsglas, V-Mittelfuß aus schwarzem Flachstahl, 769,90 €). Die Platte zeigt das Dekor
-originalgetreu (schwarzbraun mit ockerfarbenen, teils weiß gefüllten Adern schräg zur Tischlänge, eigene Farbtextur
-statt eingefärbter Marmortextur), der Fuß ist nach Maßzeichnung als zwei gekantete Stahlbleche nachgebaut, die sich in
-der Seitenansicht überkreuzen (Standkanten 160 cm auseinander, 50 cm breit), mit flachem Rahmen unter der Platte.
-Stühle, Teppiche und Pendelleuchten (50–60 % der Tischlänge) bleiben.
-
-**Version 2.0.7** nimmt das **komplette DELIFE-Sortiment** in den Katalog auf: 1.190 Produkte mit allen Ausführungen
-(Bezüge, Farben, Gestellarten und -farben, Plattendekore und -stärken, Ausrichtung links/rechts) mit eigenem Preis,
-Shop-Link und Produktfoto, Bezugsfarben aus den Produktfotos gemessen. Das Stuhlsystem **Flex** (Schalenform,
-Steppung, 4-Fuß konisch, Kreuz-, Kufen-, Holz-, Säulen- und Freischwingergestelle, Drehfunktion), die Tischgestelle
-(U-, Schräg-, Spinnen-, Glas-, Säulen-, Konus- und Bandgestelle, Oval-, Rund- und Bootsplatten, Baumkante), die
-Eckbank Taya-Flex, Ecksofas mit Ottomane links/rechts, zweifarbige Bezüge und Sideboards mit offenen Fächern sind in 2D
-und 3D nachgebaut; neues Material **Mikrofaser** (Velours-/Vintage-Optik). Am Essplatz aller vier Konzepte stehen jetzt
-**DELIFE-Flex-Polsterstühle in Taupe** mit schwarzem Gestell, passend zum V-Mittelfuß des Edge (6 Stühle + Nischenplatz,
-gleiche Ausrichtung, Armlehnen unter der Tischplatte); die Teppiche zeigen ihr Webmuster.
-
-**Version 2.1.0** macht Farben und Materialien in der 3D-Ansicht **bei jedem Licht verlässlich**: Tageslicht, Dämmerung,
-Abendlicht und Kunstlicht am Tag. Leuchten strahlen jetzt in ihrer physikalischen Lichtfarbe (Planckscher Strahler
-2700–4000 K statt einer Gamma-Näherung), und ein **Weißabgleich wie beim Auge** (chromatische Adaptation nach
-CIECAM02, abhängig von der Raumhelligkeit: abends ≈ 84 %, tagsüber ≈ 95 %) gleicht die Lichtfarbe aus, ohne die
-Stimmung zu verlieren. Er richtet sich nach der bekannten Lichtquelle (Himmel, Sonne, Leuchten oder Mischlicht) und
-etwa zur Hälfte nach dem farbigen Raumlicht der Umgebungssonde (dunkle Eichendielen, Nussbaumküche). Ergebnis: Die
-**Taupe-Stühle** bleiben im 2900-K-Abendlicht taupe (Buntheit 27 → 17,5, Farbton 61° → 68°; Katalogwert 12 / 76°)
-statt braun, weißes Papier wirkt warmweiß statt orange, und bei voller Adaptation erscheint jede Materialfarbe exakt
-in ihrer Katalogfarbe (Tests in `colorScience.test.ts`). Neu: **Leuchten auch bei Tageslicht** (Kunstlicht am trüben
-Nachmittag oder in der Dämmerung, Mischlicht-Weißabgleich), Lampenschirme leuchten in der eingestellten Lichtfarbe,
-Sonnenschatten mit weicher Kante (Halbschatten der Sonnenscheibe); Fensterscheiben und Hintergrund bleiben bei jedem Licht neutral. Neues App-Icon mit Essplatz unter warmem Licht.
-
-**Version 2.1.1** setzt an den Essplatz aller vier Konzepte den **DELIFE Esszimmerstuhl Pejo-Flex**, Mikrofaser
-**Beige Vintage**, Kreuzgestell kantig Schwarz, Taschenfederkern (89,90 €; 6 Stühle + Nischenplatz, Ausrichtung und
-Anzahl unverändert). Die Platte des **Edge** zeigt jetzt das Dekorfoto von Laminam® Noir Désir selbst statt einer
-nachgebauten Textur: anthrazitbrauner, wolkiger Grund mit ockerfarbenen Adern und silbergrauem Kern, das Foto liegt
-genau einmal auf der 200 × 100 cm großen Platte (andere Plattengrößen setzen es gespiegelt fort). Mikrofaser hat
-Wildleder-Optik ohne Webbild. Behoben ist außerdem ein Fehler seit Version 1, durch den alle eingefärbten Texturen
-(Holz, Stoffe, Leder, Bouclé, Dielen) im Verhältnis ihrer Vorlagenhelligkeit abgedunkelt wurden – Nussbaum und Samt
-fast auf Schwarz, Eiche auf rund 40 %. Materialien erscheinen in 3D jetzt in ihrer Katalogfarbe (Eichendielen hell,
-Beige-Stühle beige). DELIFE-Ausführungen tragen die Bezugsoptik aus dem Artikelnamen („Mikrofaser Beige Vintage“,
-„Grau Antik“); ältere Projekte finden ihre Ausführung weiterhin.
-
-**Version 2.3.0** nimmt das Gold zurück: Die Konzepte sind **minimalistisch-luxuriös** in Schwarz, Beige/Greige und
-Stein/Keramik, passend zur Sitzgruppe am Essplatz. Leuchten sind schwarz oder opal (Westwing Matilda, Lilly, Walter und
-Panthella 160, Holländer FUNGO, SCHÖNER WOHNEN SIA, Wandleuchte Atlanta, Lido-Deckenleuchten), über dem Esstisch hängen
-By Rydens Skyline, SIA, DUBAI bzw. LINI in Schwarz. Das goldene Sideboard Kazu ist entfallen (Konzept 1 Chandler dunkle
-Eiche, 2 Cuor Emperador, 3 Cuor Travertino, 4 Calary Schwarz matt), Spiegel Ayu in dunklem Akazienholz statt Messing,
-Konsolen und Beistelltische mit schwarzem Gestell statt Titan. Gold bleibt **höchstens als ein Kontraststück je Konzept**:
-Schale Ramina (1), Stehleuchte Multi-Lite Schwarz/Gold (2), keines (3), Kerzenhalter auf dem Esstisch (4). Die Konzepte
-heißen jetzt **Noir · Sand · Nussbaum**, **Noir · Espresso · Emperador**, **Noir · Stone · Greige** und
-**Noir · Ivory · Travertin**. Neu in der 3D-Ansicht: **Raumfotos** – zehn kuratierte Kameraperspektiven (Wohnen, Essen,
-Tischplatte, Küche, Diele, Schlafen, Arbeit, Bad) mit passender Tageszeit; ein Klick schwenkt die Kamera dorthin, ein
-zweiter speichert das Bild in Full HD, „Alle Raumfotos speichern“ legt alle Ansichten in einen Ordner.
-
-**Version 2.2.0** stimmt **alle vier Konzepte auf den Essplatz ab** (Edge in Laminam® Noir Désir, Pejo-Flex Beige
-Vintage, schwarzes Gestell): eine durchgehende Linie aus **Schwarz, Beige/Greige, warmem Gold/Messing und
-Stein/Keramik**. Neu sind Keramik-Couchtische, -Beistelltische und -Konsolen der DELIFE-Serie Edge, Sideboard **Kazu**
-(Metallic Gold mit Noir-Désir-Platte) bzw. Sideboard und Lowboard **Cuor** in Travertino oder Minas Melange, Leuchten in
-Messing/Gold (Holländer CAPRI, CLARICE, ALICE FIORIRE, Flos IC, Louis Poulsen Panthella, Gubi Multi-Lite und Bestlite),
-Kissen in Taupe, Hellbeige und schwarzem Bouclé, Lamellenwände in Eiche schwarz bzw. Walnuss, neue Teppiche am
-Essplatz und DELIFE-Deko aus Aluminium und mundgeblasenem Glas. Petrol-, Salbei- und Kupferakzente sind entfallen;
-die Akzentwand im Schlafzimmer ist in Konzept 1 Farrow & Ball Elephant's Breath, in Konzept 4 Tanner's Brown. Die
-Konzepte heißen jetzt **Noir · Sand · Messing**, **Noir · Espresso · Gold**, **Noir · Stone · Greige** und
-**Noir · Ivory · Gold** (Übersicht unten). Ersetzte PDF-Positionen bleiben im Katalog. Im **DELIFE-Katalog** tragen die
-Ausführungen jetzt den Plattendekor im Namen („Laminam® Noir Désir Braun“ statt „Braun“, „Emperador Dunkelbraun“,
-„Calacatta Luxe Weiß/Gold“), Barhocker mit Gestellfarbe nur im Artikelnamen (Metall Weiß/Schwarz/Titan) sind eigene
-Ausführungen (77 mehr), Teppiche, Bilder und Spiegel haben ihre echten Farben, Kazu und Yori zeigen den goldenen Korpus mit
-Keramikplatte bzw. -fronten (Sideboards mit eigener Deckplatte und neuem Bauteil „Fronten“), neue Artikel (Ecksofa
-Lanzo XL, Hängeleuchte Cirillo) sind ergänzt.
+**Neues App-Icon „Noir“.** Ein isometrisches Raummodell auf dunkler Steinkachel: greige Wände mit schwarzen
+Wandköpfen, Eichenboden mit Sonnenfleck, der dunkle Keramiktisch mit V-Fuß und Goldader, beige Stühle, eine schwarze
+lineare Pendelleuchte mit warmem Licht und champagnerfarbene Maßketten – passend zur Linie der Konzepte. Installer-Grafiken
+und Favicon sind angepasst.
 
 ## Funktionen
 
 | Bereich | Umfang |
 |---|---|
-| Oberfläche | Glasflächen über Mica (Windows 11) bzw. weichem Farbverlauf, Design **hell / dunkel / wie Windows** (auch Titelleiste), Transparenz und Animationen abschaltbar, Oberflächengröße 80–150 %; linke und rechte Leiste ein-/ausblendbar (**Strg+B**, **Strg+Umschalt+B**) und per Ziehgriff in der Breite verstellbar; Kopfleiste ab 1.200 px Fensterbreite vollständig; Menüs, Dialoge und Segmentschalter vollständig per Tastatur bedienbar (Pfeiltasten, Esc, Fokus bleibt im Dialog); Glas-Tooltips mit Tastenkappen; Kontextmenü (Rechtsklick) in Plan und 3D; Hinweise mit Restzeitleiste, die beim Überfahren anhalten; Einstellungen **Strg+,**; Vollbild **F11** |
+| Ansichten | bis zu vier frei belegbare Fenster (2D-Plan oder 3D, auch 2D \| 2D und 3D \| 3D) in sechs Aufteilungen, ziehbare Teiler, Maximieren (**Strg+Leertaste**), eigene Kamera und Wanddarstellung je 3D-Fenster, Kopfzeile mit den Werkzeugen der Ansicht, Aufteilung wird gespeichert |
+| Oberfläche | Menüleiste Datei · Bearbeiten · Ansicht · Konzepte · Hilfe, Glasflächen über Mica (Windows 11) bzw. weichem Farbverlauf, Design **hell / dunkel / wie Windows** (auch Titelleiste), Transparenz und Animationen abschaltbar, Oberflächengröße 80–150 %; linke und rechte Leiste ein-/ausblendbar (**Strg+B**, **Strg+Umschalt+B**) und per Ziehgriff in der Breite verstellbar; Kopfleiste ab 1.200 px Fensterbreite vollständig; Menüs, Dialoge und Segmentschalter vollständig per Tastatur bedienbar (Pfeiltasten, Esc, Fokus bleibt im Dialog); Glas-Tooltips mit Tastenkappen; Kontextmenü (Rechtsklick) in Plan und 3D; Hinweise mit Restzeitleiste, die beim Überfahren anhalten; Einstellungen **Strg+,**; Vollbild **F11** |
 | Einbauküche | Alno 2060 laut Kaufvertrag Höffner: Fronten Walnuss dunkel (UV-Mattlack), Korpus und Griffleiste schwarz, Arbeitsplatte und Rückwand Naturstein poliert mit Flocken, Hochschrank Backofen links, Hochschrank Kühl-Gefrier rechts, 80-cm-Induktionskochfeld mit Muldenlüfter, Spüle Franke schwarz, Faltlift-Oberschränke mit LED, Sideboard gegenüber; fest eingebaut in allen Konzepten, in der leeren Wohnung und in älteren Projektdateien (wird beim Öffnen ergänzt), nicht verschieb- oder löschbar |
 | Grundriss | exakt aus der Vektor-PDF rekonstruiert (Wandpolygone, Raumpolygone, 16 Öffnungen mit Rohbaubreiten, 8°-Flügel), Raumhöhe 2,56 m, Flächen identisch mit den Raumstempeln |
 | 2D-Plan | Bodenbeläge in echter Farbe mit maßstäblichem Dielen-, Fischgrät-, Fliesen- oder Terrazzobild in Verlegerichtung, weiche Möbelschatten, Raumstempel mit Fläche und lichten Maßen, Werkzeugleiste aus Glas, Zoomleiste (+/−, Prozent = einpassen), Nordpfeil, Abstandsmaß anklicken = exakten Wandabstand eingeben, maßstäblich (cm), Drag & Drop aus dem Katalog, Wandfang (Rückseite automatisch zur Wand drehen, bündig, Eckfang, grüne Hilfslinien), Ablage auf Möbeln (Leuchten, Deko, TV), Mitbewegen aufgestellter Objekte, Ausrichten/Verteilen, Drehen mit 15°/8°-Raster, Größenänderung, Abstandsmaße zu den Wänden, Messwerkzeug, Mehrfachauswahl, Kollisionsanzeige, Positionsnummern |
@@ -122,7 +51,7 @@ Lanzo XL, Hängeleuchte Cirillo) sind ergänzt.
 | Katalog | 6.617 Produkte mit 19.478 Hersteller-Ausführungen, jede mit eigenem Preis, Shop-Link und Produktfoto (Stand 25.10.2026): IKEA mit dem vollständigen Ausführungs-Wähler der Produktseite (z. B. SÖDERHAMN 3er-Sofa 19 Bezüge, BESTÅ Korpus/Front-Kombinationen inkl. Rahmenfronten), getrennte Achsen wie **Bezug × Gestell** (POÄNG, LANDSKRONA, SALTSJÖBADEN …); Westwing je Produktfamilie mit allen Farb-/Stoffausführungen, Farbe aus dem **Original-Stoffmuster** gemessen; Konzeptprodukte zusätzlich mit allen Ausführungen des Shopartikels; JYSK-Premiumklasse, Tylko Original/Tone/Smooth, Stein-/Marmortische von Höffner und BoConcept, rechteckige Keramiktische 200 × 100 cm von Mobitec, Musterring, bert plantagie, connubia und DELIFE (Edge), das komplette DELIFE-Sortiment (Stühle, Tische, Sofas, Betten, Sideboards, Deko), 870 Designleuchten von lampe.de, Samsung The Frame 43–85″, OBI-Wandpaneele. Maße plausibilisiert (Raumhöhe 2,56 m als Obergrenze), Stoffe wie Bouclé, Chenille, Mikrofaser, Melange, Cord, Samt unterscheidbar; Filter nach Händler, Kategorie, **Farbe**, **Material**, Preis, **Breite** („passt in die Lücke“), „Premium“ – einklappbar mit Zähler und „Filter zurücksetzen“; **Rasteransicht** mit großen Vorschaubildern oder Liste; **Merkliste** (Stern) und **Zuletzt platziert**; Ausführungs-Punkte auf jeder Karte |
 | Konzepte | alle Positionen der vier Konzepte (Noir·Sand·Nussbaum, Noir·Espresso·Emperador, Noir·Stone·Greige, Noir·Ivory·Travertin) lagegenau, Budgets centgenau wie in den PDFs, seit 2.2.0 im Stil des Essplatzes, seit 2.3.0 zurückhaltend mit höchstens einem Goldstück (siehe unten); Essplatz seit 2.0.5 mit rechteckigem Keramiktisch 200 × 100 cm für 6 Personen aus dem Katalog, seit 2.1.1 mit DELIFE-Stühlen Pejo-Flex Beige Vintage (siehe unten), die Tische und Stühle der PDFs und früherer Versionen bleiben im Katalog |
 | Gestaltung | Wandfarbe (Alpina, Schöner Wohnen, Farrow & Ball u. a.), Kalkfarbe, Tapeten, Holzlamellen, Holzpaneele, Kassetten-Vertäfelung, Fliesen, Naturstein, Mikrozement, Sockelzone; Bodenbeläge per Vorlage (Bestand: Eichendielen 1,90 m, Bäder/HWR Feinsteinzeug 60×60 „Iron“; Fischgrät, Chevron, Räuchereiche, Nussbaum, Travertin, Marmor, Terrazzo, Mikrozement, Teppich), Decke (Farbe, Holzlamellen, Holzpaneel, Sichtbeton, Stuckprofil), Sockelleisten (Höhe, Farbe, Material), Innentüren (Farbe, glatt/Kassette/Nut, Beschläge), Fensterrahmen, Farbstimmung für die ganze Wohnung – je Raum, je Wand oder mit einem Klick für Wohnräume/Nassräume/alle |
-| Arbeitsablauf | Startseite (Konzept, leere Wohnung, Datei, zuletzt verwendet), Befehlssuche **Strg+K** (Befehle, Räume, Objekte, Katalogprodukte), benannte Undo-/Redo-Schritte (Pfeiltasten-/Drehschritte zusammengefasst), Hinweis mit „Rückgängig“ nach Löschen/Konzept laden, Kopieren/Ausschneiden/Einfügen an der Mausposition (Strg+C/X/V), Sperren **L** / Ausblenden **H**, Ansicht **1/2/3**, Statusleiste mit Kontexthinweisen und Speicherstand, Fenstertitel mit Datei und ●-Markierung, Abfrage beim Schließen mit ungespeicherten Änderungen, verständliche Fehlermeldungen beim Speichern/Öffnen/Export, Dateipfad und Ansichtseinstellungen bleiben über Neustarts erhalten; Fenstergröße und -position werden gespeichert; `.we13`-Dateien öffnen per Doppelklick im Explorer (auch in die laufende App) oder per Ziehen ins Fenster; Befehlssuche merkt sich zuletzt benutzte Befehle; Hinweis auf neue Versionen (GitHub-Releases, abschaltbar) |
+| Arbeitsablauf | Startseite (Konzept, leere Wohnung, Datei, zuletzt verwendet), Befehlssuche **Strg+K** (Befehle, Räume, Objekte, Katalogprodukte), benannte Undo-/Redo-Schritte (Pfeiltasten-/Drehschritte zusammengefasst), Hinweis mit „Rückgängig“ nach Löschen/Konzept laden, Kopieren/Ausschneiden/Einfügen an der Mausposition (Strg+C/X/V), Sperren **L** / Ausblenden **H**, Schnellwahl **1/2/3**, Statusleiste mit Kontexthinweisen und Speicherstand, Fenstertitel mit Datei und ●-Markierung, Abfrage beim Schließen mit ungespeicherten Änderungen, verständliche Fehlermeldungen beim Speichern/Öffnen/Export, Dateipfad und Ansichtseinstellungen bleiben über Neustarts erhalten; Fenstergröße und -position werden gespeichert; `.we13`-Dateien öffnen per Doppelklick im Explorer (auch in die laufende App) oder per Ziehen ins Fenster; Befehlssuche merkt sich zuletzt benutzte Befehle; Hinweis auf neue Versionen (GitHub-Releases, abschaltbar) |
 | Bedienung | Möbel nur bei direktem Treffer greifbar, Verschieben erst ab 4 px Mausweg, Teppiche erst nach Auswahl verschiebbar; Plan: Ziehen auf freier Fläche verschiebt die Ansicht, Umschalt+Ziehen = Auswahlrahmen; 3D: links drehen, rechts/Mitte verschieben, Zoom zum Mauszeiger |
 | Von Grund auf | „Neue Einrichtung (leere Wohnung)“: leere Wohnung mit Einbauküche, wählbarer Übernahme von Sanitär und Waschmaschine sowie Startfarben für Wände, Decke und Boden |
 | Tauschen | Taste **T** oder „Tauschen“: Alternativen in der linken Leiste mit **Live-Vorschau in Plan und 3D** (Maus oder ↑/↓, Enter tauscht), Suche, Händler, Maßtoleranz, Preisgrenze, Sortierung nach Passform/Farbe/Preis, Maß- und Preisdifferenz je Vorschlag, „**Farbe beibehalten**“ (wählt die nächstliegende Hersteller-Ausführung), verwandte Kategorien (z. B. Sideboard ↔ Lowboard), **alle gleichen Objekte** auf einmal tauschen; Rückseite bleibt nur an der Wand, frei stehende Objekte behalten ihre Mitte, Wand-/Deckenobjekte ihre Höhe, Notiz und Positionsnummer bleiben |
@@ -217,6 +146,114 @@ BoConcept in der Standardkonfiguration, Möbel Letz für die abgebildete Ausfüh
 Höffner führt keinen Naturmarmor; „Stein“ mit 1,0–1,2 cm Plattenstärke ist gesinterter Stein bzw. Keramik.
 Nicht maschinell abrufbar waren Kave Home, XXXLutz/mömax, Porta und Kare Design (Bot-Sperre bzw. nur per Skript geladen).
 
+## Versionsgeschichte
+
+**2.5.0** – frei aufteilbare Ansichtsfenster, Menüleiste, Icon „Noir“, Programmbeschreibung (siehe oben).
+
+**2.3.0** – nimmt das Gold zurück: Die Konzepte sind **minimalistisch-luxuriös** in Schwarz, Beige/Greige und
+Stein/Keramik, passend zur Sitzgruppe am Essplatz. Leuchten sind schwarz oder opal (Westwing Matilda, Lilly, Walter und
+Panthella 160, Holländer FUNGO, SCHÖNER WOHNEN SIA, Wandleuchte Atlanta, Lido-Deckenleuchten), über dem Esstisch hängen
+By Rydens Skyline, SIA, DUBAI bzw. LINI in Schwarz. Das goldene Sideboard Kazu ist entfallen (Konzept 1 Chandler dunkle
+Eiche, 2 Cuor Emperador, 3 Cuor Travertino, 4 Calary Schwarz matt), Spiegel Ayu in dunklem Akazienholz statt Messing,
+Konsolen und Beistelltische mit schwarzem Gestell statt Titan. Gold bleibt **höchstens als ein Kontraststück je Konzept**:
+Schale Ramina (1), Stehleuchte Multi-Lite Schwarz/Gold (2), keines (3), Kerzenhalter auf dem Esstisch (4). Die Konzepte
+heißen jetzt **Noir · Sand · Nussbaum**, **Noir · Espresso · Emperador**, **Noir · Stone · Greige** und
+**Noir · Ivory · Travertin**. Neu in der 3D-Ansicht: **Raumfotos** – zehn kuratierte Kameraperspektiven (Wohnen, Essen,
+Tischplatte, Küche, Diele, Schlafen, Arbeit, Bad) mit passender Tageszeit; ein Klick schwenkt die Kamera dorthin, ein
+zweiter speichert das Bild in Full HD, „Alle Raumfotos speichern“ legt alle Ansichten in einen Ordner.
+
+**2.2.0** – stimmt **alle vier Konzepte auf den Essplatz ab** (Edge in Laminam® Noir Désir, Pejo-Flex Beige
+Vintage, schwarzes Gestell): eine durchgehende Linie aus **Schwarz, Beige/Greige, warmem Gold/Messing und
+Stein/Keramik**. Neu sind Keramik-Couchtische, -Beistelltische und -Konsolen der DELIFE-Serie Edge, Sideboard **Kazu**
+(Metallic Gold mit Noir-Désir-Platte) bzw. Sideboard und Lowboard **Cuor** in Travertino oder Minas Melange, Leuchten in
+Messing/Gold (Holländer CAPRI, CLARICE, ALICE FIORIRE, Flos IC, Louis Poulsen Panthella, Gubi Multi-Lite und Bestlite),
+Kissen in Taupe, Hellbeige und schwarzem Bouclé, Lamellenwände in Eiche schwarz bzw. Walnuss, neue Teppiche am
+Essplatz und DELIFE-Deko aus Aluminium und mundgeblasenem Glas. Petrol-, Salbei- und Kupferakzente sind entfallen;
+die Akzentwand im Schlafzimmer ist in Konzept 1 Farrow & Ball Elephant's Breath, in Konzept 4 Tanner's Brown. Die
+Konzepte heißen jetzt **Noir · Sand · Messing**, **Noir · Espresso · Gold**, **Noir · Stone · Greige** und
+**Noir · Ivory · Gold** (Übersicht unten). Ersetzte PDF-Positionen bleiben im Katalog. Im **DELIFE-Katalog** tragen die
+Ausführungen jetzt den Plattendekor im Namen („Laminam® Noir Désir Braun“ statt „Braun“, „Emperador Dunkelbraun“,
+„Calacatta Luxe Weiß/Gold“), Barhocker mit Gestellfarbe nur im Artikelnamen (Metall Weiß/Schwarz/Titan) sind eigene
+Ausführungen (77 mehr), Teppiche, Bilder und Spiegel haben ihre echten Farben, Kazu und Yori zeigen den goldenen Korpus mit
+Keramikplatte bzw. -fronten (Sideboards mit eigener Deckplatte und neuem Bauteil „Fronten“), neue Artikel (Ecksofa
+Lanzo XL, Hängeleuchte Cirillo) sind ergänzt.
+
+**2.1.1** – setzt an den Essplatz aller vier Konzepte den **DELIFE Esszimmerstuhl Pejo-Flex**, Mikrofaser
+**Beige Vintage**, Kreuzgestell kantig Schwarz, Taschenfederkern (89,90 €; 6 Stühle + Nischenplatz, Ausrichtung und
+Anzahl unverändert). Die Platte des **Edge** zeigt jetzt das Dekorfoto von Laminam® Noir Désir selbst statt einer
+nachgebauten Textur: anthrazitbrauner, wolkiger Grund mit ockerfarbenen Adern und silbergrauem Kern, das Foto liegt
+genau einmal auf der 200 × 100 cm großen Platte (andere Plattengrößen setzen es gespiegelt fort). Mikrofaser hat
+Wildleder-Optik ohne Webbild. Behoben ist außerdem ein Fehler seit Version 1, durch den alle eingefärbten Texturen
+(Holz, Stoffe, Leder, Bouclé, Dielen) im Verhältnis ihrer Vorlagenhelligkeit abgedunkelt wurden – Nussbaum und Samt
+fast auf Schwarz, Eiche auf rund 40 %. Materialien erscheinen in 3D jetzt in ihrer Katalogfarbe (Eichendielen hell,
+Beige-Stühle beige). DELIFE-Ausführungen tragen die Bezugsoptik aus dem Artikelnamen („Mikrofaser Beige Vintage“,
+„Grau Antik“); ältere Projekte finden ihre Ausführung weiterhin.
+
+**2.1.0** – macht Farben und Materialien in der 3D-Ansicht **bei jedem Licht verlässlich**: Tageslicht, Dämmerung,
+Abendlicht und Kunstlicht am Tag. Leuchten strahlen jetzt in ihrer physikalischen Lichtfarbe (Planckscher Strahler
+2700–4000 K statt einer Gamma-Näherung), und ein **Weißabgleich wie beim Auge** (chromatische Adaptation nach
+CIECAM02, abhängig von der Raumhelligkeit: abends ≈ 84 %, tagsüber ≈ 95 %) gleicht die Lichtfarbe aus, ohne die
+Stimmung zu verlieren. Er richtet sich nach der bekannten Lichtquelle (Himmel, Sonne, Leuchten oder Mischlicht) und
+etwa zur Hälfte nach dem farbigen Raumlicht der Umgebungssonde (dunkle Eichendielen, Nussbaumküche). Ergebnis: Die
+**Taupe-Stühle** bleiben im 2900-K-Abendlicht taupe (Buntheit 27 → 17,5, Farbton 61° → 68°; Katalogwert 12 / 76°)
+statt braun, weißes Papier wirkt warmweiß statt orange, und bei voller Adaptation erscheint jede Materialfarbe exakt
+in ihrer Katalogfarbe (Tests in `colorScience.test.ts`). Neu: **Leuchten auch bei Tageslicht** (Kunstlicht am trüben
+Nachmittag oder in der Dämmerung, Mischlicht-Weißabgleich), Lampenschirme leuchten in der eingestellten Lichtfarbe,
+Sonnenschatten mit weicher Kante (Halbschatten der Sonnenscheibe); Fensterscheiben und Hintergrund bleiben bei jedem Licht neutral. Neues App-Icon mit Essplatz unter warmem Licht.
+
+**2.0.7** – nimmt das **komplette DELIFE-Sortiment** in den Katalog auf: 1.190 Produkte mit allen Ausführungen
+(Bezüge, Farben, Gestellarten und -farben, Plattendekore und -stärken, Ausrichtung links/rechts) mit eigenem Preis,
+Shop-Link und Produktfoto, Bezugsfarben aus den Produktfotos gemessen. Das Stuhlsystem **Flex** (Schalenform,
+Steppung, 4-Fuß konisch, Kreuz-, Kufen-, Holz-, Säulen- und Freischwingergestelle, Drehfunktion), die Tischgestelle
+(U-, Schräg-, Spinnen-, Glas-, Säulen-, Konus- und Bandgestelle, Oval-, Rund- und Bootsplatten, Baumkante), die
+Eckbank Taya-Flex, Ecksofas mit Ottomane links/rechts, zweifarbige Bezüge und Sideboards mit offenen Fächern sind in 2D
+und 3D nachgebaut; neues Material **Mikrofaser** (Velours-/Vintage-Optik). Am Essplatz aller vier Konzepte stehen jetzt
+**DELIFE-Flex-Polsterstühle in Taupe** mit schwarzem Gestell, passend zum V-Mittelfuß des Edge (6 Stühle + Nischenplatz,
+gleiche Ausrichtung, Armlehnen unter der Tischplatte); die Teppiche zeigen ihr Webmuster.
+
+**2.0.6** – setzt in alle vier Konzepte den **DELIFE Esstisch Edge** (200 × 100 × 74 cm, Keramik Laminam®
+Noir Désir Braun auf Sicherheitsglas, V-Mittelfuß aus schwarzem Flachstahl, 769,90 €). Die Platte zeigt das Dekor
+originalgetreu (schwarzbraun mit ockerfarbenen, teils weiß gefüllten Adern schräg zur Tischlänge, eigene Farbtextur
+statt eingefärbter Marmortextur), der Fuß ist nach Maßzeichnung als zwei gekantete Stahlbleche nachgebaut, die sich in
+der Seitenansicht überkreuzen (Standkanten 160 cm auseinander, 50 cm breit), mit flachem Rahmen unter der Platte.
+Stühle, Teppiche und Pendelleuchten (50–60 % der Tischlänge) bleiben.
+
+**2.0.5** – stellt den Essplatz aller vier Konzepte auf **rechteckige Keramiktische mit 200 × 100 cm** von
+Markenherstellern um (Mobitec Terra, bert plantagie Aiven, Musterring Picara, connubia by calligaris Master; Metallgestell,
+kein Holz), jeweils mit passenden Stühlen, handgewebten Wollteppichen von mindestens 240 cm Breite (70 cm Überstand an den
+Stuhlseiten) und einer Pendelleuchte von 50–60 % der Tischlänge (105–120 cm). Neu im Katalog sind die vier Tische und die
+Mobitec-Aura-Polsterstühle (Händler Möbel Letz); die Gestelle (konische Schrägbeine, X-Kufen mit Querstange, gekreuzte
+Schrägbeine, Vierkantbeine) sind in 2D/3D nach Produktfoto nachgebaut.
+
+**2.0.4** – macht die 3D-Ansicht fotorealistisch: Glänzende Oberflächen spiegeln nicht mehr eine helle
+Studio-Umgebung, sondern die Wohnung selbst. Eine **Umgebungssonde** rendert dazu den Raum am Standort der Kamera mit
+dem aktuellen Licht (Sonne, Himmel und Außenboden durch die Fenster, Leuchten am Abend) über mehrere Lichtsprünge;
+daraus stammen Spiegelungen und indirektes Licht. Eine **Belichtungsautomatik** misst die Raumhelligkeit wie eine
+Kamera, sodass Tag- und Abendansichten aus jedem Blickwinkel richtig belichtet sind. Materialwerte sind physikalisch
+korrigiert (Rauheitstexturen auf ihren Mittelwert normiert, polierter Stein und glasierte Fliesen ohne doppelten
+Klarlack, seidenmatter Möbellack, Pulverbeschichtung als Lack statt Metall, Albedo ≤ 0,85). Außerdem lassen sich
+**mehrere markierte gleiche Objekte gemeinsam tauschen** (T); jedes behält Position, Drehung und Bezug (Tischkante,
+Wand oder Mitte).
+
+**2.0.3** – stellt den Essplatz aller vier Konzepte auf dunkle Stein- und Keramiktische für sechs Personen um
+(kein Holz an Platte oder Gestell), mit Stühlen auf Metallgestell und einer Pendelleuchte von 75–100 % der Tischlänge.
+Dafür sind 25 weitere lange Esstisch-Pendelleuchten (130–200 cm) von lampe.de im Katalog.
+
+**2.0.2** – ergänzt den Katalog um längliche Stein- und Marmortische von **Höffner** (16) und **BoConcept** (5)
+und kennzeichnet alle 27 länglichen Stein-/Marmor-Esstische nach Plattenmaterial: echter Marmor, Keramik/Sinterstein
+oder Marmoroptik als Dekor. Suche „Marmortisch“ oder „Steintisch“ bzw. Händlerfilter „Höffner“ (siehe Tabelle unten).
+
+**2.0.1** – ersetzt in allen vier Konzepten den runden Esstisch durch einen rechteckigen Tisch für sechs Personen
+aus dem Katalog (Längsachse im Plan von oben nach unten), mit sechs passenden Stühlen, einem Teppich mit mindestens
+60 cm Überstand an den Stuhlseiten und einer linearen Pendelleuchte, die länger als die halbe Tischlänge ist. Der
+Installer frischt außerdem die Desktop-Verknüpfung und den Icon-Cache von Windows auf, damit das neue App-Icon sofort
+erscheint.
+
+**2.0** – bringt eine neue Oberfläche im Fluent-Stil mit halbtransparenten Glasflächen (unter Windows 11 mit Mica),
+hellem und dunklem Design, frei verstellbaren Seitenleisten, Kontextmenüs und Glas-Tooltips, einen überarbeiteten
+2D-Plan mit echten Bodenbelägen und eine aufgewertete 3D-Ansicht. Die gekaufte **Einbauküche Alno 2060** (Höffner)
+ist in jedem Projekt fest eingebaut.
+
 ## Installation (Windows)
 
 Der Installer (`*.exe`, NSIS, bzw. `*.msi`) wird von GitHub Actions gebaut
@@ -237,8 +274,8 @@ npm ci
 npm run dev          # Browser: http://localhost:1420
 npm run tauri:dev    # Desktop-Fenster (Rust + WebView2)
 npm run tauri:build  # Installer (Windows)
-npx vitest run       # Tests (Geometrie, Budgets, Katalog, Planungs-Check, Varianten, Einbauküche, Versionsvergleich, Farbwiedergabe)
-npm run ui-check     # nach „npx vite build“: Kopfleiste 1.200–1.920 px × Ansichten × Designs, Dialoge (Playwright)
+npx vitest run       # Tests (Fensteraufteilung, Geometrie, Budgets, Katalog, Planungs-Check, Varianten, Einbauküche, Versionsvergleich, Farbwiedergabe)
+npm run ui-check     # nach „npx vite build“: Kopfleiste 1.200–1.920 px × Ansichten × Designs, alle sechs Aufteilungen (Fensterzahl, Kopfzeilen ohne Überlauf), 2D | 2D, Maximieren, Menüleiste, Dialoge (Playwright)
 node scripts/render-shots.mjs <Ordner>   # nach „npx vite build“: 3D-Referenzbilder aus 6 Blickwinkeln mit Helligkeit und Belichtung; MODES=tag,abend,kunst (Kunstlicht bei Tag)
 ```
 
@@ -261,7 +298,7 @@ Architektur: Tauri 2 (Rust) · React 19 · TypeScript · three.js / React Three 
 | `build_catalog.py` | Gesamtkatalog `app/src/data/catalog.json` (Ausführungstexte → Bauteilfarben über `finish.py`, Ausführungsachsen, Konzeptprodukte ergänzen) und `catalogAliases.json` (frühere IDs → neue IDs) |
 | `finish.py`, `test_finish.py` | Farb-/Materialparser für Händler-Ausführungen (IKEA-Bezugsnamen, Holzarten, Stein, Glas, Metall) inkl. Regressionstests |
 | `audit_catalog.py` | Qualitätsprüfung: Variantenname ↔ Farbe, gleich aussehende Varianten, Maße je Archetyp |
-| `icon/icon.html`, `icon/render_icon.cjs`, `icon/installer_images.py` | App-Icon 2.1 (Haus in Petrol hinter Milchglasplatte mit Grundriss, Essplatz mit Steintisch und Taupe-Stühlen unter warmem Pendellicht, Sonnenlichtkeil) mit Chromium rendern, NSIS-Grafiken; danach `npx tauri icon ../tools/icon/icon_1024.png` |
+| `icon/make_icon.py`, `icon/render_icon.cjs`, `icon/installer_images.py` | App-Icon 2.5 „Noir“ (isometrisches Raummodell auf dunkler Steinkachel, Keramiktisch mit V-Fuß, beige Stühle, schwarze Pendelleuchte, champagnerfarbene Maßketten): `python3 tools/icon/make_icon.py` erzeugt `icon.html`, `node tools/icon/render_icon.cjs` rendert `icon_1024.png` mit Chromium, `installer_images.py` die NSIS-Grafiken; danach `npx tauri icon ../tools/icon/icon_1024.png` |
 
 Preise und Verfügbarkeit: Stand der Händlerseiten bzw. der Konzepte (Oktober 2026), ohne Gewähr.
 Texturen, Pflanzen-/Vasenmodelle und HDRI: CC0 (ambientCG, Poly Haven), siehe `app/public/assets/LICENSES.md`.

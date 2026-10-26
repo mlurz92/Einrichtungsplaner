@@ -35,6 +35,9 @@ try {
   for (const theme of THEMES) {
     const ctx = await browser.newContext({ viewport: { width: 1600, height: 900 } });
     await ctx.addInitScript((t) => localStorage.setItem("we13.ui.v1", JSON.stringify({ theme: t })), theme);
+    // FONT="DejaVu Sans": Schrift des CI-Runners erzwingen (breiter als Inter/Segoe), um Überlauf lokal zu sehen
+    if (process.env.FONT)
+      await ctx.addInitScript((f) => addEventListener("DOMContentLoaded", () => document.head.append(Object.assign(document.createElement("style"), { textContent: `*{font-family:"${f}"!important}` }))), process.env.FONT);
     const page = await ctx.newPage();
     const errors = [];
     page.on("pageerror", (e) => errors.push(e.message));
